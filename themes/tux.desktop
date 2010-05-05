@@ -1,0 +1,11 @@
+[KGameTheme]
+Name=Tux
+Description=Knights theme featuring Tux.
+VersionFormat=1
+Author=basse
+AuthorEmail=basse@kulma.org
+Type=SVG
+FileName=tux.svg
+Preview=tux.png
+
+

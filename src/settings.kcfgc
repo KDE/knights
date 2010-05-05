@@ -1,0 +1,6 @@
+# Code generation options for kconfig_compiler
+File=knights.kcfg
+ClassName=Settings
+Singleton=true
+Mutators=theme,protocol,program
+# will create the necessary code for setting those variables

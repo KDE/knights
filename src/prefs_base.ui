@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>prefs_base</class>
+ <widget class="QWidget" name="prefs_base">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>187</width>
+    <height>33</height>
+   </rect>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="1">
+    <widget class="KComboBox" name="kcfg_animationSpeed">
+     <item>
+      <property name="text">
+       <string>Instant (no animation)</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Fast</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Normal</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Slow</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="animationSpeedLabel">
+     <property name="text">
+      <string>Animation speed</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
+ <includes>
+  <include location="local">kcolorbutton.h</include>
+ </includes>
+ <resources/>
+ <connections/>
+</ui>

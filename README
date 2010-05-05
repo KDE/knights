@@ -1,0 +1,30 @@
+Needed Packages
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+You will need KDE and libkdegames libraries and headers. 
+They will probably be installed by the libkdegames-dev or libkdegames-devel packages in your distribution.
+
+How To Build Knights
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+cd <project_name_path>
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=$KDEDIRS ..      <- do not forget the ..
+make
+make install or sudo make install or su -c 'make install'
+
+to uninstall the project:
+make uninstall or sudo make uninstall or su -c 'make uninstall'
+
+Note: you can use another build path. Then cd in your build dir and:
+export KDE_SRC=path_to_your_src
+cmake $KDE_SRC -DCMAKE_INSTALL_PREFIX=$KDEDIR
+
+
+----------------------------
+Please send all comments to:
+Miha Čančula
+miha.cancula@gmail.com
+
+Last update: March 2010

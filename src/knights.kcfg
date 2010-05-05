@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile />
+  <group name="KGameTheme">
+        <entry name="Theme" type="String">
+	    <label>Theme file for the board</label>
+	    <default>default</default>
+	</entry>
+  </group>
+  <group name="Preferences">
+    <entry name="animationSpeed" type="Enum">
+      <choices>
+        <choice name="Instant" />
+        <choice name="Fast" />
+        <choice name="Normal" />
+        <choice name="Slow" />
+      </choices>
+	  <label>Moves animation speed</label>
+	  <default>Normal</default>
+    </entry>
+    <entry name="playerTime" type="DateTime">
+      <default>QDateTime::fromString("01:00", "HH:mm")</default>
+    </entry>
+    <entry name="opponentTime" type="DateTime">
+      <default>QDateTime::fromString("01:00", "HH:mm")</default>
+    </entry>
+  <entry name="sameTime" type="Bool">
+      <default>true</default>
+    </entry>
+  <entry name="timeEnabled" type="Bool">
+      <default>false</default>
+    </entry>
+  
+  </group>
+  <group name="Protocols">
+    <entry name="protocol" type="Enum">
+      <choices>
+        <choice name="XBoard"/>
+        <choice name="GGZ"/>
+        <choice name="ICS" />
+        <choice name="None" />
+      </choices>
+      <label>protocol to be used for communication to opponent</label>
+      <default>XBoard</default>
+    </entry>
+    <entry name="program" type="String">
+      <label>program to run</label>
+      <default>gnuchess --xboard</default>
+    </entry>
+  </group>
+</kcfg>

@@ -1,0 +1,12 @@
+[KGameTheme]
+Name=Knights
+Description=Original Knights theme.
+Description[sl]=Izvirna tema programa Knights.
+VersionFormat=1
+Author=Troy Corbin
+AuthorEmail=troy@pedanticwebspaces.com
+Type=SVG
+FileName=knights.svg
+Preview=knights.png
+
+

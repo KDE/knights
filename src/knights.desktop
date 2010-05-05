@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Knights
+Exec=knights %i -caption "%c"
+Icon=knights
+Type=Application
+X-DocPath=knights/index.html
+GenericName=Chess game
+Terminal=false
