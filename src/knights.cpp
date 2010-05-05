@@ -131,8 +131,11 @@ void MainWindow::fileNew()
             m_clockDock = new QDockWidget ( i18n("Clock"), this );
             m_clockDock->setObjectName("ClockDockWidget"); // for QMainWindow::saveState()
             m_clockDock->setWidget ( playerClock );
+
             connect ( m_view, SIGNAL ( activePlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setActivePlayer ( Piece::Color ) ) );
             connect ( m_view, SIGNAL ( displayedPlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Piece::Color ) ) );
+
+            connect ( playerClock, SIGNAL(opponentTimeOut(Piece::Color)), m_view, SLOT ( gameOver(Piece::Color)) );
 
             if ( m_protocol ) {
                 playerClock->setPlayerName ( playerColor, i18n ( "You" ) );

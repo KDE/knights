@@ -47,11 +47,30 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
     ui->oppTimeEdit->setTime(Settings::opponentTime().time());
 
     updateTimeEdits();
+
+    switch (Settings::protocol())
+    {
+      case Settings::EnumProtocol::None:
+        ui->oppHuman->setChecked(true);
+        break;
+      case Settings::EnumProtocol::XBoard:
+        ui->oppComp->setChecked(true);
+        break;
+      default:
+        break;
+    }
 }
 
 
 GameDialog::~GameDialog()
 {
+  Settings::EnumProtocol::type selectedProtocol = Settings::EnumProtocol::None;
+  if (ui->oppComp->isChecked())
+  {
+    selectedProtocol = Settings::EnumProtocol::XBoard;
+  }
+  Settings::setProtocol(selectedProtocol);
+  
   delete ui;
 }
 

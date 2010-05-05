@@ -4,6 +4,7 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile />
+  <include>QtCore/QDateTime</include>
   <group name="KGameTheme">
         <entry name="Theme" type="String">
 	    <label>Theme file for the board</label>
@@ -22,18 +23,21 @@
 	  <default>Normal</default>
     </entry>
     <entry name="playerTime" type="DateTime">
-      <default>QDateTime::fromString("01:00", "HH:mm")</default>
+      <label>time limit for the local or white player</label>
+      <default code="true">QDateTime::fromString("01:00", "HH:mm")</default>
     </entry>
     <entry name="opponentTime" type="DateTime">
-      <default>QDateTime::fromString("01:00", "HH:mm")</default>
+      <label>time limit for the computer, remote or black player</label>
+      <default code="true">QDateTime::fromString("01:00", "HH:mm")</default>
     </entry>
-  <entry name="sameTime" type="Bool">
+    <entry name="sameTime" type="Bool">
+      <label>whether both player have the same time limit</label>
       <default>true</default>
     </entry>
-  <entry name="timeEnabled" type="Bool">
+    <entry name="timeEnabled" type="Bool">
+      <label>whether time limits are enabled and displayed</label>
       <default>false</default>
     </entry>
-  
   </group>
   <group name="Protocols">
     <entry name="protocol" type="Enum">

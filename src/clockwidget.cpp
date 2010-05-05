@@ -112,7 +112,7 @@ void Knights::ClockWidget::timerEvent ( QTimerEvent* event )
     case Piece::Black:
       ui->progressB->setValue(ui->progressB->value() - 1);
       ui->timeB->setTime(ui->timeB->time().addMSecs(-100));
-      if (ui->progressW->value() <= 0)
+      if (ui->progressB->value() <= 0)
       {
         emit timeOut(Piece::Black);
         emit opponentTimeOut(Piece::White);
