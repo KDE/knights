@@ -1,7 +1,8 @@
 [KGameTheme]
 Name=Knights
+Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
-Description[sl]=Izvirna tema programa Knights.
+Description[x-test]=xxOriginal Knights theme.xx
 VersionFormat=1
 Author=Troy Corbin
 AuthorEmail=troy@pedanticwebspaces.com

@@ -1,6 +1,8 @@
 [KGameTheme]
 Name=Tux
+Name[x-test]=xxTuxxx
 Description=Knights theme featuring Tux.
+Description[x-test]=xxKnights theme featuring Tux.xx
 VersionFormat=1
 Author=basse
 AuthorEmail=basse@kulma.org
