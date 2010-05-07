@@ -1,10 +1,16 @@
 [Desktop Entry]
 Name=Knights
+Name[pt]=Knights
+Name[sv]=Springare
+Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Exec=knights %i -caption "%c"
 Icon=knights
 Type=Application
 X-DocPath=knights/index.html
 GenericName=Chess game
+GenericName[pt]=Jogo de xadrez
+GenericName[sv]=Schackspel
+GenericName[uk]=Гра у шахи
 GenericName[x-test]=xxChess gamexx
 Terminal=false

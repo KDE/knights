@@ -1,7 +1,13 @@
 [KGameTheme]
 Name=Knights
+Name[pt]=Knights
+Name[sv]=Springare
+Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
+Description[pt]=Tema original do Knights.
+Description[sv]=Ursprungligt springartema.
+Description[uk]=Початкова тема Knights.
 Description[x-test]=xxOriginal Knights theme.xx
 VersionFormat=1
 Author=Troy Corbin

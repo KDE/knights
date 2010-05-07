@@ -1,7 +1,13 @@
 [KGameTheme]
 Name=Tux
+Name[pt]=Tux
+Name[sv]=Tux
+Name[uk]=Тукс
 Name[x-test]=xxTuxxx
 Description=Knights theme featuring Tux.
+Description[pt]=Um tema do Knights com o Tux.
+Description[sv]=Springartema med medverkan av Tux
+Description[uk]=Тема Knights з Туксом.
 Description[x-test]=xxKnights theme featuring Tux.xx
 VersionFormat=1
 Author=basse
