@@ -88,11 +88,11 @@ void MainWindow::setupActions()
 
 void MainWindow::fileNew()
 {
-    KDialog gameNewDialog;
-    GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
-    gameNewDialog.setMainWidget ( dialogWidget );
-    gameNewDialog.setCaption(i18n("New Game"));
-    if ( gameNewDialog.exec() == KDialog::Accepted ) {
+    KDialog* gameNewDialog = new KDialog;
+    GameDialog* dialogWidget = new GameDialog ( gameNewDialog );
+    gameNewDialog->setMainWidget ( dialogWidget );
+    gameNewDialog->setCaption(i18n("New Game"));
+    if ( gameNewDialog->exec() == KDialog::Accepted ) {
         removeDockWidget(m_clockDock);
         delete m_clockDock;
         delete m_protocol;
@@ -160,9 +160,7 @@ void MainWindow::fileNew()
 
         }
     }
-
-
-    // create a new window
+    delete gameNewDialog;
 }
 
 void MainWindow::optionsPreferences()

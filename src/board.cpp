@@ -19,10 +19,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "board.h"
+
 #include "core/pos.h"
 #include "core/move.h"
-
-#include "board.h"
 #include "chessrules.h"
 #include "settings.h"
 
@@ -130,13 +130,13 @@ void Board::movePiece ( Move m, bool changePlayer )
     delete m_grid.value ( m.to(),0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(),m_grid.take ( m.from() ) );
     if ( m.flags() & Move::EnPassant ) {
-        foreach ( Pos p, m.additionalCaptures() ) {
+        foreach ( const Pos& p, m.additionalCaptures() ) {
             delete m_grid.value ( p, 0 );
             m_grid.remove ( p );
         }
     }
     if ( m.flags() & Move::Castle ) {
-        foreach ( Move additionalMove, m.additionalMoves() ) {
+        foreach ( const Move& additionalMove, m.additionalMoves() ) {
             movePiece ( additionalMove, false );
         }
     }
@@ -154,11 +154,11 @@ void Board::movePiece ( Move m, bool changePlayer )
 void Board::populate()
 {
     QMap<Pos,Piece::PieceType> pieces = m_rules->startingPieces ( Piece::White );
-    foreach ( Pos pos, pieces.keys() ) {
+    foreach ( const Pos& pos, pieces.keys() ) {
         addPiece ( pieces.value ( pos ), Piece::White, pos );
     }
     pieces = m_rules->startingPieces ( Piece::Black );
-    foreach ( Pos pos, pieces.keys() ) {
+    foreach ( const Pos& pos, pieces.keys() ) {
         addPiece ( pieces.value ( pos ), Piece::Black, pos );
     }
 }
@@ -190,7 +190,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             return;
         }
         d_piece->setZValue ( dragZValue );
-        foreach ( Move t_move, t_legalMoves ) {
+        foreach ( const Move& t_move, t_legalMoves ) {
             addMarker ( t_move.to() );
         }
         QDrag* drag = new QDrag ( e->widget() );

@@ -2,5 +2,5 @@
 File=knights.kcfg
 ClassName=Settings
 Singleton=true
-Mutators=theme,protocol,program
+Mutators=true
 # will create the necessary code for setting those variables

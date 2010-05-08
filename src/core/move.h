@@ -69,7 +69,7 @@ public:
     const QList<Pos>& additionalCaptures() const;
     void setAdditionalCaptures(const QList<Pos>& list);
 
-    bool operator==(Move other);
+    bool operator==(Move other) const;
 
 private:
     Q_DECLARE_PRIVATE(Move)

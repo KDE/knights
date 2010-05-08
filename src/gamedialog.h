@@ -37,8 +37,9 @@ class GameDialog : public QWidget
 {
   Q_OBJECT
   public:
-    GameDialog(QWidget* parent = 0, Qt::WindowFlags f = 0);
+    explicit GameDialog(QWidget* parent = 0, Qt::WindowFlags f = 0);
     virtual ~GameDialog();
+    
     Settings::EnumProtocol::type protocol() const;
     Piece::Color color() const;
     QTime playerTime() const;

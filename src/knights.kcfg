@@ -31,7 +31,7 @@
       <default code="true">QDateTime::fromString("01:00", "HH:mm")</default>
     </entry>
     <entry name="sameTime" type="Bool">
-      <label>whether both player have the same time limit</label>
+      <label>whether both players have the same time limit</label>
       <default>true</default>
     </entry>
     <entry name="timeEnabled" type="Bool">

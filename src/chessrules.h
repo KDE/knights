@@ -65,10 +65,10 @@ virtual void moveMade(Move move);
     QStack<MoveData> moveHistory;
     
 private:
-    QList<Move> movesInDirection(Knights::Pos dir, Knights::Pos pos, int lenght = 8, bool attackYours = false, Grid* grid = 0);
+    QList<Move> movesInDirection(Knights::Pos dir, Knights::Pos pos, int length = 8, bool attackYours = false, Grid* grid = 0);
     QList<Move> pawnMoves(Pos pos);
     QList<Move> castlingMoves(Pos pos);
-    int lenght(Move* move);
+    int length(Move* move);
     bool isPathClear(Pos from, Pos to);
     QList<Move> legalAttackMoves ( Pos pos, Grid* grid = 0);
         bool isKingAttacked ( Piece::Color color , Grid* grid = 0);

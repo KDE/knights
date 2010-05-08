@@ -165,9 +165,9 @@ void Move::setAdditionalMoves(const QList< Move >& list)
   d->extraMoves = list;
 }
 
-bool Move::operator==(Move other)
+bool Move::operator==(Move other) const
 {
-    Q_D(Move);
+    Q_D(const Move);
     return (d->from == other.from() && d->to == other.to());
 }
 

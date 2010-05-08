@@ -69,8 +69,12 @@ GameDialog::~GameDialog()
   {
     selectedProtocol = Settings::EnumProtocol::XBoard;
   }
+  bool timeLimitEnabled = ui->timeCheckBox->isChecked();
   Settings::setProtocol(selectedProtocol);
-  
+  Settings::setTimeEnabled(timeLimitEnabled);
+  Settings::setSameTime(ui->sameTimeCheckBox->isChecked());
+  Settings::setPlayerTime(QDateTime(QDate(), ui->playerTimeEdit->time()));
+  Settings::setOpponentTime(QDateTime(QDate(), ui->oppTimeEdit->time()));
   delete ui;
 }
 

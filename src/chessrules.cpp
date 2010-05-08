@@ -72,7 +72,7 @@ ChessRules::ChessRules()
 
 bool ChessRules::hasLegalMoves ( Piece::Color color )
 {
-  foreach(Pos pos, m_grid->keys())
+  foreach(const Pos& pos, m_grid->keys())
   {
     if (m_grid->value(pos) && m_grid->value(pos)->color() == color && !legalMoves(pos).isEmpty() )
     {
@@ -146,9 +146,9 @@ QList<Move> ChessRules::legalMoves(Pos pos)
     switch (m_grid->value(pos)->pieceType())
     {
     case Piece::King:
-        foreach(Pos d, directions)
+        foreach(const Pos& d, directions)
         {
-          foreach(Move m, movesInDirection(d, pos, 1))
+          foreach(const Move& m, movesInDirection(d, pos, 1))
           {
             moves << m;
           }
@@ -157,25 +157,25 @@ QList<Move> ChessRules::legalMoves(Pos pos)
         moves << castlingMoves(pos);
         break;
     case Piece::Queen:
-        foreach(Pos d, directions)
+        foreach(const Pos& d, directions)
         {
             moves << movesInDirection(d,pos);
         }
         break;
     case Piece::Bishop:
-        foreach(Pos d, diagDirs)
+        foreach(const Pos& d, diagDirs)
         {
           moves << movesInDirection(d,pos);
         }
         break;
     case Piece::Rook:
-        foreach(Pos d, lineDirs)
+        foreach(const Pos& d, lineDirs)
         {
             moves.append(movesInDirection(d,pos));
         }
         break;
     case Piece::Knight:
-        foreach(Pos d, knightDirs)
+        foreach(const Pos& d, knightDirs)
         {
           if (!Board::isInBoard(pos + d))
           {
@@ -193,7 +193,7 @@ QList<Move> ChessRules::legalMoves(Pos pos)
         break;
     case Piece::Pawn:
         moves << pawnMoves(pos);
-        foreach(Move m, m_enPassantMoves)
+        foreach(const Move& m, m_enPassantMoves)
         {
           if (m.from() == pos)
           {
@@ -202,7 +202,7 @@ QList<Move> ChessRules::legalMoves(Pos pos)
         }
         break;
     }
-    foreach(Move m, moves)
+    foreach(const Move& m, moves)
     {
       Grid t_grid = *m_grid;
       t_grid.insert(m.to(), t_grid.take(pos));
@@ -226,31 +226,31 @@ QList<Move> ChessRules::legalAttackMoves ( Pos pos, Grid* grid )
     switch (grid->value(pos)->pieceType())
     {
 	case Piece::King:
-	    foreach(Pos d, directions)
+	    foreach(const Pos& d, directions)
 	    {
 		moves << movesInDirection(d, pos, 1, true, grid);
 	    }
 	    break;
 	case Piece::Queen:
-	    foreach(Pos d, directions)
+	    foreach(const Pos& d, directions)
 	    {
 		moves << movesInDirection(d,pos, 8, true, grid);
 	    }
 	    break;
 	case Piece::Bishop:
-	    foreach(Pos d, diagDirs)
+	    foreach(const Pos& d, diagDirs)
 	    {
 		moves << movesInDirection(d,pos,8,true,grid);
 	    }
 	    break;
 	case Piece::Rook:
-	    foreach(Pos d, lineDirs)
+	    foreach(const Pos& d, lineDirs)
 	    {
 		moves.append(movesInDirection(d,pos,8,true,grid));
 	    }
 	    break;
 	case Piece::Knight:
-	    foreach(Pos d, knightDirs)
+	    foreach(const Pos& d, knightDirs)
 	    {
 		if (Board::isInBoard(pos + d))
 		{
@@ -308,7 +308,7 @@ bool ChessRules::isAttacked(Pos pos, Piece::Color color, Grid* grid)
     {
 	grid = m_grid;
     }
-    foreach(Pos attackingPos, grid->keys())
+    foreach(const Pos& attackingPos, grid->keys())
     {
 	if (grid->value(attackingPos) && grid->value(attackingPos)->color() != color && legalAttackMoves(attackingPos, grid).contains(Move(attackingPos, pos)))
 	{
@@ -318,7 +318,7 @@ bool ChessRules::isAttacked(Pos pos, Piece::Color color, Grid* grid)
     return false;
 }
 
-QList<Move> ChessRules::movesInDirection(Pos dir, Pos pos, int lenght, bool attackYours, Grid* grid)
+QList<Move> ChessRules::movesInDirection(Pos dir, Pos pos, int length, bool attackYours, Grid* grid)
 {
     if (!grid)
     {
@@ -326,7 +326,7 @@ QList<Move> ChessRules::movesInDirection(Pos dir, Pos pos, int lenght, bool atta
     }
     QList<Move> list;
     int num = 0;
-    for (Pos n = pos + dir; n.first > 0 && n.first < 9 && n.second > 0 && n.second < 9 && num < lenght; n += dir)
+    for (Pos n = pos + dir; n.first > 0 && n.first < 9 && n.second > 0 && n.second < 9 && num < length; n += dir)
     {
         if (!grid->contains(n))
         {
@@ -351,7 +351,7 @@ void ChessRules::checkSpecialFlags(Move* move)
     Piece* p = m_grid->value(move->from());
     move->setFlags(0);
     move->setFlag(Move::Take, m_grid->contains(move->to()));
-    if (p->pieceType() == Piece::King && lenght(move) == 2)
+    if (p->pieceType() == Piece::King && length(move) == 2)
     {
       // It's castling
         move->setFlag(Move::Castle, true);
@@ -389,7 +389,7 @@ void ChessRules::checkSpecialFlags(Move* move)
     }
 }
 
-int ChessRules::lenght(Move* move)
+int ChessRules::length(Move* move)
 {
   Pos delta = move->to() - move->from();
   return qMax(qAbs(delta.first), qAbs(delta.second));
@@ -426,7 +426,7 @@ QList< Move > ChessRules::pawnMoves(Pos pos)
     }
   }
   // Normal copturing
-  foreach (Pos captureDir, captureDirections)
+  foreach (const Pos& captureDir, captureDirections)
   {
     if (m_grid->contains(pos + captureDir) && m_grid->value(pos + captureDir)->color() != m_grid->value(pos)->color())
     {
@@ -465,7 +465,7 @@ void ChessRules::moveMade(Move move)
 
       // We track Pawns for en-passant
     case Piece::Pawn:
-      if (lenght(&move) == 2)
+      if (length(&move) == 2)
       {
         Pos mid = (move.to() + move.from())/2;
         foreach (Direction dir, QList<Direction>() << W << E)
