@@ -1,10 +1,12 @@
 [KGameTheme]
 Name=Knights
+Name[es]=Knights
 Name[pt]=Knights
 Name[sv]=Springare
 Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
+Description[es]=Tema original de Knights
 Description[pt]=Tema original do Knights.
 Description[sv]=Ursprungligt springartema.
 Description[uk]=Початкова тема Knights.
