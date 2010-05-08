@@ -62,7 +62,7 @@ void KnightsView::setupBoard(Protocol* protocol, QList<Piece::Color> playerColor
     connect(m_board, SIGNAL(sceneRectChanged(QRectF)), SLOT(resizeScene()));
     m_board->setPlayerColors(playerColors);
     ui.canvas->setScene(m_board);
-    kDebug() << "Fitting in wiew";
+    kDebug() << "Fitting in view";
     resizeScene();
 
     connect(m_board, SIGNAL(activePlayerChanged(Piece::Color)), SIGNAL(activePlayerChanged(Piece::Color)));
