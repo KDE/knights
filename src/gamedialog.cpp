@@ -73,8 +73,9 @@ GameDialog::~GameDialog()
   Settings::setProtocol(selectedProtocol);
   Settings::setTimeEnabled(timeLimitEnabled);
   Settings::setSameTime(ui->sameTimeCheckBox->isChecked());
-  Settings::setPlayerTime(QDateTime(QDate(), ui->playerTimeEdit->time()));
-  Settings::setOpponentTime(QDateTime(QDate(), ui->oppTimeEdit->time()));
+  Settings::setPlayerTime(QDateTime(QDate::currentDate(), ui->playerTimeEdit->time()));
+  Settings::setOpponentTime(QDateTime(QDate::currentDate(), ui->oppTimeEdit->time()));
+  Settings::self()->writeConfig();
   delete ui;
 }
 

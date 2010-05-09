@@ -29,7 +29,7 @@
 static const char description[] =
     I18N_NOOP("Chess board based on KDE Development Platform 4");
 
-static const char version[] = "2.0";
+static const char version[] = "2.0.1";
 
 int main(int argc, char **argv)
 {
@@ -44,8 +44,6 @@ int main(int argc, char **argv)
     KCmdLineArgs::addCmdLineOptions(options);
     KApplication app;
 
-    Knights::MainWindow *widget = new Knights::MainWindow;
-
     // see if we are starting with session management
     if (app.isSessionRestored())
     {
@@ -57,7 +55,7 @@ int main(int argc, char **argv)
         KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
         if (args->count() == 0)
         {
-            //knights *widget = new knights;
+            Knights::MainWindow *widget = new Knights::MainWindow;
             widget->show();
         }
         else
@@ -65,7 +63,7 @@ int main(int argc, char **argv)
             int i = 0;
             for (; i < args->count(); i++)
             {
-                //knights *widget = new knights;
+                Knights::MainWindow *widget = new Knights::MainWindow;
                 widget->show();
             }
         }
