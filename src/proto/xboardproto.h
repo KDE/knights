@@ -39,13 +39,13 @@ public:
 //        virtual void command ( Command& command );
     virtual void startGame();
     virtual void move ( Move m );
-    virtual void setPlayerColor(Piece::Color color);
     virtual bool init ( QVariantMap options );
 virtual Features supportedFeatures();
+    virtual Piece::Color playerColor();
 
 private:
     KProcess* mProcess;
-    Piece::Color mPlayerColor;
+    Piece::Color m_playerColor;
 
 public slots:
     void readFromProgram();

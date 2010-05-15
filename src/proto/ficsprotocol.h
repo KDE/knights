@@ -33,12 +33,17 @@ class FicsProtocol : public Knights::Protocol
 {
   Q_OBJECT
   public:
-    Protocol();
-virtual ~Protocol();
+    FicsProtocol(QObject* parent = 0);
+    virtual ~FicsProtocol();
+    
+    virtual Features supportedFeatures();
+      
         virtual void startGame();
         virtual void move ( Knights::Move m );
         virtual void setPlayerColor ( Knights::Piece::Color color );
         virtual bool init ( QVariantMap options );
+	
+	virtual Piece::Color playerColor();
 
         private:
           QTcpSocket* m_socket;

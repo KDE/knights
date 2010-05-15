@@ -1,10 +1,11 @@
-set(knights_SRCS
+set(knights_SRCS 
     core/pos.cpp
     core/piece.cpp
     core/move.cpp
     proto/protocol.cpp
     proto/xboardproto.cpp
  #   proto/ficsprotocol.cpp
+ #   proto/ficsgamedialog.cpp
     chessrules.cpp
     gamedialog.cpp
     board.cpp

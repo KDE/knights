@@ -64,4 +64,8 @@ typedef QMap<Pos, Piece*> Grid;
 
 }
 
+
+Q_DECLARE_METATYPE(Knights::Piece::Color)
+Q_DECLARE_METATYPE(Knights::Piece::PieceType)
+
 #endif // KNIGHTS_PIECE_H

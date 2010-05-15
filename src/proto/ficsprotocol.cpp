@@ -20,8 +20,15 @@
 */
 
 #include "ficsprotocol.h"
+#include <KDialog>
+#include <fics/ficsgamedialog.h>
 
 using namespace Knights;
+
+Protocol::Features FicsProtocol::supportedFeatures()
+{
+    return TimeLimit | ChangeTimeLimit;
+}
 
 void FicsProtocol::startGame()
 {
@@ -33,17 +40,20 @@ void FicsProtocol::move ( Knights::Move m )
 
 }
 
-void FicsProtocol::setPlayerColor ( Knights::Piece::Color color )
-{
-}
-
 bool FicsProtocol::init ( QVariantMap options )
 {
-
+  KDialog* dialog = new KDialog;
+  FicsGameDialog* widget = new FicsGameDialog;
+  dialog->setMainWidget(widget);
+  
+  if (dialog->exec() == QDialog::Accepted)
+  {
+    Piece::Color color = widget->playerColor();
+    int minutes = widget->minutes();
+    int increment = widget->increment();
+    
+    return true;
+  } else {
+    return false;
+  }
 }
-
-FicsProtocol::~Protocol()
-{
-        Knights::Protocol::~Protocol();
-}
-

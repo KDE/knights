@@ -45,6 +45,8 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
     
     ui->playerTimeEdit->setTime(Settings::playerTime().time());
     ui->oppTimeEdit->setTime(Settings::opponentTime().time());
+    ui->playerIncTimeEdit->setTime(Settings::playerTimeIncrement().time());
+    ui->oppIncTimeEdit->setTime(Settings::opponentTimeIncrement().time());
 
     updateTimeEdits();
 
@@ -74,7 +76,9 @@ GameDialog::~GameDialog()
   Settings::setTimeEnabled(timeLimitEnabled);
   Settings::setSameTime(ui->sameTimeCheckBox->isChecked());
   Settings::setPlayerTime(QDateTime(QDate::currentDate(), ui->playerTimeEdit->time()));
+  Settings::setPlayerTimeIncrement(QDateTime(QDate::currentDate(), ui->playerIncTimeEdit->time()));
   Settings::setOpponentTime(QDateTime(QDate::currentDate(), ui->oppTimeEdit->time()));
+  Settings::setOpponentTimeIncrement(QDateTime(QDate::currentDate(), ui->oppIncTimeEdit->time()));
   Settings::self()->writeConfig();
   delete ui;
 }
@@ -170,20 +174,28 @@ void GameDialog::updateTimeEdits()
     ui->sameTimeCheckBox->setEnabled(false);
     ui->playerTimeEdit->setEnabled(false);
     ui->oppTimeEdit->setEnabled(false);
+    ui->playerIncTimeEdit->setEnabled(false);
+    ui->oppIncTimeEdit->setEnabled(false);
   }
   else if (m_sameTime)
   {
     ui->sameTimeCheckBox->setEnabled(true);
     ui->playerTimeEdit->setEnabled(true);
     ui->oppTimeEdit->setEnabled(false);
+    ui->playerIncTimeEdit->setEnabled(true);
+    ui->oppIncTimeEdit->setEnabled(false);
     connect(ui->playerTimeEdit, SIGNAL(timeChanged(QTime)), ui->oppTimeEdit, SLOT(setTime(QTime)));
+    connect(ui->playerIncTimeEdit, SIGNAL(timeChanged(QTime)), ui->oppIncTimeEdit, SLOT(setTime(QTime)));
   }
   else
   {
     ui->sameTimeCheckBox->setEnabled(true);
     ui->playerTimeEdit->setEnabled(true);
     ui->oppTimeEdit->setEnabled(true);
+    ui->playerIncTimeEdit->setEnabled(true);
+    ui->oppIncTimeEdit->setEnabled(true);
     disconnect(ui->playerTimeEdit, SIGNAL(timeChanged(QTime)), ui->oppTimeEdit, SLOT(setTime(QTime)));
+    disconnect(ui->playerIncTimeEdit, SIGNAL(timeChanged(QTime)), ui->oppIncTimeEdit, SLOT(setTime(QTime)));
   }
 }
 

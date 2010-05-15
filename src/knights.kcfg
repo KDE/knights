@@ -24,11 +24,19 @@
     </entry>
     <entry name="playerTime" type="DateTime">
       <label>time limit for the local or white player</label>
-      <default code="true">QDateTime::fromString("01:00", "HH:mm")</default>
+      <default code="true">QDateTime::fromString("00:05", "HH:mm")</default>
+    </entry>
+     <entry name="playerTimeIncrement" type="DateTime">
+      <label>time limit for the local or white player</label>
+      <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
     </entry>
     <entry name="opponentTime" type="DateTime">
       <label>time limit for the computer, remote or black player</label>
-      <default code="true">QDateTime::fromString("01:00", "HH:mm")</default>
+      <default code="true">QDateTime::fromString("00:05", "HH:mm")</default>
+    </entry>
+     <entry name="opponentTimeIncrement" type="DateTime">
+      <label>time limit for the local or white player</label>
+      <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
     </entry>
     <entry name="sameTime" type="Bool">
       <label>whether both players have the same time limit</label>

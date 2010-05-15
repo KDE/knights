@@ -72,12 +72,6 @@ void XBoardProtocol::move ( Move m )
     mProcess->write(move.toLatin1());
 }
 
-void XBoardProtocol::setPlayerColor(Piece::Color color)
-{
-    mPlayerColor = color;
-}
-
-
 bool XBoardProtocol::init(QVariantMap options)
 {
     QStringList args = options["program"].toString().split(' ');
@@ -99,11 +93,22 @@ bool XBoardProtocol::init(QVariantMap options)
         qCritical() << "Program" << program << "could not be started";
         return false;
     }
-    if (mPlayerColor == Piece::Black)
+    m_playerColor = options["color"].value<Piece::Color>();
+    if (m_playerColor == Piece::NoColor)
+    {
+	m_playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
+    }
+
+    if (m_playerColor == Piece::Black)
     {
         stream << "go\n";
     }
     return true;
+}
+
+Piece::Color XBoardProtocol::playerColor()
+{
+  return m_playerColor;
 }
 
 void XBoardProtocol::readFromProgram()

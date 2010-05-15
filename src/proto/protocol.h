@@ -42,9 +42,10 @@ class Protocol : public QObject
     {
       NoFeatures = 0,
       TimeLimit = 1,
-      Pause = 2,
-      History = 4,
-      Undo = 8
+      ChangeTimeLimit = 2,
+      Pause = 4,
+      History = 8,
+      Undo = 16
     };
 
     typedef QFlags<Feature> Features;
@@ -56,7 +57,7 @@ class Protocol : public QObject
     // Needed functions
     
     virtual bool init(QVariantMap options) = 0;
-    virtual void setPlayerColor(Piece::Color color) = 0;
+    virtual Piece::Color playerColor() = 0;
 
 public Q_SLOTS:
     virtual void move(Move m) = 0;

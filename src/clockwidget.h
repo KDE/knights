@@ -45,6 +45,8 @@ class ClockWidget : public QWidget
 
   public Q_SLOTS:
     void setTimeLimit(Piece::Color color, QTime time);
+    void setTimeIncrement(Knights::Piece::Color color, int miliseconds);
+    void incrementTime(Knights::Piece::Color color, int miliseconds);
     void setActivePlayer(Piece::Color color);
     void setDisplayedPlayer(Piece::Color color);
     void setPlayerName(Piece::Color color, QString name);
@@ -66,6 +68,7 @@ class ClockWidget : public QWidget
         Piece::Color m_activePlayer;
         QMap<Piece::Color, QTime> m_timeLimit;
         QMap<Piece::Color, QGroupBox*> m_box;
+	QMap<Piece::Color, int> m_timeIncrement;
 };
 
 }

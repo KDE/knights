@@ -112,11 +112,21 @@
        </widget>
       </item>
       <item>
-       <layout class="QFormLayout" name="formLayout_2">
-        <item row="0" column="0">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="0">
          <widget class="QLabel" name="playerLabel">
           <property name="text">
            <string>Player</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QTimeEdit" name="playerTimeEdit">
+          <property name="currentSection">
+           <enum>QDateTimeEdit::MinuteSection</enum>
+          </property>
+          <property name="displayFormat">
+           <string>H:mm:ss</string>
           </property>
          </widget>
         </item>
@@ -127,11 +137,49 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QTimeEdit" name="playerTimeEdit"/>
-        </item>
         <item row="2" column="1">
-         <widget class="QTimeEdit" name="oppTimeEdit"/>
+         <widget class="QTimeEdit" name="oppTimeEdit">
+          <property name="currentSection">
+           <enum>QDateTimeEdit::MinuteSection</enum>
+          </property>
+          <property name="displayFormat">
+           <string>H:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QTimeEdit" name="playerIncTimeEdit">
+          <property name="currentSection">
+           <enum>QDateTimeEdit::MinuteSection</enum>
+          </property>
+          <property name="displayFormat">
+           <string>H:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QTimeEdit" name="oppIncTimeEdit">
+          <property name="currentSection">
+           <enum>QDateTimeEdit::MinuteSection</enum>
+          </property>
+          <property name="displayFormat">
+           <string>H:mm:ss</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Increment per move</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Starting time</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

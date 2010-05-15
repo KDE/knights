@@ -115,9 +115,11 @@ void MainWindow::fileNew()
                 playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
                 kDebug() << playerColor;
             }
-            playerColors << playerColor;
-            m_protocol->setPlayerColor ( playerColor );
-            if ( !m_protocol->init (  protocolOptions ) ) {
+	    protocolOptions["color"] = playerColor;
+            if ( m_protocol->init (  protocolOptions ) ) {
+	      playerColor = m_protocol->playerColor();
+	      playerColors << playerColor;
+	    } else {
                 KMessageBox::error ( this, i18n ( "The selected program, <code>%1</code>, could not be started", dialogWidget->program() ) );
                 return;
             }
