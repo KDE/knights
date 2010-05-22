@@ -28,30 +28,29 @@ class KProcess;
 
 namespace Knights
 {
+    class XBoardProtocol : public Protocol
+    {
+            Q_OBJECT
+        public:
+            XBoardProtocol ( QObject* parent = 0 );
+            ~XBoardProtocol();
 
-class XBoardProtocol : public Protocol
-{
-    Q_OBJECT
-public:
-  
-    XBoardProtocol(QObject* parent = 0);
-    ~XBoardProtocol();
-//        virtual void command ( Command& command );
-    virtual void startGame();
-    virtual void move ( Move m );
-    virtual bool init ( QVariantMap options );
-virtual Features supportedFeatures();
-    virtual Piece::Color playerColor();
+            virtual void startGame();
+            virtual void move ( const Move& m );
+            virtual Features supportedFeatures();
 
-private:
-    KProcess* mProcess;
-    Piece::Color m_playerColor;
+        private:
+            KProcess* mProcess;
 
-public slots:
-    void readFromProgram();
-    void readError();
-};
+        public Q_SLOTS:
+            virtual void init ( const QVariantMap& options );
 
+        private Q_SLOTS:
+            void readFromProgram();
+            void readError();
+    };
 }
 
 #endif // KNIGHTS_XBOARDPROTO_H
+
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

@@ -1,11 +1,11 @@
-set(knights_SRCS 
+set(knights_SRCS
     core/pos.cpp
     core/piece.cpp
     core/move.cpp
     proto/protocol.cpp
     proto/xboardproto.cpp
- #   proto/ficsprotocol.cpp
- #   proto/ficsgamedialog.cpp
+    proto/ficsprotocol.cpp
+    proto/ficsdialog.cpp
     chessrules.cpp
     gamedialog.cpp
     board.cpp
@@ -15,7 +15,7 @@ set(knights_SRCS
     main.cpp
  )
 
-kde4_add_ui_files(knights_SRCS knightsview_base.ui prefs_base.ui gamedialog.ui clockwidget.ui)
+kde4_add_ui_files(knights_SRCS knightsview_base.ui prefs_base.ui gamedialog.ui clockwidget.ui proto/ficsdialog.ui)
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 kde4_add_executable(knights ${knights_SRCS})
 

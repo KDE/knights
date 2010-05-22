@@ -29,62 +29,83 @@
 
 namespace Knights
 {
-
-class Protocol : public QObject
-{
-    Q_OBJECT
-    Q_ENUMS(Feature)
-    Q_FLAGS(Features)
-
-    public:
-
-    enum Feature
+    class Protocol : public QObject
     {
-      NoFeatures = 0,
-      TimeLimit = 1,
-      ChangeTimeLimit = 2,
-      Pause = 4,
-      History = 8,
-      Undo = 16
+            Q_OBJECT
+            Q_ENUMS ( Feature )
+            Q_ENUMS ( ErrorCode )
+            Q_FLAGS ( Features )
+            Q_PROPERTY ( Knights::Piece::Color playerColor READ playerColor WRITE setPlayerColor NOTIFY playerColorChanged )
+
+        public:
+            enum Feature
+            {
+                NoFeatures = 0,
+                TimeLimit = 1,
+                ChangeTimeLimit = 2,
+                Pause = 4,
+                History = 8,
+                Undo = 16
+            };
+            Q_DECLARE_FLAGS(Features, Feature)
+
+            enum ErrorCode
+            {
+                NoError = 0,
+                UserCancelled,
+                NetworkError,
+                InstallationError,
+                UnknownError
+            };
+
+            static QString stringFromErrorCode ( ErrorCode code );
+
+            Protocol ( QObject* parent = 0 ) : QObject ( parent ) {};
+            virtual ~Protocol() {};
+
+            // Needed functions
+
+            Piece::Color playerColor() const;
+
+        protected:
+            void setPlayerColor ( Piece::Color color );
+
+        public Q_SLOTS:
+            virtual void move ( const Move& m ) = 0;
+            virtual void startGame() = 0;
+            virtual void init ( const QVariantMap& options ) = 0;
+
+            // Optional features
+        public:
+            virtual Features supportedFeatures();
+            virtual Move::List moveHistory();
+            int timeRemaining();
+
+        public Q_SLOTS:
+            virtual void pauseGame();
+            virtual void resumeGame();
+            virtual void undoLastMove();
+            virtual void setOpponentTimeLimit ( int seconds );
+            virtual void setPlayerTimeLimit ( int seconds );
+
+        Q_SIGNALS:
+            void pieceMoved ( const Move& m );
+            void illegalMove();
+            void gameOver ( Piece::Color winner );
+
+            void colorChanged ( Piece::Color playerColor );
+            void errorStringChanged ( const QString& errorString );
+            void errorCodeChanged ( ErrorCode error );
+
+            void initSuccesful();
+            void error ( ErrorCode errorCode, const QString& errorString = QString() );
+
+        private:
+            Piece::Color m_color;
     };
 
-    typedef QFlags<Feature> Features;
-
-    
-    Protocol(QObject* parent = 0) : QObject(parent) {};
-    virtual ~Protocol() {};
-
-    // Needed functions
-    
-    virtual bool init(QVariantMap options) = 0;
-    virtual Piece::Color playerColor() = 0;
-
-public Q_SLOTS:
-    virtual void move(Move m) = 0;
-    virtual void startGame() = 0;
-
-
-    // Optional features
-    public:
-
-      virtual Features supportedFeatures();
-      virtual Move::List moveHistory();
-      int timeRemaining();
-      
-    public Q_SLOTS:
-      
-    virtual void pauseGame();
-    virtual void resumeGame();
-    virtual void undoLastMove();
-    virtual void setOpponentTimeLimit(int seconds);
-    virtual void setPlayerTimeLimit(int seconds);
-
-Q_SIGNALS:
-    void pieceMoved(Move m);
-    void illegalMove();
-    void gameOver(Piece::Color winner);
-};
-
+    Q_DECLARE_OPERATORS_FOR_FLAGS ( Protocol::Features )
 }
 
 #endif // KNIGHTS_PROTOCOL_H
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

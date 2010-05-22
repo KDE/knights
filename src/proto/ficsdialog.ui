@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FicsDialog</class>
+ <widget class="QWidget" name="FicsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>657</width>
+    <height>408</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="KTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="joinTab">
+      <attribute name="title">
+       <string>Stran</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTableWidget" name="offerTable">
+         <column>
+          <property name="text">
+           <string>Player</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Rating</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Time</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Increment</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Rated</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Variant</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Your color</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+       <item>
+        <widget class="KPushButton" name="kpushbutton_2">
+         <property name="text">
+          <string>Refresh</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="seekTab">
+      <attribute name="title">
+       <string>Stran</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="KPushButton" name="kpushbutton">
+         <property name="text">
+          <string>Seek opponents</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTableWidget" name="seekTable">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <column>
+          <property name="text">
+           <string>Player</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Rating</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>kpushbutton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>seekTable</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>148</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>145</x>
+     <y>109</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

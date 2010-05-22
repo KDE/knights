@@ -35,15 +35,15 @@ public:
     Pos(const int& t1, const int& t2);
     ~Pos();
 
-    Pos operator+=(const Pos& other);
+    const Pos& operator+=(const Pos& other);
 };
 
-}
+Pos operator+(const Pos& one, const Pos& other);
+Pos operator-(const Pos& one, const Pos& other);
+Pos operator*(int m, const Pos& other);
+Pos operator/(const Pos& other, int m);
+QDebug& operator<<(QDebug& debug, const Pos &pos);
 
-Knights::Pos operator+(Knights::Pos one, Knights::Pos other);
-Knights::Pos operator-(Knights::Pos one, Knights::Pos other);
-Knights::Pos operator*(int m, Knights::Pos other);
-Knights::Pos operator/(Knights::Pos other, int m);
-QDebug operator<<(QDebug debug, const Knights::Pos &pos);
+}
 
 #endif // KCHESS_POS_H

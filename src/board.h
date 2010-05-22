@@ -45,14 +45,14 @@ public:
     virtual ~Board();
 
     void populate();
-    void addPiece(Piece::PieceType, Piece::Color, Pos pos);
+    void addPiece( Knights::Piece::PieceType type, Knights::Piece::Color color, const Knights::Pos& pos);
 
     void setRuleSet(Rules* rules);
 
     static QChar row(int num);
-    static int numFromRow(QChar row);
-    static bool isInBoard(Pos pos);
-    void setPlayerColors(QList<Piece::Color> colors);
+    static int numFromRow(const QChar& row);
+    static bool isInBoard(const Pos& pos);
+    void setPlayerColors(const QList<Piece::Color>& colors);
     QList<Piece::Color> playerColors();
     void setCurrentColor(Piece::Color color);
 
@@ -67,7 +67,7 @@ private:
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos(QGraphicsItem* item, Knights::Pos pos, bool animated = true);
+    void centerOnPos( QGraphicsItem* item, const Knights::Pos& pos, bool animated = true);
     void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
@@ -92,7 +92,7 @@ protected:
 
 public slots:
     void movePiece(Move m, bool changePlayer = true);
-    void addMarker(const Knights::Pos& pos);
+    void addMarker(const Pos& pos);
     void updateTheme();
         void setPaused(bool paused);
 

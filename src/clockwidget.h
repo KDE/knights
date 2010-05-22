@@ -24,53 +24,51 @@
 
 #include "core/piece.h"
 
-#include <QtCore/QTimer>
 #include <QtGui/QWidget>
-#include <QtCore/QTime>
 
 class QGroupBox;
 class QTimer;
+class QTime;
 
 namespace Ui {class ClockWidget;}
 
 namespace Knights
 {
+    class ClockWidget : public QWidget
+    {
+            Q_OBJECT
+        public:
+            explicit ClockWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+            ~ClockWidget ();
 
-class ClockWidget : public QWidget
-{
-  Q_OBJECT
-  public:
-        explicit ClockWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-        ~ClockWidget ();
+        public Q_SLOTS:
+            void setTimeLimit ( Piece::Color color, const QTime& time );
+            void setTimeIncrement ( Knights::Piece::Color color, int seconds );
+            void incrementTime ( Knights::Piece::Color color, int miliseconds );
+            void setActivePlayer ( Piece::Color color );
+            void setDisplayedPlayer ( Piece::Color color );
+            void setPlayerName ( Piece::Color color, const QString& name );
 
-  public Q_SLOTS:
-    void setTimeLimit(Piece::Color color, QTime time);
-    void setTimeIncrement(Knights::Piece::Color color, int miliseconds);
-    void incrementTime(Knights::Piece::Color color, int miliseconds);
-    void setActivePlayer(Piece::Color color);
-    void setDisplayedPlayer(Piece::Color color);
-    void setPlayerName(Piece::Color color, QString name);
+            void pauseClock();
+            void resumeClock();
 
-    void pauseClock();
-    void resumeClock();
+        Q_SIGNALS:
+            void timeOut ( Piece::Color );
+            void opponentTimeOut ( Piece::Color );
 
-  Q_SIGNALS:
-    void timeOut(Piece::Color);
-    void opponentTimeOut(Piece::Color);
-    
-  protected:
-        virtual void timerEvent ( QTimerEvent* );
+        protected:
+            virtual void timerEvent ( QTimerEvent* );
 
-  private:
-    Ui::ClockWidget* ui;
-    QMap<Piece::Color, QTimer> m_timer;
-    QMap<Piece::Color, int> m_timerId;
-        Piece::Color m_activePlayer;
-        QMap<Piece::Color, QTime> m_timeLimit;
-        QMap<Piece::Color, QGroupBox*> m_box;
-	QMap<Piece::Color, int> m_timeIncrement;
-};
-
+        private:
+            Ui::ClockWidget* ui;
+            QMap<Piece::Color, QTimer> m_timer;
+            QMap<Piece::Color, int> m_timerId;
+            Piece::Color m_activePlayer;
+            QMap<Piece::Color, QTime> m_timeLimit;
+            QMap<Piece::Color, QGroupBox*> m_box;
+            QMap<Piece::Color, int> m_timeIncrement;
+    };
 }
 
 #endif // KNIGHTS_CLOCKWIDGET_H
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

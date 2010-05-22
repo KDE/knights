@@ -22,10 +22,10 @@
 #include "clockwidget.h"
 
 #include "ui_clockwidget.h"
-#include <QTimer>
 
 #include <KDebug>
-
+#include <QtCore/QTimer>
+#include <QtCore/QTime>
 
 using namespace Knights;
 
@@ -33,121 +33,119 @@ const int timerInterval = 100; // update the time every 100 miliseconds
 
 ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
 {
-  ui = new Ui::ClockWidget;
-  ui->setupUi(this);
-  kDebug() << ui->progressB->invertedAppearance() << ui->progressW->invertedAppearance();
-  m_box[Piece::White] = ui->groupW;
-  m_box[Piece::Black] = ui->groupB;
-  
-  m_timeIncrement[Piece::White] = 0;
-  m_timeIncrement[Piece::Black] = 0;
+    ui = new Ui::ClockWidget;
+    ui->setupUi ( this );
+    kDebug() << ui->progressB->invertedAppearance() << ui->progressW->invertedAppearance();
+    m_box[Piece::White] = ui->groupW;
+    m_box[Piece::Black] = ui->groupB;
+
+    m_timeIncrement[Piece::White] = 0;
+    m_timeIncrement[Piece::Black] = 0;
 }
 
 ClockWidget::~ClockWidget()
 {
-  delete ui;
+    delete ui;
 }
-
 
 void ClockWidget::setActivePlayer ( Piece::Color color )
 {
-  incrementTime(m_activePlayer, m_timeIncrement[m_activePlayer]);
-  killTimer(m_timerId[m_activePlayer]);
-  m_timerId[color] = startTimer(timerInterval);
-  m_activePlayer = color;
+    incrementTime ( m_activePlayer, m_timeIncrement[m_activePlayer] );
+    killTimer ( m_timerId[m_activePlayer] );
+    m_timerId[color] = startTimer ( timerInterval );
+    m_activePlayer = color;
 }
-
 
 void ClockWidget::setDisplayedPlayer ( Piece::Color color )
 {
-  ui->verticalLayout->addWidget(m_box[Piece::oppositeColor(color)]);
-  ui->verticalLayout->addWidget(m_box[color]);
+    ui->verticalLayout->addWidget ( m_box[Piece::oppositeColor ( color ) ] );
+    ui->verticalLayout->addWidget ( m_box[color] );
 }
 
-void ClockWidget::setPlayerName ( Piece::Color color, QString name )
+void ClockWidget::setPlayerName ( Piece::Color color, const QString& name )
 {
-  switch (color)
-  {
-    case Piece::White:
-      ui->groupW->setTitle(name);
-      break;
-    case Piece::Black:
-      ui->groupB->setTitle(name);
-      break;
-    default:
-      break;
-  }
+    switch ( color )
+    {
+        case Piece::White:
+            ui->groupW->setTitle ( name );
+            break;
+        case Piece::Black:
+            ui->groupB->setTitle ( name );
+            break;
+        default:
+            break;
+    }
 }
 
-void ClockWidget::setTimeLimit ( Piece::Color color, QTime time )
+void ClockWidget::setTimeLimit ( Piece::Color color, const QTime& time )
 {
-  m_timeLimit[color] = time;
-  int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
-  switch(color)
-  {
-    case Piece::White:
-      ui->timeW->setTime(time);
-      ui->progressW->setMaximum(10 * seconds);
-      ui->progressW->setValue(10 * seconds);
-      kDebug() << ui->progressW->maximum();
-      break;
-    case Piece::Black:
-      ui->timeB->setTime(time);
-      ui->progressB->setMaximum(10 * seconds);
-      ui->progressB->setValue(10 * seconds);
-      kDebug() << ui->progressB->maximum();
-      break;
-    default:
-      break;
-  }
+    m_timeLimit[color] = time;
+    int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
+    switch ( color )
+    {
+        case Piece::White:
+            ui->timeW->setTime ( time );
+            ui->progressW->setMaximum ( 10 * seconds );
+            ui->progressW->setValue ( 10 * seconds );
+            kDebug() << ui->progressW->maximum();
+            break;
+        case Piece::Black:
+            ui->timeB->setTime ( time );
+            ui->progressB->setMaximum ( 10 * seconds );
+            ui->progressB->setValue ( 10 * seconds );
+            kDebug() << ui->progressB->maximum();
+            break;
+        default:
+            break;
+    }
 }
 
-void ClockWidget::setTimeIncrement(Piece::Color color, int miliseconds)
+void ClockWidget::setTimeIncrement ( Piece::Color color, int seconds )
 {
-  m_timeIncrement[color] = miliseconds;
+    m_timeIncrement[color] = 1000 * seconds;
 }
 
-void ClockWidget::incrementTime(Piece::Color color, int miliseconds)
+void ClockWidget::incrementTime ( Piece::Color color, int miliseconds )
 {
-  switch (color)
-  {
-    case Piece::White:
-      ui->progressW->setValue(ui->progressW->value() + miliseconds/timerInterval);
-      ui->timeW->setTime(ui->timeW->time().addMSecs(miliseconds));
-      if (ui->progressW->value() <= 0)
-      {
-        emit timeOut(Piece::White);
-        emit opponentTimeOut(Piece::Black);
-      }
-      break;
-    case Piece::Black:
-      ui->progressB->setValue(ui->progressB->value() + miliseconds/timerInterval);
-      ui->timeB->setTime(ui->timeB->time().addMSecs(miliseconds));
-      if (ui->progressB->value() <= 0)
-      {
-        emit timeOut(Piece::Black);
-        emit opponentTimeOut(Piece::White);
-      }
-      break;
-    default:
-      break;
-  }
+    switch ( color )
+    {
+        case Piece::White:
+            ui->progressW->setValue ( ui->progressW->value() + miliseconds / timerInterval );
+            ui->timeW->setTime ( ui->timeW->time().addMSecs ( miliseconds ) );
+            if ( ui->progressW->value() <= 0 )
+            {
+                emit timeOut ( Piece::White );
+                emit opponentTimeOut ( Piece::Black );
+            }
+            break;
+        case Piece::Black:
+            ui->progressB->setValue ( ui->progressB->value() + miliseconds / timerInterval );
+            ui->timeB->setTime ( ui->timeB->time().addMSecs ( miliseconds ) );
+            if ( ui->progressB->value() <= 0 )
+            {
+                emit timeOut ( Piece::Black );
+                emit opponentTimeOut ( Piece::White );
+            }
+            break;
+        default:
+            break;
+    }
 }
-
 
 void Knights::ClockWidget::timerEvent ( QTimerEvent* event )
 {
-  Q_UNUSED(event)
-  incrementTime(m_activePlayer, -timerInterval);
+    Q_UNUSED ( event )
+    incrementTime ( m_activePlayer, -timerInterval );
 }
 
 void ClockWidget::pauseClock()
 {
-  killTimer(m_timerId[m_activePlayer]);
+    killTimer ( m_timerId[m_activePlayer] );
 }
 
 void ClockWidget::resumeClock()
 {
-  m_timerId[m_activePlayer] = startTimer(timerInterval);
+    m_timerId[m_activePlayer] = startTimer ( timerInterval );
 }
 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

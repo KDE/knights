@@ -24,10 +24,11 @@
 
 #include <KProcess>
 #include <KDebug>
+#include <KLocale>
 
 using namespace Knights;
 
-XBoardProtocol::XBoardProtocol(QObject* parent): Protocol(parent)
+XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
 {
 
 }
@@ -39,119 +40,112 @@ Protocol::Features XBoardProtocol::supportedFeatures()
 
 XBoardProtocol::~XBoardProtocol()
 {
-  if (mProcess && mProcess->isOpen())
-  {
-    QTextStream stream(mProcess);
-    stream << "exit\n";
-    if (!mProcess->waitForFinished(500))
+    if ( mProcess && mProcess->isOpen() )
     {
-      mProcess->kill();
+        mProcess->write("exit\n");
+        if ( !mProcess->waitForFinished ( 500 ) )
+        {
+            mProcess->kill();
+        }
     }
-  }
 }
-
 
 void XBoardProtocol::startGame()
 {
 
 }
 
-void XBoardProtocol::move ( Move m )
+void XBoardProtocol::move ( const Move& m )
 {
     QString move;
-    move.append(Board::row(m.from().first));
-    move.append(QString::number(m.from().second));
-    if (m.flags() & Move::Take)
+    move.append ( Board::row ( m.from().first ) );
+    move.append ( QString::number ( m.from().second ) );
+    if ( m.flags() & Move::Take )
     {
-        move.append('x');
+        move.append ( 'x' );
     }
-    move.append(Board::row(m.to().first));
-    move.append(QString::number(m.to().second));
-    move.append('\n');
+    move.append ( Board::row ( m.to().first ) );
+    move.append ( QString::number ( m.to().second ) );
+    move.append ( '\n' );
     kDebug() << move;
-    mProcess->write(move.toLatin1());
+    mProcess->write ( move.toLatin1() );
 }
 
-bool XBoardProtocol::init(QVariantMap options)
+void XBoardProtocol::init ( const QVariantMap& options )
 {
-    QStringList args = options["program"].toString().split(' ');
+    QStringList args = options["program"].toString().split ( ' ' );
     QString program = args.takeFirst();
-    if (program.contains("gnuchess") && !args.contains("--xboard"))
+    if ( program.contains ( "gnuchess" ) && !args.contains ( "--xboard" ) )
     {
         args << "--xboard";
     }
-    mProcess = new KProcess;
-    mProcess->setProgram(program, args);
-    mProcess->setNextOpenMode(QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text);
-    mProcess->setOutputChannelMode(KProcess::SeparateChannels);
-    connect(mProcess, SIGNAL(readyReadStandardOutput()), SLOT(readFromProgram()));
-    connect(mProcess, SIGNAL(readyReadStandardError()), SLOT(readError()));
+    mProcess = new KProcess ( this );
+    mProcess->setProgram ( program, args );
+    mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
+    mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
+    connect ( mProcess, SIGNAL ( readyReadStandardOutput() ), SLOT ( readFromProgram() ) );
+    connect ( mProcess, SIGNAL ( readyReadStandardError() ), SLOT ( readError() ) );
     mProcess->start();
-    QTextStream stream(mProcess);
-    if (!mProcess->waitForStarted(1000))
+    if ( !mProcess->waitForStarted ( 1000 ) )
     {
-        qCritical() << "Program" << program << "could not be started";
-        return false;
+        emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it's installed", program ) );
+        return;
     }
-    m_playerColor = options["color"].value<Piece::Color>();
-    if (m_playerColor == Piece::NoColor)
+    Piece::Color playerColor = options["color"].value<Piece::Color>();
+    if ( playerColor == Piece::NoColor )
     {
-	m_playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
+        playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
     }
+    setPlayerColor ( playerColor );
 
-    if (m_playerColor == Piece::Black)
+    if ( playerColor == Piece::Black )
     {
-        stream << "go\n";
+        mProcess->write("go\n");
     }
-    return true;
-}
-
-Piece::Color XBoardProtocol::playerColor()
-{
-  return m_playerColor;
+    emit initSuccesful();
 }
 
 void XBoardProtocol::readFromProgram()
 {
-    QString moveString = QString(mProcess->readAllStandardOutput());
+    QString moveString = QString ( mProcess->readAllStandardOutput() );
     kDebug() << moveString;
-    if (!moveString.contains("..."))
+    if ( !moveString.contains ( "..." ) )
     {
-      if (moveString.contains("Illegal move"))
-      {
-        emit illegalMove();
-      }
-      return;
+        if ( moveString.contains ( "Illegal move" ) )
+        {
+            emit illegalMove();
+        }
+        return;
     }
-    if (moveString.contains("wins"))
+    if ( moveString.contains ( "wins" ) )
     {
-      if (moveString.split(' ').last().contains("white"))
-      {
-        emit gameOver(Piece::White);
-      }
-      else
-      {
-        emit gameOver(Piece::Black);
-      }
-      return;
+        if ( moveString.split ( ' ' ).last().contains ( "white" ) )
+        {
+            emit gameOver ( Piece::White );
+        }
+        else
+        {
+            emit gameOver ( Piece::Black );
+        }
+        return;
     }
-    moveString = moveString.split(' ').last();
+    moveString = moveString.split ( ' ' ).last();
     Move m;
-    m.setFrom(Pos(Board::numFromRow(moveString[0]),moveString.mid(1,1).toInt()));
+    m.setFrom ( Pos ( Board::numFromRow ( moveString[0] ), moveString.mid ( 1, 1 ).toInt() ) );
     int i = 2;
-    if (moveString.contains('x'))
+    if ( moveString.contains ( 'x' ) )
     {
-        m.setFlag(Move::Take, true);
+        m.setFlag ( Move::Take, true );
         i++;
     }
     else
     {
-        m.setFlag(Move::Take, false);
+        m.setFlag ( Move::Take, false );
     }
-    m.setTo(Pos(Board::numFromRow(moveString[i]),moveString.mid(i+1,1).toInt()));
+    m.setTo ( Pos ( Board::numFromRow ( moveString[i] ), moveString.mid ( i + 1, 1 ).toInt() ) );
 
     kDebug() << moveString << m.from() << m.to();
-    emit pieceMoved(m);
+    emit pieceMoved ( m );
 }
 
 void XBoardProtocol::readError()
@@ -159,3 +153,4 @@ void XBoardProtocol::readError()
     kError() << mProcess->readAllStandardError();
 }
 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>472</height>
+    <width>552</width>
+    <height>393</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,21 +34,39 @@
           <property name="text">
            <string>Computer engine:</string>
           </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
          </widget>
         </item>
         <item>
-         <widget class="KHistoryComboBox" name="khistorycombobox">
+         <widget class="KHistoryComboBox" name="programComboBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <item>
            <property name="text">
             <string>gnuchess --xboard</string>
            </property>
           </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QRadioButton" name="oppFics">
+          <property name="text">
+           <string>Human at a chess server:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KHistoryComboBox" name="serverComboBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <item>
            <property name="text">
-            <string>crafty</string>
+            <string>freechess.org</string>
            </property>
           </item>
          </widget>
@@ -123,7 +141,7 @@
         <item row="1" column="1">
          <widget class="QTimeEdit" name="playerTimeEdit">
           <property name="currentSection">
-           <enum>QDateTimeEdit::MinuteSection</enum>
+           <enum>QDateTimeEdit::HourSection</enum>
           </property>
           <property name="displayFormat">
            <string>H:mm:ss</string>
@@ -140,7 +158,7 @@
         <item row="2" column="1">
          <widget class="QTimeEdit" name="oppTimeEdit">
           <property name="currentSection">
-           <enum>QDateTimeEdit::MinuteSection</enum>
+           <enum>QDateTimeEdit::HourSection</enum>
           </property>
           <property name="displayFormat">
            <string>H:mm:ss</string>
@@ -150,7 +168,7 @@
         <item row="1" column="3">
          <widget class="QTimeEdit" name="playerIncTimeEdit">
           <property name="currentSection">
-           <enum>QDateTimeEdit::MinuteSection</enum>
+           <enum>QDateTimeEdit::HourSection</enum>
           </property>
           <property name="displayFormat">
            <string>H:mm:ss</string>
@@ -160,7 +178,7 @@
         <item row="2" column="3">
          <widget class="QTimeEdit" name="oppIncTimeEdit">
           <property name="currentSection">
-           <enum>QDateTimeEdit::MinuteSection</enum>
+           <enum>QDateTimeEdit::HourSection</enum>
           </property>
           <property name="displayFormat">
            <string>H:mm:ss</string>
@@ -205,7 +223,7 @@
   <connection>
    <sender>oppComp</sender>
    <signal>toggled(bool)</signal>
-   <receiver>khistorycombobox</receiver>
+   <receiver>programComboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -213,8 +231,8 @@
      <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>311</x>
-     <y>82</y>
+     <x>613</x>
+     <y>90</y>
     </hint>
    </hints>
   </connection>
@@ -229,8 +247,24 @@
      <y>42</y>
     </hint>
     <hint type="destinationlabel">
-     <x>226</x>
-     <y>136</y>
+     <x>235</x>
+     <y>279</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>oppFics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>serverComboBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>115</y>
     </hint>
    </hints>
   </connection>

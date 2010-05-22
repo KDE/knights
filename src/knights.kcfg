@@ -23,19 +23,19 @@
 	  <default>Normal</default>
     </entry>
     <entry name="playerTime" type="DateTime">
-      <label>time limit for the local or white player</label>
-      <default code="true">QDateTime::fromString("00:05", "HH:mm")</default>
+      <label>time limit for the local player</label>
+      <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>
     </entry>
      <entry name="playerTimeIncrement" type="DateTime">
-      <label>time limit for the local or white player</label>
+      <label>time increment per move for the local player</label>
       <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
     </entry>
     <entry name="opponentTime" type="DateTime">
-      <label>time limit for the computer, remote or black player</label>
-      <default code="true">QDateTime::fromString("00:05", "HH:mm")</default>
+      <label>time limit for the computer or remote player</label>
+      <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>
     </entry>
      <entry name="opponentTimeIncrement" type="DateTime">
-      <label>time limit for the local or white player</label>
+      <label>time increment per move for the computer or remote player</label>
       <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
     </entry>
     <entry name="sameTime" type="Bool">
@@ -51,8 +51,7 @@
     <entry name="protocol" type="Enum">
       <choices>
         <choice name="XBoard"/>
-        <choice name="GGZ"/>
-        <choice name="ICS" />
+        <choice name="FICS" />
         <choice name="None" />
       </choices>
       <label>protocol to be used for communication to opponent</label>
@@ -61,6 +60,10 @@
     <entry name="program" type="String">
       <label>program to run</label>
       <default>gnuchess --xboard</default>
+    </entry>
+    <entry name="ficsUsername" type="String">
+      <label>username for the Free Internet Chess Server</label>
+      <default></default>
     </entry>
   </group>
 </kcfg>

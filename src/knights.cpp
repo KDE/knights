@@ -23,6 +23,7 @@
 
 #include "core/piece.h"
 #include "proto/xboardproto.h"
+#include "proto/ficsprotocol.h"
 #include "knightsview.h"
 #include "settings.h"
 #include "gamedialog.h"
@@ -44,167 +45,204 @@
 
 namespace Knights
 {
-
-MainWindow::MainWindow()
-        : KXmlGuiWindow(),
-        m_view ( new KnightsView ( this ) ),
-        m_clockDock ( 0 )
-{
-    // accept dnd
-    setAcceptDrops ( true );
-
-    // tell the KXmlGuiWindow that this is indeed the main widget
-    setCentralWidget ( m_view );
-
-    // then, setup our actions
-    setupActions();
-
-    // add a status bar
-    statusBar()->show();
-
-    // a call to KXmlGuiWindow::setupGUI() populates the GUI
-    // with actions, using KXMLGUI.
-    // It also applies the saved mainwindow settings, if any, and ask the
-    // mainwindow to automatically save settings if changed: window size,
-    // toolbar position, icon size, etc.
-    setupGUI();
-    connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ) );
-
-    QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
-}
-
-MainWindow::~MainWindow()
-{
-}
-
-void MainWindow::setupActions()
-{
-    KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
-    KStandardGameAction::pause( this, SLOT(pauseGame(bool)), actionCollection());
-    KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
-
-    KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
-}
-
-void MainWindow::fileNew()
-{
-    KDialog* gameNewDialog = new KDialog;
-    GameDialog* dialogWidget = new GameDialog ( gameNewDialog );
-    gameNewDialog->setMainWidget ( dialogWidget );
-    gameNewDialog->setCaption(i18n("New Game"));
-    if ( gameNewDialog->exec() == KDialog::Accepted ) {
-        removeDockWidget(m_clockDock);
-        delete m_clockDock;
-        delete m_protocol;
-
-        Piece::Color playerColor = dialogWidget->color();
-        QList<Piece::Color> playerColors;
-        QVariantMap protocolOptions;
-        switch ( dialogWidget->protocol() ) {
-        case Settings::EnumProtocol::XBoard:
-            m_protocol = new XBoardProtocol;
-            protocolOptions["program"] = dialogWidget->program();
-            break;
-        default:
-            playerColors << Piece::White << Piece::Black;
-            break;
-        }
-
-        if ( m_protocol ) {
-            if ( playerColor == Piece::NoColor ) {
-                playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
-                kDebug() << playerColor;
-            }
-	    protocolOptions["color"] = playerColor;
-            if ( m_protocol->init (  protocolOptions ) ) {
-	      playerColor = m_protocol->playerColor();
-	      playerColors << playerColor;
-	    } else {
-                KMessageBox::error ( this, i18n ( "The selected program, <code>%1</code>, could not be started", dialogWidget->program() ) );
-                return;
-            }
-        } else {
-            playerColors << Piece::White << Piece::Black;
-        }
-        m_view->setupBoard ( m_protocol, playerColors );
-
-        if ( dialogWidget->timeLimit() ) {
-            ClockWidget* playerClock = new ClockWidget ( this );
-            m_clockDock = new QDockWidget ( i18n("Clock"), this );
-            m_clockDock->setObjectName("ClockDockWidget"); // for QMainWindow::saveState()
-            m_clockDock->setWidget ( playerClock );
-
-            connect ( m_view, SIGNAL ( activePlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setActivePlayer ( Piece::Color ) ) );
-            connect ( m_view, SIGNAL ( displayedPlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Piece::Color ) ) );
-
-            connect ( playerClock, SIGNAL(opponentTimeOut(Piece::Color)), m_view, SLOT ( gameOver(Piece::Color)) );
-
-            if ( m_protocol ) {
-                playerClock->setPlayerName ( playerColor, i18n ( "You" ) );
-                playerClock->setPlayerName ( Piece::oppositeColor ( playerColor ), i18n ( "Opponent" ) );
-                playerClock->setTimeLimit ( playerColor, dialogWidget->playerTime() );
-                playerClock->setTimeLimit ( Piece::oppositeColor ( playerColor ), dialogWidget->opponentTime() );
-
-                playerClock->setDisplayedPlayer(playerColor);
-                // TODO: Get names from dialog and protocol
-            } else {
-                playerClock->setPlayerName ( Piece::White, i18n ( "White" ) );
-                playerClock->setPlayerName ( Piece::Black, i18n ( "Black" ) );
-
-                playerClock->setTimeLimit ( Piece::White, dialogWidget->playerTime() );
-                playerClock->setTimeLimit ( Piece::Black, dialogWidget->opponentTime() );
-
-                playerClock->setDisplayedPlayer(Piece::White);
-
-            }
-            playerClock->setActivePlayer ( Piece::White );
-            addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
-
-        }
-    }
-    delete gameNewDialog;
-}
-
-void MainWindow::optionsPreferences()
-{
-    // The preference dialog is derived from prefs_base.ui
-    //
-    // compare the names of the widgets in the .ui file
-    // to the names of the variables in the .kcfg file
-    //avoid to have 2 dialogs shown
-    if ( KConfigDialog::showDialog ( "settings" ) )  {
-        return;
-    }
-    KConfigDialog *dialog = new KConfigDialog ( this, "settings", Settings::self() );
-    QWidget *generalSettingsDlg = new QWidget;
-    ui_prefs_base.setupUi ( generalSettingsDlg );
-    dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "config" );
-    connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
-    QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffDisableDownload );
-    dialog->addPage ( themeDlg, i18n ( "Theme" ), "games-config-theme" );
-    dialog->setAttribute ( Qt::WA_DeleteOnClose );
-    dialog->show();
-}
-
-void MainWindow::pauseGame(bool pause)
-{
-    kDebug();
-    m_view->setPaused(pause);
-    if (m_protocol && m_protocol->supportedFeatures() & Protocol::Pause)
+    MainWindow::MainWindow()
+            : KXmlGuiWindow(),
+            m_view ( new KnightsView ( this ) ),
+            m_clockDock ( 0 )
     {
-        pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
+        // accept dnd
+        setAcceptDrops ( true );
+
+        // tell the KXmlGuiWindow that this is indeed the main widget
+        setCentralWidget ( m_view );
+
+        // then, setup our actions
+        setupActions();
+
+        // add a status bar
+        statusBar()->show();
+
+        // a call to KXmlGuiWindow::setupGUI() populates the GUI
+        // with actions, using KXMLGUI.
+        // It also applies the saved mainwindow settings, if any, and ask the
+        // mainwindow to automatically save settings if changed: window size,
+        // toolbar position, icon size, etc.
+        setupGUI();
+        connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ) );
+
+        QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
     }
-    if (m_clockDock)
+
+    MainWindow::~MainWindow()
     {
-        ClockWidget* clock = qobject_cast< ClockWidget* >(m_clockDock->widget());
-        if (clock)
+    }
+
+    void MainWindow::setupActions()
+    {
+        KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
+        KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
+        KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
+        KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
+    }
+
+    void MainWindow::fileNew()
+    {
+        KDialog gameNewDialog;
+        GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
+        gameNewDialog.setMainWidget ( dialogWidget );
+        gameNewDialog.setCaption ( i18n ( "New Game" ) );
+        if ( gameNewDialog.exec() == KDialog::Accepted )
         {
-            pause ? clock->pauseClock() : clock->resumeClock();
+            hideClockWidgets();
+            delete m_protocol;
+
+            dialogWidget->writeConfig();
+
+            QVariantMap protocolOptions;
+            switch ( dialogWidget->protocol() )
+            {
+                case Settings::EnumProtocol::XBoard:
+                    m_protocol = new XBoardProtocol;
+                    protocolOptions["program"] = dialogWidget->program();
+                    break;
+                case Settings::EnumProtocol::FICS:
+                    m_protocol = new FicsProtocol;
+                    protocolOptions["server"] = dialogWidget->server();
+                    break;
+                default:
+                    break;
+            }
+            
+            m_timeLimit = dialogWidget->timeLimit();
+            if ( m_timeLimit )
+            {
+                m_playerTime = dialogWidget->playerTime();
+                m_oppTime = dialogWidget->opponentTime();
+                m_playerIncrement = dialogWidget->playerIncrement();
+                m_oppIncrement = dialogWidget->opponentIncrement();
+                if (m_protocol)
+                {
+                    protocolOptions["playerTimeLimit"] = m_playerTime;
+                    protocolOptions["playerTimeIncrement"] = m_playerIncrement;
+                    protocolOptions["opponentTimeLimit"] = m_oppTime;
+                    protocolOptions["opponentTimeIncrement"] = m_oppIncrement;
+                }
+            }
+
+            if ( m_protocol )
+            {
+                protocolOptions["color"] = dialogWidget->color();
+                connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
+                connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
+                m_protocol->init ( protocolOptions );
+            }
+            else
+            {
+                QTimer::singleShot ( 0, this, SLOT ( protocolInitSuccesful() ) );
+            }
         }
     }
-}
 
+    void MainWindow::protocolInitSuccesful()
+    {
+        m_view->setupBoard ( m_protocol );
+        if ( m_timeLimit )
+        {
+            showClockWidgets();
+        }
+    }
 
+    void MainWindow::showClockWidgets()
+    {
+        ClockWidget* playerClock = new ClockWidget ( this );
+        m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
+        m_clockDock->setObjectName ( "ClockDockWidget" ); // for QMainWindow::saveState()
+        m_clockDock->setWidget ( playerClock );
+
+        connect ( m_view, SIGNAL ( activePlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setActivePlayer ( Piece::Color ) ) );
+        connect ( m_view, SIGNAL ( displayedPlayerChanged ( Piece::Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Piece::Color ) ) );
+
+        connect ( playerClock, SIGNAL ( opponentTimeOut ( Piece::Color ) ), m_view, SLOT ( gameOver ( Piece::Color ) ) );
+
+        if ( m_protocol )
+        {
+            Piece::Color playerColor = m_protocol->playerColor();
+            playerClock->setPlayerName ( playerColor, i18n ( "You" ) );
+            playerClock->setPlayerName ( Piece::oppositeColor ( playerColor ), i18n ( "Opponent" ) );
+            playerClock->setTimeLimit ( playerColor, m_playerTime );
+            playerClock->setTimeIncrement ( playerColor, m_oppIncrement );
+            playerClock->setTimeLimit ( Piece::oppositeColor ( playerColor ), m_oppTime );
+            playerClock->setTimeIncrement ( Piece::oppositeColor ( playerColor ), m_oppIncrement );
+
+            playerClock->setDisplayedPlayer ( playerColor );
+            // TODO: Get names from protocol
+        }
+        else
+        {
+            playerClock->setPlayerName ( Piece::White, i18n ( "White" ) );
+            playerClock->setPlayerName ( Piece::Black, i18n ( "Black" ) );
+
+            playerClock->setTimeLimit ( Piece::White, m_playerTime );
+            playerClock->setTimeIncrement ( Piece::White, m_playerIncrement );
+            playerClock->setTimeLimit ( Piece::Black, m_oppTime );
+            playerClock->setTimeIncrement ( Piece::Black, m_oppIncrement );
+
+            playerClock->setDisplayedPlayer ( Piece::White );
+
+        }
+        playerClock->setActivePlayer ( Piece::White );
+        addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
+    }
+
+    void MainWindow::hideClockWidgets()
+    {
+        removeDockWidget ( m_clockDock );
+        delete m_clockDock;
+    }
+
+    void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& errorString )
+    {
+        KMessageBox::error ( this, errorString, Protocol::stringFromErrorCode ( errorCode ) );
+        delete m_protocol;
+        fileNew();
+    }
+
+    void MainWindow::optionsPreferences()
+    {
+        if ( KConfigDialog::showDialog ( "settings" ) )
+        {
+            return;
+        }
+        KConfigDialog *dialog = new KConfigDialog ( this, "settings", Settings::self() );
+        QWidget *generalSettingsDlg = new QWidget;
+        ui_prefs_base.setupUi ( generalSettingsDlg );
+        dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "config" );
+        connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
+        QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffDisableDownload );
+        dialog->addPage ( themeDlg, i18n ( "Theme" ), "games-config-theme" );
+        dialog->setAttribute ( Qt::WA_DeleteOnClose );
+        dialog->show();
+    }
+
+    void MainWindow::pauseGame ( bool pause )
+    {
+        kDebug();
+        m_view->setPaused ( pause );
+        if ( m_protocol && m_protocol->supportedFeatures() & Protocol::Pause )
+        {
+            pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
+        }
+        if ( m_clockDock )
+        {
+            ClockWidget* clock = qobject_cast< ClockWidget* > ( m_clockDock->widget() );
+            if ( clock )
+            {
+                pause ? clock->pauseClock() : clock->resumeClock();
+            }
+        }
+    }
 }
 
 #include "knights.moc"
+
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

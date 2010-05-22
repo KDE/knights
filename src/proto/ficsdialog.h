@@ -19,52 +19,38 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KNIGHTS_FICSPROTOCOL_H
-#define KNIGHTS_FICSPROTOCOL_H
+#ifndef KNIGHTS_FICSDIALOG_H
+#define KNIGHTS_FICSDIALOG_H
 
-#include <proto/protocol.h>
+#include "ficsprotocol.h"
 
-class QTcpSocket;
+#include <QtGui/QWidget>
+
+namespace Ui
+{
+    class FicsDialog;
+}
 
 namespace Knights
 {
-    struct FicsGameOffer
-    {
-        QString player;
-        int rating;
-        int baseTime;
-        int timeIncrement;
-        bool rated;
-        QString variant;
-        Piece::Color color;
-        bool manual;
-        bool formula;
-        int gameId;
-    };
-
-    class FicsProtocol : public Knights::Protocol
+    class FicsDialog : public QWidget
     {
             Q_OBJECT
         public:
-            FicsProtocol ( QObject* parent = 0 );
-            virtual ~FicsProtocol();
+            FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+            virtual ~FicsDialog();
 
-            virtual Features supportedFeatures();
+            int acceptedGameId();
 
-            virtual void startGame();
-            virtual void move ( const Move& m );
+        public Q_SLOTS:
+            void addGameOffer ( FicsGameOffer offer );
+            void clearOffers();
 
         private:
-            QTcpSocket* m_socket;
-
-        private Q_SLOTS:
-            void readFromSocket();
-            virtual void init ( const QVariantMap& options );
-
-        Q_SIGNALS:
-            void gameOfferReceived ( const FicsGameOffer& offer );
+            Ui::FicsDialog* ui;
+            QMap<int, int> m_gameId;
     };
 }
 
-#endif // KNIGHTS_FICSPROTOCOL_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
+#endif // KNIGHTS_FICSDIALOG_H
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
