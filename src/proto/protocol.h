@@ -98,7 +98,7 @@ namespace Knights
             void errorCodeChanged ( ErrorCode error );
 
             void initSuccesful();
-            void error ( ErrorCode errorCode, const QString& errorString = QString() );
+            void error ( Protocol::ErrorCode errorCode, const QString& errorString = QString() );
 
         private:
             Piece::Color m_color;

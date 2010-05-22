@@ -24,6 +24,8 @@
 
 #include <proto/protocol.h>
 
+#include <QtCore/QTextStream>
+
 class QTcpSocket;
 
 namespace Knights
@@ -41,6 +43,13 @@ namespace Knights
         bool formula;
         int gameId;
     };
+    
+    enum Stage{
+        ConnectStage,
+        LogInStage,
+        SeekStage,
+        PlayStage
+    };
 
     class FicsProtocol : public Knights::Protocol
     {
@@ -56,10 +65,22 @@ namespace Knights
 
         private:
             QTcpSocket* m_socket;
+            QTextStream m_stream;
+            Stage m_stage;
+            QString username;
+            QString password;
+            
+            void logIn(bool forcePrompt = false);
+            void sendPassword();
 
+        public Q_SLOTS:
+            virtual void init ( const QVariantMap& options );
+            void socketConnected();
+            void socketError();
+            
         private Q_SLOTS:
             void readFromSocket();
-            virtual void init ( const QVariantMap& options );
+            void openGameDialog();
 
         Q_SIGNALS:
             void gameOfferReceived ( const FicsGameOffer& offer );

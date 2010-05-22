@@ -24,7 +24,13 @@
 
 #include <KLocale>
 
-QString Knights::Protocol::stringFromErrorCode ( Knights::Protocol::ErrorCode code )
+#include <QtCore/QMetaType>
+
+using namespace Knights;
+
+int id = qRegisterMetaType<Protocol::ErrorCode>("Protocol::ErrorCode");
+
+QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 {
     switch ( code )
     {
@@ -48,52 +54,52 @@ QString Knights::Protocol::stringFromErrorCode ( Knights::Protocol::ErrorCode co
     }
 }
 
-void Knights::Protocol::setPlayerColor ( Knights::Piece::Color color )
+void Protocol::setPlayerColor ( Piece::Color color )
 {
     m_color = color;
 }
 
-Knights::Piece::Color Knights::Protocol::playerColor() const
+Piece::Color Protocol::playerColor() const
 {
     return m_color;
 }
 
-Knights::Protocol::Features Knights::Protocol::supportedFeatures()
+Protocol::Features Protocol::supportedFeatures()
 {
     return NoFeatures;
 }
 
-void Knights::Protocol::setOpponentTimeLimit ( int seconds )
+void Protocol::setOpponentTimeLimit ( int seconds )
 {
     Q_UNUSED ( seconds )
 }
 
-void Knights::Protocol::setPlayerTimeLimit ( int seconds )
+void Protocol::setPlayerTimeLimit ( int seconds )
 {
     Q_UNUSED ( seconds )
 }
 
-int Knights::Protocol::timeRemaining()
+int Protocol::timeRemaining()
 {
     return -1;
 }
 
-void Knights::Protocol::pauseGame()
+void Protocol::pauseGame()
 {
 
 }
 
-void Knights::Protocol::resumeGame()
+void Protocol::resumeGame()
 {
 
 }
 
-void Knights::Protocol::undoLastMove()
+void Protocol::undoLastMove()
 {
 
 }
 
-Knights::Move::List Knights::Protocol::moveHistory()
+Move::List Protocol::moveHistory()
 {
     return Move::List();
 }
