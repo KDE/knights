@@ -39,11 +39,14 @@ using KWallet::Wallet;
 
 const int Timeout = 1000; // One second ought to be enough for everybody
 // const QString endl = QString(QChar(0x0A)) + QChar('\n');
-const QRegExp seekRegExp = QRegExp ( "([a-zA-z])+ \\(([0-9\\+]{4,4})\\) seeking ([a-z]+) ([a-z]+) (f?) (m?) \\(\\\"play ([0-9]+)\\\" to respond\\)" );
+// const QRegExp seekRegExp = QRegExp ( "([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([0-9]+) ([0-9]+) ([a-z]+) ([a-z]+) \\(\\\"play ([0-9]+)\\\" to respond\\)" );
+// TODO: Include optional [white]/[black], m, f in RegEx check
+const QRegExp seekRegExp("([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([\\d]+) ([\\d]+) ([a-z]+)(.+)\\(\"play ([\\d]+)\" to respond\\)");
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
     kDebug() << Timeout << endl;
+    kDebug() << seekRegExp.pattern();
 }
 
 FicsProtocol::~FicsProtocol()
@@ -157,7 +160,7 @@ void FicsProtocol::readFromSocket()
             {
                 m_stream << password << endl;
             }
-            else if ( line.contains ( "Guest" ) )
+            else if ( line.contains ( "Press return to enter the server" ) )
             {
                 m_stream << endl;
             }
@@ -169,52 +172,18 @@ void FicsProtocol::readFromSocket()
             }
             break;
         case SeekStage:
-            if ( line.contains ( "seeking" ) )
+            if (seekRegExp.indexIn(line) != -1)
             {
                 FicsGameOffer offer;
-                QRegExp idRegExp ( "play ([1-9][0-9]*)" );
-                idRegExp.indexIn ( line );
-                offer.gameId = idRegExp.cap().toInt();
-
-                QList<QByteArray> seekArgs = line.split ( ' ' );
-
-                offer.player = seekArgs.takeFirst();
-                offer.rating = seekArgs.takeFirst().toInt();
-                if ( seekArgs.takeFirst() != QByteArray ( "seeking" ) )
-                {
-                    return;
-                }
-                offer.baseTime = seekArgs.takeFirst().toInt();
-                offer.timeIncrement = seekArgs.takeFirst().toInt();
-                offer.rated = ( seekArgs.takeFirst() == QByteArray ( "rated" ) );
-                offer.variant = seekArgs.takeFirst();
-                QByteArray next = seekArgs.takeFirst();
-                if ( next.startsWith ( '[' ) && next.endsWith ( ']' ) )
-                {
-                    if ( next.contains ( "[white]" ) )
-                    {
-                        offer.color = Piece::Black;
-                    }
-                    else if ( next.contains ( "[black]" ) )
-                    {
-                        offer.color = Piece::White;
-                    }
-                    next = seekArgs.takeFirst();
-                }
-                else
-                {
-                    offer.color = Piece::NoColor;
-                }
-                if ( next == "m" )
-                {
-                    offer.manual = true;
-                    next = seekArgs.takeFirst();
-                }
-                if ( next == "f" )
-                {
-                    offer.formula = true;
-                    next = seekArgs.takeFirst();
-                }
+                int n = 1;
+                offer.player = seekRegExp.cap(n++);
+                offer.rating = seekRegExp.cap(n++).toInt();
+                offer.baseTime = seekRegExp.cap(n++).toInt();
+                offer.timeIncrement = seekRegExp.cap(n++).toInt();
+                offer.rated = (seekRegExp.cap(n++) == "rated");
+                offer.variant = seekRegExp.cap(n++);
+                QString extraParams = seekRegExp.cap(n++);
+                offer.gameId = seekRegExp.cap(n++).toInt();
                 emit gameOfferReceived ( offer );
             }
             break;

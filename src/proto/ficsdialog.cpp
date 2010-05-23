@@ -50,6 +50,7 @@ void FicsDialog::addGameOffer ( FicsGameOffer offer )
     ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.rating ) ) );
 
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
+    baseTimeEdit->setReadOnly(true);
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
     QTime baseTime = QTime();
     baseTime.setHMS ( 0, offer.baseTime, 0 );
@@ -57,6 +58,7 @@ void FicsDialog::addGameOffer ( FicsGameOffer offer )
     ui->offerTable->setCellWidget ( row, 2, baseTimeEdit );
 
     QTimeEdit* incTimeEdit = new QTimeEdit ( this );
+    incTimeEdit->setReadOnly(true);
     incTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
     QTime incTime = QTime();
     incTime.setHMS ( 0, 0, offer.timeIncrement );
@@ -64,6 +66,7 @@ void FicsDialog::addGameOffer ( FicsGameOffer offer )
     ui->offerTable->setCellWidget ( row, 3, incTimeEdit );
 
     QCheckBox* rated = new QCheckBox ( this );
+    rated->setEnabled(false);
     rated->setChecked ( offer.rated );
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
