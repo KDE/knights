@@ -30,6 +30,8 @@ class QTcpSocket;
 
 namespace Knights
 {
+    class FicsDialog;
+   
     struct FicsGameOffer
     {
         QString player;
@@ -64,11 +66,18 @@ namespace Knights
             virtual void move ( const Move& m );
 
         private:
+            static const int Timeout;
+            static const QRegExp moveRegExp;
+            static const QRegExp seekRegExp;
+            static const QRegExp soughtRegExp;
+            static const QRegExp challengeRegExp;
+            
             QTcpSocket* m_socket;
             QTextStream m_stream;
             Stage m_stage;
             QString username;
             QString password;
+            FicsDialog* m_widget;
             
             void logIn(bool forcePrompt = false);
             void sendPassword();
@@ -77,10 +86,14 @@ namespace Knights
             virtual void init ( const QVariantMap& options );
             void socketConnected();
             void socketError();
+            void dialogAccepted();
+    void dialogRejected();
             
         private Q_SLOTS:
             void readFromSocket();
             void openGameDialog();
+            void checkSought();
+            void setSeeking( bool seek );
 
         Q_SIGNALS:
             void gameOfferReceived ( const FicsGameOffer& offer );

@@ -28,20 +28,23 @@
 #include <KWallet/Wallet>
 #include <KPasswordDialog>
 #include <KLocale>
+#include <KPushButton>
 
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
+#include <QtGui/QPushButton>
 #include <gamedialog.h>
 
 
 using namespace Knights;
 using KWallet::Wallet;
 
-const int Timeout = 1000; // One second ought to be enough for everybody
-// const QString endl = QString(QChar(0x0A)) + QChar('\n');
-// const QRegExp seekRegExp = QRegExp ( "([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([0-9]+) ([0-9]+) ([a-z]+) ([a-z]+) \\(\\\"play ([0-9]+)\\\" to respond\\)" );
+const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
-const QRegExp seekRegExp("([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([\\d]+) ([\\d]+) ([a-z]+)(.+)\\(\"play ([\\d]+)\" to respond\\)");
+const QRegExp FicsProtocol::seekRegExp("([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([\\d]+) ([\\d]+) ([a-z]+) ([a-z]+)(.*)\\(\"play ([\\d]+)\" to respond\\)");
+const QRegExp FicsProtocol::soughtRegExp("([0-9]+) ([0-9\\+]+) ([a-zA-z\\(\\)]+)\\s+([0-9]+)\\s+([0-9]+) ([a-z]+) ([a-z]+) (.*)([0-9]+)-([0-9]+)(.*)");
+const QRegExp FicsProtocol::moveRegExp("<12> (.*)");
+const QRegExp FicsProtocol::challengeRegExp("challenge");
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
@@ -110,7 +113,9 @@ void FicsProtocol::logIn ( bool forcePrompt )
     bool guest = username == "guest";
     if ( forcePrompt || username.isEmpty() || password.isEmpty() )
     {
-        KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox | KPasswordDialog::ShowKeepPassword | KPasswordDialog::ShowUsernameLine;
+        KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox 
+                                                    | KPasswordDialog::ShowKeepPassword 
+                                                    | KPasswordDialog::ShowUsernameLine;
         KPasswordDialog pwDialog ( qApp->activeWindow(), flags );
         pwDialog.setUsername ( username );
         if ( pwDialog.exec() == QDialog::Accepted )
@@ -138,17 +143,39 @@ void FicsProtocol::logIn ( bool forcePrompt )
 void FicsProtocol::openGameDialog()
 {
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
-    FicsDialog* widget = new FicsDialog ( dialog );
-    dialog->setMainWidget ( widget );
+    dialog->setButtons(KDialog::Cancel | KDialog::Apply | KDialog::Reset);
+    dialog->setButtonText(KDialog::Apply, i18n("Accept"));
+    dialog->setButtonText(KDialog::Reset, i18n("Decline"));
+    
+    m_widget = new FicsDialog ( dialog );
+    dialog->setMainWidget ( m_widget );
 
-    connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
+    connect ( dialog, SIGNAL(applyClicked()), m_widget, SLOT(accept()));
+    connect ( dialog, SIGNAL(resetClicked()), m_widget, SLOT(decline()));
+    connect ( m_widget, SIGNAL(declineButtonNeeded(bool)), dialog->button(KDialog::Reset), SLOT(setEnabled(bool)));
+    
+    connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
+    connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
+    connect ( m_widget, SIGNAL ( seek() ), SLOT ( seek() ) );
+    
+    connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted())); 
+    connect ( dialog, SIGNAL(rejected()), SLOT(dialogRejected()));
     dialog->show();
 }
 
 void FicsProtocol::readFromSocket()
 {
+    if (!m_socket->canReadLine())
+    {
+        QByteArray next = m_socket->peek(10);
+        if (!next.contains("fics") && !next.contains("login:") && !next.contains("password:"))
+        {
+            // It is neither a prompt nor a complete line, so there will be more data to read soon
+            return;
+        }
+    }
     QByteArray line = m_socket->readLine();
-    kDebug() << line << seekRegExp.indexIn ( line );
+    kDebug() << line;
     switch ( m_stage )
     {
         case ConnectStage:
@@ -186,7 +213,34 @@ void FicsProtocol::readFromSocket()
                 offer.gameId = seekRegExp.cap(n++).toInt();
                 emit gameOfferReceived ( offer );
             }
+            else if (soughtRegExp.indexIn(line) != -1)
+            {
+                FicsGameOffer offer;
+                int n = 1;
+                offer.gameId = soughtRegExp.cap(n++).toInt();
+                offer.rating = soughtRegExp.cap(n++).toInt();
+                offer.player = soughtRegExp.cap(n++);
+                offer.baseTime = soughtRegExp.cap(n++).toInt();
+                offer.timeIncrement = soughtRegExp.cap(n++).toInt();
+                offer.rated = (soughtRegExp.cap(n++) == "rated");
+                offer.variant = soughtRegExp.cap(n++);
+                // TODO: The rest
+                emit gameOfferReceived ( offer );
+            }
+            else if (challengeRegExp.indexIn(line) > -1)
+            {
+                // emit challengeReceived();
+            }
             break;
+        case PlayStage:
+            if (moveRegExp.indexIn(line) > -1)
+            {
+                QStringList args = moveRegExp.cap().split(' ');
+                if (args.size() < 30)
+                {
+                    return;
+                }
+            }
     }
 
     if ( m_socket->bytesAvailable() > 0 )
@@ -195,4 +249,31 @@ void FicsProtocol::readFromSocket()
     }
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
+void FicsProtocol::checkSought()
+{
+    m_stream << "sought" << endl;
+}
+
+void FicsProtocol::dialogAccepted()
+{
+    
+}
+
+void FicsProtocol::dialogRejected()
+{
+    emit error(UserCancelled);
+}
+
+void FicsProtocol::setSeeking(bool seek)
+{
+    if (seek)
+    {
+        m_stream << "seek" << endl;
+    }
+    else
+    {
+        m_stream << "unseek" << endl;
+    }
+}
+
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

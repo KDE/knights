@@ -26,6 +26,24 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTableWidget" name="offerTable">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="dragDropOverwriteMode">
+          <bool>false</bool>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
          <column>
           <property name="text">
            <string>Player</string>
@@ -64,7 +82,7 @@
         </widget>
        </item>
        <item>
-        <widget class="KPushButton" name="kpushbutton_2">
+        <widget class="KPushButton" name="refreshButton">
          <property name="text">
           <string>Refresh</string>
          </property>
@@ -78,7 +96,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="KPushButton" name="kpushbutton">
+        <widget class="KPushButton" name="seekButton">
          <property name="text">
           <string>Seek opponents</string>
          </property>
@@ -91,6 +109,21 @@
         <widget class="QTableWidget" name="seekTable">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="dragDropOverwriteMode">
+          <bool>false</bool>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
          </property>
          <column>
           <property name="text">
@@ -126,7 +159,7 @@
  <resources/>
  <connections>
   <connection>
-   <sender>kpushbutton</sender>
+   <sender>seekButton</sender>
    <signal>toggled(bool)</signal>
    <receiver>seekTable</receiver>
    <slot>setEnabled(bool)</slot>

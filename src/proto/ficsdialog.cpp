@@ -32,6 +32,12 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
+    ui->tabWidget->setTabText(0, i18n("&Join a game"));
+    ui->tabWidget->setTabText(1, i18n("&Seek opponents"));
+    connect ( ui->tabWidget, SIGNAL(currentChanged(int)), SLOT(currentTabChanged(int)));
+    
+    connect (ui->refreshButton, SIGNAL(clicked(bool)), SLOT(refresh()));
+    connect (ui->seekButton, SIGNAL(toggled(bool)), SIGNAL(seekingChanged(bool)));
 }
 
 FicsDialog::~FicsDialog()
@@ -72,16 +78,39 @@ void FicsDialog::addGameOffer ( FicsGameOffer offer )
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
 }
 
-int FicsDialog::acceptedGameId()
-{
-    return m_gameId[ui->offerTable->currentRow() ];
-}
-
 void FicsDialog::clearOffers()
 {
     ui->offerTable->clear();
     ui->offerTable->setRowCount ( 0 );
     m_gameId.clear();
+}
+
+void FicsDialog::refresh()
+{
+    clearOffers();
+    emit sought();
+}
+
+void FicsDialog::accept()
+{
+    if (ui->seekButton->isChecked())
+    {
+        emit acceptChallenge();
+    }
+    else
+    {
+        emit acceptSeek(m_gameId[ui->offerTable->currentRow()]);
+    }
+}
+
+void FicsDialog::decline()
+{
+    emit declineChallenge();
+}
+
+void FicsDialog::currentTabChanged(int tab)
+{
+    emit declineButtonNeeded(tab == 1);
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
