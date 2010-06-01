@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Knights
+Name[en_GB]=Knights
 Name[es]=Knights
 Name[fr]=Knights
 Name[pt]=Knights
@@ -8,6 +9,7 @@ Name[sv]=Springare
 Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
+Description[en_GB]=Original Knights theme.
 Description[es]=Tema original de Knights
 Description[fr]=Thème original de Knights
 Description[pt]=Tema original do Knights.
