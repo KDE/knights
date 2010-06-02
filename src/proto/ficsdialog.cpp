@@ -45,7 +45,7 @@ FicsDialog::~FicsDialog()
     delete ui;
 }
 
-void FicsDialog::addGameOffer ( FicsGameOffer offer )
+void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 {
     int row = ui->offerTable->rowCount();
     ui->offerTable->insertRow ( row );
@@ -76,6 +76,11 @@ void FicsDialog::addGameOffer ( FicsGameOffer offer )
     rated->setChecked ( offer.rated );
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
+}
+
+void FicsDialog::addChallenge(const Knights::FicsPlayer& challenger)
+{
+    ui->challengeLabel->setText(i18n("Challenge from %1 (%2)", challenger.first, challenger.second));
 }
 
 void FicsDialog::clearOffers()

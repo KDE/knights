@@ -17,7 +17,7 @@
    <item>
     <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="joinTab">
       <attribute name="title">
@@ -106,35 +106,10 @@
         </widget>
        </item>
        <item>
-        <widget class="QTableWidget" name="seekTable">
-         <property name="enabled">
-          <bool>false</bool>
+        <widget class="QLabel" name="challengeLabel">
+         <property name="text">
+          <string>Waiting for challenges</string>
          </property>
-         <property name="editTriggers">
-          <set>QAbstractItemView::NoEditTriggers</set>
-         </property>
-         <property name="showDropIndicator" stdset="0">
-          <bool>false</bool>
-         </property>
-         <property name="dragDropOverwriteMode">
-          <bool>false</bool>
-         </property>
-         <property name="selectionMode">
-          <enum>QAbstractItemView::SingleSelection</enum>
-         </property>
-         <property name="selectionBehavior">
-          <enum>QAbstractItemView::SelectRows</enum>
-         </property>
-         <column>
-          <property name="text">
-           <string>Player</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Rating</string>
-          </property>
-         </column>
         </widget>
        </item>
       </layout>
@@ -157,22 +132,5 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections>
-  <connection>
-   <sender>seekButton</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>seekTable</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>148</x>
-     <y>47</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>145</x>
-     <y>109</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

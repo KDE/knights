@@ -31,6 +31,8 @@ class QTcpSocket;
 namespace Knights
 {
     class FicsDialog;
+    
+    typedef QPair<QString, int> FicsPlayer;
    
     struct FicsGameOffer
     {
@@ -67,10 +69,19 @@ namespace Knights
 
         private:
             static const int Timeout;
+            
+            static const QString namePattern;
+            static const QString idPattern;
+            static const QString ratingPattern;
+            static const QString timePattern;
+            static const QString variantPattern;
+            static const QString argsPattern;
+            
             static const QRegExp moveRegExp;
             static const QRegExp seekRegExp;
             static const QRegExp soughtRegExp;
             static const QRegExp challengeRegExp;
+            static const QRegExp gameStartedExp;
             
             QTcpSocket* m_socket;
             QTextStream m_stream;
@@ -88,6 +99,9 @@ namespace Knights
             void socketError();
             void dialogAccepted();
     void dialogRejected();
+    void acceptSeek(int id);
+    void acceptChallenge();
+    void declineChallenge();
             
         private Q_SLOTS:
             void readFromSocket();
@@ -97,6 +111,7 @@ namespace Knights
 
         Q_SIGNALS:
             void gameOfferReceived ( const FicsGameOffer& offer );
+            void challengeReceived ( const FicsPlayer& challenger );
     };
 }
 

@@ -26,9 +26,26 @@
 
 #include <QtCore/QMetaType>
 
-using namespace Knights;
+namespace Knights
+{
 
 int id = qRegisterMetaType<Protocol::ErrorCode>("Protocol::ErrorCode");
+
+class ProtocolPrivate
+{
+    public:
+        QVariantMap attributes;
+};
+
+Protocol::Protocol(QObject* parent): QObject(parent), d_ptr(new ProtocolPrivate)
+{
+
+}
+
+Protocol::~Protocol()
+{
+
+}
 
 QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 {
@@ -56,12 +73,44 @@ QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 
 void Protocol::setPlayerColor ( Piece::Color color )
 {
-    m_color = color;
+    setAttribute( "PlayerColor", color );
 }
 
 Piece::Color Protocol::playerColor() const
 {
-    return m_color;
+    return attribute( "PlayerColor" ).value<Piece::Color>();
+}
+
+void Protocol::setOpponentName(QString name)
+{
+    setAttribute( "OpponentName", name );
+}
+
+QString Protocol::opponentName() const
+{
+    return attribute( "OpponentName" ).toString();
+}
+
+void Protocol::setPlayerName(QString name)
+{
+    setAttribute( "PlayerName", name );
+}
+
+QString Protocol::playerName() const
+{
+    return attribute( "PlayerName" ).toString();
+}
+
+void Protocol::setAttribute(QString attribute, QVariant value)
+{
+    Q_D(Protocol);
+    d->attributes.insert( attribute,  value );
+}
+
+QVariant Protocol::attribute(QString attribute) const
+{
+    Q_D(const Protocol);
+    return d->attributes.value( attribute );
 }
 
 Protocol::Features Protocol::supportedFeatures()
@@ -102,6 +151,8 @@ void Protocol::undoLastMove()
 Move::List Protocol::moveHistory()
 {
     return Move::List();
+}
+
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -40,8 +40,11 @@ namespace Knights
             FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~FicsDialog();
 
+            int acceptedGameId();
+
         public Q_SLOTS:
-            void addGameOffer ( FicsGameOffer offer );
+            void addGameOffer ( const FicsGameOffer& offer );
+            void addChallenge ( const FicsPlayer& challenger );
             void clearOffers();
             void refresh();
             void accept();

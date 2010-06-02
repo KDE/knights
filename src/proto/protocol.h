@@ -29,6 +29,8 @@
 
 namespace Knights
 {
+    class ProtocolPrivate;
+    
     class Protocol : public QObject
     {
             Q_OBJECT
@@ -36,6 +38,7 @@ namespace Knights
             Q_ENUMS ( ErrorCode )
             Q_FLAGS ( Features )
             Q_PROPERTY ( Knights::Piece::Color playerColor READ playerColor WRITE setPlayerColor NOTIFY playerColorChanged )
+            Q_PROPERTY ( QString opponentName READ opponentName )
 
         public:
             enum Feature
@@ -60,15 +63,21 @@ namespace Knights
 
             static QString stringFromErrorCode ( ErrorCode code );
 
-            Protocol ( QObject* parent = 0 ) : QObject ( parent ) {};
-            virtual ~Protocol() {};
+            Protocol ( QObject* parent = 0 );
+            virtual ~Protocol();
 
             // Needed functions
 
             Piece::Color playerColor() const;
+            QString opponentName() const;
+            QString playerName() const;
+            QVariant attribute(QString attribute) const;
 
         protected:
             void setPlayerColor ( Piece::Color color );
+            void setOpponentName ( QString name );
+            void setPlayerName ( QString name );
+            void setAttribute ( QString attribute, QVariant value ); 
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
@@ -101,7 +110,8 @@ namespace Knights
             void error ( Protocol::ErrorCode errorCode, const QString& errorString = QString() );
 
         private:
-            Piece::Color m_color;
+            ProtocolPrivate* d_ptr;
+            Q_DECLARE_PRIVATE(Protocol)
     };
 
     Q_DECLARE_OPERATORS_FOR_FLAGS ( Protocol::Features )

@@ -41,10 +41,49 @@ using KWallet::Wallet;
 
 const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
-const QRegExp FicsProtocol::seekRegExp("([a-zA-z]+) \\(([0-9\\+]+)\\) seeking ([\\d]+) ([\\d]+) ([a-z]+) ([a-z]+)(.*)\\(\"play ([\\d]+)\" to respond\\)");
-const QRegExp FicsProtocol::soughtRegExp("([0-9]+) ([0-9\\+]+) ([a-zA-z\\(\\)]+)\\s+([0-9]+)\\s+([0-9]+) ([a-z]+) ([a-z]+) (.*)([0-9]+)-([0-9]+)(.*)");
+
+const QString FicsProtocol::namePattern = "([a-zA-z\\(\\)]+)";
+const QString FicsProtocol::ratingPattern = "\\(([0-9\\+\\-\\s]+)\\)";
+const QString FicsProtocol::timePattern = "(\\d+)\\s+(\\d+)";
+const QString FicsProtocol::variantPattern = "([a-z]+)\\s+([a-z]+)";
+const QString FicsProtocol::argsPattern = "(.*)"; //TODO better
+const QString FicsProtocol::idPattern = "(\\d+)";
+
+const QRegExp FicsProtocol::seekRegExp(QString("%1 %2 seeking %3 %4 %5\\(\"play %6\" to respond\\)")
+                                                .arg(namePattern)
+                                                .arg(ratingPattern)
+                                                .arg(timePattern)
+                                                .arg(variantPattern)
+                                                .arg(argsPattern)
+                                                .arg(idPattern)
+                                                );
+                                                
+const QRegExp FicsProtocol::soughtRegExp(QString("%1 %2 %3\\s+%4 %5 %6")
+                                                .arg(idPattern)
+                                                .arg(ratingPattern)
+                                                .arg(namePattern)
+                                                .arg(timePattern)
+                                                .arg(variantPattern)
+                                                .arg(argsPattern)
+                                                );
+                                                
 const QRegExp FicsProtocol::moveRegExp("<12> (.*)");
-const QRegExp FicsProtocol::challengeRegExp("challenge");
+const QRegExp FicsProtocol::challengeRegExp(QString("Challenge: %1 %2 %3 %4 %5 %6")
+                                                .arg(namePattern)
+                                                .arg(ratingPattern)
+                                                .arg(namePattern)
+                                                .arg(ratingPattern)
+                                                .arg(variantPattern)
+                                                .arg(timePattern)
+                                                );
+const QRegExp FicsProtocol::gameStartedExp(QString("Creating: %1 %2 %3 %4 %5 %6")
+                                                .arg(namePattern)
+                                                .arg(ratingPattern)
+                                                .arg(namePattern)
+                                                .arg(ratingPattern)
+                                                .arg(variantPattern)
+                                                .arg(timePattern)
+                                                );
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
@@ -133,10 +172,12 @@ void FicsProtocol::logIn ( bool forcePrompt )
     if ( guest )
     {
         m_stream << "guest" << endl;
+        setPlayerName(i18n("You"));
     }
     else
     {
         m_stream << username << endl;
+        setPlayerName(username);
     }
 }
 
@@ -152,9 +193,13 @@ void FicsProtocol::openGameDialog()
 
     connect ( dialog, SIGNAL(applyClicked()), m_widget, SLOT(accept()));
     connect ( dialog, SIGNAL(resetClicked()), m_widget, SLOT(decline()));
+    connect ( m_widget, SIGNAL(acceptSeek(int)), SLOT(acceptSeek(int)));
+    connect ( m_widget, SIGNAL(acceptChallenge()), SLOT(acceptChallenge()));
+    connect ( m_widget, SIGNAL(declineChallenge()), SLOT(declineChallenge()));
     connect ( m_widget, SIGNAL(declineButtonNeeded(bool)), dialog->button(KDialog::Reset), SLOT(setEnabled(bool)));
     
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
+    connect ( this, SIGNAL(challengeReceived(FicsPlayer)), m_widget, SLOT(addChallenge(FicsPlayer)));
     connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
     connect ( m_widget, SIGNAL ( seek() ), SLOT ( seek() ) );
     
@@ -229,7 +274,27 @@ void FicsProtocol::readFromSocket()
             }
             else if (challengeRegExp.indexIn(line) > -1)
             {
-                // emit challengeReceived();
+                FicsPlayer player;
+                player.first = challengeRegExp.cap(1);
+                player.second = challengeRegExp.cap(2).toInt();
+                emit challengeReceived(player);
+            }
+            else if (gameStartedExp.indexIn(line) > -1)
+            {
+                QString player1 = gameStartedExp.cap(1);
+                QString player2 = gameStartedExp.cap(3);
+                if (player1 == playerName())
+                {
+                    setPlayerColor(Piece::White);
+                    setOpponentName(player2);
+                }
+                else
+                {
+                    setPlayerColor(Piece::Black);
+                    setOpponentName(player1);
+                }
+                m_stage = PlayStage;
+                emit initSuccesful();
             }
             break;
         case PlayStage:
@@ -240,6 +305,7 @@ void FicsProtocol::readFromSocket()
                 {
                     return;
                 }
+                //TODO: Parse the style12 line
             }
     }
 
@@ -252,6 +318,21 @@ void FicsProtocol::readFromSocket()
 void FicsProtocol::checkSought()
 {
     m_stream << "sought" << endl;
+}
+
+void FicsProtocol::acceptSeek(int id)
+{
+    m_stream << "play " << id << endl;
+}
+
+void FicsProtocol::acceptChallenge()
+{
+    m_stream << "accept" << endl;
+}
+
+void FicsProtocol::declineChallenge()
+{
+    m_stream << "decline" << endl;
 }
 
 void FicsProtocol::dialogAccepted()
