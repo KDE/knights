@@ -33,7 +33,10 @@ class Pos : public QPair<int,int>
 public:
     Pos();
     Pos(const int& t1, const int& t2);
+    Pos(const QString string);
     ~Pos();
+    
+    QString string();
 
     const Pos& operator+=(const Pos& other);
 };

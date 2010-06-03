@@ -78,6 +78,7 @@ namespace Knights
             void setOpponentName ( QString name );
             void setPlayerName ( QString name );
             void setAttribute ( QString attribute, QVariant value ); 
+            void setAttributes ( QVariantMap attributes );
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;

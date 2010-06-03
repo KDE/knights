@@ -25,150 +25,167 @@
 
 namespace Knights
 {
-    class MovePrivate
-    {
-        public:
-            MovePrivate();
-            ~MovePrivate();
+class MovePrivate
+{
+public:
+    MovePrivate();
+    ~MovePrivate();
 
-            Pos from;
-            Pos to;
+    Pos from;
+    Pos to;
 
-            QList<Move> extraMoves;
-            QList<Pos> extraCaptures;
-    };
-    
-    MovePrivate::MovePrivate()
+    QList<Move> extraMoves;
+    QList<Pos> extraCaptures;
+};
+
+MovePrivate::MovePrivate()
+{
+
+}
+
+MovePrivate::~MovePrivate()
+{
+
+}
+
+Move::Flags Move::flags() const
+{
+    return m_flags;
+}
+
+void Move::setFlag ( Move::MoveFlag flag, bool value )
+{
+    if ( value )
     {
+        m_flags |= flag;
 
     }
-
-    MovePrivate::~MovePrivate()
+    else
     {
-
+        m_flags &= ~flag;
     }
+}
 
-    Move::Flags Move::flags() const
-    {
-        return m_flags;
-    }
+void Move::setFlags ( Move::Flags flags )
+{
+    m_flags = flags;
+}
 
-    void Move::setFlag ( Move::MoveFlag flag, bool value )
-    {
-        if ( value )
-        {
-            m_flags |= flag;
+Move::Move()
+        : d_ptr ( new MovePrivate )
+{
 
-        }
-        else
-        {
-            m_flags &= ~flag;
-        }
-    }
+}
 
-    void Move::setFlags ( Move::Flags flags )
-    {
-        m_flags = flags;
-    }
+Move::Move ( Pos from, Pos to, Move::Flags flags )
+        : d_ptr ( new MovePrivate )
+{
+    setFrom ( from );
+    setTo ( to );
+    setFlags ( flags );
+}
 
-    Move::Move()
-            : d_ptr ( new MovePrivate )
-    {
+Move::Move(QString string)
+        : d_ptr ( new MovePrivate )
+{
+    setString(string);
+}
 
-    }
-
-    Move::Move ( Pos from, Pos to, Move::Flags flags )
-            : d_ptr ( new MovePrivate )
-    {
-        setFrom ( from );
-        setTo ( to );
-        setFlags ( flags );
-    }
-
-    Move::Move ( const Knights::Move& other )
-            : d_ptr ( new MovePrivate )
-    {
-        setFrom ( other.from() );
-        setTo ( other.to() );
-        setFlags ( other.flags() );
-        setAdditionalCaptures ( other.additionalCaptures() );
-        setAdditionalMoves ( other.additionalMoves() );
-    }
+Move::Move ( const Knights::Move& other )
+        : d_ptr ( new MovePrivate )
+{
+    setFrom ( other.from() );
+    setTo ( other.to() );
+    setFlags ( other.flags() );
+    setAdditionalCaptures ( other.additionalCaptures() );
+    setAdditionalMoves ( other.additionalMoves() );
+}
 
 
-    Move::~Move()
-    {
+Move::~Move()
+{
 
-    }
+}
 
+void Move::setString(QString string)
+{
+    setFrom(string.left(2));
+    setTo(string.right(2));
+}
 
-    Pos Move::from() const
-    {
-        Q_D ( const Move );
-        return d->from;
-    }
-
-    Pos Move::to() const
-    {
-        Q_D ( const Move );
-        return d->to;
-    }
+QString Move::string() const
+{
+    return from().string() + '-' + to().string();
+}
 
 
-    void Move::setFrom ( const Knights::Pos& value )
-    {
-        Q_D ( Move );
-        d->from = value;
-    }
+Pos Move::from() const
+{
+    Q_D ( const Move );
+    return d->from;
+}
 
-    void Move::setFrom ( int first, int second )
-    {
-        setFrom ( Pos ( first, second ) );
-    }
-
-
-    void Move::setTo ( const Knights::Pos& value )
-    {
-        Q_D ( Move );
-        d->to = value;
-    }
+Pos Move::to() const
+{
+    Q_D ( const Move );
+    return d->to;
+}
 
 
-    void Move::setTo ( int first, int second )
-    {
-        Q_D ( Move );
-        d->to = Pos ( first, second );
-    }
+void Move::setFrom ( const Knights::Pos& value )
+{
+    Q_D ( Move );
+    d->from = value;
+}
 
-    const QList< Pos >& Move::additionalCaptures() const
-    {
-        Q_D ( const Move );
-        return d->extraCaptures;
-    }
+void Move::setFrom ( int first, int second )
+{
+    setFrom ( Pos ( first, second ) );
+}
 
-    void Move::setAdditionalCaptures ( const QList< Pos >& list )
-    {
-        Q_D ( Move );
-        d->extraCaptures = list;
-    }
 
-    const QList< Move >& Move::additionalMoves() const
-    {
-        Q_D ( const Move );
-        return d->extraMoves;
-    }
+void Move::setTo ( const Knights::Pos& value )
+{
+    Q_D ( Move );
+    d->to = value;
+}
 
-    void Move::setAdditionalMoves ( const QList< Move >& list )
-    {
-        Q_D ( Move );
-        d->extraMoves = list;
-    }
 
-    bool Move::operator== ( Move other ) const
-    {
-        Q_D ( const Move );
-        return ( d->from == other.from() && d->to == other.to() );
-    }
+void Move::setTo ( int first, int second )
+{
+    Q_D ( Move );
+    d->to = Pos ( first, second );
+}
+
+const QList< Pos >& Move::additionalCaptures() const
+{
+    Q_D ( const Move );
+    return d->extraCaptures;
+}
+
+void Move::setAdditionalCaptures ( const QList< Pos >& list )
+{
+    Q_D ( Move );
+    d->extraCaptures = list;
+}
+
+const QList< Move >& Move::additionalMoves() const
+{
+    Q_D ( const Move );
+    return d->extraMoves;
+}
+
+void Move::setAdditionalMoves ( const QList< Move >& list )
+{
+    Q_D ( Move );
+    d->extraMoves = list;
+}
+
+bool Move::operator== ( Move other ) const
+{
+    Q_D ( const Move );
+    return ( d->from == other.from() && d->to == other.to() );
+}
 
 
 

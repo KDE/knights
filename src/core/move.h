@@ -50,16 +50,20 @@ namespace Knights
             Q_DECLARE_FLAGS ( Flags, MoveFlag )
 
             Move ( Pos from, Pos to, Flags flags = None );
+            Move ( QString string );
             Move();
             Move ( const Move& other );
             virtual ~Move();
 
             Pos from() const;
             Pos to() const;
+            QString string() const;
+            
             void setFrom ( const Pos& value );
             void setFrom ( int first, int second );
             void setTo ( const Pos& value );
             void setTo ( int first, int second );
+            void setString ( QString string );
 
             Flags flags() const;
             void setFlag ( MoveFlag, bool value );

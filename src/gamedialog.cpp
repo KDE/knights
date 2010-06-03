@@ -242,6 +242,13 @@ void GameDialog::ficsModeToggled ( bool enabled )
 {
     m_forceSameTime = enabled;
     updateTimeEdits();
+    if (enabled)
+    {
+        ui->colorRandom->setText(i18n("Choose &later"));
+    }
+    else {
+        ui->colorRandom->setText(i18n("&Random"));
+    }
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

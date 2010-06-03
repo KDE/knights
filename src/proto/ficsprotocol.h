@@ -50,7 +50,6 @@ namespace Knights
     
     enum Stage{
         ConnectStage,
-        LogInStage,
         SeekStage,
         PlayStage
     };
@@ -76,6 +75,8 @@ namespace Knights
             static const QString timePattern;
             static const QString variantPattern;
             static const QString argsPattern;
+            static const QString pieces;
+            static const QString coordinate;
             
             static const QRegExp moveRegExp;
             static const QRegExp seekRegExp;
@@ -89,8 +90,9 @@ namespace Knights
             QString username;
             QString password;
             FicsDialog* m_widget;
+    bool forcePrompt;
             
-            void logIn(bool forcePrompt = false);
+            void logIn();
             void sendPassword();
 
         public Q_SLOTS:
@@ -108,6 +110,7 @@ namespace Knights
             void openGameDialog();
             void checkSought();
             void setSeeking( bool seek );
+    void setupOptions();
 
         Q_SIGNALS:
             void gameOfferReceived ( const FicsGameOffer& offer );

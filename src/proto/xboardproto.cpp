@@ -73,12 +73,14 @@ void XBoardProtocol::move ( const Move& m )
 
 void XBoardProtocol::init ( const QVariantMap& options )
 {
+    setAttributes(options);
     QStringList args = options["program"].toString().split ( ' ' );
     QString program = args.takeFirst();
     if ( program.contains ( "gnuchess" ) && !args.contains ( "--xboard" ) )
     {
         args << "--xboard";
     }
+    setOpponentName(program);
     mProcess = new KProcess ( this );
     mProcess->setProgram ( program, args );
     mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
@@ -91,14 +93,12 @@ void XBoardProtocol::init ( const QVariantMap& options )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it's installed", program ) );
         return;
     }
-    Piece::Color playerColor = options["color"].value<Piece::Color>();
-    if ( playerColor == Piece::NoColor )
+    if ( playerColor() == Piece::NoColor )
     {
-        playerColor = ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black;
+        setPlayerColor( ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black );
     }
-    setPlayerColor ( playerColor );
 
-    if ( playerColor == Piece::Black )
+    if ( playerColor() == Piece::Black )
     {
         mProcess->write("go\n");
     }

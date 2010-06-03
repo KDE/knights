@@ -43,8 +43,8 @@ namespace Knights
 
         public Q_SLOTS:
             void setTimeLimit ( Piece::Color color, const QTime& time );
-            void setTimeIncrement ( Knights::Piece::Color color, int seconds );
-            void incrementTime ( Knights::Piece::Color color, int miliseconds );
+            void setTimeIncrement ( Piece::Color color, int seconds );
+            void incrementTime ( Piece::Color color, int miliseconds );
             void setActivePlayer ( Piece::Color color );
             void setDisplayedPlayer ( Piece::Color color );
             void setPlayerName ( Piece::Color color, const QString& name );

@@ -35,10 +35,24 @@ namespace Knights
     {
 
     }
+    
+    Pos::Pos(const QString string)
+    {
+        if (string.size() == 2)
+        {
+            first = Board::numFromRow(string.at(0));
+            second = string.right(1).toInt();
+        }
+    }
 
     Pos::~Pos()
     {
 
+    }
+
+    QString Pos::string()
+    {
+        return Board::row(first) + QString::number(second);
     }
 
     const Pos& Pos::operator+= ( const Pos & other )

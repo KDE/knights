@@ -73,7 +73,7 @@ QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 
 void Protocol::setPlayerColor ( Piece::Color color )
 {
-    setAttribute( "PlayerColor", color );
+    setAttribute( "PlayerColor", QVariant::fromValue<Piece::Color>(color) );
 }
 
 Piece::Color Protocol::playerColor() const
@@ -105,6 +105,12 @@ void Protocol::setAttribute(QString attribute, QVariant value)
 {
     Q_D(Protocol);
     d->attributes.insert( attribute,  value );
+}
+
+void Protocol::setAttributes(QVariantMap attributes)
+{
+    Q_D(Protocol);
+    d->attributes.unite(attributes);
 }
 
 QVariant Protocol::attribute(QString attribute) const

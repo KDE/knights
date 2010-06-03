@@ -35,7 +35,6 @@ ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( pare
 {
     ui = new Ui::ClockWidget;
     ui->setupUi ( this );
-    kDebug() << ui->progressB->invertedAppearance() << ui->progressW->invertedAppearance();
     m_box[Piece::White] = ui->groupW;
     m_box[Piece::Black] = ui->groupB;
 
@@ -79,6 +78,7 @@ void ClockWidget::setPlayerName ( Piece::Color color, const QString& name )
 
 void ClockWidget::setTimeLimit ( Piece::Color color, const QTime& time )
 {
+    kDebug() << color << time;
     m_timeLimit[color] = time;
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
     switch ( color )

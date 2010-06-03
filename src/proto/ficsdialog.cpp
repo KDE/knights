@@ -53,8 +53,11 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     m_gameId[row] = offer.gameId;
 
     ui->offerTable->setItem ( row, 0, new QTableWidgetItem ( offer.player ) );
-    ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.rating ) ) );
-
+    if (offer.rating != 0)
+    {
+        ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.rating ) ) );
+    }
+    
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
     baseTimeEdit->setReadOnly(true);
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );

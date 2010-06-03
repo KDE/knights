@@ -87,13 +87,13 @@ namespace Knights
 
     void MainWindow::fileNew()
     {
+        hideClockWidgets();
         KDialog gameNewDialog;
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
-            hideClockWidgets();
             delete m_protocol;
 
             dialogWidget->writeConfig();
@@ -131,7 +131,7 @@ namespace Knights
 
             if ( m_protocol )
             {
-                protocolOptions["color"] = dialogWidget->color();
+                protocolOptions["PlayerColor"] = dialogWidget->color();
                 connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
                 connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
                 m_protocol->init ( protocolOptions );
@@ -167,15 +167,26 @@ namespace Knights
         if ( m_protocol )
         {
             Piece::Color playerColor = m_protocol->playerColor();
-            playerClock->setPlayerName ( playerColor, i18n ( "You" ) );
-            playerClock->setPlayerName ( Piece::oppositeColor ( playerColor ), i18n ( "Opponent" ) );
+            if (!m_protocol->playerName().isEmpty())
+            {
+                playerClock->setPlayerName( playerColor, m_protocol->playerName() );
+            }
+            {
+                playerClock->setPlayerName ( playerColor, i18n ( "You" ) );
+            }
+            if (!m_protocol->opponentName().isEmpty())
+            {
+                playerClock->setPlayerName( Piece::oppositeColor ( playerColor ), m_protocol->opponentName() );
+            }
+            {
+                playerClock->setPlayerName ( Piece::oppositeColor ( playerColor ), i18n ( "Opponent" ) );
+            }
             playerClock->setTimeLimit ( playerColor, m_playerTime );
             playerClock->setTimeIncrement ( playerColor, m_oppIncrement );
             playerClock->setTimeLimit ( Piece::oppositeColor ( playerColor ), m_oppTime );
             playerClock->setTimeIncrement ( Piece::oppositeColor ( playerColor ), m_oppIncrement );
 
             playerClock->setDisplayedPlayer ( playerColor );
-            // TODO: Get names from protocol
         }
         else
         {
@@ -202,7 +213,10 @@ namespace Knights
 
     void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& errorString )
     {
-        KMessageBox::error ( this, errorString, Protocol::stringFromErrorCode ( errorCode ) );
+        if (errorCode != Protocol::UserCancelled)
+        {
+            KMessageBox::error ( this, errorString, Protocol::stringFromErrorCode ( errorCode ) );
+        }
         delete m_protocol;
         fileNew();
     }

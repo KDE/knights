@@ -48,6 +48,8 @@ const QString FicsProtocol::timePattern = "(\\d+)\\s+(\\d+)";
 const QString FicsProtocol::variantPattern = "([a-z]+)\\s+([a-z]+)";
 const QString FicsProtocol::argsPattern = "(.*)"; //TODO better
 const QString FicsProtocol::idPattern = "(\\d+)";
+const QString FicsProtocol::pieces = "PRNBQKprnbqk";
+const QString FicsProtocol::coordinate = "[abdcdefgh][12345678]";
 
 const QRegExp FicsProtocol::seekRegExp(QString("%1 %2 seeking %3 %4 %5\\(\"play %6\" to respond\\)")
                                                 .arg(namePattern)
@@ -67,7 +69,11 @@ const QRegExp FicsProtocol::soughtRegExp(QString("%1 %2 %3\\s+%4 %5 %6")
                                                 .arg(argsPattern)
                                                 );
                                                 
-const QRegExp FicsProtocol::moveRegExp("<12> (.*)");
+const QRegExp FicsProtocol::moveRegExp(QString("<12>.*[%1]\\/(%2)\\-(%3)")
+                                                .arg(pieces)
+                                                .arg(coordinate)
+                                                .arg(coordinate)
+                                                );
 const QRegExp FicsProtocol::challengeRegExp(QString("Challenge: %1 %2 %3 %4 %5 %6")
                                                 .arg(namePattern)
                                                 .arg(ratingPattern)
@@ -89,6 +95,8 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
+    
+    forcePrompt = false;
 }
 
 FicsProtocol::~FicsProtocol()
@@ -108,11 +116,12 @@ void FicsProtocol::startGame()
 
 void FicsProtocol::move ( const Move& m )
 {
-
+    m_stream << m.string() << endl;
 }
 
 void FicsProtocol::init ( const QVariantMap& options )
 {
+    setAttributes(options);
     kDebug() << Timeout << endl;
 
     m_stage = ConnectStage;
@@ -137,10 +146,16 @@ void FicsProtocol::socketError()
     kDebug() << m_socket->errorString();
 }
 
-void FicsProtocol::logIn ( bool forcePrompt )
+void FicsProtocol::logIn ( )
 {
     username = Settings::ficsUsername();
-    Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), qApp->activeWindow()->winId() );
+    // I really hope this works on all platforms
+    WId id = 0;
+    if (qApp->activeWindow())
+    {
+        id = qApp->activeWindow()->winId();
+    }
+    Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
     QString folder = "Knights";
     if ( !wallet->hasFolder ( folder ) )
     {
@@ -148,9 +163,9 @@ void FicsProtocol::logIn ( bool forcePrompt )
     }
     wallet->setFolder ( folder );
     QString key = username + '@' + m_socket->peerName();
-    wallet->readPassword ( username, password );
-    bool guest = username == "guest";
-    if ( forcePrompt || username.isEmpty() || password.isEmpty() )
+    wallet->readPassword ( key, password );
+    bool guest = (username == "guest");
+    if ( forcePrompt || username.isEmpty() )
     {
         KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox 
                                                     | KPasswordDialog::ShowKeepPassword 
@@ -166,6 +181,11 @@ void FicsProtocol::logIn ( bool forcePrompt )
             {
                 wallet->writePassword ( username + '@' + m_socket->peerName(), password );
             }
+            Settings::setFicsUsername(username);
+        }
+        else
+        {
+            emit error(UserCancelled);
         }
     }
     kDebug() << username;
@@ -179,6 +199,11 @@ void FicsProtocol::logIn ( bool forcePrompt )
         m_stream << username << endl;
         setPlayerName(username);
     }
+}
+
+void FicsProtocol::setupOptions()
+{
+    m_stream << "set style 12" << endl;
 }
 
 void FicsProtocol::openGameDialog()
@@ -201,10 +226,13 @@ void FicsProtocol::openGameDialog()
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
     connect ( this, SIGNAL(challengeReceived(FicsPlayer)), m_widget, SLOT(addChallenge(FicsPlayer)));
     connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
-    connect ( m_widget, SIGNAL ( seek() ), SLOT ( seek() ) );
+    connect ( m_widget, SIGNAL ( seekingChanged(bool)), SLOT ( setSeeking(bool)) );
     
-    connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted())); 
+   // connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted())); 
     connect ( dialog, SIGNAL(rejected()), SLOT(dialogRejected()));
+    
+    connect ( this, SIGNAL(initSuccesful()), dialog, SLOT(accept()));
+    connect ( this, SIGNAL(error(Protocol::ErrorCode,QString)), dialog, SLOT(deleteLater()));
     dialog->show();
 }
 
@@ -215,7 +243,7 @@ void FicsProtocol::readFromSocket()
         QByteArray next = m_socket->peek(10);
         if (!next.contains("fics") && !next.contains("login:") && !next.contains("password:"))
         {
-            // It is neither a prompt nor a complete line, so there will be more data to read soon
+            // It is neither a prompt nor a complete line, so we wait for more data
             return;
         }
     }
@@ -240,7 +268,12 @@ void FicsProtocol::readFromSocket()
             else if ( line.contains ( "Starting FICS session" ) )
             {
                 m_stage = SeekStage;
+                setupOptions();
                 openGameDialog();
+            }
+            else if ( line.contains( "Invalid password" ) )
+            {
+                forcePrompt = true;
             }
             break;
         case SeekStage:
@@ -300,12 +333,14 @@ void FicsProtocol::readFromSocket()
         case PlayStage:
             if (moveRegExp.indexIn(line) > -1)
             {
-                QStringList args = moveRegExp.cap().split(' ');
-                if (args.size() < 30)
-                {
-                    return;
-                }
-                //TODO: Parse the style12 line
+                Move m;
+                m.setFrom(moveRegExp.cap(1));
+                m.setTo(moveRegExp.cap(2));
+                emit pieceMoved(m);
+            }
+            else if (line.contains("lost contact or quit"))
+            {
+                emit gameOver(Piece::NoColor);
             }
     }
 
@@ -349,12 +384,32 @@ void FicsProtocol::setSeeking(bool seek)
 {
     if (seek)
     {
-        m_stream << "seek" << endl;
+        m_stream << "seek";
+        if (attribute("playerTimeLimit").canConvert<QTime>() && attribute("playerTimeIncrement").canConvert<int>())
+        {
+            QTime time = attribute("playerTimeLimit").toTime();
+            m_stream << ' ' << 60 * time.hour() + time.minute();
+            m_stream << ' ' << attribute("playerTimeIncrement").toInt();
+        }
+        m_stream << " unrated"; // TODO: Option for this
+        switch (playerColor())
+        {
+            case Piece::White:
+                m_stream << " white";
+                break;
+            case Piece::Black:
+                m_stream << " black";
+                break;
+            default:
+                break;
+        }
+        m_stream << " manual";
     }
     else
     {
-        m_stream << "unseek" << endl;
+        m_stream << "unseek";
     }
+    m_stream << endl;
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
