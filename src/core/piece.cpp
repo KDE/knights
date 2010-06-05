@@ -25,10 +25,10 @@
 #include <QtGui/QStyleOption>
 #include <QtSvg/QSvgRenderer>
 
-using namespace Knights;
+namespace Knights {
 
 
-Piece::Piece ( Piece::PieceType type, Piece::Color color, QGraphicsItem* parent )
+Piece::Piece ( PieceType type, Color color, QGraphicsItem* parent )
         : QGraphicsSvgItem ( parent )
 {
     m_color = color;
@@ -41,27 +41,29 @@ Piece::~Piece()
 
 }
 
-Piece::Color Piece::oppositeColor ( Piece::Color color )
+Color oppositeColor ( Color color )
 {
     switch ( color )
     {
-        case Black:
-            return White;
-        case White:
-            return Black;
-        default:
-            return color;
+    case Black:
+        return White;
+    case White:
+        return Black;
+    default:
+        return color;
     }
 }
 
-Piece::Color Piece::color()
+Color Piece::color()
 {
     return m_color;
 }
 
-Piece::PieceType Piece::pieceType()
+PieceType Piece::pieceType()
 {
     return m_type;
+}
+
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -23,7 +23,7 @@
 
 #include "core/pos.h"
 #include "core/move.h"
-#include "chessrules.h"
+#include "rules/chessrules.h"
 #include "settings.h"
 
 #include <KGameTheme>
@@ -44,7 +44,6 @@
 
 using namespace Knights;
 
-const QString rowNames = QString::fromAscii ( "abcdefgh" );
 const qreal tileZValue = 0.0;
 const qreal pieceZValue = 1.0;
 const qreal markerZValue = 2.0;
@@ -57,7 +56,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     setRuleSet ( new ChessRules );
     theme = new KGameTheme;
     updateTheme();
-    m_currentPlayer = Piece::White;
+    m_currentPlayer = White;
     m_paused = false;
 }
 
@@ -66,7 +65,7 @@ Board::~Board()
 
 }
 
-void Board::addPiece ( Piece::PieceType type, Piece::Color color, const Knights::Pos& pos )
+void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 {
     Piece* t_piece = new Piece ( type, color );
     if ( Settings::animationSpeed() != Settings::EnumAnimationSpeed::Instant )
@@ -76,10 +75,10 @@ void Board::addPiece ( Piece::PieceType type, Piece::Color color, const Knights:
     QString id;
     switch ( color )
     {
-        case Piece::White:
+        case White:
             id.append ( 'W' );
             break;
-        case Piece::Black:
+        case Black:
             id.append ( 'B' );
             break;
         default:
@@ -88,22 +87,22 @@ void Board::addPiece ( Piece::PieceType type, Piece::Color color, const Knights:
     id.append ( '_' );
     switch ( type )
     {
-        case Piece::Pawn:
+        case Pawn:
             id.append ( "PAWN" );
             break;
-        case Piece::Rook:
+        case Rook:
             id.append ( "ROOK" );
             break;
-        case Piece::Knight:
+        case Knight:
             id.append ( "KNIGHT" );
             break;
-        case Piece::Bishop:
+        case Bishop:
             id.append ( "BISHOP" );
             break;
-        case Piece::Queen:
+        case Queen:
             id.append ( "QUEEN" );
             break;
-        case Piece::King:
+        case King:
             id.append ( "KING" );
             break;
     }
@@ -122,7 +121,6 @@ void Board::addPiece ( Piece::PieceType type, Piece::Color color, const Knights:
 
 void Board::movePiece ( Move m, bool changePlayer )
 {
-    kDebug();
     if ( !m_grid.contains ( m.from() ) || m.to() == m.from() )
     {
         kWarning() << "Invalid move" << m.from() << m.to();
@@ -148,8 +146,8 @@ void Board::movePiece ( Move m, bool changePlayer )
         }
     }
     m_rules->moveMade ( m );
-    Piece::Color winner = m_rules->winner();
-    if ( winner != Piece::NoColor || !m_rules->hasLegalMoves ( Piece::oppositeColor ( m_currentPlayer ) ) )
+    Color winner = m_rules->winner();
+    if ( winner != NoColor || !m_rules->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
     {
         emit gameOver ( winner );
         kDebug() << winner;
@@ -162,15 +160,10 @@ void Board::movePiece ( Move m, bool changePlayer )
 
 void Board::populate()
 {
-    QMap<Pos, Piece::PieceType> pieces = m_rules->startingPieces ( Piece::White );
+    BoardState pieces = m_rules->startingPieces ();
     foreach ( const Pos& pos, pieces.keys() )
     {
-        addPiece ( pieces.value ( pos ), Piece::White, pos );
-    }
-    pieces = m_rules->startingPieces ( Piece::Black );
-    foreach ( const Pos& pos, pieces.keys() )
-    {
-        addPiece ( pieces.value ( pos ), Piece::Black, pos );
+        addPiece ( pieces[pos].second, pieces[pos].first, pos );
     }
 }
 
@@ -283,7 +276,7 @@ Pos Board::mapFromScene ( QPointF point )
     Pos pos;
     pos.first = ( point.x() - sceneRect().left() ) * 8 / height() + 1;
     pos.second = 1 - ( point.y() - sceneRect().bottom() ) * 8 / width();
-    if ( m_displayedPlayer != Piece::White )
+    if ( m_displayedPlayer != White )
     {
         pos = Pos ( 9, 9 ) - pos;
     }
@@ -292,7 +285,7 @@ Pos Board::mapFromScene ( QPointF point )
 
 QPointF Board::mapToScene ( Pos pos )
 {
-    if ( m_displayedPlayer != Piece::White )
+    if ( m_displayedPlayer != White )
     {
         pos = Pos ( 9, 9 ) - pos;
     }
@@ -346,34 +339,17 @@ void Board::centerOnPos ( QGraphicsItem* item, const Pos& pos, bool animated )
 
 }
 
-QChar Board::row ( int num )
-{
-    if ( num > 0 && num << 9 )
-    {
-        return rowNames[num - 1];
-    }
-    else
-    {
-        return QChar ( 'r' );
-    }
-}
-
-int Board::numFromRow ( const QChar& row )
-{
-    return rowNames.indexOf ( row ) + 1;
-}
-
 bool Board::isInBoard ( const Knights::Pos& pos )
 {
     return pos.first > 0 && pos.first < 9 && pos.second > 0 && pos.second < 9;
 }
 
-QList< Piece::Color > Board::playerColors()
+QList< Color > Board::playerColors()
 {
     return m_playerColors;
 }
 
-void Board::setPlayerColors ( const QList< Piece::Color >& colors )
+void Board::setPlayerColors ( const QList< Color >& colors )
 {
     if ( colors.isEmpty() )
     {
@@ -395,7 +371,7 @@ void Board::setPlayerColors ( const QList< Piece::Color >& colors )
 
 void Board::changeCurrentPlayer()
 {
-    m_currentPlayer = Piece::oppositeColor ( m_currentPlayer );
+    m_currentPlayer = oppositeColor ( m_currentPlayer );
     if ( m_playerColors.contains ( m_currentPlayer ) )
     {
         if ( m_displayedPlayer != m_currentPlayer )
@@ -410,7 +386,7 @@ void Board::changeCurrentPlayer()
     // TODO: Stop & start clocks at this point
 }
 
-void Board::setCurrentColor ( Piece::Color color )
+void Board::setCurrentColor ( Color color )
 {
     if ( m_currentPlayer != color )
     {
@@ -463,8 +439,6 @@ void Board::updateTheme()
 
 void Board::repaintBoard()
 {
-    // This function is NOT for theme change
-    kDebug();
     // Move the pieces if necessary
     foreach ( QGraphicsItem* item, items() )
     {

@@ -43,7 +43,7 @@ namespace Knights
             virtual ~GameDialog();
 
             Settings::EnumProtocol::type protocol() const;
-            Piece::Color color() const;
+            Color color() const;
             QTime playerTime() const;
             QTime opponentTime() const;
             QString program() const;

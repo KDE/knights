@@ -52,50 +52,50 @@ const QString FicsProtocol::pieces = "PRNBQKprnbqk";
 const QString FicsProtocol::coordinate = "[abdcdefgh][12345678]";
 
 const QRegExp FicsProtocol::seekRegExp(QString("%1 %2 seeking %3 %4 %5\\(\"play %6\" to respond\\)")
-                                                .arg(namePattern)
-                                                .arg(ratingPattern)
-                                                .arg(timePattern)
-                                                .arg(variantPattern)
-                                                .arg(argsPattern)
-                                                .arg(idPattern)
-                                                );
-                                                
+                                       .arg(namePattern)
+                                       .arg(ratingPattern)
+                                       .arg(timePattern)
+                                       .arg(variantPattern)
+                                       .arg(argsPattern)
+                                       .arg(idPattern)
+                                      );
+
 const QRegExp FicsProtocol::soughtRegExp(QString("%1 %2 %3\\s+%4 %5 %6")
-                                                .arg(idPattern)
-                                                .arg(ratingPattern)
-                                                .arg(namePattern)
-                                                .arg(timePattern)
-                                                .arg(variantPattern)
-                                                .arg(argsPattern)
-                                                );
-                                                
+        .arg(idPattern)
+        .arg(ratingPattern)
+        .arg(namePattern)
+        .arg(timePattern)
+        .arg(variantPattern)
+        .arg(argsPattern)
+                                        );
+
 const QRegExp FicsProtocol::moveRegExp(QString("<12>.*[%1]\\/(%2)\\-(%3)")
-                                                .arg(pieces)
-                                                .arg(coordinate)
-                                                .arg(coordinate)
-                                                );
+                                       .arg(pieces)
+                                       .arg(coordinate)
+                                       .arg(coordinate)
+                                      );
 const QRegExp FicsProtocol::challengeRegExp(QString("Challenge: %1 %2 %3 %4 %5 %6")
-                                                .arg(namePattern)
-                                                .arg(ratingPattern)
-                                                .arg(namePattern)
-                                                .arg(ratingPattern)
-                                                .arg(variantPattern)
-                                                .arg(timePattern)
-                                                );
+        .arg(namePattern)
+        .arg(ratingPattern)
+        .arg(namePattern)
+        .arg(ratingPattern)
+        .arg(variantPattern)
+        .arg(timePattern)
+                                           );
 const QRegExp FicsProtocol::gameStartedExp(QString("Creating: %1 %2 %3 %4 %5 %6")
-                                                .arg(namePattern)
-                                                .arg(ratingPattern)
-                                                .arg(namePattern)
-                                                .arg(ratingPattern)
-                                                .arg(variantPattern)
-                                                .arg(timePattern)
-                                                );
+        .arg(namePattern)
+        .arg(ratingPattern)
+        .arg(namePattern)
+        .arg(ratingPattern)
+        .arg(variantPattern)
+        .arg(timePattern)
+                                          );
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
-    
+
     forcePrompt = false;
 }
 
@@ -106,7 +106,7 @@ FicsProtocol::~FicsProtocol()
 
 Protocol::Features FicsProtocol::supportedFeatures()
 {
-    return TimeLimit | ChangeTimeLimit;
+    return TimeLimit | UpdateTimeLimit;
 }
 
 void FicsProtocol::startGame()
@@ -167,9 +167,9 @@ void FicsProtocol::logIn ( )
     bool guest = (username == "guest");
     if ( forcePrompt || username.isEmpty() )
     {
-        KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox 
-                                                    | KPasswordDialog::ShowKeepPassword 
-                                                    | KPasswordDialog::ShowUsernameLine;
+        KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
+                | KPasswordDialog::ShowKeepPassword
+                | KPasswordDialog::ShowUsernameLine;
         KPasswordDialog pwDialog ( qApp->activeWindow(), flags );
         pwDialog.setUsername ( username );
         if ( pwDialog.exec() == QDialog::Accepted )
@@ -212,7 +212,7 @@ void FicsProtocol::openGameDialog()
     dialog->setButtons(KDialog::Cancel | KDialog::Apply | KDialog::Reset);
     dialog->setButtonText(KDialog::Apply, i18n("Accept"));
     dialog->setButtonText(KDialog::Reset, i18n("Decline"));
-    
+
     m_widget = new FicsDialog ( dialog );
     dialog->setMainWidget ( m_widget );
 
@@ -222,15 +222,15 @@ void FicsProtocol::openGameDialog()
     connect ( m_widget, SIGNAL(acceptChallenge()), SLOT(acceptChallenge()));
     connect ( m_widget, SIGNAL(declineChallenge()), SLOT(declineChallenge()));
     connect ( m_widget, SIGNAL(declineButtonNeeded(bool)), dialog->button(KDialog::Reset), SLOT(setEnabled(bool)));
-    
+
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
     connect ( this, SIGNAL(challengeReceived(FicsPlayer)), m_widget, SLOT(addChallenge(FicsPlayer)));
     connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
     connect ( m_widget, SIGNAL ( seekingChanged(bool)), SLOT ( setSeeking(bool)) );
-    
-   // connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted())); 
+
+    // connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted()));
     connect ( dialog, SIGNAL(rejected()), SLOT(dialogRejected()));
-    
+
     connect ( this, SIGNAL(initSuccesful()), dialog, SLOT(accept()));
     connect ( this, SIGNAL(error(Protocol::ErrorCode,QString)), dialog, SLOT(deleteLater()));
     dialog->show();
@@ -251,97 +251,97 @@ void FicsProtocol::readFromSocket()
     kDebug() << line;
     switch ( m_stage )
     {
-        case ConnectStage:
-            if ( line.contains ( "login:" ) )
+    case ConnectStage:
+        if ( line.contains ( "login:" ) )
+        {
+            logIn();
+        }
+        else if ( line.contains ( "password:" ) )
+        {
+            m_stream << password << endl;
+        }
+        else if ( line.contains ( "Press return to enter the server" ) )
+        {
+            m_stream << endl;
+        }
+        // TODO: Check for incorrect logins
+        else if ( line.contains ( "Starting FICS session" ) )
+        {
+            m_stage = SeekStage;
+            setupOptions();
+            openGameDialog();
+        }
+        else if ( line.contains( "Invalid password" ) )
+        {
+            forcePrompt = true;
+        }
+        break;
+    case SeekStage:
+        if (seekRegExp.indexIn(line) != -1)
+        {
+            FicsGameOffer offer;
+            int n = 1;
+            offer.player.first = seekRegExp.cap(n++);
+            offer.player.second = seekRegExp.cap(n++).toInt();
+            offer.baseTime = seekRegExp.cap(n++).toInt();
+            offer.timeIncrement = seekRegExp.cap(n++).toInt();
+            offer.rated = (seekRegExp.cap(n++) == "rated");
+            offer.variant = seekRegExp.cap(n++);
+            QString extraParams = seekRegExp.cap(n++);
+            offer.gameId = seekRegExp.cap(n++).toInt();
+            emit gameOfferReceived ( offer );
+        }
+        else if (soughtRegExp.indexIn(line) != -1)
+        {
+            FicsGameOffer offer;
+            int n = 1;
+            offer.gameId = soughtRegExp.cap(n++).toInt();
+            offer.player.second = soughtRegExp.cap(n++).toInt();
+            offer.player.first = soughtRegExp.cap(n++);
+            offer.baseTime = soughtRegExp.cap(n++).toInt();
+            offer.timeIncrement = soughtRegExp.cap(n++).toInt();
+            offer.rated = (soughtRegExp.cap(n++) == "rated");
+            offer.variant = soughtRegExp.cap(n++);
+            // TODO: The rest
+            emit gameOfferReceived ( offer );
+        }
+        else if (challengeRegExp.indexIn(line) > -1)
+        {
+            FicsPlayer player;
+            player.first = challengeRegExp.cap(1);
+            player.second = challengeRegExp.cap(2).toInt();
+            emit challengeReceived(player);
+        }
+        else if (gameStartedExp.indexIn(line) > -1)
+        {
+            QString player1 = gameStartedExp.cap(1);
+            QString player2 = gameStartedExp.cap(3);
+            if (player1 == playerName())
             {
-                logIn();
+                setPlayerColor(White);
+                setOpponentName(player2);
             }
-            else if ( line.contains ( "password:" ) )
+            else
             {
-                m_stream << password << endl;
+                setPlayerColor(Black);
+                setOpponentName(player1);
             }
-            else if ( line.contains ( "Press return to enter the server" ) )
-            {
-                m_stream << endl;
-            }
-            // TODO: Check for incorrect logins
-            else if ( line.contains ( "Starting FICS session" ) )
-            {
-                m_stage = SeekStage;
-                setupOptions();
-                openGameDialog();
-            }
-            else if ( line.contains( "Invalid password" ) )
-            {
-                forcePrompt = true;
-            }
-            break;
-        case SeekStage:
-            if (seekRegExp.indexIn(line) != -1)
-            {
-                FicsGameOffer offer;
-                int n = 1;
-                offer.player = seekRegExp.cap(n++);
-                offer.rating = seekRegExp.cap(n++).toInt();
-                offer.baseTime = seekRegExp.cap(n++).toInt();
-                offer.timeIncrement = seekRegExp.cap(n++).toInt();
-                offer.rated = (seekRegExp.cap(n++) == "rated");
-                offer.variant = seekRegExp.cap(n++);
-                QString extraParams = seekRegExp.cap(n++);
-                offer.gameId = seekRegExp.cap(n++).toInt();
-                emit gameOfferReceived ( offer );
-            }
-            else if (soughtRegExp.indexIn(line) != -1)
-            {
-                FicsGameOffer offer;
-                int n = 1;
-                offer.gameId = soughtRegExp.cap(n++).toInt();
-                offer.rating = soughtRegExp.cap(n++).toInt();
-                offer.player = soughtRegExp.cap(n++);
-                offer.baseTime = soughtRegExp.cap(n++).toInt();
-                offer.timeIncrement = soughtRegExp.cap(n++).toInt();
-                offer.rated = (soughtRegExp.cap(n++) == "rated");
-                offer.variant = soughtRegExp.cap(n++);
-                // TODO: The rest
-                emit gameOfferReceived ( offer );
-            }
-            else if (challengeRegExp.indexIn(line) > -1)
-            {
-                FicsPlayer player;
-                player.first = challengeRegExp.cap(1);
-                player.second = challengeRegExp.cap(2).toInt();
-                emit challengeReceived(player);
-            }
-            else if (gameStartedExp.indexIn(line) > -1)
-            {
-                QString player1 = gameStartedExp.cap(1);
-                QString player2 = gameStartedExp.cap(3);
-                if (player1 == playerName())
-                {
-                    setPlayerColor(Piece::White);
-                    setOpponentName(player2);
-                }
-                else
-                {
-                    setPlayerColor(Piece::Black);
-                    setOpponentName(player1);
-                }
-                m_stage = PlayStage;
-                emit initSuccesful();
-            }
-            break;
-        case PlayStage:
-            if (moveRegExp.indexIn(line) > -1)
-            {
-                Move m;
-                m.setFrom(moveRegExp.cap(1));
-                m.setTo(moveRegExp.cap(2));
-                emit pieceMoved(m);
-            }
-            else if (line.contains("lost contact or quit"))
-            {
-                emit gameOver(Piece::NoColor);
-            }
+            m_stage = PlayStage;
+            emit initSuccesful();
+        }
+        break;
+    case PlayStage:
+        if (moveRegExp.indexIn(line) > -1)
+        {
+            Move m;
+            m.setFrom(moveRegExp.cap(1));
+            m.setTo(moveRegExp.cap(2));
+            emit pieceMoved(m);
+        }
+        else if (line.contains("lost contact or quit"))
+        {
+            emit gameOver(NoColor);
+        }
     }
 
     if ( m_socket->bytesAvailable() > 0 )
@@ -372,7 +372,7 @@ void FicsProtocol::declineChallenge()
 
 void FicsProtocol::dialogAccepted()
 {
-    
+
 }
 
 void FicsProtocol::dialogRejected()
@@ -394,14 +394,14 @@ void FicsProtocol::setSeeking(bool seek)
         m_stream << " unrated"; // TODO: Option for this
         switch (playerColor())
         {
-            case Piece::White:
-                m_stream << " white";
-                break;
-            case Piece::Black:
-                m_stream << " black";
-                break;
-            default:
-                break;
+        case White:
+            m_stream << " white";
+            break;
+        case Black:
+            m_stream << " black";
+            break;
+        default:
+            break;
         }
         m_stream << " manual";
     }

@@ -65,8 +65,8 @@ namespace Knights
             Board* m_board;
             Protocol* m_protocol;
 
-            static QString pieceTypeName ( Piece::PieceType );
-            static QString colorName ( Piece::Color );
+            static QString pieceTypeName ( PieceType );
+            static QString colorName ( Color );
 
         signals:
             /**
@@ -83,13 +83,13 @@ namespace Knights
 
             //Signals from board:
 
-            void activePlayerChanged ( Piece::Color );
-            void displayedPlayerChanged ( Piece::Color );
+            void activePlayerChanged ( Color );
+            void displayedPlayerChanged ( Color );
 
         private slots:
             void settingsChanged();
             void resizeScene();
-            void gameOver ( Piece::Color winner );
+            void gameOver ( Color winner );
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

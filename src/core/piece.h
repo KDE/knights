@@ -24,49 +24,52 @@
 
 #include <QtSvg/QGraphicsSvgItem>
 
+#include "pos.h"
+
 namespace Knights
 {
-    struct Pos;
+enum PieceType
+{
+    King,
+    Queen,
+    Bishop,
+    Knight,
+    Rook,
+    Pawn
+};
+enum Color
+{
+    NoColor = 0,
+    White,
+    Black
+};
+Color oppositeColor ( Color color );
 
-    class Piece : public QGraphicsSvgItem
-    {
-            Q_OBJECT
-        public:
-            enum PieceType
-            {
-                King,
-                Queen,
-                Bishop,
-                Knight,
-                Rook,
-                Pawn
-            };
-            enum Color
-            {
-                NoColor = 0,
-                White,
-                Black
-            };
+class Piece : public QGraphicsSvgItem
+{
+    Q_OBJECT
+public:
+    Piece ( QGraphicsItem* parentItem = 0 );
+    Piece ( PieceType type, Color color, QGraphicsItem* parent = 0 );
+    virtual ~Piece();
 
-            Piece ( QGraphicsItem* parentItem = 0 );
-            Piece ( PieceType type, Color color, QGraphicsItem* parent = 0 );
-            virtual ~Piece();
+    PieceType pieceType();
+    Color color();
 
-            PieceType pieceType();
-            Color color();
+private:
+    Color m_color;
+    PieceType m_type;
+};
 
-            static Color oppositeColor ( Color );
-            
-        private:
-            Color m_color;
-            PieceType m_type;
-    };
-
-    typedef QMap<Pos, Piece*> Grid;
+typedef QMap<Pos, Piece*> Grid;
+typedef QPair<Color,PieceType> PieceData;
+typedef QMap<Pos, PieceData> BoardState;
 }
 
-Q_DECLARE_METATYPE ( Knights::Piece::Color )
-Q_DECLARE_METATYPE ( Knights::Piece::PieceType )
+Q_DECLARE_METATYPE ( Knights::Color )
+Q_DECLARE_METATYPE ( Knights::PieceType )
+Q_DECLARE_METATYPE ( Knights::PieceData )
+Q_DECLARE_METATYPE ( Knights::BoardState )
 
 #endif // KNIGHTS_PIECE_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

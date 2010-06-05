@@ -33,8 +33,8 @@ int id = qRegisterMetaType<Protocol::ErrorCode>("Protocol::ErrorCode");
 
 class ProtocolPrivate
 {
-    public:
-        QVariantMap attributes;
+public:
+    QVariantMap attributes;
 };
 
 Protocol::Protocol(QObject* parent): QObject(parent), d_ptr(new ProtocolPrivate)
@@ -51,34 +51,34 @@ QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 {
     switch ( code )
     {
-        case NoError:
-            return i18n ( "No Error" );
+    case NoError:
+        return i18n ( "No Error" );
 
-        case UserCancelled:
-            return i18n ( "User Cancelled" );
+    case UserCancelled:
+        return i18n ( "User Cancelled" );
 
-        case NetworkError:
-            return i18n ( "Network Error" );
+    case NetworkError:
+        return i18n ( "Network Error" );
 
-        case UnknownError:
-            return i18n ( "Unknown Error" );
+    case UnknownError:
+        return i18n ( "Unknown Error" );
 
-        case InstallationError:
-            return i18n ( "Program Error" );
+    case InstallationError:
+        return i18n ( "Program Error" );
 
-        default:
-            return QString();
+    default:
+        return QString();
     }
 }
 
-void Protocol::setPlayerColor ( Piece::Color color )
+void Protocol::setPlayerColor ( Color color )
 {
-    setAttribute( "PlayerColor", QVariant::fromValue<Piece::Color>(color) );
+    setAttribute( "PlayerColor", QVariant::fromValue<Color>(color) );
 }
 
-Piece::Color Protocol::playerColor() const
+Color Protocol::playerColor() const
 {
-    return attribute( "PlayerColor" ).value<Piece::Color>();
+    return attribute( "PlayerColor" ).value<Color>();
 }
 
 void Protocol::setOpponentName(QString name)

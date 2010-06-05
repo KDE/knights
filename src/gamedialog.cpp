@@ -90,19 +90,19 @@ void GameDialog::writeConfig()
     Settings::self()->writeConfig();
 }
 
-Piece::Color GameDialog::color() const
+Color GameDialog::color() const
 {
     if ( ui->colorBlack->isChecked() )
     {
-        return Piece::Black;
+        return Black;
     }
     else if ( ui->colorWhite->isChecked() )
     {
-        return Piece::White;
+        return White;
     }
     else
     {
-        return Piece::NoColor;
+        return NoColor;
     }
 }
 

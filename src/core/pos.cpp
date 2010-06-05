@@ -26,67 +26,87 @@
 
 namespace Knights
 {
-    Pos::Pos()
+const QString Pos::rowNames = QString::fromAscii ( "abcdefgh" );
+
+
+QChar Pos::row ( int num )
+{
+    if ( num > 0 && num << 9 )
     {
-
+        return rowNames[num - 1];
     }
-
-    Pos::Pos ( const int& t1, const int& t2 ) : QPair< int, int > ( t1, t2 )
+    else
     {
-
+        return QChar ( 'r' );
     }
-    
-    Pos::Pos(const QString string)
+}
+
+int Pos::numFromRow ( const QChar& row )
+{
+    return rowNames.indexOf ( row ) + 1;
+}
+
+Pos::Pos()
+{
+
+}
+
+Pos::Pos ( const int& t1, const int& t2 ) : QPair< int, int > ( t1, t2 )
+{
+
+}
+
+Pos::Pos(const QString string)
+{
+    if (string.size() == 2)
     {
-        if (string.size() == 2)
-        {
-            first = Board::numFromRow(string.at(0));
-            second = string.right(1).toInt();
-        }
+        first = numFromRow(string.at(0));
+        second = string.right(1).toInt();
     }
+}
 
-    Pos::~Pos()
-    {
+Pos::~Pos()
+{
 
-    }
+}
 
-    QString Pos::string()
-    {
-        return Board::row(first) + QString::number(second);
-    }
+QString Pos::string()
+{
+    return row(first) + QString::number(second);
+}
 
-    const Pos& Pos::operator+= ( const Pos & other )
-    {
-        first += other.first;
-        second += other.second;
-        return *this;
-    }
+const Pos& Pos::operator+= ( const Pos & other )
+{
+    first += other.first;
+    second += other.second;
+    return *this;
+}
 
-    Pos operator+ ( const Pos& one, const Pos& other )
-    {
-        return Pos ( one.first + other.first, one.second + other.second );
-    }
+Pos operator+ ( const Pos& one, const Pos& other )
+{
+    return Pos ( one.first + other.first, one.second + other.second );
+}
 
-    Pos operator- ( const Pos& one, const Pos& other )
-    {
-        return Pos ( one.first - other.first, one.second - other.second );
-    }
+Pos operator- ( const Pos& one, const Pos& other )
+{
+    return Pos ( one.first - other.first, one.second - other.second );
+}
 
-    Pos operator* ( int m, const Pos& other )
-    {
-        return Pos ( m*other.first, m*other.second );
-    }
+Pos operator* ( int m, const Pos& other )
+{
+    return Pos ( m*other.first, m*other.second );
+}
 
-    Pos operator/ ( const Pos& other, int m )
-    {
-        return Pos ( other.first / m, other.second / m );
-    }
+Pos operator/ ( const Pos& other, int m )
+{
+    return Pos ( other.first / m, other.second / m );
+}
 
-    QDebug& operator<< ( QDebug& debug, const Knights::Pos& pos )
-    {
-        debug.nospace() << Board::row ( pos.first ) << pos.second;
-        return debug;
-    }
+QDebug& operator<< ( QDebug& debug, const Knights::Pos& pos )
+{
+    debug.nospace() << Pos::row ( pos.first ) << pos.second;
+    return debug;
+}
 }
 
 

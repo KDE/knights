@@ -58,14 +58,12 @@ void XBoardProtocol::startGame()
 void XBoardProtocol::move ( const Move& m )
 {
     QString move;
-    move.append ( Board::row ( m.from().first ) );
-    move.append ( QString::number ( m.from().second ) );
+    move.append ( m.from().string() );
     if ( m.flags() & Move::Take )
     {
         move.append ( 'x' );
     }
-    move.append ( Board::row ( m.to().first ) );
-    move.append ( QString::number ( m.to().second ) );
+    move.append ( m.to().string() );
     move.append ( '\n' );
     kDebug() << move;
     mProcess->write ( move.toLatin1() );
@@ -93,12 +91,12 @@ void XBoardProtocol::init ( const QVariantMap& options )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it's installed", program ) );
         return;
     }
-    if ( playerColor() == Piece::NoColor )
+    if ( playerColor() == NoColor )
     {
-        setPlayerColor( ( qrand() % 2 == 0 ) ? Piece::White : Piece::Black );
+        setPlayerColor( ( qrand() % 2 == 0 ) ? White : Black );
     }
 
-    if ( playerColor() == Piece::Black )
+    if ( playerColor() == Black )
     {
         mProcess->write("go\n");
     }
@@ -108,7 +106,6 @@ void XBoardProtocol::init ( const QVariantMap& options )
 void XBoardProtocol::readFromProgram()
 {
     QString moveString = QString ( mProcess->readAllStandardOutput() );
-    kDebug() << moveString;
     if ( !moveString.contains ( "..." ) )
     {
         if ( moveString.contains ( "Illegal move" ) )
@@ -121,17 +118,17 @@ void XBoardProtocol::readFromProgram()
     {
         if ( moveString.split ( ' ' ).last().contains ( "white" ) )
         {
-            emit gameOver ( Piece::White );
+            emit gameOver ( White );
         }
         else
         {
-            emit gameOver ( Piece::Black );
+            emit gameOver ( Black );
         }
         return;
     }
     moveString = moveString.split ( ' ' ).last();
     Move m;
-    m.setFrom ( Pos ( Board::numFromRow ( moveString[0] ), moveString.mid ( 1, 1 ).toInt() ) );
+    m.setFrom ( Pos ( moveString.mid ( 0, 2 ) ) );
     int i = 2;
     if ( moveString.contains ( 'x' ) )
     {
@@ -142,9 +139,7 @@ void XBoardProtocol::readFromProgram()
     {
         m.setFlag ( Move::Take, false );
     }
-    m.setTo ( Pos ( Board::numFromRow ( moveString[i] ), moveString.mid ( i + 1, 1 ).toInt() ) );
-
-    kDebug() << moveString << m.from() << m.to();
+    m.setTo ( Pos ( moveString.mid ( i, 2 ) ) );
     emit pieceMoved ( m );
 }
 

@@ -35,10 +35,16 @@ public:
     Pos(const int& t1, const int& t2);
     Pos(const QString string);
     ~Pos();
-    
+
+    static QChar row(int num);
+    static int numFromRow(const QChar& row);
+
     QString string();
 
     const Pos& operator+=(const Pos& other);
+
+private:
+    static const QString rowNames;
 };
 
 Pos operator+(const Pos& one, const Pos& other);

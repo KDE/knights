@@ -56,27 +56,27 @@ void KnightsView::setupBoard ( Protocol* protocol )
     {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
         connect ( protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        connect ( protocol, SIGNAL ( gameOver ( Piece::Color ) ), SLOT ( gameOver ( Piece::Color ) ) );
-        m_board->setPlayerColors ( QList<Piece::Color>() << protocol->playerColor() );
+        connect ( protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
+        m_board->setPlayerColors ( QList<Color>() << protocol->playerColor() );
     }
     else
     {
-        m_board->setPlayerColors ( QList<Piece::Color>() << Piece::White << Piece::Black );
+        m_board->setPlayerColors ( QList<Color>() << White << Black );
     }
-    connect ( m_board, SIGNAL ( gameOver ( Piece::Color ) ), SLOT ( gameOver ( Piece::Color ) ) );
+    connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     connect ( m_board, SIGNAL ( sceneRectChanged ( QRectF ) ), SLOT ( resizeScene() ) );
-    connect ( m_board, SIGNAL ( activePlayerChanged ( Piece::Color ) ), SIGNAL ( activePlayerChanged ( Piece::Color ) ) );
-    connect ( m_board, SIGNAL ( displayedPlayerChanged ( Piece::Color ) ), SIGNAL ( displayedPlayerChanged ( Piece::Color ) ) );
+    connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
+    connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
 
     ui.canvas->setScene ( m_board );
     resizeScene();
 }
 
-void KnightsView::gameOver ( Piece::Color winner )
+void KnightsView::gameOver ( Color winner )
 {
     QString text;
     QString caption;
-    if ( winner == Piece::NoColor )
+    if ( winner == NoColor )
     {
         text = i18n ( "The game ended in a draw" );
         KMessageBox::information ( this, text );
@@ -124,34 +124,34 @@ void KnightsView::setPaused ( bool paused )
     m_board->setPaused ( paused );
 }
 
-QString KnightsView::colorName ( Piece::Color color )
+QString KnightsView::colorName ( Color color )
 {
     switch ( color )
     {
-        case Piece::White:
+        case White:
             return i18n ( "White" );
-        case Piece::Black:
+        case Black:
             return i18n ( "Black" );
         default:
             return QString();
     }
 }
 
-QString KnightsView::pieceTypeName ( Piece::PieceType type )
+QString KnightsView::pieceTypeName ( PieceType type )
 {
     switch ( type )
     {
-        case Piece::Pawn:
+        case Pawn:
             return i18n ( "Pawn" );
-        case Piece::Rook:
+        case Rook:
             return i18n ( "Rook" );
-        case Piece::Knight:
+        case Knight:
             return i18n ( "Knight" );
-        case Piece::Bishop:
+        case Bishop:
             return i18n ( "Bishop" );
-        case Piece::Queen:
+        case Queen:
             return i18n ( "Queen" );
-        case Piece::King:
+        case King:
             return i18n ( "King" );
         default:
             return QString();

@@ -28,43 +28,43 @@
 
 namespace Ui
 {
-    class FicsDialog;
+class FicsDialog;
 }
 
 namespace Knights
 {
-    class FicsDialog : public QWidget
-    {
-            Q_OBJECT
-        public:
-            FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-            virtual ~FicsDialog();
+class FicsDialog : public QWidget
+{
+    Q_OBJECT
+public:
+    FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+    virtual ~FicsDialog();
 
-            int acceptedGameId();
+    int acceptedGameId();
 
-        public Q_SLOTS:
-            void addGameOffer ( const FicsGameOffer& offer );
-            void addChallenge ( const FicsPlayer& challenger );
-            void clearOffers();
-            void refresh();
-            void accept();
-            void decline();
-            void currentTabChanged(int tab);
-            
-        Q_SIGNALS:
-            void seekingChanged(bool seek);
-            void sought();
-            void declineButtonNeeded(bool needed);
-            
-            void acceptSeek(int seekId);
-            void acceptChallenge();
-            void declineChallenge();
+public Q_SLOTS:
+    void addGameOffer ( const FicsGameOffer& offer );
+    void addChallenge ( const FicsPlayer& challenger );
+    void clearOffers();
+    void refresh();
+    void accept();
+    void decline();
+    void currentTabChanged(int tab);
 
-        private:
-            Ui::FicsDialog* ui;
-            QMap<int, int> m_gameId;
-    };
+Q_SIGNALS:
+    void seekingChanged(bool seek);
+    void sought();
+    void declineButtonNeeded(bool needed);
+
+    void acceptSeek(int seekId);
+    void acceptChallenge();
+    void declineChallenge();
+
+private:
+    Ui::FicsDialog* ui;
+    QMap<int, int> m_gameId;
+};
 }
 
 #endif // KNIGHTS_FICSDIALOG_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

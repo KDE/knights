@@ -30,92 +30,91 @@ class QTcpSocket;
 
 namespace Knights
 {
-    class FicsDialog;
-    
-    typedef QPair<QString, int> FicsPlayer;
-   
-    struct FicsGameOffer
-    {
-        QString player;
-        int rating;
-        int baseTime;
-        int timeIncrement;
-        bool rated;
-        QString variant;
-        Piece::Color color;
-        bool manual;
-        bool formula;
-        int gameId;
-    };
-    
-    enum Stage{
-        ConnectStage,
-        SeekStage,
-        PlayStage
-    };
+class FicsDialog;
 
-    class FicsProtocol : public Knights::Protocol
-    {
-            Q_OBJECT
-        public:
-            FicsProtocol ( QObject* parent = 0 );
-            virtual ~FicsProtocol();
+typedef QPair<QString, int> FicsPlayer;
 
-            virtual Features supportedFeatures();
+struct FicsGameOffer
+{
+    FicsPlayer player;
+    int baseTime;
+    int timeIncrement;
+    bool rated;
+    QString variant;
+    Color color;
+    bool manual;
+    bool formula;
+    int gameId;
+};
 
-            virtual void startGame();
-            virtual void move ( const Move& m );
+enum Stage {
+    ConnectStage,
+    SeekStage,
+    PlayStage
+};
 
-        private:
-            static const int Timeout;
-            
-            static const QString namePattern;
-            static const QString idPattern;
-            static const QString ratingPattern;
-            static const QString timePattern;
-            static const QString variantPattern;
-            static const QString argsPattern;
-            static const QString pieces;
-            static const QString coordinate;
-            
-            static const QRegExp moveRegExp;
-            static const QRegExp seekRegExp;
-            static const QRegExp soughtRegExp;
-            static const QRegExp challengeRegExp;
-            static const QRegExp gameStartedExp;
-            
-            QTcpSocket* m_socket;
-            QTextStream m_stream;
-            Stage m_stage;
-            QString username;
-            QString password;
-            FicsDialog* m_widget;
+class FicsProtocol : public Knights::Protocol
+{
+    Q_OBJECT
+public:
+    FicsProtocol ( QObject* parent = 0 );
+    virtual ~FicsProtocol();
+
+    virtual Features supportedFeatures();
+
+    virtual void startGame();
+    virtual void move ( const Move& m );
+
+private:
+    static const int Timeout;
+
+    static const QString namePattern;
+    static const QString idPattern;
+    static const QString ratingPattern;
+    static const QString timePattern;
+    static const QString variantPattern;
+    static const QString argsPattern;
+    static const QString pieces;
+    static const QString coordinate;
+
+    static const QRegExp moveRegExp;
+    static const QRegExp seekRegExp;
+    static const QRegExp soughtRegExp;
+    static const QRegExp challengeRegExp;
+    static const QRegExp gameStartedExp;
+
+    QTcpSocket* m_socket;
+    QTextStream m_stream;
+    Stage m_stage;
+    QString username;
+    QString password;
+    FicsDialog* m_widget;
     bool forcePrompt;
-            
-            void logIn();
-            void sendPassword();
 
-        public Q_SLOTS:
-            virtual void init ( const QVariantMap& options );
-            void socketConnected();
-            void socketError();
-            void dialogAccepted();
+    void logIn();
+    void sendPassword();
+
+public Q_SLOTS:
+    virtual void init ( const QVariantMap& options );
+    void socketConnected();
+    void socketError();
+    void dialogAccepted();
     void dialogRejected();
     void acceptSeek(int id);
     void acceptChallenge();
     void declineChallenge();
-            
-        private Q_SLOTS:
-            void readFromSocket();
-            void openGameDialog();
-            void checkSought();
-            void setSeeking( bool seek );
+
+private Q_SLOTS:
+    void readFromSocket();
+    void openGameDialog();
+    void checkSought();
+    void setSeeking( bool seek );
     void setupOptions();
 
-        Q_SIGNALS:
-            void gameOfferReceived ( const FicsGameOffer& offer );
-            void challengeReceived ( const FicsPlayer& challenger );
-    };
+Q_SIGNALS:
+    void gameOfferReceived ( const FicsGameOffer& offer );
+    void challengeReceived ( const FicsPlayer& challenger );
+};
 }
 
 #endif // KNIGHTS_FICSPROTOCOL_H

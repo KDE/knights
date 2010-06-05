@@ -30,61 +30,61 @@
 
 namespace Knights
 {
-    class MovePrivate;
-    class Move
+class MovePrivate;
+class Move
+{
+public:
+
+    typedef QList<Move> List;
+
+    enum MoveFlag
     {
-        public:
-
-            typedef QList<Move> List;
-
-            enum MoveFlag
-            {
-                None = 0x00,
-                Take = 0x01,
-                Promote = 0x02,
-                Castle = 0x04,
-                EnPassant = 0x08,
-                Check = 0x10,
-                CheckMate = 0x20,
-            };
-            Q_DECLARE_FLAGS ( Flags, MoveFlag )
-
-            Move ( Pos from, Pos to, Flags flags = None );
-            Move ( QString string );
-            Move();
-            Move ( const Move& other );
-            virtual ~Move();
-
-            Pos from() const;
-            Pos to() const;
-            QString string() const;
-            
-            void setFrom ( const Pos& value );
-            void setFrom ( int first, int second );
-            void setTo ( const Pos& value );
-            void setTo ( int first, int second );
-            void setString ( QString string );
-
-            Flags flags() const;
-            void setFlag ( MoveFlag, bool value );
-            void setFlags ( Flags );
-
-            const QList<Move>& additionalMoves() const;
-            void setAdditionalMoves ( const QList<Move>& list );
-            const QList<Pos>& additionalCaptures() const;
-            void setAdditionalCaptures ( const QList<Pos>& list );
-
-            bool operator== ( Move other ) const;
-
-        private:
-            Q_DECLARE_PRIVATE ( Move )
-
-            MovePrivate* d_ptr;
-            Flags m_flags;
-
+        None = 0x00,
+        Take = 0x01,
+        Promote = 0x02,
+        Castle = 0x04,
+        EnPassant = 0x08,
+        Check = 0x10,
+        CheckMate = 0x20,
     };
+    Q_DECLARE_FLAGS ( Flags, MoveFlag )
 
-    Q_DECLARE_OPERATORS_FOR_FLAGS ( Move::Flags )
+    Move ( Pos from, Pos to, Flags flags = None );
+    Move ( QString string );
+    Move();
+    Move ( const Move& other );
+    virtual ~Move();
+
+    Pos from() const;
+    Pos to() const;
+    QString string() const;
+
+    void setFrom ( const Pos& value );
+    void setFrom ( int first, int second );
+    void setTo ( const Pos& value );
+    void setTo ( int first, int second );
+    void setString ( QString string );
+
+    Flags flags() const;
+    void setFlag ( MoveFlag, bool value );
+    void setFlags ( Flags );
+
+    const QList<Move>& additionalMoves() const;
+    void setAdditionalMoves ( const QList<Move>& list );
+    const QList<Pos>& additionalCaptures() const;
+    void setAdditionalCaptures ( const QList<Pos>& list );
+
+    bool operator== ( Move other ) const;
+
+private:
+    Q_DECLARE_PRIVATE ( Move )
+
+    MovePrivate* d_ptr;
+    Flags m_flags;
+
+};
+
+Q_DECLARE_OPERATORS_FOR_FLAGS ( Move::Flags )
 }
 Q_DECLARE_METATYPE ( Knights::Move )
 Q_DECLARE_METATYPE ( Knights::Move::List )

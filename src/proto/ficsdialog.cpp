@@ -35,7 +35,7 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->tabWidget->setTabText(0, i18n("&Join a game"));
     ui->tabWidget->setTabText(1, i18n("&Seek opponents"));
     connect ( ui->tabWidget, SIGNAL(currentChanged(int)), SLOT(currentTabChanged(int)));
-    
+
     connect (ui->refreshButton, SIGNAL(clicked(bool)), SLOT(refresh()));
     connect (ui->seekButton, SIGNAL(toggled(bool)), SIGNAL(seekingChanged(bool)));
 }
@@ -52,12 +52,12 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 
     m_gameId[row] = offer.gameId;
 
-    ui->offerTable->setItem ( row, 0, new QTableWidgetItem ( offer.player ) );
-    if (offer.rating != 0)
+    ui->offerTable->setItem ( row, 0, new QTableWidgetItem ( offer.player.first ) );
+    if (offer.player.second != 0)
     {
-        ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.rating ) ) );
+        ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.player.second ) ) );
     }
-    
+
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
     baseTimeEdit->setReadOnly(true);
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
@@ -121,4 +121,4 @@ void FicsDialog::currentTabChanged(int tab)
     emit declineButtonNeeded(tab == 1);
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

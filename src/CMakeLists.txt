@@ -6,7 +6,7 @@ set(knights_SRCS
     proto/xboardproto.cpp
     proto/ficsprotocol.cpp
     proto/ficsdialog.cpp
-    chessrules.cpp
+    rules/chessrules.cpp
     gamedialog.cpp
     board.cpp
     clockwidget.cpp

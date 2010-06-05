@@ -42,31 +42,31 @@ namespace Knights
             ~ClockWidget ();
 
         public Q_SLOTS:
-            void setTimeLimit ( Piece::Color color, const QTime& time );
-            void setTimeIncrement ( Piece::Color color, int seconds );
-            void incrementTime ( Piece::Color color, int miliseconds );
-            void setActivePlayer ( Piece::Color color );
-            void setDisplayedPlayer ( Piece::Color color );
-            void setPlayerName ( Piece::Color color, const QString& name );
+            void setTimeLimit ( Color color, const QTime& time );
+            void setTimeIncrement ( Color color, int seconds );
+            void incrementTime ( Color color, int miliseconds );
+            void setActivePlayer ( Color color );
+            void setDisplayedPlayer ( Color color );
+            void setPlayerName ( Color color, const QString& name );
 
             void pauseClock();
             void resumeClock();
 
         Q_SIGNALS:
-            void timeOut ( Piece::Color );
-            void opponentTimeOut ( Piece::Color );
+            void timeOut ( Color );
+            void opponentTimeOut ( Color );
 
         protected:
             virtual void timerEvent ( QTimerEvent* );
 
         private:
             Ui::ClockWidget* ui;
-            QMap<Piece::Color, QTimer> m_timer;
-            QMap<Piece::Color, int> m_timerId;
-            Piece::Color m_activePlayer;
-            QMap<Piece::Color, QTime> m_timeLimit;
-            QMap<Piece::Color, QGroupBox*> m_box;
-            QMap<Piece::Color, int> m_timeIncrement;
+            QMap<Color, QTimer> m_timer;
+            QMap<Color, int> m_timerId;
+            Color m_activePlayer;
+            QMap<Color, QTime> m_timeLimit;
+            QMap<Color, QGroupBox*> m_box;
+            QMap<Color, int> m_timeIncrement;
     };
 }
 

@@ -45,16 +45,14 @@ public:
     virtual ~Board();
 
     void populate();
-    void addPiece( Knights::Piece::PieceType type, Knights::Piece::Color color, const Knights::Pos& pos);
+    void addPiece( PieceType type, Color color, const Pos& pos);
 
     void setRuleSet(Rules* rules);
 
-    static QChar row(int num);
-    static int numFromRow(const QChar& row);
     static bool isInBoard(const Pos& pos);
-    void setPlayerColors(const QList<Piece::Color>& colors);
-    QList<Piece::Color> playerColors();
-    void setCurrentColor(Piece::Color color);
+    void setPlayerColors(const QList<Color>& colors);
+    QList<Color> playerColors();
+    void setCurrentColor(Color color);
 
 private:
     Rules *m_rules;
@@ -67,7 +65,7 @@ private:
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos( QGraphicsItem* item, const Knights::Pos& pos, bool animated = true);
+    void centerOnPos( QGraphicsItem* item, const Pos& pos, bool animated = true);
     void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
@@ -76,9 +74,9 @@ private:
     Piece* m_draggedItem;
     QPointF m_draggedPos;
     QPointF m_dragStartPos;
-    Piece::Color m_currentPlayer;
-    Piece::Color m_displayedPlayer;
-    QList<Piece::Color> m_playerColors;
+    Color m_currentPlayer;
+    Color m_displayedPlayer;
+    QList<Color> m_playerColors;
     QList<QGraphicsSvgItem*> m_legalMarkers;
 
     QTransform markerTransform;
@@ -98,10 +96,10 @@ public slots:
 
 signals:
     void pieceMoved(Move m);
-    void gameOver(Piece::Color winner);
+    void gameOver(Color winner);
     
-    void activePlayerChanged(Piece::Color);
-    void displayedPlayerChanged(Piece::Color);
+    void activePlayerChanged(Color);
+    void displayedPlayerChanged(Color);
 };
 
 }

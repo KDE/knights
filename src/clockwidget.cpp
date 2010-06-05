@@ -35,11 +35,11 @@ ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( pare
 {
     ui = new Ui::ClockWidget;
     ui->setupUi ( this );
-    m_box[Piece::White] = ui->groupW;
-    m_box[Piece::Black] = ui->groupB;
+    m_box[White] = ui->groupW;
+    m_box[Black] = ui->groupB;
 
-    m_timeIncrement[Piece::White] = 0;
-    m_timeIncrement[Piece::Black] = 0;
+    m_timeIncrement[White] = 0;
+    m_timeIncrement[Black] = 0;
 }
 
 ClockWidget::~ClockWidget()
@@ -47,7 +47,7 @@ ClockWidget::~ClockWidget()
     delete ui;
 }
 
-void ClockWidget::setActivePlayer ( Piece::Color color )
+void ClockWidget::setActivePlayer ( Color color )
 {
     incrementTime ( m_activePlayer, m_timeIncrement[m_activePlayer] );
     killTimer ( m_timerId[m_activePlayer] );
@@ -55,20 +55,20 @@ void ClockWidget::setActivePlayer ( Piece::Color color )
     m_activePlayer = color;
 }
 
-void ClockWidget::setDisplayedPlayer ( Piece::Color color )
+void ClockWidget::setDisplayedPlayer ( Color color )
 {
-    ui->verticalLayout->addWidget ( m_box[Piece::oppositeColor ( color ) ] );
+    ui->verticalLayout->addWidget ( m_box[oppositeColor ( color ) ] );
     ui->verticalLayout->addWidget ( m_box[color] );
 }
 
-void ClockWidget::setPlayerName ( Piece::Color color, const QString& name )
+void ClockWidget::setPlayerName ( Color color, const QString& name )
 {
     switch ( color )
     {
-        case Piece::White:
+        case White:
             ui->groupW->setTitle ( name );
             break;
-        case Piece::Black:
+        case Black:
             ui->groupB->setTitle ( name );
             break;
         default:
@@ -76,20 +76,20 @@ void ClockWidget::setPlayerName ( Piece::Color color, const QString& name )
     }
 }
 
-void ClockWidget::setTimeLimit ( Piece::Color color, const QTime& time )
+void ClockWidget::setTimeLimit ( Color color, const QTime& time )
 {
     kDebug() << color << time;
     m_timeLimit[color] = time;
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
     switch ( color )
     {
-        case Piece::White:
+        case White:
             ui->timeW->setTime ( time );
             ui->progressW->setMaximum ( 10 * seconds );
             ui->progressW->setValue ( 10 * seconds );
             kDebug() << ui->progressW->maximum();
             break;
-        case Piece::Black:
+        case Black:
             ui->timeB->setTime ( time );
             ui->progressB->setMaximum ( 10 * seconds );
             ui->progressB->setValue ( 10 * seconds );
@@ -100,31 +100,31 @@ void ClockWidget::setTimeLimit ( Piece::Color color, const QTime& time )
     }
 }
 
-void ClockWidget::setTimeIncrement ( Piece::Color color, int seconds )
+void ClockWidget::setTimeIncrement ( Color color, int seconds )
 {
     m_timeIncrement[color] = 1000 * seconds;
 }
 
-void ClockWidget::incrementTime ( Piece::Color color, int miliseconds )
+void ClockWidget::incrementTime ( Color color, int miliseconds )
 {
     switch ( color )
     {
-        case Piece::White:
+        case White:
             ui->progressW->setValue ( ui->progressW->value() + miliseconds / timerInterval );
             ui->timeW->setTime ( ui->timeW->time().addMSecs ( miliseconds ) );
             if ( ui->progressW->value() <= 0 )
             {
-                emit timeOut ( Piece::White );
-                emit opponentTimeOut ( Piece::Black );
+                emit timeOut ( White );
+                emit opponentTimeOut ( Black );
             }
             break;
-        case Piece::Black:
+        case Black:
             ui->progressB->setValue ( ui->progressB->value() + miliseconds / timerInterval );
             ui->timeB->setTime ( ui->timeB->time().addMSecs ( miliseconds ) );
             if ( ui->progressB->value() <= 0 )
             {
-                emit timeOut ( Piece::Black );
-                emit opponentTimeOut ( Piece::White );
+                emit timeOut ( Black );
+                emit opponentTimeOut ( White );
             }
             break;
         default:
