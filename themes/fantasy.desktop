@@ -1,0 +1,11 @@
+[KGameTheme]
+Name=Fantasy
+Description=Fantasy chess theme.
+VersionFormat=1
+Author=Maurizio Monge
+AuthorEmail=maurizio.monge@gmail.com
+Type=SVG
+FileName=fantasy.svg
+Preview=fantasy.png
+
+

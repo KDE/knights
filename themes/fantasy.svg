@@ -1,0 +1,1101 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Karbon14, part of koffice: http://www.koffice.org/karbon -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960pt" height="320pt">
+  <defs>
+    <linearGradient id="defitem1135" gradientTransform="matrix(0.22857 0 0 0.22857 -99.6351 -34.198)" gradientUnits="objectBoundingBox" x1="15.2622" y1="1.73658" x2="13.0194" y2="5.48871" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1136" gradientTransform="translate(-699.635, -34.198)" gradientUnits="objectBoundingBox" x1="15.0785" y1="0.806451" x2="16.1575" y2="0.806451" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1137" gradientTransform="matrix(0.22857 0 0 0.22857 -64.7438 -148.289)" gradientUnits="objectBoundingBox" x1="3.55651" y1="30.6951" x2="9.54307" y2="34.9917" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1138" gradientTransform="translate(-664.744, -148.289)" gradientUnits="objectBoundingBox" x1="10.2736" y1="7.60358" x2="11.3303" y2="7.60358" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1139" gradientTransform="matrix(0.22857 0 0 0.22857 -45.0969 -34.7259)" gradientUnits="objectBoundingBox" x1="2.16081" y1="3.67926" x2="6.89469" y2="5.35806" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1140" gradientTransform="translate(-645.097, -34.7259)" gradientUnits="objectBoundingBox" x1="7.22817" y1="0.786462" x2="8.26927" y2="0.786462" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1141" gradientTransform="matrix(0.22857 0 0 0.22857 -78.2969 -18.9374)" gradientUnits="objectBoundingBox" x1="34.2916" y1="8.67576" x2="40.3066" y2="9.97314" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1142" gradientTransform="translate(-678.297, -18.9374)" gradientUnits="objectBoundingBox" x1="69.3382" y1="1.98302" x2="70.7131" y2="1.98302" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1143" gradientTransform="translate(-694.056, -156.95)" gradientUnits="objectBoundingBox" x1="75.8079" y1="25.7449" x2="77.2085" y2="25.7449" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1144" gradientTransform="translate(-669.067, -79.6615)" gradientUnits="objectBoundingBox" x1="18.6254" y1="2.21384" x2="18.4155" y2="2.26163" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1145" gradientTransform="translate(-669.067, -79.6615)" gradientUnits="objectBoundingBox" x1="18.6254" y1="2.02269" x2="19.7275" y2="2.02269" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1146" gradientTransform="matrix(0.22857 0 0 0.22857 -32.2506 -170.965)" gradientUnits="objectBoundingBox" x1="1.16612" y1="52.5092" x2="5.49108" y2="66.2295" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1147" gradientTransform="translate(-632.251, -170.965)" gradientUnits="objectBoundingBox" x1="4.71898" y1="13.963" x2="5.74635" y2="13.963" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1148" gradientTransform="translate(-668.855, -20.8207)" gradientUnits="objectBoundingBox" x1="8.16262" y1="0.736234" x2="8.27984" y2="0.780176" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1149" gradientTransform="translate(-668.855, -20.8207)" gradientUnits="objectBoundingBox" x1="7.46843" y1="0.621986" x2="8.50938" y2="0.621986" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1150" gradientTransform="matrix(0.22857 0 0 0.22857 -78.2969 -18.9374)" gradientUnits="objectBoundingBox" x1="32.9187" y1="7.06067" x2="40.5318" y2="10.0601" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1151" gradientTransform="translate(-710.136, -18.0477)" gradientUnits="objectBoundingBox" x1="72.6017" y1="1.91334" x2="73.9766" y2="1.91334" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1152" gradientTransform="matrix(0.229 0 0 0.22857 -65.8498 -81.1303)" gradientUnits="objectBoundingBox" x1="11.1207" y1="7.25468" x2="13.7745" y2="8.85437" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1153" gradientTransform="translate(-65.8498, -81.1303)" gradientUnits="objectBoundingBox" x1="2.39265" y1="1.87823" x2="3.52946" y2="1.87823" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1154" gradientTransform="matrix(0.229 0 0 0.22857 -107.889 -82.2345)" gradientUnits="objectBoundingBox" x1="18.511" y1="7.61988" x2="22.2736" y2="8.97891" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1155" gradientTransform="translate(-107.889, -82.2345)" gradientUnits="objectBoundingBox" x1="3.96379" y1="1.89699" x2="5.1006" y2="1.89699" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1156" gradientTransform="matrix(0.229 0 0 0.22857 -70.3481 -14.2606)" gradientUnits="objectBoundingBox" x1="5.3793" y1="1.96128" x2="9.19452" y2="4.88273" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1157" gradientTransform="translate(-70.3481, -14.2606)" gradientUnits="objectBoundingBox" x1="1.17496" y1="0.7764" x2="2.23773" y2="0.7764" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1158" gradientTransform="matrix(0.229 0 0 0.22857 -86.2114 -60.0972)" gradientUnits="objectBoundingBox" x1="14.617" y1="10.6112" x2="19.6182" y2="12.3946" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1159" gradientTransform="translate(-86.2114, -60.0972)" gradientUnits="objectBoundingBox" x1="3.34729" y1="2.83303" x2="4.4925" y2="2.83303" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1160" gradientTransform="matrix(0.229 0 0 0.22857 -47.3999 -144.454)" gradientUnits="objectBoundingBox" x1="1.20433" y1="9.17851" x2="7.52804" y2="17.9073" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1161" gradientTransform="matrix(0.229 0 0 0.22857 -54.0097 -155.539)" gradientUnits="objectBoundingBox" x1="2.11746" y1="20.1727" x2="7.12424" y2="25.3116" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1162" gradientTransform="translate(-54.0097, -155.539)" gradientUnits="objectBoundingBox" x1="0.559015" y1="5.48109" x2="1.59823" y2="5.48109" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1163" gradientTransform="matrix(0.229 0 0 0.22857 -20.525 -70.5651)" gradientUnits="objectBoundingBox" x1="0.805291" y1="4.7607" x2="4.3302" y2="8.21917" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1164" gradientTransform="translate(-20.525, -70.5651)" gradientUnits="objectBoundingBox" x1="0.115839" y1="1.2837" x2="1.13852" y2="1.2837" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1165" gradientTransform="matrix(0.229 0 0 0.22857 -75.2237 -67.5816)" gradientUnits="objectBoundingBox" x1="2.5226" y1="6.6989" x2="13.6069" y2="11.5654" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1166" gradientTransform="translate(-75.2237, -67.5816)" gradientUnits="objectBoundingBox" x1="1.42459" y1="1.55614" x2="2.49564" y2="1.55614" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1167" gradientTransform="matrix(0.229 0 0 0.22857 -63.1334 -186.025)" gradientUnits="objectBoundingBox" x1="2.95532" y1="122.422" x2="8.15094" y2="134.212" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1168" gradientTransform="translate(-63.1334, -186.025)" gradientUnits="objectBoundingBox" x1="0.817735" y1="29.8877" x2="1.86656" y2="29.8877" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1169" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.7857" y1="27.9594" x2="22.7857" y2="28.4349" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1170" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.0491" y1="27.45" x2="23.5223" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1171" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.973" y1="27.9021" x2="23.1388" y2="28.6697" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1172" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.0273" y1="27.45" x2="23.5441" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1173" gradientTransform="matrix(1 -2.77556e-17 0 1 -780 -898.333)" gradientUnits="objectBoundingBox" x1="23.4898" y1="27.2757" x2="24.1426" y2="27.9652" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1174" gradientTransform="matrix(1 -2.77556e-17 0 1 -780 -898.333)" gradientUnits="objectBoundingBox" x1="22.024" y1="27.45" x2="23.5474" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1175" gradientTransform="matrix(0.229 0 0 0.229 -44.3245 -150.837)" gradientUnits="objectBoundingBox" x1="1.54635" y1="9.71788" x2="7.66477" y2="17.4216" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1176" gradientTransform="matrix(0.229 0 0 0.229 -48.1631 -156.503)" gradientUnits="objectBoundingBox" x1="1.66692" y1="12.7884" x2="8.92583" y2="22.6981" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1177" gradientTransform="translate(-248.163, -156.503)" gradientUnits="objectBoundingBox" x1="2.67321" y1="5.75943" x2="3.71297" y2="5.75943" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1178" gradientTransform="matrix(0.229 0 0 0.229 -17.1606 -40.9754)" gradientUnits="objectBoundingBox" x1="0.988697" y1="3.1994" x2="4.66173" y2="5.20416" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1179" gradientTransform="translate(-217.161, -40.9754)" gradientUnits="objectBoundingBox" x1="1.386" y1="0.844501" x2="2.40958" y2="0.844501" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1180" gradientTransform="matrix(0.229 0 0 0.229 -83.899 -160.25)" gradientUnits="objectBoundingBox" x1="8.19708" y1="22.0606" x2="40.6303" y2="39.5487" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1181" gradientTransform="translate(-283.899, -160.25)" gradientUnits="objectBoundingBox" x1="15.0525" y1="9.78997" x2="16.2481" y2="9.78997" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1182" gradientTransform="matrix(0.229 0 0 0.229 -56.0073 -185.539)" gradientUnits="objectBoundingBox" x1="2.3009" y1="78.5904" x2="9.01183" y2="117.138" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1183" gradientTransform="translate(-256.007, -185.539)" gradientUnits="objectBoundingBox" x1="3.33356" y1="32.5632" x2="4.38162" y2="32.5632" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1184" gradientTransform="matrix(0.229 0 0 0.229 -96.428 -18.8967)" gradientUnits="objectBoundingBox" x1="33.1169" y1="5.07031" x2="38.4043" y2="6.51321" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1185" gradientTransform="translate(-296.428, -18.8967)" gradientUnits="objectBoundingBox" x1="24.0291" y1="1.42544" x2="25.328" y2="1.42544" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1186" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="6.38466" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1187" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1188" gradientTransform="matrix(0.229 0 0 0.229 -143.364 -38.6897)" gradientUnits="objectBoundingBox" x1="31.9361" y1="12.2486" x2="34.9463" y2="16.2963" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1189" gradientTransform="translate(-343.364, -38.6897)" gradientUnits="objectBoundingBox" x1="16.7838" y1="3.2684" x2="17.9639" y2="3.2684" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1190" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.7439" y2="6.52736" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1191" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1192" gradientTransform="matrix(0.229 0 0 0.229 -174.073 -72.0359)" gradientUnits="objectBoundingBox" x1="39.9917" y1="31.7646" x2="42.8324" y2="39.1282" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1193" gradientTransform="translate(-374.073, -72.0359)" gradientUnits="objectBoundingBox" x1="18.9603" y1="8.26292" x2="20.1469" y2="8.26292" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1194" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.03818" y2="6.38466" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1195" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1196" gradientTransform="matrix(0.229 0 0 0.229 -40.2746 -32.1309)" gradientUnits="objectBoundingBox" x1="14.4451" y1="11.0151" x2="20.1887" y2="11.0151" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1197" gradientTransform="translate(-240.275, -32.1309)" gradientUnits="objectBoundingBox" x1="20.5177" y1="2.52246" x2="21.8329" y2="2.52246" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1198" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.15241" y2="6.29479" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1199" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1200" gradientTransform="matrix(0.229 0 0 0.229 -7.20398 -66.3601)" gradientUnits="objectBoundingBox" x1="2.13802" y1="15.345" x2="7.96309" y2="14.328" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1201" gradientTransform="translate(-207.204, -66.3601)" gradientUnits="objectBoundingBox" x1="18.7178" y1="3.514" x2="20.0517" y2="3.514" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1202" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.22121" y2="6.35612" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1203" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1204" gradientTransform="matrix(0.239353 0 0 0.232318 -53.6161 -38.7002)" gradientUnits="objectBoundingBox" x1="0.066536" y1="4.73376" x2="6.2545" y2="6.25345" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1205" gradientTransform="translate(-445.869, -35.99)" gradientUnits="objectBoundingBox" x1="4.02646" y1="1.3204" x2="5.05969" y2="1.3204" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1206" gradientTransform="matrix(0.239353 0 0 0.232318 -38.6514 -163.577)" gradientUnits="objectBoundingBox" x1="1.40641" y1="27.3491" x2="5.40949" y2="27.9231" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1207" gradientTransform="translate(-430.905, -160.867)" gradientUnits="objectBoundingBox" x1="3.12426" y1="6.64975" x2="4.15094" y2="6.64975" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1208" gradientTransform="translate(-445.351, -175.495)" gradientUnits="objectBoundingBox" x1="4.10756" y1="269.428" x2="5.1415" y2="269.428" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1209" gradientTransform="matrix(0.239353 0 0 0.232318 -64.6656 -73.8996)" gradientUnits="objectBoundingBox" x1="2.58906" y1="5.77289" x2="8.01368" y2="7.31023" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1210" gradientTransform="translate(-456.919, -71.1894)" gradientUnits="objectBoundingBox" x1="5.39239" y1="1.28801" x2="6.4358" y2="1.28801" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1211" gradientTransform="translate(-466.726, -144.358)" gradientUnits="objectBoundingBox" x1="9.42315" y1="142.136" x2="10.4974" y2="142.136" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1212" gradientTransform="translate(-466.415, -129.207)" gradientUnits="objectBoundingBox" x1="11.8432" y1="95.7391" x2="12.9366" y2="95.7391" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1213" gradientTransform="translate(-466.538, -114.353)" gradientUnits="objectBoundingBox" x1="13.3053" y1="89.7584" x2="14.4102" y2="89.7584" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1214" gradientTransform="translate(-466.538, -100.103)" gradientUnits="objectBoundingBox" x1="19.8637" y1="113.167" x2="21.0203" y2="113.167" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1215" gradientTransform="translate(-476.66, -104.814)" gradientUnits="objectBoundingBox" x1="2948.69" y1="19.1433" x2="2972.45" y2="19.1433" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1216" gradientTransform="translate(-489.411, -119.366)" gradientUnits="objectBoundingBox" x1="3027.88" y1="21.7317" x2="3051.63" y2="21.7317" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1217" gradientTransform="translate(-476.66, -134.086)" gradientUnits="objectBoundingBox" x1="2948.69" y1="24.35" x2="2972.45" y2="24.35" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1218" gradientTransform="translate(-503.406, -133.621)" gradientUnits="objectBoundingBox" x1="3114.79" y1="22.453" x2="3138.54" y2="22.453" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1219" gradientTransform="translate(-489.411, -149.361)" gradientUnits="objectBoundingBox" x1="3027.88" y1="25.039" x2="3051.63" y2="25.039" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1220" gradientTransform="translate(-466.827, -86.9162)" gradientUnits="objectBoundingBox" x1="30.8707" y1="104.275" x2="32.1139" y2="104.275" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1221" gradientTransform="matrix(0.239353 0 0 0.232318 -37.917 -29.4183)" gradientUnits="objectBoundingBox" x1="1.08666" y1="4.81269" x2="5.04349" y2="7.76364" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1222" gradientTransform="translate(-430.17, -26.7081)" gradientUnits="objectBoundingBox" x1="3.034" y1="1.06113" x2="4.05995" y2="1.06113" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1223" gradientTransform="translate(-443.222, -57.5492)" gradientUnits="objectBoundingBox" x1="3.88527" y1="17.8501" x2="4.91752" y2="17.8501" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1224" gradientTransform="matrix(0.229 0 0 0.229 -24.0712 -14.555)" gradientUnits="objectBoundingBox" x1="0.39584" y1="2.96152" x2="5.26945" y2="4.41638" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1225" gradientTransform="translate(-824.071, -15.471)" gradientUnits="objectBoundingBox" x1="5.59022" y1="0.589593" x2="6.61513" y2="0.589593" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1226" gradientTransform="translate(-861.69, -66.9883)" gradientUnits="objectBoundingBox" x1="49.656" y1="11.925" x2="50.8676" y2="11.925" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1227" gradientTransform="translate(-868.274, -73.0066)" gradientUnits="objectBoundingBox" x1="145.952" y1="22.6231" x2="147.569" y2="22.6231" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1228" gradientTransform="translate(-830.319, -118.535)" gradientUnits="objectBoundingBox" x1="196.92" y1="27.573" x2="198.791" y2="27.573" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1229" gradientTransform="translate(-872.565, -108.616)" gradientUnits="objectBoundingBox" x1="400.772" y1="40.7276" x2="403.458" y2="40.7276" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1230" gradientTransform="translate(-921.084, -78.8488)" gradientUnits="objectBoundingBox" x1="13804.7" y1="14.3181" x2="13860.7" y2="14.3181" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1231" gradientTransform="translate(-872.31, -37.2467)" gradientUnits="objectBoundingBox" x1="375.869" y1="31.299" x2="378.451" y2="31.299" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1232" gradientTransform="translate(-886.853, -24.9321)" gradientUnits="objectBoundingBox" x1="139.49" y1="2.8497" x2="141.068" y2="2.8497" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1233" gradientTransform="matrix(0.229 0 0 0.229 -102.871 -27.7772)" gradientUnits="objectBoundingBox" x1="14.1228" y1="12.5739" x2="17.4436" y2="11.8422" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1234" gradientTransform="translate(-903.787, -27.3192)" gradientUnits="objectBoundingBox" x1="25.7966" y1="2.6754" x2="26.9014" y2="2.6754" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1235" gradientTransform="matrix(0.229 0 0 0.229 -132.616 -43.0966)" gradientUnits="objectBoundingBox" x1="22.0762" y1="14.5327" x2="26.0163" y2="16.0934" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1236" gradientTransform="translate(-932.616, -44.0126)" gradientUnits="objectBoundingBox" x1="34.3225" y1="3.54929" x2="35.4576" y2="3.54929" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1237" gradientTransform="matrix(0.229 0 0 0.229 -150.098 -62.3981)" gradientUnits="objectBoundingBox" x1="34.1245" y1="15.7591" x2="37.8141" y2="18.3438" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1238" gradientTransform="translate(-951.014, -63.3141)" gradientUnits="objectBoundingBox" x1="48.5589" y1="3.83339" x2="49.7463" y2="3.83339" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1239" gradientTransform="matrix(0.229 0 0 0.229 -162.661 -85.6121)" gradientUnits="objectBoundingBox" x1="35.1896" y1="19.167" x2="39.2726" y2="23.5922" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1240" gradientTransform="translate(-962.661, -86.5281)" gradientUnits="objectBoundingBox" x1="47.9393" y1="4.8842" x2="49.1221" y2="4.8842" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1241" gradientTransform="translate(-894.432, -167.056)" gradientUnits="objectBoundingBox" x1="151.197" y1="12.3633" x2="152.817" y2="12.3633" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1242" gradientTransform="translate(-593.333, -223.333)" gradientUnits="objectBoundingBox" x1="1.67931" y1="1.04403" x2="2.73595" y2="1.53346" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1243" gradientTransform="translate(-593.333, -223.333)" gradientUnits="objectBoundingBox" x1="1.74736" y1="1.24444" x2="2.81264" y2="1.24444" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1244" gradientTransform="matrix(0.229 0 0 0.229 -56.9309 -101.567)" gradientUnits="objectBoundingBox" x1="3.0565" y1="8.1111" x2="7.47436" y2="9.29147" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1245" gradientTransform="translate(-1056.93, -101.567)" gradientUnits="objectBoundingBox" x1="11.8611" y1="1.73026" x2="12.9023" y2="1.73026" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1246" gradientTransform="matrix(0.229 0 0 0.229 -55.0158 -95.8498)" gradientUnits="objectBoundingBox" x1="2.93983" y1="24.9747" x2="7.18493" y2="28.6315" spreadMethod="pad" >
+      <stop stop-color="#000e1c" offset="0" stop-opacity="1" />
+      <stop stop-color="#50506f" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1247" gradientTransform="translate(-1055.02, -95.8498)" gradientUnits="objectBoundingBox" x1="11.2489" y1="5.71921" x2="12.288" y2="5.71921" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1248" gradientTransform="translate(-1077.66, -163.431)" gradientUnits="objectBoundingBox" x1="25.0019" y1="0" x2="26.087" y2="0" spreadMethod="pad" >
+      <stop stop-color="#808080" offset="0" stop-opacity="1" />
+      <stop stop-color="#808080" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1249" gradientTransform="matrix(0.22857 0 0 0.22857 -99.6351 -34.198)" gradientUnits="objectBoundingBox" x1="15.2622" y1="1.73658" x2="13.0194" y2="5.48871" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1250" gradientTransform="translate(-699.635, -34.198)" gradientUnits="objectBoundingBox" x1="15.0785" y1="0.806451" x2="16.1575" y2="0.806451" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1251" gradientTransform="matrix(0.22857 0 0 0.22857 -64.7438 -148.289)" gradientUnits="objectBoundingBox" x1="3.55651" y1="30.6951" x2="9.54307" y2="34.9917" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1252" gradientTransform="translate(-664.744, -148.289)" gradientUnits="objectBoundingBox" x1="10.2736" y1="7.60358" x2="11.3303" y2="7.60358" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1253" gradientTransform="matrix(0.22857 0 0 0.22857 -45.0969 -34.7259)" gradientUnits="objectBoundingBox" x1="2.16081" y1="3.67926" x2="6.89469" y2="5.35806" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1254" gradientTransform="translate(-645.097, -34.7259)" gradientUnits="objectBoundingBox" x1="7.22817" y1="0.786462" x2="8.26927" y2="0.786462" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1255" gradientTransform="matrix(0.22857 0 0 0.22857 -78.2969 -18.9374)" gradientUnits="objectBoundingBox" x1="34.2916" y1="8.67576" x2="40.3066" y2="9.97314" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1256" gradientTransform="translate(-678.297, -18.9374)" gradientUnits="objectBoundingBox" x1="69.3382" y1="1.98302" x2="70.7131" y2="1.98302" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1257" gradientTransform="translate(-694.056, -156.95)" gradientUnits="objectBoundingBox" x1="75.8079" y1="25.7449" x2="77.2085" y2="25.7449" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1258" gradientTransform="translate(-669.067, -79.6615)" gradientUnits="objectBoundingBox" x1="18.6254" y1="2.21384" x2="18.4155" y2="2.26163" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1259" gradientTransform="translate(-669.067, -79.6615)" gradientUnits="objectBoundingBox" x1="18.6254" y1="2.02269" x2="19.7275" y2="2.02269" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1260" gradientTransform="matrix(0.22857 0 0 0.22857 -32.2506 -170.965)" gradientUnits="objectBoundingBox" x1="1.16612" y1="52.5092" x2="5.49108" y2="66.2295" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1261" gradientTransform="translate(-632.251, -170.965)" gradientUnits="objectBoundingBox" x1="4.71898" y1="13.963" x2="5.74635" y2="13.963" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1262" gradientTransform="translate(-668.855, -20.8207)" gradientUnits="objectBoundingBox" x1="8.16262" y1="0.736234" x2="8.27984" y2="0.780176" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1263" gradientTransform="translate(-668.855, -20.8207)" gradientUnits="objectBoundingBox" x1="7.46843" y1="0.621986" x2="8.50938" y2="0.621986" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1264" gradientTransform="matrix(0.22857 0 0 0.22857 -78.2969 -18.9374)" gradientUnits="objectBoundingBox" x1="32.9187" y1="7.06067" x2="40.5318" y2="10.0601" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1265" gradientTransform="translate(-710.136, -18.0477)" gradientUnits="objectBoundingBox" x1="72.6017" y1="1.91334" x2="73.9766" y2="1.91334" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1266" gradientTransform="translate(-593.333, -223.333)" gradientUnits="objectBoundingBox" x1="1.67931" y1="1.04403" x2="2.73595" y2="1.53346" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1267" gradientTransform="translate(-593.333, -223.333)" gradientUnits="objectBoundingBox" x1="1.74736" y1="1.24444" x2="2.81264" y2="1.24444" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1268" gradientTransform="matrix(0.229 0 0 0.229 -56.9309 -101.567)" gradientUnits="objectBoundingBox" x1="3.0565" y1="8.1111" x2="7.47436" y2="9.29147" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1269" gradientTransform="translate(-1056.93, -101.567)" gradientUnits="objectBoundingBox" x1="11.8611" y1="1.73026" x2="12.9023" y2="1.73026" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1270" gradientTransform="matrix(0.229 0 0 0.229 -55.0158 -95.8498)" gradientUnits="objectBoundingBox" x1="2.93983" y1="24.9747" x2="7.18493" y2="28.6315" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1271" gradientTransform="translate(-1055.02, -95.8498)" gradientUnits="objectBoundingBox" x1="11.2489" y1="5.71921" x2="12.288" y2="5.71921" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1272" gradientTransform="translate(-1077.66, -163.431)" gradientUnits="objectBoundingBox" x1="25.0019" y1="0" x2="26.087" y2="0" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1273" gradientTransform="matrix(0.239353 0 0 0.232318 -53.6161 -38.7002)" gradientUnits="objectBoundingBox" x1="0.066536" y1="4.73376" x2="6.2545" y2="6.25345" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1274" gradientTransform="translate(-445.869, -35.99)" gradientUnits="objectBoundingBox" x1="4.02646" y1="1.3204" x2="5.05969" y2="1.3204" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1275" gradientTransform="matrix(0.239353 0 0 0.232318 -38.6514 -163.577)" gradientUnits="objectBoundingBox" x1="1.40641" y1="27.3491" x2="5.40949" y2="27.9231" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1276" gradientTransform="translate(-430.905, -160.867)" gradientUnits="objectBoundingBox" x1="3.12426" y1="6.64975" x2="4.15094" y2="6.64975" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1277" gradientTransform="translate(-445.351, -175.495)" gradientUnits="objectBoundingBox" x1="4.10756" y1="269.428" x2="5.1415" y2="269.428" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1278" gradientTransform="matrix(0.239353 0 0 0.232318 -64.6656 -73.8996)" gradientUnits="objectBoundingBox" x1="2.58906" y1="5.77289" x2="8.01368" y2="7.31023" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1279" gradientTransform="translate(-456.919, -71.1894)" gradientUnits="objectBoundingBox" x1="5.39239" y1="1.28801" x2="6.4358" y2="1.28801" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1280" gradientTransform="translate(-466.726, -144.358)" gradientUnits="objectBoundingBox" x1="9.42315" y1="142.136" x2="10.4974" y2="142.136" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1281" gradientTransform="translate(-466.415, -129.207)" gradientUnits="objectBoundingBox" x1="11.8432" y1="95.7391" x2="12.9366" y2="95.7391" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1282" gradientTransform="translate(-466.538, -114.353)" gradientUnits="objectBoundingBox" x1="13.3053" y1="89.7584" x2="14.4102" y2="89.7584" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1283" gradientTransform="translate(-466.538, -100.103)" gradientUnits="objectBoundingBox" x1="19.8637" y1="113.167" x2="21.0203" y2="113.167" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1284" gradientTransform="translate(-476.66, -104.814)" gradientUnits="objectBoundingBox" x1="2948.69" y1="19.1433" x2="2972.45" y2="19.1433" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1285" gradientTransform="translate(-489.411, -119.366)" gradientUnits="objectBoundingBox" x1="3027.88" y1="21.7317" x2="3051.63" y2="21.7317" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1286" gradientTransform="translate(-476.66, -134.086)" gradientUnits="objectBoundingBox" x1="2948.69" y1="24.35" x2="2972.45" y2="24.35" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1287" gradientTransform="translate(-503.406, -133.621)" gradientUnits="objectBoundingBox" x1="3114.79" y1="22.453" x2="3138.54" y2="22.453" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1288" gradientTransform="translate(-489.411, -149.361)" gradientUnits="objectBoundingBox" x1="3027.88" y1="25.039" x2="3051.63" y2="25.039" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1289" gradientTransform="translate(-466.827, -86.9162)" gradientUnits="objectBoundingBox" x1="30.8707" y1="104.275" x2="32.1139" y2="104.275" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1290" gradientTransform="matrix(0.239353 0 0 0.232318 -37.917 -29.4183)" gradientUnits="objectBoundingBox" x1="1.08666" y1="4.81269" x2="5.04349" y2="7.76364" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1291" gradientTransform="translate(-430.17, -26.7081)" gradientUnits="objectBoundingBox" x1="3.034" y1="1.06113" x2="4.05995" y2="1.06113" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1292" gradientTransform="translate(-443.222, -57.5492)" gradientUnits="objectBoundingBox" x1="3.88527" y1="17.8501" x2="4.91752" y2="17.8501" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1293" gradientTransform="matrix(0.229 0 0 0.229 -24.0712 -14.555)" gradientUnits="objectBoundingBox" x1="0.39584" y1="2.96152" x2="5.26945" y2="4.41638" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1294" gradientTransform="translate(-861.69, -66.9883)" gradientUnits="objectBoundingBox" x1="49.656" y1="11.925" x2="50.8676" y2="11.925" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1295" gradientTransform="translate(-868.274, -73.0066)" gradientUnits="objectBoundingBox" x1="145.952" y1="22.6231" x2="147.569" y2="22.6231" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1296" gradientTransform="translate(-830.319, -118.535)" gradientUnits="objectBoundingBox" x1="196.92" y1="27.573" x2="198.791" y2="27.573" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1297" gradientTransform="translate(-872.565, -108.616)" gradientUnits="objectBoundingBox" x1="400.772" y1="40.7276" x2="403.458" y2="40.7276" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1298" gradientTransform="translate(-921.084, -78.8488)" gradientUnits="objectBoundingBox" x1="13804.7" y1="14.3181" x2="13860.7" y2="14.3181" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1299" gradientTransform="translate(-872.31, -37.2467)" gradientUnits="objectBoundingBox" x1="375.869" y1="31.299" x2="378.451" y2="31.299" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1300" gradientTransform="translate(-886.853, -24.9321)" gradientUnits="objectBoundingBox" x1="139.49" y1="2.8497" x2="141.068" y2="2.8497" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1301" gradientTransform="matrix(0.229 0 0 0.229 -102.871 -27.7772)" gradientUnits="objectBoundingBox" x1="14.1228" y1="12.5739" x2="17.4436" y2="11.8422" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1302" gradientTransform="translate(-903.787, -27.3192)" gradientUnits="objectBoundingBox" x1="25.7966" y1="2.6754" x2="26.9014" y2="2.6754" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1303" gradientTransform="matrix(0.229 0 0 0.229 -132.616 -43.0966)" gradientUnits="objectBoundingBox" x1="22.0762" y1="14.5327" x2="26.0163" y2="16.0934" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1304" gradientTransform="translate(-932.616, -44.0126)" gradientUnits="objectBoundingBox" x1="34.3225" y1="3.54929" x2="35.4576" y2="3.54929" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1305" gradientTransform="matrix(0.229 0 0 0.229 -150.098 -62.3981)" gradientUnits="objectBoundingBox" x1="34.1245" y1="15.7591" x2="37.8141" y2="18.3438" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1306" gradientTransform="translate(-951.014, -63.3141)" gradientUnits="objectBoundingBox" x1="48.5589" y1="3.83339" x2="49.7463" y2="3.83339" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1307" gradientTransform="matrix(0.229 0 0 0.229 -162.661 -85.6121)" gradientUnits="objectBoundingBox" x1="35.1896" y1="19.167" x2="39.2726" y2="23.5922" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1308" gradientTransform="translate(-962.661, -86.5281)" gradientUnits="objectBoundingBox" x1="47.9393" y1="4.8842" x2="49.1221" y2="4.8842" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1309" gradientTransform="translate(-894.432, -167.056)" gradientUnits="objectBoundingBox" x1="151.197" y1="12.3633" x2="152.817" y2="12.3633" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1310" gradientTransform="matrix(0.229 0 0 0.229 -44.3245 -150.837)" gradientUnits="objectBoundingBox" x1="1.54635" y1="9.71788" x2="7.66477" y2="17.4216" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1311" gradientTransform="matrix(0.229 0 0 0.229 -48.1631 -156.503)" gradientUnits="objectBoundingBox" x1="1.66692" y1="12.7884" x2="8.92583" y2="22.6981" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1312" gradientTransform="translate(-248.163, -156.503)" gradientUnits="objectBoundingBox" x1="2.67321" y1="5.75943" x2="3.71297" y2="5.75943" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1313" gradientTransform="matrix(0.229 0 0 0.229 -17.1606 -40.9754)" gradientUnits="objectBoundingBox" x1="0.988697" y1="3.1994" x2="4.66173" y2="5.20416" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1314" gradientTransform="translate(-217.161, -40.9754)" gradientUnits="objectBoundingBox" x1="1.386" y1="0.844501" x2="2.40958" y2="0.844501" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1315" gradientTransform="matrix(0.229 0 0 0.229 -83.899 -160.25)" gradientUnits="objectBoundingBox" x1="8.19708" y1="22.0606" x2="40.6303" y2="39.5487" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1316" gradientTransform="translate(-283.899, -160.25)" gradientUnits="objectBoundingBox" x1="15.0525" y1="9.78997" x2="16.2481" y2="9.78997" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1317" gradientTransform="matrix(0.229 0 0 0.229 -56.0073 -185.539)" gradientUnits="objectBoundingBox" x1="2.3009" y1="78.5904" x2="9.01183" y2="117.138" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1318" gradientTransform="translate(-256.007, -185.539)" gradientUnits="objectBoundingBox" x1="3.33356" y1="32.5632" x2="4.38162" y2="32.5632" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1319" gradientTransform="matrix(0.229 0 0 0.229 -96.428 -18.8967)" gradientUnits="objectBoundingBox" x1="33.1169" y1="5.07031" x2="38.4043" y2="6.51321" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1320" gradientTransform="translate(-296.428, -18.8967)" gradientUnits="objectBoundingBox" x1="24.0291" y1="1.42544" x2="25.328" y2="1.42544" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1321" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="6.38466" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1322" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1323" gradientTransform="matrix(0.229 0 0 0.229 -143.364 -38.6897)" gradientUnits="objectBoundingBox" x1="31.9361" y1="12.2486" x2="34.9463" y2="16.2963" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1324" gradientTransform="translate(-343.364, -38.6897)" gradientUnits="objectBoundingBox" x1="16.7838" y1="3.2684" x2="17.9639" y2="3.2684" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1325" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.7439" y2="6.52736" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1326" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1327" gradientTransform="matrix(0.229 0 0 0.229 -174.073 -72.0359)" gradientUnits="objectBoundingBox" x1="39.9917" y1="31.7646" x2="42.8324" y2="39.1282" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1328" gradientTransform="translate(-374.073, -72.0359)" gradientUnits="objectBoundingBox" x1="18.9603" y1="8.26292" x2="20.1469" y2="8.26292" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1329" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.03818" y2="6.38466" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1330" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1331" gradientTransform="matrix(0.229 0 0 0.229 -40.2746 -32.1309)" gradientUnits="objectBoundingBox" x1="14.4451" y1="11.0151" x2="20.1887" y2="11.0151" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1332" gradientTransform="translate(-240.275, -32.1309)" gradientUnits="objectBoundingBox" x1="20.5177" y1="2.52246" x2="21.8329" y2="2.52246" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1333" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.15241" y2="6.29479" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1334" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1335" gradientTransform="matrix(0.229 0 0 0.229 -7.20398 -66.3601)" gradientUnits="objectBoundingBox" x1="2.13802" y1="15.345" x2="7.96309" y2="14.328" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1336" gradientTransform="translate(-207.204, -66.3601)" gradientUnits="objectBoundingBox" x1="18.7178" y1="3.514" x2="20.0517" y2="3.514" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1337" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="5.22121" y2="6.35612" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1338" gradientTransform="translate(-348.839, -485.813)" gradientUnits="objectBoundingBox" x1="3.69296" y1="5.92289" x2="4.89679" y2="5.92289" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1339" gradientTransform="matrix(0.229 0 0 0.22857 -65.8498 -81.1303)" gradientUnits="objectBoundingBox" x1="11.1207" y1="7.25468" x2="13.7745" y2="8.85437" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1340" gradientTransform="translate(-65.8498, -81.1303)" gradientUnits="objectBoundingBox" x1="2.39265" y1="1.87823" x2="3.52946" y2="1.87823" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1341" gradientTransform="matrix(0.229 0 0 0.22857 -107.889 -82.2345)" gradientUnits="objectBoundingBox" x1="18.511" y1="7.61988" x2="22.2736" y2="8.97891" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1342" gradientTransform="translate(-107.889, -82.2345)" gradientUnits="objectBoundingBox" x1="3.96379" y1="1.89699" x2="5.1006" y2="1.89699" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1343" gradientTransform="matrix(0.229 0 0 0.22857 -70.3481 -14.2606)" gradientUnits="objectBoundingBox" x1="5.3793" y1="1.96128" x2="9.19452" y2="4.88273" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1344" gradientTransform="translate(-70.3481, -14.2606)" gradientUnits="objectBoundingBox" x1="1.17496" y1="0.7764" x2="2.23773" y2="0.7764" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1345" gradientTransform="matrix(0.229 0 0 0.22857 -86.2114 -60.0972)" gradientUnits="objectBoundingBox" x1="14.617" y1="10.6112" x2="19.6182" y2="12.3946" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1346" gradientTransform="translate(-86.2114, -60.0972)" gradientUnits="objectBoundingBox" x1="3.34729" y1="2.83303" x2="4.4925" y2="2.83303" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1347" gradientTransform="matrix(0.229 0 0 0.22857 -47.3999 -144.454)" gradientUnits="objectBoundingBox" x1="1.20433" y1="9.17851" x2="7.52804" y2="17.9073" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1348" gradientTransform="matrix(0.229 0 0 0.22857 -54.0097 -155.539)" gradientUnits="objectBoundingBox" x1="2.11746" y1="20.1727" x2="7.12424" y2="25.3116" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1349" gradientTransform="translate(-54.0097, -155.539)" gradientUnits="objectBoundingBox" x1="0.559015" y1="5.48109" x2="1.59823" y2="5.48109" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1350" gradientTransform="matrix(0.229 0 0 0.22857 -20.525 -70.5651)" gradientUnits="objectBoundingBox" x1="0.805291" y1="4.7607" x2="4.3302" y2="8.21917" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1351" gradientTransform="translate(-20.525, -70.5651)" gradientUnits="objectBoundingBox" x1="0.115839" y1="1.2837" x2="1.13852" y2="1.2837" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1352" gradientTransform="matrix(0.229 0 0 0.22857 -75.2237 -67.5816)" gradientUnits="objectBoundingBox" x1="2.5226" y1="6.6989" x2="13.6069" y2="11.5654" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1353" gradientTransform="translate(-75.2237, -67.5816)" gradientUnits="objectBoundingBox" x1="1.42459" y1="1.55614" x2="2.49564" y2="1.55614" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1354" gradientTransform="matrix(0.229 0 0 0.22857 -63.1334 -186.025)" gradientUnits="objectBoundingBox" x1="2.95532" y1="122.422" x2="8.15094" y2="134.212" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1355" gradientTransform="translate(-63.1334, -186.025)" gradientUnits="objectBoundingBox" x1="0.817735" y1="29.8877" x2="1.86656" y2="29.8877" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1356" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.7857" y1="27.9594" x2="22.7857" y2="28.4349" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1357" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.0491" y1="27.45" x2="23.5223" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1358" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.973" y1="27.9021" x2="23.1388" y2="28.6697" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1359" gradientTransform="translate(-780, -898.333)" gradientUnits="objectBoundingBox" x1="22.0273" y1="27.45" x2="23.5441" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1360" gradientTransform="matrix(1 -2.77556e-17 0 1 -780 -898.333)" gradientUnits="objectBoundingBox" x1="23.4898" y1="27.2757" x2="24.1426" y2="27.9652" spreadMethod="pad" >
+      <stop stop-color="#ede3de" offset="0" stop-opacity="1" />
+      <stop stop-color="#8a6737" offset="1" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="defitem1361" gradientTransform="matrix(1 -2.77556e-17 0 1 -780 -898.333)" gradientUnits="objectBoundingBox" x1="22.024" y1="27.45" x2="23.5474" y2="27.45" spreadMethod="pad" >
+      <stop stop-color="#000000" offset="0" stop-opacity="1" />
+      <stop stop-color="#000000" offset="1" stop-opacity="1" />
+    </linearGradient>
+  </defs>
+  <g id="BlackPieces">
+    <g id="BlackBishop" transform="translate(600, 0)" fill="none">
+      <rect id="rect3532" fill="none" width="159.999pt" height="159.999pt"/>
+      <path id="path9790" fill="url(#defitem1135)" fill-rule="evenodd" stroke="url(#defitem1136)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M0 15.3718C2.47307 11.1989 8.95014 3.83148 15.6291 0C23.9109 7.78416 35.2039 25.9132 40.7901 43.3338C45.1438 56.9111 46.0467 63.0118 46.2734 77.5161C46.5001 92.0203 38.8721 106.308 34.1901 111.594"  transform="translate(99.6351, 34.198)" />
+      <path id="path9792" fill="url(#defitem1137)" fill-rule="evenodd" stroke="url(#defitem1138)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M64.5056 8.75167C65.8859 -3.46976 -2.72172 -2.56768 0.0837649 9.43877C2.35053 14.4415 0.562725 20.8753 0.562725 20.8753C0.562725 20.8753 16.3975 18.6284 34.0215 18.9084C51.6455 19.1884 63.5733 20.5857 63.5733 20.5857C63.5733 20.5857 63.1253 12.3532 64.5056 8.75167Z"  transform="translate(64.7438, 148.289)" />
+      <path id="path9786" fill="url(#defitem1139)" fill-rule="evenodd" stroke="url(#defitem1140)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M18.7734 121.224C13.5642 119.376 9.77179 111.981 6.48548 107.265C1.23989 99.737 -1.85278 84.0814 1.21932 66.526C4.29143 48.9705 20.9876 15.0475 38.0846 0C58.9214 15.0475 72.3591 37.7969 82.964 68.1099C88.6392 84.3318 91.456 102.084 86.2468 120.696C74.092 118.188 32.9329 115.809 18.7734 121.224Z"  transform="translate(45.0969, 34.7259)" />
+      <path id="path12426" fill="url(#defitem1141)" fill-rule="evenodd" stroke="url(#defitem1142)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M1.80072 12.7695C4.65321 7.9248 -2.70918 4.83396 1.14196 1.45032C3.30464 -0.449827 7.00448 -0.639926 9.0818 1.82479C12.0769 5.37846 3.88301 8.46136 7.9145 12.7223"  transform="translate(78.2969, 18.9374)" />
+      <path id="path13305" fill="none" stroke="url(#defitem1143)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M5.68725 5.87183C3.50835 5.28356 1.54961 6.31908 0.750688 5.65707C-0.229662 4.84473 -0.172262 1.46497 0.476788 0.607027C1.03175 -0.126533 8.16393 -0.218103 8.86379 0.457687C9.51621 1.08661 8.84489 5.18106 8.24043 6.21708"  transform="translate(94.0561, 156.95)" />
+      <path id="path18555" fill="url(#defitem1144)" fill-rule="evenodd" stroke="url(#defitem1145)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M18.0891 0.00938101C15.4771 0.423629 14.1771 3.28761 14.5041 5.71636C14.4591 7.79268 15.3686 10.4679 13.6606 12.095C11.3501 12.8637 8.84966 11.9011 6.49536 11.6998C4.55706 11.5227 2.21962 10.79 0.496392 12.0379C-0.822568 13.6003 0.718122 15.9613 2.41781 16.4878C5.8356 17.9746 9.89334 17.1991 13.182 18.9593C14.3173 20.0066 14.0851 21.8307 14.432 23.2235C15.5012 31.5211 15.4447 40.0505 17.9534 48.0877C18.6101 49.8523 19.6358 52.3006 21.832 52.3162C23.5273 51.7361 23.3133 49.4842 23.4034 48.0305C23.1981 38.917 20.6688 30.0338 20.2677 20.9378C20.2226 20.0424 20.3027 18.9186 21.4606 18.8235C25.5661 17.6419 30.3631 18.9563 34.0962 16.4593C35.6293 15.6285 36.9089 12.5289 34.4248 12.1236C30.0461 11.4792 25.6201 13.3663 21.2677 12.545C19.9203 12.068 20.0383 10.2028 19.882 9.03075C19.6269 6.26955 20.466 3.3305 19.4177 0.695091C19.1548 0.235434 18.6266 -0.057056 18.0891 0.00938101Z"  transform="translate(69.0675, 79.6615)" />
+      <path id="path5000" fill="url(#defitem1146)" fill-rule="evenodd" stroke="url(#defitem1147)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M40.4044 12.6427C53.1639 12.4997 59.3067 5.24125 64.9545 5.23268C70.6023 5.2241 75.7551 12.4654 89.4919 12.4895C96.8623 12.5025 135.663 13.2769 133.506 7.3958C131.35 1.51472 106.846 9.41257 98.6412 5.22979C94.3465 3.04035 93.0865 2.52146 87.5309 1.67976C72.5438 -0.590866 57.2204 -0.500356 43.6685 1.59391C37.6353 2.52625 35.1813 3.56444 31.7833 5.85153C26.0676 9.69865 1.99071 1.69955 0.0956908 7.31924C-1.79932 12.9389 24.8998 12.8163 40.4044 12.6427Z"  transform="translate(32.2506, 170.965)" />
+      <path id="path5875" fill="url(#defitem1148)" fill-rule="evenodd" stroke="url(#defitem1149)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M76.4438 0.0149099C71.7385 0.0600109 68.2284 3.9217 66.2769 7.84691C64.9858 10.3396 62.7091 12.1542 61.4439 14.6434C61.1777 16.1427 63.3158 16.6312 64.4439 16.3077C67.1978 15.7249 69.3792 13.5478 70.3092 10.9312C71.4127 8.23694 73.9046 6.11729 76.8581 5.92202C79.7587 5.41206 82.4381 7.69216 83.0224 10.4648C83.8667 13.3715 83.4847 16.7977 81.1438 18.9076C77.4901 22.7401 71.9479 24.4551 68.8725 28.9004C51.9934 62.2096 35.14 95.5403 18.4875 128.964C12.5759 141.087 6.32943 153.073 1.15145 165.528C0.748603 167.082 -0.460507 168.805 0.187173 170.421C1.20878 171.215 2.49551 169.987 3.38 169.45C7.02049 166.127 9.03871 161.432 11.4514 157.2C21.6171 137.476 31.1444 117.428 41.0389 97.5657C51.7822 75.8753 62.5263 54.1779 73.501 32.6076C76.6057 28.0123 82.4986 26.4729 85.9797 22.2282C88.1965 19.7951 89.6149 16.5738 89.258 13.2363C89.0293 7.68249 85.8135 1.67195 80.0652 0.350622C78.8856 0.0516619 77.6652 -0.0396131 76.4438 0.0149099Z"  transform="translate(68.8553, 20.8207)" />
+      <path id="path3155" fill="url(#defitem1150)" fill-rule="evenodd" stroke="url(#defitem1151)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M1.80072 12.7695C4.65321 7.9248 -2.70918 4.83395 1.14195 1.45032C3.30463 -0.449827 7.00448 -0.639926 9.0818 1.82479C12.0769 5.37846 3.883 8.46136 7.9145 12.7223"  transform="translate(110.136, 18.0477)" />
+    </g>
+    <g id="BlackKing" fill="none">
+      <rect id="rect5257" fill="none" width="160.3pt" height="159.999pt"/>
+      <path id="path3299" fill="url(#defitem1152)" fill-rule="evenodd" stroke="url(#defitem1153)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0.247526 58.8654C5.55859 51.206 -1.36717 30.1024 0.25174 20.4538C2.87908 4.79493 23.4928 -5.71524 26.2443 3.36326C29.5083 14.1326 16.2572 15.1491 12.5704 24.1388C9.18393 32.3961 9.90842 46.1918 16.5014 54.4952"  transform="translate(65.8498, 81.1303)" />
+      <path id="path3303" fill="url(#defitem1154)" fill-rule="evenodd" stroke="url(#defitem1155)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M26.5093 58.8654C21.1982 51.206 28.124 30.1024 26.5051 20.4538C23.8777 4.79495 3.26398 -5.71524 0.512482 3.36325C-2.75148 14.1326 10.4996 15.1491 14.1864 24.1389C17.5728 32.3961 16.8484 46.1918 10.2554 54.4952"  transform="translate(107.889, 82.2345)" />
+      <path id="path24710" fill="url(#defitem1156)" fill-rule="evenodd" stroke="url(#defitem1157)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M21.5305 51.5939C22.7345 48.1653 25.8596 35.3826 24.7173 31.6167C19.6074 31.2131 8.93115 35.8915 2.0115 34.3927C0.0625894 30.876 -1.15424 23.3086 1.64526 19.1546C7.90962 17.252 21.7356 20.5874 25.5572 21.0985C26.9119 17.2464 22.238 5.63861 23.1434 1.43543C27.4373 -0.613322 38.1004 -0.410768 41.2695 1.67175C41.1081 6.08628 34.6526 16.8088 34.4959 20.4748C38.7974 20.2547 52.1961 16.6177 56.7702 17.5059C58.7434 21.3254 59.1715 28.1493 55.9884 32.5106C51.1118 34.1319 38.2008 30.4695 32.8213 31.5346C30.5543 36.0984 34.0787 47.8826 34.9459 51.33"  transform="translate(70.3481, 14.2606)" />
+      <path id="path3297" fill="url(#defitem1158)" fill-rule="evenodd" stroke="url(#defitem1159)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M7.31441 24.8925C1.65005 19.9969 -0.845755 19.9562 0.25372 7.70261C1.19262 -2.76162 24.5866 -2.22168 25.131 7.24755C25.8136 19.1211 21.8584 20.0102 19.1083 25.7592"  transform="translate(86.2114, 60.0972)" />
+      <path id="path25586" fill="url(#defitem1160)" fill-rule="evenodd" d="M14.6503 45.3278L0 0.47261L107.912 0L90.7626 46.7025Z"  transform="translate(47.3999, 144.454)" />
+      <path id="path5264" fill="url(#defitem1161)" fill-rule="evenodd" stroke="url(#defitem1162)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M93.3417 8.37078C71.8898 -2.60385 23.0069 -3.11947 0 8.79946C3.22288 18.9646 4.51205 30.2789 4.51205 30.2789C25.5037 23.773 68.1451 23.5133 88.7551 31.2259C88.7551 31.2259 90.8801 15.9849 93.3417 8.37078Z"  transform="translate(54.0097, 155.539)" />
+      <path id="path23833" fill="url(#defitem1163)" fill-rule="evenodd" stroke="url(#defitem1164)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M106.234 60.6412C97.9345 57.1411 88.6684 47.1953 78.3007 46.8763C68.3221 47.107 60.3114 55.6909 54.6228 60.227C28.2253 48.2346 28.5407 25.2806 47.0085 21.0701C50.0164 20.3843 58.9696 21.176 64.8848 20.9058C63.0013 15.7137 60.9479 12.0318 62.8954 5.12017C58.7211 2.43861 53.1657 0.515763 46.8368 0.141626C44.9471 0.0299194 43.0283 -0.0177276 41.1046 0.00591334C22.5096 0.234439 3.21629 6.9855 0.478595 24.0629C-3.51717 48.9881 18.5908 63.6776 26.5488 90.0411C51.8092 75.6621 110.057 76.5777 134.258 89.0054C140.68 68.6256 166.283 44.8089 160.557 24.0343C155.253 4.79556 129.472 -0.834386 112.46 0.12734C105.565 0.517118 98.9457 2.74499 93.975 5.80588C94.9373 11.285 92.9869 15.7645 91.3701 20.4986C99.2352 20.502 113.034 18.6765 118.449 21.7343C130.41 28.4878 131.322 52.7962 106.234 60.6412Z"  transform="translate(20.525, 70.5651)" />
+      <path id="path2408" fill="url(#defitem1165)" fill-rule="evenodd" stroke="url(#defitem1166)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0 63.2812C8.70088 57.1833 12.8236 45.073 12.4757 35.2962C11.974 21.1989 4.41959 18.7417 8.73381 6.40178C11.6592 -1.96559 36.0222 -2.39564 38.7737 6.68286C42.0377 17.4522 33.6574 24.1568 34.9637 35.0588C36.4876 47.7765 36.582 56.2066 51.5192 63.9894"  transform="translate(75.2237, 67.5816)" />
+      <path id="path8563" fill="url(#defitem1167)" fill-rule="evenodd" stroke="url(#defitem1168)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0 4.30028C20.1209 6.69672 52.2604 7.09013 74.9669 4.83957C59.2582 -1.55583 16.2157 -1.48627 0 4.30028Z"  transform="translate(63.1334, 186.025)" />
+      <path id="path21809" fill="url(#defitem1169)" fill-rule="evenodd" stroke="url(#defitem1170)" stroke-width="16.5599" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.221257 0 0 0.220842 96.1354 164.783)" />
+      <path id="path21811" fill="url(#defitem1171)" fill-rule="evenodd" stroke="url(#defitem1172)" stroke-width="18.087" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.24334 -0.0439869 0.0295717 0.16298 72.5418 169.14)" />
+      <path id="path21815" fill="url(#defitem1173)" fill-rule="evenodd" stroke="url(#defitem1174)" stroke-width="18.3203" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.237927 0.0385399 -0.0265828 0.163492 118.502 167.687)" />
+    </g>
+    <g id="BlackQueen" transform="translate(200, 0)" fill="none">
+      <rect id="rect5420" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path5422" fill="url(#defitem1175)" fill-rule="evenodd" d="M11.5366 38.0626L0 0L99.3329 0.30181L87.9931 39.1587Z"  transform="translate(44.3245, 150.837)" />
+      <path id="path5424" fill="url(#defitem1176)" fill-rule="evenodd" stroke="url(#defitem1177)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M92.1482 7.5249C64.1645 -2.47524 27.2481 -2.53332 0 7.50107C2.88178 14.4924 3.64524 28.7976 3.64524 28.7976C26.71 22.3459 65.9228 22.5421 88.8069 29.7567C88.8069 29.7567 89.3359 14.4809 92.1482 7.5249Z"  transform="translate(48.1631, 156.503)" />
+      <path id="path28221" fill="url(#defitem1178)" fill-rule="evenodd" stroke="url(#defitem1179)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M27.5182 118.847C55.422 106.782 99.0993 106.591 127.265 118.941C130.042 94.8879 138.795 65.1957 155.36 43.898C142.8 48.8129 124.564 80.2777 113.962 86.2076C105.649 68.7433 122.102 23.4148 128.499 13.814C117.759 20.2762 95.031 60.3047 88.3163 79.0298C78.6374 57.402 80.903 16.9521 80.6715 0C73.3902 15.9277 63.8358 52.5264 62.8579 78.39C44.2648 64.4522 37.7032 26.8029 32.7442 11.8871C30.0137 33.3668 34.7787 70.7795 37.9249 85.906C25.8355 77.7552 11.7183 59.8184 0 44.6161C14.8986 80.2425 20.2912 91.0328 27.5182 118.847Z"  transform="translate(17.1606, 40.9754)" />
+      <path id="path7672" fill="url(#defitem1180)" fill-rule="evenodd" stroke="url(#defitem1181)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M9.47882 0.000110794C5.12825 -0.0222692 7.51276 3.35168 6.65779 4.83548C4.7027 5.96878 -1.64241 3.95802 0.40006 8.11933C1.84707 11.0675 4.0105 9.67965 6.44042 10.6295C7.64844 12.2936 5.60617 17.3543 9.88378 17.2481C13.4167 17.1605 11.491 12.1115 12.2461 10.7511C14.3818 9.35552 17.1838 11.2468 18.5973 7.67055C19.6703 4.95553 14.3579 5.96257 12.2601 4.79338C11.3814 3.48091 14.0053 0.0238208 9.47882 0.000110794Z"  transform="translate(83.899, 160.25)" />
+      <path id="path5428" fill="url(#defitem1182)" fill-rule="evenodd" stroke="url(#defitem1183)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 3.44889C20.3403 5.87602 53.2933 6.73746 76.2474 4.45807C63.2932 -1.33133 16.7325 -1.28238 0 3.44889Z"  transform="translate(56.0073, 185.539)" />
+      <path id="path1323" fill="url(#defitem1184)" fill-rule="evenodd" stroke="url(#defitem1185)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M12.26 0C10.2997 0.042967 4.2579 1.05783 0.627116 2.86881C-0.474324 5.64201 0.0978367 13.7706 0.657306 20.4192C4.13453 14.8384 11.8179 5.24718 12.26 0Z"  transform="translate(96.428, 18.8967)" />
+      <path id="path29102" fill="url(#defitem1186)" fill-rule="evenodd" stroke="url(#defitem1187)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 88.1921 32.8253)" />
+      <path id="path2211" fill="url(#defitem1188)" fill-rule="evenodd" stroke="url(#defitem1189)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M20.3488 8.48538C19.2685 7.19086 19.9572 4.8214 11.188 0L0 13.9755C6.27714 12.0176 16.2051 9.06112 20.3488 8.48538Z"  transform="translate(143.364, 38.6897)" />
+      <path id="path2203" fill="url(#defitem1190)" fill-rule="evenodd" stroke="url(#defitem1191)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 135.824 46.5653)" />
+      <path id="path2213" fill="url(#defitem1192)" fill-rule="evenodd" stroke="url(#defitem1193)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M19.5605 8.54724C20.173 5.3808 16.7735 4.36379 13.5124 0C8.96984 1.85996 3.70728 4.07841 0 9.27948C9.35857 7.34946 13.6127 10.2088 19.5605 8.54724Z"  transform="translate(174.073, 72.0359)" />
+      <path id="path2205" fill="url(#defitem1194)" fill-rule="evenodd" stroke="url(#defitem1195)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 163.903 75.3638)" />
+      <path id="path2215" fill="url(#defitem1196)" fill-rule="evenodd" stroke="url(#defitem1197)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M11.6213 3.25385C9.2031 0.548821 6.37877 0.937013 0 0C0.22272 7.7234 4.83293 9.87807 7.57569 15.887C11.0529 10.3063 10.4922 10.104 11.6213 3.25385Z"  transform="translate(40.2746, 32.1309)" />
+      <path id="path2207" fill="url(#defitem1198)" fill-rule="evenodd" stroke="url(#defitem1199)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 39.8731 44.7333)" />
+      <path id="path2217" fill="url(#defitem1200)" fill-rule="evenodd" stroke="url(#defitem1201)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M4.30621 0C1.22685 0.641184 0.96629 6.94133 0 10.1734C3.44799 13.9737 6.95395 16.1388 9.9662 22.0173C13.1869 16.2847 7.96025 4.3991 4.30621 0Z"  transform="translate(7.20398, 66.3601)" />
+      <path id="path2209" fill="url(#defitem1202)" fill-rule="evenodd" stroke="url(#defitem1203)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 11.1695 79.2175)" />
+    </g>
+    <g id="BlackRook" transform="translate(400, 0)" fill="none">
+      <rect id="rect5557" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path5877" fill="url(#defitem1204)" fill-rule="evenodd" stroke="url(#defitem1205)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 38.0582C0 38.0582 0.74434 11.212 4.04294 2.2871C10.9355 0.79911 24.504 0.0971664 32.9327 1.3273C33.027 6.78721 31.6887 18.2709 32.5683 23.5209C40.2273 23.158 55.7432 24.0881 65.6169 22.9779C65.8368 16.573 63.952 7.50419 65.8212 0.364294C72.0885 -0.106652 86.2569 -0.604782 92.8541 2.23017C91.9745 11.365 92.9829 23.9234 92.9829 23.9234L110.28 24.5219L107.704 38.262C86.1086 46.3565 13.5097 45.1546 0 38.0582Z"  transform="translate(45.8694, 35.99)" />
+      <path id="path30874" fill="url(#defitem1206)" fill-rule="evenodd" stroke="url(#defitem1207)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M26.5095 0C21.0163 5.48543 9.53736 11.0049 1.35224 12.7376C0.165168 16.6562 -1.00285 21.1872 1.40723 26.0594C30.5811 26.3238 107.615 25.9851 135.49 25.8884C136.994 20.4538 138.132 16.5228 136.628 12.2513C128.045 10.5522 117.68 7.98655 110.007 0.00069"  transform="translate(30.9047, 160.867)" />
+      <path id="path28104" fill="none" stroke="url(#defitem1208)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.519643C34.2259 0.536293 71.3709 -0.742847 107.976 0.652573"  transform="translate(45.3514, 175.495)" />
+      <path id="path29124" fill="url(#defitem1209)" fill-rule="evenodd" stroke="url(#defitem1210)" stroke-width="3.664" stroke-linecap="butt" stroke-linejoin="round" d="M0.959402 0C0.0963322 10.2708 -0.152168 81.8188 0.0851622 90.3412C12.7208 89.2727 71.4443 89.2056 84.3943 90.2113C83.661 74.1746 83.8639 0.225295 83.8639 0.225295"  transform="translate(56.9189, 71.1894)" />
+      <path id="path34378" fill="none" stroke="url(#defitem1211)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.01921C9.1344 0.345814 28.2745 -0.412606 49.3354 0.264644"  transform="translate(66.7262, 144.358)" />
+      <path id="path2302" fill="none" stroke="url(#defitem1212)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.35666C11.6224 0.237771 22.8652 -0.130709 39.228 0.0395615"  transform="translate(66.4152, 129.207)" />
+      <path id="path2304" fill="none" stroke="url(#defitem1213)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.28114C16.5495 0.13677 17.0157 0.25826 34.9263 0"  transform="translate(66.5377, 114.353)" />
+      <path id="path2306" fill="none" stroke="url(#defitem1214)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.888484C8.40096 0.193874 13.3411 -0.166989 23.3947 0.0753835"  transform="translate(66.5377, 100.103)" />
+      <path id="path28065" fill="none" stroke="url(#defitem1215)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85443 -0.04026 -0.306 0.16103 5.62208"  transform="translate(76.6602, 104.814)" />
+      <path id="path2309" fill="none" stroke="url(#defitem1216)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85442 -0.04026 -0.30601 0.16103 5.62209"  transform="translate(89.4111, 119.366)" />
+      <path id="path2311" fill="none" stroke="url(#defitem1217)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85441 -0.04026 -0.30601 0.16103 5.62206"  transform="translate(76.6602, 134.086)" />
+      <path id="path2313" fill="none" stroke="url(#defitem1218)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20128 6.85442 -0.04027 0.15863 0.16103 6.0867"  transform="translate(103.406, 133.621)" />
+      <path id="path2315" fill="none" stroke="url(#defitem1219)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85441 -0.04026 0.15862 0.16103 6.08669"  transform="translate(89.4111, 149.361)" />
+      <path id="path5035" fill="none" stroke="url(#defitem1220)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.837548C6.37931 0.142941 9.62994 -0.08003 15.0627 0.024443"  transform="translate(66.8265, 86.9162)" />
+      <path id="path29999" fill="url(#defitem1221)" fill-rule="evenodd" stroke="url(#defitem1222)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 10.2246C1.18076 16.6876 2.07298 22.8193 3.21712 32.1034C10.5628 37.2251 14.6746 39.0138 15.4612 47.5966C37.5259 43.6209 104.077 44.5374 124.088 47.5161C125.483 39.7799 127.764 38.4581 138.545 31.9648C139.907 21.8059 141.102 16.908 141.18 10.8341C137.949 10.0485 114.737 3.09755 111.87 4.09607C110.85 10.14 112.292 15.3325 110.951 21.0164C102.262 21.452 94.5209 21.1212 85.5285 18.7808C85.5733 11.183 85.562 7.01622 85.9353 1.13586C82.1377 -0.216658 59.5527 -0.457085 55.2915 0.937635C54.5571 8.26068 55.4855 12.2499 54.8969 18.761C47.1834 20.9428 39.8683 20.3769 30.6601 20.8941C29.9182 13.1528 31.2881 10.4364 31.1139 5.00236C27.3147 3.96362 3.58715 9.12149 0 10.2246Z"  transform="translate(30.1702, 26.7081)" />
+      <path id="path27172" fill="none" stroke="url(#defitem1223)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 2.50541C34.0418 -0.859897 84.3893 -1.06916 113.606 3.31694"  transform="translate(43.2215, 57.5492)" />
+    </g>
+    <g id="BlackKnight" transform="translate(800, 0)" fill="none">
+      <rect id="rect5867" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path9661" fill="url(#defitem1224)" fill-rule="evenodd" stroke="url(#defitem1225)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M96.9758 76.5431C97.025 94.0598 76.772 109.211 56.7964 101.581C53.7372 100.412 25.9803 125.58 21.5319 122.137C18.0225 119.42 25.42 108.221 24.8822 109.651C22.3216 116.462 11.0169 124.043 1.93864 114.257C-1.61161 110.43 -0.513731 99.4233 7.13329 90.4564C15.0972 81.1179 23.1835 66.7372 26.3136 58.4431C32.6093 41.7606 30.1391 41.3962 42.2042 26.2673C44.4708 23.4251 38.52 12.3909 40.6828 5.18838C49.2263 6.71197 52.5197 15.3016 56.4484 18.9063C58.7386 13.6046 57.1997 -0.641384 61.2709 0.0224366C65.3421 0.686253 70.0251 13.0277 76.7411 18.4483C157.18 43.2022 156.523 171.925 134.042 172.342C106.294 172.857 73.0727 172.74 45.1658 172.296C38.404 172.188 35.2738 163.44 36.5777 158.212C42.7962 133.279 69.0575 115.827 81.9215 107.179C95.1342 98.2957 97.5533 89.5662 96.9758 76.5431Z"  transform="translate(24.0712, 15.471)" />
+      <path id="path31294" fill="none" stroke="url(#defitem1226)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M17.3163 0.360252C10.6586 -0.868404 4.82099 1.06515 0 5.86333"  transform="translate(61.6901, 66.9883)" />
+      <path id="path31298" fill="none" stroke="url(#defitem1227)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.60222C2.39145 4.0389 5.43505 4.1405 5.93649 0"  transform="translate(68.2736, 73.0066)" />
+      <path id="path31300" fill="none" stroke="url(#defitem1228)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M4.20723 0.153807C1.03449 -0.942023 -1.26087 4.16978 0.763488 4.37833"  transform="translate(30.3194, 118.535)" />
+      <path id="path31308" fill="none" stroke="url(#defitem1229)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0L2.17264 2.70003"  transform="translate(72.5646, 108.616)" />
+      <path id="path31312" fill="none" stroke="url(#defitem1230)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 5.7062L0.06659 0"  transform="translate(121.084, 78.8488)" />
+      <path id="path32040" fill="none" stroke="url(#defitem1231)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M2.31591 0L0 1.20935"  transform="translate(72.3103, 37.2467)" />
+      <path id="path32768" fill="none" stroke="url(#defitem1232)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C6.90486 9.64551 9.39795 11.5966 1.1877 10.2127"  transform="translate(86.8529, 24.9321)" />
+      <path id="path1849" fill="url(#defitem1233)" fill-rule="evenodd" stroke="url(#defitem1234)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.280944 2.7086C20.1061 8.52152 16.7623 4.32586 20.9434 11.1349C23.2859 14.9496 26.5319 9.83463 34.2589 10.3185C38.4319 10.5798 22.8087 4.08487 20.7711 1.48765C17.9423 -2.11805 -2.62768 1.85577 0.280944 2.7086Z"  transform="translate(103.787, 27.3192)" />
+      <path id="path1851" fill="url(#defitem1235)" fill-rule="evenodd" stroke="url(#defitem1236)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.101224 1.72382C6.32824 6.45786 10.8894 1.64948 10.6434 9.86382C10.4745 15.504 18.0873 11.7356 21.7843 14.0883C25.1902 16.2558 28.6063 7.51254 26.44 7.51254C23.1807 7.51254 17.6463 9.04162 18.6477 5.36117C20.8457 -2.71749 -1.68728 0.36412 0.101224 1.72382Z"  transform="translate(132.616, 44.0126)" />
+      <path id="path1853" fill="url(#defitem1237)" fill-rule="evenodd" stroke="url(#defitem1238)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.0184925 0.282807C1.23056 0.706837 7.83212 5.17647 7.52646 7.30194C5.94986 18.2648 14.0337 17.5542 17.5126 18.7131C22.3876 20.3371 17.2854 14.517 14.8256 11.5246C12.3658 8.53223 16.5065 7.19241 16.2166 5.29439C15.1968 -1.38232 -0.614307 0.0614259 0.0184925 0.282807Z"  transform="translate(151.014, 63.3141)" />
+      <path id="path1855" fill="url(#defitem1239)" fill-rule="evenodd" stroke="url(#defitem1240)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.0187397 0.182082C1.17704 2.20181 3.89299 4.48936 4.75392 7.65775C5.61487 10.8261 5.93897 13.6509 7.66084 17.054C9.38272 20.457 16.3107 20.0134 19.2982 19.0147C23.3235 17.6689 9.56653 13.4896 12.6662 7.11777C14.6281 3.08491 -0.60636 -0.907912 0.0187397 0.182082Z"  transform="translate(162.661, 86.5281)" />
+      <path id="path2732" fill="none" stroke="url(#defitem1241)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M5.90357 0L0 14.0817"  transform="translate(94.4321, 167.056)" />
+    </g>
+    <g id="BlackPawn" transform="translate(1000, 0)" fill="none">
+      <rect id="rect5972" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path35272" fill="url(#defitem1242)" fill-rule="evenodd" stroke="url(#defitem1243)" stroke-width="21.7618" stroke-linecap="round" stroke-linejoin="round" d="M333.333 150C333.333 232.843 258.714 300 166.667 300C74.6192 300 -1.93976e-06 232.843 3.78187e-14 150C-1.93976e-06 67.1573 74.6192 0 166.667 0C258.714 0 333.333 67.1573 333.333 150Z"  transform="matrix(0.168194 0 0 0.168542 72.1641 44.611)" />
+      <path id="path35274" fill="url(#defitem1244)" fill-rule="evenodd" stroke="url(#defitem1245)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M34.0776 5.37812C34.4139 44.348 14.2157 56.0095 4.77325 62.6844C-3.05665 68.2194 -1.05775 81.5407 9.33175 82.2206C15.7695 82.642 72.676 82.7613 79.3257 82.0274C91.0919 80.7289 91.4274 66.7533 83.8342 62.0332C71.7868 54.5443 52.6465 46.1091 52.1182 5.4497C52.0172 -2.17877 34.0177 -1.42238 34.0776 5.37812Z"  transform="translate(56.9309, 101.567)" />
+      <path id="path34396" fill="url(#defitem1246)" fill-rule="evenodd" stroke="url(#defitem1247)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M22.9251 3.24645C5.9345 7.61249 0 18.3648 0 18.3648L93.6258 18.3648C93.6258 18.3648 83.6798 6.49451 68.4301 3.09411C48.9101 -1.25848 38.8494 -0.845595 22.9251 3.24645Z"  transform="translate(55.0158, 95.8498)" />
+      <path id="path36149" fill="none" stroke="url(#defitem1248)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0L43.0298 0"  transform="translate(77.6587, 163.431)" />
+    </g>
+  </g>
+  <g id="WhitePieces">
+    <g id="WhiteBishop" transform="translate(600, 200)" fill="none">
+      <rect id="rect7539" fill="none" width="159.999pt" height="159.999pt"/>
+      <path id="path7541" fill="url(#defitem1249)" fill-rule="evenodd" stroke="url(#defitem1250)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M0 15.3718C2.47307 11.1989 8.95014 3.83148 15.6291 0C23.9109 7.78416 35.2039 25.9132 40.7901 43.3338C45.1438 56.9111 46.0467 63.0118 46.2734 77.5161C46.5001 92.0203 38.8721 106.308 34.1901 111.594"  transform="translate(99.6351, 34.198)" />
+      <path id="path7543" fill="url(#defitem1251)" fill-rule="evenodd" stroke="url(#defitem1252)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M64.5056 8.75167C65.8859 -3.46976 -2.72172 -2.56768 0.0837649 9.43877C2.35053 14.4415 0.562725 20.8753 0.562725 20.8753C0.562725 20.8753 16.3975 18.6284 34.0215 18.9084C51.6455 19.1884 63.5733 20.5857 63.5733 20.5857C63.5733 20.5857 63.1253 12.3532 64.5056 8.75167Z"  transform="translate(64.7438, 148.289)" />
+      <path id="path7545" fill="url(#defitem1253)" fill-rule="evenodd" stroke="url(#defitem1254)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M18.7734 121.224C13.5642 119.376 9.77179 111.981 6.48548 107.265C1.23989 99.737 -1.85278 84.0814 1.21932 66.526C4.29143 48.9705 20.9876 15.0475 38.0846 0C58.9214 15.0475 72.3591 37.7969 82.964 68.1099C88.6392 84.3318 91.456 102.084 86.2468 120.696C74.092 118.188 32.9329 115.809 18.7734 121.224Z"  transform="translate(45.0969, 34.7259)" />
+      <path id="path7547" fill="url(#defitem1255)" fill-rule="evenodd" stroke="url(#defitem1256)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M1.80072 12.7695C4.65321 7.9248 -2.70918 4.83396 1.14196 1.45032C3.30464 -0.449827 7.00448 -0.639926 9.0818 1.82479C12.0769 5.37846 3.88301 8.46136 7.9145 12.7223"  transform="translate(78.2969, 18.9374)" />
+      <path id="path7549" fill="none" stroke="url(#defitem1257)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M5.68725 5.87183C3.50835 5.28356 1.54961 6.31908 0.750688 5.65707C-0.229662 4.84473 -0.172262 1.46497 0.476788 0.607027C1.03175 -0.126533 8.16393 -0.218103 8.86379 0.457687C9.51621 1.08661 8.84489 5.18106 8.24043 6.21708"  transform="translate(94.0561, 156.95)" />
+      <path id="path7551" fill="url(#defitem1258)" fill-rule="evenodd" stroke="url(#defitem1259)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M18.0891 0.00938101C15.4771 0.423629 14.1771 3.28761 14.5041 5.71636C14.4591 7.79268 15.3686 10.4679 13.6606 12.095C11.3501 12.8637 8.84966 11.9011 6.49536 11.6998C4.55706 11.5227 2.21962 10.79 0.496392 12.0379C-0.822568 13.6003 0.718122 15.9613 2.41781 16.4878C5.8356 17.9746 9.89334 17.1991 13.182 18.9593C14.3173 20.0066 14.0851 21.8307 14.432 23.2235C15.5012 31.5211 15.4447 40.0505 17.9534 48.0877C18.6101 49.8523 19.6358 52.3006 21.832 52.3162C23.5273 51.7361 23.3133 49.4842 23.4034 48.0305C23.1981 38.917 20.6688 30.0338 20.2677 20.9378C20.2226 20.0424 20.3027 18.9186 21.4606 18.8235C25.5661 17.6419 30.3631 18.9563 34.0962 16.4593C35.6293 15.6285 36.9089 12.5289 34.4248 12.1236C30.0461 11.4792 25.6201 13.3663 21.2677 12.545C19.9203 12.068 20.0383 10.2028 19.882 9.03075C19.6269 6.26955 20.466 3.3305 19.4177 0.695091C19.1548 0.235434 18.6266 -0.057056 18.0891 0.00938101Z"  transform="translate(69.0675, 79.6615)" />
+      <path id="path7553" fill="url(#defitem1260)" fill-rule="evenodd" stroke="url(#defitem1261)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M40.4044 12.6427C53.1639 12.4997 59.3067 5.24125 64.9545 5.23268C70.6023 5.2241 75.7551 12.4654 89.4919 12.4895C96.8623 12.5025 135.663 13.2769 133.506 7.3958C131.35 1.51472 106.846 9.41257 98.6412 5.22979C94.3465 3.04035 93.0865 2.52146 87.5309 1.67976C72.5438 -0.590866 57.2204 -0.500356 43.6685 1.59391C37.6353 2.52625 35.1813 3.56444 31.7833 5.85153C26.0676 9.69865 1.99071 1.69955 0.0956908 7.31924C-1.79932 12.9389 24.8998 12.8163 40.4044 12.6427Z"  transform="translate(32.2506, 170.965)" />
+      <path id="path7555" fill="url(#defitem1262)" fill-rule="evenodd" stroke="url(#defitem1263)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M76.4438 0.0149099C71.7385 0.0600109 68.2284 3.9217 66.2769 7.84691C64.9858 10.3396 62.7091 12.1542 61.4439 14.6434C61.1777 16.1427 63.3158 16.6312 64.4439 16.3077C67.1978 15.7249 69.3792 13.5478 70.3092 10.9312C71.4127 8.23694 73.9046 6.11729 76.8581 5.92202C79.7587 5.41206 82.4381 7.69216 83.0224 10.4648C83.8667 13.3715 83.4847 16.7977 81.1438 18.9076C77.4901 22.7401 71.9479 24.4551 68.8725 28.9004C51.9934 62.2096 35.14 95.5403 18.4875 128.964C12.5759 141.087 6.32943 153.073 1.15145 165.528C0.748603 167.082 -0.460507 168.805 0.187173 170.421C1.20878 171.215 2.49551 169.987 3.38 169.45C7.02049 166.127 9.03871 161.432 11.4514 157.2C21.6171 137.476 31.1444 117.428 41.0389 97.5657C51.7822 75.8753 62.5263 54.1779 73.501 32.6076C76.6057 28.0123 82.4986 26.4729 85.9797 22.2282C88.1965 19.7951 89.6149 16.5738 89.258 13.2363C89.0293 7.68249 85.8135 1.67195 80.0652 0.350622C78.8856 0.0516619 77.6652 -0.0396131 76.4438 0.0149099Z"  transform="translate(68.8553, 20.8207)" />
+      <path id="path7557" fill="url(#defitem1264)" fill-rule="evenodd" stroke="url(#defitem1265)" stroke-width="3.65712" stroke-linecap="round" stroke-linejoin="round" d="M1.80072 12.7695C4.65321 7.9248 -2.70918 4.83395 1.14195 1.45032C3.30463 -0.449827 7.00448 -0.639926 9.0818 1.82479C12.0769 5.37846 3.883 8.46136 7.9145 12.7223"  transform="translate(110.136, 18.0477)" />
+    </g>
+    <g id="WhitePawn" transform="translate(1000, 200)" fill="none">
+      <rect id="rect7689" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path7691" fill="url(#defitem1266)" fill-rule="evenodd" stroke="url(#defitem1267)" stroke-width="21.7618" stroke-linecap="round" stroke-linejoin="round" d="M333.333 150C333.333 232.843 258.714 300 166.667 300C74.6192 300 -1.93976e-06 232.843 3.78187e-14 150C-1.93976e-06 67.1573 74.6192 0 166.667 0C258.714 0 333.333 67.1573 333.333 150Z"  transform="matrix(0.168194 0 0 0.168542 72.1641 44.611)" />
+      <path id="path7693" fill="url(#defitem1268)" fill-rule="evenodd" stroke="url(#defitem1269)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M34.0776 5.37812C34.4139 44.348 14.2157 56.0095 4.77325 62.6844C-3.05665 68.2194 -1.05775 81.5407 9.33175 82.2206C15.7695 82.642 72.676 82.7613 79.3257 82.0274C91.0919 80.7289 91.4274 66.7533 83.8342 62.0332C71.7868 54.5443 52.6465 46.1091 52.1182 5.4497C52.0172 -2.17877 34.0177 -1.42238 34.0776 5.37812Z"  transform="translate(56.9309, 101.567)" />
+      <path id="path7695" fill="url(#defitem1270)" fill-rule="evenodd" stroke="url(#defitem1271)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M22.9251 3.24645C5.9345 7.61249 0 18.3648 0 18.3648L93.6258 18.3648C93.6258 18.3648 83.6798 6.49451 68.4301 3.09411C48.9101 -1.25848 38.8494 -0.845595 22.9251 3.24645Z"  transform="translate(55.0158, 95.8498)" />
+      <path id="path7697" fill="none" stroke="url(#defitem1272)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0L43.0298 0"  transform="translate(77.6587, 163.431)" />
+    </g>
+    <g id="WhiteRook" transform="translate(400, 200)" fill="none">
+      <rect id="rect7623" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path7625" fill="url(#defitem1273)" fill-rule="evenodd" stroke="url(#defitem1274)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 38.0582C0 38.0582 0.74434 11.212 4.04294 2.2871C10.9355 0.79911 24.504 0.0971664 32.9327 1.3273C33.027 6.78721 31.6887 18.2709 32.5683 23.5209C40.2273 23.158 55.7432 24.0881 65.6169 22.9779C65.8368 16.573 63.952 7.50419 65.8212 0.364294C72.0885 -0.106652 86.2569 -0.604782 92.8541 2.23017C91.9745 11.365 92.9829 23.9234 92.9829 23.9234L110.28 24.5219L107.704 38.262C86.1086 46.3565 13.5097 45.1546 0 38.0582Z"  transform="translate(45.8694, 35.99)" />
+      <path id="path7627" fill="url(#defitem1275)" fill-rule="evenodd" stroke="url(#defitem1276)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M26.5095 0C21.0163 5.48543 9.53736 11.0049 1.35224 12.7376C0.165168 16.6562 -1.00285 21.1872 1.40723 26.0594C30.5811 26.3238 107.615 25.9851 135.49 25.8884C136.994 20.4538 138.132 16.5228 136.628 12.2513C128.045 10.5522 117.68 7.98655 110.007 0.00069"  transform="translate(30.9047, 160.867)" />
+      <path id="path7629" fill="none" stroke="url(#defitem1277)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.519643C34.2259 0.536293 71.3709 -0.742847 107.976 0.652573"  transform="translate(45.3514, 175.495)" />
+      <path id="path7631" fill="url(#defitem1278)" fill-rule="evenodd" stroke="url(#defitem1279)" stroke-width="3.664" stroke-linecap="butt" stroke-linejoin="round" d="M0.959402 0C0.0963322 10.2708 -0.152168 81.8188 0.0851622 90.3412C12.7208 89.2727 71.4443 89.2056 84.3943 90.2113C83.661 74.1746 83.8639 0.225295 83.8639 0.225295"  transform="translate(56.9189, 71.1894)" />
+      <path id="path7633" fill="none" stroke="url(#defitem1280)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.01921C9.1344 0.345814 28.2745 -0.412606 49.3354 0.264644"  transform="translate(66.7262, 144.358)" />
+      <path id="path7635" fill="none" stroke="url(#defitem1281)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.35666C11.6224 0.237771 22.8652 -0.130709 39.228 0.0395615"  transform="translate(66.4152, 129.207)" />
+      <path id="path7637" fill="none" stroke="url(#defitem1282)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.28114C16.5495 0.13677 17.0157 0.25826 34.9263 0"  transform="translate(66.5377, 114.353)" />
+      <path id="path7639" fill="none" stroke="url(#defitem1283)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.888484C8.40096 0.193874 13.3411 -0.166989 23.3947 0.0753835"  transform="translate(66.5377, 100.103)" />
+      <path id="path7641" fill="none" stroke="url(#defitem1284)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85443 -0.04026 -0.306 0.16103 5.62208"  transform="translate(76.6602, 104.814)" />
+      <path id="path7643" fill="none" stroke="url(#defitem1285)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85442 -0.04026 -0.30601 0.16103 5.62209"  transform="translate(89.4111, 119.366)" />
+      <path id="path7645" fill="none" stroke="url(#defitem1286)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85441 -0.04026 -0.30601 0.16103 5.62206"  transform="translate(76.6602, 134.086)" />
+      <path id="path7647" fill="none" stroke="url(#defitem1287)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20128 6.85442 -0.04027 0.15863 0.16103 6.0867"  transform="translate(103.406, 133.621)" />
+      <path id="path7649" fill="none" stroke="url(#defitem1288)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C0.20129 6.85441 -0.04026 0.15862 0.16103 6.08669"  transform="translate(89.4111, 149.361)" />
+      <path id="path7651" fill="none" stroke="url(#defitem1289)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0.837548C6.37931 0.142941 9.62994 -0.08003 15.0627 0.024443"  transform="translate(66.8265, 86.9162)" />
+      <path id="path7653" fill="url(#defitem1290)" fill-rule="evenodd" stroke="url(#defitem1291)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 10.2246C1.18076 16.6876 2.07298 22.8193 3.21712 32.1034C10.5628 37.2251 14.6746 39.0138 15.4612 47.5966C37.5259 43.6209 104.077 44.5374 124.088 47.5161C125.483 39.7799 127.764 38.4581 138.545 31.9648C139.907 21.8059 141.102 16.908 141.18 10.8341C137.949 10.0485 114.737 3.09755 111.87 4.09607C110.85 10.14 112.292 15.3325 110.951 21.0164C102.262 21.452 94.5209 21.1212 85.5285 18.7808C85.5733 11.183 85.562 7.01622 85.9353 1.13586C82.1377 -0.216658 59.5527 -0.457085 55.2915 0.937635C54.5571 8.26068 55.4855 12.2499 54.8969 18.761C47.1834 20.9428 39.8683 20.3769 30.6601 20.8941C29.9182 13.1528 31.2881 10.4364 31.1139 5.00236C27.3147 3.96362 3.58715 9.12149 0 10.2246Z"  transform="translate(30.1702, 26.7081)" />
+      <path id="path7655" fill="none" stroke="url(#defitem1292)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 2.50541C34.0418 -0.859897 84.3893 -1.06916 113.606 3.31694"  transform="translate(43.2215, 57.5492)" />
+    </g>
+    <g id="WhiteKnight" transform="translate(800, 200)" fill="none">
+      <rect id="rect7659" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path7661" fill="url(#defitem1293)" fill-rule="evenodd" stroke="#000000" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M96.9758 76.5431C97.025 94.0598 76.772 109.211 56.7964 101.581C53.7372 100.412 25.9803 125.58 21.5319 122.137C18.0225 119.42 25.42 108.221 24.8822 109.651C22.3216 116.462 11.0169 124.043 1.93864 114.257C-1.61161 110.43 -0.513731 99.4233 7.13329 90.4564C15.0972 81.1179 23.1835 66.7372 26.3136 58.4431C32.6093 41.7606 30.1391 41.3962 42.2042 26.2673C44.4708 23.4251 38.52 12.3909 40.6828 5.18838C49.2263 6.71197 52.5197 15.3016 56.4484 18.9063C58.7386 13.6046 57.1997 -0.641384 61.2709 0.0224366C65.3421 0.686253 70.0251 13.0277 76.7411 18.4483C157.18 43.2022 156.523 171.925 134.042 172.342C106.294 172.857 73.0727 172.74 45.1658 172.296C38.404 172.188 35.2738 163.44 36.5777 158.212C42.7962 133.279 69.0575 115.827 81.9215 107.179C95.1342 98.2957 97.5533 89.5662 96.9758 76.5431Z"  transform="translate(24.0712, 15.471)" />
+      <path id="path7663" fill="none" stroke="url(#defitem1294)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M17.3163 0.360252C10.6586 -0.868404 4.82099 1.06515 0 5.86333"  transform="translate(61.6901, 66.9883)" />
+      <path id="path7665" fill="none" stroke="url(#defitem1295)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 1.60222C2.39145 4.0389 5.43505 4.1405 5.93649 0"  transform="translate(68.2736, 73.0066)" />
+      <path id="path7667" fill="none" stroke="url(#defitem1296)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M4.20723 0.153807C1.03449 -0.942023 -1.26087 4.16978 0.763488 4.37833"  transform="translate(30.3194, 118.535)" />
+      <path id="path7669" fill="none" stroke="url(#defitem1297)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0L2.17264 2.70003"  transform="translate(72.5646, 108.616)" />
+      <path id="path7671" fill="none" stroke="url(#defitem1298)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 5.7062L0.06659 0"  transform="translate(121.084, 78.8488)" />
+      <path id="path7673" fill="none" stroke="url(#defitem1299)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M2.31591 0L0 1.20935"  transform="translate(72.3103, 37.2467)" />
+      <path id="path7675" fill="none" stroke="url(#defitem1300)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 0C6.90486 9.64551 9.39795 11.5966 1.1877 10.2127"  transform="translate(86.8529, 24.9321)" />
+      <path id="path7677" fill="url(#defitem1301)" fill-rule="evenodd" stroke="url(#defitem1302)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.280944 2.7086C20.1061 8.52152 16.7623 4.32586 20.9434 11.1349C23.2859 14.9496 26.5319 9.83463 34.2589 10.3185C38.4319 10.5798 22.8087 4.08487 20.7711 1.48765C17.9423 -2.11805 -2.62768 1.85577 0.280944 2.7086Z"  transform="translate(103.787, 27.3192)" />
+      <path id="path7679" fill="url(#defitem1303)" fill-rule="evenodd" stroke="url(#defitem1304)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.101224 1.72382C6.32824 6.45786 10.8894 1.64948 10.6434 9.86382C10.4745 15.504 18.0873 11.7356 21.7843 14.0883C25.1902 16.2558 28.6063 7.51254 26.44 7.51254C23.1807 7.51254 17.6463 9.04162 18.6477 5.36117C20.8457 -2.71749 -1.68728 0.36412 0.101224 1.72382Z"  transform="translate(132.616, 44.0126)" />
+      <path id="path7681" fill="url(#defitem1305)" fill-rule="evenodd" stroke="url(#defitem1306)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.0184925 0.282807C1.23056 0.706837 7.83212 5.17647 7.52646 7.30194C5.94986 18.2648 14.0337 17.5542 17.5126 18.7131C22.3876 20.3371 17.2854 14.517 14.8256 11.5246C12.3658 8.53223 16.5065 7.19241 16.2166 5.29439C15.1968 -1.38232 -0.614307 0.0614259 0.0184925 0.282807Z"  transform="translate(151.014, 63.3141)" />
+      <path id="path7683" fill="url(#defitem1307)" fill-rule="evenodd" stroke="url(#defitem1308)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0.0187397 0.182082C1.17704 2.20181 3.89299 4.48936 4.75392 7.65775C5.61487 10.8261 5.93897 13.6509 7.66084 17.054C9.38272 20.457 16.3107 20.0134 19.2982 19.0147C23.3235 17.6689 9.56653 13.4896 12.6662 7.11777C14.6281 3.08491 -0.60636 -0.907912 0.0187397 0.182082Z"  transform="translate(162.661, 86.5281)" />
+      <path id="path7685" fill="none" stroke="url(#defitem1309)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M5.90357 0L0 14.0817"  transform="translate(94.4321, 167.056)" />
+    </g>
+    <g id="WhiteQueen" transform="translate(200, 200)" fill="none">
+      <rect id="rect7589" fill="none" width="160.3pt" height="160.3pt"/>
+      <path id="path7591" fill="url(#defitem1310)" fill-rule="evenodd" d="M11.5366 38.0626L0 0L99.3329 0.30181L87.9931 39.1587Z"  transform="translate(44.3245, 150.837)" />
+      <path id="path7593" fill="url(#defitem1311)" fill-rule="evenodd" stroke="url(#defitem1312)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M92.1482 7.5249C64.1645 -2.47524 27.2481 -2.53332 0 7.50107C2.88178 14.4924 3.64524 28.7976 3.64524 28.7976C26.71 22.3459 65.9228 22.5421 88.8069 29.7567C88.8069 29.7567 89.3359 14.4809 92.1482 7.5249Z"  transform="translate(48.1631, 156.503)" />
+      <path id="path7595" fill="url(#defitem1313)" fill-rule="evenodd" stroke="url(#defitem1314)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M27.5182 118.847C55.422 106.782 99.0993 106.591 127.265 118.941C130.042 94.8879 138.795 65.1957 155.36 43.898C142.8 48.8129 124.564 80.2777 113.962 86.2076C105.649 68.7433 122.102 23.4148 128.499 13.814C117.759 20.2762 95.031 60.3047 88.3163 79.0298C78.6374 57.402 80.903 16.9521 80.6715 0C73.3902 15.9277 63.8358 52.5264 62.8579 78.39C44.2648 64.4522 37.7032 26.8029 32.7442 11.8871C30.0137 33.3668 34.7787 70.7795 37.9249 85.906C25.8355 77.7552 11.7183 59.8184 0 44.6161C14.8986 80.2425 20.2912 91.0328 27.5182 118.847Z"  transform="translate(17.1606, 40.9754)" />
+      <path id="path7597" fill="url(#defitem1315)" fill-rule="evenodd" stroke="url(#defitem1316)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M9.47882 0.000110794C5.12825 -0.0222692 7.51276 3.35168 6.65779 4.83548C4.7027 5.96878 -1.64241 3.95802 0.40006 8.11933C1.84707 11.0675 4.0105 9.67965 6.44042 10.6295C7.64844 12.2936 5.60617 17.3543 9.88378 17.2481C13.4167 17.1605 11.491 12.1115 12.2461 10.7511C14.3818 9.35552 17.1838 11.2468 18.5973 7.67055C19.6703 4.95553 14.3579 5.96257 12.2601 4.79338C11.3814 3.48091 14.0053 0.0238208 9.47882 0.000110794Z"  transform="translate(83.899, 160.25)" />
+      <path id="path7599" fill="url(#defitem1317)" fill-rule="evenodd" stroke="url(#defitem1318)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M0 3.44889C20.3403 5.87602 53.2933 6.73746 76.2474 4.45807C63.2932 -1.33133 16.7325 -1.28238 0 3.44889Z"  transform="translate(56.0073, 185.539)" />
+      <path id="path7601" fill="url(#defitem1319)" fill-rule="evenodd" stroke="url(#defitem1320)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M12.26 0C10.2997 0.042967 4.2579 1.05783 0.627116 2.86881C-0.474324 5.64201 0.0978367 13.7706 0.657306 20.4192C4.13453 14.8384 11.8179 5.24718 12.26 0Z"  transform="translate(96.428, 18.8967)" />
+      <path id="path7603" fill="url(#defitem1321)" fill-rule="evenodd" stroke="url(#defitem1322)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 88.1921 32.8253)" />
+      <path id="path7605" fill="url(#defitem1323)" fill-rule="evenodd" stroke="url(#defitem1324)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M20.3488 8.48538C19.2685 7.19086 19.9572 4.8214 11.188 0L0 13.9755C6.27714 12.0176 16.2051 9.06112 20.3488 8.48538Z"  transform="translate(143.364, 38.6897)" />
+      <path id="path7607" fill="url(#defitem1325)" fill-rule="evenodd" stroke="url(#defitem1326)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 135.824 46.5653)" />
+      <path id="path7609" fill="url(#defitem1327)" fill-rule="evenodd" stroke="url(#defitem1328)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M19.5605 8.54724C20.173 5.3808 16.7735 4.36379 13.5124 0C8.96984 1.85996 3.70728 4.07841 0 9.27948C9.35857 7.34946 13.6127 10.2088 19.5605 8.54724Z"  transform="translate(174.073, 72.0359)" />
+      <path id="path7611" fill="url(#defitem1329)" fill-rule="evenodd" stroke="url(#defitem1330)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 163.903 75.3638)" />
+      <path id="path7613" fill="url(#defitem1331)" fill-rule="evenodd" stroke="url(#defitem1332)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M11.6213 3.25385C9.2031 0.548821 6.37877 0.937013 0 0C0.22272 7.7234 4.83293 9.87807 7.57569 15.887C11.0529 10.3063 10.4922 10.104 11.6213 3.25385Z"  transform="translate(40.2746, 32.1309)" />
+      <path id="path7615" fill="url(#defitem1333)" fill-rule="evenodd" stroke="url(#defitem1334)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 39.8731 44.7333)" />
+      <path id="path7617" fill="url(#defitem1335)" fill-rule="evenodd" stroke="url(#defitem1336)" stroke-width="3.664" stroke-linecap="round" stroke-linejoin="round" d="M4.30621 0C1.22685 0.641184 0.96629 6.94133 0 10.1734C3.44799 13.9737 6.95395 16.1388 9.9662 22.0173C13.1869 16.2847 7.96025 4.3991 4.30621 0Z"  transform="translate(7.20398, 66.3601)" />
+      <path id="path7619" fill="url(#defitem1337)" fill-rule="evenodd" stroke="url(#defitem1338)" stroke-width="18.737" stroke-linecap="round" stroke-linejoin="round" d="M91.9239 44.7928C91.9292 69.5296 71.3498 89.5855 45.9619 89.5855C20.5741 89.5855 -0.0052949 69.5296 1.02191e-06 44.7928C-0.0052949 20.0559 20.5741 0 45.9619 0C71.3498 0 91.9292 20.0559 91.9239 44.7928Z"  transform="matrix(0.195549 0 0 0.195549 11.1695 79.2175)" />
+    </g>
+    <g id="WhiteKing" transform="translate(0, 200)" fill="none">
+      <rect id="rect7561" fill="none" width="160.3pt" height="159.999pt"/>
+      <path id="path7563" fill="url(#defitem1339)" fill-rule="evenodd" stroke="url(#defitem1340)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0.247526 58.8654C5.55859 51.206 -1.36717 30.1024 0.25174 20.4538C2.87908 4.79493 23.4928 -5.71524 26.2443 3.36326C29.5083 14.1326 16.2572 15.1491 12.5704 24.1388C9.18393 32.3961 9.90842 46.1918 16.5014 54.4952"  transform="translate(65.8498, 81.1303)" />
+      <path id="path7565" fill="url(#defitem1341)" fill-rule="evenodd" stroke="url(#defitem1342)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M26.5093 58.8654C21.1982 51.206 28.124 30.1024 26.5051 20.4538C23.8777 4.79495 3.26398 -5.71524 0.512482 3.36325C-2.75148 14.1326 10.4996 15.1491 14.1864 24.1389C17.5728 32.3961 16.8484 46.1918 10.2554 54.4952"  transform="translate(107.889, 82.2345)" />
+      <path id="path7567" fill="url(#defitem1343)" fill-rule="evenodd" stroke="url(#defitem1344)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M21.5305 51.5939C22.7345 48.1653 25.8596 35.3826 24.7173 31.6167C19.6074 31.2131 8.93115 35.8915 2.0115 34.3927C0.0625894 30.876 -1.15424 23.3086 1.64526 19.1546C7.90962 17.252 21.7356 20.5874 25.5572 21.0985C26.9119 17.2464 22.238 5.63861 23.1434 1.43543C27.4373 -0.613322 38.1004 -0.410768 41.2695 1.67175C41.1081 6.08628 34.6526 16.8088 34.4959 20.4748C38.7974 20.2547 52.1961 16.6177 56.7702 17.5059C58.7434 21.3254 59.1715 28.1493 55.9884 32.5106C51.1118 34.1319 38.2008 30.4695 32.8213 31.5346C30.5543 36.0984 34.0787 47.8826 34.9459 51.33"  transform="translate(70.3481, 14.2606)" />
+      <path id="path7569" fill="url(#defitem1345)" fill-rule="evenodd" stroke="url(#defitem1346)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M7.31441 24.8925C1.65005 19.9969 -0.845755 19.9562 0.25372 7.70261C1.19262 -2.76162 24.5866 -2.22168 25.131 7.24755C25.8136 19.1211 21.8584 20.0102 19.1083 25.7592"  transform="translate(86.2114, 60.0972)" />
+      <path id="path7571" fill="url(#defitem1347)" fill-rule="evenodd" d="M14.6503 45.3278L0 0.47261L107.912 0L90.7626 46.7025Z"  transform="translate(47.3999, 144.454)" />
+      <path id="path7573" fill="url(#defitem1348)" fill-rule="evenodd" stroke="url(#defitem1349)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M93.3417 8.37078C71.8898 -2.60385 23.0069 -3.11947 0 8.79946C3.22288 18.9646 4.51205 30.2789 4.51205 30.2789C25.5037 23.773 68.1451 23.5133 88.7551 31.2259C88.7551 31.2259 90.8801 15.9849 93.3417 8.37078Z"  transform="translate(54.0097, 155.539)" />
+      <path id="path7575" fill="url(#defitem1350)" fill-rule="evenodd" stroke="url(#defitem1351)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M106.234 60.6412C97.9345 57.1411 88.6684 47.1953 78.3007 46.8763C68.3221 47.107 60.3114 55.6909 54.6228 60.227C28.2253 48.2346 28.5407 25.2806 47.0085 21.0701C50.0164 20.3843 58.9696 21.176 64.8848 20.9058C63.0013 15.7137 60.9479 12.0318 62.8954 5.12017C58.7211 2.43861 53.1657 0.515763 46.8368 0.141626C44.9471 0.0299194 43.0283 -0.0177276 41.1046 0.00591334C22.5096 0.234439 3.21629 6.9855 0.478595 24.0629C-3.51717 48.9881 18.5908 63.6776 26.5488 90.0411C51.8092 75.6621 110.057 76.5777 134.258 89.0054C140.68 68.6256 166.283 44.8089 160.557 24.0343C155.253 4.79556 129.472 -0.834386 112.46 0.12734C105.565 0.517118 98.9457 2.74499 93.975 5.80588C94.9373 11.285 92.9869 15.7645 91.3701 20.4986C99.2352 20.502 113.034 18.6765 118.449 21.7343C130.41 28.4878 131.322 52.7962 106.234 60.6412Z"  transform="translate(20.525, 70.5651)" />
+      <path id="path7577" fill="url(#defitem1352)" fill-rule="evenodd" stroke="url(#defitem1353)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0 63.2812C8.70088 57.1833 12.8236 45.073 12.4757 35.2962C11.974 21.1989 4.41959 18.7417 8.73381 6.40178C11.6592 -1.96559 36.0222 -2.39564 38.7737 6.68286C42.0377 17.4522 33.6574 24.1568 34.9637 35.0588C36.4876 47.7765 36.582 56.2066 51.5192 63.9894"  transform="translate(75.2237, 67.5816)" />
+      <path id="path7579" fill="url(#defitem1354)" fill-rule="evenodd" stroke="url(#defitem1355)" stroke-width="3.66056" stroke-linecap="round" stroke-linejoin="round" d="M0 4.30028C20.1209 6.69672 52.2604 7.09013 74.9669 4.83957C59.2582 -1.55583 16.2157 -1.48627 0 4.30028Z"  transform="translate(63.1334, 186.025)" />
+      <path id="path7581" fill="url(#defitem1356)" fill-rule="evenodd" stroke="url(#defitem1357)" stroke-width="16.5599" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.221257 0 0 0.220842 96.1354 164.783)" />
+      <path id="path7583" fill="url(#defitem1358)" fill-rule="evenodd" stroke="url(#defitem1359)" stroke-width="18.087" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.24334 -0.0439869 0.0295717 0.16298 72.5418 169.14)" />
+      <path id="path7585" fill="url(#defitem1360)" fill-rule="evenodd" stroke="url(#defitem1361)" stroke-width="18.3203" stroke-linecap="round" stroke-linejoin="round" d="M35 16.6667C35 25.8714 27.165 33.3333 17.5 33.3333C7.83502 33.3333 0 25.8714 0 16.6667C0 7.46192 7.83502 0 17.5 0C27.165 0 35 7.46192 35 16.6667Z"  transform="matrix(0.237927 0.0385399 -0.0265828 0.163492 118.502 167.687)" />
+    </g>
+  </g>
+  <g id="Tiles">
+    <rect id="BlackTile" transform="translate(309.63, -90.3704)" fill="#d18b47" width="36pt" height="36pt"/>
+    <rect id="WhiteTile" transform="translate(401.481, -90.3704)" fill="#ffce9e" width="36pt" height="36pt"/>
+    <g id="Marker" transform="translate(554.074, -91.8519)" fill="none">
+      <rect id="rect3136" fill="none" width="36pt" height="36pt"/>
+      <path id="path1933" fill="#000000" stroke="#000000" stroke-width="1.67647" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="2" d="M19.2533 9.62667C19.2533 14.9434 14.9434 19.2533 9.62667 19.2533C4.31001 19.2533 0 14.9434 0 9.62667C0 4.31001 4.31001 0 9.62667 0C14.9434 0 19.2533 4.31001 19.2533 9.62667Z"  transform="matrix(0.894737 0 0 0.894737 14 14)" />
+    </g>
+  </g>
+</svg>
