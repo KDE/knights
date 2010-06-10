@@ -48,6 +48,7 @@ namespace Knights
             void setActivePlayer ( Color color );
             void setDisplayedPlayer ( Color color );
             void setPlayerName ( Color color, const QString& name );
+            void setCurrentTime ( Color color, const QTime& time );
 
             void pauseClock();
             void resumeClock();
@@ -67,6 +68,7 @@ namespace Knights
             QMap<Color, QTime> m_timeLimit;
             QMap<Color, QGroupBox*> m_box;
             QMap<Color, int> m_timeIncrement;
+            QMap<Color, bool> m_started;
     };
 }
 

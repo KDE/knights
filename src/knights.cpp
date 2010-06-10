@@ -172,7 +172,7 @@ void MainWindow::showClockWidgets()
                 playerClock->setTimeLimit ( oppositeColor ( playerColor ), m_oppTime );
 
                 if ( m_protocol->supportedFeatures() & Protocol::UpdateTimeLimit ) {
-                        connect ( m_protocol, SIGNAL ( timeChanged ( Color,QTime ) ), playerClock, SLOT ( setTimeLimit ( Color,QTime ) ) );
+                        connect ( m_protocol, SIGNAL ( timeChanged ( Color,QTime ) ), playerClock, SLOT ( setCurrentTime ( Color,QTime ) ) );
                 } else {
                         playerClock->setTimeIncrement ( playerColor, m_oppIncrement );
                         playerClock->setTimeIncrement ( oppositeColor ( playerColor ), m_oppIncrement );

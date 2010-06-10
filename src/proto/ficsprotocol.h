@@ -76,6 +76,7 @@ private:
     static const QString argsPattern;
     static const QString pieces;
     static const QString coordinate;
+    static const QString remainingTime;
 
     static const QRegExp moveRegExp;
     static const QRegExp seekRegExp;
