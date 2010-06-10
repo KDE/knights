@@ -76,34 +76,33 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
     switch ( color )
     {
         case White:
-            id.append ( 'W' );
+            id.append ( "White" );
             break;
         case Black:
-            id.append ( 'B' );
+            id.append ( "Black" );
             break;
         default:
             break;
     }
-    id.append ( '_' );
     switch ( type )
     {
         case Pawn:
-            id.append ( "PAWN" );
+            id.append ( "Pawn" );
             break;
         case Rook:
-            id.append ( "ROOK" );
+            id.append ( "Rook" );
             break;
         case Knight:
-            id.append ( "KNIGHT" );
+            id.append ( "Knight" );
             break;
         case Bishop:
-            id.append ( "BISHOP" );
+            id.append ( "Bishop" );
             break;
         case Queen:
-            id.append ( "QUEEN" );
+            id.append ( "Queen" );
             break;
         case King:
-            id.append ( "KING" );
+            id.append ( "King" );
             break;
     }
     
@@ -399,7 +398,7 @@ void Board::setCurrentColor ( Color color )
 void Board::addMarker ( const Knights::Pos& pos )
 {
     QGraphicsSvgItem* marker = new QGraphicsSvgItem();
-    marker->setElementId ( QString::fromAscii ( "MARKER" ) );
+    marker->setElementId ( QString::fromAscii ( "Marker" ) );
     marker->setSharedRenderer ( svg );
     marker->setTransform ( markerTransform );
     centerOnPos ( marker, pos, false );
@@ -422,10 +421,10 @@ void Board::updateTheme()
     }
     svg = new KSvgRenderer ( this );
     svg->load ( theme->graphics() );
-    QSizeF tileSize = svg->boundsOnElement ( "W_TILE" ).size();
+    QSizeF tileSize = svg->boundsOnElement ( "WhiteTile" ).size();
     m_boardRect = QRectF ( QPointF ( 0.0, 0.0 ), 8 * ( tileSize - QSizeF ( 1.0, 1.0 ) ) );
     m_tileSize = qMax ( tileSize.width(), tileSize.height() ); // - 1.0; // Trying to fix visible lines between tiles
-    QSizeF markerSize = svg->boundsOnElement ( "MARKER" ).size();
+    QSizeF markerSize = svg->boundsOnElement ( "Marker" ).size();
     qreal markerLen =  qMax ( markerSize.width(), markerSize.height() );
     markerTransform = QTransform().scale ( m_tileSize / markerLen, m_tileSize / markerLen );
     foreach ( Piece* p, m_grid )
@@ -466,7 +465,7 @@ void Board::repaintBoard()
         {
             QGraphicsSvgItem* tile = new QGraphicsSvgItem();
             tile->setSharedRenderer ( svg );
-            QString id = QString::fromAscii ( "%1_TILE" ).arg ( ( ( i + j ) % 2 == 0 ) ? 'B' : 'W' );
+            QString id = QString::fromAscii ( "%1Tile" ).arg ( ( ( i + j ) % 2 == 0 ) ? "Black" : "White" );
             tile->setElementId ( id );
             tile->setPos ( mapToScene ( Pos ( i, j ) ) );
             m_elementIdMap.insert ( tile, id );
