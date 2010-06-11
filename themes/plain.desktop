@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Plain
+Description=A plain and simple theme
+VersionFormat=1
+Author=Colin M. L. Burnett
+Type=SVG
+FileName=plain.svg
+Preview=plain.png
+
+
