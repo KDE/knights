@@ -79,9 +79,6 @@ private:
     QList<Color> m_playerColors;
     QList<QGraphicsSvgItem*> m_legalMarkers;
 
-    QTransform markerTransform;
-    QTransform tileTransform;
-
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* e);
     virtual void dropEvent(QGraphicsSceneDragDropEvent* e);

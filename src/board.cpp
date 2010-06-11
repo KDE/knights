@@ -105,11 +105,6 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
             id.append ( "King" );
             break;
     }
-    
-    QSizeF t_size = svg->boundsOnElement ( id ).size();
-    qreal scale = m_tileSize / qMax ( t_size.width(), t_size.height() );
-    QTransform transform = QTransform().scale ( scale, scale );
-    t_piece->setTransform ( transform );
     t_piece->setElementId ( id );
     t_piece->setSharedRenderer ( svg );
     t_piece->setZValue ( pieceZValue );
@@ -400,7 +395,6 @@ void Board::addMarker ( const Knights::Pos& pos )
     QGraphicsSvgItem* marker = new QGraphicsSvgItem();
     marker->setElementId ( QString::fromAscii ( "Marker" ) );
     marker->setSharedRenderer ( svg );
-    marker->setTransform ( markerTransform );
     centerOnPos ( marker, pos, false );
     marker->setZValue ( markerZValue );
     m_legalMarkers << marker;
@@ -424,9 +418,6 @@ void Board::updateTheme()
     QSizeF tileSize = svg->boundsOnElement ( "WhiteTile" ).size();
     m_boardRect = QRectF ( QPointF ( 0.0, 0.0 ), 8 * ( tileSize - QSizeF ( 1.0, 1.0 ) ) );
     m_tileSize = qMax ( tileSize.width(), tileSize.height() ); // - 1.0; // Trying to fix visible lines between tiles
-    QSizeF markerSize = svg->boundsOnElement ( "Marker" ).size();
-    qreal markerLen =  qMax ( markerSize.width(), markerSize.height() );
-    markerTransform = QTransform().scale ( m_tileSize / markerLen, m_tileSize / markerLen );
     foreach ( Piece* p, m_grid )
     {
         removeItem ( p );
