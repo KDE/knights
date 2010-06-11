@@ -1,6 +1,8 @@
 [KGameTheme]
 Name=Fantasy
+Name[x-test]=xxFantasyxx
 Description=Fantasy chess theme.
+Description[x-test]=xxFantasy chess theme.xx
 VersionFormat=1
 Author=Maurizio Monge
 AuthorEmail=maurizio.monge@gmail.com
