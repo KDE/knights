@@ -1,7 +1,15 @@
 [KGameTheme]
 Name=Fantasy
+Name[pt]=Fantasia
+Name[pt_BR]=Fantasia
+Name[sv]=Fantasi
+Name[uk]=Фантазія
 Name[x-test]=xxFantasyxx
 Description=Fantasy chess theme.
+Description[pt]=Um tema de xadrez em fantasia.
+Description[pt_BR]=Tema de xadrez fantasia
+Description[sv]=Schacktemat Fantasi.
+Description[uk]=Фантазійна тема шахів.
 Description[x-test]=xxFantasy chess theme.xx
 VersionFormat=1
 Author=Maurizio Monge
