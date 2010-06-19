@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Plain
+Name[da]=Almindeligt
 Name[en_GB]=Plain
 Name[es]=Sencillo
 Name[pt]=Simples
@@ -8,6 +9,7 @@ Name[sv]=Enkel
 Name[uk]=Звичайна
 Name[x-test]=xxPlainxx
 Description=A plain and simple theme
+Description[da]=Et almindeligt simpelt tema
 Description[en_GB]=A plain and simple theme
 Description[es]=Un tema simple y sencillo
 Description[pt]=Um tema simples e minimalista
