@@ -216,7 +216,7 @@ void MainWindow::optionsPreferences()
         KConfigDialog *dialog = new KConfigDialog ( this, "settings", Settings::self() );
         QWidget *generalSettingsDlg = new QWidget;
         ui_prefs_base.setupUi ( generalSettingsDlg );
-        dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "config" );
+        dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "configure" );
         connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
         QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffDisableDownload );
         dialog->addPage ( themeDlg, i18n ( "Theme" ), "games-config-theme" );
