@@ -52,6 +52,9 @@ KnightsView::~KnightsView()
 void KnightsView::setupBoard ( Protocol* protocol )
 {
     m_board = new Board ( this );
+    ui.canvas->setScene ( m_board );
+    resizeScene();
+    
     if ( protocol )
     {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
@@ -64,12 +67,11 @@ void KnightsView::setupBoard ( Protocol* protocol )
         m_board->setPlayerColors ( QList<Color>() << White << Black );
     }
     connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
-    connect ( m_board, SIGNAL ( sceneRectChanged ( QRectF ) ), SLOT ( resizeScene() ) );
     connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
+    
+    connect ( m_board, SIGNAL(centerChanged(QPointF)), this, SLOT(centerView(QPointF)));
 
-    ui.canvas->setScene ( m_board );
-    resizeScene();
 }
 
 void KnightsView::gameOver ( Color winner )
@@ -115,7 +117,8 @@ void KnightsView::resizeScene()
 {
     if ( ui.canvas && m_board )
     {
-        ui.canvas->fitInView ( m_board->sceneRect(), Qt::KeepAspectRatio );
+        m_board->setSceneRect ( ui.canvas->rect() );
+        ui.canvas->setTransform(QTransform());
     }
 }
 
@@ -157,6 +160,15 @@ QString KnightsView::pieceTypeName ( PieceType type )
             return QString();
     }
 }
+
+void KnightsView::centerView(QPointF center)
+{
+    if (ui.canvas)
+    {
+        ui.canvas->centerOn(center);
+    }
+}
+
 
 #include "knightsview.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

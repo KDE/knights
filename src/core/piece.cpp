@@ -26,15 +26,51 @@
 #include <QtSvg/QSvgRenderer>
 
 namespace Knights {
+    
+QString Piece::spriteKey(PieceType type, Color color)
+{
+QString id;
+    switch ( color )
+    {
+        case White:
+            id.append ( "White" );
+            break;
+        case Black:
+            id.append ( "Black" );
+            break;
+        default:
+            break;
+    }
+    switch ( type )
+    {
+        case Pawn:
+            id.append ( "Pawn" );
+            break;
+        case Rook:
+            id.append ( "Rook" );
+            break;
+        case Knight:
+            id.append ( "Knight" );
+            break;
+        case Bishop:
+            id.append ( "Bishop" );
+            break;
+        case Queen:
+            id.append ( "Queen" );
+            break;
+        case King:
+            id.append ( "King" );
+            break;
+    }
+    return id;
+}
 
-
-Piece::Piece ( PieceType type, Color color, QGraphicsItem* parent )
-        : QGraphicsSvgItem ( parent )
+Piece::Piece(KGameRenderer* renderer, PieceType type, Color color, QGraphicsItem* parent): KGameRenderedItem(renderer, spriteKey(type, color), parent)
 {
     m_color = color;
     m_type = type;
-    setCacheMode ( DeviceCoordinateCache );
 }
+
 
 Piece::~Piece()
 {

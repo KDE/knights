@@ -27,7 +27,6 @@
 #include "settings.h"
 
 #include <KGameTheme>
-#include <KSvgRenderer>
 #include <KDebug>
 
 #include <QtCore/QMap>
@@ -41,6 +40,7 @@
 #if QT_VERSION >= 0x040600
   #include <QtCore/QPropertyAnimation>
 #endif
+#include "KGameRenderer"
 
 using namespace Knights;
 
@@ -51,13 +51,15 @@ const qreal dragZValue = 3.0;
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
-
+    renderer = new KGameRenderer(Settings::theme(), "default");
     m_draggedItem = 0;
     setRuleSet ( new ChessRules );
-    theme = new KGameTheme;
     updateTheme();
     m_currentPlayer = White;
     m_paused = false;
+    
+    connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()) );
+    connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(displayPlayer(Color)));
 }
 
 Board::~Board()
@@ -67,50 +69,14 @@ Board::~Board()
 
 void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 {
-    Piece* t_piece = new Piece ( type, color );
+    Piece* t_piece = new Piece ( renderer, type, color );
     if ( Settings::animationSpeed() != Settings::EnumAnimationSpeed::Instant )
     {
         t_piece->setPos ( mapToScene ( Pos ( ( pos.first > 4 ) ? 5 : 4, ( pos.second > 4 ) ? 5 : 4 ) ) );
     }
-    QString id;
-    switch ( color )
-    {
-        case White:
-            id.append ( "White" );
-            break;
-        case Black:
-            id.append ( "Black" );
-            break;
-        default:
-            break;
-    }
-    switch ( type )
-    {
-        case Pawn:
-            id.append ( "Pawn" );
-            break;
-        case Rook:
-            id.append ( "Rook" );
-            break;
-        case Knight:
-            id.append ( "Knight" );
-            break;
-        case Bishop:
-            id.append ( "Bishop" );
-            break;
-        case Queen:
-            id.append ( "Queen" );
-            break;
-        case King:
-            id.append ( "King" );
-            break;
-    }
-    t_piece->setElementId ( id );
-    t_piece->setSharedRenderer ( svg );
     t_piece->setZValue ( pieceZValue );
     m_grid.insert ( pos, t_piece );
     addItem ( t_piece );
-    centerOnPos ( t_piece, pos );
 }
 
 void Board::movePiece ( Move m, bool changePlayer )
@@ -154,10 +120,29 @@ void Board::movePiece ( Move m, bool changePlayer )
 
 void Board::populate()
 {
-    BoardState pieces = m_rules->startingPieces ();
+    const BoardState pieces = m_rules->startingPieces ();
     foreach ( const Pos& pos, pieces.keys() )
     {
         addPiece ( pieces[pos].second, pieces[pos].first, pos );
+    }
+    const QString whiteTileKey = "WhiteTile";
+    const QString blackTileKey = "BlackTile";
+    for (int i = 1; i < 9; ++i)
+    {
+        for (int j = 1; j < 9; ++j)
+        {
+            KGameRenderedItem* tile;
+            if ( (i + j) % 2 ) 
+            {
+                tile = new KGameRenderedItem( renderer, whiteTileKey );
+            }
+            else
+            {
+                tile = new KGameRenderedItem( renderer, blackTileKey );
+            }
+            m_tiles.insert(Pos(i,j), tile);
+            addItem(tile);
+        }
     }
 }
 
@@ -210,12 +195,12 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 
 void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 {
-    foreach ( QGraphicsSvgItem* marker, m_legalMarkers )
+    foreach ( QGraphicsItem* marker, markers )
     {
         removeItem ( marker );
         delete marker;
     }
-    m_legalMarkers.clear();
+    markers.clear();
 
     if ( e->mimeData()->hasText() )
     {
@@ -268,8 +253,8 @@ Piece* Board::pieceAt ( QPointF point )
 Pos Board::mapFromScene ( QPointF point )
 {
     Pos pos;
-    pos.first = ( point.x() - sceneRect().left() ) * 8 / height() + 1;
-    pos.second = 1 - ( point.y() - sceneRect().bottom() ) * 8 / width();
+    pos.first = ( point.x() - m_boardRect.left() ) / m_tileSize + 1;
+    pos.second = 1 - ( point.y() - m_boardRect.bottom() ) / m_tileSize;
     if ( m_displayedPlayer != White )
     {
         pos = Pos ( 9, 9 ) - pos;
@@ -284,15 +269,15 @@ QPointF Board::mapToScene ( Pos pos )
         pos = Pos ( 9, 9 ) - pos;
     }
     QPointF point;
-    point.setX ( m_boardRect.left() + ( pos.first - 1 ) * m_boardRect.width() / 8 );
-    point.setY ( m_boardRect.bottom() - pos.second * m_boardRect.height() / 8 );
+    point.setX ( m_boardRect.left() + ( pos.first - 1 ) * m_tileSize );
+    point.setY ( m_boardRect.bottom() - pos.second * m_tileSize );
     return point;
 }
 
-void Board::centerOnPos ( QGraphicsItem* item, const Pos& pos, bool animated )
+void Board::centerOnPos ( KGameRenderedItem* item, const Pos& pos, bool animated )
 {
-    QRectF rect = item->transform().mapRect ( item->boundingRect() );
-    QPointF slide = rect.bottomRight() - rect.topLeft() - QPointF ( m_tileSize, m_tileSize );
+    QSize rectSize = item->renderSize();
+    QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
     QPointF endPos = mapToScene ( pos ) - slide / 2;
 #if QT_VERSION >= 0x040600
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant || m_grid.keys ( ( Piece* ) item ).isEmpty() )
@@ -359,7 +344,6 @@ void Board::setPlayerColors ( const QList< Color >& colors )
     {
         m_displayedPlayer = m_playerColors.first();
     }
-    repaintBoard();
     populate();
 }
 
@@ -372,7 +356,6 @@ void Board::changeCurrentPlayer()
         {
             m_displayedPlayer = m_currentPlayer;
             emit displayedPlayerChanged ( m_displayedPlayer );
-            repaintBoard();
         }
         m_displayedPlayer = m_currentPlayer;
     }
@@ -385,19 +368,16 @@ void Board::setCurrentColor ( Color color )
     if ( m_currentPlayer != color )
     {
         m_currentPlayer = color;
-        repaintBoard();
     }
 }
 
 
 void Board::addMarker ( const Knights::Pos& pos )
 {
-    QGraphicsSvgItem* marker = new QGraphicsSvgItem();
-    marker->setElementId ( QString::fromAscii ( "Marker" ) );
-    marker->setSharedRenderer ( svg );
+    KGameRenderedItem* marker = new KGameRenderedItem ( renderer, "Marker" );
     centerOnPos ( marker, pos, false );
     marker->setZValue ( markerZValue );
-    m_legalMarkers << marker;
+    markers.insert(pos, marker);
     addItem ( marker );
 }
 
@@ -409,63 +389,63 @@ void Board::setPaused ( bool paused )
 
 void Board::updateTheme()
 {
-    if ( !theme->load ( Settings::theme() ) )
-    {
-        theme->loadDefault();
-    }
-    svg = new KSvgRenderer ( this );
-    svg->load ( theme->graphics() );
-    QSizeF tileSize = svg->boundsOnElement ( "WhiteTile" ).size();
-    m_boardRect = QRectF ( QPointF ( 0.0, 0.0 ), 8 * ( tileSize - QSizeF ( 1.0, 1.0 ) ) );
-    m_tileSize = qMax ( tileSize.width(), tileSize.height() ); // - 1.0; // Trying to fix visible lines between tiles
-    foreach ( Piece* p, m_grid )
-    {
-        removeItem ( p );
-        addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
-        delete p;
-    }
-    repaintBoard();
+    renderer->setTheme( Settings::theme() );
+    updateGraphics();
 }
 
-void Board::repaintBoard()
+void Board::updateGraphics()
 {
-    // Move the pieces if necessary
-    foreach ( QGraphicsItem* item, items() )
+    m_tileSize = floor ( qMin(sceneRect().height(), sceneRect().width()) / 8 * 0.95);
+    qreal sideMargin = sceneRect().width() - 8 * m_tileSize;
+    qreal topMargin = sceneRect().height() - 8 * m_tileSize;
+    m_boardRect = QRectF ( sideMargin / 2, topMargin / 2, m_tileSize * 8, m_tileSize * 8 );
+    kDebug() << sceneRect() << m_boardRect;
+    QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
+    foreach ( Piece* p, m_grid )
     {
-        QGraphicsSvgItem* svgItem = qgraphicsitem_cast<QGraphicsSvgItem*> ( item );
-        if ( svgItem )
-        {
-            if ( !m_grid.keys ( ( Piece* ) item ).isEmpty() )
-            {
-                // If it's a piece, move it.
-                centerOnPos ( item, m_grid.key ( ( Piece* ) item ) );
-            }
-            else
-            {
-                // If it's not a piece, delete it.
-                // Tiles will be rebuilt later.
-                removeItem ( item );
-                delete item;
-            }
-        }
+        p->setRenderSize ( tSize );
+        centerOnPos( p, m_grid.key( p ) );
     }
-    // Load and draw the tiles
-    for ( int i = 1; i < 9; ++i )
+    if (!m_tiles.isEmpty())
     {
-        for ( int j = 1; j < 9; ++j )
+        QPixmap bPixmap = m_tiles[Pos(1,1)]->QGraphicsPixmapItem::pixmap().scaled( tSize );
+        QPixmap wPixmap = m_tiles[Pos(1,2)]->QGraphicsPixmapItem::pixmap().scaled( tSize );
+        foreach ( const Pos& p, m_tiles.keys() )
         {
-            QGraphicsSvgItem* tile = new QGraphicsSvgItem();
-            tile->setSharedRenderer ( svg );
-            QString id = QString::fromAscii ( "%1Tile" ).arg ( ( ( i + j ) % 2 == 0 ) ? "Black" : "White" );
-            tile->setElementId ( id );
-            tile->setPos ( mapToScene ( Pos ( i, j ) ) );
-            m_elementIdMap.insert ( tile, id );
-            tile->setZValue ( tileZValue );
-            addItem ( tile );
+        KGameRenderedItem* t = m_tiles[p];
+        if ( ( p.first + p.second ) % 2 == 0)
+        {
+            t->setPixmap(bPixmap);
         }
+        else
+        {
+            t->setPixmap(wPixmap);
+        }
+        t->setRenderSize ( tSize );
+        centerOnPos( t, m_tiles.key( t ), false );
     }
-    setSceneRect ( m_boardRect );
+    }
+    if (!markers.isEmpty())
+    {
+    foreach ( KGameRenderedItem* t, markers )
+    {        
+        t->setRenderSize ( tSize );
+        centerOnPos( t, markers.key( t ), false );
+    }
+    }
+    
+    emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
 }
+
+void Board::displayPlayer(Color color)
+{
+    kDebug() << color;
+    foreach ( Piece* p, m_grid )
+    {
+        centerOnPos( p, m_grid.key( p ) );
+    }
+}
+
 
 #include "board.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

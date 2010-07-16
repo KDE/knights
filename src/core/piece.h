@@ -22,9 +22,8 @@
 #ifndef KNIGHTS_PIECE_H
 #define KNIGHTS_PIECE_H
 
-#include <QtSvg/QGraphicsSvgItem>
-
 #include "pos.h"
+#include <KGameRenderedItem>
 
 namespace Knights
 {
@@ -45,17 +44,19 @@ enum Color
 };
 Color oppositeColor ( Color color );
 
-class Piece : public QGraphicsSvgItem
+class Piece : public KGameRenderedItem
 {
     Q_OBJECT
+    Q_PROPERTY(QPointF pos READ pos WRITE setPos)
 public:
-    Piece ( QGraphicsItem* parentItem = 0 );
-    Piece ( PieceType type, Color color, QGraphicsItem* parent = 0 );
+    Piece (KGameRenderer* renderer, PieceType type, Color color, QGraphicsItem* parent = 0 );
     virtual ~Piece();
 
     PieceType pieceType();
     Color color();
-
+    
+    static QString spriteKey(PieceType type, Color color);
+    
 private:
     Color m_color;
     PieceType m_type;

@@ -138,10 +138,10 @@ void MainWindow::fileNew()
 
 void MainWindow::protocolInitSuccesful()
 {
-        m_view->setupBoard ( m_protocol );
         if ( m_timeLimit ) {
                 showClockWidgets();
         }
+        m_view->setupBoard ( m_protocol );
 }
 
 void MainWindow::showClockWidgets()

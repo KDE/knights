@@ -29,7 +29,8 @@
 #include <QtCore/QMap>
 #include <QtCore/QSet>
 
-class QGraphicsSvgItem;
+class KGameRenderedItem;
+class KGameRenderer;
 class KGameTheme;
 class KSvgRenderer;
 
@@ -57,15 +58,14 @@ public:
 private:
     Rules *m_rules;
     Grid m_grid;
-    QMap<QGraphicsSvgItem*,QString> m_elementIdMap;
-    QGraphicsSvgItem* m_boardItem;
+    QMap<Pos, KGameRenderedItem*> m_tiles;
     KGameTheme* theme;
-    KSvgRenderer* svg;
+    KGameRenderer* renderer;
     Piece* pieceAt(QPointF point);
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos( QGraphicsItem* item, const Pos& pos, bool animated = true);
+    void centerOnPos( KGameRenderedItem* item, const Knights::Pos& pos, bool animated = true);
     void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
@@ -77,7 +77,7 @@ private:
     Color m_currentPlayer;
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
-    QList<QGraphicsSvgItem*> m_legalMarkers;
+    QMap<Pos, KGameRenderedItem*> markers;
 
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* e);
@@ -90,13 +90,17 @@ public slots:
     void addMarker(const Pos& pos);
     void updateTheme();
         void setPaused(bool paused);
+    void updateGraphics();
+    void displayPlayer(Color color);
 
 signals:
     void pieceMoved(Move m);
     void gameOver(Color winner);
     
-    void activePlayerChanged(Color);
-    void displayedPlayerChanged(Color);
+    void activePlayerChanged(Color activePlayer);
+    void displayedPlayerChanged(Color displayedPlayer);
+    
+    void centerChanged(QPointF center);
 };
 
 }
