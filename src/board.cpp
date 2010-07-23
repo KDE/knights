@@ -51,7 +51,7 @@ const qreal dragZValue = 3.0;
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
-    renderer = new KGameRenderer(Settings::theme(), "default");
+    renderer = new KGameRenderer(Settings::theme());
     m_draggedItem = 0;
     setRuleSet ( new ChessRules );
     updateTheme();
@@ -407,20 +407,9 @@ void Board::updateGraphics()
         centerOnPos( p, m_grid.key( p ) );
     }
     if (!m_tiles.isEmpty())
-    {
-        QPixmap bPixmap = m_tiles[Pos(1,1)]->QGraphicsPixmapItem::pixmap().scaled( tSize );
-        QPixmap wPixmap = m_tiles[Pos(1,2)]->QGraphicsPixmapItem::pixmap().scaled( tSize );
-        foreach ( const Pos& p, m_tiles.keys() )
+    {   foreach ( const Pos& p, m_tiles.keys() )
         {
         KGameRenderedItem* t = m_tiles[p];
-        if ( ( p.first + p.second ) % 2 == 0)
-        {
-            t->setPixmap(bPixmap);
-        }
-        else
-        {
-            t->setPixmap(wPixmap);
-        }
         t->setRenderSize ( tSize );
         centerOnPos( t, m_tiles.key( t ), false );
     }
