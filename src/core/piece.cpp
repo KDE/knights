@@ -65,7 +65,7 @@ QString id;
     return id;
 }
 
-Piece::Piece(KGameRenderer* renderer, PieceType type, Color color, QGraphicsItem* parent): KGameRenderedItem(renderer, spriteKey(type, color), parent)
+Piece::Piece(KGameRenderer* renderer, PieceType type, Color color, QGraphicsItem* parent): KGameRenderedObjectItem(renderer, spriteKey(type, color), parent)
 {
     m_color = color;
     m_type = type;

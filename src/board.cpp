@@ -41,6 +41,7 @@
   #include <QtCore/QPropertyAnimation>
 #endif
 #include "KGameRenderer"
+#include <kgamerendereditem.h>
 
 using namespace Knights;
 
@@ -77,6 +78,7 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
     t_piece->setZValue ( pieceZValue );
     m_grid.insert ( pos, t_piece );
     addItem ( t_piece );
+    t_piece->setPrimaryView(views().first());
 }
 
 void Board::movePiece ( Move m, bool changePlayer )
@@ -131,14 +133,14 @@ void Board::populate()
     {
         for (int j = 1; j < 9; ++j)
         {
-            KGameRenderedItem* tile;
+            KGameRenderedObjectItem* tile;
             if ( (i + j) % 2 ) 
             {
-                tile = new KGameRenderedItem( renderer, whiteTileKey );
+                tile = new KGameRenderedObjectItem( renderer, whiteTileKey );
             }
             else
             {
-                tile = new KGameRenderedItem( renderer, blackTileKey );
+                tile = new KGameRenderedObjectItem( renderer, blackTileKey );
             }
             m_tiles.insert(Pos(i,j), tile);
             addItem(tile);
@@ -274,7 +276,7 @@ QPointF Board::mapToScene ( Pos pos )
     return point;
 }
 
-void Board::centerOnPos ( KGameRenderedItem* item, const Pos& pos, bool animated )
+void Board::centerOnPos ( KGameRenderedObjectItem* item, const Knights::Pos& pos, bool animated )
 {
     QSize rectSize = item->renderSize();
     QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
@@ -374,7 +376,7 @@ void Board::setCurrentColor ( Color color )
 
 void Board::addMarker ( const Knights::Pos& pos )
 {
-    KGameRenderedItem* marker = new KGameRenderedItem ( renderer, "Marker" );
+    KGameRenderedObjectItem* marker = new KGameRenderedObjectItem ( renderer, "Marker" );
     centerOnPos ( marker, pos, false );
     marker->setZValue ( markerZValue );
     markers.insert(pos, marker);
@@ -409,14 +411,14 @@ void Board::updateGraphics()
     if (!m_tiles.isEmpty())
     {   foreach ( const Pos& p, m_tiles.keys() )
         {
-        KGameRenderedItem* t = m_tiles[p];
+        KGameRenderedObjectItem* t = m_tiles[p];
         t->setRenderSize ( tSize );
         centerOnPos( t, m_tiles.key( t ), false );
     }
     }
     if (!markers.isEmpty())
     {
-    foreach ( KGameRenderedItem* t, markers )
+    foreach ( KGameRenderedObjectItem* t, markers )
     {        
         t->setRenderSize ( tSize );
         centerOnPos( t, markers.key( t ), false );

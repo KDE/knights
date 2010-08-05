@@ -58,14 +58,14 @@ public:
 private:
     Rules *m_rules;
     Grid m_grid;
-    QMap<Pos, KGameRenderedItem*> m_tiles;
+    QMap<Pos, KGameRenderedObjectItem*> m_tiles;
     KGameTheme* theme;
     KGameRenderer* renderer;
     Piece* pieceAt(QPointF point);
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos( KGameRenderedItem* item, const Knights::Pos& pos, bool animated = true);
+    void centerOnPos( KGameRenderedObjectItem* item, const Knights::Pos& pos, bool animated = true);
     void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
@@ -77,7 +77,7 @@ private:
     Color m_currentPlayer;
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
-    QMap<Pos, KGameRenderedItem*> markers;
+    QMap<Pos, KGameRenderedObjectItem*> markers;
 
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* e);
@@ -89,7 +89,7 @@ public slots:
     void movePiece(Move m, bool changePlayer = true);
     void addMarker(const Pos& pos);
     void updateTheme();
-        void setPaused(bool paused);
+    void setPaused(bool paused);
     void updateGraphics();
     void displayPlayer(Color color);
 
