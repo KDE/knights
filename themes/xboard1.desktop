@@ -1,0 +1,14 @@
+[KGameTheme]
+Name=XBoard
+Name[x-test]=xxXBoardxx
+Description=Theme based on popular XBoard chess program.
+Description[x-test]=xxTheme based on popular XBoard chess program.xx
+VersionFormat=1
+Author=Dave Kaye
+AuthorEmail=
+Type=SVG
+FileName=xboard1.svg
+Preview=xboard1.png
+
+
+
