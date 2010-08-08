@@ -1,11 +1,13 @@
 [KGameTheme]
 Name=XBoard
 Name[pt]=XBoard
+Name[pt_BR]=XBoard
 Name[sv]=Xboard
 Name[uk]=XBoard
 Name[x-test]=xxXBoardxx
 Description=Theme based on popular XBoard chess program.
 Description[pt]=Um tema baseado no conhecido de programa de xadrez XBoard.
+Description[pt_BR]=Tema baseado no popular programa de xadrez XBoard.
 Description[sv]=Tema baserat på det populära Xboard schackprogrammet.
 Description[uk]=Тема, заснована на темі популярної шахової програми XBoard.
 Description[x-test]=xxTheme based on popular XBoard chess program.xx
