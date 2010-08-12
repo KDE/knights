@@ -40,8 +40,15 @@
 #if QT_VERSION >= 0x040600
   #include <QtCore/QPropertyAnimation>
 #endif
-#include "KGameRenderer"
-#include <kgamerendereditem.h>
+
+#include "core/item.h"
+
+#if defined HAVE_RENDER
+    #include "KGameRenderer"    
+#else
+    #include "QtSvg/QSvgRenderer"
+    #include "kgametheme.h"
+#endif
 
 using namespace Knights;
 
@@ -52,8 +59,13 @@ const qreal dragZValue = 3.0;
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
-    renderer = new KGameRenderer(Settings::theme());
-    m_draggedItem = 0;
+    QString themeName = Settings::theme();
+    #if defined HAVE_RENDER
+        renderer = new KGameRenderer(themeName);
+    #else
+        renderer = new QSvgRenderer;
+        theme = new KGameTheme;
+    #endif
     setRuleSet ( new ChessRules );
     updateTheme();
     m_currentPlayer = White;
@@ -78,7 +90,6 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
     t_piece->setZValue ( pieceZValue );
     m_grid.insert ( pos, t_piece );
     addItem ( t_piece );
-    t_piece->setPrimaryView(views().first());
 }
 
 void Board::movePiece ( Move m, bool changePlayer )
@@ -133,14 +144,14 @@ void Board::populate()
     {
         for (int j = 1; j < 9; ++j)
         {
-            KGameRenderedObjectItem* tile;
+            Item* tile;
             if ( (i + j) % 2 ) 
             {
-                tile = new KGameRenderedObjectItem( renderer, whiteTileKey );
+                tile = new Item( renderer, whiteTileKey );
             }
             else
             {
-                tile = new KGameRenderedObjectItem( renderer, blackTileKey );
+                tile = new Item( renderer, blackTileKey );
             }
             m_tiles.insert(Pos(i,j), tile);
             addItem(tile);
@@ -276,7 +287,7 @@ QPointF Board::mapToScene ( Pos pos )
     return point;
 }
 
-void Board::centerOnPos ( KGameRenderedObjectItem* item, const Knights::Pos& pos, bool animated )
+void Board::centerOnPos ( Item* item, const Knights::Pos& pos, bool animated )
 {
     QSize rectSize = item->renderSize();
     QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
@@ -376,7 +387,7 @@ void Board::setCurrentColor ( Color color )
 
 void Board::addMarker ( const Knights::Pos& pos )
 {
-    KGameRenderedObjectItem* marker = new KGameRenderedObjectItem ( renderer, "Marker" );
+    Item* marker = new Item ( renderer, "Marker" );
     centerOnPos ( marker, pos, false );
     marker->setZValue ( markerZValue );
     markers.insert(pos, marker);
@@ -391,7 +402,17 @@ void Board::setPaused ( bool paused )
 
 void Board::updateTheme()
 {
-    renderer->setTheme( Settings::theme() );
+    QString themeName = Settings::theme();
+    #if defined HAVE_RENDER
+        renderer->setTheme( themeName );
+    #else
+        if (!theme->load( themeName ) )
+        {
+            theme->loadDefault();
+        }
+        kDebug() << theme->graphics();
+        renderer->load(theme->graphics());
+    #endif
     updateGraphics();
 }
 
@@ -408,17 +429,15 @@ void Board::updateGraphics()
         p->setRenderSize ( tSize );
         centerOnPos( p, m_grid.key( p ) );
     }
-    if (!m_tiles.isEmpty())
-    {   foreach ( const Pos& p, m_tiles.keys() )
-        {
-        KGameRenderedObjectItem* t = m_tiles[p];
+    foreach ( const Pos& p, m_tiles.keys() )
+    {
+        Item* t = m_tiles[p];
         t->setRenderSize ( tSize );
         centerOnPos( t, m_tiles.key( t ), false );
     }
-    }
     if (!markers.isEmpty())
     {
-    foreach ( KGameRenderedObjectItem* t, markers )
+    foreach ( Item* t, markers )
     {        
         t->setRenderSize ( tSize );
         centerOnPos( t, markers.key( t ), false );

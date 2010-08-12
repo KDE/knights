@@ -1,5 +1,6 @@
 set(knights_SRCS
     core/pos.cpp
+    core/item.cpp
     core/piece.cpp
     core/move.cpp
     proto/protocol.cpp

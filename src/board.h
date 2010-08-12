@@ -1,4 +1,5 @@
-/*
+
+class Item;/*
 	This file is part of Knights, a chess board for KDE SC 4.
 	Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
 
@@ -29,10 +30,14 @@
 #include <QtCore/QMap>
 #include <QtCore/QSet>
 
-class KGameRenderedItem;
-class KGameRenderer;
-class KGameTheme;
-class KSvgRenderer;
+#if defined HAVE_RENDER
+    class KGameRenderer;
+#else
+    class KGameTheme;
+    class QSvgRenderer;
+#endif
+
+class Item;
 
 namespace Knights {
 class Pos;
@@ -58,14 +63,14 @@ public:
 private:
     Rules *m_rules;
     Grid m_grid;
-    QMap<Pos, KGameRenderedObjectItem*> m_tiles;
-    KGameTheme* theme;
-    KGameRenderer* renderer;
+    QMap<Pos, Item*> m_tiles;
+    RendererType* renderer;
+    
     Piece* pieceAt(QPointF point);
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos( KGameRenderedObjectItem* item, const Knights::Pos& pos, bool animated = true);
+    void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true);
     void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
@@ -77,8 +82,11 @@ private:
     Color m_currentPlayer;
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
-    QMap<Pos, KGameRenderedObjectItem*> markers;
-
+    QMap<Pos, Item*> markers;
+#if not defined HAVE_RENDER
+    KGameTheme* theme;
+#endif 
+    
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* e);
     virtual void dropEvent(QGraphicsSceneDragDropEvent* e);

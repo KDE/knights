@@ -23,7 +23,7 @@
 #define KNIGHTS_PIECE_H
 
 #include "pos.h"
-#include <KGameRenderedObjectItem>
+#include "item.h"
 
 namespace Knights
 {
@@ -44,11 +44,11 @@ enum Color
 };
 Color oppositeColor ( Color color );
 
-class Piece : public KGameRenderedObjectItem
+class Piece : public Item
 {
     Q_OBJECT
 public:
-    Piece (KGameRenderer* renderer, PieceType type, Color color, QGraphicsItem* parent = 0 );
+    Piece (RendererType* renderer, PieceType type, Color color, QGraphicsItem* parent = 0 );
     virtual ~Piece();
 
     PieceType pieceType();
