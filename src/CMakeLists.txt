@@ -1,8 +1,9 @@
-set(knights_SRCS
+set(knights_SRCS 
     core/pos.cpp
+    core/move.cpp
+    core/renderer.cpp
     core/item.cpp
     core/piece.cpp
-    core/move.cpp
     proto/protocol.cpp
     proto/xboardproto.cpp
     proto/ficsprotocol.cpp

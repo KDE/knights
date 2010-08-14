@@ -48,7 +48,7 @@ class Piece : public Item
 {
     Q_OBJECT
 public:
-    Piece (RendererType* renderer, Knights::PieceType type, Knights::Color color, QGraphicsScene* scene, QGraphicsItem* parent = 0 );
+    Piece (Renderer* renderer, Knights::PieceType type, Knights::Color color, QGraphicsScene* scene, QGraphicsItem* parent = 0 );
     virtual ~Piece();
 
     PieceType pieceType();

@@ -31,12 +31,7 @@
 
 
 class Item;
-#if defined HAVE_RENDER
-    class KGameRenderer;
-#else
-    class KGameTheme;
-    class QSvgRenderer;
-#endif
+class Renderer;
 
 namespace Knights {
 class Pos;
@@ -72,7 +67,7 @@ private:
     Rules *m_rules;
     Grid m_grid;
     QMap<Pos, Item*> m_tiles;
-    RendererType* renderer;
+    Renderer* renderer;
 
     void addPiece( PieceType type, Color color, const Pos& pos);    
     void addMarker(const Pos& pos, MarkerType type);
@@ -83,6 +78,7 @@ private:
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
     void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true);
+    void removeFrame();
     bool m_paused;
     qreal m_tileSize;
     QRectF m_boardRect;
@@ -94,9 +90,7 @@ private:
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
     QMap<Pos, Item*> markers;
-#if not defined HAVE_RENDER
-    KGameTheme* theme;
-#endif 
+    bool m_drawFrame;
     
 protected:
     virtual void mousePressEvent(QGraphicsSceneMouseEvent* e);

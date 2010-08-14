@@ -22,18 +22,12 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "kdeversion.h"
-#if KDE_IS_VERSION(4,5,60)
-  //  #define HAVE_RENDER
-  // Commented for KDevelop
-#endif
+#include "renderer.h"
 
 #if defined HAVE_RENDER
-    #define RendererType KGameRenderer
     #define ItemBaseType KGameRenderedObjectItem
     #include <KGameRenderedObjectItem>
 #else
-    #define RendererType QSvgRenderer
     #define ItemBaseType QGraphicsSvgItem
     #include <QtSvg/QGraphicsSvgItem>
 #endif
@@ -45,7 +39,7 @@ class Item : public ItemBaseType
 {
     Q_OBJECT
     public:
-        Item(RendererType* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem = 0);
+        Item(Renderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
      //   #if not defined HAVE_RENDER

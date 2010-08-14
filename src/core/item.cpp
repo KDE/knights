@@ -38,7 +38,7 @@ Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, QGraphic
 
 #include <QtSvg/QSvgRenderer>
 
-Item::Item(RendererType* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem)
+Item::Item(Renderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem)
     : QGraphicsSvgItem( parentItem)
 {
     setSharedRenderer(renderer);

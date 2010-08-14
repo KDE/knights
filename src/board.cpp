@@ -38,17 +38,12 @@
 #include <QtCore/qmath.h>
 
 #if QT_VERSION >= 0x040600
+  #define HAVE_ANIMATIONS
   #include <QtCore/QPropertyAnimation>
 #endif
 
 #include "core/item.h"
-
-#if defined HAVE_RENDER
-    #include "KGameRenderer"    
-#else
-    #include "QtSvg/QSvgRenderer"
-    #include "kgametheme.h"
-#endif
+#include "core/renderer.h"
 
 using namespace Knights;
 
@@ -57,15 +52,18 @@ const qreal pieceZValue = 1.0;
 const qreal markerZValue = 2.0;
 const qreal dragZValue = 3.0;
 
+const QString whiteTileKey = "WhiteTile";
+const QString blackTileKey = "BlackTile";
+const QString legalMarkerKey = "Marker";
+const QString motionMarkerKey = "Motion";
+const QString dangerMarkerKey = "Danger";
+
+const QString tbBorderKey = "TopBottomBorder";
+const QString lrBorderKey = "LeftRightBorder";
+
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
-    QString themeName = Settings::theme();
-    #if defined HAVE_RENDER
-        renderer = new KGameRenderer(themeName);
-    #else
-        renderer = new QSvgRenderer;
-        theme = new KGameTheme;
-    #endif
+    renderer = new Renderer( Settings::theme() );
     setRuleSet ( new ChessRules );
     updateTheme();
     m_currentPlayer = White;
@@ -150,8 +148,6 @@ void Board::addTiles()
         kWarning() << "Tiles are already present, delete them first";
         return;
     }
-    const QString whiteTileKey = "WhiteTile";
-    const QString blackTileKey = "BlackTile";
     for (int i = 1; i < 9; ++i)
     {
         for (int j = 1; j < 9; ++j)
@@ -303,7 +299,7 @@ void Board::centerOnPos ( Item* item, const Knights::Pos& pos, bool animated )
     QSize rectSize = item->renderSize();
     QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
     QPointF endPos = mapToScene ( pos );
-#if QT_VERSION >= 0x040600
+#if defined HAVE_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         item->setPos ( endPos );
@@ -402,13 +398,13 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
     switch (type)
     {
         case LegalMove:
-            key = "Marker";
+            key = legalMarkerKey;
             break;
         case Danger:
-            key = "Danger";
+            key = dangerMarkerKey;
             break;
         case Motion:
-            key = "Motion";
+            key = motionMarkerKey;
             break;
     }
     Item* marker = new Item ( renderer, key, this);
@@ -426,16 +422,10 @@ void Board::setPaused ( bool paused )
 
 void Board::updateTheme()
 {
-    QString themeName = Settings::theme();
-    #if defined HAVE_RENDER
-        renderer->setTheme( themeName );
-    #else
-        if (!theme->load( themeName ) )
-        {
-            theme->loadDefault();
-        }
-        kDebug() << theme->graphics();
-        renderer->load(theme->graphics());
+    renderer->setTheme( Settings::theme() );
+    #if not defined HAVE_RENDER
+        // Using QGraphicsSvgItems, loading a new file and then resizing does not work
+        // instead, we have to delete every item and re-create it
         foreach ( Piece* p, m_grid )
         {
             addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
@@ -443,6 +433,28 @@ void Board::updateTheme()
         }
         qDeleteAll(m_tiles);
         m_tiles.clear();
+        QMap<Pos, MarkerType> mTypes;
+        foreach ( const Pos& p, markers.keys() )
+        {
+            if (markers[p]->spriteKey() == legalMarkerKey)
+            {
+                mTypes.insert(p, LegalMove);
+            }
+            else if (markers[p]->spriteKey() == motionMarkerKey)
+            {
+                mTypes.insert(p, Motion);
+            }
+            else if (markers[p]->spriteKey() == dangerMarkerKey)
+            {
+                mTypes.insert(p, Motion);
+            }
+            delete markers[p];
+        }
+        markers.clear();
+        foreach (const Pos& p, mTypes.keys())
+        {
+            addMarker(p, mTypes[p]);
+        }
         addTiles();
     #endif
     updateGraphics();
@@ -450,12 +462,33 @@ void Board::updateTheme()
 
 void Board::updateGraphics()
 {
-    m_tileSize = floor ( qMin(sceneRect().height(), sceneRect().width()) / 8 * 0.95);
-    qreal sideMargin = sceneRect().width() - 8 * m_tileSize;
-    qreal topMargin = sceneRect().height() - 8 * m_tileSize;
-    m_boardRect = QRectF ( sideMargin / 2, topMargin / 2, m_tileSize * 8, m_tileSize * 8 );
-    renderer->setViewBox(m_boardRect);
+    QSizeF baseSize = 8 * renderer->boundsOnSprite(whiteTileKey).size();
+    qreal sideMargin;
+    qreal topMargin;
+    if (renderer->spriteExists(lrBorderKey) && renderer->spriteExists(tbBorderKey))
+    {
+        sideMargin = renderer->boundsOnSprite(lrBorderKey).width();
+        topMargin = renderer->boundsOnSprite(tbBorderKey).height();
+    }
+    else
+    {
+        sideMargin = 0.0;
+        topMargin = 0.0;
+        
+        m_drawFrame = false;
+    }
+    baseSize = baseSize + 2 * QSizeF(sideMargin, topMargin);
+    qreal ratio = qMin(sceneRect().width()/baseSize.width(), sceneRect().height()/baseSize.height());
+    
+    kDebug() << ratio;
+    
+    QSizeF tpSize = renderer->boundsOnSprite(whiteTileKey).size() * ratio;
+    m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
+    sideMargin = qMax ( sideMargin * ratio, (sceneRect().width() - 8 * m_tileSize) / 2 );
+    topMargin = qMax ( topMargin * ratio, (sceneRect().height() - 8 * m_tileSize) / 2 );
+    m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
     QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
+    
     foreach ( Piece* p, m_grid )
     {
         p->setRenderSize ( tSize );
