@@ -77,7 +77,9 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 
 Board::~Board()
 {
-
+    qDeleteAll(m_grid);
+    qDeleteAll(m_tiles);
+    qDeleteAll(markers);
 }
 
 void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
@@ -139,6 +141,15 @@ void Board::populate()
     {
         addPiece ( pieces[pos].second, pieces[pos].first, pos );
     }
+}
+
+void Board::addTiles()
+{
+    if (!m_tiles.isEmpty())
+    {
+        kWarning() << "Tiles are already present, delete them first";
+        return;
+    }
     const QString whiteTileKey = "WhiteTile";
     const QString blackTileKey = "BlackTile";
     for (int i = 1; i < 9; ++i)
@@ -154,6 +165,7 @@ void Board::populate()
             {
                 tile = new Item( renderer, blackTileKey, this );
             }
+            tile->setZValue(tileZValue);
             m_tiles.insert(Pos(i,j), tile);
         }
     }
@@ -210,7 +222,6 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 {
     foreach ( QGraphicsItem* marker, markers )
     {
-        removeItem ( marker );
         delete marker;
     }
     markers.clear();
@@ -425,6 +436,14 @@ void Board::updateTheme()
         }
         kDebug() << theme->graphics();
         renderer->load(theme->graphics());
+        foreach ( Piece* p, m_grid )
+        {
+            addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
+            delete p;
+        }
+        qDeleteAll(m_tiles);
+        m_tiles.clear();
+        addTiles();
     #endif
     updateGraphics();
 }
@@ -436,28 +455,22 @@ void Board::updateGraphics()
     qreal topMargin = sceneRect().height() - 8 * m_tileSize;
     m_boardRect = QRectF ( sideMargin / 2, topMargin / 2, m_tileSize * 8, m_tileSize * 8 );
     renderer->setViewBox(m_boardRect);
-    kDebug() << sceneRect() << m_boardRect;
     QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
     foreach ( Piece* p, m_grid )
     {
         p->setRenderSize ( tSize );
         centerOnPos( p, m_grid.key( p ) );
     }
-    foreach ( const Pos& p, m_tiles.keys() )
+    foreach ( Item* t, m_tiles )
     {
-        Item* t = m_tiles[p];
         t->setRenderSize ( tSize );
-        centerOnPos( t, m_tiles.key( t ), false );
+        centerOnPos( t, m_tiles.key(t), false );
     }
-    if (!markers.isEmpty())
-    {
     foreach ( Item* t, markers )
     {        
         t->setRenderSize ( tSize );
         centerOnPos( t, markers.key( t ), false );
     }
-    }
-    
     emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
 }
 

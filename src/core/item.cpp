@@ -23,20 +23,18 @@
 #include <QGraphicsScene>
 #include <KDebug>
 
+using namespace Knights;
+
 #if defined HAVE_RENDER
 Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
 {
     if (scene)
     {
         scene->addItem ( this );
+    }
 }
 
-Item::~Item()
-{
-
-}
-
-#else
+#else // HAVE_RENDER
 
 #include <QtSvg/QSvgRenderer>
 
@@ -51,20 +49,14 @@ Item::Item(RendererType* renderer, QString key, QGraphicsScene* scene, QGraphics
     }
 }
 
-Item::~Item()
-{
-
-}
-
 void Item::setRenderSize(QSize size)
 {
     resetTransform();
     QRectF normalSize = renderer()->boundsOnElement(spriteKey());
-    kDebug() << normalSize;
     qreal xScale = size.width() / normalSize.width();
     qreal yScale = size.height() / normalSize.height();
+    prepareGeometryChange();
     setTransform(QTransform().scale( xScale, yScale ));
-    update();
 }
 
 QSize Item::renderSize()
@@ -81,7 +73,12 @@ QString Item::spriteKey()
 {
     return elementId();
 }
-#endif
+#endif // HAVE_RENDER
 
-
-
+Item::~Item()
+{
+    if (scene())
+    {
+        scene()->removeItem(this);
+    }
+}

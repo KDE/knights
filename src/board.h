@@ -60,7 +60,6 @@ class Board : public QGraphicsScene
     virtual ~Board();
 
     void populate();
-    void addPiece( PieceType type, Color color, const Pos& pos);
 
     void setRuleSet(Rules* rules);
 
@@ -74,13 +73,16 @@ private:
     Grid m_grid;
     QMap<Pos, Item*> m_tiles;
     RendererType* renderer;
-    
+
+    void addPiece( PieceType type, Color color, const Pos& pos);    
+    void addMarker(const Pos& pos, MarkerType type);
+    void addTiles();
+
     Piece* pieceAt(QPointF point);
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
     void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true);
-    void repaintBoard();
     bool m_paused;
     qreal m_tileSize;
     QRectF m_boardRect;
@@ -104,7 +106,6 @@ protected:
 
 public slots:
     void movePiece(Move m, bool changePlayer = true);
-    void addMarker(const Pos& pos, MarkerType type);
     void updateTheme();
     void setPaused(bool paused);
     void updateGraphics();
