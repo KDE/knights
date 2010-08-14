@@ -20,11 +20,15 @@
  */
 
 #include "item.h"
+#include <QGraphicsScene>
+#include <KDebug>
 
 #if defined HAVE_RENDER
-Item::Item(KGameRenderer* renderer, QString key, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
+Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
 {
-
+    if (scene)
+    {
+        scene->addItem ( this );
 }
 
 Item::~Item()
@@ -36,11 +40,15 @@ Item::~Item()
 
 #include <QtSvg/QSvgRenderer>
 
-Item::Item(QSvgRenderer* renderer, QString key, QGraphicsItem* parentItem)
+Item::Item(RendererType* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem)
     : QGraphicsSvgItem( parentItem)
 {
     setSharedRenderer(renderer);
-    setElementId(key);
+    setSpriteKey(key);
+    if (scene)
+    {
+        scene->addItem ( this );
+    }
 }
 
 Item::~Item()
@@ -50,10 +58,13 @@ Item::~Item()
 
 void Item::setRenderSize(QSize size)
 {
+    resetTransform();
     QRectF normalSize = renderer()->boundsOnElement(spriteKey());
+    kDebug() << normalSize;
     qreal xScale = size.width() / normalSize.width();
     qreal yScale = size.height() / normalSize.height();
-    setScale(qMin(xScale, yScale));
+    setTransform(QTransform().scale( xScale, yScale ));
+    update();
 }
 
 QSize Item::renderSize()

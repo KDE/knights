@@ -65,8 +65,8 @@ QString id;
     return id;
 }
 
-Piece::Piece(RendererType* renderer, PieceType type, Color color, QGraphicsItem* parent): 
-Item(renderer, spriteKey(type, color), parent)
+Piece::Piece(RendererType* renderer, PieceType type, Color color, QGraphicsScene* scene, QGraphicsItem* parent): 
+Item(renderer, spriteKey(type, color), scene, parent)
 {
     m_color = color;
     m_type = type;

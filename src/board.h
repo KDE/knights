@@ -1,5 +1,4 @@
-
-class Item;/*
+/*
 	This file is part of Knights, a chess board for KDE SC 4.
 	Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
 
@@ -30,14 +29,14 @@ class Item;/*
 #include <QtCore/QMap>
 #include <QtCore/QSet>
 
+
+class Item;
 #if defined HAVE_RENDER
     class KGameRenderer;
 #else
     class KGameTheme;
     class QSvgRenderer;
 #endif
-
-class Item;
 
 namespace Knights {
 class Pos;
@@ -46,7 +45,17 @@ class Rules;
 class Board : public QGraphicsScene
 {
     Q_OBJECT
-public:
+    Q_ENUMS(MarkerType)
+    
+    public:
+
+    enum MarkerType
+    {
+        LegalMove,
+        Danger,
+        Motion
+    };
+    
     Board(QObject* parent = 0);
     virtual ~Board();
 
@@ -95,7 +104,7 @@ protected:
 
 public slots:
     void movePiece(Move m, bool changePlayer = true);
-    void addMarker(const Pos& pos);
+    void addMarker(const Pos& pos, MarkerType type);
     void updateTheme();
     void setPaused(bool paused);
     void updateGraphics();

@@ -41,7 +41,7 @@ class Item : public ItemBaseType
 {
     Q_OBJECT
     public:
-        Item(RendererType* renderer, QString key, QGraphicsItem* parentItem = 0);
+        Item(RendererType* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
         #if not defined HAVE_RENDER

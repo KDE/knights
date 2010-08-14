@@ -82,14 +82,13 @@ Board::~Board()
 
 void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 {
-    Piece* t_piece = new Piece ( renderer, type, color );
+    Piece* t_piece = new Piece ( renderer, type, color, this );
     if ( Settings::animationSpeed() != Settings::EnumAnimationSpeed::Instant )
     {
         t_piece->setPos ( mapToScene ( Pos ( ( pos.first > 4 ) ? 5 : 4, ( pos.second > 4 ) ? 5 : 4 ) ) );
     }
     t_piece->setZValue ( pieceZValue );
     m_grid.insert ( pos, t_piece );
-    addItem ( t_piece );
 }
 
 void Board::movePiece ( Move m, bool changePlayer )
@@ -103,6 +102,8 @@ void Board::movePiece ( Move m, bool changePlayer )
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
     delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
+    addMarker ( m.from(), Motion );
+    addMarker ( m.to(), Motion );
     if ( m.flags() & Move::EnPassant )
     {
         foreach ( const Pos& p, m.additionalCaptures() )
@@ -147,14 +148,13 @@ void Board::populate()
             Item* tile;
             if ( (i + j) % 2 ) 
             {
-                tile = new Item( renderer, whiteTileKey );
+                tile = new Item( renderer, whiteTileKey, this );
             }
             else
             {
-                tile = new Item( renderer, blackTileKey );
+                tile = new Item( renderer, blackTileKey, this );
             }
             m_tiles.insert(Pos(i,j), tile);
-            addItem(tile);
         }
     }
 }
@@ -192,7 +192,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         d_piece->setZValue ( dragZValue );
         foreach ( const Move& t_move, t_legalMoves )
         {
-            addMarker ( t_move.to() );
+            addMarker ( t_move.to(), LegalMove );
         }
         QDrag* drag = new QDrag ( e->widget() );
         QString posText = QString::number ( t_pos.first ) + '_' + QString::number ( t_pos.second );
@@ -291,9 +291,9 @@ void Board::centerOnPos ( Item* item, const Knights::Pos& pos, bool animated )
 {
     QSize rectSize = item->renderSize();
     QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
-    QPointF endPos = mapToScene ( pos ) - slide / 2;
+    QPointF endPos = mapToScene ( pos );
 #if QT_VERSION >= 0x040600
-    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant || m_grid.keys ( ( Piece* ) item ).isEmpty() )
+    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         item->setPos ( endPos );
     }
@@ -385,13 +385,26 @@ void Board::setCurrentColor ( Color color )
 }
 
 
-void Board::addMarker ( const Knights::Pos& pos )
+void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
 {
-    Item* marker = new Item ( renderer, "Marker" );
+    QString key;
+    switch (type)
+    {
+        case LegalMove:
+            key = "Marker";
+            break;
+        case Danger:
+            key = "Danger";
+            break;
+        case Motion:
+            key = "Motion";
+            break;
+    }
+    Item* marker = new Item ( renderer, key, this);
     centerOnPos ( marker, pos, false );
+    marker->setRenderSize ( QSizeF(m_tileSize, m_tileSize).toSize() );
     marker->setZValue ( markerZValue );
     markers.insert(pos, marker);
-    addItem ( marker );
 }
 
 void Board::setPaused ( bool paused )
@@ -422,6 +435,7 @@ void Board::updateGraphics()
     qreal sideMargin = sceneRect().width() - 8 * m_tileSize;
     qreal topMargin = sceneRect().height() - 8 * m_tileSize;
     m_boardRect = QRectF ( sideMargin / 2, topMargin / 2, m_tileSize * 8, m_tileSize * 8 );
+    renderer->setViewBox(m_boardRect);
     kDebug() << sceneRect() << m_boardRect;
     QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
     foreach ( Piece* p, m_grid )
@@ -453,6 +467,10 @@ void Board::displayPlayer(Color color)
     foreach ( Piece* p, m_grid )
     {
         centerOnPos( p, m_grid.key( p ) );
+    }
+    foreach ( Item* i, markers )
+    {
+        centerOnPos( i, markers.key ( i ) );
     }
 }
 
