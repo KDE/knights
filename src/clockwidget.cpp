@@ -87,9 +87,9 @@ void ClockWidget::setCurrentTime ( Color color, const QTime& time )
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
     QProgressBar* bar = ( color == White ) ? ui->progressW : ui->progressB;
     if ( seconds > bar->maximum() ) {
-        bar->setMaximum ( seconds * timerInterval);
+        bar->setMaximum ( seconds * 1000 / timerInterval);
     }
-    bar->setValue ( seconds * timerInterval);
+    bar->setValue ( seconds * 1000 / timerInterval);
 }
 
 void ClockWidget::setTimeLimit ( Color color, const QTime& time )
@@ -100,14 +100,14 @@ void ClockWidget::setTimeLimit ( Color color, const QTime& time )
     switch ( color ) {
         case White:
             ui->timeW->setTime ( time );
-            ui->progressW->setMaximum ( 10 * seconds );
-            ui->progressW->setValue ( 10 * seconds );
+            ui->progressW->setMaximum ( seconds * 1000 / timerInterval );
+            ui->progressW->setValue ( seconds * 1000 / timerInterval );
             kDebug() << ui->progressW->maximum();
             break;
         case Black:
             ui->timeB->setTime ( time );
-            ui->progressB->setMaximum ( 10 * seconds );
-            ui->progressB->setValue ( 10 * seconds );
+            ui->progressB->setMaximum ( seconds * 1000 / timerInterval );
+            ui->progressB->setValue ( seconds * 1000 / timerInterval );
             kDebug() << ui->progressB->maximum();
             break;
         default:
