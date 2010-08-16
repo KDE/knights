@@ -35,8 +35,9 @@ int main ( int argc, char **argv )
 {
     KAboutData about ( "knights", 0, ki18n ( "Knights" ), version, ki18n ( description ),
                        KAboutData::License_GPL, ki18n ( "(C) 2009-2010 Miha Čančula" ), KLocalizedString(), 0, "miha.cancula@gmail.com" );
-    about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha.cancula@gmail.com" );
+    about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha.cancula@gmail.com", "http://noughmad.wordpress.com" );
     about.addCredit ( ki18n ( "Troy Corbin" ), ki18n ( "Original Knights for KDE3 and theme author" ), "troy@pedanticwebspaces.com" );
+    about.addCredit( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
     KCmdLineArgs::init ( argc, argv, &about );
 
     KCmdLineOptions options;
