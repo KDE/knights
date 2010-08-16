@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Fantasy
 Name[da]=Fantasy
+Name[de]=Fantasie
 Name[en_GB]=Fantasy
 Name[es]=Fantasía
 Name[fr]=Fantaisie
@@ -11,6 +12,7 @@ Name[uk]=Фантазія
 Name[x-test]=xxFantasyxx
 Description=Fantasy chess theme.
 Description[da]=Fantasy skaktema.
+Description[de]=Das fantasiebezogene Schachdesign.
 Description[en_GB]=Fantasy chess theme.
 Description[es]=Tema de ajedrez de fantasía.
 Description[fr]=Thème d'échiquier fantaisie.
