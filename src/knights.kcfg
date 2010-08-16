@@ -22,6 +22,10 @@
 	  <label>Moves animation speed</label>
 	  <default>Normal</default>
     </entry>
+    <entry name="animateBoard" type="Bool">
+      <label>whether the Board is animated during rotating and resizing</label>
+      <default>false</default>
+    </entry>
     <entry name="playerTime" type="DateTime">
       <label>time limit for the local player</label>
       <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>

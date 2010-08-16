@@ -497,12 +497,12 @@ void Board::updateGraphics()
     foreach ( Item* t, m_tiles )
     {
         t->setRenderSize ( tSize );
-        centerOnPos( t, m_tiles.key(t), false );
+        centerOnPos( t, m_tiles.key(t), Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
     {        
         t->setRenderSize ( tSize );
-        centerOnPos( t, markers.key( t ), false );
+        centerOnPos( t, markers.key( t ) );
     }
     emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
 }
@@ -517,6 +517,13 @@ void Board::displayPlayer(Color color)
     foreach ( Item* i, markers )
     {
         centerOnPos( i, markers.key ( i ) );
+    }
+    if (Settings::animateBoard())
+    {
+        foreach ( Item* i, m_tiles )
+        {
+            centerOnPos( i, m_tiles.key ( i ) );
+        }
     }
 }
 
