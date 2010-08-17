@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string comment="KDE::DoNotExtract">Form</string>
+   <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -20,6 +20,9 @@
       <string>Black</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="Knights::Clock" name="clockB" native="true"/>
+      </item>
       <item>
        <widget class="QTimeEdit" name="timeB">
         <property name="readOnly">
@@ -49,6 +52,9 @@
       <string>White</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="Knights::Clock" name="clockW" native="true"/>
+      </item>
       <item>
        <widget class="QTimeEdit" name="timeW">
         <property name="readOnly">
@@ -84,6 +90,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Knights::Clock</class>
+   <extends>QWidget</extends>
+   <header location="global">clock.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

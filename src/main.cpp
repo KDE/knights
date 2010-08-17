@@ -38,6 +38,7 @@ int main ( int argc, char **argv )
     about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha.cancula@gmail.com", "http://noughmad.wordpress.com" );
     about.addCredit ( ki18n ( "Troy Corbin" ), ki18n ( "Original Knights for KDE3 and theme author" ), "troy@pedanticwebspaces.com" );
     about.addCredit( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
+    about.addCredit( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ) );
     KCmdLineArgs::init ( argc, argv, &about );
 
     KCmdLineOptions options;

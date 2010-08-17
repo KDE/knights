@@ -1,4 +1,4 @@
-set(knights_SRCS 
+set(knights_SRCS
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
@@ -11,6 +11,7 @@ set(knights_SRCS
     rules/chessrules.cpp
     gamedialog.cpp
     board.cpp
+    clock.cpp
     clockwidget.cpp
     knightsview.cpp
     knights.cpp
