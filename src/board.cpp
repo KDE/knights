@@ -105,9 +105,16 @@ void Board::movePiece ( Move m, bool changePlayer )
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
     if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer )))
     {
-        // We only display a motion marker if the next player is a human
+        // We only display motion and danger markers if the next player is a human
         addMarker ( m.from(), Motion );
         addMarker ( m.to(), Motion );
+        foreach ( const Pos& attackingPos, m_grid.keys() )
+        {
+            if ( m_grid[attackingPos]->color() == m_currentPlayer && m_rules->isAttacking(attackingPos) )
+            {
+                addMarker( attackingPos, Danger );
+            }
+        }
     }
     if ( m.flags() & Move::EnPassant )
     {
@@ -128,10 +135,10 @@ void Board::movePiece ( Move m, bool changePlayer )
     Color winner = m_rules->winner();
     if ( winner != NoColor || !m_rules->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
     {
+        kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
-        kDebug() << winner;
     }
-    else if ( changePlayer )
+    if ( changePlayer )
     {
         changeCurrentPlayer();
     }
@@ -415,11 +422,16 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
 
 void Board::addMarker(const Knights::Pos& pos, QString spriteKey)
 {
+    if (markers.contains(pos))
+    {
+        // Prevent two markers (usually Motion and Danger) from being on the same square
+        delete markers[pos];
+    }
     Item* marker = new Item ( renderer, spriteKey, this, pos);
     centerOnPos(marker, false);
     marker->setRenderSize ( QSizeF(m_tileSize, m_tileSize).toSize() );
     marker->setZValue ( legalMarkerZValue );
-    markers.insert(marker);
+    markers.insert(pos, marker);
 }
 
 void Board::setPaused ( bool paused )

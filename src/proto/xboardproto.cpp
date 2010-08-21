@@ -35,7 +35,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return NoFeatures;
+    return GameOver;
 }
 
 XBoardProtocol::~XBoardProtocol()
@@ -105,42 +105,38 @@ void XBoardProtocol::init ( const QVariantMap& options )
 
 void XBoardProtocol::readFromProgram()
 {
-    QString moveString = QString ( mProcess->readAllStandardOutput() );
-    if ( !moveString.contains ( "..." ) )
+    QString output = QString ( mProcess->readAllStandardOutput() );
+    foreach (const QString& line, output.split('\n'))
     {
-        if ( moveString.contains ( "Illegal move" ) )
+        if ( line.contains ( "Illegal move" ) )
         {
             emit illegalMove();
         }
-        return;
-    }
-    if ( moveString.contains ( "wins" ) )
-    {
-        if ( moveString.split ( ' ' ).last().contains ( "white" ) )
+        else if (line.contains( "..." ))
         {
-            emit gameOver ( White );
+            QString moveString = line.split ( ' ' ).last();
+            kDebug() << moveString;
+            Move m;
+            m.setFrom ( Pos ( moveString.left ( 2 ) ) );
+            m.setFlag( Move::Take, moveString.contains ( 'x' ) );
+            m.setTo ( Pos ( moveString.right ( 2 ) ) );
+            emit pieceMoved ( m );
         }
-        else
+        else if ( line.contains ( "wins" ) )
         {
-            emit gameOver ( Black );
+            Color winner;
+            if ( line.split ( ' ' ).last().contains ( "white" ) )
+            {
+                winner = White;
+            }
+            else
+            {
+                winner = Black;
+            }
+            emit gameOver ( winner );
+            return;
         }
-        return;
     }
-    moveString = moveString.split ( ' ' ).last();
-    Move m;
-    m.setFrom ( Pos ( moveString.mid ( 0, 2 ) ) );
-    int i = 2;
-    if ( moveString.contains ( 'x' ) )
-    {
-        m.setFlag ( Move::Take, true );
-        i++;
-    }
-    else
-    {
-        m.setFlag ( Move::Take, false );
-    }
-    m.setTo ( Pos ( moveString.mid ( i, 2 ) ) );
-    emit pieceMoved ( m );
 }
 
 void XBoardProtocol::readError()

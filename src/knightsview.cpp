@@ -59,14 +59,22 @@ void KnightsView::setupBoard ( Protocol* protocol )
     {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
         connect ( protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        connect ( protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
         m_board->setPlayerColors ( QList<Color>() << protocol->playerColor() );
     }
     else
     {
         m_board->setPlayerColors ( QList<Color>() << White << Black );
     }
-    connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
+    
+    if ( protocol && protocol->supportedFeatures() & Protocol::GameOver )
+    {
+        connect ( protocol, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+    }
+    else
+    {
+        connect ( m_board, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+    }
+    
     connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
     
@@ -76,6 +84,7 @@ void KnightsView::setupBoard ( Protocol* protocol )
 
 void KnightsView::gameOver ( Color winner )
 {
+    kDebug() << "Received gameOver() from " << sender()->metaObject()->className();
     QString text;
     QString caption;
     if ( winner == NoColor )

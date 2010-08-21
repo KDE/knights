@@ -47,6 +47,7 @@ public:
     virtual ~ChessRules();
 
     bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
+    virtual bool isAttacking(const Knights::Pos& attackingPos);
 
     virtual void checkSpecialFlags ( Move* move );
 

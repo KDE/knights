@@ -317,6 +317,14 @@ bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
     return false;
 }
 
+bool ChessRules::isAttacking(const Knights::Pos& attackingPos)
+{
+    const Color pieceColor = m_grid->value(attackingPos)->color();
+    const Color kingColor = oppositeColor(pieceColor);
+    return legalAttackMoves ( attackingPos, m_grid ).contains ( Move ( attackingPos, kingPos[kingColor] ) ); 
+}
+
+
 QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knights::Pos& pos, int length, bool attackYours, Grid* grid )
 {
     if ( !grid )

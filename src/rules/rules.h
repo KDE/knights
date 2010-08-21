@@ -85,6 +85,13 @@ public:
       * This function is more of a giudeline for the board to determine whether a piece should be freely dragable
       */
     virtual Directions legalDirections ( PieceType type ) = 0;
+    
+    /**
+     * Checks if a piece on @a attackingPos is attacking the opponent's king
+     * @param pos the position to check
+     * @return true if a piece is attacking the king, false otherwise
+     */
+    virtual bool isAttacking( const Pos& attackingPos ) = 0;
 
     /**
       * Adds appropriate flags to the move.

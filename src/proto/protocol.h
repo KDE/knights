@@ -44,12 +44,13 @@ class Protocol : public QObject
 public:
     enum Feature
     {
-        NoFeatures = 0, /**< The protocol supports none of the optional features */
-        TimeLimit = 1, /**< The protocol supports setting a time limit for players */
-        UpdateTimeLimit = 2, /**< The protocol notifies the programs of changes to times */
-        Pause = 4, /**< The protocol supports pausing the clock */
-        History = 8,
-        Undo = 16 /**< It is possible to undo a move */
+        NoFeatures = 0x00, /**< The protocol supports none of the optional features */
+        TimeLimit = 0x01, /**< The protocol supports setting a time limit for players */
+        UpdateTimeLimit = 0x02, /**< The protocol notifies the programs of changes to times */
+        Pause = 0x04, /**< The protocol supports pausing the clock */
+        History = 0x08,
+        Undo = 0x10, /**< It is possible to undo a move */
+        GameOver = 0x20 /**< The protocol emits gameOver() when the game is over */
     };
     Q_DECLARE_FLAGS(Features, Feature)
 

@@ -91,7 +91,7 @@ private:
     Color m_currentPlayer;
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
-    QSet<Item*> markers;
+    QMap<Pos,Item*> markers;
     bool m_drawFrame;
     
 protected:
