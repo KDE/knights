@@ -71,7 +71,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     m_paused = false;
     
     connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()) );
-    connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(displayPlayer(Color)));
+    connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(changeDisplayedPlayer()) );
 }
 
 Board::~Board()
@@ -293,12 +293,15 @@ QPointF Board::mapToScene ( Pos pos )
     return point;
 }
 
-void Board::centerOnPos ( Item* item, const Knights::Pos& pos, bool animated )
+void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool animated )
 {
     item->setBoardPos ( pos );
-    QSize rectSize = item->renderSize();
-    QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
-    QPointF endPos = mapToScene ( pos );
+    centerOnPos( item, animated );
+}
+
+void Board::centerOnPos(Knights::Item* item, bool animated)
+{
+    QPointF endPos = mapToScene ( item->boardPos() );
 #if defined HAVE_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
@@ -375,7 +378,7 @@ void Board::changeCurrentPlayer()
         if ( m_displayedPlayer != m_currentPlayer )
         {
             m_displayedPlayer = m_currentPlayer;
-            emit displayedPlayerChanged ( m_displayedPlayer );
+            emit displayedPlayerChanged(m_displayedPlayer);
         }
         m_displayedPlayer = m_currentPlayer;
     }
@@ -413,7 +416,7 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
 void Board::addMarker(const Knights::Pos& pos, QString spriteKey)
 {
     Item* marker = new Item ( renderer, spriteKey, this, pos);
-    centerOnPos(marker, pos, false);
+    centerOnPos(marker, false);
     marker->setRenderSize ( QSizeF(m_tileSize, m_tileSize).toSize() );
     marker->setZValue ( legalMarkerZValue );
     markers.insert(marker);
@@ -467,9 +470,7 @@ void Board::updateGraphics()
     }
     boardSize = boardSize + 2 * QSizeF(sideMargin, topMargin);
     qreal ratio = qMin(sceneRect().width()/boardSize.width(), sceneRect().height()/boardSize.height());
-    
-    kDebug() << ratio;
-    
+        
     QSizeF tpSize = tileSize * ratio;
     m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
     sideMargin = qMax ( sideMargin * ratio, (sceneRect().width() - 8 * m_tileSize) / 2 );
@@ -480,24 +481,23 @@ void Board::updateGraphics()
     foreach ( Piece* p, m_grid )
     {
         p->setRenderSize ( tSize );
-        centerOnPos( p, p->boardPos() );
+        centerOnPos( p );
     }
     foreach ( Item* t, m_tiles )
     {
         t->setRenderSize ( tSize );
-        centerOnPos( t, t->boardPos(), Settings::animateBoard() );
+        centerOnPos( t, Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
     {        
         t->setRenderSize ( tSize );
-        centerOnPos( t, t->boardPos() );
+        centerOnPos( t );
     }
     emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
 }
 
-void Board::displayPlayer(Color color)
+void Board::changeDisplayedPlayer()
 {
-    kDebug() << color;
     foreach ( Piece* p, m_grid )
     {
         centerOnPos( p, m_grid.key( p ) );

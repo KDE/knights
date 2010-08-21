@@ -78,7 +78,8 @@ private:
     Pos mapFromScene(QPointF point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
-    void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true);
+    void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true );
+    void centerOnPos( Item* item, bool animated = true );
     void removeFrame();
     bool m_paused;
     qreal m_tileSize;
@@ -104,7 +105,7 @@ public slots:
     void updateTheme();
     void setPaused(bool paused);
     void updateGraphics();
-    void displayPlayer(Color color);
+    void changeDisplayedPlayer();
 
 signals:
     void pieceMoved(Move m);
