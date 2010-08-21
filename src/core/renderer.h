@@ -23,11 +23,9 @@
 #define KNIGHTS_RENDERER_H
 
 #include "kdeversion.h"
-#if KDE_IS_VERSION(4,5,60)
-    #define HAVE_RENDER
-#endif
-
-#if not defined HAVE_RENDER
+#if defined HAVE_RENDER
+    #include <KGameRenderer>
+#else
     #include <QtSvg/QSvgRenderer>
 #endif
 

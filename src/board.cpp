@@ -49,7 +49,8 @@ using namespace Knights;
 
 const qreal tileZValue = 0.0;
 const qreal pieceZValue = 1.0;
-const qreal markerZValue = 2.0;
+const qreal motionMarkerZValue = 1.5;
+const qreal legalMarkerZValue = 2.0;
 const qreal dragZValue = 3.0;
 
 const QString whiteTileKey = "WhiteTile";
@@ -82,7 +83,7 @@ Board::~Board()
 
 void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 {
-    Piece* t_piece = new Piece ( renderer, type, color, this );
+    Piece* t_piece = new Piece ( renderer, type, color, this, pos );
     if ( Settings::animationSpeed() != Settings::EnumAnimationSpeed::Instant )
     {
         t_piece->setPos ( mapToScene ( Pos ( ( pos.first > 4 ) ? 5 : 4, ( pos.second > 4 ) ? 5 : 4 ) ) );
@@ -102,8 +103,12 @@ void Board::movePiece ( Move m, bool changePlayer )
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
     delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
-    addMarker ( m.from(), Motion );
-    addMarker ( m.to(), Motion );
+    if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer )))
+    {
+        // We only display a motion marker if the next player is a human
+        addMarker ( m.from(), Motion );
+        addMarker ( m.to(), Motion );
+    }
     if ( m.flags() & Move::EnPassant )
     {
         foreach ( const Pos& p, m.additionalCaptures() )
@@ -139,6 +144,7 @@ void Board::populate()
     {
         addPiece ( pieces[pos].second, pieces[pos].first, pos );
     }
+    updateGraphics();
 }
 
 void Board::addTiles()
@@ -152,15 +158,8 @@ void Board::addTiles()
     {
         for (int j = 1; j < 9; ++j)
         {
-            Item* tile;
-            if ( (i + j) % 2 ) 
-            {
-                tile = new Item( renderer, whiteTileKey, this );
-            }
-            else
-            {
-                tile = new Item( renderer, blackTileKey, this );
-            }
+            QString key = ((i+j) % 2 == 0) ? blackTileKey : whiteTileKey;
+            Item* tile = new Item ( renderer, key, this, Pos(i,j) );
             tile->setZValue(tileZValue);
             m_tiles.insert(Pos(i,j), tile);
         }
@@ -190,6 +189,9 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
     }
     else
     {
+        // The active player clicked on his/her own piece
+        qDeleteAll(markers);
+        markers.clear();
         Pos t_pos = mapFromScene ( e->scenePos() );
         QList<Move> t_legalMoves = m_rules->legalMoves ( t_pos );
         if ( t_legalMoves.isEmpty() )
@@ -216,10 +218,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 
 void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 {
-    foreach ( QGraphicsItem* marker, markers )
-    {
-        delete marker;
-    }
+    qDeleteAll(markers);
     markers.clear();
 
     if ( e->mimeData()->hasText() )
@@ -296,6 +295,7 @@ QPointF Board::mapToScene ( Pos pos )
 
 void Board::centerOnPos ( Item* item, const Knights::Pos& pos, bool animated )
 {
+    item->setBoardPos ( pos );
     QSize rectSize = item->renderSize();
     QPointF slide = QPointF(rectSize.width(), rectSize.height()) - QPointF ( m_tileSize, m_tileSize );
     QPointF endPos = mapToScene ( pos );
@@ -407,11 +407,16 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
             key = motionMarkerKey;
             break;
     }
-    Item* marker = new Item ( renderer, key, this);
-    centerOnPos ( marker, pos, false );
+    addMarker(pos, key);
+}
+
+void Board::addMarker(const Knights::Pos& pos, QString spriteKey)
+{
+    Item* marker = new Item ( renderer, spriteKey, this, pos);
+    centerOnPos(marker, pos, false);
     marker->setRenderSize ( QSizeF(m_tileSize, m_tileSize).toSize() );
-    marker->setZValue ( markerZValue );
-    markers.insert(pos, marker);
+    marker->setZValue ( legalMarkerZValue );
+    markers.insert(marker);
 }
 
 void Board::setPaused ( bool paused )
@@ -433,36 +438,19 @@ void Board::updateTheme()
         }
         qDeleteAll(m_tiles);
         m_tiles.clear();
-        QMap<Pos, MarkerType> mTypes;
-        foreach ( const Pos& p, markers.keys() )
-        {
-            if (markers[p]->spriteKey() == legalMarkerKey)
-            {
-                mTypes.insert(p, LegalMove);
-            }
-            else if (markers[p]->spriteKey() == motionMarkerKey)
-            {
-                mTypes.insert(p, Motion);
-            }
-            else if (markers[p]->spriteKey() == dangerMarkerKey)
-            {
-                mTypes.insert(p, Motion);
-            }
-            delete markers[p];
-        }
-        markers.clear();
-        foreach (const Pos& p, mTypes.keys())
-        {
-            addMarker(p, mTypes[p]);
-        }
         addTiles();
+        
+        // If the user is changing the theme, he/she probably already saw any current markers
+        qDeleteAll(markers);
+        markers.clear();
     #endif
     updateGraphics();
 }
 
 void Board::updateGraphics()
 {
-    QSizeF baseSize = 8 * renderer->boundsOnSprite(whiteTileKey).size();
+    QSizeF tileSize = renderer->boundsOnSprite(whiteTileKey).size();
+    QSizeF boardSize = 8 * tileSize;
     qreal sideMargin;
     qreal topMargin;
     if (renderer->spriteExists(lrBorderKey) && renderer->spriteExists(tbBorderKey))
@@ -472,17 +460,17 @@ void Board::updateGraphics()
     }
     else
     {
-        sideMargin = 0.0;
-        topMargin = 0.0;
+        sideMargin = 0.5 * tileSize.width();
+        topMargin = 0.5 * tileSize.height();
         
-        m_drawFrame = false;
+        m_drawFrame = false;  
     }
-    baseSize = baseSize + 2 * QSizeF(sideMargin, topMargin);
-    qreal ratio = qMin(sceneRect().width()/baseSize.width(), sceneRect().height()/baseSize.height());
+    boardSize = boardSize + 2 * QSizeF(sideMargin, topMargin);
+    qreal ratio = qMin(sceneRect().width()/boardSize.width(), sceneRect().height()/boardSize.height());
     
     kDebug() << ratio;
     
-    QSizeF tpSize = renderer->boundsOnSprite(whiteTileKey).size() * ratio;
+    QSizeF tpSize = tileSize * ratio;
     m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
     sideMargin = qMax ( sideMargin * ratio, (sceneRect().width() - 8 * m_tileSize) / 2 );
     topMargin = qMax ( topMargin * ratio, (sceneRect().height() - 8 * m_tileSize) / 2 );
@@ -492,17 +480,17 @@ void Board::updateGraphics()
     foreach ( Piece* p, m_grid )
     {
         p->setRenderSize ( tSize );
-        centerOnPos( p, m_grid.key( p ) );
+        centerOnPos( p, p->boardPos() );
     }
     foreach ( Item* t, m_tiles )
     {
         t->setRenderSize ( tSize );
-        centerOnPos( t, m_tiles.key(t), Settings::animateBoard() );
+        centerOnPos( t, t->boardPos(), Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
     {        
         t->setRenderSize ( tSize );
-        centerOnPos( t, markers.key( t ) );
+        centerOnPos( t, t->boardPos() );
     }
     emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
 }
@@ -516,13 +504,13 @@ void Board::displayPlayer(Color color)
     }
     foreach ( Item* i, markers )
     {
-        centerOnPos( i, markers.key ( i ) );
+        centerOnPos( i, i->boardPos() );
     }
     if (Settings::animateBoard())
     {
         foreach ( Item* i, m_tiles )
         {
-            centerOnPos( i, m_tiles.key ( i ) );
+            centerOnPos( i, i->boardPos() );
         }
     }
 }

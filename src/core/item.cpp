@@ -26,8 +26,9 @@
 using namespace Knights;
 
 #if defined HAVE_RENDER
-Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
+Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
 {
+    setBoardPos(boardPos);
     if (scene)
     {
         scene->addItem ( this );
@@ -38,11 +39,12 @@ Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, QGraphic
 
 #include <QtSvg/QSvgRenderer>
 
-Item::Item(Renderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem)
+Item::Item(Renderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem)
     : QGraphicsSvgItem( parentItem)
 {
     setSharedRenderer(renderer);
     setSpriteKey(key);
+    setBoardPos(boardPos);
     if (scene)
     {
         scene->addItem ( this );
@@ -59,7 +61,7 @@ void Item::setRenderSize(QSize size)
     setTransform(QTransform().scale( xScale, yScale ));
 }
 
-QSize Item::renderSize()
+QSize Item::renderSize() const
 {
     return boundingRect().size().toSize();
 }
@@ -69,7 +71,7 @@ void Item::setSpriteKey(QString key)
     setElementId(key);
 }
 
-QString Item::spriteKey()
+QString Item::spriteKey() const
 {
     return elementId();
 }
@@ -81,4 +83,14 @@ Item::~Item()
     {
         scene()->removeItem(this);
     }
+}
+
+Pos Item::boardPos() const
+{
+    return m_pos;
+}
+
+void Knights::Item::setBoardPos(const Knights::Pos& pos)
+{
+    m_pos = pos;
 }

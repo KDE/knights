@@ -71,6 +71,7 @@ private:
 
     void addPiece( PieceType type, Color color, const Pos& pos);    
     void addMarker(const Pos& pos, MarkerType type);
+    void addMarker(const Pos& pos, QString spriteKey);
     void addTiles();
 
     Piece* pieceAt(QPointF point);
@@ -89,7 +90,7 @@ private:
     Color m_currentPlayer;
     Color m_displayedPlayer;
     QList<Color> m_playerColors;
-    QMap<Pos, Item*> markers;
+    QSet<Item*> markers;
     bool m_drawFrame;
     
 protected:

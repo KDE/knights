@@ -23,6 +23,7 @@
 #define ITEM_H
 
 #include "renderer.h"
+#include "pos.h"
 
 #if defined HAVE_RENDER
     #define ItemBaseType KGameRenderedObjectItem
@@ -38,17 +39,25 @@ namespace Knights
 class Item : public ItemBaseType
 {
     Q_OBJECT
+    Q_PROPERTY(Pos boardPos READ boardPos WRITE setBoardPos)
+    
     public:
-        Item(Renderer* renderer, QString key, QGraphicsScene* scene, QGraphicsItem* parentItem = 0);
+        Item(Renderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
      //   #if not defined HAVE_RENDER
             // Duplicating the KGameRenderedItem API to minimize #ifdef's in Knights::Board
              void setRenderSize(QSize size);
-            QSize renderSize();
+            QSize renderSize() const;
             void setSpriteKey(QString key);
-            QString spriteKey();
+            QString spriteKey() const;
      //   #endif // HAVE_RENDER
+     
+        void setBoardPos(const Pos& pos);
+        Pos boardPos() const;
+        
+    private:
+        Pos m_pos;
 };
 }
 #endif // ITEM_H
