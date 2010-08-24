@@ -118,6 +118,7 @@ void Board::movePiece ( Move m, bool changePlayer )
     }
     if ( m.flags() & Move::EnPassant )
     {
+        kDebug() << m.additionalCaptures();
         foreach ( const Pos& p, m.additionalCaptures() )
         {
             delete m_grid.value ( p, 0 );

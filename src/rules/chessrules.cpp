@@ -385,7 +385,7 @@ void ChessRules::checkSpecialFlags ( Move* move )
             {
                 move->setFlag ( Move::Promote, true );
             }
-            Pos delta = move->from() - move->to();
+            Pos delta = move->to() - move->from();
             // En Passant?
             if ( delta.first != 0 && !m_grid->contains ( move->to() ) )
             {
