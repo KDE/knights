@@ -26,6 +26,27 @@
       <label>whether the Board is animated during rotating and resizing</label>
       <default>false</default>
     </entry>
+    <entry name="borderDisplayType" type="Enum">
+      <choices>
+        <choice name="None" />
+        <choice name="Border" />
+        <choice name="Notation" />
+      </choices>
+	  <label>Selects chessboard border type</label>
+	  <default>None</default>
+    </entry>
+    <entry name="showDanger" type="Bool">
+      <label>show check marker</label>
+      <default>true</default>
+    </entry>
+    <entry name="showMarker" type="Bool">
+      <label>show legal moves marker</label>
+      <default>true</default>
+    </entry>
+    <entry name="showMotion" type="Bool">
+      <label>show opponents move marker</label>
+      <default>true</default>
+    </entry>
     <entry name="playerTime" type="DateTime">
       <label>time limit for the local player</label>
       <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>

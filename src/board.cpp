@@ -106,13 +106,19 @@ void Board::movePiece ( Move m, bool changePlayer )
     if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer )))
     {
         // We only display motion and danger markers if the next player is a human
-        addMarker ( m.from(), Motion );
-        addMarker ( m.to(), Motion );
-        foreach ( const Pos& attackingPos, m_grid.keys() )
+        if (Settings::showMotion())
         {
-            if ( m_grid[attackingPos]->color() == m_currentPlayer && m_rules->isAttacking(attackingPos) )
+            addMarker ( m.from(), Motion );
+            addMarker ( m.to(), Motion );
+        }
+        if (Settings::showDanger())
+        {
+            foreach ( const Pos& attackingPos, m_grid.keys() )
             {
-                addMarker( attackingPos, Danger );
+                if ( m_grid[attackingPos]->color() == m_currentPlayer && m_rules->isAttacking(attackingPos) )
+                {
+                    addMarker( attackingPos, Danger );
+                }
             }
         }
     }
@@ -208,9 +214,12 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             return;
         }
         d_piece->setZValue ( dragZValue );
-        foreach ( const Move& t_move, t_legalMoves )
+        if (Settings::showMarker())
         {
-            addMarker ( t_move.to(), LegalMove );
+            foreach ( const Move& t_move, t_legalMoves )
+            {
+                addMarker ( t_move.to(), LegalMove );
+            }
         }
         QDrag* drag = new QDrag ( e->widget() );
         QString posText = QString::number ( t_pos.first ) + '_' + QString::number ( t_pos.second );
