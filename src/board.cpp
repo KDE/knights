@@ -113,13 +113,25 @@ void Board::movePiece ( Move m, bool changePlayer )
         }
         if (Settings::showDanger())
         {
-            foreach ( const Pos& attackingPos, m_grid.keys() )
+            bool check = false;
+            foreach ( Piece* piece, m_grid )
             {
-                if ( m_grid[attackingPos]->color() == m_currentPlayer && m_rules->isAttacking(attackingPos) )
+                if ( piece->color() == m_currentPlayer && m_rules->isAttacking ( piece->boardPos() ) )
                 {
-                    addMarker( attackingPos, Danger );
+                    check = true;
+                    addMarker( piece->boardPos(), Danger );
                 }
             }
+            if ( check )
+            {
+                foreach ( Piece* piece, m_grid )
+                {
+                    if ( piece->color() != m_currentPlayer && piece->pieceType() == King )
+                    {
+                        addMarker( piece->boardPos(), Danger );
+                    }
+                }
+            }   
         }
     }
     if ( m.flags() & Move::EnPassant )
