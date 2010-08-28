@@ -241,7 +241,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         m_draggedPos = e->scenePos();
         m_dragStartPos = m_draggedPos;
         drag->setMimeData ( data );
-        drag->start ( Qt::MoveAction );
+        drag->exec();
     }
 }
 
