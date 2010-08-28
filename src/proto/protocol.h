@@ -46,7 +46,7 @@ public:
     {
         NoFeatures = 0x00, /**< The protocol supports none of the optional features */
         TimeLimit = 0x01, /**< The protocol supports setting a time limit for players */
-        UpdateTimeLimit = 0x02, /**< The protocol notifies the programs of changes to times */
+        UpdateTime = 0x02, /**< The protocol notifies the programs of changes to times */
         Pause = 0x04, /**< The protocol supports pausing the clock */
         History = 0x08,
         Undo = 0x10, /**< It is possible to undo a move */

@@ -263,7 +263,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         Move move ( from, to );
         if ( !m_rules->legalMoves ( from ).contains ( move ) )
         {
-            centerOnPos ( m_draggedItem, m_grid.key ( m_draggedItem ) );
+            centerOnPos ( m_draggedItem );
         }
         else
         {
@@ -284,13 +284,15 @@ void Board::dragMoveEvent ( QGraphicsSceneDragDropEvent* e )
 {
     if ( !m_draggedItem )
     {
+        e->ignore();
         return;
     }
+    e->accept();
     qreal x = e->scenePos().x() - m_draggedPos.x();
     qreal y = e->scenePos().y() - m_draggedPos.y();
 
     m_draggedItem->moveBy ( x, y );
-    m_draggedPos += QPointF ( x, y );
+    m_draggedPos = e->scenePos();
 }
 
 Piece* Board::pieceAt ( QPointF point )
@@ -328,7 +330,7 @@ void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool ani
     centerOnPos( item, animated );
 }
 
-void Board::centerOnPos(Knights::Item* item, bool animated)
+void Board::centerOnPos(Item* item, bool animated)
 {
     QPointF endPos = mapToScene ( item->boardPos() );
 #if defined HAVE_ANIMATIONS
@@ -355,8 +357,7 @@ void Board::centerOnPos(Knights::Item* item, bool animated)
                 break;
         }
         duration *= qSqrt ( QPointF ( item->pos() - endPos ).manhattanLength() / m_tileSize );
-        Piece* t_piece = qgraphicsitem_cast<Piece*> ( item );
-        QPropertyAnimation* anim = new QPropertyAnimation ( t_piece, "pos" );
+        QPropertyAnimation* anim = new QPropertyAnimation ( item, "pos" );
         anim->setDuration ( duration );
         anim->setEasingCurve ( QEasingCurve::InOutCubic );
         anim->setStartValue ( item->pos() );
