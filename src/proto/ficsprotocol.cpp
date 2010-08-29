@@ -108,7 +108,7 @@ FicsProtocol::~FicsProtocol()
 
 Protocol::Features FicsProtocol::supportedFeatures()
 {
-    return TimeLimit | UpdateTimeLimit;
+    return TimeLimit | UpdateTime;
 }
 
 void FicsProtocol::startGame()
