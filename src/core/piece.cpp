@@ -101,6 +101,20 @@ PieceType Piece::pieceType()
     return m_type;
 }
 
+void Piece::setPieceType(PieceType type)
+{
+    m_type = type;
+    updateSpriteKey();
+}
+
+void Piece::updateSpriteKey()
+{
+    setSpriteKey(spriteKey(m_type, m_color));
+    update();
+}
+
+
+
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

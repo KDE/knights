@@ -36,11 +36,17 @@ public:
 
     QList<Move> extraMoves;
     QList<Pos> extraCaptures;
+    
+    PieceType promotedType;
+    Move::Flags flags;
 };
 
 MovePrivate::MovePrivate()
+: from(Pos()),
+to(Pos()),
+promotedType(NoType),
+flags(Move::None)
 {
-
 }
 
 MovePrivate::~MovePrivate()
@@ -50,25 +56,28 @@ MovePrivate::~MovePrivate()
 
 Move::Flags Move::flags() const
 {
-    return m_flags;
+    Q_D(const Move);
+    return d->flags;
 }
 
 void Move::setFlag ( Move::MoveFlag flag, bool value )
 {
+    Q_D(Move);
     if ( value )
     {
-        m_flags |= flag;
+        d->flags |= flag;
 
     }
     else
     {
-        m_flags &= ~flag;
+        d->flags &= ~flag;
     }
 }
 
 void Move::setFlags ( Move::Flags flags )
 {
-    m_flags = flags;
+    Q_D(Move);
+    d->flags = flags;
 }
 
 Move::Move()
@@ -180,6 +189,20 @@ void Move::setAdditionalMoves ( const QList< Move >& list )
     Q_D ( Move );
     d->extraMoves = list;
 }
+
+PieceType Move::promotedType() const
+{
+    Q_D ( const Move );
+    return d->promotedType;
+}
+
+void Move::setPromotedType(PieceType type)
+{
+    Q_D ( Move );
+    d->promotedType = type;
+}
+
+
 
 bool Move::operator== ( Move other ) const
 {

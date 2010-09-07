@@ -29,6 +29,7 @@ namespace Knights
 {
 enum PieceType
 {
+    NoType = 0,
     King,
     Queen,
     Bishop,
@@ -52,6 +53,7 @@ public:
     virtual ~Piece();
 
     PieceType pieceType();
+    void setPieceType(PieceType type);
     Color color();
     
     static QString spriteKey(PieceType type, Color color);
@@ -59,6 +61,7 @@ public:
 private:
     Color m_color;
     PieceType m_type;
+    void updateSpriteKey();
 };
 
 typedef QMap<Pos, Piece*> Grid;

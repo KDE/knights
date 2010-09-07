@@ -27,6 +27,7 @@
 #include <QtCore/QFlags>
 #include <QtCore/QPair>
 #include <QtCore/QMetaType>
+#include "piece.h"
 
 namespace Knights
 {
@@ -73,6 +74,9 @@ public:
     void setAdditionalMoves ( const QList<Move>& list );
     const QList<Pos>& additionalCaptures() const;
     void setAdditionalCaptures ( const QList<Pos>& list );
+    
+    PieceType promotedType() const;
+    void setPromotedType ( PieceType type );
 
     bool operator== ( Move other ) const;
 
@@ -80,8 +84,6 @@ private:
     Q_DECLARE_PRIVATE ( Move )
 
     MovePrivate* d_ptr;
-    Flags m_flags;
-
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS ( Move::Flags )

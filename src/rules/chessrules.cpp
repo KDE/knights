@@ -202,6 +202,8 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos )
             }
         }
         break;
+    default:
+        break;
     }
     foreach ( const Move& m, moves )
     {
@@ -270,6 +272,8 @@ QList<Move> ChessRules::legalAttackMoves ( const Knights::Pos& pos, Grid* grid )
             moves << movesInDirection ( directions[SW], pos, 1, true, grid );
         }
         break;
+    default:
+        break;
     }
     return moves;
 }
@@ -296,8 +300,9 @@ Rules::Directions ChessRules::legalDirections ( PieceType type )
 
     case Bishop:
         return DiagDirections;
+    default:
+        return None;
     }
-    return None;
 }
 
 
