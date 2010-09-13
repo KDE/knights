@@ -70,11 +70,12 @@ const QRegExp FicsProtocol::soughtRegExp ( QString ( "%1 %2 %3\\s+%4 %5 %6" )
         .arg ( argsPattern )
                                          );
 
-const QRegExp FicsProtocol::moveRegExp ( QString ( "<12>.*%1 [%2]\\/(%3)\\-(%4)" )
+const QRegExp FicsProtocol::moveRegExp ( QString ( "<12>.*%1 [%2]\\/(%3)\\-(%4)(=[%5])?" )
         .arg ( remainingTime )
         .arg ( pieces )
         .arg ( coordinate )
         .arg ( coordinate )
+        .arg ( pieces )
                                        );
 const QRegExp FicsProtocol::challengeRegExp ( QString ( "Challenge: %1 %2 %3 %4 %5 %6" )
         .arg ( namePattern )
@@ -308,6 +309,12 @@ void FicsProtocol::readFromSocket()
                 Move m;
                 m.setFrom ( moveRegExp.cap ( 3 ) );
                 m.setTo ( moveRegExp.cap ( 4 ) );
+                if ( moveRegExp.numCaptures() > 4 )
+                {
+                    m.setFlag( Move::Promote, true );
+                    QChar typeChar = moveRegExp.cap( 5 ).mid( 1,1 )[0];
+                    m.setPromotedType(Piece::typeFromChar(typeChar));
+                }
                 emit pieceMoved ( m );
             } else if ( line.contains ( "lost contact or quit" ) ) {
                 emit gameOver ( NoColor );

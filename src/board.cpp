@@ -104,41 +104,7 @@ void Board::movePiece ( Move m, bool changePlayer )
     m_rules->checkSpecialFlags ( &m );
     if ( m.flags() & Move::Promote )
     {
-        if ( m.promotedType() == NoType )
-        {
-            KDialog promotionDialog;
-            QWidget* pWidget = new QWidget(&promotionDialog);
-            Ui::PromotionWidget ui;
-            ui.setupUi(pWidget);
-            promotionDialog.setMainWidget(pWidget);
-            PieceType t;
-            if (promotionDialog.exec() == KDialog::Accepted)
-            {
-                if (ui.radioButtonQueen->isChecked())
-                {
-                    t = Queen;
-                }
-                else if (ui.radioButtonRook->isChecked())
-                {
-                    t = Rook;
-                }
-                else if (ui.radioButtonBishop->isChecked())
-                {
-                    t = Bishop;
-                }
-                else if (ui.radioButtonKnight->isChecked())
-                {
-                    t = Knight;
-                }
-            }
-            else
-            {
-                // Promoto to Queen by default
-                t = Queen;
-            }
-            m.setPromotedType(t);
-        }
-        m_grid[m.from()]->setPieceType(m.promotedType());
+        m_grid[m.from()]->setPieceType(m.promotedType() ? m.promotedType() : Queen);
     }
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
     delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
@@ -307,6 +273,36 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         }
         else
         {
+            if ( m_grid[to]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
+            {
+                move.setFlag ( Move::Promote, true );
+                KDialog dialog;
+                QWidget promotionWidget( &dialog );
+                Ui::PromotionWidget ui;
+                ui.setupUi ( &promotionWidget );
+                dialog.setMainWidget ( &promotionWidget );
+                PieceType pType = Queen;
+                if ( dialog.exec() == KDialog::Accepted )
+                {
+                    if ( ui.radioButtonQueen->isChecked() )
+                    {
+                        pType = Queen;
+                    }
+                    else if ( ui.radioButtonKnight->isChecked() )
+                    {
+                        pType = Knight;
+                    }
+                    else if ( ui.radioButtonBishop->isChecked() )
+                    {
+                        pType = Bishop;
+                    }
+                    else if ( ui.radioButtonRook->isChecked() )
+                    {
+                        pType = Rook;
+                    }
+                }
+                move.setPromotedType( pType );
+            }
             movePiece ( move );
             emit pieceMoved ( move );
         }

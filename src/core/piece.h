@@ -57,6 +57,8 @@ public:
     Color color();
     
     static QString spriteKey(PieceType type, Color color);
+    static PieceType typeFromChar(QChar typeChar);
+    static QChar charFromType(PieceType t);
     
 private:
     Color m_color;

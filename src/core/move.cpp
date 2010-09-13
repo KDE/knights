@@ -118,13 +118,39 @@ Move::~Move()
 
 void Move::setString(QString string)
 {
+    Q_D(Move);
+    d->flags = None;
+    d->extraCaptures.clear();
+    d->extraMoves.clear();
+    
+    if ( string.contains('x') )
+    {
+        setFlag(Take, true);
+        string.remove('x');
+    }
     setFrom(string.left(2));
-    setTo(string.right(2));
+    setTo(string.mid(2,2));
+    if (string.size() > 5)
+    {
+        setFlag(Promote, true);
+        setPromotedType(Piece::typeFromChar(string[5]));
+    }
 }
 
 QString Move::string() const
 {
-    return from().string() + '-' + to().string();
+    QString str = from().string();
+    if ( flags() & Take )
+    {
+        str += 'x';
+    }
+    str += to().string();
+    if ( flags() & Promote )
+    {
+        str += '=';
+        str += Piece::charFromType(promotedType());
+    }
+    return str;
 }
 
 

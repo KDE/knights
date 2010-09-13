@@ -61,9 +61,60 @@ QString id;
         case King:
             id.append ( "King" );
             break;
+        default:
+            break;
     }
     return id;
 }
+
+QChar Piece::charFromType(PieceType t)
+{
+    switch ( t )
+    {
+        case Pawn:
+            return 'P';
+        case Queen:
+            return 'Q';
+        case King:
+            return 'K';
+        case Bishop:
+            return 'B';
+        case Knight:
+            return 'N';
+        case Rook:
+            return 'R';
+        default:
+            break;
+    }
+    return 'E';
+}
+
+PieceType Piece::typeFromChar(QChar typeChar)
+{
+                    PieceType pType = Queen;
+                    if ( typeChar == 'N' || typeChar == 'n' )
+                    {
+                        pType = Knight;
+                    } 
+                    else if ( typeChar == 'R' || typeChar == 'r' )
+                    {
+                        pType = Rook;
+                    }
+                    else if ( typeChar == 'K' || typeChar == 'k' )
+                    {
+                        pType = Bishop;
+                    }
+                    else if ( typeChar == 'P' || typeChar == 'p' )
+                    {
+                        pType = Pawn;
+                    }
+                    else if ( typeChar == 'K' || typeChar == 'k' )
+                    {
+                        pType = King;
+                    }
+                    return pType;
+}
+
 
 Piece::Piece(Renderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent): 
 Item(renderer, spriteKey(type, color), scene, boardPos, parent)
