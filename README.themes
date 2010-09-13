@@ -1,0 +1,50 @@
+Knights theming guide
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Knights, like most KDE games, uses .desktop and .svg files for theming. If this README is not clear enough, refer to the existing themes.
+
+The .desktop file
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+This file should look like this:
+
+[KGameTheme]
+Name=<Example>
+Description=<An example theme>
+VersionFormat=1
+Author=<Your Name>
+AuthorEmail=<your.name@example.org>
+Type=SVG
+FileName=<example.svg>
+Preview=<example.png>
+
+Where the things in angle brackets (<>) should be replaced by your values.
+
+
+The SVG file
+-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The SVG file _must_ contain the following elements:
+
+ - Tiles: "BlackTile" and "WhiteTile". These two will be used for squares. The program assumes they both exist, and both square, and are the same size. This is required for proper placing of pieces on the board. From now on, the length of their sides (which should all be equal) will be referred to as tilesize. 
+
+ - Pieces: For each type/color combination, there has to be an element named ColorType. Colors are "Black" and "White", and types are "King", "Queen", "Bishop", "Knight", "Rook" and "Pawn". For example, two of these elements will be called "WhiteKnight" and "BlackRook".
+
+The pieces (elements named "WhiteKnight" etc.) should consist of the actual piece picture and an invisible bounding rectangle the same size as the tiles. This ensures they will be placed properly on the board. The XBoard theme is a good example of this.
+
+The SVG file _may_ contain these optional elements:
+
+ - Markers: 
+ An element names "Marker" will be displayed to indicate a possible legal move to a square. An element named "Danger" will mark the location from which the king is attacked. An element names "Motion" will mark the last move. All these elements should preferably the same size as the tiles, or include an invisible rectangle like the pieces. 
+
+ - Board borders:
+// These are not yet implemented in the code, but they will be one day, so it's reasonable to define rules already.
+An element called TopBottomBorder of size (9*tilesize) x (0.5*tilesize) will be drawn at the bottom of the board, and again at the top rotated by 180 degrees (so the 'up' side in the file will always point towards the board). If it is not present, the game will look for elements named BottomBorder and TopBorder of the same size, which will be drawn on the bottom and at the top, respectively. Neither of these two will be mirrored or rotated.
+
+The same applies to elements LeftRightBorder, LeftBorder and RightBorder, except that these have to be (8*tilesize) x (0.5xtilesize). This way the corners are always in top and bottom borders. In this case, the LeftRightBorder will be drawn on the left as it is, and on the right rotated for 180 degrees. Separate left and right borders will not be rotated. 
+
+----------------------------
+Please send all comments to:
+Miha Čančula
+miha.cancula@gmail.com
+
+Last update: September 2010
