@@ -220,7 +220,7 @@ void MainWindow::optionsPreferences()
     ui_prefs_base.setupUi ( generalSettingsDlg );
     dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "games-config-options" );
     connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
-    QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffDisableDownload );
+    QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );
     dialog->addPage ( themeDlg, i18n ( "Theme" ), "games-config-theme" );
     dialog->setAttribute ( Qt::WA_DeleteOnClose );
     dialog->show();
