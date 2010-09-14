@@ -1,0 +1,14 @@
+[KGameTheme]
+Name=XBoard Two
+Name[x-test]=xxXBoard Twoxx
+Description=Theme variation of XBoard chess program.
+Description[x-test]=xxTheme variation of XBoard chess program.xx
+VersionFormat=1
+Author=Dave Kaye
+AuthorEmail=
+Type=SVG
+FileName=xboard2.svg
+Preview=xboard2.png
+
+
+

@@ -273,6 +273,8 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         }
         else
         {
+            move.setFlag( Move::Take, m_grid.contains( to ) );
+            
             if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
             {
                 move.setFlag ( Move::Promote, true );
