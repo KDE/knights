@@ -1,7 +1,9 @@
 Knights theming guide and specification
 -=-=-=-=-=-=-=-=-=-=-=-=-=
 
-Knights, like most KDE games, uses .desktop and .svg files for theming. If this README is not clear enough, refer to the existing themes.
+Knights, like most KDE games, uses .desktop and .svg files for theming. The theme can also provide an optional (but very good to have) .png file for a preview. 
+
+If this README is not clear enough, refer to the existing themes.
 
 The .desktop file
 -=-=-=-=-=-=-=-=-=-=-=-=-=
