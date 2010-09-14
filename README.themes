@@ -1,4 +1,4 @@
-Knights theming guide
+Knights theming guide and specification
 -=-=-=-=-=-=-=-=-=-=-=-=-=
 
 Knights, like most KDE games, uses .desktop and .svg files for theming. If this README is not clear enough, refer to the existing themes.
@@ -40,7 +40,13 @@ The SVG file _may_ contain these optional elements:
 // These are not yet implemented in the code, but they will be one day, so it's reasonable to define rules already.
 An element called TopBottomBorder of size (9*tilesize) x (0.5*tilesize) will be drawn at the bottom of the board, and again at the top rotated by 180 degrees (so the 'up' side in the file will always point towards the board). If it is not present, the game will look for elements named BottomBorder and TopBorder of the same size, which will be drawn on the bottom and at the top, respectively. Neither of these two will be mirrored or rotated.
 
-The same applies to elements LeftRightBorder, LeftBorder and RightBorder, except that these have to be (8*tilesize) x (0.5xtilesize). This way the corners are always in top and bottom borders. In this case, the LeftRightBorder will be drawn on the left as it is, and on the right rotated for 180 degrees. Separate left and right borders will not be rotated. 
+The same applies to elements LeftRightBorder, LeftBorder and RightBorder, except that these have to be (0.5*tilesize) x (8xtilesize). This way the corners are always in top and bottom borders. In this case, the LeftRightBorder will be drawn on the left as it is, and on the right rotated for 180 degrees. Separate left and right borders will not be rotated. 
+
+ - Number and letters
+// These are not yet implemented in the code, but they will be one day, so it's reasonable to define rules already.
+Four elements named "BlackNumbers", "WhiteNumbers", "BlackLetters" and "WhiteLetters" will be displaye on their respective sides, on top of the borders. The letters elements should be the same size as the top and bottom borders, and the numbers elements should be the same size as the left and right borders. Black ones are those seen by the black player (hgfedcba and 87654321), and white are the ones seen by the white player (abcdefgh and 12345678). 
+
+Like the pieces, the letter and number elements (like the one called "WhiteLetters") should consist of the actual numbers or letters and an invisible rectange the same size the respective borders (either 9x0.5 or 0.5x8 tilesizes). 
 
 ----------------------------
 Please send all comments to:
