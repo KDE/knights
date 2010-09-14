@@ -57,16 +57,8 @@ void XBoardProtocol::startGame()
 
 void XBoardProtocol::move ( const Move& m )
 {
-    QString move;
-    move.append ( m.from().string() );
-    if ( m.flags() & Move::Take )
-    {
-        move.append ( 'x' );
-    }
-    move.append ( m.to().string() );
-    move.append ( '\n' );
-    kDebug() << move;
-    mProcess->write ( move.toLatin1() );
+    kDebug() << m.string();
+    mProcess->write ( m.string().toLatin1() + '\n' );
 }
 
 void XBoardProtocol::init ( const QVariantMap& options )
@@ -116,11 +108,7 @@ void XBoardProtocol::readFromProgram()
         {
             QString moveString = line.split ( ' ' ).last();
             kDebug() << moveString;
-            Move m;
-            m.setFrom ( Pos ( moveString.left ( 2 ) ) );
-            m.setFlag( Move::Take, moveString.contains ( 'x' ) );
-            m.setTo ( Pos ( moveString.right ( 2 ) ) );
-            emit pieceMoved ( m );
+            emit pieceMoved ( Move(moveString) );
         }
         else if ( line.contains ( "wins" ) )
         {

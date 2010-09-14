@@ -273,7 +273,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         }
         else
         {
-            if ( m_grid[to]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
+            if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
             {
                 move.setFlag ( Move::Promote, true );
                 KDialog dialog;
