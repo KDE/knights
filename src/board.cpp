@@ -279,6 +279,9 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
             {
                 move.setFlag ( Move::Promote, true );
                 KDialog dialog;
+                dialog.setButtons( KDialog::Ok );
+                dialog.setButtonText( KDialog::Ok, i18n("Promote") );
+                dialog.setCaption( i18n("Promotion") );
                 QWidget promotionWidget( &dialog );
                 Ui::PromotionWidget ui;
                 ui.setupUi ( &promotionWidget );
