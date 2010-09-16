@@ -25,7 +25,7 @@
 
 using namespace Knights;
 
-#if defined HAVE_RENDER
+#if defined WITH_KGR
 Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
 {
     setBoardPos(boardPos);
@@ -35,7 +35,7 @@ Item::Item(KGameRenderer* renderer, QString key, QGraphicsScene* scene, Pos boar
     }
 }
 
-#else // HAVE_RENDER
+#else // WITH_KGR
 
 #include <QtSvg/QSvgRenderer>
 
@@ -75,7 +75,7 @@ QString Item::spriteKey() const
 {
     return elementId();
 }
-#endif // HAVE_RENDER
+#endif // WITH_KGR
 
 Item::~Item()
 {

@@ -507,7 +507,7 @@ void Board::setPaused ( bool paused )
 void Board::updateTheme()
 {
     renderer->setTheme( Settings::theme() );
-    #if not defined HAVE_RENDER
+    #if not defined WITH_KGR
         // Using QGraphicsSvgItems, loading a new file and then resizing does not work
         // instead, we have to delete every item and re-create it
         foreach ( Piece* p, m_grid )

@@ -21,7 +21,7 @@
 
 #include "renderer.h"
 
-#if not defined HAVE_RENDER
+#if not defined WITH_KGR
 #include <KGameTheme>
 
 using namespace Knights;
@@ -59,4 +59,4 @@ void Renderer::setTheme(const QString& theme)
 
 
 
-#endif // HAVE_RENDER
+#endif // WITH_KGR

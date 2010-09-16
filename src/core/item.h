@@ -25,7 +25,7 @@
 #include "renderer.h"
 #include "pos.h"
 
-#if defined HAVE_RENDER
+#if defined WITH_KGR
     #define ItemBaseType KGameRenderedObjectItem
     #include <KGameRenderedObjectItem>
 #else
@@ -45,13 +45,13 @@ class Item : public ItemBaseType
         Item(Renderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
-     //   #if not defined HAVE_RENDER
+     //   #if not defined WITH_KGR
             // Duplicating the KGameRenderedItem API to minimize #ifdef's in Knights::Board
              void setRenderSize(QSize size);
             QSize renderSize() const;
             void setSpriteKey(QString key);
             QString spriteKey() const;
-     //   #endif // HAVE_RENDER
+     //   #endif // WITH_KGR
      
         void setBoardPos(const Pos& pos);
         Pos boardPos() const;

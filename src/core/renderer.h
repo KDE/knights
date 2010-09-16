@@ -23,7 +23,7 @@
 #define KNIGHTS_RENDERER_H
 
 #include "kdeversion.h"
-#if defined HAVE_RENDER
+#if defined WITH_KGR
     #include <KGameRenderer>
 #else
     #include <QtSvg/QSvgRenderer>
@@ -33,7 +33,7 @@ class KGameTheme;
 
 namespace Knights {
 
-#if defined HAVE_RENDER
+#if defined WITH_KGR
 typedef KGameRenderer Renderer;
 #else
 class Renderer : public QSvgRenderer
