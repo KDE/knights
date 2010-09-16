@@ -1,7 +1,11 @@
 [KGameTheme]
 Name=XBoard Two
+Name[pt]=XBoard Dois
+Name[uk]=XBoard-2
 Name[x-test]=xxXBoard Twoxx
 Description=Theme variation of XBoard chess program.
+Description[pt]=Uma variante do tema do programa de xadrez XBoard.
+Description[uk]=Варіант теми, заснованої на темі шахової програми XBoard.
 Description[x-test]=xxTheme variation of XBoard chess program.xx
 VersionFormat=1
 Author=Dave Kaye
