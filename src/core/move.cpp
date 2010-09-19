@@ -108,6 +108,7 @@ Move::Move ( const Knights::Move& other )
     setFlags ( other.flags() );
     setAdditionalCaptures ( other.additionalCaptures() );
     setAdditionalMoves ( other.additionalMoves() );
+    setPromotedType( other.promotedType() );
 }
 
 
