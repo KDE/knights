@@ -37,7 +37,7 @@ class FicsDialog : public QWidget
 {
     Q_OBJECT
 public:
-    FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+    explicit FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
     virtual ~FicsDialog();
 
     int acceptedGameId();

@@ -20,11 +20,11 @@
 */
 
 #include "board.h"
+#include "settings.h"
 
 #include "core/pos.h"
 #include "core/move.h"
 #include "rules/chessrules.h"
-#include "settings.h"
 #include "ui_promotiondialog.h"
 
 #include <KGameTheme>
@@ -40,7 +40,7 @@
 #include <QtCore/qmath.h>
 
 #if QT_VERSION >= 0x040600
-  #define HAVE_ANIMATIONS
+  #define WITH_ANIMATIONS
   #include <QtCore/QPropertyAnimation>
 #endif
 
@@ -171,8 +171,8 @@ void Board::movePiece ( Move m, bool changePlayer )
 
 void Board::populate()
 {
-    const BoardState pieces = m_rules->startingPieces ();
-    foreach ( const Pos& pos, pieces.keys() )
+    const BoardState pieces = m_rules->startingPieces();
+    foreach ( const Pos& pos, pieces.keys() ) // krazy:exclude=foreach
     {
         addPiece ( pieces[pos].second, pieces[pos].first, pos );
     }
@@ -374,7 +374,7 @@ void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool ani
 void Board::centerOnPos(Item* item, bool animated)
 {
     QPointF endPos = mapToScene ( item->boardPos() );
-#if defined HAVE_ANIMATIONS
+#if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         item->setPos ( endPos );

@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010  Thomas Kamps
+    Copyright 2010 Thomas Kamps
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -28,9 +28,8 @@
 
 using namespace Knights;
 
-Clock::Clock(QWidget *parent, Qt::WindowFlags f) : QWidget(parent)
+Clock::Clock(QWidget *parent, Qt::WindowFlags f) : QWidget(parent, f)
 {
-    Q_UNUSED(f);
     hour = 0;
     minute = 0;
     second = 0;

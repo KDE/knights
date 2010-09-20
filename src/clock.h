@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010  Thomas Kamps
+    Copyright 2010 Thomas Kamps
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -32,7 +32,7 @@ class Clock : public QWidget
 {
     Q_OBJECT
     public:
-        Clock(QWidget* parent = 0, Qt::WindowFlags f = 0);
+        explicit Clock(QWidget* parent = 0, Qt::WindowFlags f = 0);
         virtual ~Clock();
         
     private:

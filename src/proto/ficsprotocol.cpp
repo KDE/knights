@@ -33,7 +33,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
 #include <QtGui/QPushButton>
-#include <gamedialog.h>
+#include <QtCore/QPointer>
 
 
 using namespace Knights;
@@ -170,19 +170,20 @@ void FicsProtocol::logIn ( )
         KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
                 | KPasswordDialog::ShowKeepPassword
                 | KPasswordDialog::ShowUsernameLine;
-        KPasswordDialog pwDialog ( qApp->activeWindow(), flags );
-        pwDialog.setUsername ( username );
-        if ( pwDialog.exec() == QDialog::Accepted ) {
-            guest = pwDialog.anonymousMode();
-            username = pwDialog.username();
-            password = pwDialog.password();
-            if ( pwDialog.keepPassword() ) {
+        QPointer<KPasswordDialog> pwDialog = new KPasswordDialog ( qApp->activeWindow(), flags );
+        pwDialog->setUsername ( username );
+        if ( pwDialog->exec() == QDialog::Accepted ) {
+            guest = pwDialog->anonymousMode();
+            username = pwDialog->username();
+            password = pwDialog->password();
+            if ( pwDialog->keepPassword() ) {
                 wallet->writePassword ( username + '@' + m_socket->peerName(), password );
             }
             Settings::setFicsUsername ( username );
         } else {
             emit error ( UserCancelled );
         }
+        delete pwDialog;
     }
     kDebug() << username;
     if ( guest ) {

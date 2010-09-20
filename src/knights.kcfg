@@ -4,7 +4,6 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile />
-  <include>QtCore/QDateTime</include>
   <group name="KGameTheme">
         <entry name="Theme" type="String">
 	    <label>Theme file for the board</label>
@@ -82,7 +81,7 @@
       <label>protocol to be used for communication to opponent</label>
       <default>XBoard</default>
     </entry>
-    <entry name="program" type="String">
+    <entry name="program" type="Path">
       <label>program to run</label>
       <default>gnuchess --xboard</default>
     </entry>
