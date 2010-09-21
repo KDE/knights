@@ -45,13 +45,13 @@ class Item : public ItemBaseType
         Item(Renderer* renderer, QString key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
-     //   #if not defined WITH_KGR
+        #if not defined WITH_KGR
             // Duplicating the KGameRenderedItem API to minimize #ifdef's in Knights::Board
              void setRenderSize(QSize size);
             QSize renderSize() const;
             void setSpriteKey(QString key);
             QString spriteKey() const;
-     //   #endif // WITH_KGR
+        #endif // WITH_KGR
      
         void setBoardPos(const Pos& pos);
         Pos boardPos() const;
