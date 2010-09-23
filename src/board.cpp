@@ -81,6 +81,7 @@ Board::~Board()
     qDeleteAll(m_grid);
     qDeleteAll(m_tiles);
     qDeleteAll(markers);
+    delete renderer;
 }
 
 void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
