@@ -25,7 +25,6 @@
 #include <QtCore/QPair>
 #include <QtCore/QDataStream>
 
-class QTextStream;
 namespace Knights {
 
 class Pos : public QPair<int,int>

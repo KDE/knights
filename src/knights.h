@@ -28,7 +28,6 @@
 #include <KXmlGuiWindow>
 
 class KToggleAction;
-class KUrl;
 
 namespace Knights
 {

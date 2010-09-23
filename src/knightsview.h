@@ -28,8 +28,6 @@
 
 #include <QtGui/QWidget>
 
-class QPainter;
-class KUrl;
 
 namespace Knights
 {
