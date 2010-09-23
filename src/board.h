@@ -60,7 +60,7 @@ class Board : public QGraphicsScene
 
     static bool isInBoard(const Pos& pos);
     void setPlayerColors(const QList<Color>& colors);
-    QList<Color> playerColors();
+    QList<Color> playerColors() const;
     void setCurrentColor(Color color);
 
 private:
@@ -74,8 +74,8 @@ private:
     void addMarker(const Pos& pos, QString spriteKey);
     void addTiles();
 
-    Piece* pieceAt(QPointF point);
-    Pos mapFromScene(QPointF point);
+    Piece* pieceAt(const QPointF& point);
+    Pos mapFromScene(const QPointF& point);
     QPointF mapToScene(Pos pos);
     void changeCurrentPlayer();
     void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true );

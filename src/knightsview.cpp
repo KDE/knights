@@ -170,7 +170,7 @@ QString KnightsView::pieceTypeName ( PieceType type )
     }
 }
 
-void KnightsView::centerView(QPointF center)
+void KnightsView::centerView( const QPointF& center)
 {
     if (ui.canvas)
     {

@@ -90,7 +90,7 @@ namespace Knights
             void settingsChanged();
             void resizeScene();
             void gameOver ( Color winner );
-            void centerView( QPointF center );
+            void centerView( const QPointF& center );
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

@@ -337,12 +337,12 @@ void Board::dragMoveEvent ( QGraphicsSceneDragDropEvent* e )
     m_draggedPos = e->scenePos();
 }
 
-Piece* Board::pieceAt ( QPointF point )
+Piece* Board::pieceAt ( const QPointF& point )
 {
     return m_grid.value ( mapFromScene ( point ), 0 );
 }
 
-Pos Board::mapFromScene ( QPointF point )
+Pos Board::mapFromScene ( const QPointF& point )
 {
     Pos pos;
     pos.first = ( point.x() - m_boardRect.left() ) / m_tileSize + 1;
@@ -418,7 +418,7 @@ bool Board::isInBoard ( const Knights::Pos& pos )
     return pos.first > 0 && pos.first < 9 && pos.second > 0 && pos.second < 9;
 }
 
-QList< Color > Board::playerColors()
+QList< Color > Board::playerColors() const
 {
     return m_playerColors;
 }
