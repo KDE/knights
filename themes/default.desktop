@@ -1,27 +1,7 @@
 [KGameTheme]
 Name=Knights
-Name[da]=Knights
-Name[de]=Knights
-Name[en_GB]=Knights
-Name[es]=Knights
-Name[fr]=Knights
-Name[it]=Knights
-Name[pt]=Knights
-Name[pt_BR]=Knights
-Name[sv]=Springare
-Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
-Description[da]=Oprindeligt Knights-tema.
-Description[de]=Das ursprüngliche Design für Knights.
-Description[en_GB]=Original Knights theme.
-Description[es]=Tema original de Knights
-Description[fr]=Thème original de Knights
-Description[it]=Tema originale di Knights.
-Description[pt]=Tema original do Knights.
-Description[pt_BR]=Tema original do Knights
-Description[sv]=Ursprungligt springartema.
-Description[uk]=Початкова тема Knights.
 Description[x-test]=xxOriginal Knights theme.xx
 VersionFormat=1
 Author=Troy Corbin
