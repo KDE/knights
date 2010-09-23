@@ -114,7 +114,7 @@ Move::Move ( const Knights::Move& other )
 
 Move::~Move()
 {
-
+    delete d_ptr;
 }
 
 void Move::setString(QString string)
