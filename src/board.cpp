@@ -55,14 +55,14 @@ const qreal motionMarkerZValue = 1.5;
 const qreal legalMarkerZValue = 2.0;
 const qreal dragZValue = 3.0;
 
-const QString whiteTileKey = "WhiteTile";
-const QString blackTileKey = "BlackTile";
-const QString legalMarkerKey = "Marker";
-const QString motionMarkerKey = "Motion";
-const QString dangerMarkerKey = "Danger";
+const QString whiteTileKey = QLatin1String( "WhiteTile" );
+const QString blackTileKey = QLatin1String( "BlackTile" );
+const QString legalMarkerKey = QLatin1String( "Marker" );
+const QString motionMarkerKey = QLatin1String( "Motion" );
+const QString dangerMarkerKey = QLatin1String( "Danger" );
 
-const QString tbBorderKey = "TopBottomBorder";
-const QString lrBorderKey = "LeftRightBorder";
+const QString tbBorderKey = QLatin1String( "TopBottomBorder" );
+const QString lrBorderKey = QLatin1String( "LeftRightBorder" );
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
@@ -71,7 +71,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     updateTheme();
     m_currentPlayer = White;
     m_paused = false;
-    
+
     connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()) );
     connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(changeDisplayedPlayer()) );
 }
@@ -138,7 +138,7 @@ void Board::movePiece ( Move m, bool changePlayer )
                         addMarker( piece->boardPos(), Danger );
                     }
                 }
-            }   
+            }
         }
     }
     if ( m.flags() & Move::EnPassant )
@@ -241,7 +241,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             }
         }
         QDrag* drag = new QDrag ( e->widget() );
-        QString posText = QString::number ( t_pos.first ) + '_' + QString::number ( t_pos.second );
+        QString posText = QString::number ( t_pos.first ) + QLatin1Char( '_' ) + QString::number ( t_pos.second );
         QMimeData* data = new QMimeData;
         data->setText ( posText );
         m_draggedItem = d_piece;
@@ -259,7 +259,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 
     if ( e->mimeData()->hasText() )
     {
-        QStringList list = e->mimeData()->text().split ( '_' );
+        QStringList list = e->mimeData()->text().split ( QLatin1Char( '_' ) );
         if ( list.size() < 2 )
         {
             e->ignore();
@@ -275,7 +275,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         else
         {
             move.setFlag( Move::Take, m_grid.contains( to ) );
-            
+
             if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
             {
                 move.setFlag ( Move::Promote, true );
@@ -519,7 +519,7 @@ void Board::updateTheme()
         qDeleteAll(m_tiles);
         m_tiles.clear();
         addTiles();
-        
+
         // If the user is changing the theme, he/she probably already saw any current markers
         qDeleteAll(markers);
         markers.clear();
@@ -542,19 +542,19 @@ void Board::updateGraphics()
     {
         sideMargin = 0.5 * tileSize.width();
         topMargin = 0.5 * tileSize.height();
-        
-        m_drawFrame = false;  
+
+        m_drawFrame = false;
     }
     boardSize = boardSize + 2 * QSizeF(sideMargin, topMargin);
     qreal ratio = qMin(sceneRect().width()/boardSize.width(), sceneRect().height()/boardSize.height());
-        
+
     QSizeF tpSize = tileSize * ratio;
     m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
     sideMargin = qMax ( sideMargin * ratio, (sceneRect().width() - 8 * m_tileSize) / 2 );
     topMargin = qMax ( topMargin * ratio, (sceneRect().height() - 8 * m_tileSize) / 2 );
     m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
     QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
-    
+
     foreach ( Piece* p, m_grid )
     {
         p->setRenderSize ( tSize );
@@ -566,7 +566,7 @@ void Board::updateGraphics()
         centerOnPos( t, Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
-    {        
+    {
         t->setRenderSize ( tSize );
         centerOnPos( t );
     }
@@ -594,4 +594,4 @@ void Board::changeDisplayedPlayer()
 
 
 #include "board.moc"
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

@@ -37,7 +37,7 @@ QChar Pos::row ( int num )
     }
     else
     {
-        return QChar ( 'r' );
+        return QLatin1Char( 'r' );
     }
 }
 

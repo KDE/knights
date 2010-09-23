@@ -124,10 +124,10 @@ void Move::setString(QString string)
     d->extraCaptures.clear();
     d->extraMoves.clear();
     
-    if ( string.contains('x') )
+    if ( string.contains(QLatin1Char('x')) )
     {
         setFlag(Take, true);
-        string.remove('x');
+        string.remove(QLatin1Char('x'));
     }
     setFrom(string.left(2));
     setTo(string.mid(2,2));
@@ -143,12 +143,12 @@ QString Move::string() const
     QString str = from().string();
     if ( flags() & Take )
     {
-        str += 'x';
+        str += QLatin1Char('x');
     }
     str += to().string();
     if ( flags() & Promote )
     {
-        str += '=';
+        str += QLatin1Char('=');
         str += Piece::charFromType(promotedType());
     }
     return str;

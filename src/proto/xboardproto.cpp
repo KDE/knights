@@ -64,11 +64,11 @@ void XBoardProtocol::move ( const Move& m )
 void XBoardProtocol::init ( const QVariantMap& options )
 {
     setAttributes(options);
-    QStringList args = options["program"].toString().split ( ' ' );
+    QStringList args = options[QLatin1String( "program" )].toString().split ( QLatin1Char( ' ' ) );
     QString program = args.takeFirst();
-    if ( program.contains ( "gnuchess" ) && !args.contains ( "--xboard" ) )
+    if ( program.contains ( QLatin1String( "gnuchess" ) ) && !args.contains ( QLatin1String( "--xboard" ) ) )
     {
-        args << "--xboard";
+        args << QLatin1String( "--xboard" );
     }
     setOpponentName(program);
     mProcess = new KProcess ( this );
@@ -97,23 +97,23 @@ void XBoardProtocol::init ( const QVariantMap& options )
 
 void XBoardProtocol::readFromProgram()
 {
-    QString output = QString ( mProcess->readAllStandardOutput() );
-    foreach (const QString& line, output.split('\n'))
+    QString output = QLatin1String ( mProcess->readAllStandardOutput() );
+    foreach (const QString& line, output.split(QLatin1Char( '\n' )))
     {
-        if ( line.contains ( "Illegal move" ) )
+        if ( line.contains ( QLatin1String( "Illegal move" ) ) )
         {
             emit illegalMove();
         }
-        else if (line.contains( "..." ))
+        else if (line.contains( QLatin1String( "..." ) ))
         {
-            QString moveString = line.split ( ' ' ).last();
+            QString moveString = line.split ( QLatin1Char( ' ' ) ).last();
             kDebug() << moveString;
             emit pieceMoved ( Move(moveString) );
         }
-        else if ( line.contains ( "wins" ) )
+        else if ( line.contains ( QLatin1String( "wins" ) ) )
         {
             Color winner;
-            if ( line.split ( ' ' ).last().contains ( "white" ) )
+            if ( line.split ( QLatin1Char( ' ' ) ).last().contains ( QLatin1String( "white" ) ) )
             {
                 winner = White;
             }

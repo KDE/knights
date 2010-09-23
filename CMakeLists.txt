@@ -4,6 +4,8 @@ find_package(KDE4 REQUIRED)
 include (KDE4Defaults)
 
 set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
+add_definitions( -DQT_NO_CAST_FROM_ASCII )
+add_definitions( -DQT_NO_CAST_TO_ASCII )
 
 include_directories( ${KDE4_INCLUDES} ${QT_INCLUDES} )
 

@@ -29,7 +29,7 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
-    setObjectName ( "GameDialogWidget" );
+    setObjectName ( QLatin1String( "GameDialogWidget" ) );
     connect ( ui->timeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
     connect ( ui->sameTimeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( sameTimeChanged ( bool ) ) );
     connect ( ui->oppHuman, SIGNAL ( toggled ( bool ) ), this, SLOT ( hotseatModeToggled ( bool ) ) );

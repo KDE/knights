@@ -73,35 +73,35 @@ QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
 
 void Protocol::setPlayerColor ( Color color )
 {
-    setAttribute( "PlayerColor", QVariant::fromValue<Color>(color) );
+    setAttribute( QLatin1String( "PlayerColor" ), QVariant::fromValue<Color>(color) );
 }
 
 Color Protocol::playerColor() const
 {
-    return attribute( "PlayerColor" ).value<Color>();
+    return attribute( QLatin1String( "PlayerColor" ) ).value<Color>();
 }
 
-void Protocol::setOpponentName(QString name)
+void Protocol::setOpponentName(const QString& name)
 {
-    setAttribute( "OpponentName", name );
+    setAttribute( QLatin1String( "OpponentName" ), name );
 }
 
 QString Protocol::opponentName() const
 {
-    return attribute( "OpponentName" ).toString();
+    return attribute( QLatin1String( "OpponentName" ) ).toString();
 }
 
-void Protocol::setPlayerName(QString name)
+void Protocol::setPlayerName(const QString& name)
 {
-    setAttribute( "PlayerName", name );
+    setAttribute( QLatin1String( "PlayerName" ), name );
 }
 
 QString Protocol::playerName() const
 {
-    return attribute( "PlayerName" ).toString();
+    return attribute( QLatin1String( "PlayerName" ) ).toString();
 }
 
-void Protocol::setAttribute(QString attribute, QVariant value)
+void Protocol::setAttribute(const QString& attribute, QVariant value)
 {
     Q_D(Protocol);
     d->attributes.insert( attribute,  value );
@@ -113,7 +113,7 @@ void Protocol::setAttributes(QVariantMap attributes)
     d->attributes.unite(attributes);
 }
 
-QVariant Protocol::attribute(QString attribute) const
+QVariant Protocol::attribute(const QString& attribute) const
 {
     Q_D(const Protocol);
     return d->attributes.value( attribute );

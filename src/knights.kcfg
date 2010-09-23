@@ -48,19 +48,19 @@
     </entry>
     <entry name="playerTime" type="DateTime">
       <label>time limit for the local player</label>
-      <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>
+      <default code="true">QDateTime::fromString(QLatin1String("00:10"), QLatin1String("HH:mm"))</default>
     </entry>
      <entry name="playerTimeIncrement" type="DateTime">
       <label>time increment per move for the local player</label>
-      <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
+      <default code="true">QDateTime::fromString(QLatin1String("00:00"), QLatin1String("HH:mm"))</default>
     </entry>
     <entry name="opponentTime" type="DateTime">
       <label>time limit for the computer or remote player</label>
-      <default code="true">QDateTime::fromString("00:10", "HH:mm")</default>
+      <default code="true">QDateTime::fromString(QLatin1String("00:10"), QLatin1String("HH:mm"))</default>
     </entry>
      <entry name="opponentTimeIncrement" type="DateTime">
       <label>time increment per move for the computer or remote player</label>
-      <default code="true">QDateTime::fromString("00:00", "HH:mm")</default>
+      <default code="true">QDateTime::fromString(QLatin1String("00:00"), QLatin1String("HH:mm"))</default>
     </entry>
     <entry name="sameTime" type="Bool">
       <label>whether both players have the same time limit</label>

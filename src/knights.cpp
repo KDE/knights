@@ -95,16 +95,16 @@ void MainWindow::fileNew()
         hideClockWidgets();
         delete m_protocol;
         dialogWidget->writeConfig();
-        
+
         QVariantMap protocolOptions;
         switch ( dialogWidget->protocol() ) {
         case Settings::EnumProtocol::XBoard:
             m_protocol = new XBoardProtocol;
-            protocolOptions["program"] = dialogWidget->program();
+            protocolOptions[QLatin1String( "program" )] = dialogWidget->program();
             break;
         case Settings::EnumProtocol::FICS:
             m_protocol = new FicsProtocol;
-            protocolOptions["server"] = dialogWidget->server();
+            protocolOptions[QLatin1String( "server" )] = dialogWidget->server();
             break;
         default:
             break;
@@ -117,15 +117,15 @@ void MainWindow::fileNew()
             m_playerIncrement = dialogWidget->playerIncrement();
             m_oppIncrement = dialogWidget->opponentIncrement();
             if ( m_protocol ) {
-                protocolOptions["playerTimeLimit"] = m_playerTime;
-                protocolOptions["playerTimeIncrement"] = m_playerIncrement;
-                protocolOptions["opponentTimeLimit"] = m_oppTime;
-                protocolOptions["opponentTimeIncrement"] = m_oppIncrement;
+                protocolOptions[QLatin1String( "playerTimeLimit" )] = m_playerTime;
+                protocolOptions[QLatin1String( "playerTimeIncrement" )] = m_playerIncrement;
+                protocolOptions[QLatin1String( "opponentTimeLimit" )] = m_oppTime;
+                protocolOptions[QLatin1String( "opponentTimeIncrement" )] = m_oppIncrement;
             }
         }
 
         if ( m_protocol ) {
-            protocolOptions["PlayerColor"] = dialogWidget->color();
+            protocolOptions[QLatin1String( "PlayerColor" )] = dialogWidget->color();
             connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
             connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
             m_protocol->init ( protocolOptions );
@@ -147,7 +147,7 @@ void MainWindow::showClockWidgets()
 {
     ClockWidget* playerClock = new ClockWidget ( this );
     m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
-    m_clockDock->setObjectName ( "ClockDockWidget" ); // for QMainWindow::saveState()
+    m_clockDock->setObjectName ( QLatin1String( "ClockDockWidget" ) ); // for QMainWindow::saveState()
     m_clockDock->setWidget ( playerClock );
 
     connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
@@ -212,16 +212,16 @@ void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& e
 
 void MainWindow::optionsPreferences()
 {
-    if ( KConfigDialog::showDialog ( "settings" ) ) {
+    if ( KConfigDialog::showDialog ( QLatin1String( "settings" ) ) ) {
         return;
     }
-    KConfigDialog *dialog = new KConfigDialog ( this, "settings", Settings::self() );
+    KConfigDialog *dialog = new KConfigDialog ( this, QLatin1String( "settings" ), Settings::self() );
     QWidget *generalSettingsDlg = new QWidget;
     ui_prefs_base.setupUi ( generalSettingsDlg );
-    dialog->addPage ( generalSettingsDlg, i18n ( "General" ), "games-config-options" );
+    dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String( "games-config-options" ) );
     connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
     QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );
-    dialog->addPage ( themeDlg, i18n ( "Theme" ), "games-config-theme" );
+    dialog->addPage ( themeDlg, i18n ( "Theme" ), QLatin1String( "games-config-theme" ) );
     dialog->setAttribute ( Qt::WA_DeleteOnClose );
     dialog->show();
 }

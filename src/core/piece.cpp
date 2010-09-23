@@ -26,17 +26,17 @@
 #include <QtSvg/QSvgRenderer>
 
 namespace Knights {
-    
+
 QString Piece::spriteKey(PieceType type, Color color)
 {
 QString id;
     switch ( color )
     {
         case White:
-            id.append ( "White" );
+            id.append ( QLatin1String( "White" ) );
             break;
         case Black:
-            id.append ( "Black" );
+            id.append ( QLatin1String( "Black" ) );
             break;
         default:
             break;
@@ -44,22 +44,22 @@ QString id;
     switch ( type )
     {
         case Pawn:
-            id.append ( "Pawn" );
+            id.append ( QLatin1String( "Pawn" ) );
             break;
         case Rook:
-            id.append ( "Rook" );
+            id.append ( QLatin1String( "Rook" ) );
             break;
         case Knight:
-            id.append ( "Knight" );
+            id.append ( QLatin1String( "Knight" ) );
             break;
         case Bishop:
-            id.append ( "Bishop" );
+            id.append ( QLatin1String( "Bishop" ) );
             break;
         case Queen:
-            id.append ( "Queen" );
+            id.append ( QLatin1String( "Queen" ) );
             break;
         case King:
-            id.append ( "King" );
+            id.append ( QLatin1String( "King" ) );
             break;
         default:
             break;
@@ -72,43 +72,43 @@ QChar Piece::charFromType(PieceType t)
     switch ( t )
     {
         case Pawn:
-            return 'P';
+            return QLatin1Char( 'P' );
         case Queen:
-            return 'Q';
+            return QLatin1Char( 'Q' );
         case King:
-            return 'K';
+            return QLatin1Char( 'K' );
         case Bishop:
-            return 'B';
+            return QLatin1Char( 'B' );
         case Knight:
-            return 'N';
+            return QLatin1Char( 'N' );
         case Rook:
-            return 'R';
+            return QLatin1Char( 'R' );
         default:
             break;
     }
-    return 'E';
+    return QLatin1Char( 'E' );
 }
 
 PieceType Piece::typeFromChar(QChar typeChar)
 {
                     PieceType pType = Queen;
-                    if ( typeChar == 'N' || typeChar == 'n' )
+                    if ( typeChar == QLatin1Char( 'N' ) || typeChar == QLatin1Char( 'n' ) )
                     {
                         pType = Knight;
-                    } 
-                    else if ( typeChar == 'R' || typeChar == 'r' )
+                    }
+                    else if ( typeChar == QLatin1Char( 'R' ) || typeChar == QLatin1Char( 'r' ) )
                     {
                         pType = Rook;
                     }
-                    else if ( typeChar == 'K' || typeChar == 'k' )
+                    else if ( typeChar == QLatin1Char( 'K' ) || typeChar == QLatin1Char( 'k' ) )
                     {
                         pType = Bishop;
                     }
-                    else if ( typeChar == 'P' || typeChar == 'p' )
+                    else if ( typeChar == QLatin1Char( 'P' ) || typeChar == QLatin1Char( 'p' ) )
                     {
                         pType = Pawn;
                     }
-                    else if ( typeChar == 'K' || typeChar == 'k' )
+                    else if ( typeChar == QLatin1Char( 'K' ) || typeChar == QLatin1Char( 'k' ) )
                     {
                         pType = King;
                     }
@@ -116,7 +116,7 @@ PieceType Piece::typeFromChar(QChar typeChar)
 }
 
 
-Piece::Piece(Renderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent): 
+Piece::Piece(Renderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent):
 Item(renderer, spriteKey(type, color), scene, boardPos, parent)
 {
     m_color = color;

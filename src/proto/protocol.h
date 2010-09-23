@@ -73,13 +73,13 @@ public:
     Color playerColor() const;
     QString opponentName() const;
     QString playerName() const;
-    QVariant attribute(QString attribute) const;
+    QVariant attribute(const QString& attribute) const;
 
 protected:
     void setPlayerColor ( Color color );
-    void setOpponentName ( QString name );
-    void setPlayerName ( QString name );
-    void setAttribute ( QString attribute, QVariant value );
+    void setOpponentName ( const QString& name );
+    void setPlayerName ( const QString& name );
+    void setAttribute ( const QString& attribute, QVariant value );
     void setAttributes ( QVariantMap attributes );
 
 public Q_SLOTS:
