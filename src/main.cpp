@@ -45,6 +45,7 @@ int main ( int argc, char **argv )
     options.add ( "+[URL]", ki18n ( "Document to open" ) );
     KCmdLineArgs::addCmdLineOptions ( options );
     KApplication app;
+    KGlobal::locale()->insertCatalog("libkdegames");
 
     // see if we are starting with session management
     if ( app.isSessionRestored() )
