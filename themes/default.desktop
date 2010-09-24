@@ -1,7 +1,15 @@
 [KGameTheme]
 Name=Knights
+Name[pt]=Knights
+Name[pt_BR]=Knights
+Name[sv]=Knights
+Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Description=Original Knights theme.
+Description[pt]=O tema original do Knights.
+Description[pt_BR]=Tema original do Knights.
+Description[sv]=Ursprungligt Knights-tema.
+Description[uk]=Початкова тема Knights.
 Description[x-test]=xxOriginal Knights theme.xx
 VersionFormat=1
 Author=Troy Corbin

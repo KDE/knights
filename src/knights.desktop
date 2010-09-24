@@ -1,5 +1,9 @@
 [Desktop Entry]
 Name=Knights
+Name[pt]=Knights
+Name[pt_BR]=Knights
+Name[sv]=Knights
+Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Exec=knights %i -caption "%c"
 Icon=knights
@@ -7,5 +11,9 @@ Type=Application
 X-DocPath=knights/index.html
 Categories=Qt;KDE;Game;BoardGame;
 GenericName=Chess game
+GenericName[pt]=Jogo de xadrez
+GenericName[pt_BR]=Jogo de xadrez
+GenericName[sv]=Schackspel
+GenericName[uk]=Гра у шахи
 GenericName[x-test]=xxChess gamexx
 Terminal=false
