@@ -27,11 +27,13 @@
 #include <QtCore/QFlags>
 #include <QtCore/QPair>
 #include <QtCore/QMetaType>
+#include <QtCore/QSharedDataPointer>
 #include "piece.h"
 
 namespace Knights
 {
 class MovePrivate;
+
 class Move
 {
 public:
@@ -56,6 +58,8 @@ public:
     Move ( const Move& other );
     virtual ~Move();
 
+    void operator=(const Move& other);
+    
     Pos from() const;
     Pos to() const;
     QString string() const;
@@ -81,9 +85,7 @@ public:
     bool operator== ( Move other ) const;
 
 private:
-    Q_DECLARE_PRIVATE ( Move )
-
-    MovePrivate* d_ptr;
+    QSharedDataPointer<MovePrivate> d;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS ( Move::Flags )

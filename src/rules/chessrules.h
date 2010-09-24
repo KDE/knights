@@ -42,14 +42,14 @@ public:
     virtual bool hasLegalMoves ( Color color );
     virtual BoardState startingPieces ();
     virtual QList<Move> legalMoves ( const Pos& pos );
-    virtual void moveMade ( const Move& move );
+    virtual void moveMade ( const Move& m );
     virtual Directions legalDirections ( PieceType type );
     virtual ~ChessRules();
 
     bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
-    virtual bool isAttacking(const Knights::Pos& attackingPos);
+    virtual bool isAttacking(const Pos& attackingPos);
 
-    virtual void checkSpecialFlags ( Move* move );
+    virtual void checkSpecialFlags ( Move& move );
 
 private:
 
@@ -70,7 +70,7 @@ private:
     QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = 0 );
     QList<Move> pawnMoves ( const Pos& pos );
     QList<Move> castlingMoves ( const Pos& pos );
-    int length ( const Move* move );
+    int length ( const Knights::Move& move );
     bool isPathClear ( const Pos& from, const Pos& to );
     QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
     bool isKingAttacked ( Color color , Grid* grid = 0 );

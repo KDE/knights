@@ -22,10 +22,11 @@
 #include "move.h"
 
 #include <QtCore/QPair>
+#include <QtCore/QSharedData>
 
 namespace Knights
 {
-class MovePrivate
+class MovePrivate : public QSharedData
 {
 public:
     MovePrivate();
@@ -54,19 +55,52 @@ MovePrivate::~MovePrivate()
 
 }
 
+Move::Move()
+        : d ( new MovePrivate )
+{
+
+}
+
+Move::Move ( Pos from, Pos to, Move::Flags flags )
+        : d ( new MovePrivate )
+{
+    setFrom ( from );
+    setTo ( to );
+    setFlags ( flags );
+}
+
+Move::Move(QString string)
+        : d ( new MovePrivate )
+{
+    setString(string);
+}
+
+Move::Move ( const Knights::Move& other )
+        : d ( other.d )
+{
+    
+}
+
+Move::~Move()
+{
+    
+}
+
+void Move::operator=(const Knights::Move& other)
+{
+    d = other.d;
+}
+
 Move::Flags Move::flags() const
 {
-    Q_D(const Move);
     return d->flags;
 }
 
 void Move::setFlag ( Move::MoveFlag flag, bool value )
 {
-    Q_D(Move);
     if ( value )
     {
         d->flags |= flag;
-
     }
     else
     {
@@ -76,50 +110,11 @@ void Move::setFlag ( Move::MoveFlag flag, bool value )
 
 void Move::setFlags ( Move::Flags flags )
 {
-    Q_D(Move);
     d->flags = flags;
-}
-
-Move::Move()
-        : d_ptr ( new MovePrivate )
-{
-
-}
-
-Move::Move ( Pos from, Pos to, Move::Flags flags )
-        : d_ptr ( new MovePrivate )
-{
-    setFrom ( from );
-    setTo ( to );
-    setFlags ( flags );
-}
-
-Move::Move(QString string)
-        : d_ptr ( new MovePrivate )
-{
-    setString(string);
-}
-
-Move::Move ( const Knights::Move& other )
-        : d_ptr ( new MovePrivate )
-{
-    setFrom ( other.from() );
-    setTo ( other.to() );
-    setFlags ( other.flags() );
-    setAdditionalCaptures ( other.additionalCaptures() );
-    setAdditionalMoves ( other.additionalMoves() );
-    setPromotedType( other.promotedType() );
-}
-
-
-Move::~Move()
-{
-    delete d_ptr;
 }
 
 void Move::setString(QString string)
 {
-    Q_D(Move);
     d->flags = None;
     d->extraCaptures.clear();
     d->extraMoves.clear();
@@ -157,20 +152,17 @@ QString Move::string() const
 
 Pos Move::from() const
 {
-    Q_D ( const Move );
     return d->from;
 }
 
 Pos Move::to() const
 {
-    Q_D ( const Move );
     return d->to;
 }
 
 
 void Move::setFrom ( const Knights::Pos& value )
 {
-    Q_D ( Move );
     d->from = value;
 }
 
@@ -182,58 +174,47 @@ void Move::setFrom ( int first, int second )
 
 void Move::setTo ( const Knights::Pos& value )
 {
-    Q_D ( Move );
     d->to = value;
 }
 
 
 void Move::setTo ( int first, int second )
 {
-    Q_D ( Move );
     d->to = Pos ( first, second );
 }
 
 const QList< Pos >& Move::additionalCaptures() const
 {
-    Q_D ( const Move );
     return d->extraCaptures;
 }
 
 void Move::setAdditionalCaptures ( const QList< Pos >& list )
 {
-    Q_D ( Move );
     d->extraCaptures = list;
 }
 
 const QList< Move >& Move::additionalMoves() const
 {
-    Q_D ( const Move );
     return d->extraMoves;
 }
 
 void Move::setAdditionalMoves ( const QList< Move >& list )
 {
-    Q_D ( Move );
     d->extraMoves = list;
 }
 
 PieceType Move::promotedType() const
 {
-    Q_D ( const Move );
     return d->promotedType;
 }
 
 void Move::setPromotedType(PieceType type)
 {
-    Q_D ( Move );
     d->promotedType = type;
 }
 
-
-
 bool Move::operator== ( Move other ) const
 {
-    Q_D ( const Move );
     return ( d->from == other.from() && d->to == other.to() );
 }
 

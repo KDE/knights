@@ -99,7 +99,7 @@ public:
       * and no other information
       * @param move Pointer to the move with @a from and @a to already set.
       */
-    virtual void checkSpecialFlags ( Move* move ) = 0;
+    virtual void checkSpecialFlags ( Move& move ) = 0;
 
     /**
       * Called when a move has been made, either by the player or a computer opponent

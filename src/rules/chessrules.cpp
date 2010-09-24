@@ -362,19 +362,19 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
     return list;
 }
 
-void ChessRules::checkSpecialFlags ( Move* move )
+void ChessRules::checkSpecialFlags ( Move& move )
 {
-    Piece* p = m_grid->value ( move->from() );
-    move->setFlags ( 0 );
-    move->setFlag ( Move::Take, m_grid->contains ( move->to() ) );
+    Piece* p = m_grid->value ( move.from() );
+    move.setFlags ( 0 );
+    move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
     if ( p->pieceType() == King && length ( move ) == 2 )
     {
         // It's castling
-        move->setFlag ( Move::Castle, true );
-        int line = move->to().second;
+        move.setFlag ( Move::Castle, true );
+        int line = move.to().second;
         Move rookMove;
-        rookMove.setTo ( ( move->from() + move->to() ) / 2 );
-        if ( move->to().first > move->from().first )
+        rookMove.setTo ( ( move.from() + move.to() ) / 2 );
+        if ( move.to().first > move.from().first )
         {
             rookMove.setFrom ( 8, line );
         }
@@ -382,33 +382,33 @@ void ChessRules::checkSpecialFlags ( Move* move )
         {
             rookMove.setFrom ( 1, line );
         }
-        move->setAdditionalMoves ( QList<Move>() << rookMove );
-        kDebug() << move->additionalMoves().size();
+        move.setAdditionalMoves ( QList<Move>() << rookMove );
+        kDebug() << move.additionalMoves().size();
     }
     else
     {
         if ( p->pieceType() == Pawn )
         {
             // Promotion?
-            if ( ( p->color() == White && move->to().second == 8 ) || ( p->color() == Black && move->to().second == 1 ) )
+            if ( ( p->color() == White && move.to().second == 8 ) || ( p->color() == Black && move.to().second == 1 ) )
             {
-                move->setFlag ( Move::Promote, true );
+                move.setFlag ( Move::Promote, true );
             }
-            Pos delta = move->to() - move->from();
+            Pos delta = move.to() - move.from();
             // En Passant?
-            if ( delta.first != 0 && !m_grid->contains ( move->to() ) )
+            if ( delta.first != 0 && !m_grid->contains ( move.to() ) )
             {
-                move->setFlag ( Move::EnPassant, true );
-                Pos capturedPos = move->from() + Pos ( delta.first, 0 );
-                move->setAdditionalCaptures ( QList<Pos>() << capturedPos );
+                move.setFlag ( Move::EnPassant, true );
+                Pos capturedPos = move.from() + Pos ( delta.first, 0 );
+                move.setAdditionalCaptures ( QList<Pos>() << capturedPos );
             }
         }
     }
 }
 
-int ChessRules::length ( const Knights::Move* move )
+int ChessRules::length ( const Knights::Move& move )
 {
-    Pos delta = move->to() - move->from();
+    Pos delta = move.to() - move.from();
     return qMax ( qAbs ( delta.first ), qAbs ( delta.second ) );
 }
 
@@ -453,9 +453,8 @@ QList< Move > ChessRules::pawnMoves ( const Knights::Pos& pos )
     return list;
 }
 
-void ChessRules::moveMade ( const Knights::Move& move )
+void ChessRules::moveMade ( const Knights::Move& m )
 {
-    Move m = move;
     m_enPassantMoves.clear();
     switch ( m_grid->value ( m.to() )->pieceType() )
     {
@@ -486,7 +485,7 @@ void ChessRules::moveMade ( const Knights::Move& move )
 
         // We track Pawns for en-passant
     case Pawn:
-        if ( length ( &m ) == 2 )
+        if ( length ( m ) == 2 )
         {
             Pos mid = ( m.to() + m.from() ) / 2;
             foreach ( Direction dir, QList<Direction>() << W << E )

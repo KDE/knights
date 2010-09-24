@@ -102,7 +102,7 @@ void Board::movePiece ( Move m, bool changePlayer )
         kWarning() << "Invalid move" << m.from() << m.to();
         return;
     }
-    m_rules->checkSpecialFlags ( &m );
+    m_rules->checkSpecialFlags ( m );
     if ( m.flags() & Move::Promote )
     {
         m_grid[m.from()]->setPieceType(m.promotedType() ? m.promotedType() : Queen);
