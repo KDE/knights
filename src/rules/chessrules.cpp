@@ -68,9 +68,11 @@ ChessRules::ChessRules()
 
 bool ChessRules::hasLegalMoves ( Color color )
 {
-    foreach ( const Pos& pos, m_grid->keys() ) // krazy:exclude=foreach
+    Grid::const_iterator it = m_grid->constBegin();
+    Grid::const_iterator end = m_grid->constEnd();
+    for (; it != end; ++it)
     {
-        if ( m_grid->value ( pos ) && m_grid->value ( pos )->color() == color && !legalMoves ( pos ).isEmpty() )
+        if ( it.value() && it.value()->color() == color && !legalMoves(it.key()).isEmpty() )
         {
             return true;
         }
@@ -312,12 +314,11 @@ bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
     {
         grid = m_grid;
     }
-    foreach ( const Pos& attackingPos, grid->keys() ) // krazy:exclude=foreach
+    Grid::const_iterator it = grid->constBegin();
+    Grid::const_iterator end = grid->constEnd();
+    for (; it != end; ++it)
     {
-        if ( grid->value(attackingPos)
-            && grid->value(attackingPos)->color() != color
-            && legalAttackMoves(attackingPos, grid).contains(Move(attackingPos,pos))
-            )
+        if ( it.value() && it.value()->color() != color && legalAttackMoves(it.key(), grid).contains(Move(it.key(),pos)) )
         {
             return true;
         }

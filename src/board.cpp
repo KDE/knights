@@ -173,9 +173,11 @@ void Board::movePiece ( Move m, bool changePlayer )
 void Board::populate()
 {
     const BoardState pieces = m_rules->startingPieces();
-    foreach ( const Pos& pos, pieces.keys() ) // krazy:exclude=foreach
+    BoardState::const_iterator it = pieces.constBegin();
+    BoardState::const_iterator end = pieces.constEnd();
+    for (; it != end; ++it)
     {
-        addPiece ( pieces[pos].second, pieces[pos].first, pos );
+        addPiece( it.value().second, it.value().first, it.key() );
     }
     updateGraphics();
 }
