@@ -518,14 +518,14 @@ void Board::updateTheme()
             addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
             delete p;
         }
-        qDeleteAll(m_tiles);
-        m_tiles.clear();
-        addTiles();
-
         // If the user is changing the theme, he/she probably already saw any current markers
         qDeleteAll(markers);
         markers.clear();
+
+        qDeleteAll(m_tiles);
+        m_tiles.clear();
     #endif
+    addTiles();
     updateGraphics();
 }
 
