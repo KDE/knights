@@ -72,7 +72,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     m_currentPlayer = White;
     m_paused = false;
 
-    connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()) );
+    connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()), Qt::DirectConnection );
     connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(changeDisplayedPlayer()) );
 }
 
