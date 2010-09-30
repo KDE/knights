@@ -80,7 +80,7 @@ void XBoardProtocol::init ( const QVariantMap& options )
     mProcess->start();
     if ( !mProcess->waitForStarted ( 1000 ) )
     {
-        emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it's installed", program ) );
+        emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
     if ( playerColor() == NoColor )
