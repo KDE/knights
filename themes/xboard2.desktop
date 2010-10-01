@@ -2,6 +2,7 @@
 Name=XBoard Two
 Name[da]=XBoard To
 Name[en_GB]=XBoard Two
+Name[es]=Xboard dos
 Name[pt]=XBoard Dois
 Name[pt_BR]=XBoard Dois
 Name[sv]=Xboard två
@@ -10,6 +11,7 @@ Name[x-test]=xxXBoard Twoxx
 Description=Theme variation of XBoard chess program.
 Description[da]=Variant af temaet fra skakprogrammet XBoard.
 Description[en_GB]=Theme variation of XBoard chess program.
+Description[es]=Variación del programa de ajedrez XBoard.
 Description[pt]=Uma variante do tema do programa de xadrez XBoard.
 Description[pt_BR]=Variação do tema do programa de xadrez XBoard.
 Description[sv]=Temavariant baserat på det populära schackprogrammet Xboard.
