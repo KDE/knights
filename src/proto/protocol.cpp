@@ -55,7 +55,7 @@ QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
         return i18n ( "No Error" );
 
     case UserCancelled:
-        return i18n ( "User Cancelled" );
+        return i18n ( "User Canceled" );
 
     case NetworkError:
         return i18n ( "Network Error" );
