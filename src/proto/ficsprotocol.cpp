@@ -56,6 +56,7 @@ const QString FicsProtocol::movePattern = QString(QLatin1String("(none|o-o|o-o-o
         .arg ( coordinate )
         .arg ( coordinate )
         .arg ( pieces );
+const QString FicsProtocol::currentPlayerPattern = QLatin1String("([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+");
 
 const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String( "%1 %2 seeking %3 %4 %5\\(\"play %6\" to respond\\)" ) )
         .arg ( namePattern )
@@ -75,7 +76,8 @@ const QRegExp FicsProtocol::soughtRegExp ( QString ( QLatin1String( "%1 %2 %3\\s
         .arg ( argsPattern )
                                          );
 
-const QRegExp FicsProtocol::moveRegExp ( QString ( QLatin1String( "<12>.*%1 %2" ))
+const QRegExp FicsProtocol::moveRegExp ( QString ( QLatin1String( "<12>.*%1.*%2 %3" ))
+        .arg ( currentPlayerPattern )
         .arg ( remainingTime )
         .arg ( movePattern )
                                );
@@ -331,9 +333,16 @@ void FicsProtocol::readFromSocket()
         case PlayStage:
             if ( moveRegExp.indexIn ( QLatin1String( line ) ) > -1 )
             {
-                const int whiteTimeLimit = moveRegExp.cap(1).toInt();
-                const int blackTimeLimit = moveRegExp.cap(2).toInt();
-                const QString moveString = moveRegExp.cap(3);
+                if ( (moveRegExp.cap(1) == QLatin1String("B") && playerColor() == White )
+                    ||(moveRegExp.cap(1) == QLatin1String("W") && playerColor() == Black ) )
+                {
+                    // It is not our turn now
+                    // This is only the confirmation of our previous move, ignore it
+                    break;
+                }
+                const int whiteTimeLimit = moveRegExp.cap(2).toInt();
+                const int blackTimeLimit = moveRegExp.cap(3).toInt();
+                const QString moveString = moveRegExp.cap(4);
 
                 kDebug() << moveString;
 

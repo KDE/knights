@@ -78,6 +78,7 @@ private:
     static const QString coordinate;
     static const QString remainingTime;
     static const QString movePattern;
+    static const QString currentPlayerPattern;
 
     static const QRegExp moveRegExp;
     static const QRegExp moveStringExp;
