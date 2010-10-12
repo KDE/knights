@@ -133,10 +133,10 @@ void Move::setString(QString string)
     }
 }
 
-QString Move::string() const
+QString Move::string(bool includeX) const
 {
     QString str = from().string();
-    if ( flags() & Take )
+    if ( ( flags() & Take ) && includeX )
     {
         str += QLatin1Char('x');
     }

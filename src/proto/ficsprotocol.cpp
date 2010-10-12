@@ -119,7 +119,7 @@ void FicsProtocol::startGame()
 
 void FicsProtocol::move ( const Move& m )
 {
-    m_stream << m.string() << endl;
+    m_stream << m.string(false) << endl;
 }
 
 void FicsProtocol::init ( const QVariantMap& options )

@@ -62,7 +62,7 @@ public:
     
     Pos from() const;
     Pos to() const;
-    QString string() const;
+    QString string(bool includeX = true) const;
 
     void setFrom ( const Pos& value );
     void setFrom ( int first, int second );
