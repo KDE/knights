@@ -50,7 +50,14 @@ public:
         Check = 0x10,
         CheckMate = 0x20,
     };
+    enum CastlingSide
+    {
+        QueenSide,
+        KingSide
+    };
     Q_DECLARE_FLAGS ( Flags, MoveFlag )
+
+    static Move castling(CastlingSide side, Color color);
 
     Move ( Pos from, Pos to, Flags flags = None );
     Move ( QString string );

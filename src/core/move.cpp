@@ -55,6 +55,26 @@ MovePrivate::~MovePrivate()
 
 }
 
+Move Move::castling(Move::CastlingSide side, Color color)
+{
+    Move m;
+    const int rank = (color == White) ? 1 : 8;
+    const int rookFile = (side == QueenSide) ? 1 : 8;
+    const int kingDestinationFile = (side == QueenSide) ? 3 : 7;
+    const int rookDestinationFile = (side == QueenSide) ? 4 : 6;
+
+    m.setFrom( 5, rank );
+    m.setTo( kingDestinationFile, rank );
+
+    m.setFlag( Castle, true );
+    Move rookMove;
+    rookMove.setFrom( rookFile, rank );
+    rookMove.setTo( rookDestinationFile, rank );
+    m.setAdditionalMoves(QList<Move>() << rookMove);
+
+    return m;
+}
+
 Move::Move()
         : d ( new MovePrivate )
 {

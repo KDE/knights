@@ -77,8 +77,10 @@ private:
     static const QString pieces;
     static const QString coordinate;
     static const QString remainingTime;
+    static const QString movePattern;
 
     static const QRegExp moveRegExp;
+    static const QRegExp moveStringExp;
     static const QRegExp seekRegExp;
     static const QRegExp soughtRegExp;
     static const QRegExp challengeRegExp;
