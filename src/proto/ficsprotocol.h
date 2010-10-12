@@ -83,6 +83,7 @@ private:
     static const QRegExp soughtRegExp;
     static const QRegExp challengeRegExp;
     static const QRegExp gameStartedExp;
+    static const QRegExp gameInfoExp;
 
     QTcpSocket* m_socket;
     QTextStream m_stream;
@@ -91,6 +92,7 @@ private:
     QString password;
     FicsDialog* m_widget;
     bool forcePrompt;
+    bool m_seeking;
 
     void logIn();
     void sendPassword();

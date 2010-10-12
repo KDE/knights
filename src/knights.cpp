@@ -137,6 +137,16 @@ void MainWindow::fileNew()
 
 void MainWindow::protocolInitSuccesful()
 {
+    if ( m_protocol && m_protocol->supportedFeatures() & Protocol::SetTimeLimit )
+    {
+        // The time limit was set or changed by the protocol
+        m_timeLimit = m_protocol->attribute(QLatin1String("TimeLimitEnabled")).toBool();
+        if ( m_timeLimit )
+        {
+            m_playerTime = m_protocol->attribute(QLatin1String("playerTime")).toTime();
+            m_oppTime = m_protocol->attribute(QLatin1String("opponentTime")).toTime();
+        }
+    }
     if ( m_timeLimit ) {
         showClockWidgets();
     }

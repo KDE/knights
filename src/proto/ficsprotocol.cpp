@@ -94,12 +94,18 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String( "Creating:
         .arg ( timePattern )
                                            );
 
+const QRegExp FicsProtocol::gameInfoExp ( QString ( QLatin1String ( "<12>.*%1 none \\(0:00\\) none" ))
+        .arg ( remainingTime ));
+
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
 
     forcePrompt = false;
+
+    // FICS games are always time-limited
+    setAttribute(QLatin1String("TimeLimitEnabled"), true);
 }
 
 FicsProtocol::~FicsProtocol()
@@ -109,7 +115,7 @@ FicsProtocol::~FicsProtocol()
 
 Protocol::Features FicsProtocol::supportedFeatures()
 {
-    return TimeLimit | UpdateTime;
+    return TimeLimit | SetTimeLimit | UpdateTime;
 }
 
 void FicsProtocol::startGame()
@@ -300,7 +306,6 @@ void FicsProtocol::readFromSocket()
                     setOpponentName ( player1 );
                 }
                 m_stage = PlayStage;
-                emit initSuccesful();
             }
             break;
         case PlayStage:
@@ -317,7 +322,23 @@ void FicsProtocol::readFromSocket()
                     m.setPromotedType(Piece::typeFromChar(typeChar));
                 }
                 emit pieceMoved ( m );
-            } else if ( line.contains ( "lost contact or quit" ) ) {
+            } else if ( gameInfoExp.indexIn( QLatin1String( line ) ) > -1 )
+            {
+                const int whiteTimeLimit = gameInfoExp.cap(1).toInt();
+                const int blackTimeLimit = gameInfoExp.cap(2).toInt();
+                if ( playerColor() == White )
+                {
+                    setAttribute( QLatin1String("playerTimeLimit"), QTime().addSecs( whiteTimeLimit ) );
+                    setAttribute( QLatin1String("oppTimeLimit"), QTime().addSecs( blackTimeLimit ) );
+                }
+                else
+                {
+                    setAttribute( QLatin1String("playerTimeLimit"), QTime().addSecs( blackTimeLimit ) );
+                    setAttribute( QLatin1String("oppTimeLimit"), QTime().addSecs( whiteTimeLimit ) );
+                }
+                emit initSuccesful();
+            }
+            else if ( line.contains ( "lost contact or quit" ) ) {
                 emit gameOver ( NoColor );
             }
     }
@@ -335,11 +356,13 @@ void FicsProtocol::checkSought()
 void FicsProtocol::acceptSeek ( int id )
 {
     m_stream << "play " << id << endl;
+    m_seeking = false;
 }
 
 void FicsProtocol::acceptChallenge()
 {
     m_stream << "accept" << endl;
+    m_seeking = true;
 }
 
 void FicsProtocol::declineChallenge()
@@ -359,6 +382,7 @@ void FicsProtocol::dialogRejected()
 
 void FicsProtocol::setSeeking ( bool seek )
 {
+    m_seeking = seek;
     if ( seek ) {
         m_stream << "seek";
         if ( attribute ( QLatin1String( "playerTimeLimit" ) ).canConvert<QTime>() && attribute ( QLatin1String( "playerTimeIncrement" ) ).canConvert<int>() ) {

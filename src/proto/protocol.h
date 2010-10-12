@@ -46,11 +46,12 @@ public:
     {
         NoFeatures = 0x00, /**< The protocol supports none of the optional features */
         TimeLimit = 0x01, /**< The protocol supports setting a time limit for players */
-        UpdateTime = 0x02, /**< The protocol notifies the programs of changes to times */
-        Pause = 0x04, /**< The protocol supports pausing the clock */
-        History = 0x08,
-        Undo = 0x10, /**< It is possible to undo a move */
-        GameOver = 0x20 /**< The protocol emits gameOver() when the game is over */
+        SetTimeLimit = 0x02, /**< The protocol can enable/disable and set the time limits */
+        UpdateTime = 0x04, /**< The protocol notifies the programs of changes to times */
+        Pause = 0x08, /**< The protocol supports pausing the clock */
+        History = 0x10,
+        Undo = 0x20, /**< It is possible to undo a move */
+        GameOver = 0x40 /**< The protocol emits gameOver() when the game is over */
     };
     Q_DECLARE_FLAGS(Features, Feature)
 
