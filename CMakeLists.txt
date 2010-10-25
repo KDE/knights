@@ -1,6 +1,8 @@
 project(Knights)
 
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules ${CMAKE_MODULE_PATH})
 find_package(KDE4 REQUIRED)
+find_package(KdeGames REQUIRED)
 include (KDE4Defaults)
 
 set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
