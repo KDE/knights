@@ -1,0 +1,614 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY knights "<application>Knights</application>">
+  <!ENTITY kappname "&knights;">
+  <!ENTITY package "extragear/games">
+  <!ENTITY kappversion "2.1.1"><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % English "INCLUDE">
+]>
+<book lang="&language;">
+	<bookinfo>
+		<title>The &knights; Handbook</title>
+
+		<authorgroup>
+			<author>
+				<firstname>Miha</firstname>
+				<surname>Čančula</surname>
+				<affiliation>
+					<address>
+						<email>miha.cancula@gmail.com</email>
+					</address>
+				</affiliation>
+			</author>
+			<!-- TRANS:ROLES_OF_TRANSLATORS -->
+
+		</authorgroup>
+		<copyright>
+			<year>2008</year>
+			<holder>Miha Čančula</holder>
+		</copyright>
+
+		<legalnotice>&FDLNotice;
+		</legalnotice>
+
+		<date>2010-09-14</date><!-- Date of (re)writing, or update.-->
+		<releaseinfo>&kappversion;
+		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+		<abstract>
+			<para>
+				This documentation describes the game of &knights; version
+				&kappversion;
+			</para>
+		</abstract>
+
+		<keywordset>
+			<keyword>KDE</keyword><!-- do not change this! -->
+			<keyword>kdegames</keyword><!-- do not change this! -->
+			<keyword>game</keyword><!-- do not change this! -->
+			<keyword>board</keyword>
+			<keyword>chess</keyword>
+			<keyword>knights</keyword>
+			<keyword>Knights</keyword>
+		</keywordset>
+
+	</bookinfo>
+
+	<chapter id="introduction">
+		<title>Introduction</title>
+		<note>
+			<title>Gametype:</title>
+			<para>Board</para>
+		</note>
+		<note>
+			<title>Number of possible players:</title>
+			<para>One or two</para>
+		</note>
+
+		<para>
+			&knights; is a chess game. As a player, your goal is to 
+			defeat your opponent by checkmating their king.
+		</para>
+	</chapter>
+
+	<chapter id="how-to-play"><title>How to play</title> <!-- do not change this! -->
+		<!--Describe the objective of the game.-->
+		<sect1 id="objective">
+			<title>Objective</title>
+			<para>Moving your pieces, capture your opponent's pieces until your opponent's king is under attack and they have no move to stop the attack - called <quote>checkmate</quote>.</para>
+			<para>If it appears you cannot win, you can play for a draw (tie).  Move your pieces until you have no legal moves left and your king is not under attack - called <quote>stalemate</quote>.
+			Other forms of draws can be available depending upon the chess rules being followed for the game.</para>
+		</sect1>
+
+		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+		<sect1 id="starting-the-game">
+			<title>Starting the Game</title>
+			<para>
+				When the program starts or the user selects 
+				  <menuchoice><guimenu>Game</guimenu> <guimenuitem>New</guimenuitem></menuchoice>,
+				  a dialog is shown. In this dialog, it's possible to 
+				specify who you are playing against, your color and 
+				the time limits.
+			</para>
+				<mediaobject><imageobject><imagedata fileref="Knights-newgame-dialog.png" /></imageobject></mediaobject>
+			<para>
+				If you wish to play against a friend on the same computer, select 
+				<guilabel>Human at the same computer</guilabel>.
+			</para>
+			<para>
+				If you wish to play against the computer, select 
+				<guilabel>Computer engine</guilabel>
+				and make sure that the program you specify is installed
+				on your computer and that it supports the XBoard protocol.
+			</para>
+			<para>
+				If you wish to play against someone over the internet,
+				select <guilabel>Human at a chess server</guilabel>.
+				You will have to login into the server and find
+				an opponent before you can start playing. 
+				The Free Internet Chess Server
+				(<ulink url="http://freechess.org">FreeChess.org</ulink>)
+				supports guests, but you have to register in order to
+				play games which affect your rating.
+			</para>
+			<para>
+				A <guilabel>Time Limit</guilabel> section allows you to turn on an optional
+				timer.  You can set an initial time limit for the game and add additional time 
+				per move if desired.  This allows great flexibility in setting up time limits.
+			</para>
+			<para>After you press the <guibutton>Ok</guibutton> button, 
+				you may start playing. 
+			</para>
+			<note><title>Note</title>
+			<para>
+				&knights; will load a default theme automatically once
+				you start the game and you can begin playing right away.
+			</para>
+			</note>
+		</sect1>
+
+		<sect1 id="playing-the-game">
+			<title>Playing the Game</title>
+			<para>
+				Pieces are moved by clicking on them and dragging them to
+				the desired spot. You can only move a piece if it's yours, 
+				it's your turn, and moving that piece does not put 
+				your king into immediate danger. 
+			</para>
+			<para>
+				&knights; follows the rules of standard chess, so you cannot make an illegal move. 
+			</para>
+		</sect1>
+
+		<sect1 id="ending-the-game">
+			<title>Ending the Game</title>
+			<para>
+			</para>
+		</sect1>
+	</chapter>
+	
+	<chapter id="rules_and_tips">
+		<title>Game Rules, Strategies and Tips</title> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="standard-rules">
+		<title>Standard Rules</title>
+		<para>The main set of rules for chess are set by the World Chess Federation - FIDE.  Other national and local groups
+		may make slight modifications to the rules. Usually the major differences between rules are about timekeeping or types of
+		draws allowed - the basic game and piece movement are the same. &knights; supports standard chess and has some timing flexibility.</para>
+		<para>There are many variants to standard chess. One source has found over 2000 different variants of the game.  Major
+		variants include Fischer Random, Bughouse, Crazyhouse and Suicide.  Variants have differing rules on piece capture, piece 
+		movement, ending the game and returning pieces to play.  &knights; does not support chess variants.</para>
+		<para>Complete rules of standard chess can be found at:</para>
+		<itemizedlist>
+			<listitem><para>World Chess Federation-FIDE (<ulink url="http://www.fide.com">fide.com</ulink>)</para></listitem>
+			<listitem><para>United States Chess Federation-USCF (<ulink url="http://main.uschess.org">main.uschess.org</ulink>)</para></listitem>
+		</itemizedlist>
+		<para>Rules and general chess information can be found at:
+		<itemizedlist>
+			<listitem><para><ulink url="http://en.wikipedia.org/wiki/Rules_of_chess">Wikipedia</ulink></para></listitem>
+		</itemizedlist>
+		</para>
+	</sect1>
+
+	<sect1 id="board">
+		<title>Chessboard</title>
+		<sect2 id="board-layout">
+			<title>Board Layout</title>
+			<para>A chessboard consists of 64 equal squares arranged in eight rows and eight columns.  The squares are arranged in 
+			two alternating colors, white and black.  Many different materials are used to make chessboards, so the lighter 
+			colored material is known as white and the darker material is known as black.</para>
+			<para>Parts of the board are known by special names:
+			<itemizedlist>
+				<listitem><para>Rank - the eight horizontal rows of the chess board are called ranks.</para></listitem>
+				<listitem><para>File - the eight vertical columns of the chess board are called files.</para></listitem>
+				<listitem><para>Diagonal - a straight line of squares of the same color running at an angle from
+				one edge of the board to another edge is called a diagonal.</para></listitem>
+				<listitem><para>Center - the four squares found in the middle of the board are called the center.</para></listitem>
+			</itemizedlist>
+			</para>
+			<para>Each individual square has a name so records of the moves of the game can be kept.  Several naming systems exist, 
+			but <quote>algebraic notation</quote> is the most popular and is the official system.  In this system, each square is
+			named for the row and column in which it is found.  The ranks (rows) are numbered from 1 to 8 beginning with white's
+			side of the board and moving to black's side of the board.  The files (columns) are labeled by lower case letters from
+			a to h moving from left to right based on the white player's viewpoint.  The square is named by the letter followed by
+			the number.  Thus the lower left hand square is known as a1.  The naming structure can be seen in the following 
+			diagram:</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-board.png" /></imageobject></mediaobject>
+		</sect2>
+		<sect2 id="board-setup">
+			<title>Initial Setup</title>
+			<para>The chessboard is rotated so that there is a white square in the first row at the player's right side.</para>
+			<para>The pieces are placed on the white and black side of the board in the same manner.  In the first row beginning
+			at both outer edges and moving inward, place the rook (sometimes called the castle), the knight (sometimes called
+			the horse) and the bishop.  For the two remaining squares, place the queen on the square with the same color.  Place
+			the king on the final square.  When completed, the same pieces face each other across the board.  On the second row
+			place a row of pawns.  The finished board then looks like the diagram below.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-board-setup.png" /></imageobject></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="piece-movement">
+		<title>Piece Movement</title>
+		<sect2 id="all-movement">
+			<title>Moving and Capturing</title>
+			<para>Chess has six types of pieces: the Pawn, Rook, Knight, Bishop, Queen and King. Each piece has its own 
+			unique way to move. There are some similarities between the moves of the various pieces.  All the pieces 
+			except the knight move in a straight line - horizontally, vertically or diagonally. They cannot move past the
+			end of the board and return on the other side. The edge of the board is a boundary which cannot be crossed.  
+			All the pieces except the knight may not jump over other pieces - all squares between the square where the piece 
+			starts its move and where it ends its move must be empty.  The move may not end on a square presently occupied 
+			by a piece of the same color.</para>
+			
+			<para>If the square where a piece ends its move contains an opponent's piece, the opponent's piece is <quote>captured</quote>, 
+			and it is removed from play.  All the pieces may be captured except the king.  The game ends on the move before the
+			king is captured - <quote><link linkend="checkmate">checkmate</link></quote>.  Capturing always requires the attacking piece 
+			to land on the square of the opponent's piece while making a normal move.  The only exception is for capturing a pawn 
+			<link linkend="en_passant-movement">en passant</link>.  You are not required to capture a piece when there is an opportunity 
+			to do so, capturing is an option.  The only time that capture is required is if the king is under attack and capturing the 
+			attacking piece is the only way to stop the attack.</para>
+			
+			<para>In the picture below, the white rook can move to the right, left, up or down (vertically or horizontally) in straight lines.
+			It can move down and to the right any number of squares until the end of the board is reached.  These squares have a green
+			X on them.  It can move a maximum of two squares to the left.  The remainder of the board is blocked by a piece of the same
+			color, in this case a white knight.  The rook cannot jump over the knight to reach the end of the board.  It can move only one square
+			up before being blocked by the black pawn.  It can capture the pawn by moving two squares up and landing on the pawn, since the
+			pawn is an opposing piece (piece of a different color).  This square has a red X on it.  It cannot jump over the pawn to reach 
+			the end of the board.  Therefore, the rook has a total of ten squares where it can go.</para>
+
+			<mediaobject><imageobject><imagedata fileref="Knights-move-limits.png" /></imageobject></mediaobject>
+			
+			<para>To begin the game, white moves first.  The players then alternate making one move at a time.  You must move on your turn, you are not allowed to pass.</para>
+		</sect2>
+		<sect2 id="pawn-movement">
+			<title>Pawn</title>
+			<para>The pawn is the most numerous and the least powerful piece on the chessboard.  Pawns are unusual in their movement.  Generally 
+			the pawn moves forward only, one square at a time.  An exception is the first time a pawn is moved, it may move forward two squares. 
+			The pawn cannot jump over other pieces; any piece directly in front of a pawn blocks its advance to that square. The pawn is the 
+			only piece that cannot move backward.  The pawn is also the only piece that does not capture in the same way that it moves.  The 
+			pawn captures an opposing piece by moving diagonally one square - it cannot capture by moving straight ahead.</para>
+			
+			<para>In the picture below the lower pawn is still on its original square, so it may move one or two squares forward (indicted
+			by the green X).  It may capture by moving to the right or left at a diagonal, but only if that square is occupied by an opposing
+			piece (indicated by the red X).  Otherwise, it may not move diagonally.  The upper pawn has already moved from its original square.
+			It may move only one square forward.  Likewise, it can capture moving to the left or right diagonally if the square contains an
+			opposing piece.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-move-pawn.png" /></imageobject></mediaobject>
+			
+			<para>The pawn also is involved in two special moves.  The first is the <link linkend="en_passant-movement">en passant capture</link>
+			where a pawn is captured on its initial two square move.  The second is the <link linkend="pawn-promotion-movement">pawn promotion</link>
+			where a pawn is promoted to another piece when the pawn reaches the other end of the board.</para>
+		</sect2>
+		<sect2 id="bishop-movement">
+			<title>Bishop</title>
+			<para>The Bishop moves in a straight line diagonally on the board.  It can move as many squares as wanted, until it meets the end of
+			the board or another piece.  The bishop cannot jump over other pieces.  The bishop captures on the same path it moves, by landing 
+			on the square of the opposing piece.  Because of the way the bishop moves, the piece always remains on the same color squares it
+			started on.  Each player begins with two bishops, one on the black-colored and one on the white-colored squares.  They are frequently
+			referred to as the <quote>dark-squared</quote> bishop and <quote>light-squared</quote> bishop.  The bishops can also be named according 
+			to the side they begin on - king's bishop and queen's bishop.</para>  
+			<mediaobject><imageobject><imagedata fileref="Knights-move-bishop.png" /></imageobject></mediaobject>
+		</sect2>
+		<sect2 id="rook-movement">
+			<title>Rook</title>
+			<para>The rook moves in a straight line either horizontally or vertically through any number of unoccupied squares, until it reaches 
+			the end of board or it is blocked by another piece.  It cannot jump over other pieces.  The rook captures on the same path 
+			it moves, by occupying the square on which an enemy piece stands.  The rook can land on any square on the board, therefore it 
+			is one of the more powerful pieces on the board.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-move-rook.png" /></imageobject></mediaobject>
+			<para>The rook is also involved in a special move.  It is the <link linkend="castling-movement">castling move</link>
+			where a rook and the king are grouped into a defensive position.</para>
+		</sect2>
+		<sect2 id="knight-movement">
+			<title>Knight</title>
+			<para>The Knight is the most special piece in chess, having a flexibility that makes it a powerful piece. The knight is the 
+			only piece on the board that may jump over other pieces.  The knight moves two squares horizontally or vertically and 
+			then one more square at a right-angle.  The knight’s move is shaped as an <quote>L</quote>.  The knight always lands on a square 
+			opposite in color from its initial square.  The knight can jump over pieces of either color while going to its 
+			destination square, but it does not capture any pieces it jumps over.  The knight captures by landing on the square 
+			of the opposing piece.  The knight cannot land on a square occupied by a piece of the same color.  Since the knight's 
+			movement is not in a straight line, it can attack a queen, bishop, or rook without being reciprocally attacked by that 
+			piece.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-move-knight.png" /></imageobject></mediaobject>
+		</sect2>
+		<sect2 id="queen-movement">
+			<title>Queen</title>
+			<para>The Queen is considered the most powerful piece on the board.  It can move any number of squares in a straight 
+			line - either vertically, horizontally or diagonally.  The queen moves like the rook and bishop combined.  Unless
+			capturing, the queen must move to an unoccupied square; and it cannot jump over pieces.  The queen captures on the 
+			same path it moves, by landing on the square of the opposing piece.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-move-queen.png" /></imageobject></mediaobject>
+		</sect2>
+		<sect2 id="king-movement">
+			<title>King</title>
+			<para>The King is the most important piece in chess. If the king is trapped so that its capture is unavoidable, the game is 
+			over and that player loses.  The king has little mobility, so it is also considered one of the weakest pieces in the game.  
+			The king can move to any adjacent square.  That is, it can move one square in any direction: horizontally, vertically, or 
+			diagonally.  It cannot move onto a square occupied by a piece of the same color.  The king captures another piece in 
+			the same way it moves, by landing on the square of the opposing piece.  There is an additional limit on the movement of 
+			the king.  The king may not move to a square which would put the king under attack by an opposing piece (called in <quote>check</quote>). 
+			As a result of this limit, two kings may never stand next to each other - since moving next to the opposing king would
+			put the moving king into check.  The king can also be forced to move or capture if the king is under attack 
+			(<quote>check</quote>) and the only way to stop the attack is to move the king.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-move-king.png" /></imageobject></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="special-movement">
+		<title>Special Moves</title>
+		<sect2 id="en_passant-movement">
+			<title>En Passant</title>
+			<para>When the rule to allow a pawn to move two squares on its first move was added, a pawn could potentially evade capture by an
+			opponent's pawn by going past a square under attack.  The en passant capture (from the French for <quote>in passing</quote>) was 
+			added to prevent this.  The capture is made exactly as if the pawn had moved only one square forward.  There are 
+			special conditions for the en passant capture:   
+			<itemizedlist>
+				<listitem><para>A pawn must move two squares from its initial position in a single move.</para></listitem>
+				<listitem><para>An opposing pawn must be attacking the square the first pawn moved over.</para></listitem>
+				<listitem><para>The first pawn can be captured as if it moved only one square.</para></listitem>
+				<listitem><para>The capture can only be made at the opponent's next move.  If the capture is not made,
+				the first pawn is safe from en passant capture for the remainder of the game.</para></listitem>
+			</itemizedlist>
+			</para>
+			<para>In the diagram below, the white pawn has not moved from its initial position.  Its first move can be 
+			one or two squares ahead.  The first square is under attack by the black pawn (pawns attack diagonally) as
+			indicated by the red X.  The white pawn moves ahead two squares, avoiding the attack.  On the next move, 
+			the black pawn moves into the square where the white pawn would have moved if it could only move a single 
+			square on the first move.  The black pawn successfully attacks the white pawn, and captures it 
+			<quote>en passant</quote>.  The white pawn is removed from play.</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-enpassant.png" /></imageobject></mediaobject>
+		</sect2>
+		<sect2 id="castling-movement">
+			<title>Castling</title>
+			<para>Castling uses the king and one rook, and is the only time in a game when more than one piece may be moved 
+			during a single turn.  In castling a king is moved two squares towards the rook and the rook is then moved to 
+			the square on the other side of the king.</para>
+			
+			<para>Castling has some rigid requirements:
+			<itemizedlist>
+				<listitem><para>Both the king and the rook may never have moved during the game.</para></listitem>
+				<listitem><para>There are no pieces between the king and the rook.</para></listitem>
+				<listitem><para>The king is not in check.</para></listitem>
+				<listitem><para>The king does not cross over a square that is attacked by the opponent's pieces.</para></listitem>
+				<listitem><para>The king does not end the move on a square that is attacked by the opponent's pieces. (The
+				castling move cannot end with the king in check.)</para></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para>There are two forms of castling.  One is called <quote>kingside castling</quote>.  It is also known as 
+			<quote>short castling</quote>, since it is performed to the short side of the board and the rook only has to 
+			move two squares to the opposite side of the king. It is diagramed below:</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-castle-kingside.png" /></imageobject></mediaobject>
+			
+			<para>The second form of castling is called <quote>queenside castling</quote>, where the king moves towards the
+			square vacated by the queen.  It is also known as <quote>long castling</quote>, since it is performed to the long
+			side of the board and the rook has to move three squares to the opposite side of the king.  It is diagramed below:</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-castle-queenside.png" /></imageobject></mediaobject>
+			
+			<note><title>Note:</title>
+			<para>
+				In &knights; to castle you move the king two squares towards the rook.  &knights; will complete
+				the castling move.  Do not move the rook, as &knights; assumes you wish only to move the rook and 
+				not to castle.
+			</para>
+			</note>
+			
+		</sect2>
+		<sect2 id="pawn-promotion-movement">
+			<title>Pawn Promotion</title>
+			<para>When a pawn has reached the other end of the board it cannot move further, since 
+			it always must move forward and not backwards.  The pawn is then turned
+			(<quote>promoted</quote>) into a queen, rook, bishop or knight.  This promotion
+			occurs as part of the move.  Usually the piece chosen is the queen, often called
+			<quote>queening</quote>. The other pieces are sometimes chosen when their movements 
+			will aid in checkmate, often called <quote>under promoting</quote>.  The pawn can be
+			turned into a piece even if that type of piece is still on the board.  Thus you can have
+			two queens or three rooks, bishops or knights in play at once.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="game-end">
+		<title>Game Endings</title>
+		<sect2 id="checkmate">
+			<title>Checkmate</title>
+			<para>When a king is under attack and threatened with capture by an opponent's piece, the king is 
+			said to be <quote>in check</quote>.  A king must get out of check immediately.  There are three possible
+			ways to get out of check.
+			<itemizedlist>
+				<listitem><para>Capture the attacking piece.</para></listitem>
+				<listitem><para>Move the king away from the attack and to a safe square which is not under attack by
+				an opponent's piece.</para></listitem>
+				<listitem><para>Block the attack by placing a piece between the attacker and the king.
+				(Cannot be done for an attack by a knight or pawn.)</para></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para>
+			If the king has no way to escape from the check, the position is called <quote>checkmate</quote> and
+			the game ends.  The player who is checkmated loses the game.  The king is never actually captured 
+			and removed from the board.</para>
+		</sect2>
+		<sect2 id="resign">
+			<title>Resign</title>
+			<para>At any time during the game, a player may resign (quit).  The
+			game ends and the player's opponent wins the game.</para>
+		</sect2>
+		<sect2 id="draw">
+			<title>Draw</title>
+			<para>A <quote>draw</quote> is a tie between the players.  There are several ways that a
+			draw can occur.
+			<itemizedlist>
+				<listitem><para>Stalemate - (see below)</para></listitem>
+				<listitem><para>Threefold repetition - If the exact same position is repeated at least 3 times
+				(not necessarily by a repetition of moves).  It requires that the possible moves of all 
+				the pieces of both players are the same.  If the possibility of a pawn being captured
+				en passant has changed or the possibility to castle has changed, the position is not
+				the same - even if the pieces are in the same locations.</para></listitem>
+				<listitem><para>Fifty-move rule - If no piece has been captured or a pawn moved in the last fifty moves
+				by each player.</para></listitem>
+				<listitem><para>Impossibility of checkmate - If a position arises in which neither player could possibly
+				give checkmate by a series of legal moves. Usually this is because there is insufficient material left
+				to checkmate, but it is possible in other positions. Combinations with insufficient material to 
+				checkmate are:
+				<itemizedlist>
+					<listitem><para>king versus king</para></listitem>
+					<listitem><para>king and bishop versus king</para></listitem>
+					<listitem><para>king and knight versus king</para></listitem>
+					<listitem><para>king and bishop versus king and bishop with both bishops on the same color</para></listitem>
+				</itemizedlist>
+    </para></listitem>
+				<listitem><para>Time expires - If a player's time runs out and their opponent does not have mating material.
+				(see below)</para></listitem>
+				<listitem><para>Mutual agreement - If both players agree to draw.</para></listitem>
+			</itemizedlist>
+			</para>
+		</sect2>
+		<sect2 id="stalemate">
+			<title>Stalemate</title>
+			<para>If a player has no legal move (every possible move would put their king in check) but
+			their king is not presently in check, the game ends in a <quote>stalemate</quote>.  Stalemate results in 
+			the game being a draw.</para>
+		</sect2>
+		<sect2 id="time-end">
+			<title>Time</title>
+			<para>If time should run out on a player before they complete the 
+			required number of moves:
+			<itemizedlist>
+				<listitem><para>The player loses the game if the opponent has mating material.</para></listitem>
+				<listitem><para>The game is a draw if the opponent does not having mating material.</para></listitem>
+			</itemizedlist>
+			Mating material is considered to be any group of pieces except just a king, a king and a bishop, 
+			or a king and a knight.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="time-controls">
+		<title>Time Controls</title>
+		<para>Many games of chess use time controls to speed the play or ensure a finish in a reasonable period.
+		There are two main forms of time controls.</para>
+		
+		<para>The first time control type is moves-per-time.  In this type a player must complete a specified
+		number of moves within a fixed period of time.</para>
+		
+		<para>The second time control type is called <quote>sudden death</quote>.  In this type there
+		is a fixed amount of time to complete the game, regardless of the number of moves made.</para>
+		
+		<para>Within the time control there can be a time delay to compensate for the time lost in physically
+		making a move.  In the <quote>Bronstein delay</quote> the clock does not start running at the beginning 
+		of the player's move until the delay time is over.  If the move is completed before the delay time expires, 
+		no time is subtracted from the player's clock.  In the <quote>Fischer delay</quote> the delay time is added 
+		to the player's remaining time before the move.  If the move is made before the delay time expires, 
+		the remaining delay time is kept by the player and their clock time increases.  Similarly, a fixed time can 
+		be added to the player's clock after a move is completed.  When time is added to the clock, the time amount is 
+		refered to as the <quote>time increment</quote>.</para>
+		
+		<para>Time controls vary widely depending upon the game, game type and any sponsor.  Also during a game there 
+		may be several types of time controls joined together, with unused time added to the next time control.  For 
+		all major World Chess Federation (FIDE) events the time control is 90 minutes for the first 40 moves followed 
+		by 30 minutes sudden death, with an additional 30 seconds per move beginning with the first move.  The defaults 
+		on FICS (Free Internet Chess Server) are 2 minutes for the game (sudden death), plus 12 seconds time increment 
+		for each move.  Many major events use 90 minutes sudden death for their time control.  The US Chess Federation 
+		Blitz chess time control is 5 minutes for the game, with no time delays/increments.</para>
+	</sect1>	
+	</chapter>
+	
+	<chapter id="markers">
+		<title>Markers</title>
+		<para> 
+			Markers are highlights of squares on the chessboard.  They can be used to show legal moves for your
+			chess piece, the opponent's previous move, or a king in check.  Their color and shape depends on which 
+			theme you are using. They can be toggled on/off in the general settings section of the configuration menu.
+		</para>
+		<para>
+			Clicking on your piece during your turn displays a marker on every square on which that piece can be moved.
+			The picture shows the legal moves for the white queen.
+		</para>
+		<mediaobject><imageobject><imagedata fileref="Knights-moving-queen.png" /></imageobject></mediaobject>
+		<para>
+			When your opponent has made a move, their last move is indicated by markers.  One marker shows the
+			initial position of the chess piece, and a second highlights the new position of the chess piece.
+		</para>
+		<mediaobject><imageobject><imagedata fileref="Knights-lastmove.png" /></imageobject></mediaobject>
+		<para>
+			If the opponent's last move put your king under attack (<quote>check</quote>), your
+			king and all attacking pieces are highlighted as well.
+		</para>
+		<mediaobject><imageobject><imagedata fileref="Knights-danger.png" /></imageobject></mediaobject>
+		<note>
+			<title>Note:</title>
+			<para>
+				Some themes may not support all types of markers. 
+			</para>
+		</note>
+	</chapter>
+
+	<chapter id="configuration">
+		<title>Game Configuration</title><!-- do not change this! -->
+		<para>
+			The &knights; configuration dialog allows you to change visual
+			options, as well as select themes for &knights;.
+		</para>
+		<para>
+			Once you are satisfied with the changes you have selected you
+			can make the changes by either clicking the <guibutton>Apply</guibutton> 
+			or the <guibutton>Ok</guibutton> button, located at the bottom part 
+			of the dialog. Clicking <guibutton>Ok</guibutton> will also close the
+			configuration dialog.
+		</para>
+		<para>
+			If, however, you are dissatisfied with your changes – simply click
+			<guibutton>Cancel</guibutton> to discard the changes and close
+			the configuration dialog. You must click <guibutton>Cancel</guibutton>
+			before clicking <guibutton>Apply</guibutton> or <guibutton>Ok</guibutton>.
+		</para>
+
+		<sect1 id="configuration-general">
+			<title>General</title>
+			<para>
+				The <guimenu>General</guimenu> section contains options on the
+				general appearance of &knights;. Here it is possible to
+				enable or disable animations and the display of
+				all three types of markers.
+			</para>
+		</sect1>
+
+		<sect1 id="configuration-themes">
+			<title>Themes</title>
+			<para>
+				The <guimenu>Theme</guimenu> section allows the selection of a
+				theme.  The theme supplies the images for the board, pieces, 
+				markers and other items.  To select a new theme, choose the 
+				theme's name from the selection list. You can also
+				download new themes from the same page, by clicking
+				<guibutton>Get New Themes</guibutton>.  Themes are stored
+				at kde-look.org under &knights;.
+			</para>
+			<note>
+				<title>Note:</title>
+				<para>
+					For your convenience a quick preview screenshot will be
+					displayed on the right hand side of the selection list
+					as soon as you select the theme you are interested in.
+				</para>
+			</note>
+		</sect1>
+	</chapter>
+
+	<chapter id="credits-and-licenses">
+		<title>Credits and Licenses</title>
+
+
+		<para>&knights;</para>
+		<itemizedlist>
+   <listitem>
+				<para>
+					Miha Čančula
+					<email>miha.cancula@gmail.com</email>
+					- Original Author
+				</para>
+   </listitem>
+		</itemizedlist>
+		<para>
+			Documentation copyright 2010, Miha Čančula
+			<email>miha.cancula@gmail.com</email>
+		</para>
+		
+		<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+		&underFDL;
+
+		&underGPL;
+
+	</chapter>
+
+	<appendix id="installation">
+		<title>Installation</title>
+
+		&install.intro.documentation;
+
+		&install.compile.documentation;
+
+	</appendix>
+
+
+</book>
