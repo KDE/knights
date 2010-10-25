@@ -81,6 +81,15 @@
       <label>protocol to be used for communication to opponent</label>
       <default>XBoard</default>
     </entry>
+    <entry name="color" type="Enum">
+      <choices>
+        <choice name="NoColor" />
+        <choice name="White" />
+        <choice name="Black" />
+      </choices>
+      <label>the local human player's color in a game against a computer or over the internet.</label>
+      <default>NoColor</default>
+    </entry>
     <entry name="program" type="Path">
       <label>program to run</label>
       <default>gnuchess --xboard</default>

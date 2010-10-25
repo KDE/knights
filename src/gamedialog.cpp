@@ -59,6 +59,19 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             break;
     }
 
+    switch ( Settings::color() )
+    {
+        case Settings::EnumColor::NoColor:
+            ui->colorRandom->setChecked(true);
+            break;
+        case Settings::EnumColor::White:
+            ui->colorWhite->setChecked(true);
+            break;
+        case Settings::EnumColor::Black:
+            ui->colorBlack->setChecked(true);
+            break;
+    }
+
     hotseatModeToggled ( ui->oppHuman->isChecked() );
     ficsModeToggled ( ui->oppFics->isChecked() );
 }
@@ -79,8 +92,20 @@ void GameDialog::writeConfig()
     {
         selectedProtocol = Settings::EnumProtocol::FICS;
     }
+
+    Settings::EnumColor::type selectedColor = Settings::EnumColor::NoColor;
+    if ( ui->colorWhite->isChecked() )
+    {
+        selectedColor = Settings::EnumColor::White;
+    }
+    else if ( ui->colorBlack->isChecked() )
+    {
+        selectedColor = Settings::EnumColor::Black;
+    }
+
     bool timeLimitEnabled = ui->timeCheckBox->isChecked();
     Settings::setProtocol ( selectedProtocol );
+    Settings::setColor(selectedColor);
     Settings::setTimeEnabled ( timeLimitEnabled );
     Settings::setSameTime ( ui->sameTimeCheckBox->isChecked() );
     Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->playerTimeEdit->time() ) );
