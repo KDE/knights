@@ -27,7 +27,7 @@ kde4_add_ui_files(knights_SRCS knightsview_base.ui prefs_base.ui gamedialog.ui c
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 kde4_add_executable(knights ${knights_SRCS})
 
-target_link_libraries(knights ${KDE4_KDEUI_LIBS} kdegames ${QT_QTNETWORK_LIBRARY})
+target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
 
 install(TARGETS knights ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
