@@ -1,7 +1,15 @@
 [KGameTheme]
 Name=Plain
+Name[nds]=Liekut
+Name[pt]=Simples
+Name[sv]=Enkel
+Name[uk]=Звичайна
 Name[x-test]=xxPlainxx
 Description=A plain and simple theme
+Description[nds]=En liekut un eenfach Muster
+Description[pt]=Um tema simples
+Description[sv]=Ett vanligt enkelt tema
+Description[uk]=Проста тема.
 Description[x-test]=xxA plain and simple themexx
 VersionFormat=1
 Author=Colin M. L. Burnett
