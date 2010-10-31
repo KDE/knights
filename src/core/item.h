@@ -24,8 +24,7 @@
 
 #include "renderer.h"
 #include "pos.h"
-
-#if defined WITH_KGR
+#ifdef WITH_KGR
     #define ItemBaseType KGameRenderedObjectItem
     #include <KGameRenderedObjectItem>
 #else
@@ -40,13 +39,14 @@ class Item : public ItemBaseType
 {
     Q_OBJECT
     Q_PROPERTY(Pos boardPos READ boardPos WRITE setBoardPos)
+    Q_PROPERTY(QSize renderSize READ renderSize WRITE setRenderSize)
     
     public:
         Item(Renderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0);
         virtual ~Item();
         
         #if not defined WITH_KGR
-            // Duplicating the KGameRenderedItem API to minimize #ifdef's in Knights::Board
+            // Duplicating the KGameRenderedObjectItem API to minimize #ifdef's in Knights::Board
              void setRenderSize(const QSize& size);
             QSize renderSize() const;
             void setSpriteKey(const QString& key);
@@ -55,6 +55,10 @@ class Item : public ItemBaseType
      
         void setBoardPos(const Pos& pos);
         Pos boardPos() const;
+	
+	void move(const QPointF& pos, qreal tileSize, bool animated = true);
+	void resize(const QSize& size, bool animated = true);
+	void moveAndResize(const QPointF& pos, qreal tileSize, const QSize& size, bool animated = true);
         
     private:
         Pos m_pos;

@@ -39,11 +39,6 @@
 #include <QtGui/QGraphicsView>
 #include <QtCore/qmath.h>
 
-#if QT_VERSION >= 0x040600
-  #define WITH_ANIMATIONS
-  #include <QtCore/QPropertyAnimation>
-#endif
-
 #include "core/item.h"
 #include "core/renderer.h"
 
@@ -381,43 +376,7 @@ void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool ani
 
 void Board::centerOnPos(Item* item, bool animated)
 {
-    QPointF endPos = mapToScene ( item->boardPos() );
-#if defined WITH_ANIMATIONS
-    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
-    {
-        item->setPos ( endPos );
-    }
-    else
-    {
-        // TODO: Is there a better way to determine duration than *= sqrt(manhattanLenght());
-        int duration = 50;
-        switch ( Settings::animationSpeed() )
-        {
-            case Settings::EnumAnimationSpeed::Fast:
-                duration = 200;
-                break;
-            case Settings::EnumAnimationSpeed::Normal:
-                duration = 500;
-                break;
-            case Settings::EnumAnimationSpeed::Slow:
-                duration = 1000;
-                break;
-            default:
-                break;
-        }
-        duration *= qSqrt ( QPointF ( item->pos() - endPos ).manhattanLength() / m_tileSize );
-        QPropertyAnimation* anim = new QPropertyAnimation ( item, "pos" );
-        anim->setDuration ( duration );
-        anim->setEasingCurve ( QEasingCurve::InOutCubic );
-        anim->setStartValue ( item->pos() );
-        anim->setEndValue ( endPos );
-        anim->start ( QAbstractAnimation::DeleteWhenStopped );
-    }
-#else
-    Q_UNUSED ( animated );
-    item->setPos ( endPos );
-#endif
-
+    item->move(mapToScene(item->boardPos()), m_tileSize, animated);
 }
 
 bool Board::isInBoard ( const Knights::Pos& pos )

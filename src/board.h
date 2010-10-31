@@ -30,10 +30,11 @@
 #include <QtCore/QSet>
 
 
-class Item;
-class Renderer;
 
 namespace Knights {
+
+class Item;
+class Renderer;
 class Pos;
 class Rules;
 

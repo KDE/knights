@@ -20,8 +20,16 @@
  */
 
 #include "item.h"
-#include <QGraphicsScene>
+#include "board.h"
+#include "settings.h"
 #include <KDebug>
+
+#if QT_VERSION >= 0x040600
+  #define WITH_ANIMATIONS
+  #include <QtCore/QPropertyAnimation>
+  #include <QtCore/QParallelAnimationGroup>
+  #include <qmath.h>
+#endif
 
 using namespace Knights;
 
@@ -94,3 +102,127 @@ void Knights::Item::setBoardPos(const Knights::Pos& pos)
 {
     m_pos = pos;
 }
+
+void Item::move(const QPointF& pos, qreal tileSize, bool animated)
+{
+#if defined WITH_ANIMATIONS
+    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
+    {
+        setPos ( pos );
+    }
+    else
+    {
+        int duration;
+        switch ( Settings::animationSpeed() )
+        {
+            case Settings::EnumAnimationSpeed::Fast:
+                duration = 200;
+                break;
+            case Settings::EnumAnimationSpeed::Normal:
+                duration = 500;
+                break;
+            case Settings::EnumAnimationSpeed::Slow:
+                duration = 1000;
+                break;
+            default:
+                break;
+        }
+        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize);
+        QPropertyAnimation* anim = new QPropertyAnimation ( this, "pos" );
+        anim->setDuration ( duration );
+        anim->setEasingCurve ( QEasingCurve::InOutCubic );
+        anim->setStartValue ( this->pos() );
+        anim->setEndValue ( pos );
+        anim->start ( QAbstractAnimation::DeleteWhenStopped );
+    }
+#else
+    Q_UNUSED ( animated );
+    item->setPos ( endPos );
+#endif
+}
+
+void Item::resize(const QSize& size, bool animated)
+{
+#if defined WITH_ANIMATIONS
+    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
+    {
+        setRenderSize ( size );
+    }
+    else
+    {
+	int duration;
+        switch ( Settings::animationSpeed() )
+        {
+            case Settings::EnumAnimationSpeed::Fast:
+                duration = 200;
+                break;
+            case Settings::EnumAnimationSpeed::Normal:
+                duration = 500;
+                break;
+            case Settings::EnumAnimationSpeed::Slow:
+                duration = 1000;
+                break;
+            default:
+                break;
+        }
+        QPropertyAnimation* anim = new QPropertyAnimation ( this, "renderSize" );
+        anim->setDuration ( duration );
+        anim->setEasingCurve ( QEasingCurve::InOutCubic );
+        anim->setStartValue ( renderSize() );
+        anim->setEndValue ( size );
+        anim->start ( QAbstractAnimation::DeleteWhenStopped );
+    }
+#else
+    Q_UNUSED ( animated );
+    setRenderSize ( size );
+#endif
+}
+
+void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSize& size, bool animated)
+{
+#if defined WITH_ANIMATIONS
+    if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
+    {
+        setPos ( pos );
+    }
+    else
+    {
+        int duration;
+        switch ( Settings::animationSpeed() )
+        {
+            case Settings::EnumAnimationSpeed::Fast:
+                duration = 200;
+                break;
+            case Settings::EnumAnimationSpeed::Normal:
+                duration = 500;
+                break;
+            case Settings::EnumAnimationSpeed::Slow:
+                duration = 1000;
+                break;
+            default:
+                break;
+        }
+        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize);
+	QParallelAnimationGroup* group = new QParallelAnimationGroup;
+        QPropertyAnimation* posAnimation = new QPropertyAnimation ( this, "pos" );
+        posAnimation->setDuration ( duration );
+        posAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
+        posAnimation->setStartValue ( this->pos() );
+        posAnimation->setEndValue ( pos );
+	group->addAnimation(posAnimation);
+	QPropertyAnimation* sizeAnimation = new QPropertyAnimation ( this, "renderSize" );
+        sizeAnimation->setDuration ( duration );
+	sizeAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
+	sizeAnimation->setStartValue ( renderSize() );
+	sizeAnimation->setEndValue ( size );
+	group->addAnimation(sizeAnimation);
+	group->start ( QAbstractAnimation::DeleteWhenStopped );
+    }
+#else
+    Q_UNUSED ( animated );
+    item->setPos ( endPos );
+    setRenderSize ( size );
+#endif
+}
+
+
