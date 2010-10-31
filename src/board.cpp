@@ -376,7 +376,12 @@ void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool ani
 
 void Board::centerOnPos(Item* item, bool animated)
 {
-    item->move(mapToScene(item->boardPos()), m_tileSize, animated);
+    item->moveAndResize(mapToScene(item->boardPos()), m_tileSize, item->renderSize(), animated);
+}
+
+void Board::centerAndResize(Item* item, QSize size, bool animated)
+{
+    item->moveAndResize(mapToScene(item->boardPos()), m_tileSize, size, animated);
 }
 
 bool Board::isInBoard ( const Knights::Pos& pos )
@@ -564,40 +569,29 @@ void Board::updateGraphics()
 
     foreach ( Piece* p, m_grid )
     {
-        p->setRenderSize ( tSize );
-        centerOnPos( p );
+        centerAndResize(p, tSize);
     }
     foreach ( Item* t, m_tiles )
     {
-        t->setRenderSize ( tSize );
-        centerOnPos( t, Settings::animateBoard() );
+        centerAndResize(t, tSize, Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
     {
-        t->setRenderSize ( tSize );
-        centerOnPos( t );
+        centerAndResize(t, tSize);
     }
     if (m_displayBorders)
     {
-        m_borders[0]->setRenderSize ( hBorderSize );
-        m_borders[0]->setPos ( bottomBorderPoint );
-        m_borders[1]->setRenderSize ( vBorderSize );
-        m_borders[1]->setPos ( rightBorderPoint );
-        m_borders[2]->setRenderSize ( hBorderSize );
-        m_borders[2]->setPos ( topBorderPoint );
-        m_borders[3]->setRenderSize ( vBorderSize );
-        m_borders[3]->setPos ( leftBorderPoint );
+        m_borders[0]->moveAndResize(bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
+        m_borders[1]->moveAndResize(rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
+        m_borders[2]->moveAndResize(topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
+        m_borders[3]->moveAndResize(leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
     }
     if (m_displayNotations)
     {
-        m_notations[0]->setRenderSize ( hBorderSize );
-        m_notations[0]->setPos ( bottomBorderPoint );
-        m_notations[1]->setRenderSize ( vBorderSize );
-        m_notations[1]->setPos ( rightBorderPoint );
-        m_notations[2]->setRenderSize ( hBorderSize );
-        m_notations[2]->setPos ( topBorderPoint );
-        m_notations[3]->setRenderSize ( vBorderSize );
-        m_notations[3]->setPos ( leftBorderPoint );
+        m_notations[0]->moveAndResize(bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
+        m_notations[1]->moveAndResize(rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
+        m_notations[2]->moveAndResize(topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
+        m_notations[3]->moveAndResize(leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
     }
 }
 

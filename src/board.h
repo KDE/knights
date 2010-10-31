@@ -86,6 +86,7 @@ private:
     void centerOnPos( Item* item, const Knights::Pos& pos, bool animated = true );
     void centerOnPos( Item* item, bool animated = true );
     void removeFrame();
+    void centerAndResize(Knights::Item* item, QSize size, bool animated = true);
     bool m_paused;
     qreal m_tileSize;
     QRectF m_boardRect;

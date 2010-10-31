@@ -71,7 +71,7 @@ void Item::setRenderSize(const QSize& size)
 
 QSize Item::renderSize() const
 {
-    return boundingRect().size().toSize();
+    return transform().mapRect(boundingRect()).size().toSize();
 }
 
 void Item::setSpriteKey(const QString& key)
@@ -112,7 +112,7 @@ void Item::move(const QPointF& pos, qreal tileSize, bool animated)
     }
     else
     {
-        int duration;
+        int duration = 0;
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
@@ -131,7 +131,6 @@ void Item::move(const QPointF& pos, qreal tileSize, bool animated)
         QPropertyAnimation* anim = new QPropertyAnimation ( this, "pos" );
         anim->setDuration ( duration );
         anim->setEasingCurve ( QEasingCurve::InOutCubic );
-        anim->setStartValue ( this->pos() );
         anim->setEndValue ( pos );
         anim->start ( QAbstractAnimation::DeleteWhenStopped );
     }
@@ -150,7 +149,7 @@ void Item::resize(const QSize& size, bool animated)
     }
     else
     {
-	int duration;
+	int duration = 0;
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
@@ -168,7 +167,6 @@ void Item::resize(const QSize& size, bool animated)
         QPropertyAnimation* anim = new QPropertyAnimation ( this, "renderSize" );
         anim->setDuration ( duration );
         anim->setEasingCurve ( QEasingCurve::InOutCubic );
-        anim->setStartValue ( renderSize() );
         anim->setEndValue ( size );
         anim->start ( QAbstractAnimation::DeleteWhenStopped );
     }
@@ -184,10 +182,11 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         setPos ( pos );
+	setRenderSize ( size );
     }
     else
     {
-        int duration;
+        int duration = 0;
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
@@ -207,13 +206,11 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
         QPropertyAnimation* posAnimation = new QPropertyAnimation ( this, "pos" );
         posAnimation->setDuration ( duration );
         posAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
-        posAnimation->setStartValue ( this->pos() );
         posAnimation->setEndValue ( pos );
 	group->addAnimation(posAnimation);
 	QPropertyAnimation* sizeAnimation = new QPropertyAnimation ( this, "renderSize" );
         sizeAnimation->setDuration ( duration );
 	sizeAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
-	sizeAnimation->setStartValue ( renderSize() );
 	sizeAnimation->setEndValue ( size );
 	group->addAnimation(sizeAnimation);
 	group->start ( QAbstractAnimation::DeleteWhenStopped );
