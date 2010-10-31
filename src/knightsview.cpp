@@ -127,6 +127,7 @@ void KnightsView::resizeScene()
     if ( ui.canvas && m_board )
     {
         m_board->setSceneRect ( ui.canvas->rect() );
+        m_board->updateGraphics();
         ui.canvas->setTransform(QTransform());
     }
 }

@@ -49,7 +49,9 @@
 
 using namespace Knights;
 
-const qreal tileZValue = 0.0;
+const qreal borderZValue = 0.0;
+const qreal notationZValue = 0.2;
+const qreal tileZValue = 0.5;
 const qreal pieceZValue = 1.0;
 const qreal motionMarkerZValue = 1.5;
 const qreal legalMarkerZValue = 2.0;
@@ -63,6 +65,10 @@ const QString dangerMarkerKey = QLatin1String( "Danger" );
 
 const QString tbBorderKey = QLatin1String( "TopBottomBorder" );
 const QString lrBorderKey = QLatin1String( "LeftRightBorder" );
+const QString whiteLettersKey = QLatin1String( "WhiteLetters" );
+const QString blackLettersKey = QLatin1String( "BlackLetters" );
+const QString whiteNumbersKey = QLatin1String( "WhiteNumbers" );
+const QString blackNumbersKey = QLatin1String( "BlackNumbers" );
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
@@ -72,7 +78,6 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     m_currentPlayer = White;
     m_paused = false;
 
-    connect ( this, SIGNAL(sceneRectChanged(QRectF)), SLOT(updateGraphics()), Qt::DirectConnection );
     connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(changeDisplayedPlayer()) );
 }
 
@@ -524,7 +529,37 @@ void Board::updateTheme()
 
         qDeleteAll(m_tiles);
         m_tiles.clear();
-    #endif
+    #endif    
+    qDeleteAll(m_borders);
+    m_borders.clear();
+    qDeleteAll(m_notations);
+    m_notations.clear();
+    m_displayBorders = Settings::borderDisplayType() != Settings::EnumBorderDisplayType::None 
+                && renderer->spriteExists(lrBorderKey)
+                && renderer->spriteExists(tbBorderKey);
+    m_displayNotations = Settings::borderDisplayType() == Settings::EnumBorderDisplayType::Notation
+                && renderer->spriteExists(whiteLettersKey)
+                && renderer->spriteExists(blackLettersKey)
+                && renderer->spriteExists(whiteNumbersKey)
+                && renderer->spriteExists(blackNumbersKey);
+    if ( m_displayBorders ) 
+    {
+        m_borders << new Item(renderer, tbBorderKey, this, Pos());
+        m_borders << new Item(renderer, lrBorderKey, this, Pos());
+        m_borders.last()->setTransformOriginPoint(m_borders.last()->boundingRect().center());
+        m_borders.last()->setRotation(180);
+        m_borders << new Item(renderer, tbBorderKey, this, Pos());
+        m_borders.last()->setTransformOriginPoint(m_borders.last()->boundingRect().center());
+        m_borders.last()->setRotation(180);
+        m_borders << new Item(renderer, lrBorderKey, this, Pos());
+    }
+    if ( m_displayBorders ) 
+    {
+        m_notations << new Item(renderer, whiteLettersKey, this, Pos());
+        m_notations << new Item(renderer, whiteNumbersKey, this, Pos());
+        m_notations << new Item(renderer, blackLettersKey, this, Pos());
+        m_notations << new Item(renderer, blackNumbersKey, this, Pos());
+    }
     addTiles();
     updateGraphics();
 }
@@ -535,7 +570,7 @@ void Board::updateGraphics()
     QSizeF boardSize = 8 * tileSize;
     qreal sideMargin;
     qreal topMargin;
-    if (renderer->spriteExists(lrBorderKey) && renderer->spriteExists(tbBorderKey))
+    if ( m_displayBorders )
     {
         sideMargin = renderer->boundsOnSprite(lrBorderKey).width();
         topMargin = renderer->boundsOnSprite(tbBorderKey).height();
@@ -544,18 +579,29 @@ void Board::updateGraphics()
     {
         sideMargin = 0.5 * tileSize.width();
         topMargin = 0.5 * tileSize.height();
-
-        m_drawFrame = false;
     }
     boardSize = boardSize + 2 * QSizeF(sideMargin, topMargin);
     qreal ratio = qMin(sceneRect().width()/boardSize.width(), sceneRect().height()/boardSize.height());
+    sideMargin *= ratio;
+    topMargin *= ratio;
 
     QSizeF tpSize = tileSize * ratio;
     m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
-    sideMargin = qMax ( sideMargin * ratio, (sceneRect().width() - 8 * m_tileSize) / 2 );
-    topMargin = qMax ( topMargin * ratio, (sceneRect().height() - 8 * m_tileSize) / 2 );
+
+    QSize hBorderSize = (QSizeF(8*m_tileSize + 2*sideMargin, topMargin)).toSize();
+    QSize vBorderSize = (QSizeF(sideMargin, 8*m_tileSize)).toSize();
+    qreal hBorderMargin = topMargin;
+    qreal vBorderMargin = sideMargin;
+ 
+    sideMargin = qMax ( sideMargin, (sceneRect().width() - 8 * m_tileSize) / 2 );
+    topMargin = qMax ( topMargin, (sceneRect().height() - 8 * m_tileSize) / 2 );
     m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
     QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
+
+    QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPointF( vBorderMargin, 0.0 );
+    QPointF topBorderPoint = m_boardRect.topLeft() - QPointF( vBorderMargin, hBorderMargin );
+    QPointF leftBorderPoint = m_boardRect.topLeft() - QPointF( vBorderMargin, 0.0 );
+    QPointF rightBorderPoint = m_boardRect.topRight();
 
     foreach ( Piece* p, m_grid )
     {
@@ -572,7 +618,28 @@ void Board::updateGraphics()
         t->setRenderSize ( tSize );
         centerOnPos( t );
     }
-    emit centerChanged( QPointF( 4 * m_tileSize, 4 * m_tileSize ) );
+    if (m_displayBorders)
+    {
+        m_borders[0]->setRenderSize ( hBorderSize );
+        m_borders[0]->setPos ( bottomBorderPoint );
+        m_borders[1]->setRenderSize ( vBorderSize );
+        m_borders[1]->setPos ( rightBorderPoint );
+        m_borders[2]->setRenderSize ( hBorderSize );
+        m_borders[2]->setPos ( topBorderPoint );
+        m_borders[3]->setRenderSize ( vBorderSize );
+        m_borders[3]->setPos ( leftBorderPoint );
+    }
+    if (m_displayNotations)
+    {
+        m_notations[0]->setRenderSize ( hBorderSize );
+        m_notations[0]->setPos ( bottomBorderPoint );
+        m_notations[1]->setRenderSize ( vBorderSize );
+        m_notations[1]->setPos ( rightBorderPoint );
+        m_notations[2]->setRenderSize ( hBorderSize );
+        m_notations[2]->setPos ( topBorderPoint );
+        m_notations[3]->setRenderSize ( vBorderSize );
+        m_notations[3]->setPos ( leftBorderPoint );
+    }
 }
 
 void Board::changeDisplayedPlayer()
@@ -590,6 +657,23 @@ void Board::changeDisplayedPlayer()
         foreach ( Item* i, m_tiles )
         {
             centerOnPos( i, i->boardPos() );
+        }
+    }
+    if (m_displayNotations)
+    {
+        if ( m_displayedPlayer == White )
+        {
+            m_notations[0]->setSpriteKey(whiteLettersKey);
+            m_notations[1]->setSpriteKey(whiteNumbersKey);
+            m_notations[2]->setSpriteKey(whiteLettersKey);
+            m_notations[3]->setSpriteKey(whiteNumbersKey);
+        }
+        else
+        {
+            m_notations[0]->setSpriteKey(blackLettersKey);
+            m_notations[1]->setSpriteKey(blackNumbersKey);
+            m_notations[2]->setSpriteKey(blackLettersKey);
+            m_notations[3]->setSpriteKey(blackNumbersKey);
         }
     }
 }

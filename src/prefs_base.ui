@@ -73,7 +73,7 @@
          <string>Appearance</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="1" column="0">
+         <item row="1" column="0" colspan="2">
           <widget class="QCheckBox" name="kcfg_showMarker">
            <property name="text">
             <string>Show Legal Moves</string>
@@ -83,7 +83,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="2" column="0" colspan="2">
           <widget class="QCheckBox" name="kcfg_showMotion">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -99,13 +99,39 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="3" column="0" colspan="2">
           <widget class="QCheckBox" name="kcfg_showDanger">
            <property name="text">
             <string>Show Check</string>
            </property>
            <property name="checked">
             <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="KComboBox" name="kcfg_borderDisplayType">
+           <item>
+            <property name="text">
+             <string>No Borders</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Only Borders</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Borders and Notation</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Border Display</string>
            </property>
           </widget>
          </item>

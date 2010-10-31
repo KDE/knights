@@ -67,6 +67,10 @@ private:
     Rules *m_rules;
     Grid m_grid;
     QMap<Pos, Item*> m_tiles;
+    QList<Item*> m_borders;
+    bool m_displayBorders;
+    bool m_displayNotations;
+    QList<Item*> m_notations;
     Renderer* renderer;
 
     void addPiece( PieceType type, Color color, const Pos& pos);    
