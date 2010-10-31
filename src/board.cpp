@@ -410,23 +410,19 @@ void Board::setPlayerColors ( const QList< Color >& colors )
     {
         m_displayedPlayer = m_playerColors.first();
     }
+    changeDisplayedPlayer();
     populate();
 }
 
 void Board::changeCurrentPlayer()
 {
     m_currentPlayer = oppositeColor ( m_currentPlayer );
-    if ( m_playerColors.contains ( m_currentPlayer ) )
+    if ( m_playerColors.contains ( m_currentPlayer ) && m_displayedPlayer != m_currentPlayer )
     {
-        if ( m_displayedPlayer != m_currentPlayer )
-        {
-            m_displayedPlayer = m_currentPlayer;
-            emit displayedPlayerChanged(m_displayedPlayer);
-        }
         m_displayedPlayer = m_currentPlayer;
+        changeDisplayedPlayer();
     }
     emit activePlayerChanged ( m_currentPlayer );
-    // TODO: Stop & start clocks at this point
 }
 
 void Board::setCurrentColor ( Color color )
@@ -509,20 +505,30 @@ void Board::updateTheme()
     if ( m_displayBorders ) 
     {
         m_borders << new Item(renderer, tbBorderKey, this, Pos());
+        Item *tItem = new Item(renderer, lrBorderKey, this, Pos());
+        tItem->setTransformOriginPoint(tItem->boundingRect().center());
+        tItem->setRotation(180);
+        m_borders << tItem;
+        tItem = new Item(renderer, tbBorderKey, this, Pos());
+        tItem->setTransformOriginPoint(tItem->boundingRect().center());
+        tItem->setRotation(180);
+        m_borders << tItem;
         m_borders << new Item(renderer, lrBorderKey, this, Pos());
-        m_borders.last()->setTransformOriginPoint(m_borders.last()->boundingRect().center());
-        m_borders.last()->setRotation(180);
-        m_borders << new Item(renderer, tbBorderKey, this, Pos());
-        m_borders.last()->setTransformOriginPoint(m_borders.last()->boundingRect().center());
-        m_borders.last()->setRotation(180);
-        m_borders << new Item(renderer, lrBorderKey, this, Pos());
+        foreach (Item* item, m_borders)
+        {
+            item->setZValue ( borderZValue );
+        }
     }
     if ( m_displayBorders ) 
     {
-        m_notations << new Item(renderer, whiteLettersKey, this, Pos());
-        m_notations << new Item(renderer, whiteNumbersKey, this, Pos());
-        m_notations << new Item(renderer, blackLettersKey, this, Pos());
-        m_notations << new Item(renderer, blackNumbersKey, this, Pos());
+        m_notations << new Item(renderer, QString(), this, Pos());
+        m_notations << new Item(renderer, QString(), this, Pos());
+        m_notations << new Item(renderer, QString(), this, Pos());
+        m_notations << new Item(renderer, QString(), this, Pos());
+        foreach (Item* item, m_notations)
+        {
+            item->setZValue ( notationZValue );
+        }
     }
     addTiles();
     updateGraphics();
