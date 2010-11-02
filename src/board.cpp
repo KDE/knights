@@ -72,8 +72,6 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     updateTheme();
     m_currentPlayer = White;
     m_paused = false;
-
-    connect ( this, SIGNAL ( displayedPlayerChanged ( Color ) ), SLOT ( changeDisplayedPlayer() ) );
 }
 
 Board::~Board()
@@ -635,6 +633,7 @@ void Board::changeDisplayedPlayer()
             m_notations[3]->setSpriteKey ( blackNumbersKey );
         }
     }
+    emit displayedPlayerChanged ( m_displayedPlayer );
 }
 
 
