@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Knights
 Name[da]=Knights
+Name[et]=Knights
 Name[nds]=Knights (Schachspeel)
 Name[pt]=Knights
 Name[pt_BR]=Knights
@@ -15,6 +16,7 @@ X-DocPath=knights/index.html
 Categories=Qt;KDE;Game;BoardGame;
 GenericName=Chess game
 GenericName[da]=Skakspil
+GenericName[et]=Male
 GenericName[nds]=Schachspeel
 GenericName[pt]=Jogo de xadrez
 GenericName[pt_BR]=Jogo de Xadrez

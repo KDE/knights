@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Knights
 Name[da]=Knights
+Name[et]=Knights
 Name[nds]=Knights (Schachspeel)
 Name[pt]=Knights
 Name[pt_BR]=Knights
@@ -10,6 +11,7 @@ Name[x-test]=xxKnightsxx
 Name[zh_TW]=Knights
 Description=Original Knights theme.
 Description[da]=Oprindeligt Knights-tema.
+Description[et]=Algne Knightsi teema.
 Description[nds]=Knights-Orginaalmuster
 Description[pt]=O tema original do Knights.
 Description[pt_BR]=Tema original do Knights.
