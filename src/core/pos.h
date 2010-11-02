@@ -19,8 +19,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KCHESS_POS_H
-#define KCHESS_POS_H
+#ifndef KNIGHTS_POS_H
+#define KNIGHTS_POS_H
 
 #include <QtCore/QPair>
 #include <QtCore/QDataStream>
@@ -54,4 +54,4 @@ QDebug& operator<<(QDebug& debug, const Pos &pos);
 
 }
 
-#endif // KCHESS_POS_H
+#endif // KNIGHTS_POS_H

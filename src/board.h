@@ -19,8 +19,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KCHESS_BOARD_H
-#define KCHESS_BOARD_H
+#ifndef KNIGHTS_BOARD_H
+#define KNIGHTS_BOARD_H
 
 #include "core/piece.h"
 #include "core/move.h"
@@ -125,4 +125,4 @@ signals:
 
 }
 
-#endif // KCHESS_BOARD_H
+#endif // KNIGHTS_BOARD_H

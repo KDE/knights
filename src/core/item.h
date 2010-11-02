@@ -19,8 +19,8 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ITEM_H
-#define ITEM_H
+#ifndef KNIGHTS_ITEM_H
+#define KNIGHTS_ITEM_H
 
 #include "renderer.h"
 #include "pos.h"
@@ -64,4 +64,4 @@ class Item : public ItemBaseType
         Pos m_pos;
 };
 }
-#endif // ITEM_H
+#endif // KNIGHTS_ITEM_H

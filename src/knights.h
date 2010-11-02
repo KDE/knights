@@ -79,5 +79,5 @@ namespace Knights
     };
 }
 
-#endif // _KNIGHTS_H_
+#endif // KNIGHTS_H
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

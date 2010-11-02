@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KNIGHTSVIEW_H
-#define KNIGHTSVIEW_H
+#ifndef KNIGHTS_VIEW_H
+#define KNIGHTS_VIEW_H
 
 #include "board.h"
 
@@ -95,5 +95,5 @@ namespace Knights
     };
 }
 
-#endif // KnightsVIEW_H
+#endif // KNIGHTS_VIEW_H
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

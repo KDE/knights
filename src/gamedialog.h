@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KCHESS_GAMEDIALOG_H
-#define KCHESS_GAMEDIALOG_H
+#ifndef KNIGHTS_GAMEDIALOG_H
+#define KNIGHTS_GAMEDIALOG_H
 
 #include "core/piece.h"
 #include "proto/protocol.h"
@@ -73,5 +73,5 @@ namespace Knights
 
 }
 
-#endif // KCHESS_GAMEDIALOG_H
+#endif // KNIGHTS_GAMEDIALOG_H
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
