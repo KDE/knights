@@ -54,7 +54,7 @@ void KnightsView::setupBoard ( Protocol* protocol )
     m_board = new Board ( this );
     ui.canvas->setScene ( m_board );
     resizeScene();
-    
+
     if ( protocol )
     {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
@@ -65,20 +65,20 @@ void KnightsView::setupBoard ( Protocol* protocol )
     {
         m_board->setPlayerColors ( QList<Color>() << White << Black );
     }
-    
+
     if ( protocol && protocol->supportedFeatures() & Protocol::GameOver )
     {
-        connect ( protocol, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+        connect ( protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     }
     else
     {
-        connect ( m_board, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+        connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     }
-    
+
     connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
-    
-    connect ( m_board, SIGNAL(centerChanged(QPointF)), this, SLOT(centerView(QPointF)));
+
+    connect ( m_board, SIGNAL ( centerChanged ( QPointF ) ), this, SLOT ( centerView ( QPointF ) ) );
 
 }
 
@@ -128,7 +128,7 @@ void KnightsView::resizeScene()
     {
         m_board->setSceneRect ( ui.canvas->rect() );
         m_board->updateGraphics();
-        ui.canvas->setTransform(QTransform());
+        ui.canvas->setTransform ( QTransform() );
     }
 }
 
@@ -171,14 +171,14 @@ QString KnightsView::pieceTypeName ( PieceType type )
     }
 }
 
-void KnightsView::centerView( const QPointF& center)
+void KnightsView::centerView ( const QPointF& center )
 {
-    if (ui.canvas)
+    if ( ui.canvas )
     {
-        ui.canvas->centerOn(center);
+        ui.canvas->centerOn ( center );
     }
 }
 
 
 #include "knightsview.moc"
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

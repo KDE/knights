@@ -29,60 +29,60 @@
 
 namespace Knights
 {
-class Move;
-class Pos;
+    class Move;
+    class Pos;
 
-class ChessRules : public Knights::Rules
-{
-public:
-
-    ChessRules();
-
-    virtual Color winner();
-    virtual bool hasLegalMoves ( Color color );
-    virtual BoardState startingPieces ();
-    virtual QList<Move> legalMoves ( const Pos& pos );
-    virtual void moveMade ( const Move& m );
-    virtual Directions legalDirections ( PieceType type );
-    virtual ~ChessRules();
-
-    bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
-    virtual bool isAttacking(const Pos& attackingPos);
-
-    virtual void checkSpecialFlags ( Move& move );
-
-private:
-
-    struct MoveData
+    class ChessRules : public Knights::Rules
     {
-        Move m;
-        PieceType pieceType;
-        Color color;
+        public:
+
+            ChessRules();
+
+            virtual Color winner();
+            virtual bool hasLegalMoves ( Color color );
+            virtual BoardState startingPieces ();
+            virtual QList<Move> legalMoves ( const Pos& pos );
+            virtual void moveMade ( const Move& m );
+            virtual Directions legalDirections ( PieceType type );
+            virtual ~ChessRules();
+
+            bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
+            virtual bool isAttacking ( const Pos& attackingPos );
+
+            virtual void checkSpecialFlags ( Move& move );
+
+        private:
+
+            struct MoveData
+            {
+                Move m;
+                PieceType pieceType;
+                Color color;
+            };
+
+            QMap<Direction, Pos> directions;
+            QMap<Direction, Pos> lineDirs;
+            QMap<Direction, Pos> diagDirs;
+            QList<Pos> knightDirs;
+            QStack<MoveData> moveHistory;
+
+        private:
+            QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = 0 );
+            QList<Move> pawnMoves ( const Pos& pos );
+            QList<Move> castlingMoves ( const Pos& pos );
+            int length ( const Knights::Move& move );
+            bool isPathClear ( const Pos& from, const Pos& to );
+            QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
+            bool isKingAttacked ( Color color , Grid* grid = 0 );
+            QMap<Color, bool> kingMoved;
+            QMap<Color, bool> kingRookMoved;
+            QMap<Color, bool> queenRookMoved;
+            QMap<Color, Pos> queenRookStartPos;
+            QMap<Color, Pos> kingRookStartPos;
+            QList<Move> m_enPassantMoves;
+            QMap<Color, Pos> kingPos;
     };
-
-    QMap<Direction, Pos> directions;
-    QMap<Direction, Pos> lineDirs;
-    QMap<Direction, Pos> diagDirs;
-    QList<Pos> knightDirs;
-    QStack<MoveData> moveHistory;
-
-private:
-    QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = 0 );
-    QList<Move> pawnMoves ( const Pos& pos );
-    QList<Move> castlingMoves ( const Pos& pos );
-    int length ( const Knights::Move& move );
-    bool isPathClear ( const Pos& from, const Pos& to );
-    QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
-    bool isKingAttacked ( Color color , Grid* grid = 0 );
-    QMap<Color, bool> kingMoved;
-    QMap<Color, bool> kingRookMoved;
-    QMap<Color, bool> queenRookMoved;
-    QMap<Color, Pos> queenRookStartPos;
-    QMap<Color, Pos> kingRookStartPos;
-    QList<Move> m_enPassantMoves;
-    QMap<Color, Pos> kingPos;
-};
 }
 
 #endif // KCHESS_CHESSRULES_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -88,7 +88,7 @@ namespace Knights
             void settingsChanged();
             void resizeScene();
             void gameOver ( Color winner );
-            void centerView( const QPointF& center );
+            void centerView ( const QPointF& center );
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );
@@ -96,4 +96,4 @@ namespace Knights
 }
 
 #endif // KNIGHTS_VIEW_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

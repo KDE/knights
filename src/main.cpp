@@ -37,15 +37,15 @@ int main ( int argc, char **argv )
                        KAboutData::License_GPL, ki18n ( "(C) 2009-2010 Miha Čančula" ), KLocalizedString(), "miha.cancula@gmail.com" );
     about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha.cancula@gmail.com", "http://noughmad.wordpress.com" );
     about.addCredit ( ki18n ( "Troy Corbin" ), ki18n ( "Original Knights for KDE3 and theme author" ), "troy@pedanticwebspaces.com" );
-    about.addCredit( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
-    about.addCredit( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ) );
+    about.addCredit ( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
+    about.addCredit ( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ) );
     KCmdLineArgs::init ( argc, argv, &about );
 
     KCmdLineOptions options;
     options.add ( "+[URL]", ki18n ( "Document to open" ) );
     KCmdLineArgs::addCmdLineOptions ( options );
     KApplication app;
-    KGlobal::locale()->insertCatalog(QLatin1String("libkdegames"));
+    KGlobal::locale()->insertCatalog ( QLatin1String ( "libkdegames" ) );
 
     // see if we are starting with session management
     if ( app.isSessionRestored() )
@@ -76,4 +76,4 @@ int main ( int argc, char **argv )
     return app.exec();
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -26,30 +26,32 @@
 
 class QTime;
 
-namespace Knights {
-
-class Clock : public QWidget
+namespace Knights
 {
-    Q_OBJECT
-    public:
-        explicit Clock(QWidget* parent = 0, Qt::WindowFlags f = 0);
-        virtual ~Clock();
-        
-    private:
-        int hour;
-        int minute;
-        int second;
 
-    public slots:
-        void setTime(int hour, int minute, int second);
-        void setTime(int seconds);
-        void setTime(const QTime& time);
+    class Clock : public QWidget
+    {
+            Q_OBJECT
+        public:
+            explicit Clock ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+            virtual ~Clock();
 
-    protected:
-        virtual void paintEvent(QPaintEvent* );
-        virtual void resizeEvent(QResizeEvent* );
-};
+        private:
+            int hour;
+            int minute;
+            int second;
+
+        public slots:
+            void setTime ( int hour, int minute, int second );
+            void setTime ( int seconds );
+            void setTime ( const QTime& time );
+
+        protected:
+            virtual void paintEvent ( QPaintEvent* );
+            virtual void resizeEvent ( QResizeEvent* );
+    };
 
 }
 
 #endif // KNIGHTS_CLOCK_H
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

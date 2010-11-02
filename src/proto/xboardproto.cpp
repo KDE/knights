@@ -42,7 +42,7 @@ XBoardProtocol::~XBoardProtocol()
 {
     if ( mProcess && mProcess->isOpen() )
     {
-        mProcess->write("exit\n");
+        mProcess->write ( "exit\n" );
         if ( !mProcess->waitForFinished ( 500 ) )
         {
             mProcess->kill();
@@ -63,14 +63,14 @@ void XBoardProtocol::move ( const Move& m )
 
 void XBoardProtocol::init ( const QVariantMap& options )
 {
-    setAttributes(options);
-    QStringList args = options[QLatin1String( "program" )].toString().split ( QLatin1Char( ' ' ) );
+    setAttributes ( options );
+    QStringList args = options[QLatin1String ( "program" ) ].toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
-    if ( program.contains ( QLatin1String( "gnuchess" ) ) && !args.contains ( QLatin1String( "--xboard" ) ) )
+    if ( program.contains ( QLatin1String ( "gnuchess" ) ) && !args.contains ( QLatin1String ( "--xboard" ) ) )
     {
-        args << QLatin1String( "--xboard" );
+        args << QLatin1String ( "--xboard" );
     }
-    setOpponentName(program);
+    setOpponentName ( program );
     mProcess = new KProcess ( this );
     mProcess->setProgram ( program, args );
     mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
@@ -85,12 +85,12 @@ void XBoardProtocol::init ( const QVariantMap& options )
     }
     if ( playerColor() == NoColor )
     {
-        setPlayerColor( ( qrand() % 2 == 0 ) ? White : Black );
+        setPlayerColor ( ( qrand() % 2 == 0 ) ? White : Black );
     }
 
     if ( playerColor() == Black )
     {
-        mProcess->write("go\n");
+        mProcess->write ( "go\n" );
     }
     emit initSuccesful();
 }
@@ -98,22 +98,22 @@ void XBoardProtocol::init ( const QVariantMap& options )
 void XBoardProtocol::readFromProgram()
 {
     QString output = QLatin1String ( mProcess->readAllStandardOutput() );
-    foreach (const QString& line, output.split(QLatin1Char( '\n' )))
+    foreach ( const QString& line, output.split ( QLatin1Char ( '\n' ) ) )
     {
-        if ( line.contains ( QLatin1String( "Illegal move" ) ) )
+        if ( line.contains ( QLatin1String ( "Illegal move" ) ) )
         {
             emit illegalMove();
         }
-        else if (line.contains( QLatin1String( "..." ) ))
+        else if ( line.contains ( QLatin1String ( "..." ) ) )
         {
-            QString moveString = line.split ( QLatin1Char( ' ' ) ).last();
+            QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
             kDebug() << moveString;
-            emit pieceMoved ( Move(moveString) );
+            emit pieceMoved ( Move ( moveString ) );
         }
-        else if ( line.contains ( QLatin1String( "wins" ) ) )
+        else if ( line.contains ( QLatin1String ( "wins" ) ) )
         {
             Color winner;
-            if ( line.split ( QLatin1Char( ' ' ) ).last().contains ( QLatin1String( "white" ) ) )
+            if ( line.split ( QLatin1Char ( ' ' ) ).last().contains ( QLatin1String ( "white" ) ) )
             {
                 winner = White;
             }
@@ -132,4 +132,4 @@ void XBoardProtocol::readError()
     kError() << mProcess->readAllStandardError();
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

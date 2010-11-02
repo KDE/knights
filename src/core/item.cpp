@@ -1,7 +1,7 @@
 /*
  *  This file is part of Knights, a chess board for KDE SC 4.
  *  Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
- * 
+ *
  *  This program is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU General Public License as
  *  published by the Free Software Foundation; either version 2 of
@@ -9,12 +9,12 @@
  *  accepted by the membership of KDE e.V. (or its successor approved
  *  by the membership of KDE e.V.), which shall act as a proxy
  *  defined in Section 14 of version 3 of the license.
- * 
+ *
  *  This program is distributed in the hope that it will be useful,
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
- * 
+ *
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -25,19 +25,19 @@
 #include <KDebug>
 
 #if QT_VERSION >= 0x040600
-  #define WITH_ANIMATIONS
-  #include <QtCore/QPropertyAnimation>
-  #include <QtCore/QParallelAnimationGroup>
-  #include <qmath.h>
+#define WITH_ANIMATIONS
+#include <QtCore/QPropertyAnimation>
+#include <QtCore/QParallelAnimationGroup>
+#include <qmath.h>
 #endif
 
 using namespace Knights;
 
 #if defined WITH_KGR
-Item::Item(KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem): KGameRenderedObjectItem(renderer, key, parentItem)
+Item::Item ( KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
 {
-    setBoardPos(boardPos);
-    if (scene)
+    setBoardPos ( boardPos );
+    if ( scene )
     {
         scene->addItem ( this );
     }
@@ -47,36 +47,36 @@ Item::Item(KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, P
 
 #include <QtSvg/QSvgRenderer>
 
-Item::Item(Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem)
-    : QGraphicsSvgItem( parentItem)
+Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem )
+        : QGraphicsSvgItem ( parentItem )
 {
-    setSharedRenderer(renderer);
-    setSpriteKey(key);
-    setBoardPos(boardPos);
-    if (scene)
+    setSharedRenderer ( renderer );
+    setSpriteKey ( key );
+    setBoardPos ( boardPos );
+    if ( scene )
     {
         scene->addItem ( this );
     }
 }
 
-void Item::setRenderSize(const QSize& size)
+void Item::setRenderSize ( const QSize& size )
 {
     resetTransform();
-    QRectF normalSize = renderer()->boundsOnElement(spriteKey());
+    QRectF normalSize = renderer()->boundsOnElement ( spriteKey() );
     qreal xScale = size.width() / normalSize.width();
     qreal yScale = size.height() / normalSize.height();
     prepareGeometryChange();
-    setTransform(QTransform().scale( xScale, yScale ));
+    setTransform ( QTransform().scale ( xScale, yScale ) );
 }
 
 QSize Item::renderSize() const
 {
-    return transform().mapRect(boundingRect()).size().toSize();
+    return transform().mapRect ( boundingRect() ).size().toSize();
 }
 
-void Item::setSpriteKey(const QString& key)
+void Item::setSpriteKey ( const QString& key )
 {
-    setElementId(key);
+    setElementId ( key );
 }
 
 QString Item::spriteKey() const
@@ -87,9 +87,9 @@ QString Item::spriteKey() const
 
 Item::~Item()
 {
-    if (scene())
+    if ( scene() )
     {
-        scene()->removeItem(this);
+        scene()->removeItem ( this );
     }
 }
 
@@ -98,12 +98,12 @@ Pos Item::boardPos() const
     return m_pos;
 }
 
-void Knights::Item::setBoardPos(const Knights::Pos& pos)
+void Item::setBoardPos ( const Pos& pos )
 {
     m_pos = pos;
 }
 
-void Item::move(const QPointF& pos, qreal tileSize, bool animated)
+void Item::move ( const QPointF& pos, qreal tileSize, bool animated )
 {
 #if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
@@ -127,7 +127,7 @@ void Item::move(const QPointF& pos, qreal tileSize, bool animated)
             default:
                 break;
         }
-        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize);
+        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize );
         QPropertyAnimation* anim = new QPropertyAnimation ( this, "pos" );
         anim->setDuration ( duration );
         anim->setEasingCurve ( QEasingCurve::InOutCubic );
@@ -140,7 +140,7 @@ void Item::move(const QPointF& pos, qreal tileSize, bool animated)
 #endif
 }
 
-void Item::resize(const QSize& size, bool animated)
+void Item::resize ( const QSize& size, bool animated )
 {
 #if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
@@ -149,7 +149,7 @@ void Item::resize(const QSize& size, bool animated)
     }
     else
     {
-	int duration = 0;
+        int duration = 0;
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
@@ -176,7 +176,7 @@ void Item::resize(const QSize& size, bool animated)
 #endif
 }
 
-void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSize& size, bool animated)
+void Knights::Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated )
 {
 #if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
@@ -201,18 +201,18 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
             default:
                 break;
         }
-        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize);
+        duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize );
         QParallelAnimationGroup* group = new QParallelAnimationGroup;
         QPropertyAnimation* posAnimation = new QPropertyAnimation ( this, "pos" );
         posAnimation->setDuration ( duration );
         posAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
         posAnimation->setEndValue ( pos );
-        group->addAnimation(posAnimation);
+        group->addAnimation ( posAnimation );
         QPropertyAnimation* sizeAnimation = new QPropertyAnimation ( this, "renderSize" );
         sizeAnimation->setDuration ( duration );
         sizeAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
         sizeAnimation->setEndValue ( size );
-        group->addAnimation(sizeAnimation);
+        group->addAnimation ( sizeAnimation );
         group->start ( QAbstractAnimation::DeleteWhenStopped );
     }
 #else
@@ -223,3 +223,4 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
 }
 
 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

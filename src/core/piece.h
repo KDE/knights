@@ -27,48 +27,48 @@
 
 namespace Knights
 {
-enum PieceType
-{
-    NoType = 0,
-    King,
-    Queen,
-    Bishop,
-    Knight,
-    Rook,
-    Pawn
-};
-enum Color
-{
-    NoColor = 0,
-    White,
-    Black
-};
-Color oppositeColor ( Color color );
+    enum PieceType
+    {
+        NoType = 0,
+        King,
+        Queen,
+        Bishop,
+        Knight,
+        Rook,
+        Pawn
+    };
+    enum Color
+    {
+        NoColor = 0,
+        White,
+        Black
+    };
+    Color oppositeColor ( Color color );
 
-class Piece : public Item
-{
-    Q_OBJECT
-public:
-    Piece (Renderer* renderer, Knights::PieceType type, Knights::Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
-    virtual ~Piece();
+    class Piece : public Item
+    {
+            Q_OBJECT
+        public:
+            Piece ( Renderer* renderer, Knights::PieceType type, Knights::Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
+            virtual ~Piece();
 
-    PieceType pieceType();
-    void setPieceType(PieceType type);
-    Color color();
-    
-    static QString spriteKey(PieceType type, Color color);
-    static PieceType typeFromChar(QChar typeChar);
-    static QChar charFromType(PieceType t);
-    
-private:
-    Color m_color;
-    PieceType m_type;
-    void updateSpriteKey();
-};
+            PieceType pieceType();
+            void setPieceType ( PieceType type );
+            Color color();
 
-typedef QMap<Pos, Piece*> Grid;
-typedef QPair<Color,PieceType> PieceData;
-typedef QMap<Pos, PieceData> BoardState;
+            static QString spriteKey ( PieceType type, Color color );
+            static PieceType typeFromChar ( QChar typeChar );
+            static QChar charFromType ( PieceType t );
+
+        private:
+            Color m_color;
+            PieceType m_type;
+            void updateSpriteKey();
+    };
+
+    typedef QMap<Pos, Piece*> Grid;
+    typedef QPair<Color, PieceType> PieceData;
+    typedef QMap<Pos, PieceData> BoardState;
 }
 
 Q_DECLARE_METATYPE ( Knights::Color )
@@ -77,4 +77,4 @@ Q_DECLARE_METATYPE ( Knights::PieceData )
 Q_DECLARE_METATYPE ( Knights::BoardState )
 
 #endif // KNIGHTS_PIECE_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

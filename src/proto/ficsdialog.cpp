@@ -32,12 +32,12 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
-    ui->tabWidget->setTabText(0, i18n("&Join a game"));
-    ui->tabWidget->setTabText(1, i18n("&Seek opponents"));
-    connect ( ui->tabWidget, SIGNAL(currentChanged(int)), SLOT(currentTabChanged(int)));
+    ui->tabWidget->setTabText ( 0, i18n ( "&Join a game" ) );
+    ui->tabWidget->setTabText ( 1, i18n ( "&Seek opponents" ) );
+    connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
 
-    connect (ui->refreshButton, SIGNAL(clicked(bool)), SLOT(refresh()));
-    connect (ui->seekButton, SIGNAL(toggled(bool)), SIGNAL(seekingChanged(bool)));
+    connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
+    connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
 }
 
 FicsDialog::~FicsDialog()
@@ -53,13 +53,13 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     m_gameId[row] = offer.gameId;
 
     ui->offerTable->setItem ( row, 0, new QTableWidgetItem ( offer.player.first ) );
-    if (offer.player.second != 0)
+    if ( offer.player.second != 0 )
     {
         ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.player.second ) ) );
     }
 
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
-    baseTimeEdit->setReadOnly(true);
+    baseTimeEdit->setReadOnly ( true );
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
     QTime baseTime = QTime();
     baseTime.setHMS ( 0, offer.baseTime, 0 );
@@ -67,7 +67,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->offerTable->setCellWidget ( row, 2, baseTimeEdit );
 
     QTimeEdit* incTimeEdit = new QTimeEdit ( this );
-    incTimeEdit->setReadOnly(true);
+    incTimeEdit->setReadOnly ( true );
     incTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
     QTime incTime = QTime();
     incTime.setHMS ( 0, 0, offer.timeIncrement );
@@ -75,15 +75,15 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->offerTable->setCellWidget ( row, 3, incTimeEdit );
 
     QCheckBox* rated = new QCheckBox ( this );
-    rated->setEnabled(false);
+    rated->setEnabled ( false );
     rated->setChecked ( offer.rated );
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
 }
 
-void FicsDialog::addChallenge(const Knights::FicsPlayer& challenger)
+void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 {
-    ui->challengeLabel->setText(i18n("Challenge from %1 (%2)", challenger.first, challenger.second));
+    ui->challengeLabel->setText ( i18n ( "Challenge from %1 (%2)", challenger.first, challenger.second ) );
 }
 
 void FicsDialog::clearOffers()
@@ -101,13 +101,13 @@ void FicsDialog::refresh()
 
 void FicsDialog::accept()
 {
-    if (ui->seekButton->isChecked())
+    if ( ui->seekButton->isChecked() )
     {
         emit acceptChallenge();
     }
     else
     {
-        emit acceptSeek(m_gameId[ui->offerTable->currentRow()]);
+        emit acceptSeek ( m_gameId[ui->offerTable->currentRow() ] );
     }
 }
 
@@ -116,9 +116,9 @@ void FicsDialog::decline()
     emit declineChallenge();
 }
 
-void FicsDialog::currentTabChanged(int tab)
+void FicsDialog::currentTabChanged ( int tab )
 {
-    emit declineButtonNeeded(tab == 1);
+    emit declineButtonNeeded ( tab == 1 );
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -50,7 +50,8 @@ ClockWidget::~ClockWidget()
 void ClockWidget::setActivePlayer ( Color color )
 {
     killTimer ( m_timerId[m_activePlayer] );
-    if ( !m_started [ color ] ) {
+    if ( !m_started [ color ] )
+    {
         m_started [ color ] = true;
         return;
     }
@@ -67,7 +68,8 @@ void ClockWidget::setDisplayedPlayer ( Color color )
 
 void ClockWidget::setPlayerName ( Color color, const QString& name )
 {
-    switch ( color ) {
+    switch ( color )
+    {
         case White:
             ui->groupW->setTitle ( name );
             break;
@@ -86,20 +88,22 @@ void ClockWidget::setCurrentTime ( Color color, const QTime& time )
 
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
     QProgressBar* bar = ( color == White ) ? ui->progressW : ui->progressB;
-    if ( seconds > bar->maximum() ) {
-        bar->setMaximum ( seconds * 1000 / timerInterval);
+    if ( seconds > bar->maximum() )
+    {
+        bar->setMaximum ( seconds * 1000 / timerInterval );
     }
-    bar->setValue ( seconds * 1000 / timerInterval);
-    
+    bar->setValue ( seconds * 1000 / timerInterval );
+
     Clock* clock = ( color == White ) ? ui->clockW : ui->clockB;
-    clock->setTime(seconds);
+    clock->setTime ( seconds );
 }
 
 void ClockWidget::setTimeLimit ( Color color, const QTime& time )
 {
     m_timeLimit[color] = time;
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
-    switch ( color ) {
+    switch ( color )
+    {
         case White:
             ui->timeW->setTime ( time );
             ui->clockW->setTime ( time );
@@ -126,17 +130,20 @@ void ClockWidget::setTimeIncrement ( Color color, int seconds )
 
 void ClockWidget::incrementTime ( Color color, int miliseconds )
 {
-    switch ( color ) {
+    switch ( color )
+    {
         case White:
-            setCurrentTime(White, ui->timeW->time().addMSecs ( miliseconds ));
-            if ( ui->progressW->value() <= 0 ) {
+            setCurrentTime ( White, ui->timeW->time().addMSecs ( miliseconds ) );
+            if ( ui->progressW->value() <= 0 )
+            {
                 emit timeOut ( White );
                 emit opponentTimeOut ( Black );
             }
             break;
         case Black:
-            setCurrentTime(Black, ui->timeB->time().addMSecs ( miliseconds ));
-            if ( ui->progressB->value() <= 0 ) {
+            setCurrentTime ( Black, ui->timeB->time().addMSecs ( miliseconds ) );
+            if ( ui->progressB->value() <= 0 )
+            {
                 emit timeOut ( Black );
                 emit opponentTimeOut ( White );
             }
@@ -162,4 +169,4 @@ void ClockWidget::resumeClock()
     m_timerId[m_activePlayer] = startTimer ( timerInterval );
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

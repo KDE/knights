@@ -29,7 +29,7 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
-    setObjectName ( QLatin1String( "GameDialogWidget" ) );
+    setObjectName ( QLatin1String ( "GameDialogWidget" ) );
     connect ( ui->timeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
     connect ( ui->sameTimeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( sameTimeChanged ( bool ) ) );
     connect ( ui->oppHuman, SIGNAL ( toggled ( bool ) ), this, SLOT ( hotseatModeToggled ( bool ) ) );
@@ -62,13 +62,13 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     switch ( Settings::color() )
     {
         case Settings::EnumColor::NoColor:
-            ui->colorRandom->setChecked(true);
+            ui->colorRandom->setChecked ( true );
             break;
         case Settings::EnumColor::White:
-            ui->colorWhite->setChecked(true);
+            ui->colorWhite->setChecked ( true );
             break;
         case Settings::EnumColor::Black:
-            ui->colorBlack->setChecked(true);
+            ui->colorBlack->setChecked ( true );
             break;
     }
 
@@ -105,7 +105,7 @@ void GameDialog::writeConfig()
 
     bool timeLimitEnabled = ui->timeCheckBox->isChecked();
     Settings::setProtocol ( selectedProtocol );
-    Settings::setColor(selectedColor);
+    Settings::setColor ( selectedColor );
     Settings::setTimeEnabled ( timeLimitEnabled );
     Settings::setSameTime ( ui->sameTimeCheckBox->isChecked() );
     Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->playerTimeEdit->time() ) );
@@ -267,13 +267,14 @@ void GameDialog::ficsModeToggled ( bool enabled )
 {
     m_forceSameTime = enabled;
     updateTimeEdits();
-    if (enabled)
+    if ( enabled )
     {
-        ui->colorRandom->setText(i18n("Choose &later"));
+        ui->colorRandom->setText ( i18n ( "Choose &later" ) );
     }
-    else {
-        ui->colorRandom->setText(i18n("&Random"));
+    else
+    {
+        ui->colorRandom->setText ( i18n ( "&Random" ) );
     }
 }
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -70,9 +70,9 @@ bool ChessRules::hasLegalMoves ( Color color )
 {
     Grid::const_iterator it = m_grid->constBegin();
     Grid::const_iterator end = m_grid->constEnd();
-    for (; it != end; ++it)
+    for ( ; it != end; ++it )
     {
-        if ( it.value() && it.value()->color() == color && !legalMoves(it.key()).isEmpty() )
+        if ( it.value() && it.value()->color() == color && !legalMoves ( it.key() ).isEmpty() )
         {
             return true;
         }
@@ -93,7 +93,7 @@ Knights::Color ChessRules::winner()
     return NoColor;
 }
 
-BoardState ChessRules::startingPieces (  )
+BoardState ChessRules::startingPieces ( )
 {
     BoardState pieces;
     // First, the white pieces
@@ -148,64 +148,64 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos )
     Color color = m_grid->value ( pos )->color();
     switch ( m_grid->value ( pos )->pieceType() )
     {
-    case King:
-        foreach ( const Pos& d, directions )
-        {
-            foreach ( const Move& m, movesInDirection ( d, pos, 1 ) )
+        case King:
+            foreach ( const Pos& d, directions )
             {
-                moves << m;
+                foreach ( const Move& m, movesInDirection ( d, pos, 1 ) )
+                {
+                    moves << m;
+                }
             }
-        }
-        isKingMoving = true;
-        moves << castlingMoves ( pos );
-        break;
-    case Queen:
-        foreach ( const Pos& d, directions )
-        {
-            moves << movesInDirection ( d, pos );
-        }
-        break;
-    case Bishop:
-        foreach ( const Pos& d, diagDirs )
-        {
-            moves << movesInDirection ( d, pos );
-        }
-        break;
-    case Rook:
-        foreach ( const Pos& d, lineDirs )
-        {
-            moves.append ( movesInDirection ( d, pos ) );
-        }
-        break;
-    case Knight:
-        foreach ( const Pos& d, knightDirs )
-        {
-            if ( !Board::isInBoard ( pos + d ) )
+            isKingMoving = true;
+            moves << castlingMoves ( pos );
+            break;
+        case Queen:
+            foreach ( const Pos& d, directions )
             {
-                continue;
+                moves << movesInDirection ( d, pos );
             }
-            if ( !m_grid->contains ( pos + d ) )
+            break;
+        case Bishop:
+            foreach ( const Pos& d, diagDirs )
             {
-                moves << Move ( pos, pos + d );
+                moves << movesInDirection ( d, pos );
             }
-            else if ( m_grid->value ( pos + d )->color() != color )
+            break;
+        case Rook:
+            foreach ( const Pos& d, lineDirs )
             {
-                moves << Move ( pos, pos + d, Move::Take );
+                moves.append ( movesInDirection ( d, pos ) );
             }
-        }
-        break;
-    case Pawn:
-        moves << pawnMoves ( pos );
-        foreach ( const Move& m, m_enPassantMoves )
-        {
-            if ( m.from() == pos )
+            break;
+        case Knight:
+            foreach ( const Pos& d, knightDirs )
             {
-                moves << m;
+                if ( !Board::isInBoard ( pos + d ) )
+                {
+                    continue;
+                }
+                if ( !m_grid->contains ( pos + d ) )
+                {
+                    moves << Move ( pos, pos + d );
+                }
+                else if ( m_grid->value ( pos + d )->color() != color )
+                {
+                    moves << Move ( pos, pos + d, Move::Take );
+                }
             }
-        }
-        break;
-    default:
-        break;
+            break;
+        case Pawn:
+            moves << pawnMoves ( pos );
+            foreach ( const Move& m, m_enPassantMoves )
+            {
+                if ( m.from() == pos )
+                {
+                    moves << m;
+                }
+            }
+            break;
+        default:
+            break;
     }
     foreach ( const Move& m, moves )
     {
@@ -229,53 +229,53 @@ QList<Move> ChessRules::legalAttackMoves ( const Knights::Pos& pos, Grid* grid )
     QList<Move> moves;
     switch ( grid->value ( pos )->pieceType() )
     {
-    case King:
-        foreach ( const Pos& d, directions )
-        {
-            moves << movesInDirection ( d, pos, 1, true, grid );
-        }
-        break;
-    case Queen:
-        foreach ( const Pos& d, directions )
-        {
-            moves << movesInDirection ( d, pos, 8, true, grid );
-        }
-        break;
-    case Bishop:
-        foreach ( const Pos& d, diagDirs )
-        {
-            moves << movesInDirection ( d, pos, 8, true, grid );
-        }
-        break;
-    case Rook:
-        foreach ( const Pos& d, lineDirs )
-        {
-            moves.append ( movesInDirection ( d, pos, 8, true, grid ) );
-        }
-        break;
-    case Knight:
-        foreach ( const Pos& d, knightDirs )
-        {
-            if ( Board::isInBoard ( pos + d ) )
+        case King:
+            foreach ( const Pos& d, directions )
             {
-                moves << Move ( pos, pos + d );
+                moves << movesInDirection ( d, pos, 1, true, grid );
             }
-        }
-        break;
-    case Pawn:
-        if ( grid->value ( pos )->color() == White )
-        {
-            moves << movesInDirection ( directions[NE], pos, 1, true, grid );
-            moves << movesInDirection ( directions[NW], pos, 1, true );
-        }
-        else
-        {
-            moves << movesInDirection ( directions[SE], pos, 1, true, grid );
-            moves << movesInDirection ( directions[SW], pos, 1, true, grid );
-        }
-        break;
-    default:
-        break;
+            break;
+        case Queen:
+            foreach ( const Pos& d, directions )
+            {
+                moves << movesInDirection ( d, pos, 8, true, grid );
+            }
+            break;
+        case Bishop:
+            foreach ( const Pos& d, diagDirs )
+            {
+                moves << movesInDirection ( d, pos, 8, true, grid );
+            }
+            break;
+        case Rook:
+            foreach ( const Pos& d, lineDirs )
+            {
+                moves.append ( movesInDirection ( d, pos, 8, true, grid ) );
+            }
+            break;
+        case Knight:
+            foreach ( const Pos& d, knightDirs )
+            {
+                if ( Board::isInBoard ( pos + d ) )
+                {
+                    moves << Move ( pos, pos + d );
+                }
+            }
+            break;
+        case Pawn:
+            if ( grid->value ( pos )->color() == White )
+            {
+                moves << movesInDirection ( directions[NE], pos, 1, true, grid );
+                moves << movesInDirection ( directions[NW], pos, 1, true );
+            }
+            else
+            {
+                moves << movesInDirection ( directions[SE], pos, 1, true, grid );
+                moves << movesInDirection ( directions[SW], pos, 1, true, grid );
+            }
+            break;
+        default:
+            break;
     }
     return moves;
 }
@@ -289,21 +289,21 @@ Rules::Directions ChessRules::legalDirections ( PieceType type )
 {
     switch ( type )
     {
-    case Queen:
-    case King:
-    case Knight:
-        return AllDirections;
+        case Queen:
+        case King:
+        case Knight:
+            return AllDirections;
 
-    case Pawn:
-        return N;
+        case Pawn:
+            return N;
 
-    case Rook:
-        return LineDirections;
+        case Rook:
+            return LineDirections;
 
-    case Bishop:
-        return DiagDirections;
-    default:
-        return None;
+        case Bishop:
+            return DiagDirections;
+        default:
+            return None;
     }
 }
 
@@ -316,9 +316,9 @@ bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
     }
     Grid::const_iterator it = grid->constBegin();
     Grid::const_iterator end = grid->constEnd();
-    for (; it != end; ++it)
+    for ( ; it != end; ++it )
     {
-        if ( it.value() && it.value()->color() != color && legalAttackMoves(it.key(), grid).contains(Move(it.key(),pos)) )
+        if ( it.value() && it.value()->color() != color && legalAttackMoves ( it.key(), grid ).contains ( Move ( it.key(), pos ) ) )
         {
             return true;
         }
@@ -326,11 +326,11 @@ bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
     return false;
 }
 
-bool ChessRules::isAttacking(const Knights::Pos& attackingPos)
+bool ChessRules::isAttacking ( const Knights::Pos& attackingPos )
 {
-    const Color pieceColor = m_grid->value(attackingPos)->color();
-    const Color kingColor = oppositeColor(pieceColor);
-    return legalAttackMoves ( attackingPos, m_grid ).contains ( Move ( attackingPos, kingPos[kingColor] ) ); 
+    const Color pieceColor = m_grid->value ( attackingPos )->color();
+    const Color kingColor = oppositeColor ( pieceColor );
+    return legalAttackMoves ( attackingPos, m_grid ).contains ( Move ( attackingPos, kingPos[kingColor] ) );
 }
 
 
@@ -458,48 +458,48 @@ void ChessRules::moveMade ( const Knights::Move& m )
     m_enPassantMoves.clear();
     switch ( m_grid->value ( m.to() )->pieceType() )
     {
-        // For Kings and Rook, we track their movement for Castling
-    case King:
-        kDebug() << "King moved to" << m.to();
-        kingMoved[m_grid->value ( m.to() )->color() ] = true;
-        kingPos[m_grid->value ( m.to() )->color() ] = m.to();
-        break;
-    case Rook:
-        if ( m.from() == kingRookStartPos[White] )
-        {
-            kingRookMoved[White] = true;
-        }
-        else if ( m.from() == queenRookStartPos[White] )
-        {
-            queenRookMoved[White] = true;
-        }
-        else if ( m.from() == kingRookStartPos[Black] )
-        {
-            kingRookMoved[Black] = true;
-        }
-        else if ( m.from() == queenRookStartPos[Black] )
-        {
-            queenRookMoved[Black] = true;
-        }
-        break;
-
-        // We track Pawns for en-passant
-    case Pawn:
-        if ( length ( m ) == 2 )
-        {
-            Pos mid = ( m.to() + m.from() ) / 2;
-            foreach ( Direction dir, QList<Direction>() << W << E )
-            if ( m_grid->contains ( m.to() + directions[dir] ) )
+            // For Kings and Rook, we track their movement for Castling
+        case King:
+            kDebug() << "King moved to" << m.to();
+            kingMoved[m_grid->value ( m.to() )->color() ] = true;
+            kingPos[m_grid->value ( m.to() )->color() ] = m.to();
+            break;
+        case Rook:
+            if ( m.from() == kingRookStartPos[White] )
             {
-                Move enPassantMove;
-                enPassantMove.setFrom ( m.to() + directions[dir] );
-                enPassantMove.setTo ( mid );
-                enPassantMove.setFlag ( Move::EnPassant, true );
-                m_enPassantMoves << enPassantMove;
+                kingRookMoved[White] = true;
             }
-        }
-    default:
-        break;
+            else if ( m.from() == queenRookStartPos[White] )
+            {
+                queenRookMoved[White] = true;
+            }
+            else if ( m.from() == kingRookStartPos[Black] )
+            {
+                kingRookMoved[Black] = true;
+            }
+            else if ( m.from() == queenRookStartPos[Black] )
+            {
+                queenRookMoved[Black] = true;
+            }
+            break;
+
+            // We track Pawns for en-passant
+        case Pawn:
+            if ( length ( m ) == 2 )
+            {
+                Pos mid = ( m.to() + m.from() ) / 2;
+                foreach ( Direction dir, QList<Direction>() << W << E )
+                if ( m_grid->contains ( m.to() + directions[dir] ) )
+                {
+                    Move enPassantMove;
+                    enPassantMove.setFrom ( m.to() + directions[dir] );
+                    enPassantMove.setTo ( mid );
+                    enPassantMove.setFlag ( Move::EnPassant, true );
+                    m_enPassantMoves << enPassantMove;
+                }
+            }
+        default:
+            break;
     }
     MoveData data;
     data.m = m;
@@ -564,4 +564,4 @@ bool Knights::ChessRules::isPathClear ( const Knights::Pos& from, const Knights:
     }
     return true;
 }
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

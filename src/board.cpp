@@ -52,35 +52,35 @@ const qreal motionMarkerZValue = 1.5;
 const qreal legalMarkerZValue = 2.0;
 const qreal dragZValue = 3.0;
 
-const QString whiteTileKey = QLatin1String( "WhiteTile" );
-const QString blackTileKey = QLatin1String( "BlackTile" );
-const QString legalMarkerKey = QLatin1String( "Marker" );
-const QString motionMarkerKey = QLatin1String( "Motion" );
-const QString dangerMarkerKey = QLatin1String( "Danger" );
+const QString whiteTileKey = QLatin1String ( "WhiteTile" );
+const QString blackTileKey = QLatin1String ( "BlackTile" );
+const QString legalMarkerKey = QLatin1String ( "Marker" );
+const QString motionMarkerKey = QLatin1String ( "Motion" );
+const QString dangerMarkerKey = QLatin1String ( "Danger" );
 
-const QString tbBorderKey = QLatin1String( "TopBottomBorder" );
-const QString lrBorderKey = QLatin1String( "LeftRightBorder" );
-const QString whiteLettersKey = QLatin1String( "WhiteLetters" );
-const QString blackLettersKey = QLatin1String( "BlackLetters" );
-const QString whiteNumbersKey = QLatin1String( "WhiteNumbers" );
-const QString blackNumbersKey = QLatin1String( "BlackNumbers" );
+const QString tbBorderKey = QLatin1String ( "TopBottomBorder" );
+const QString lrBorderKey = QLatin1String ( "LeftRightBorder" );
+const QString whiteLettersKey = QLatin1String ( "WhiteLetters" );
+const QString blackLettersKey = QLatin1String ( "BlackLetters" );
+const QString whiteNumbersKey = QLatin1String ( "WhiteNumbers" );
+const QString blackNumbersKey = QLatin1String ( "BlackNumbers" );
 
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
-    renderer = new Renderer( Settings::theme() );
+    renderer = new Renderer ( Settings::theme() );
     setRuleSet ( new ChessRules );
     updateTheme();
     m_currentPlayer = White;
     m_paused = false;
 
-    connect ( this, SIGNAL(displayedPlayerChanged(Color)), SLOT(changeDisplayedPlayer()) );
+    connect ( this, SIGNAL ( displayedPlayerChanged ( Color ) ), SLOT ( changeDisplayedPlayer() ) );
 }
 
 Board::~Board()
 {
-    qDeleteAll(m_grid);
-    qDeleteAll(m_tiles);
-    qDeleteAll(markers);
+    qDeleteAll ( m_grid );
+    qDeleteAll ( m_tiles );
+    qDeleteAll ( markers );
     delete renderer;
 }
 
@@ -105,20 +105,20 @@ void Board::movePiece ( Move m, bool changePlayer )
     m_rules->checkSpecialFlags ( m );
     if ( m.flags() & Move::Promote )
     {
-        m_grid[m.from()]->setPieceType(m.promotedType() ? m.promotedType() : Queen);
+        m_grid[m.from() ]->setPieceType ( m.promotedType() ? m.promotedType() : Queen );
     }
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
     delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
-    if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer )))
+    if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer ) ) )
     {
         // We only display motion and danger markers if the next player is a human
-        if (Settings::showMotion())
+        if ( Settings::showMotion() )
         {
             addMarker ( m.from(), Motion );
             addMarker ( m.to(), Motion );
         }
-        if (Settings::showDanger())
+        if ( Settings::showDanger() )
         {
             bool check = false;
             foreach ( Piece* piece, m_grid )
@@ -126,7 +126,7 @@ void Board::movePiece ( Move m, bool changePlayer )
                 if ( piece->color() == m_currentPlayer && m_rules->isAttacking ( piece->boardPos() ) )
                 {
                     check = true;
-                    addMarker( piece->boardPos(), Danger );
+                    addMarker ( piece->boardPos(), Danger );
                 }
             }
             if ( check )
@@ -135,7 +135,7 @@ void Board::movePiece ( Move m, bool changePlayer )
                 {
                     if ( piece->color() != m_currentPlayer && piece->pieceType() == King )
                     {
-                        addMarker( piece->boardPos(), Danger );
+                        addMarker ( piece->boardPos(), Danger );
                     }
                 }
             }
@@ -175,28 +175,28 @@ void Board::populate()
     const BoardState pieces = m_rules->startingPieces();
     BoardState::const_iterator it = pieces.constBegin();
     BoardState::const_iterator end = pieces.constEnd();
-    for (; it != end; ++it)
+    for ( ; it != end; ++it )
     {
-        addPiece( it.value().second, it.value().first, it.key() );
+        addPiece ( it.value().second, it.value().first, it.key() );
     }
     updateGraphics();
 }
 
 void Board::addTiles()
 {
-    if (!m_tiles.isEmpty())
+    if ( !m_tiles.isEmpty() )
     {
         kWarning() << "Tiles are already present, delete them first";
         return;
     }
-    for (int i = 1; i < 9; ++i)
+    for ( int i = 1; i < 9; ++i )
     {
-        for (int j = 1; j < 9; ++j)
+        for ( int j = 1; j < 9; ++j )
         {
-            QString key = ((i+j) % 2 == 0) ? blackTileKey : whiteTileKey;
-            Item* tile = new Item ( renderer, key, this, Pos(i,j) );
-            tile->setZValue(tileZValue);
-            m_tiles.insert(Pos(i,j), tile);
+            QString key = ( ( i + j ) % 2 == 0 ) ? blackTileKey : whiteTileKey;
+            Item* tile = new Item ( renderer, key, this, Pos ( i, j ) );
+            tile->setZValue ( tileZValue );
+            m_tiles.insert ( Pos ( i, j ), tile );
         }
     }
 }
@@ -225,7 +225,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
     else
     {
         // The active player clicked on his/her own piece
-        qDeleteAll(markers);
+        qDeleteAll ( markers );
         markers.clear();
         Pos t_pos = mapFromScene ( e->scenePos() );
         QList<Move> t_legalMoves = m_rules->legalMoves ( t_pos );
@@ -235,7 +235,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             return;
         }
         d_piece->setZValue ( dragZValue );
-        if (Settings::showMarker())
+        if ( Settings::showMarker() )
         {
             foreach ( const Move& t_move, t_legalMoves )
             {
@@ -243,7 +243,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             }
         }
         QDrag* drag = new QDrag ( e->widget() );
-        QString posText = QString::number ( t_pos.first ) + QLatin1Char( '_' ) + QString::number ( t_pos.second );
+        QString posText = QString::number ( t_pos.first ) + QLatin1Char ( '_' ) + QString::number ( t_pos.second );
         QMimeData* data = new QMimeData;
         data->setText ( posText );
         m_draggedItem = d_piece;
@@ -256,12 +256,12 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 
 void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 {
-    qDeleteAll(markers);
+    qDeleteAll ( markers );
     markers.clear();
 
     if ( e->mimeData()->hasText() )
     {
-        QStringList list = e->mimeData()->text().split ( QLatin1Char( '_' ) );
+        QStringList list = e->mimeData()->text().split ( QLatin1Char ( '_' ) );
         if ( list.size() < 2 )
         {
             e->ignore();
@@ -276,16 +276,16 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         }
         else
         {
-            move.setFlag( Move::Take, m_grid.contains( to ) );
+            move.setFlag ( Move::Take, m_grid.contains ( to ) );
 
-            if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8) )
+            if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8 ) )
             {
                 move.setFlag ( Move::Promote, true );
                 KDialog dialog;
-                dialog.setButtons( KDialog::Ok );
-                dialog.setButtonText( KDialog::Ok, i18n("Promote") );
-                dialog.setCaption( i18n("Promotion") );
-                QWidget promotionWidget( &dialog );
+                dialog.setButtons ( KDialog::Ok );
+                dialog.setButtonText ( KDialog::Ok, i18n ( "Promote" ) );
+                dialog.setCaption ( i18n ( "Promotion" ) );
+                QWidget promotionWidget ( &dialog );
                 Ui::PromotionWidget ui;
                 ui.setupUi ( &promotionWidget );
                 dialog.setMainWidget ( &promotionWidget );
@@ -309,7 +309,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
                         pType = Rook;
                     }
                 }
-                move.setPromotedType( pType );
+                move.setPromotedType ( pType );
             }
             movePiece ( move );
             emit pieceMoved ( move );
@@ -371,17 +371,17 @@ QPointF Board::mapToScene ( Pos pos )
 void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool animated )
 {
     item->setBoardPos ( pos );
-    centerOnPos( item, animated );
+    centerOnPos ( item, animated );
 }
 
-void Board::centerOnPos(Item* item, bool animated)
+void Board::centerOnPos ( Item* item, bool animated )
 {
-    item->moveAndResize(mapToScene(item->boardPos()), m_tileSize, item->renderSize(), animated);
+    item->moveAndResize ( mapToScene ( item->boardPos() ), m_tileSize, item->renderSize(), animated );
 }
 
-void Board::centerAndResize(Item* item, QSize size, bool animated)
+void Board::centerAndResize ( Item* item, QSize size, bool animated )
 {
-    item->moveAndResize(mapToScene(item->boardPos()), m_tileSize, size, animated);
+    item->moveAndResize ( mapToScene ( item->boardPos() ), m_tileSize, size, animated );
 }
 
 bool Board::isInBoard ( const Knights::Pos& pos )
@@ -437,7 +437,7 @@ void Board::setCurrentColor ( Color color )
 void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
 {
     QString key;
-    switch (type)
+    switch ( type )
     {
         case LegalMove:
             key = legalMarkerKey;
@@ -449,21 +449,21 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
             key = motionMarkerKey;
             break;
     }
-    addMarker(pos, key);
+    addMarker ( pos, key );
 }
 
-void Board::addMarker(const Knights::Pos& pos, QString spriteKey)
+void Board::addMarker ( const Knights::Pos& pos, QString spriteKey )
 {
-    if (markers.contains(pos))
+    if ( markers.contains ( pos ) )
     {
         // Prevent two markers (usually Motion and Danger) from being on the same square
         delete markers[pos];
     }
-    Item* marker = new Item ( renderer, spriteKey, this, pos);
-    centerOnPos(marker, false);
-    marker->setRenderSize ( QSizeF(m_tileSize, m_tileSize).toSize() );
+    Item* marker = new Item ( renderer, spriteKey, this, pos );
+    centerOnPos ( marker, false );
+    marker->setRenderSize ( QSizeF ( m_tileSize, m_tileSize ).toSize() );
     marker->setZValue ( legalMarkerZValue );
-    markers.insert(pos, marker);
+    markers.insert ( pos, marker );
 }
 
 void Board::setPaused ( bool paused )
@@ -474,58 +474,58 @@ void Board::setPaused ( bool paused )
 
 void Board::updateTheme()
 {
-    renderer->setTheme( Settings::theme() );
-    #if not defined WITH_KGR
-        // Using QGraphicsSvgItems, loading a new file and then resizing does not work
-        // instead, we have to delete every item and re-create it
-        foreach ( Piece* p, m_grid )
-        {
-            addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
-            delete p;
-        }
-        // If the user is changing the theme, he/she probably already saw any current markers
-        qDeleteAll(markers);
-        markers.clear();
-
-        qDeleteAll(m_tiles);
-        m_tiles.clear();
-    #endif    
-    qDeleteAll(m_borders);
-    m_borders.clear();
-    qDeleteAll(m_notations);
-    m_notations.clear();
-    m_displayBorders = Settings::borderDisplayType() != Settings::EnumBorderDisplayType::None 
-                && renderer->spriteExists(lrBorderKey)
-                && renderer->spriteExists(tbBorderKey);
-    m_displayNotations = Settings::borderDisplayType() == Settings::EnumBorderDisplayType::Notation
-                && renderer->spriteExists(whiteLettersKey)
-                && renderer->spriteExists(blackLettersKey)
-                && renderer->spriteExists(whiteNumbersKey)
-                && renderer->spriteExists(blackNumbersKey);
-    if ( m_displayBorders ) 
+    renderer->setTheme ( Settings::theme() );
+#if not defined WITH_KGR
+    // Using QGraphicsSvgItems, loading a new file and then resizing does not work
+    // instead, we have to delete every item and re-create it
+    foreach ( Piece* p, m_grid )
     {
-        m_borders << new Item(renderer, tbBorderKey, this, Pos());
-        Item *tItem = new Item(renderer, lrBorderKey, this, Pos());
-        tItem->setTransformOriginPoint(tItem->boundingRect().center());
-        tItem->setRotation(180);
+        addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
+        delete p;
+    }
+    // If the user is changing the theme, he/she probably already saw any current markers
+    qDeleteAll ( markers );
+    markers.clear();
+
+    qDeleteAll ( m_tiles );
+    m_tiles.clear();
+#endif
+    qDeleteAll ( m_borders );
+    m_borders.clear();
+    qDeleteAll ( m_notations );
+    m_notations.clear();
+    m_displayBorders = Settings::borderDisplayType() != Settings::EnumBorderDisplayType::None
+                       && renderer->spriteExists ( lrBorderKey )
+                       && renderer->spriteExists ( tbBorderKey );
+    m_displayNotations = Settings::borderDisplayType() == Settings::EnumBorderDisplayType::Notation
+                         && renderer->spriteExists ( whiteLettersKey )
+                         && renderer->spriteExists ( blackLettersKey )
+                         && renderer->spriteExists ( whiteNumbersKey )
+                         && renderer->spriteExists ( blackNumbersKey );
+    if ( m_displayBorders )
+    {
+        m_borders << new Item ( renderer, tbBorderKey, this, Pos() );
+        Item *tItem = new Item ( renderer, lrBorderKey, this, Pos() );
+        tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
+        tItem->setRotation ( 180 );
         m_borders << tItem;
-        tItem = new Item(renderer, tbBorderKey, this, Pos());
-        tItem->setTransformOriginPoint(tItem->boundingRect().center());
-        tItem->setRotation(180);
+        tItem = new Item ( renderer, tbBorderKey, this, Pos() );
+        tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
+        tItem->setRotation ( 180 );
         m_borders << tItem;
-        m_borders << new Item(renderer, lrBorderKey, this, Pos());
-        foreach (Item* item, m_borders)
+        m_borders << new Item ( renderer, lrBorderKey, this, Pos() );
+        foreach ( Item* item, m_borders )
         {
             item->setZValue ( borderZValue );
         }
     }
-    if ( m_displayBorders ) 
+    if ( m_displayBorders )
     {
-        m_notations << new Item(renderer, QString(), this, Pos());
-        m_notations << new Item(renderer, QString(), this, Pos());
-        m_notations << new Item(renderer, QString(), this, Pos());
-        m_notations << new Item(renderer, QString(), this, Pos());
-        foreach (Item* item, m_notations)
+        m_notations << new Item ( renderer, QString(), this, Pos() );
+        m_notations << new Item ( renderer, QString(), this, Pos() );
+        m_notations << new Item ( renderer, QString(), this, Pos() );
+        m_notations << new Item ( renderer, QString(), this, Pos() );
+        foreach ( Item* item, m_notations )
         {
             item->setZValue ( notationZValue );
         }
@@ -536,68 +536,68 @@ void Board::updateTheme()
 
 void Board::updateGraphics()
 {
-    QSizeF tileSize = renderer->boundsOnSprite(whiteTileKey).size();
+    QSizeF tileSize = renderer->boundsOnSprite ( whiteTileKey ).size();
     QSizeF boardSize = 8 * tileSize;
     qreal sideMargin;
     qreal topMargin;
     if ( m_displayBorders )
     {
-        sideMargin = renderer->boundsOnSprite(lrBorderKey).width();
-        topMargin = renderer->boundsOnSprite(tbBorderKey).height();
+        sideMargin = renderer->boundsOnSprite ( lrBorderKey ).width();
+        topMargin = renderer->boundsOnSprite ( tbBorderKey ).height();
     }
     else
     {
         sideMargin = 0.5 * tileSize.width();
         topMargin = 0.5 * tileSize.height();
     }
-    boardSize = boardSize + 2 * QSizeF(sideMargin, topMargin);
-    qreal ratio = qMin(sceneRect().width()/boardSize.width(), sceneRect().height()/boardSize.height());
+    boardSize = boardSize + 2 * QSizeF ( sideMargin, topMargin );
+    qreal ratio = qMin ( sceneRect().width() / boardSize.width(), sceneRect().height() / boardSize.height() );
     sideMargin *= ratio;
     topMargin *= ratio;
 
     QSizeF tpSize = tileSize * ratio;
-    m_tileSize = floor ( qMin(tpSize.width(), tpSize.height()));
+    m_tileSize = floor ( qMin ( tpSize.width(), tpSize.height() ) );
 
-    QSize hBorderSize = (QSizeF(8*m_tileSize + 2*sideMargin, topMargin)).toSize();
-    QSize vBorderSize = (QSizeF(sideMargin, 8*m_tileSize)).toSize();
+    QSize hBorderSize = ( QSizeF ( 8 * m_tileSize + 2 * sideMargin, topMargin ) ).toSize();
+    QSize vBorderSize = ( QSizeF ( sideMargin, 8 * m_tileSize ) ).toSize();
     qreal hBorderMargin = topMargin;
     qreal vBorderMargin = sideMargin;
- 
-    sideMargin = qMax ( sideMargin, (sceneRect().width() - 8 * m_tileSize) / 2 );
-    topMargin = qMax ( topMargin, (sceneRect().height() - 8 * m_tileSize) / 2 );
-    m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
-    QSize tSize = QSizeF(m_tileSize, m_tileSize).toSize();
 
-    QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPointF( vBorderMargin, 0.0 );
-    QPointF topBorderPoint = m_boardRect.topLeft() - QPointF( vBorderMargin, hBorderMargin );
-    QPointF leftBorderPoint = m_boardRect.topLeft() - QPointF( vBorderMargin, 0.0 );
+    sideMargin = qMax ( sideMargin, ( sceneRect().width() - 8 * m_tileSize ) / 2 );
+    topMargin = qMax ( topMargin, ( sceneRect().height() - 8 * m_tileSize ) / 2 );
+    m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
+    QSize tSize = QSizeF ( m_tileSize, m_tileSize ).toSize();
+
+    QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPointF ( vBorderMargin, 0.0 );
+    QPointF topBorderPoint = m_boardRect.topLeft() - QPointF ( vBorderMargin, hBorderMargin );
+    QPointF leftBorderPoint = m_boardRect.topLeft() - QPointF ( vBorderMargin, 0.0 );
     QPointF rightBorderPoint = m_boardRect.topRight();
 
     foreach ( Piece* p, m_grid )
     {
-        centerAndResize(p, tSize);
+        centerAndResize ( p, tSize );
     }
     foreach ( Item* t, m_tiles )
     {
-        centerAndResize(t, tSize, Settings::animateBoard() );
+        centerAndResize ( t, tSize, Settings::animateBoard() );
     }
     foreach ( Item* t, markers )
     {
-        centerAndResize(t, tSize);
+        centerAndResize ( t, tSize );
     }
-    if (m_displayBorders)
+    if ( m_displayBorders )
     {
-        m_borders[0]->moveAndResize(bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
-        m_borders[1]->moveAndResize(rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
-        m_borders[2]->moveAndResize(topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
-        m_borders[3]->moveAndResize(leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
+        m_borders[0]->moveAndResize ( bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
+        m_borders[1]->moveAndResize ( rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
+        m_borders[2]->moveAndResize ( topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
+        m_borders[3]->moveAndResize ( leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
     }
-    if (m_displayNotations)
+    if ( m_displayNotations )
     {
-        m_notations[0]->moveAndResize(bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
-        m_notations[1]->moveAndResize(rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
-        m_notations[2]->moveAndResize(topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard());
-        m_notations[3]->moveAndResize(leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard());
+        m_notations[0]->moveAndResize ( bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
+        m_notations[1]->moveAndResize ( rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
+        m_notations[2]->moveAndResize ( topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
+        m_notations[3]->moveAndResize ( leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
     }
 }
 
@@ -605,38 +605,38 @@ void Board::changeDisplayedPlayer()
 {
     foreach ( Piece* p, m_grid )
     {
-        centerOnPos( p, m_grid.key( p ) );
+        centerOnPos ( p, m_grid.key ( p ) );
     }
     foreach ( Item* i, markers )
     {
-        centerOnPos( i, i->boardPos() );
+        centerOnPos ( i, i->boardPos() );
     }
-    if (Settings::animateBoard())
+    if ( Settings::animateBoard() )
     {
         foreach ( Item* i, m_tiles )
         {
-            centerOnPos( i, i->boardPos() );
+            centerOnPos ( i, i->boardPos() );
         }
     }
-    if (m_displayNotations)
+    if ( m_displayNotations )
     {
         if ( m_displayedPlayer == White )
         {
-            m_notations[0]->setSpriteKey(whiteLettersKey);
-            m_notations[1]->setSpriteKey(whiteNumbersKey);
-            m_notations[2]->setSpriteKey(whiteLettersKey);
-            m_notations[3]->setSpriteKey(whiteNumbersKey);
+            m_notations[0]->setSpriteKey ( whiteLettersKey );
+            m_notations[1]->setSpriteKey ( whiteNumbersKey );
+            m_notations[2]->setSpriteKey ( whiteLettersKey );
+            m_notations[3]->setSpriteKey ( whiteNumbersKey );
         }
         else
         {
-            m_notations[0]->setSpriteKey(blackLettersKey);
-            m_notations[1]->setSpriteKey(blackNumbersKey);
-            m_notations[2]->setSpriteKey(blackLettersKey);
-            m_notations[3]->setSpriteKey(blackNumbersKey);
+            m_notations[0]->setSpriteKey ( blackLettersKey );
+            m_notations[1]->setSpriteKey ( blackNumbersKey );
+            m_notations[2]->setSpriteKey ( blackLettersKey );
+            m_notations[3]->setSpriteKey ( blackNumbersKey );
         }
     }
 }
 
 
 #include "board.moc"
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

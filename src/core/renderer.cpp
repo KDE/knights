@@ -26,10 +26,10 @@
 
 using namespace Knights;
 
-Renderer::Renderer(const QString& defaultTheme)
+Renderer::Renderer ( const QString& defaultTheme )
 {
     m_theme = new KGameTheme;
-    setTheme(defaultTheme);
+    setTheme ( defaultTheme );
 }
 
 Renderer::~Renderer()
@@ -37,26 +37,27 @@ Renderer::~Renderer()
     delete m_theme;
 }
 
-bool Renderer::spriteExists(const QString& key)
+bool Renderer::spriteExists ( const QString& key )
 {
-    return elementExists(key);
+    return elementExists ( key );
 }
 
-QRectF Renderer::boundsOnSprite(const QString& key)
+QRectF Renderer::boundsOnSprite ( const QString& key )
 {
-    return boundsOnElement(key);
+    return boundsOnElement ( key );
 }
 
-void Renderer::setTheme(const QString& theme)
+void Renderer::setTheme ( const QString& theme )
 {
-    if (!m_theme->load(theme))
+    if ( !m_theme->load ( theme ) )
     {
         m_theme->loadDefault();
     }
-    load(m_theme->graphics());
+    load ( m_theme->graphics() );
 }
 
 
 
 
 #endif // WITH_KGR
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

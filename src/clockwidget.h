@@ -30,7 +30,10 @@ class QGroupBox;
 class QTimer;
 class QTime;
 
-namespace Ui {class ClockWidget;}
+namespace Ui
+{
+    class ClockWidget;
+}
 
 namespace Knights
 {
@@ -73,4 +76,4 @@ namespace Knights
 }
 
 #endif // KNIGHTS_CLOCKWIDGET_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

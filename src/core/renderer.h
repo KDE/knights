@@ -24,36 +24,38 @@
 
 #include "kdeversion.h"
 #if defined WITH_KGR
-    #include <KGameRenderer>
+#include <KGameRenderer>
 #else
-    #include <QtSvg/QSvgRenderer>
+#include <QtSvg/QSvgRenderer>
 #endif
 
 class KGameTheme;
 
-namespace Knights {
+namespace Knights
+{
 
 #if defined WITH_KGR
-typedef KGameRenderer Renderer;
+    typedef KGameRenderer Renderer;
 #else
-class Renderer : public QSvgRenderer
-{
-    Q_OBJECT
-    public:
-    Renderer(const QString& defaultTheme);
-    virtual ~Renderer();
-    
-    bool spriteExists(const QString& key);
-    QRectF boundsOnSprite(const QString& key);
-    
-    public Q_SLOTS:
-    void setTheme(const QString& theme);
-    
-    private:
-        KGameTheme* m_theme;
-};
+    class Renderer : public QSvgRenderer
+    {
+            Q_OBJECT
+        public:
+            Renderer ( const QString& defaultTheme );
+            virtual ~Renderer();
+
+            bool spriteExists ( const QString& key );
+            QRectF boundsOnSprite ( const QString& key );
+
+        public Q_SLOTS:
+            void setTheme ( const QString& theme );
+
+        private:
+            KGameTheme* m_theme;
+    };
 #endif
 
 }
 
 #endif // KNIGHTS_RENDERER_H
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
