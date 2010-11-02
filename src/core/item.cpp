@@ -182,7 +182,7 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         setPos ( pos );
-	setRenderSize ( size );
+        setRenderSize ( size );
     }
     else
     {
@@ -202,18 +202,18 @@ void Knights::Item::moveAndResize(const QPointF& pos, qreal tileSize, const QSiz
                 break;
         }
         duration *= qSqrt ( QPointF ( this->pos() - pos ).manhattanLength() / tileSize);
-	QParallelAnimationGroup* group = new QParallelAnimationGroup;
+        QParallelAnimationGroup* group = new QParallelAnimationGroup;
         QPropertyAnimation* posAnimation = new QPropertyAnimation ( this, "pos" );
         posAnimation->setDuration ( duration );
         posAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
         posAnimation->setEndValue ( pos );
-	group->addAnimation(posAnimation);
-	QPropertyAnimation* sizeAnimation = new QPropertyAnimation ( this, "renderSize" );
+        group->addAnimation(posAnimation);
+        QPropertyAnimation* sizeAnimation = new QPropertyAnimation ( this, "renderSize" );
         sizeAnimation->setDuration ( duration );
-	sizeAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
-	sizeAnimation->setEndValue ( size );
-	group->addAnimation(sizeAnimation);
-	group->start ( QAbstractAnimation::DeleteWhenStopped );
+        sizeAnimation->setEasingCurve ( QEasingCurve::InOutCubic );
+        sizeAnimation->setEndValue ( size );
+        group->addAnimation(sizeAnimation);
+        group->start ( QAbstractAnimation::DeleteWhenStopped );
     }
 #else
     Q_UNUSED ( animated );
