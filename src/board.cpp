@@ -366,7 +366,7 @@ QPointF Board::mapToScene ( Pos pos )
     return point;
 }
 
-void Board::centerOnPos ( Knights::Item* item, const Knights::Pos& pos, bool animated )
+void Board::centerOnPos ( Item* item, const Pos& pos, bool animated )
 {
     item->setBoardPos ( pos );
     centerOnPos ( item, animated );
@@ -603,17 +603,17 @@ void Board::changeDisplayedPlayer()
 {
     foreach ( Piece* p, m_grid )
     {
-        centerOnPos ( p, m_grid.key ( p ) );
+        centerOnPos ( p );
     }
     foreach ( Item* i, markers )
     {
-        centerOnPos ( i, i->boardPos() );
+        centerOnPos ( i );
     }
     if ( Settings::animateBoard() )
     {
         foreach ( Item* i, m_tiles )
         {
-            centerOnPos ( i, i->boardPos() );
+            centerOnPos ( i );
         }
     }
     if ( m_displayNotations )
