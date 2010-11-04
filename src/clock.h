@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010 Thomas Kamps
+    Copyright 2010 Thomas Kamps <anubis1@linux-ecke.de>
+    Copyright 2010 Miha Čančula <miha.cancula@gmail.com>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
