@@ -87,7 +87,7 @@
         <choice name="White" />
         <choice name="Black" />
       </choices>
-      <label>the local human player's color in a game against a computer or over the internet.</label>
+      <label>the local human player's color in a game against a computer or over the Internet.</label>
       <default>NoColor</default>
     </entry>
     <entry name="program" type="Path">
