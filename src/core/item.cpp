@@ -136,7 +136,8 @@ void Item::move ( const QPointF& pos, qreal tileSize, bool animated )
     }
 #else
     Q_UNUSED ( animated );
-    item->setPos ( endPos );
+    Q_UNUSED ( tileSize );
+    setPos ( pos );
 #endif
 }
 
@@ -217,7 +218,8 @@ void Knights::Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QS
     }
 #else
     Q_UNUSED ( animated );
-    item->setPos ( endPos );
+    Q_UNUSED ( tileSize );
+    setPos ( pos );
     setRenderSize ( size );
 #endif
 }
