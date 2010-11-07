@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>345</width>
-    <height>293</height>
+    <width>402</width>
+    <height>660</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -22,8 +22,16 @@
       </item>
       <item>
        <widget class="QTimeEdit" name="timeB">
+        <property name="font">
+         <font>
+          <pointsize>32</pointsize>
+         </font>
+        </property>
         <property name="readOnly">
          <bool>true</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
         </property>
         <property name="displayFormat">
          <string>H:mm:ss</string>
@@ -54,8 +62,16 @@
       </item>
       <item>
        <widget class="QTimeEdit" name="timeW">
+        <property name="font">
+         <font>
+          <pointsize>32</pointsize>
+         </font>
+        </property>
         <property name="readOnly">
          <bool>true</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
         </property>
         <property name="maximumTime">
          <time>
