@@ -29,6 +29,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <Plasma/Svg>
+#include <KDebug>
 
 using namespace Knights;
 
@@ -187,6 +188,9 @@ void Clock::paintInterface(QPainter *p, const QRect &rect)
     QRect targetRect = faceRect;
     if (targetRect.width() < rect.width()) {
         targetRect.moveLeft((rect.width() - targetRect.width()) / 2);
+    }
+    if (targetRect.height() < rect.height()) {
+        targetRect.moveTop((rect.height() - targetRect.height()) / 2);
     }
 
     p->drawPixmap(targetRect, m_handsCache, faceRect);
