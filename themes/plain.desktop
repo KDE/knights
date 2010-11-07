@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Plain
 Name[da]=Almindeligt
+Name[de]=Einfach
 Name[et]=Tavaline
 Name[nds]=Liekut
 Name[nl]=Gewoon
@@ -13,6 +14,7 @@ Name[x-test]=xxPlainxx
 Name[zh_TW]=普通
 Description=A plain and simple theme
 Description[da]=Et almindeligt simpelt tema
+Description[de]=Ein einfaches Design für Knights.
 Description[et]=Lihtne teema
 Description[nds]=En liekut un eenfach Muster
 Description[nl]=Een gewoon en eenvoudig thema

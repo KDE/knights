@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=XBoard Two
 Name[da]=XBoard To
+Name[de]=XBoard Two
 Name[et]=XBoard Two
 Name[nl]=XBoard twee
 Name[pt]=XBoard Dois
@@ -12,6 +13,7 @@ Name[x-test]=xxXBoard Twoxx
 Name[zh_TW]=XBoard Two
 Description=Theme variation of XBoard chess program.
 Description[da]=Variant af temaet fra skakprogrammet XBoard.
+Description[de]=Ein geändertes Design der XBoard-Schachanwendung.
 Description[et]=XBoardi maleprogrammi teema.
 Description[nl]=Thema van het XBoard schaakprogramma
 Description[pt]=Uma variante do tema do programa de xadrez XBoard.
