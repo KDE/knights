@@ -1,7 +1,10 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010 Thomas Kamps <anubis1@linux-ecke.de>
     Copyright 2010 Miha Čančula <miha.cancula@gmail.com>
+
+    Plasma analog-clock drawing code:
+    Copyright 2007 by Aaron Seigo <aseigo@kde.org>
+    Copyright 2007 by Riccardo Iaconelli <riccardo@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -25,94 +28,179 @@
 #include <math.h>
 #include <QPainter>
 #include <QPaintEvent>
-#include <QTime>
+#include <Plasma/Svg>
 
 using namespace Knights;
 
-Clock::Clock ( QWidget *parent, Qt::WindowFlags f ) : QWidget ( parent, f )
+Clock::Clock(QWidget *parent)
+    : QWidget(parent)
 {
-    hour = 0;
-    minute = 0;
-    second = 0;
+    m_theme = new Plasma::Svg(this);
+    m_theme->setImagePath(QLatin1String("widgets/clock") );
+    m_theme->setContainsMultipleImages(true);
 }
 
 Clock::~Clock()
 {
-
+    delete m_theme;
 }
 
-
-void Clock::setTime ( int hour, int minute, int second )
+void Clock::showEvent( QShowEvent *event )
 {
-    if ( hour < 0 ) return;
-    if ( hour > 11 ) return;
-    if ( minute < 0 ) return;
-    if ( minute > 59 ) return;
-    if ( second < 0 ) return;
-    if ( second > 59 ) return;
-    this->hour = hour;
-    this->minute = minute;
-    this->second = second;
+    setClockSize( size() );
+    QWidget::showEvent( event );
+}
+
+void Clock::resizeEvent( QResizeEvent * )
+{
+    setClockSize( size() );
+}
+
+void Clock::setClockSize(const QSize &size)
+{
+    int dim = qMin(size.width(), size.height());
+    QSize newSize = QSize(dim, dim);
+
+    if (newSize != m_faceCache.size()) {
+        m_faceCache = QPixmap(newSize);
+        m_handsCache = QPixmap(newSize);
+        m_glassCache = QPixmap(newSize);
+
+        m_theme->resize(newSize);
+        m_repaintCache = RepaintAll;
+    }
+}
+
+void Clock::setTime(const QTime &time)
+{
+    if (time.minute() != this->time.minute() || time.hour() != this->time.hour()) {
+        if (m_repaintCache == RepaintNone) {
+            m_repaintCache = RepaintHands;
+        }
+    }
+    this->time = time;
     update();
 }
 
-void Clock::setTime ( int seconds )
+void Clock::setTime(int seconds)
 {
-    if ( seconds < 0 ) return;
-    if ( seconds > 86399 ) return;
-
-    int secs = seconds;
-    int h = secs / 3600;
-    secs = secs % 3600;
-    int m = secs / 60;
-    int s = secs % 60;
-
-    setTime ( h, m, s );
+    setTime(QTime().addSecs(seconds));
 }
 
-void Clock::setTime ( const QTime& time )
+
+void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName)
 {
-    setTime ( time.hour(), time.minute(), time.second() );
+    // this code assumes the following conventions in the svg file:
+    // - the _vertical_ position of the hands should be set with respect to the center of the face
+    // - the _horizontal_ position of the hands does not matter
+    // - the _shadow_ elements should have the same vertical position as their _hand_ element counterpart
+
+    QRectF elementRect;
+    QString name = handName + QLatin1String( "HandShadow" );
+    if (m_theme->hasElement(name)) {
+        p->save();
+
+        elementRect = m_theme->elementRect(name);
+        if( rect.height() < 64 )
+            elementRect.setWidth( elementRect.width() * 2.5 );
+        static const QPoint offset = QPoint(2, 3);
+
+        p->translate(rect.x() + (rect.width() / 2) + offset.x(), rect.y() + (rect.height() / 2) + offset.y());
+        p->rotate(rotation);
+        p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
+        m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
+
+        p->restore();
+    }
+
+    p->save();
+
+    name = handName + QLatin1String("Hand");
+    elementRect = m_theme->elementRect(name);
+    if (rect.height() < 64) {
+        elementRect.setWidth(elementRect.width() * 2.5);
+    }
+
+    p->translate(rect.x() + rect.width()/2, rect.y() + rect.height()/2);
+    p->rotate(rotation);
+    p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
+    m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
+
+    p->restore();
 }
 
-void Clock::resizeEvent ( QResizeEvent* e )
+void Clock::paintInterface(QPainter *p, const QRect &rect)
 {
-    update();
-    QWidget::resizeEvent ( e );
+    const bool m_showSecondHand = true;
+
+    // compute hand angles
+    const qreal minutes = 6.0 * time.minute() - 180;
+    const qreal hours = 30.0 * time.hour() - 180 +
+            ((time.minute() / 59.0) * 30.0);
+    qreal seconds = 0;
+    if (m_showSecondHand) {
+        static const double anglePerSec = 6;
+        seconds = anglePerSec * time.second() - 180;
+    }
+
+    // paint face and glass cache
+    QRect faceRect = m_faceCache.rect();
+    if (m_repaintCache == RepaintAll) {
+        m_faceCache.fill(Qt::transparent);
+        m_glassCache.fill(Qt::transparent);
+
+        QPainter facePainter(&m_faceCache);
+        QPainter glassPainter(&m_glassCache);
+        facePainter.setRenderHint(QPainter::SmoothPixmapTransform);
+        glassPainter.setRenderHint(QPainter::SmoothPixmapTransform);
+
+        m_theme->paint(&facePainter, m_faceCache.rect(), QLatin1String("ClockFace") );
+
+        glassPainter.save();
+        QRectF elementRect = QRectF(QPointF(0, 0), m_theme->elementSize(QLatin1String("HandCenterScrew")));
+        glassPainter.translate(faceRect.width() / 2 - elementRect.width() / 2, faceRect.height() / 2 - elementRect.height() / 2);
+        m_theme->paint(&glassPainter, elementRect, QLatin1String("HandCenterScrew"));
+        glassPainter.restore();
+
+        m_theme->paint(&glassPainter, faceRect, QLatin1String("Glass"));
+
+        // get vertical translation, see drawHand() for more details
+        m_verticalTranslation = m_theme->elementRect(QLatin1String("ClockFace")).center().y();
+    }
+
+    // paint hour and minute hands cache
+    if (m_repaintCache == RepaintHands || m_repaintCache == RepaintAll) {
+        m_handsCache.fill(Qt::transparent);
+
+        QPainter handsPainter(&m_handsCache);
+        handsPainter.drawPixmap(faceRect, m_faceCache, faceRect);
+        handsPainter.setRenderHint(QPainter::SmoothPixmapTransform);
+
+        drawHand(&handsPainter, faceRect, m_verticalTranslation, hours, QLatin1String("Hour"));
+        drawHand(&handsPainter, faceRect, m_verticalTranslation, minutes, QLatin1String("Minute"));
+    }
+
+    // reset repaint cache flag
+    m_repaintCache = RepaintNone;
+
+    // paint caches and second hand
+    QRect targetRect = faceRect;
+    if (targetRect.width() < rect.width()) {
+        targetRect.moveLeft((rect.width() - targetRect.width()) / 2);
+    }
+
+    p->drawPixmap(targetRect, m_handsCache, faceRect);
+    if (m_showSecondHand) {
+        p->setRenderHint(QPainter::SmoothPixmapTransform);
+        drawHand(p, targetRect, m_verticalTranslation, seconds, QLatin1String("Second"));
+    }
+    p->drawPixmap(targetRect, m_glassCache, faceRect);
 }
 
-void Clock::paintEvent ( QPaintEvent* e )
+void Clock::paintEvent( QPaintEvent * )
 {
-    qreal PI = 3.141592653;
-    int size = width();
-    if ( height() < size ) size = height();
+  QPainter paint(this);
 
-    QPainter p ( this );
-
-    //Draw border of clock
-    p.setPen ( QPen ( QColor ( 0, 0, 0 ), 3 ) );
-    p.drawEllipse ( ( width() - size ) / 2, ( height() - size ) / 2, size - 2, size - 2 );
-
-    //Draw hour-pointer
-    qreal angle = PI / 2 - hour * ( PI / 6 );
-    int endX = width() / 2 + cos ( angle ) * size / 4;
-    int endY = height() / 2 - sin ( angle ) * size / 4;
-    p.drawLine ( width() / 2, height() / 2, endX, endY );
-
-    //Draw minute pointer
-    p.setPen ( QPen ( QColor ( 0, 0, 0 ), 2 ) );
-    angle = PI / 2 - minute * ( PI / 30 );
-    endX = width() / 2 + cos ( angle ) * 2 * size / 6;
-    endY = height() / 2 - sin ( angle ) * 2 * size / 6;
-    p.drawLine ( width() / 2, height() / 2, endX, endY );
-
-    //Draw second pointer
-    p.setPen ( QPen ( QColor ( 0, 0, 0 ), 1 ) );
-    angle = PI / 2 - second * ( PI / 30 );
-    endX = width() / 2 + cos ( angle ) * size / 2;
-    endY = height() / 2 - sin ( angle ) * size / 2;
-    p.drawLine ( width() / 2, height() / 2, endX, endY );
-
-    e->accept();
+  paint.setRenderHint(QPainter::Antialiasing);
+  paintInterface(&paint, rect());
 }
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

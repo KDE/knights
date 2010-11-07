@@ -1,7 +1,10 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010 Thomas Kamps <anubis1@linux-ecke.de>
     Copyright 2010 Miha Čančula <miha.cancula@gmail.com>
+
+    Plasma analog-clock drawing code:
+    Copyright 2007 by Aaron Seigo <aseigo@kde.org>
+    Copyright 2007 by Riccardo Iaconelli <riccardo@kde.org>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -24,35 +27,57 @@
 #define KNIGHTS_CLOCK_H
 
 #include <QtGui/QWidget>
+#include <QtCore/QTime>
 
-class QTime;
+namespace Plasma
+{
+class Svg;
+}
 
 namespace Knights
 {
+/**
+ * This class is copied from the Date and Time KCM.
+ * See http://websvn.kde.org/trunk/KDE/kdebase/workspace/kcontrol/dateandtime/dtime.h?&view=markup
+ */
+class Clock : public QWidget
+{
+    Q_OBJECT
 
-    class Clock : public QWidget
-    {
-            Q_OBJECT
-        public:
-            explicit Clock ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-            virtual ~Clock();
+public:
+    Clock( QWidget *parent=0 );
+    ~Clock();
 
-        private:
-            int hour;
-            int minute;
-            int second;
+    void setTime(const QTime&);
+    void setTime(int);
 
-        public slots:
-            void setTime ( int hour, int minute, int second );
-            void setTime ( int seconds );
-            void setTime ( const QTime& time );
+protected:
+    virtual void paintEvent( QPaintEvent *event );
+    virtual void showEvent( QShowEvent *event );
+    virtual void resizeEvent( QResizeEvent *event );
 
-        protected:
-            virtual void paintEvent ( QPaintEvent* );
-            virtual void resizeEvent ( QResizeEvent* );
+private:
+    void setClockSize(const QSize &size);
+    void drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName);
+    void paintInterface(QPainter *p, const QRect &rect);
+
+private:
+    QTime time;
+    Plasma::Svg *m_theme;
+    enum RepaintCache {
+        RepaintNone,
+        RepaintAll,
+        RepaintHands
     };
+    RepaintCache m_repaintCache;
+    QPixmap m_faceCache;
+    QPixmap m_handsCache;
+    QPixmap m_glassCache;
+    qreal m_verticalTranslation;
+};
+
 
 }
 
 #endif // KNIGHTS_CLOCK_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+// kate: indent-mode cstyle; space-indent on; indent-width 0;  replace-tabs on;
