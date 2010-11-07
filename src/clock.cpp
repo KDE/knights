@@ -135,13 +135,13 @@ void Clock::paintInterface(QPainter *p, const QRect &rect)
     const bool m_showSecondHand = true;
 
     // compute hand angles
-    const qreal minutes = 6.0 * time.minute() - 180;
-    const qreal hours = 30.0 * time.hour() - 180 +
-            ((time.minute() / 59.0) * 30.0);
+    // Because this clock shows time remainig, all the angles are negative
+    const qreal minutes = -6.0 * time.minute() - 180;
+    const qreal hours = -30.0 * time.hour() - 180 - ((time.minute() / 59.0) * 30.0);
     qreal seconds = 0;
     if (m_showSecondHand) {
         static const double anglePerSec = 6;
-        seconds = anglePerSec * time.second() - 180;
+        seconds = -anglePerSec * time.second() - 180;
     }
 
     // paint face and glass cache
