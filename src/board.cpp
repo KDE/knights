@@ -69,8 +69,8 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
     renderer = new Renderer ( Settings::theme() );
     setRuleSet ( new ChessRules );
-    updateTheme();
     m_currentPlayer = White;
+    updateTheme();
     m_paused = false;
 }
 
@@ -519,10 +519,22 @@ void Board::updateTheme()
     }
     if ( m_displayBorders )
     {
-        m_notations << new Item ( renderer, QString(), this, Pos() );
-        m_notations << new Item ( renderer, QString(), this, Pos() );
-        m_notations << new Item ( renderer, QString(), this, Pos() );
-        m_notations << new Item ( renderer, QString(), this, Pos() );
+        QString lettersKey;
+        QString numbersKey;
+        if ( m_displayedPlayer == White )
+        {
+            lettersKey = whiteLettersKey;
+            numbersKey = whiteNumbersKey;
+        }
+        else
+        {
+            lettersKey = blackLettersKey;
+            numbersKey = blackNumbersKey;
+        }
+        m_notations << new Item ( renderer, lettersKey, this, Pos() );
+        m_notations << new Item ( renderer, numbersKey, this, Pos() );
+        m_notations << new Item ( renderer, lettersKey, this, Pos() );
+        m_notations << new Item ( renderer, numbersKey, this, Pos() );
         foreach ( Item* item, m_notations )
         {
             item->setZValue ( notationZValue );
