@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>402</width>
+    <width>243</width>
     <height>660</height>
    </rect>
   </property>
@@ -24,7 +24,7 @@
        <widget class="QTimeEdit" name="timeB">
         <property name="font">
          <font>
-          <pointsize>32</pointsize>
+          <pointsize>24</pointsize>
          </font>
         </property>
         <property name="readOnly">
@@ -64,7 +64,7 @@
        <widget class="QTimeEdit" name="timeW">
         <property name="font">
          <font>
-          <pointsize>32</pointsize>
+          <pointsize>24</pointsize>
          </font>
         </property>
         <property name="readOnly">
