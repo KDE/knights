@@ -44,14 +44,16 @@
 
 using namespace Knights;
 
-const qreal borderZValue = 0.0;
-const qreal notationZValue = 0.2;
-const qreal tileZValue = 0.5;
+const qreal backgroundZValue = -3.0;
+const qreal borderZValue = -2.0;
+const qreal notationZValue = -1.0;
+const qreal tileZValue = 0.0;
 const qreal pieceZValue = 1.0;
-const qreal motionMarkerZValue = 1.5;
-const qreal legalMarkerZValue = 2.0;
-const qreal dragZValue = 3.0;
+const qreal motionMarkerZValue = 2.0;
+const qreal legalMarkerZValue = 3.0;
+const qreal dragZValue = 4.0;
 
+const QString backgroundKey = QLatin1String ( "Background" );
 const QString whiteTileKey = QLatin1String ( "WhiteTile" );
 const QString blackTileKey = QLatin1String ( "BlackTile" );
 const QString legalMarkerKey = QLatin1String ( "Marker" );
@@ -68,6 +70,7 @@ const QString blackNumbersKey = QLatin1String ( "BlackNumbers" );
 Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
     renderer = new Renderer ( Settings::theme() );
+    m_background = 0;
     setRuleSet ( new ChessRules );
     m_currentPlayer = White;
     updateTheme();
@@ -488,6 +491,13 @@ void Board::updateTheme()
     qDeleteAll ( m_tiles );
     m_tiles.clear();
 #endif
+    delete m_background;
+    if ( renderer->elementExists ( backgroundKey ) )
+    {
+        m_background = new Item ( renderer, backgroundKey, this, Pos() );
+        m_background->setZValue ( backgroundZValue );
+    }
+    
     qDeleteAll ( m_borders );
     m_borders.clear();
     qDeleteAll ( m_notations );
@@ -546,6 +556,10 @@ void Board::updateTheme()
 
 void Board::updateGraphics()
 {
+    if ( m_background )
+    {
+        m_background->setRenderSize ( sceneRect().size().toSize() );
+    }
     QSizeF tileSize = renderer->boundsOnSprite ( whiteTileKey ).size();
     QSizeF boardSize = 8 * tileSize;
     qreal sideMargin;
@@ -590,6 +604,7 @@ void Board::updateGraphics()
     foreach ( Item* t, m_tiles )
     {
         centerAndResize ( t, tSize, Settings::animateBoard() );
+        kDebug() << t->pos();
     }
     foreach ( Item* t, markers )
     {
