@@ -83,7 +83,8 @@ namespace Knights
             virtual bool hasLegalMoves ( Color color ) = 0;
 
             /**
-              * This function is more of a giudeline for the board to determine whether a piece should be freely dragable
+              * This function is more of a guideline for the board to determine whether a piece should be freely dragable.
+              * It is currently not used anywhere in the game.
               */
             virtual Directions legalDirections ( PieceType type ) = 0;
 
