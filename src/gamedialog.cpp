@@ -250,6 +250,8 @@ void GameDialog::updateTimeEdits()
         ui->oppIncTimeEdit->setEnabled ( false );
         connect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
         connect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
+        ui->oppTimeEdit->setTime ( ui->playerTimeEdit->time() );
+        ui->oppIncTimeEdit->setTime ( ui->playerIncTimeEdit->time() );
     }
     else
     {
