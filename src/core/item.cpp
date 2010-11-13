@@ -53,6 +53,7 @@ Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos 
     setSharedRenderer ( renderer );
     setSpriteKey ( key );
     setBoardPos ( boardPos );
+    setCacheMode ( DeviceCoordinateCache );
     if ( scene )
     {
         scene->addItem ( this );

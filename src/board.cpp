@@ -377,7 +377,7 @@ void Board::centerOnPos ( Item* item, const Pos& pos, bool animated )
 
 void Board::centerOnPos ( Item* item, bool animated )
 {
-    item->moveAndResize ( mapToScene ( item->boardPos() ), m_tileSize, item->renderSize(), animated );
+    item->move ( mapToScene ( item->boardPos() ), m_tileSize, animated );
 }
 
 void Board::centerAndResize ( Item* item, QSize size, bool animated )
