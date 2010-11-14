@@ -1,0 +1,12 @@
+[KGameTheme]
+Name=East and West
+Name[x-test]=xxEast and Westxx
+Description=A middle ages styled chess set
+Description[x-test]=xxA middle ages styled chess setxx
+VersionFormat=1
+Author=Eugene Trounev
+Type=SVG
+FileName=east_west.svg
+Preview=east_west.png
+
+
