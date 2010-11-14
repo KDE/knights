@@ -34,7 +34,7 @@
 using namespace Knights;
 
 #if defined WITH_KGR
-Item::Item ( KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
+Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
 {
     setBoardPos ( boardPos );
     if ( scene )

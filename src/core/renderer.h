@@ -25,36 +25,34 @@
 #include "kdeversion.h"
 #if defined WITH_KGR
 #include <KGameRenderer>
+#define RendererBaseType KGameRenderer
 #else
 #include <QtSvg/QSvgRenderer>
+#define RendererBaseType QSvgRenderer
 #endif
 
 class KGameTheme;
 
 namespace Knights
 {
-
-#if defined WITH_KGR
-    typedef KGameRenderer Renderer;
-#else
-    class Renderer : public QSvgRenderer
+    class Renderer : public RendererBaseType
     {
             Q_OBJECT
         public:
             Renderer ( const QString& defaultTheme );
             virtual ~Renderer();
 
+#if not defined WITH_KGR
             bool spriteExists ( const QString& key );
             QRectF boundsOnSprite ( const QString& key );
 
         public Q_SLOTS:
             void setTheme ( const QString& theme );
-
         private:
             KGameTheme* m_theme;
-    };
 #endif
 
+    };
 }
 
 #endif // KNIGHTS_RENDERER_H

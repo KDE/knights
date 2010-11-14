@@ -21,10 +21,21 @@
 
 #include "renderer.h"
 
-#if not defined WITH_KGR
-#include <KGameTheme>
-
 using namespace Knights;
+
+#if defined WITH_KGR 
+
+Renderer::Renderer ( const QString& defaultTheme ) : KGameRenderer ( defaultTheme )
+{
+
+}
+Renderer::~Renderer () 
+{
+
+}
+
+#else
+#include <KGameTheme>
 
 Renderer::Renderer ( const QString& defaultTheme )
 {
@@ -55,9 +66,6 @@ void Renderer::setTheme ( const QString& theme )
     }
     load ( m_theme->graphics() );
 }
-
-
-
 
 #endif // WITH_KGR
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

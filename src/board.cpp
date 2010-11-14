@@ -492,7 +492,7 @@ void Board::updateTheme()
     m_tiles.clear();
 #endif
     delete m_background;
-    if ( renderer->elementExists ( backgroundKey ) )
+    if ( renderer->spriteExists ( backgroundKey ) )
     {
         m_background = new Item ( renderer, backgroundKey, this, Pos() );
         m_background->setZValue ( backgroundZValue );
@@ -614,7 +614,6 @@ void Board::updateGraphics()
     foreach ( Item* t, m_tiles )
     {
         centerAndResize ( t, tSize, Settings::animateBoard() );
-        kDebug() << t->pos();
     }
     foreach ( Item* t, markers )
     {
