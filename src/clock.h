@@ -52,7 +52,7 @@ public:
     ~Clock();
 
     void setTime(const QTime&);
-    void setTime(int);
+    void setTime(int miliSeconds);
 
 protected:
     virtual void paintEvent( QPaintEvent *event );

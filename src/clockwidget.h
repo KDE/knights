@@ -69,6 +69,7 @@ namespace Knights
             QMap<Color, int> m_timerId;
             Color m_activePlayer;
             QMap<Color, QTime> m_timeLimit;
+            QMap<Color, QTime> m_currentTime;
             QMap<Color, QGroupBox*> m_box;
             QMap<Color, int> m_timeIncrement;
             QMap<Color, bool> m_started;

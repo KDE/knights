@@ -29,7 +29,7 @@
 
 using namespace Knights;
 
-const int timerInterval = 100; // update the time every 100 miliseconds
+const int timerInterval = 100; // update the time every timerInterval miliseconds
 
 ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
 {
@@ -83,19 +83,20 @@ void ClockWidget::setPlayerName ( Color color, const QString& name )
 
 void ClockWidget::setCurrentTime ( Color color, const QTime& time )
 {
-    QTimeEdit* timeEdit = ( color == White ) ? ui->timeW : ui->timeB;
-    timeEdit->setTime ( time );
-
-    int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
+    m_currentTime[color] = time;
+    
+    const int miliSeconds = time.hour() * 3600 * 1000 + time.minute() * 60 * 1000 + time.second() * 1000 + time.msec();
+    const int units = miliSeconds / timerInterval;
     QProgressBar* bar = ( color == White ) ? ui->progressW : ui->progressB;
-    if ( seconds > bar->maximum() )
+    if ( units > bar->maximum() )
     {
-        bar->setMaximum ( seconds * 1000 / timerInterval );
+        bar->setMaximum ( units );
     }
-    bar->setValue ( seconds * 1000 / timerInterval );
+    bar->setValue ( units );
+    bar->setFormat ( time.toString( QLatin1String("h:mm:ss") ) );
 
     Clock* clock = ( color == White ) ? ui->clockW : ui->clockB;
-    clock->setTime ( seconds );
+    clock->setTime ( time );
 }
 
 void ClockWidget::setTimeLimit ( Color color, const QTime& time )
@@ -105,22 +106,15 @@ void ClockWidget::setTimeLimit ( Color color, const QTime& time )
     switch ( color )
     {
         case White:
-            ui->timeW->setTime ( time );
-            ui->clockW->setTime ( time );
             ui->progressW->setMaximum ( seconds * 1000 / timerInterval );
-            ui->progressW->setValue ( seconds * 1000 / timerInterval );
-            kDebug() << ui->progressW->maximum();
             break;
         case Black:
-            ui->timeB->setTime ( time );
-            ui->clockB->setTime ( time );
             ui->progressB->setMaximum ( seconds * 1000 / timerInterval );
-            ui->progressB->setValue ( seconds * 1000 / timerInterval );
-            kDebug() << ui->progressB->maximum();
             break;
         default:
             break;
     }
+    setCurrentTime( color, time );
 }
 
 void ClockWidget::setTimeIncrement ( Color color, int seconds )
@@ -133,7 +127,7 @@ void ClockWidget::incrementTime ( Color color, int miliseconds )
     switch ( color )
     {
         case White:
-            setCurrentTime ( White, ui->timeW->time().addMSecs ( miliseconds ) );
+            setCurrentTime ( White, m_currentTime[White].addMSecs ( miliseconds ) );
             if ( ui->progressW->value() <= 0 )
             {
                 emit timeOut ( White );
@@ -141,7 +135,7 @@ void ClockWidget::incrementTime ( Color color, int miliseconds )
             }
             break;
         case Black:
-            setCurrentTime ( Black, ui->timeB->time().addMSecs ( miliseconds ) );
+            setCurrentTime ( Black, m_currentTime[Black].addMSecs ( miliseconds ) );
             if ( ui->progressB->value() <= 0 )
             {
                 emit timeOut ( Black );

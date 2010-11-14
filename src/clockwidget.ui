@@ -21,25 +21,12 @@
        <widget class="Knights::Clock" name="clockB" native="true"/>
       </item>
       <item>
-       <widget class="QTimeEdit" name="timeB">
+       <widget class="QProgressBar" name="progressB">
         <property name="font">
          <font>
           <pointsize>24</pointsize>
          </font>
         </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::NoButtons</enum>
-        </property>
-        <property name="displayFormat">
-         <string>H:mm:ss</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressB">
         <property name="value">
          <number>24</number>
         </property>
@@ -61,35 +48,12 @@
        <widget class="Knights::Clock" name="clockW" native="true"/>
       </item>
       <item>
-       <widget class="QTimeEdit" name="timeW">
+       <widget class="QProgressBar" name="progressW">
         <property name="font">
          <font>
           <pointsize>24</pointsize>
          </font>
         </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::NoButtons</enum>
-        </property>
-        <property name="maximumTime">
-         <time>
-          <hour>22</hour>
-          <minute>59</minute>
-          <second>59</second>
-         </time>
-        </property>
-        <property name="displayFormat">
-         <string>H:mm:ss</string>
-        </property>
-        <property name="timeSpec">
-         <enum>Qt::LocalTime</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressW">
         <property name="value">
          <number>24</number>
         </property>

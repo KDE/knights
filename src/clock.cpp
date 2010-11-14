@@ -83,9 +83,9 @@ void Clock::setTime(const QTime &time)
     update();
 }
 
-void Clock::setTime(int seconds)
+void Clock::setTime(int miliSeconds)
 {
-    setTime(QTime().addSecs(seconds));
+    setTime(QTime().addMSecs(miliSeconds));
 }
 
 
@@ -141,7 +141,7 @@ void Clock::paintInterface(QPainter *p, const QRect &rect)
     qreal seconds = 0;
     if (m_showSecondHand) {
         static const double anglePerSec = 6;
-        seconds = -anglePerSec * time.second() - 180;
+        seconds = -anglePerSec * ( time.second() + time.msec() / 1000.0 ) - 180;
     }
 
     // paint face and glass cache
