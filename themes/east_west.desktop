@@ -1,16 +1,20 @@
 [KGameTheme]
 Name=East and West
+Name[da]=Øst og vest
 Name[pt]=Este e Oeste
 Name[pt_BR]=Leste e Oeste
 Name[sv]=Öst och väst
 Name[uk]=Схід і Захід
 Name[x-test]=xxEast and Westxx
+Name[zh_TW]=東與西
 Description=A middle ages styled chess set
+Description[da]=Et skakspil i middelalderlig stil
 Description[pt]=Um conjunto de xadrez com o estilo da Idade Média
 Description[pt_BR]=Um conjunto de xadrez com o estilo da Idade Média
 Description[sv]=Ett schackspel med medeltidsstil
 Description[uk]=Набір шахів у середньовічному стилі
 Description[x-test]=xxA middle ages styled chess setxx
+Description[zh_TW]=中古時期樣式的棋子
 VersionFormat=1
 Author=Eugene Trounev
 Type=SVG
