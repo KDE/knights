@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=East and West
 Name[da]=Øst og vest
+Name[nds]=Oost un West
 Name[nl]=Oost en West
 Name[pt]=Este e Oeste
 Name[pt_BR]=Leste e Oeste
@@ -10,6 +11,7 @@ Name[x-test]=xxEast and Westxx
 Name[zh_TW]=東與西
 Description=A middle ages styled chess set
 Description[da]=Et skakspil i middelalderlig stil
+Description[nds]=En middelöllerig utsehn Schachspeel
 Description[nl]=Een schaakset in middeleeuwse stijl
 Description[pt]=Um conjunto de xadrez com o estilo da Idade Média
 Description[pt_BR]=Um conjunto de xadrez com o estilo da Idade Média
