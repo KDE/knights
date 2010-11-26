@@ -30,10 +30,19 @@
 #include <KLocale>
 #include <KPushButton>
 
+#include <KPluginFactory>
+#include <KPluginLoader>
+#include <KParts/ReadOnlyPart>
+#include <kde_terminal_interface_v2.h>
+
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
 #include <QtGui/QPushButton>
 #include <QtCore/QPointer>
+#include <QtGui/QDockWidget>
+#include <QtGui/QMainWindow>
+#include <knights.h>
+#include <KActionCollection>
 
 
 using namespace Knights;
@@ -143,6 +152,31 @@ void FicsProtocol::init ( const QVariantMap& options )
     kDebug() << Timeout << endl;
 
     m_stage = ConnectStage;
+
+    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
+    KParts::ReadOnlyPart* part = loader.factory()->create<KParts::ReadOnlyPart>(this);
+    if (part)
+    {
+        m_terminal = qobject_cast< TerminalInterfaceV2* >( part );
+
+        Knights::MainWindow* mainWindow = 0;
+        foreach (QWidget* w, QApplication::allWidgets() )
+        {
+            Knights::MainWindow* t = qobject_cast< Knights::MainWindow* >( w );
+            if (t)
+            {
+                mainWindow = t;
+                break;
+            }
+        }
+        if (mainWindow)
+        {        
+            QDockWidget* dock = new QDockWidget( i18nc("@title:window", "Chess Server Console") );
+            dock->setWidget( part->widget() );
+            mainWindow->addDockWidget( Qt::BottomDockWidgetArea, dock );
+            mainWindow->actionCollection()->addAction( i18n("Show Chess Server Console"), dock->toggleViewAction() );
+        }
+    }
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
@@ -267,6 +301,7 @@ void FicsProtocol::readFromSocket()
         }
     }
     QByteArray line = m_socket->readLine();
+    m_terminal->sendInput( QLatin1String(line) );
     kDebug() << line;
     switch ( m_stage )
     {
