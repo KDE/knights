@@ -189,31 +189,30 @@ void FicsProtocol::logIn ( )
         wallet->readPassword ( key, password );
     }
 
-    if ( forcePrompt || username.isEmpty() || !wallet)
-    {
-        KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
+    KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
                 | KPasswordDialog::ShowKeepPassword
                 | KPasswordDialog::ShowUsernameLine;
-        QPointer<KPasswordDialog> pwDialog = new KPasswordDialog ( qApp->activeWindow(), flags );
-        pwDialog->setUsername ( username );
-        if ( pwDialog->exec() == QDialog::Accepted )
+    QPointer<KPasswordDialog> pwDialog = new KPasswordDialog ( qApp->activeWindow(), flags );
+    pwDialog->setUsername ( username );
+    pwDialog->setPassword ( password );
+    pwDialog->setAnonymousMode ( guest );
+    if ( pwDialog->exec() == QDialog::Accepted )
+    {
+        guest = pwDialog->anonymousMode();
+        username = pwDialog->username();
+        password = pwDialog->password();
+        if ( pwDialog->keepPassword() && wallet)
         {
-            guest = pwDialog->anonymousMode();
-            username = pwDialog->username();
-            password = pwDialog->password();
-            if ( pwDialog->keepPassword() && wallet)
-            {
-                wallet->writePassword ( username + QLatin1Char ( '@' ) + m_socket->peerName(), password );
-            }
-            Settings::setFicsUsername ( username );
+            wallet->writePassword ( username + QLatin1Char ( '@' ) + m_socket->peerName(), password );
         }
-        else
-        {
-            emit error ( UserCancelled );
-        }
-        delete pwDialog;
+        Settings::setFicsUsername ( username );
     }
-    kDebug() << username;
+    else
+    {
+        emit error ( UserCancelled );
+    }
+    delete pwDialog;
+
     if ( guest )
     {
         m_stream << "guest" << endl;
