@@ -312,8 +312,8 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
                 }
                 move.setPromotedType ( pType );
             }
-            movePiece ( move );
             emit pieceMoved ( move );
+            movePiece ( move );
         }
         m_draggedItem->setZValue ( pieceZValue );
         m_draggedItem = 0;
