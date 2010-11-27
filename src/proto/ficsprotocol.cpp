@@ -167,6 +167,8 @@ void FicsProtocol::socketError()
 void FicsProtocol::logIn ( )
 {
     username = Settings::ficsUsername();
+    bool guest = ( username == QLatin1String ( "guest" ) );
+
     // I really hope this works on all platforms
     WId id = 0;
     if ( qApp->activeWindow() )
@@ -174,16 +176,20 @@ void FicsProtocol::logIn ( )
         id = qApp->activeWindow()->winId();
     }
     Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
-    QString folder = QLatin1String ( "Knights" );
-    if ( !wallet->hasFolder ( folder ) )
+
+    if (wallet)
     {
-        wallet->createFolder ( folder );
+        QString folder = QLatin1String ( "Knights" );
+        if ( !wallet->hasFolder ( folder ) )
+        {
+            wallet->createFolder ( folder );
+        }
+        wallet->setFolder ( folder );
+        QString key = username + QLatin1Char ( '@' ) + m_socket->peerName();
+        wallet->readPassword ( key, password );
     }
-    wallet->setFolder ( folder );
-    QString key = username + QLatin1Char ( '@' ) + m_socket->peerName();
-    wallet->readPassword ( key, password );
-    bool guest = ( username == QLatin1String ( "guest" ) );
-    if ( forcePrompt || username.isEmpty() )
+
+    if ( forcePrompt || username.isEmpty() || !wallet)
     {
         KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
                 | KPasswordDialog::ShowKeepPassword
@@ -195,7 +201,7 @@ void FicsProtocol::logIn ( )
             guest = pwDialog->anonymousMode();
             username = pwDialog->username();
             password = pwDialog->password();
-            if ( pwDialog->keepPassword() )
+            if ( pwDialog->keepPassword() && wallet)
             {
                 wallet->writePassword ( username + QLatin1Char ( '@' ) + m_socket->peerName(), password );
             }
