@@ -1,0 +1,10 @@
+[KGameTheme]
+Name=Grayscale
+Description=A grayscale theme using the Oxygen palette
+VersionFormat=1
+Author=Miha Cancula
+Type=SVG
+FileName=gray.svg
+Preview=gray.png
+
+

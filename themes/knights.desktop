@@ -1,0 +1,40 @@
+[KGameTheme]
+Name=Knights
+Name[cs]=Knights
+Name[da]=Knights
+Name[de]=Knights
+Name[et]=Knights
+Name[hu]=Knights
+Name[it]=Knights
+Name[nds]=Knights (Schachspeel)
+Name[nl]=Knights
+Name[pt]=Knights
+Name[pt_BR]=Knights
+Name[ru]=Knights
+Name[sv]=Knights
+Name[uk]=Knights
+Name[x-test]=xxKnightsxx
+Name[zh_TW]=Knights
+Description=Original Knights theme.
+Description[da]=Oprindeligt Knights-tema.
+Description[de]=Das ursprüngliche Design für Knights.
+Description[et]=Algne Knightsi teema.
+Description[hu]=Eredeti Knights-téma.
+Description[it]=Tema originale di Knights.
+Description[nds]=Knights-Orginaalmuster
+Description[nl]=Oorspronkelijk thema van Knights.
+Description[pt]=O tema original do Knights.
+Description[pt_BR]=Tema original do Knights.
+Description[ru]=Первоначальное оформление Knights.
+Description[sv]=Ursprungligt springartema.
+Description[uk]=Початкова тема Knights.
+Description[x-test]=xxOriginal Knights theme.xx
+Description[zh_TW]=原始 Knights 主題
+VersionFormat=1
+Author=Troy Corbin
+AuthorEmail=troy@pedanticwebspaces.com
+Type=SVG
+FileName=knights.svg
+Preview=knights.png
+
+
