@@ -2,7 +2,8 @@
 Name=Grayscale
 Description=A grayscale theme using the Oxygen palette
 VersionFormat=1
-Author=Miha Cancula
+Author=Miha Čančula
+AuthorEmail=miha.cancula@gmail.com
 Type=SVG
 FileName=gray.svg
 Preview=gray.png
