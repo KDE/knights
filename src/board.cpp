@@ -581,8 +581,8 @@ void Board::updateGraphics()
     }
     else
     {
-        sideMargin = 0.5 * tileSize.width();
-        topMargin = 0.5 * tileSize.height();
+        sideMargin = 0.0;
+        topMargin = 0.0;
     }
     boardSize = boardSize + 2 * QSizeF ( sideMargin, topMargin );
     qreal ratio = qMin ( sceneRect().width() / boardSize.width(), sceneRect().height() / boardSize.height() );
@@ -599,7 +599,8 @@ void Board::updateGraphics()
 
     sideMargin = qMax ( sideMargin, ( sceneRect().width() - 8 * m_tileSize ) / 2 );
     topMargin = qMax ( topMargin, ( sceneRect().height() - 8 * m_tileSize ) / 2 );
-    m_boardRect = QRectF ( sideMargin, topMargin, m_tileSize * 8, m_tileSize * 8 );
+    m_boardRect = QRectF( sceneRect().topLeft() + QPointF( sideMargin, topMargin ),
+                          QSizeF( m_tileSize, m_tileSize ) * 8);
     QSize tSize = QSizeF ( m_tileSize, m_tileSize ).toSize();
 
     QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPointF ( vBorderMargin, 0.0 );
