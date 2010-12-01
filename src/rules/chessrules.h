@@ -71,7 +71,7 @@ namespace Knights
             QList<Move> pawnMoves ( const Pos& pos );
             QList<Move> castlingMoves ( const Pos& pos );
             int length ( const Knights::Move& move );
-            bool isPathClear ( const Pos& from, const Pos& to );
+            bool isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos );
             QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
             bool isKingAttacked ( Color color , Grid* grid = 0 );
             QMap<Color, bool> kingMoved;

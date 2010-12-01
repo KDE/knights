@@ -514,7 +514,7 @@ QList< Move > ChessRules::castlingMoves ( const Knights::Pos& pos )
     {
         return QList<Move>();
     }
-    if ( !queenRookMoved[color] && isPathClear ( pos, queenRookStartPos[color] ) )
+    if ( !queenRookMoved[color] && isPathClearForCastling ( pos, queenRookStartPos[color] ) )
     {
         Move m;
         m.setFlag ( Move::Castle, true );
@@ -523,7 +523,7 @@ QList< Move > ChessRules::castlingMoves ( const Knights::Pos& pos )
         m.setTo ( pos + 2*directions[W] );
         moves << m;
     }
-    if ( !kingRookMoved[color] && isPathClear ( pos, kingRookStartPos[color] ) )
+    if ( !kingRookMoved[color] && isPathClearForCastling ( pos, kingRookStartPos[color] ) )
     {
         Move m;
         m.setFlag ( Move::Castle, true );
@@ -535,13 +535,14 @@ QList< Move > ChessRules::castlingMoves ( const Knights::Pos& pos )
     return moves;
 }
 
-bool Knights::ChessRules::isPathClear ( const Knights::Pos& from, const Knights::Pos& to )
+bool ChessRules::isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos )
 {
-    if ( to == from )
+    // This is called only from castlingMoves(), so we can assume it's about castling
+    if ( rookPos == kingPos || !m_grid->contains( kingPos ) )
     {
         return true;
     }
-    Pos delta = to - from;
+    Pos delta = rookPos - kingPos;
     Pos dir;
     if ( delta.first == 0 || delta.second == 0 )
     {
@@ -555,13 +556,24 @@ bool Knights::ChessRules::isPathClear ( const Knights::Pos& from, const Knights:
     {
         return false;
     }
-    for ( Pos p = from + dir; p != to; p += dir )
+    for ( Pos p = kingPos + dir; p != rookPos; p += dir )
     {
         if ( m_grid->contains ( p ) )
         {
             return false;
         }
     }
+
+    Color kingColor = m_grid->value ( kingPos )->color();
+    for ( int i = 0; i <= 2; ++i )
+    {
+        // Only the squares the King passes through must be safe
+        if ( isAttacked ( kingPos + i * dir, kingColor ) )
+        {
+            return false;
+        }
+    }
+
     return true;
 }
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
