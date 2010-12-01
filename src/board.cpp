@@ -537,7 +537,7 @@ void Board::updateTheme()
             item->setZValue ( borderZValue );
         }
     }
-    if ( m_displayBorders )
+    if ( m_displayNotations )
     {
         QString lettersKey;
         QString numbersKey;
