@@ -33,6 +33,10 @@
 
 using namespace Knights;
 
+static const int fastAnimationDuration = 100;
+static const int normalAnimationDuration = 200;
+static const int slowAnimationDuration = 300;
+
 #if defined WITH_KGR
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
 {
@@ -117,13 +121,13 @@ void Item::move ( const QPointF& pos, qreal tileSize, bool animated )
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
-                duration = 200;
+                duration = fastAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Normal:
-                duration = 500;
+                duration = normalAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Slow:
-                duration = 1000;
+                duration = slowAnimationDuration;
                 break;
             default:
                 break;
@@ -155,13 +159,13 @@ void Item::resize ( const QSize& size, bool animated )
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
-                duration = 200;
+                duration = fastAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Normal:
-                duration = 500;
+                duration = normalAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Slow:
-                duration = 1000;
+                duration = slowAnimationDuration;
                 break;
             default:
                 break;
@@ -192,13 +196,13 @@ void Knights::Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QS
         switch ( Settings::animationSpeed() )
         {
             case Settings::EnumAnimationSpeed::Fast:
-                duration = 200;
+                duration = fastAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Normal:
-                duration = 500;
+                duration = normalAnimationDuration;
                 break;
             case Settings::EnumAnimationSpeed::Slow:
-                duration = 1000;
+                duration = slowAnimationDuration;
                 break;
             default:
                 break;
