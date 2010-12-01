@@ -1,6 +1,8 @@
 [KGameTheme]
 Name=Grayscale
+Name[x-test]=xxGrayscalexx
 Description=A grayscale theme using the Oxygen palette
+Description[x-test]=xxA grayscale theme using the Oxygen palettexx
 VersionFormat=1
 Author=Miha Čančula
 AuthorEmail=miha.cancula@gmail.com
