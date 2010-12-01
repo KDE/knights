@@ -364,6 +364,7 @@ void FicsProtocol::readFromSocket()
                     setOpponentName ( player1 );
                 }
                 m_stage = PlayStage;
+                emit initSuccesful();
             }
             break;
         case PlayStage:
@@ -394,7 +395,6 @@ void FicsProtocol::readFromSocket()
                         setAttribute ( QLatin1String ( "playerTimeLimit" ), QTime().addSecs ( blackTimeLimit ) );
                         setAttribute ( QLatin1String ( "oppTimeLimit" ), QTime().addSecs ( whiteTimeLimit ) );
                     }
-                    emit initSuccesful();
                     break;
                 }
 
