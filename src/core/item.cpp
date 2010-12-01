@@ -33,9 +33,9 @@
 
 using namespace Knights;
 
-static const int fastAnimationDuration = 100;
-static const int normalAnimationDuration = 200;
-static const int slowAnimationDuration = 300;
+static const int fastAnimationDuration = 150;
+static const int normalAnimationDuration = 250;
+static const int slowAnimationDuration = 400;
 
 #if defined WITH_KGR
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
