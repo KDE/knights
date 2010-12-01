@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.0 r9654"
-   sodipodi:docname="plain_kde.svg">
+   sodipodi:docname="gray.svg">
   <metadata
      id="metadata134">
     <rdf:RDF>
@@ -35,17 +35,19 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1219"
-     inkscape:window-height="780"
+     inkscape:window-width="1280"
+     inkscape:window-height="940"
      id="namedview132"
      showgrid="false"
-     inkscape:zoom="0.90156115"
-     inkscape:cx="247.86999"
-     inkscape:cy="109.41162"
-     inkscape:window-x="57"
+     inkscape:zoom="2.2142857"
+     inkscape:cx="549.3871"
+     inkscape:cy="185.04926"
+     inkscape:window-x="-4"
      inkscape:window-y="-3"
      inkscape:window-maximized="1"
-     inkscape:current-layer="Danger" />
+     inkscape:current-layer="Danger"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <defs
      id="defs4" />
   <g
@@ -1033,13 +1035,13 @@
      inkscape:label="#Marker">
     <rect
        id="rect3110-0-5"
-       width="90"
-       height="90"
-       rx="4.6875"
-       ry="4.6875"
-       x="125"
-       y="-95"
-       style="fill:none;stroke:#888a85;stroke-width:6;stroke-miterlimit:3.60000000000000009;stroke-dasharray:none;stroke-linejoin:miter" />
+       width="91.914894"
+       height="91.914894"
+       x="124.04255"
+       y="-95.957451"
+       style="fill:none;stroke:#888a85;stroke-width:4.08510637;stroke-linejoin:miter;stroke-miterlimit:3.5999999;stroke-dasharray:none"
+       rx="2.0425532"
+       ry="2.0425532" />
     <rect
        style="fill:none"
        y="0"
@@ -1060,13 +1062,13 @@
      inkscape:label="#Motion">
     <rect
        id="rect3110-0-5-7"
-       width="90"
-       height="90"
-       rx="4.6875"
-       ry="4.6875"
-       x="125"
-       y="-95"
-       style="fill:none;stroke:#888a85;stroke-width:6;stroke-linejoin:miter;stroke-miterlimit:3.5999999;stroke-dasharray:none" />
+       width="91.914894"
+       height="91.914894"
+       rx="2.0425532"
+       ry="2.0425532"
+       x="124.04255"
+       y="-95.957451"
+       style="fill:none;stroke:#888a85;stroke-width:4.08510637;stroke-linejoin:miter;stroke-miterlimit:3.5999999;stroke-dasharray:none" />
     <rect
        style="fill:none"
        y="0"
@@ -1082,13 +1084,13 @@
      inkscape:label="#Danger">
     <rect
        id="rect3110-0-5-7-1"
-       width="90"
-       height="90"
-       rx="4.6875"
-       ry="4.6875"
-       x="125"
-       y="-95"
-       style="fill:none;stroke:#f08682;stroke-width:6;stroke-linejoin:miter;stroke-miterlimit:3.59999989999999981;stroke-dasharray:none" />
+       width="91.914894"
+       height="91.914894"
+       rx="2.0425532"
+       ry="2.0425532"
+       x="124.04255"
+       y="-95.957451"
+       style="fill:none;stroke:#f08682;stroke-width:4.08510637;stroke-linejoin:miter;stroke-miterlimit:3.5999999;stroke-dasharray:none" />
     <rect
        style="fill:none"
        y="0"
