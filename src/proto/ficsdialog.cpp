@@ -23,6 +23,8 @@
 
 #include "ui_ficsdialog.h"
 
+#include <KDebug>
+
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
 
@@ -32,10 +34,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
-    ui->tabWidget->setTabText ( 0, i18n ( "&Join a game" ) );
-    ui->tabWidget->setTabText ( 1, i18n ( "&Seek opponents" ) );
-    connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
 
+    connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
 }
@@ -88,7 +88,6 @@ void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 
 void FicsDialog::clearOffers()
 {
-    ui->offerTable->clear();
     ui->offerTable->setRowCount ( 0 );
     m_gameId.clear();
 }
