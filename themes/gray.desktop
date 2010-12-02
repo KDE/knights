@@ -1,7 +1,13 @@
 [KGameTheme]
 Name=Grayscale
+Name[pt]=Tons de Cinzento
+Name[sv]=Gråskala
+Name[uk]=Тони сірого
 Name[x-test]=xxGrayscalexx
 Description=A grayscale theme using the Oxygen palette
+Description[pt]=Um tema em tons de cinzento que usa a paleta do Oxygen
+Description[sv]=Ett tema med gråskala som använder Oxygens palett
+Description[uk]=Тема у тонах сірого кольору з використанням палітри Oxygen
 Description[x-test]=xxA grayscale theme using the Oxygen palettexx
 VersionFormat=1
 Author=Miha Čančula
