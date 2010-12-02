@@ -43,7 +43,7 @@ const int FicsProtocol::Timeout = 1000; // One second ought to be enough for eve
 // TODO: Include optional [white]/[black], m, f in RegEx check
 
 const QString FicsProtocol::namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
-const QString FicsProtocol::ratingPattern = QLatin1String ( "\\(([0-9\\+\\-\\s]+)\\)" );
+const QString FicsProtocol::ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
 const QString FicsProtocol::timePattern = QLatin1String ( "(\\d+)\\s+(\\d+)" );
 const QString FicsProtocol::variantPattern = QLatin1String ( "([a-z]+)\\s+([a-z]+)" );
 const QString FicsProtocol::argsPattern = QLatin1String ( "(.*)" ); //TODO better
@@ -58,7 +58,7 @@ const QString FicsProtocol::movePattern = QString ( QLatin1String ( "(none|o-o|o
         .arg ( pieces );
 const QString FicsProtocol::currentPlayerPattern = QLatin1String ( "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+" );
 
-const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 %2 seeking %3 %4 %5\\(\"play %6\" to respond\\)" ) )
+const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 \\(%2\\) seeking %3 %4 %5\\(\"play %6\" to respond\\)" ) )
         .arg ( namePattern )
         .arg ( ratingPattern )
         .arg ( timePattern )
@@ -67,7 +67,7 @@ const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 %2 seekin
         .arg ( idPattern )
                                        );
 
-const QRegExp FicsProtocol::soughtRegExp ( QString ( QLatin1String ( "%1 %2 %3\\s+%4 %5 %6" ) )
+const QRegExp FicsProtocol::soughtRegExp ( QString ( QLatin1String ( "%1 %2 %3\\s+%4\\s+%5\\s+%6" ) )
         .arg ( idPattern )
         .arg ( ratingPattern )
         .arg ( namePattern )
@@ -89,7 +89,7 @@ const QRegExp FicsProtocol::moveStringExp ( QString ( QLatin1String ( "[%1]\\/(%
         .arg ( pieces )
                                           );
 
-const QRegExp FicsProtocol::challengeRegExp ( QString ( QLatin1String ( "Challenge: %1 %2 %3 %4 %5 %6" ) )
+const QRegExp FicsProtocol::challengeRegExp ( QString ( QLatin1String ( "Challenge: %1 \\(%2\\)( \\[[a-z]+\\])? %3 \\(%4\\) %5 %6" ) )
         .arg ( namePattern )
         .arg ( ratingPattern )
         .arg ( namePattern )
@@ -97,7 +97,7 @@ const QRegExp FicsProtocol::challengeRegExp ( QString ( QLatin1String ( "Challen
         .arg ( variantPattern )
         .arg ( timePattern )
                                             );
-const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating: %1 %2 %3 %4 %5 %6" ) )
+const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating: %1 \\(%2\\) %3 \\(%4\\) %5 %6" ) )
         .arg ( namePattern )
         .arg ( ratingPattern )
         .arg ( namePattern )
@@ -330,7 +330,12 @@ void FicsProtocol::readFromSocket()
             }
             else if ( soughtRegExp.indexIn ( QLatin1String ( line ) ) != -1 )
             {
+                kDebug() << "sought:" << line << soughtRegExp.cap();
                 FicsGameOffer offer;
+                for (int i = 0; i < soughtRegExp.numCaptures(); ++i)
+                {
+                    kDebug() << soughtRegExp.cap(i);
+                }
                 int n = 1;
                 offer.gameId = soughtRegExp.cap ( n++ ).toInt();
                 offer.player.second = soughtRegExp.cap ( n++ ).toInt();
