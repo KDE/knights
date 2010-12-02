@@ -61,6 +61,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
     baseTimeEdit->setReadOnly ( true );
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
+    baseTimeEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
     QTime baseTime = QTime();
     baseTime.setHMS ( 0, offer.baseTime, 0 );
     baseTimeEdit->setTime ( baseTime );
@@ -69,6 +70,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     QTimeEdit* incTimeEdit = new QTimeEdit ( this );
     incTimeEdit->setReadOnly ( true );
     incTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
+    incTimeEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
     QTime incTime = QTime();
     incTime.setHMS ( 0, 0, offer.timeIncrement );
     incTimeEdit->setTime ( incTime );
