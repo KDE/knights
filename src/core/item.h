@@ -33,10 +33,6 @@
 #include <QtSvg/QGraphicsSvgItem>
 #endif
 
-#if QT_VERSION >= 0x040600
-#  define WITH_QT_46
-#endif
-
 namespace Knights
 {
 

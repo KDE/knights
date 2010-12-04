@@ -24,8 +24,7 @@
 #include "settings.h"
 #include <KDebug>
 
-#ifdef WITH_QT_46
-#  define WITH_ANIMATIONS
+#ifdef WITH_ANIMATIONS
 #  include <QtCore/QPropertyAnimation>
 #  include <QtCore/QParallelAnimationGroup>
 #  include <qmath.h>
@@ -52,8 +51,10 @@ Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos 
 #include <QtSvg/QSvgRenderer>
 
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem )
-        : QGraphicsSvgItem ( parentItem ),
-        m_rotation(0.0)
+        : QGraphicsSvgItem ( parentItem )
+#if not defined WITH_QT_46 
+        , m_rotation(0.0)
+#endif
 {
     setSharedRenderer ( renderer );
     setSpriteKey ( key );
