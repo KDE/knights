@@ -174,7 +174,7 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos )
         case Rook:
             foreach ( const Pos& d, lineDirs )
             {
-                moves.append ( movesInDirection ( d, pos ) );
+                moves << movesInDirection ( d, pos );
             }
             break;
         case Knight:
@@ -250,7 +250,7 @@ QList<Move> ChessRules::legalAttackMoves ( const Knights::Pos& pos, Grid* grid )
         case Rook:
             foreach ( const Pos& d, lineDirs )
             {
-                moves.append ( movesInDirection ( d, pos, 8, true, grid ) );
+                moves << movesInDirection ( d, pos, 8, true, grid );
             }
             break;
         case Knight:
@@ -346,11 +346,11 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
     {
         if ( !grid->contains ( n ) )
         {
-            list.append ( Move ( pos, n ) );
+            list << Move ( pos, n );
         }
         else if ( attackYours || grid->value ( n )->color() != grid->value ( pos )->color() )
         {
-            list.append ( Move ( pos, n, Move::Take ) );
+            list << Move ( pos, n, Move::Take );
             break;
         }
         else
