@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Grayscale
+Name[da]=Gråtone
 Name[nl]=Grijswaarden
 Name[pt]=Tons de Cinzento
 Name[pt_BR]=Tons de cinza
@@ -8,6 +9,7 @@ Name[uk]=Тони сірого
 Name[x-test]=xxGrayscalexx
 Name[zh_TW]=灰階
 Description=A grayscale theme using the Oxygen palette
+Description[da]=Et tema i gråtoner som bruger Oxygen-paletten
 Description[nl]=Een thema met grijswaarden gebruikmakend van het Oxygen palet
 Description[pt]=Um tema em tons de cinzento que usa a paleta do Oxygen
 Description[pt_BR]=Um tema em tons de cinza que usa a paleta do Oxygen
