@@ -513,24 +513,17 @@ void Board::updateTheme()
     if ( m_displayBorders )
     {
         m_borders << new Item ( renderer, tbBorderKey, this, Pos() );
+
         Item *tItem = new Item ( renderer, lrBorderKey, this, Pos() );
-#if QT_VERSION >= 0x040600
         tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
         tItem->setRotation ( 180 );
-#else
-        tItem->rotate ( 180 );
-        tItem->translate ( tItem->boundingRect().width(), tItem->boundingRect().height() );
-#endif
         m_borders << tItem;
+
         tItem = new Item ( renderer, tbBorderKey, this, Pos() );
-#if QT_VERSION >= 0x040600
         tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
         tItem->setRotation ( 180 );
-#else
-        tItem->rotate ( 180 );
-        tItem->translate ( tItem->boundingRect().width(), tItem->boundingRect().height() );
-#endif
         m_borders << tItem;
+
         m_borders << new Item ( renderer, lrBorderKey, this, Pos() );
         foreach ( Item* item, m_borders )
         {

@@ -24,11 +24,10 @@
 #include "settings.h"
 #include <KDebug>
 
-#if QT_VERSION >= 0x040600
-#define WITH_ANIMATIONS
-#include <QtCore/QPropertyAnimation>
-#include <QtCore/QParallelAnimationGroup>
-#include <qmath.h>
+#ifdef WITH_ANIMATIONS
+#  include <QtCore/QPropertyAnimation>
+#  include <QtCore/QParallelAnimationGroup>
+#  include <qmath.h>
 #endif
 
 using namespace Knights;
@@ -53,6 +52,9 @@ Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos 
 
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem )
         : QGraphicsSvgItem ( parentItem )
+#if not defined WITH_QT_46 
+        , m_rotation(0.0)
+#endif
 {
     setSharedRenderer ( renderer );
     setSpriteKey ( key );
@@ -72,6 +74,11 @@ void Item::setRenderSize ( const QSize& size )
     qreal yScale = size.height() / normalSize.height();
     prepareGeometryChange();
     setTransform ( QTransform().scale ( xScale, yScale ) );
+#if not defined WITH_QT_46
+    translate(m_origin.x(), m_origin.y());
+    rotate(m_rotation);
+    translate(-m_origin.x(), -m_origin.y());
+#endif
 }
 
 QSize Item::renderSize() const
@@ -228,6 +235,27 @@ void Knights::Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QS
     setRenderSize ( size );
 #endif
 }
+
+#if not defined WITH_QT_46
+
+void Item::setRotation ( qreal angle )
+{
+    kDebug() << angle;
+    m_rotation = angle;
+}
+
+qreal Item::rotation()
+{
+    return m_rotation;
+}
+
+void Item::setTransformOriginPoint(const QPointF& origin)
+{
+    m_origin = origin;
+}
+
+#endif
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

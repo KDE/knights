@@ -24,6 +24,7 @@
 
 #include "renderer.h"
 #include "pos.h"
+
 #ifdef WITH_KGR
 #define ItemBaseType KGameRenderedObjectItem
 #include <KGameRenderedObjectItem>
@@ -51,6 +52,13 @@ namespace Knights
             QSize renderSize() const;
             void setSpriteKey ( const QString& key );
             QString spriteKey() const;
+
+#  ifndef WITH_QT_46
+            void setTransformOriginPoint(const QPointF& origin);
+            void setRotation ( qreal angle );
+            qreal rotation();
+#  endif
+
 #endif // WITH_KGR
 
             void setBoardPos ( const Pos& pos );
@@ -62,6 +70,11 @@ namespace Knights
 
         private:
             Pos m_pos;
+
+#ifndef WITH_QT_46
+            qreal m_rotation;
+            QPointF m_origin;
+#endif
     };
 }
 #endif // KNIGHTS_ITEM_H

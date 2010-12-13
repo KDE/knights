@@ -1,15 +1,15 @@
 Knights theming guide and specification
--=-=-=-=-=-=-=-=-=-=-=-=-=
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-Knights, like most KDE games, uses .desktop and .svg files for theming. The theme can also provide an optional (but very good to have) .png file for a preview. 
+Knights, like most KDE games, uses .desktop and .svg files for theming. 
 
 The preferred method of publishing new themes, or variations to existing ones, is through the KDE-Look website at http://kde-look.org/?xcontentmode=86. 
 There you should upload a tarball of the three files below, and a preview or a screenshot of the theme for the Get New Themes dialog.
 
 If this README is not clear enough, refer to the existing themes.
 
-The .desktop file
--=-=-=-=-=-=-=-=-=-=-=-=-=
+The .desktop file  (required)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 This file should look like this:
 
 [KGameTheme]
@@ -25,8 +25,10 @@ Preview=<example.png>
 Where the things in angle brackets (<>) should be replaced by your values.
 
 
-The SVG file
--=-=-=-=-=-=-=-=-=-=-=-=-=
+The SVG file  (required)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The SVG file may be in .svg format, or in compressed .svgz format.  The FileName entry in the .desktop file should match the file name and extension of the SVG file.  NOTE:  Some SVG image editing programs (such as Inkscape) will place additional information in the file.  This information will cause some older SVG rendering engines to mis-draw the chess board and pieces.  It is recommended that you save the final file using the plain or simple style of the SVG file.
 
 The SVG file _must_ contain the following elements:
 
@@ -34,29 +36,37 @@ The SVG file _must_ contain the following elements:
 
  - Pieces: For each type/color combination, there has to be an element named ColorType. Colors are "Black" and "White", and types are "King", "Queen", "Bishop", "Knight", "Rook" and "Pawn". For example, two of these elements will be called "WhiteKnight" and "BlackRook".
 
-The pieces (elements named "WhiteKnight" etc.) should consist of the actual piece picture and an invisible bounding rectangle the same size as the tiles. This ensures they will be placed properly on the board. The XBoard theme is a good example of this.
+The pieces (elements named "WhiteKnight" etc.) should consist of the actual piece picture and an invisible bounding rectangle the same size as the tiles. This ensures they will be placed properly on the board. The XBoard theme is a good example of this.  If there is no bounding rectangle, the piece will be resized and centered on the tile.  NOTE: Some older svg rendering engines have problems if the tile and bounding rectangle are not the same size, therefore it is recommended to make them the same size. 
 
 The SVG file _may_ contain these optional elements:
 
  - Markers: 
- An element names "Marker" will be displayed to indicate a possible legal move to a square. An element named "Danger" will mark the location from which the king is attacked. An element names "Motion" will mark the last move. All these elements should preferably the same size as the tiles, or include an invisible rectangle like the pieces.
+ An element named "Marker" will be displayed to indicate a possible legal move to a square. An element named "Danger" will mark the location from which the king is attacked. An element named "Motion" will mark the last move. All these elements should preferably the same size as the tiles, or include an invisible rectangle like the pieces.
 
  - Background
-An element called Background of any size will be drawn over the entire view behing the board. It will be resized to match the view's shape, so its aspect ratio might not be preserved. The center portion will usually be obscured by the board.
+An element called Background of any size will be drawn over the entire view behind the board. It will be resized to match the view's shape, so its aspect ratio might not be preserved. The center portion will usually be obscured by the board.
 
  - Board borders:
-An element called TopBottomBorder of size (9*tilesize) x (0.5*tilesize) will be drawn at the bottom of the board, and again at the top rotated by 180 degrees (so the 'up' side in the file will always point towards the board). If it is not present, the game will look for elements named BottomBorder and TopBorder of the same size, which will be drawn on the bottom and at the top, respectively. Neither of these two will be mirrored or rotated.
+An element called TopBottomBorder of size (9*tilesize) x (0.5*tilesize) will be drawn at the bottom of the board, and again at the top rotated by 180 degrees (so the 'up' side of the element will always point towards the board). If it is not present, the game will look for elements named BottomBorder and TopBorder of the same size, which will be drawn on the bottom and at the top, respectively. Neither of these two will be mirrored or rotated.
 
-The same applies to elements LeftRightBorder, LeftBorder and RightBorder, except that these have to be (0.5*tilesize) x (8*tilesize). This way the corners are always in top and bottom borders. In this case, the LeftRightBorder will be drawn on the left as it is, and on the right rotated for 180 degrees. Separate left and right borders will not be rotated.
+The same applies to elements LeftRightBorder, LeftBorder and RightBorder, except that these have to be (0.5*tilesize) x (8*tilesize). This way the corners are always in the top and bottom borders. In this case, the LeftRightBorder will be drawn on the left as it is, and on the right rotated by 180 degrees. A separate LeftBorder and RightBorder will not be rotated.
 
  - Number and letters
 Four elements named "BlackNumbers", "WhiteNumbers", "BlackLetters" and "WhiteLetters" will be displayed on their respective sides, on top of the borders. The letters elements should be the same size as the top and bottom borders, and the numbers elements should be the same size as the left and right borders. Black ones are those seen by the black player (hgfedcba and 87654321), and white are the ones seen by the white player (abcdefgh and 12345678). 
 
-Like the pieces, the letter and number elements (like the one called "WhiteLetters") should consist of the actual numbers or letters and an invisible rectange the same size the respective borders (either 9x0.5 or 0.5x8 tilesizes). 
+Like the pieces, the letter and number elements (like the one called "WhiteLetters") should consist of the actual numbers or letters and an invisible rectange the same size the respective borders (either 9x0.5 or 0.5x8 tilesizes).
+
+
+The PNG file  (optional)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The theme can provide an optional (but very good to have) .png file for a preview in the Knights configuration dialog.  This file is a small picture of the board and pieces as seen in Knights during play.  Use the Preview entry in the .desktop file to list the png file name.
+
+
 
 ----------------------------
 Please send all comments to:
 Miha Čančula
 miha.cancula@gmail.com
 
-Last update: September 2010
+Last update: December 2010

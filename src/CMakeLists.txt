@@ -18,10 +18,17 @@ set(knights_SRCS
     main.cpp
  )
 
-if (${KDE_VERSION} VERSION_GREATER "4.5.60")
-    message("-- Building with KGameRenderer support")
+if (KGR)
     add_definitions(-DWITH_KGR)
-endif (${KDE_VERSION} VERSION_GREATER "4.5.60")
+endif (KGR)
+
+if (${QT_VERSION} VERSION_GREATER "4.6.0")
+    add_definitions(-DWITH_QT_46)
+endif()
+
+if (ANIMATIONS)
+    add_definitions(-DWITH_ANIMATIONS)
+endif()
 
 kde4_add_ui_files(knights_SRCS knightsview_base.ui prefs_base.ui gamedialog.ui clockwidget.ui proto/ficsdialog.ui promotiondialog.ui)
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )

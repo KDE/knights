@@ -250,6 +250,9 @@ namespace Knights
         KConfigDialog *dialog = new KConfigDialog ( this, QLatin1String ( "settings" ), Settings::self() );
         QWidget *generalSettingsDlg = new QWidget;
         ui_prefs_base.setupUi ( generalSettingsDlg );
+#if not defined WITH_ANIMATIONS
+        ui_prefs_base.animationGroup->hide();
+#endif
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
         connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
         QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );

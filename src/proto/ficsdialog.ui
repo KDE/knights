@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>657</width>
+    <width>766</width>
     <height>408</height>
    </rect>
   </property>
@@ -18,7 +18,7 @@
      </property>
      <widget class="QWidget" name="joinTab">
       <attribute name="title">
-       <string>Stran</string>
+       <string>&amp;Join a game</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -89,7 +89,7 @@
      </widget>
      <widget class="QWidget" name="seekTab">
       <attribute name="title">
-       <string>Stran</string>
+       <string>&amp;Seek opponents</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
