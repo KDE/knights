@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Grayscale
 Name[da]=Gråtone
+Name[en_GB]=Greyscale
 Name[et]=Halltoonid
 Name[nds]=Griestöön
 Name[nl]=Grijswaarden
@@ -13,6 +14,7 @@ Name[x-test]=xxGrayscalexx
 Name[zh_TW]=灰階
 Description=A grayscale theme using the Oxygen palette
 Description[da]=Et tema i gråtoner som bruger Oxygen-paletten
+Description[en_GB]=A greyscale theme using the Oxygen palette
 Description[et]=Halltoonides teema Oxygeni värvipaletiga
 Description[nds]=En Griestöön-Muster, bruukt den Oxygen-Klörensett
 Description[nl]=Een thema met grijswaarden gebruikmakend van het Oxygen palet

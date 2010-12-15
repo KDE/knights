@@ -2,6 +2,7 @@
 Name=Plain
 Name[da]=Almindeligt
 Name[de]=Einfach
+Name[en_GB]=Plain
 Name[et]=Tavaline
 Name[hu]=Sima
 Name[it]=Semplice
@@ -17,6 +18,7 @@ Name[zh_TW]=普通
 Description=A plain and simple theme
 Description[da]=Et almindeligt simpelt tema
 Description[de]=Ein einfaches Design für Knights.
+Description[en_GB]=A plain and simple theme
 Description[et]=Lihtne teema
 Description[hu]=Egy sima és egyszerű téma
 Description[it]=Un semplice tema
