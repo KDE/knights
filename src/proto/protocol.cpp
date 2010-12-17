@@ -139,6 +139,11 @@ namespace Knights
         return -1;
     }
 
+    QWidgetList Protocol::toolWidgets()
+    {
+        return QWidgetList();
+    }
+
     void Protocol::pauseGame()
     {
 

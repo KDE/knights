@@ -92,7 +92,8 @@ namespace Knights
         public:
             virtual Features supportedFeatures();
             virtual Move::List moveHistory();
-            int timeRemaining();
+            virtual int timeRemaining();
+            virtual QWidgetList toolWidgets();
 
         public Q_SLOTS:
             virtual void pauseGame();

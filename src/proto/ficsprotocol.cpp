@@ -153,31 +153,6 @@ void FicsProtocol::init ( const QVariantMap& options )
 
     m_stage = ConnectStage;
 
-    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
-    KParts::ReadOnlyPart* part = loader.factory()->create<KParts::ReadOnlyPart>(this);
-    if (part)
-    {
-        m_terminal = qobject_cast< TerminalInterfaceV2* >( part );
-
-        Knights::MainWindow* mainWindow = 0;
-        foreach (QWidget* w, QApplication::allWidgets() )
-        {
-            Knights::MainWindow* t = qobject_cast< Knights::MainWindow* >( w );
-            if (t)
-            {
-                mainWindow = t;
-                break;
-            }
-        }
-        if (mainWindow)
-        {        
-            QDockWidget* dock = new QDockWidget( i18nc("@title:window", "Chess Server Console") );
-            dock->setWidget( part->widget() );
-            mainWindow->addDockWidget( Qt::BottomDockWidgetArea, dock );
-            mainWindow->actionCollection()->addAction( i18n("Show Chess Server Console"), dock->toggleViewAction() );
-        }
-    }
-
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
     QString address = options.value ( QLatin1String ( "address" ), QLatin1String ( "freechess.org" ) ).toString();
@@ -186,6 +161,25 @@ void FicsProtocol::init ( const QVariantMap& options )
     connect ( m_socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
     connect ( m_socket, SIGNAL ( readyRead() ), SLOT ( readFromSocket() ) );
     m_socket->connectToHost ( address, port );
+}
+
+QWidgetList FicsProtocol::toolWidgets()
+{
+    QWidgetList widgets;
+
+    // FICS Console
+    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
+    KParts::ReadOnlyPart* part = loader.factory()->create<KParts::ReadOnlyPart>(this);
+    if (part)
+    {
+        m_terminal = qobject_cast< TerminalInterfaceV2* >( part );
+        widgets << part->widget();
+    }
+
+    // FICS Chat Widget
+    // TODO
+
+    return widgets;
 }
 
 void FicsProtocol::socketConnected()

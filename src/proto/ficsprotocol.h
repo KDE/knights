@@ -66,6 +66,7 @@ namespace Knights
 
             virtual void startGame();
             virtual void move ( const Move& m );
+            virtual QWidgetList toolWidgets();
 
         private:
             static const int Timeout;
