@@ -113,6 +113,8 @@ namespace Knights
             void acceptChallenge();
             void declineChallenge();
 
+            void login(const QString& username, const QString& password);
+
         private Q_SLOTS:
             void readFromSocket();
             void openGameDialog();
@@ -121,6 +123,7 @@ namespace Knights
             void setupOptions();
 
         Q_SIGNALS:
+            void sessionStarted();
             void gameOfferReceived ( const FicsGameOffer& offer );
             void challengeReceived ( const FicsPlayer& challenger );
     };

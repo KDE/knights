@@ -24,6 +24,7 @@
 #include "ui_ficsdialog.h"
 
 #include <KDebug>
+#include <KToolInvocation>
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
@@ -34,16 +35,42 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
-    
+
+    for (int i = 1; i < 4; ++i)
+    {
+        ui->tabWidget->setTabEnabled(i, false);
+    }
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
+    connect ( ui->registerButton, SIGNAL(clicked(bool)), SLOT(slotCreateAccount()));
+    connect ( ui->logInButton, SIGNAL(clicked(bool)), SLOT(slotLogin()));
 }
 
 FicsDialog::~FicsDialog()
 {
     delete ui;
 }
+
+void FicsDialog::slotSessionStarted()
+{
+    for (int i = 1; i < 4; ++i)
+    {
+        ui->tabWidget->setTabEnabled(i, true);
+    }
+    ui->tabWidget->setCurrentIndex(1);
+}
+
+void FicsDialog::slotLogin()
+{
+    emit login(ui->usernameLineEdit->text(), ui->passwordLineEdit->text());
+}
+
+void FicsDialog::slotCreateAccount()
+{
+    KToolInvocation::invokeBrowser( serverName + QLatin1String("/Register/index.html") );
+}
+
 
 void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 {

@@ -198,6 +198,13 @@ void FicsProtocol::socketError()
     kDebug() << m_socket->errorString();
 }
 
+void FicsProtocol::login ( const QString& username, const QString& password )
+{
+    setPlayerName(username);
+    m_stream << username << endl;
+    this->password = password;
+}
+
 void FicsProtocol::logIn ( )
 {
     username = Settings::ficsUsername();
@@ -282,6 +289,9 @@ void FicsProtocol::openGameDialog()
     connect ( m_widget, SIGNAL ( declineChallenge() ), SLOT ( declineChallenge() ) );
     connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::Reset ), SLOT ( setEnabled ( bool ) ) );
 
+    connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
+    
+    connect ( this, SIGNAL(sessionStarted()), m_widget, SLOT(slotSessionStarted() ) );
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
     connect ( this, SIGNAL ( challengeReceived ( FicsPlayer ) ), m_widget, SLOT ( addChallenge ( FicsPlayer ) ) );
     connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
@@ -314,10 +324,7 @@ void FicsProtocol::readFromSocket()
         case ConnectStage:
             if ( line.contains ( "login:" ) )
             {
-                if (Settings::autoLogin())
-                {
-                    logIn();
-                }
+                openGameDialog();
             }
             else if ( line.contains ( "password:" ) )
             {
@@ -333,7 +340,6 @@ void FicsProtocol::readFromSocket()
                 kDebug() << line;
                 m_stage = SeekStage;
                 setupOptions();
-                openGameDialog();
                 QString name = QLatin1String ( line );
                 name.remove ( 0, name.indexOf ( QLatin1String ( "session as " ) ) + 11 );
                 if ( name.contains ( QLatin1String ( "(U)" ) ) )
@@ -346,6 +352,7 @@ void FicsProtocol::readFromSocket()
                 }
                 kDebug() << name;
                 setPlayerName ( name );
+                emit sessionStarted();
             }
             else if ( line.contains ( "Invalid password" ) )
             {

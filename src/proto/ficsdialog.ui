@@ -263,15 +263,15 @@
    <sender>registeredCheckBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>passwordLineEdit</receiver>
-   <slot>setDisabled(bool)</slot>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>444</x>
-     <y>72</y>
+     <x>498</x>
+     <y>71</y>
     </hint>
     <hint type="destinationlabel">
-     <x>400</x>
-     <y>99</y>
+     <x>409</x>
+     <y>101</y>
     </hint>
    </hints>
   </connection>

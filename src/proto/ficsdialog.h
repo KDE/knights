@@ -26,6 +26,7 @@
 
 #include <QtGui/QWidget>
 #include <QtGui/QStringListModel>
+#include <boost/concept_check.hpp>
 
 namespace Ui
 {
@@ -42,17 +43,30 @@ namespace Knights
             virtual ~FicsDialog();
 
             int acceptedGameId();
+            QString userName();
+            QString password();
+            bool remember();
+
+            void setServerName(const QString& name);
 
         public Q_SLOTS:
+            void slotSessionStarted();
             void addGameOffer ( const FicsGameOffer& offer );
             void addChallenge ( const FicsPlayer& challenger );
+            
             void clearOffers();
             void refresh();
             void accept();
             void decline();
+
             void currentTabChanged ( int tab );
+            void slotCreateAccount();
+            void slotLogin();
 
         Q_SIGNALS:
+            void login ( QString username, QString password );
+            void createAccount();
+            
             void seekingChanged ( bool seek );
             void sought();
             void declineButtonNeeded ( bool needed );
@@ -65,6 +79,7 @@ namespace Knights
             Ui::FicsDialog* ui;
             QMap<int, int> m_gameId;
             QStringListModel m_challengeModel;
+            QString serverName;
     };
 }
 
