@@ -115,7 +115,8 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating
         .arg ( timePattern )
                                            );
 
-FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent )
+FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
+    m_terminal(0)
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
@@ -153,6 +154,15 @@ void FicsProtocol::init ( const QVariantMap& options )
 
     m_stage = ConnectStage;
 
+
+    // FICS Console
+    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
+    m_part = loader.factory()->create<KParts::ReadOnlyPart>(this);
+    if (m_part)
+    {
+        m_terminal = qobject_cast< TerminalInterfaceV2* >( m_part );
+    }
+
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
     QString address = options.value ( QLatin1String ( "address" ), QLatin1String ( "freechess.org" ) ).toString();
@@ -166,15 +176,7 @@ void FicsProtocol::init ( const QVariantMap& options )
 QWidgetList FicsProtocol::toolWidgets()
 {
     QWidgetList widgets;
-
-    // FICS Console
-    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
-    KParts::ReadOnlyPart* part = loader.factory()->create<KParts::ReadOnlyPart>(this);
-    if (part)
-    {
-        m_terminal = qobject_cast< TerminalInterfaceV2* >( part );
-        widgets << part->widget();
-    }
+    widgets << m_part->widget();
 
     // FICS Chat Widget
     // TODO
@@ -269,7 +271,7 @@ void FicsProtocol::openGameDialog()
 {
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
     dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::Cancel | KDialog::Apply | KDialog::Reset );
+    dialog->setButtons ( KDialog::Cancel | KDialog::Reset );
     dialog->setButtonText ( KDialog::Apply, i18n ( "Accept" ) );
     dialog->setButtonText ( KDialog::Reset, i18n ( "Decline" ) );
 
@@ -311,7 +313,10 @@ void FicsProtocol::readFromSocket()
         }
     }
     QByteArray line = m_socket->readLine();
-    m_terminal->sendInput( QLatin1String(line) );
+    if (m_terminal)
+    {
+        m_terminal->sendInput( QLatin1String(line) );
+    }
     kDebug() << line;
     switch ( m_stage )
     {

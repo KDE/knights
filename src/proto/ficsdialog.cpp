@@ -45,6 +45,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
     connect ( ui->registerButton, SIGNAL(clicked(bool)), SLOT(slotCreateAccount()));
     connect ( ui->logInButton, SIGNAL(clicked(bool)), SLOT(slotLogin()));
+    ui->logInButton->setIcon(KIcon(QLatin1String("dialog-ok-apply")));
+    ui->registerButton->setIcon(KIcon(QLatin1String("list-add")));
 }
 
 FicsDialog::~FicsDialog()

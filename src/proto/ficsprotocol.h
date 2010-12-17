@@ -29,6 +29,11 @@
 class QTcpSocket;
 class TerminalInterfaceV2;
 
+namespace KParts
+{
+    class ReadOnlyPart;
+}
+
 namespace Knights
 {
     class FicsDialog;
@@ -100,6 +105,7 @@ namespace Knights
             bool forcePrompt;
             bool m_seeking;
             TerminalInterfaceV2* m_terminal;
+            KParts::ReadOnlyPart* m_part;
 
             void logIn();
             void sendPassword();
