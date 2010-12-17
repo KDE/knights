@@ -59,7 +59,7 @@ bool KeyboardEventFilter::eventFilter ( QObject* object, QEvent* event )
     return QObject::eventFilter ( object, event );
 }
 
-void Knights::KeyboardEventFilter::setPasswordMade ( bool passwordMode )
+void Knights::KeyboardEventFilter::setPasswordMode ( bool passwordMode )
 {
   pwMode = passwordMode;
 }

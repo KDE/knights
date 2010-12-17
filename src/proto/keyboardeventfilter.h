@@ -33,7 +33,7 @@ namespace Knights
             explicit KeyboardEventFilter ( QObject* parent = 0 );
             virtual ~KeyboardEventFilter();
 
-	    void setPasswordMade(bool passwordMode);
+	    void setPasswordMode(bool passwordMode);
 	    bool passwordMade();
     protected:
             virtual bool eventFilter ( QObject* object, QEvent* event );

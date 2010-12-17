@@ -343,7 +343,7 @@ void FicsProtocol::readFromSocket()
                 }
                 else
                 {
-                    konsoleFilter->setPasswordMade(true);
+                    konsoleFilter->setPasswordMode(true);
                 }
             }
             else if ( line.contains ( "Press return to enter the server" ) )
@@ -355,7 +355,7 @@ void FicsProtocol::readFromSocket()
             {
                 kDebug() << line;
                 m_stage = SeekStage;
-                konsoleFilter->setPasswordMade(false);
+                konsoleFilter->setPasswordMode(false);
                 setupOptions();
                 QString name = QLatin1String ( line );
                 name.remove ( 0, name.indexOf ( QLatin1String ( "session as " ) ) + 11 );
