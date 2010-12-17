@@ -34,7 +34,7 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
-
+    
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
@@ -85,7 +85,8 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 
 void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 {
-    ui->challengeLabel->setText ( i18n ( "Challenge from %1 (%2)", challenger.first, challenger.second ) );
+    QString item = i18nc("PlayerName (rating)", "%1 (%2)", challenger.first, challenger.second);
+    m_challengeModel.setStringList( m_challengeModel.stringList() << item );
 }
 
 void FicsDialog::clearOffers()

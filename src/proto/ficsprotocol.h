@@ -27,6 +27,7 @@
 #include <QtCore/QTextStream>
 
 class QTcpSocket;
+class TerminalInterfaceV2;
 
 namespace Knights
 {
@@ -97,6 +98,7 @@ namespace Knights
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
+            TerminalInterfaceV2* m_terminal;
 
             void logIn();
             void sendPassword();

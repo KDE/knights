@@ -6,19 +6,131 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>766</width>
+    <width>657</width>
     <height>408</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="KTabWidget" name="tabWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
+     <property name="movable">
+      <bool>true</bool>
+     </property>
+     <property name="automaticResizeTabs">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="accountTab">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="title">
+       <string>Account</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="logInGroup">
+         <property name="title">
+          <string>Log in with an existing account</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="usernameLabel">
+            <property name="text">
+             <string>&amp;Username</string>
+            </property>
+            <property name="buddy">
+             <cstring>usernameLineEdit</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="KLineEdit" name="usernameLineEdit">
+            <property name="urlDropsEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="showClearButton" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="passwordLabel">
+            <property name="text">
+             <string>&amp;Password</string>
+            </property>
+            <property name="buddy">
+             <cstring>passwordLineEdit</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="KLineEdit" name="passwordLineEdit">
+            <property name="urlDropsEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="showClearButton" stdset="0">
+             <bool>true</bool>
+            </property>
+            <property name="passwordMode">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="rememberCheckBox">
+            <property name="text">
+             <string>Remember my username and password</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="KPushButton" name="logInButton">
+            <property name="text">
+             <string>Log in</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="registeredCheckBox">
+            <property name="text">
+             <string>This is a registered account</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="KPushButton" name="registerButton">
+            <property name="text">
+             <string>Create an account</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
      <widget class="QWidget" name="joinTab">
       <attribute name="title">
-       <string>&amp;Join a game</string>
+       <string>Seek List</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
@@ -87,15 +199,25 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="seekTab">
+     <widget class="QWidget" name="graphTab">
       <attribute name="title">
-       <string>&amp;Seek opponents</string>
+       <string>Seek Graph</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="KPushButton" name="seekButton">
+        <widget class="QGraphicsView" name="graphView"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="challengeTab">
+      <attribute name="title">
+       <string>Challenges</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QPushButton" name="seekButton">
          <property name="text">
-          <string>Seek opponents</string>
+          <string>Seek</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -103,13 +225,15 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="challengeLabel">
-         <property name="text">
-          <string>Waiting for challenges</string>
-         </property>
-        </widget>
+        <widget class="QListView" name="challengeListView"/>
        </item>
       </layout>
+     </widget>
+     <widget class="QWidget" name="consoleTab">
+      <attribute name="title">
+       <string>Console</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_4"/>
      </widget>
     </widget>
    </item>
@@ -122,6 +246,11 @@
    <header>kpushbutton.h</header>
   </customwidget>
   <customwidget>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
+  </customwidget>
+  <customwidget>
    <class>KTabWidget</class>
    <extends>QTabWidget</extends>
    <header>ktabwidget.h</header>
@@ -129,5 +258,22 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>registeredCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>passwordLineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>444</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>400</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

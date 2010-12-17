@@ -25,6 +25,7 @@
 #include "ficsprotocol.h"
 
 #include <QtGui/QWidget>
+#include <QtGui/QStringListModel>
 
 namespace Ui
 {
@@ -63,6 +64,7 @@ namespace Knights
         private:
             Ui::FicsDialog* ui;
             QMap<int, int> m_gameId;
+            QStringListModel m_challengeModel;
     };
 }
 
