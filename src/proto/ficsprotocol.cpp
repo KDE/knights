@@ -276,6 +276,7 @@ void FicsProtocol::openGameDialog()
     dialog->setButtonText ( KDialog::Reset, i18n ( "Decline" ) );
 
     m_widget = new FicsDialog ( dialog );
+    m_widget->setServerName(m_socket->peerName());
     dialog->setMainWidget ( m_widget );
 
     connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( accept() ) );

@@ -70,7 +70,7 @@ void FicsDialog::slotLogin()
 
 void FicsDialog::slotCreateAccount()
 {
-    KToolInvocation::invokeBrowser( serverName + QLatin1String("/Register/index.html") );
+    KToolInvocation::invokeBrowser( QLatin1String("http://") + serverName + QLatin1String("/Register/index.html") );
 }
 
 
@@ -150,6 +150,11 @@ void FicsDialog::decline()
 void FicsDialog::currentTabChanged ( int tab )
 {
     emit declineButtonNeeded ( tab == 1 );
+}
+
+void FicsDialog::setServerName ( const QString& name )
+{
+    serverName = name;
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
