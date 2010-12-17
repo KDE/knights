@@ -262,6 +262,7 @@ void FicsProtocol::setupOptions()
 void FicsProtocol::openGameDialog()
 {
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
+    dialog->setCaption(i18n("Chess server"));
     dialog->setButtons ( KDialog::Cancel | KDialog::Apply | KDialog::Reset );
     dialog->setButtonText ( KDialog::Apply, i18n ( "Accept" ) );
     dialog->setButtonText ( KDialog::Reset, i18n ( "Decline" ) );
@@ -308,7 +309,10 @@ void FicsProtocol::readFromSocket()
         case ConnectStage:
             if ( line.contains ( "login:" ) )
             {
-                logIn();
+                if (Settings::autoLogin())
+                {
+                    logIn();
+                }
             }
             else if ( line.contains ( "password:" ) )
             {

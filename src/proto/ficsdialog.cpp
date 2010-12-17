@@ -32,9 +32,11 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
-    ui->tabWidget->setTabText ( 0, i18n ( "&Join a game" ) );
-    ui->tabWidget->setTabText ( 1, i18n ( "&Seek opponents" ) );
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
+    for (int i = 1; i < 4; ++i)
+    {
+        ui->tabWidget->setTabEnabled(i, false);
+    }
 
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
@@ -83,7 +85,8 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 
 void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 {
-    ui->challengeLabel->setText ( i18n ( "Challenge from %1 (%2)", challenger.first, challenger.second ) );
+    QString item = i18nc("PlayerName (rating)", "%1 (%2)", challenger.first, challenger.second);
+    m_challengeModel.setStringList( m_challengeModel.stringList() << item );
 }
 
 void FicsDialog::clearOffers()

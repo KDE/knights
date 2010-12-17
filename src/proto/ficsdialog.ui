@@ -13,23 +13,32 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="KTabWidget" name="tabWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="tab_4">
+     <property name="movable">
+      <bool>true</bool>
+     </property>
+     <property name="automaticResizeTabs">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="accountTab">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Account</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0" colspan="2">
-        <widget class="QGroupBox" name="groupBox">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QGroupBox" name="logInGroup">
          <property name="title">
           <string>Log in with an existing account</string>
          </property>
-         <layout class="QFormLayout" name="formLayout">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::ExpandingFieldsGrow</enum>
-          </property>
+         <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
            <widget class="QLabel" name="usernameLabel">
             <property name="text">
@@ -73,38 +82,38 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QCheckBox" name="checkBox">
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="rememberCheckBox">
             <property name="text">
              <string>Remember my username and password</string>
             </property>
            </widget>
           </item>
-          <item row="5" column="1">
-           <widget class="KPushButton" name="kpushbutton_2">
+          <item row="2" column="2">
+           <widget class="KPushButton" name="logInButton">
             <property name="text">
              <string>Log in</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="registeredCheckBox">
+            <property name="text">
+             <string>This is a registered account</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="KPushButton" name="registerButton">
+            <property name="text">
+             <string>Create an account</string>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="KPushButton" name="kpushbutton">
-         <property name="text">
-          <string>Log in as a guest</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="KPushButton" name="kpushbutton_3">
-         <property name="text">
-          <string>Create an account</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -190,22 +199,37 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="graphTab">
       <attribute name="title">
        <string>Seek Graph</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QGraphicsView" name="graphicsView"/>
+        <widget class="QGraphicsView" name="graphView"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_3">
+     <widget class="QWidget" name="challengeTab">
       <attribute name="title">
        <string>Challenges</string>
       </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QPushButton" name="seekButton">
+         <property name="text">
+          <string>Seek</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListView" name="challengeListView"/>
+       </item>
+      </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="consoleTab">
       <attribute name="title">
        <string>Console</string>
       </attribute>
@@ -234,5 +258,22 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>registeredCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>passwordLineEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>444</x>
+     <y>72</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>400</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
