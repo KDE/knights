@@ -73,6 +73,9 @@ namespace Knights
             QMap<Color, QGroupBox*> m_box;
             QMap<Color, int> m_timeIncrement;
             QMap<Color, bool> m_started;
+
+            void updateTimeFormat();
+            QString m_timeFormat;
     };
 }
 

@@ -91,9 +91,10 @@ void ClockWidget::setCurrentTime ( Color color, const QTime& time )
     if ( units > bar->maximum() )
     {
         bar->setMaximum ( units );
+        updateTimeFormat();
     }
     bar->setValue ( units );
-    bar->setFormat ( time.toString( QLatin1String("h:mm:ss") ) );
+    bar->setFormat ( time.toString( m_timeFormat ) );
 
     Clock* clock = ( color == White ) ? ui->clockW : ui->clockB;
     clock->setTime ( time );
@@ -114,6 +115,7 @@ void ClockWidget::setTimeLimit ( Color color, const QTime& time )
         default:
             break;
     }
+    updateTimeFormat();
     setCurrentTime( color, time );
 }
 
@@ -162,5 +164,18 @@ void ClockWidget::resumeClock()
 {
     m_timerId[m_activePlayer] = startTimer ( timerInterval );
 }
+
+void ClockWidget::updateTimeFormat()
+{
+    if ( m_timeLimit[White] > QTime(1,0) || m_timeLimit[Black] > QTime(1,0) )
+    {
+        m_timeFormat = QLatin1String("h:mm:ss");
+    }
+    else
+    {
+        m_timeFormat = QLatin1String("mm:ss");
+    }
+}
+
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

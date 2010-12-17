@@ -158,11 +158,14 @@ namespace Knights
         {
             showClockWidgets();
         }
-        foreach(QWidget* w, m_protocol->toolWidgets())
+        if ( m_protocol )
         {
-            QDockWidget* dock = new QDockWidget(this);
-            dock->setWidget(w);
-            addDockWidget(Qt::BottomDockWidgetArea, dock);
+            foreach(QWidget* w, m_protocol->toolWidgets())
+            {
+                QDockWidget* dock = new QDockWidget(this);
+                dock->setWidget(w);
+                addDockWidget(Qt::BottomDockWidgetArea, dock);
+            }
         }
         m_view->setupBoard ( m_protocol );
     }
