@@ -62,6 +62,7 @@ namespace Knights
             void currentTabChanged ( int tab );
             void slotCreateAccount();
             void slotLogin();
+    void setConsoleWidget(QWidget* widget);
 
         Q_SIGNALS:
             void login ( QString username, QString password );

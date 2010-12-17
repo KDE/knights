@@ -43,6 +43,7 @@
 #include <QtGui/QMainWindow>
 #include <knights.h>
 #include <KActionCollection>
+#include "keyboardeventfilter.h"
 
 
 using namespace Knights;
@@ -116,7 +117,9 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating
                                            );
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
-    m_terminal(0)
+    sendPassword(false),
+    m_terminal(0),
+    konsoleFilter(0)
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
@@ -161,6 +164,10 @@ void FicsProtocol::init ( const QVariantMap& options )
     if (m_part)
     {
         m_terminal = qobject_cast< TerminalInterfaceV2* >( m_part );
+        konsoleFilter = new KeyboardEventFilter(this);
+        m_part->widget()->installEventFilter(konsoleFilter);
+        connect ( konsoleFilter, SIGNAL(textTyped(QString)), this, SLOT(writeToSocket(QString)));
+        connect(konsoleFilter, SIGNAL(enterPressed()), SLOT(flushSocket()));
     }
 
     m_socket = new QTcpSocket ( this );
@@ -198,6 +205,7 @@ void FicsProtocol::login ( const QString& username, const QString& password )
 {
     setPlayerName(username);
     m_stream << username << endl;
+    sendPassword = true;
     this->password = password;
 }
 
@@ -277,6 +285,7 @@ void FicsProtocol::openGameDialog()
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
+    m_widget->setConsoleWidget(m_part->widget());
     dialog->setMainWidget ( m_widget );
 
     connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( accept() ) );
@@ -328,7 +337,14 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "password:" ) )
             {
-                m_stream << password << endl;
+                if ( sendPassword )
+                {
+                    m_stream << password << endl;
+                }
+                else
+                {
+                    konsoleFilter->setPasswordMade(true);
+                }
             }
             else if ( line.contains ( "Press return to enter the server" ) )
             {
@@ -339,6 +355,7 @@ void FicsProtocol::readFromSocket()
             {
                 kDebug() << line;
                 m_stage = SeekStage;
+                konsoleFilter->setPasswordMade(false);
                 setupOptions();
                 QString name = QLatin1String ( line );
                 name.remove ( 0, name.indexOf ( QLatin1String ( "session as " ) ) + 11 );
@@ -551,5 +568,19 @@ void FicsProtocol::setSeeking ( bool seek )
     }
     m_stream << endl;
 }
+
+void FicsProtocol::writeToSocket ( const QString& text )
+{
+    kDebug() << text;
+    m_stream << text;
+}
+
+void FicsProtocol::flushSocket()
+{
+    kDebug();
+    m_stream << endl;
+}
+
+
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

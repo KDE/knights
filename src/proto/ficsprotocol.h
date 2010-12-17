@@ -36,6 +36,9 @@ namespace KParts
 
 namespace Knights
 {
+
+class KeyboardEventFilter;
+
     class FicsDialog;
 
     typedef QPair<QString, int> FicsPlayer;
@@ -101,14 +104,15 @@ namespace Knights
             Stage m_stage;
             QString username;
             QString password;
+            bool sendPassword;
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
             TerminalInterfaceV2* m_terminal;
             KParts::ReadOnlyPart* m_part;
+            KeyboardEventFilter* konsoleFilter;
 
             void logIn();
-            void sendPassword();
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
@@ -124,6 +128,8 @@ namespace Knights
 
         private Q_SLOTS:
             void readFromSocket();
+            void writeToSocket(const QString& text);
+            void flushSocket();
             void openGameDialog();
             void checkSought();
             void setSeeking ( bool seek );

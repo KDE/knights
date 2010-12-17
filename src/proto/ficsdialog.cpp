@@ -157,4 +157,10 @@ void FicsDialog::setServerName ( const QString& name )
     serverName = name;
 }
 
+void FicsDialog::setConsoleWidget ( QWidget* widget )
+{
+    ui->tabWidget->widget(4)->layout()->addWidget(widget);
+}
+
+
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
