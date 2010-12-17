@@ -38,8 +38,8 @@ namespace Knights
             Q_ENUMS ( ErrorCode )
             Q_FLAGS ( Features )
             Q_PROPERTY ( Color playerColor READ playerColor WRITE setPlayerColor )
-            Q_PROPERTY ( QString opponentName READ opponentName )
-            Q_PROPERTY ( QString playerName READ playerName )
+            Q_PROPERTY ( QString playerName READ playerName WRITE setPlayerName )
+            Q_PROPERTY ( QString opponentName READ opponentName WRITE setOpponentName )
 
         public:
             enum Feature
