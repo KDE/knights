@@ -25,14 +25,14 @@
 
 		</authorgroup>
 		<copyright>
-			<year>2008</year>
+			<year>2010</year>
 			<holder>Miha Čančula</holder>
 		</copyright>
 
 		<legalnotice>&FDLNotice;
 		</legalnotice>
 
-		<date>2010-09-14</date><!-- Date of (re)writing, or update.-->
+		<date>2010-12-17</date><!-- Date of (re)writing, or update.-->
 		<releaseinfo>&kappversion;
 		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
@@ -540,10 +540,22 @@
 			<title>General</title>
 			<para>
 				The <guimenu>General</guimenu> section contains options on the
-				general appearance of &knights;. Here it is possible to
-				enable or disable animations and the display of
-				all three types of markers.
+				general appearance of &knights;.  Animations of the pieces and
+				board can be enabled or modified. The animations section is visible
+				based upon system software, and is seen only if animations are 
+				available.  All three types of <link linkend="markers">markers</link>
+				can be enabled or disabled.  Borders around the chess board can be 
+				activated with or without algebraic chess notation by using a drop 
+				down menu.
 			</para>
+			<note>
+				<title>Note:</title>
+				<para>
+					Some themes may not support markers, borders and/or notations.
+					In this case, the configuration will have no effect on them,
+					but will be remembered in case you change themes again.
+				</para>
+			</note>
 		</sect1>
 
 		<sect1 id="configuration-themes">
