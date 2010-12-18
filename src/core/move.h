@@ -55,6 +55,12 @@ namespace Knights
                 QueenSide,
                 KingSide
             };
+            enum Notation
+            {
+                NoNotation, /**< No string has been set */
+                Algebraic, /**< It omits the starting file and rank of the piece, unless it is necessary to disambiguate the move. */
+                Coordinate /**< includes the starting file and rank of the piece */
+            };
             Q_DECLARE_FLAGS ( Flags, MoveFlag )
 
             static Move castling ( CastlingSide side, Color color );
@@ -89,7 +95,10 @@ namespace Knights
             PieceType promotedType() const;
             void setPromotedType ( PieceType type );
 
+            Notation notation() const;
+
             bool operator== ( Move other ) const;
+            void toCoordinateNotation ( Grid grid );
 
         private:
             QSharedDataPointer<MovePrivate> d;

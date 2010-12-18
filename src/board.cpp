@@ -98,7 +98,7 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 
 void Board::movePiece ( Move m, bool changePlayer )
 {
-    if ( !m_grid.contains ( m.from() ) || m.to() == m.from() )
+    if ( m.notation() != Move::Algebraic && ( !m_grid.contains ( m.from() ) || m.to() == m.from() ) )
     {
         kWarning() << "Invalid move" << m.from() << m.to();
         return;

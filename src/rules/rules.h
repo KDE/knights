@@ -99,7 +99,7 @@ namespace Knights
               * Adds appropriate flags to the move.
               * Useful when processing moves from a computer engine, as they only specify the start and end pos,
               * and no other information
-              * @param move Pointer to the move with @a from and @a to already set.
+              * @param move Reference to the move with @a from and @a to already set.
               */
             virtual void checkSpecialFlags ( Move& move ) = 0;
 

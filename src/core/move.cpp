@@ -40,13 +40,17 @@ namespace Knights
 
             PieceType promotedType;
             Move::Flags flags;
+
+            Move::Notation notationType;
+            QString string;
     };
 
     MovePrivate::MovePrivate()
             : from ( Pos() ),
             to ( Pos() ),
             promotedType ( NoType ),
-            flags ( Move::None )
+            flags ( Move::None ),
+            notationType( Move::NoNotation )
     {
     }
 
@@ -138,7 +142,13 @@ namespace Knights
         d->flags = None;
         d->extraCaptures.clear();
         d->extraMoves.clear();
-
+        QRegExp longMoveTest = QRegExp(QLatin1String("[a-h][1-8].?[a-h][1-8]"));
+        if (longMoveTest.indexIn(string) > -1)
+        {
+            // Long move notation, can be directly converted to From and To
+            d->notationType = Coordinate;
+            string.remove(QLatin1Char('-'));
+            string.remove(QLatin1Char(' '));
         if ( string.contains ( QLatin1Char ( 'x' ) ) )
         {
             setFlag ( Take, true );
@@ -151,10 +161,21 @@ namespace Knights
             setFlag ( Promote, true );
             setPromotedType ( Piece::typeFromChar ( string[5] ) );
         }
+        }
+        else
+        {
+            // Short notation, just store the string for later
+            d->string = string;
+            d->notationType = Algebraic;
+        }
     }
 
     QString Move::string ( bool includeX ) const
     {
+        if ( d->notationType == Algebraic )
+        {
+            return d->string;
+        }
         QString str = from().string();
         if ( ( flags() & Take ) && includeX )
         {
@@ -233,14 +254,15 @@ namespace Knights
         d->promotedType = type;
     }
 
+    Move::Notation Move::notation() const
+    {
+        return d->notationType;
+    }
+
     bool Move::operator== ( Move other ) const
     {
         return ( d->from == other.from() && d->to == other.to() );
     }
-
-
-
-
 }
 
 

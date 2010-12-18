@@ -364,6 +364,44 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
 
 void ChessRules::checkSpecialFlags ( Move& move )
 {
+    // If the move is in the short algebraic notation, we set its From and To
+    if ( move.notation() == Move::Algebraic )
+    {
+        QChar type;
+        switch (move.string().size())
+        {
+            case 2:
+                // Size two => only the "To" square
+                move.setTo(move.string());
+                for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+                {
+                    if ( legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                    {
+                        move.setFrom( it.key() );
+                        break;
+                    }
+                }
+                break;
+
+            case 3:
+                // Piece type and the "To" square
+                type = move.string().at(0);
+                move.setTo(move.string().mid(1,2));
+                for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+                {
+                    if ( Piece::charFromType(it.value()->pieceType()) == type
+                        && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                    {
+                        move.setFrom( it.key() );
+                        break;
+                    }
+                }
+                break;
+            default:
+                kWarning() << "Unknown move notation" << move.string();
+        }
+    }
+
     Piece* p = m_grid->value ( move.from() );
     move.setFlags ( 0 );
     move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
