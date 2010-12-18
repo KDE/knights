@@ -66,9 +66,9 @@ void XBoardProtocol::init ( const QVariantMap& options )
     setAttributes ( options );
     QStringList args = options[QLatin1String ( "program" ) ].toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
-    if ( program.contains ( QLatin1String ( "gnuchess" ) ) && !args.contains ( QLatin1String ( "--xboard" ) ) )
+    if ( !args.contains ( QLatin1String ( "--xboard" ) ) && !args.contains ( QLatin1String ( "xboard" ) ) )
     {
-        args << QLatin1String ( "--xboard" );
+        args << QLatin1String ( "xboard" );
     }
     setOpponentName ( program );
     mProcess = new KProcess ( this );
@@ -104,8 +104,10 @@ void XBoardProtocol::readFromProgram()
         {
             emit illegalMove();
         }
-        else if ( line.contains ( QLatin1String ( "..." ) ) )
+        else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
+            kDebug() << "Move by computer" << line;
+            // Format used by GnuChess
             QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
             kDebug() << moveString;
             emit pieceMoved ( Move ( moveString ) );
