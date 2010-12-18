@@ -19,9 +19,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ficsdialog.h"
+#include "proto/ficsdialog.h"
 
 #include "ui_ficsdialog.h"
+#include "proto/seekgraphscene.h"
 
 #include <KDebug>
 #include <KToolInvocation>
@@ -45,6 +46,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
     connect ( ui->registerButton, SIGNAL(clicked(bool)), SLOT(slotCreateAccount()));
     ui->registerButton->setIcon(KIcon(QLatin1String("list-add")));
+
+    ui->graphView->setScene(new SeekGraphScene(this));
 }
 
 FicsDialog::~FicsDialog()
@@ -108,6 +111,8 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     rated->setChecked ( offer.rated );
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
+
+    qobject_cast<SeekGraphScene*>(ui->graphView->scene())->addGameOffer(offer);
 }
 
 void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )

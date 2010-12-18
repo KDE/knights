@@ -1,4 +1,4 @@
-set(knights_SRCS proto/keyboardeventfilter.cpp
+set(knights_SRCS proto/seekgraphscene.cpp proto/keyboardeventfilter.cpp
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
