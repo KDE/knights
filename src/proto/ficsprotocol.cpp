@@ -45,7 +45,6 @@
 #include <KActionCollection>
 #include "keyboardeventfilter.h"
 
-
 using namespace Knights;
 using KWallet::Wallet;
 
@@ -118,6 +117,7 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
     sendPassword(false),
+    m_widget(0),
     m_terminal(0),
     konsoleFilter(0)
 {
@@ -277,18 +277,22 @@ void FicsProtocol::setupOptions()
 
 void FicsProtocol::openGameDialog()
 {
+    if ( m_widget )
+    {
+        m_widget->setStatus(i18n("Login failed"), true);
+        return;
+    }
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
     dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::Cancel | KDialog::Reset );
-    dialog->setButtonText ( KDialog::Apply, i18n ( "Accept" ) );
-    dialog->setButtonText ( KDialog::Reset, i18n ( "Decline" ) );
+    dialog->setButtons ( KDialog::Apply | KDialog::Cancel );
+    dialog->setButtonText ( KDialog::Apply, i18n ( "Log in" ) );
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
     m_widget->setConsoleWidget(m_part->widget());
     dialog->setMainWidget ( m_widget );
 
-    connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( accept() ) );
+    connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( slotLogin()) );
     connect ( dialog, SIGNAL ( resetClicked() ), m_widget, SLOT ( decline() ) );
     connect ( m_widget, SIGNAL ( acceptSeek ( int ) ), SLOT ( acceptSeek ( int ) ) );
     connect ( m_widget, SIGNAL ( acceptChallenge() ), SLOT ( acceptChallenge() ) );
@@ -373,7 +377,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Invalid password" ) )
             {
-                forcePrompt = true;
+                m_widget->setStatus(i18n("Invalid Password"), true);
             }
             break;
         case SeekStage:

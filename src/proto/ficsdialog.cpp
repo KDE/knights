@@ -44,8 +44,6 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
     connect ( ui->registerButton, SIGNAL(clicked(bool)), SLOT(slotCreateAccount()));
-    connect ( ui->logInButton, SIGNAL(clicked(bool)), SLOT(slotLogin()));
-    ui->logInButton->setIcon(KIcon(QLatin1String("dialog-ok-apply")));
     ui->registerButton->setIcon(KIcon(QLatin1String("list-add")));
 }
 
@@ -161,6 +159,24 @@ void FicsDialog::setConsoleWidget ( QWidget* widget )
 {
     ui->tabWidget->widget(4)->layout()->addWidget(widget);
 }
+
+void FicsDialog::focusOnLogin()
+{
+    ui->tabWidget->setCurrentIndex(0);
+}
+
+void FicsDialog::setStatus ( const QString& status, bool error )
+{
+    if ( error )
+    {
+        ui->logInStatusLabel->setText(i18n("<font color='red'>Error: %1</font>", status));
+    }
+    else
+    {
+        ui->logInStatusLabel->setText(status);
+    }
+}
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

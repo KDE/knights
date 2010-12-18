@@ -63,6 +63,8 @@ namespace Knights
             void slotCreateAccount();
             void slotLogin();
     void setConsoleWidget(QWidget* widget);
+    void focusOnLogin();
+    void setStatus(const QString& status, bool error = false);
 
         Q_SIGNALS:
             void login ( QString username, QString password );
