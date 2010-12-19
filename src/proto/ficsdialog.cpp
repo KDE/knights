@@ -71,7 +71,14 @@ void FicsDialog::slotLogin()
 
 void FicsDialog::slotCreateAccount()
 {
-    KToolInvocation::invokeBrowser( QLatin1String("http://") + serverName + QLatin1String("/Register/index.html") );
+    QUrl url;
+    url.setScheme(QLatin1String("http"));
+    url.setHost(serverName);
+    if ( serverName == QLatin1String("freechess.org") )
+    {
+        url.setPath(QLatin1String("/Register/index.html"));
+    }
+    KToolInvocation::invokeBrowser( url.toString() );
 }
 
 
