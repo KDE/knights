@@ -112,8 +112,6 @@ class KeyboardEventFilter;
             KParts::ReadOnlyPart* m_part;
             KeyboardEventFilter* konsoleFilter;
 
-            void logIn();
-
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
             void socketConnected();

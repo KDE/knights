@@ -209,67 +209,6 @@ void FicsProtocol::login ( const QString& username, const QString& password )
     this->password = password;
 }
 
-void FicsProtocol::logIn ( )
-{
-    username = Settings::ficsUsername();
-    bool guest = ( username == QLatin1String ( "guest" ) );
-
-    // I really hope this works on all platforms
-    WId id = 0;
-    if ( qApp->activeWindow() )
-    {
-        id = qApp->activeWindow()->winId();
-    }
-    Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
-
-    if (wallet)
-    {
-        QString folder = QLatin1String ( "Knights" );
-        if ( !wallet->hasFolder ( folder ) )
-        {
-            wallet->createFolder ( folder );
-        }
-        wallet->setFolder ( folder );
-        QString key = username + QLatin1Char ( '@' ) + m_socket->peerName();
-        wallet->readPassword ( key, password );
-    }
-
-    KPasswordDialog::KPasswordDialogFlags flags = KPasswordDialog::ShowAnonymousLoginCheckBox
-                | KPasswordDialog::ShowKeepPassword
-                | KPasswordDialog::ShowUsernameLine;
-    QPointer<KPasswordDialog> pwDialog = new KPasswordDialog ( qApp->activeWindow(), flags );
-    pwDialog->setUsername ( username );
-    pwDialog->setPassword ( password );
-    pwDialog->setAnonymousMode ( guest );
-    if ( pwDialog->exec() == QDialog::Accepted )
-    {
-        guest = pwDialog->anonymousMode();
-        username = pwDialog->username();
-        password = pwDialog->password();
-        if ( pwDialog->keepPassword() && wallet)
-        {
-            wallet->writePassword ( username + QLatin1Char ( '@' ) + m_socket->peerName(), password );
-        }
-        Settings::setFicsUsername ( username );
-    }
-    else
-    {
-        emit error ( UserCancelled );
-    }
-    delete pwDialog;
-
-    if ( guest )
-    {
-        m_stream << "guest" << endl;
-        setPlayerName ( i18n ( "You" ) );
-    }
-    else
-    {
-        m_stream << username << endl;
-        setPlayerName ( username );
-    }
-}
-
 void FicsProtocol::setupOptions()
 {
     m_stream << "set style 12" << endl;
@@ -318,6 +257,10 @@ void FicsProtocol::openGameDialog()
     connect ( this, SIGNAL ( initSuccesful() ), dialog, SLOT ( accept() ) );
     connect ( this, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), dialog, SLOT ( deleteLater() ) );
     dialog->show();
+    if ( Settings::autoLogin() )
+    {
+        m_widget->slotLogin();
+    }
 }
 
 void FicsProtocol::readFromSocket()

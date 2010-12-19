@@ -100,16 +100,16 @@
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QCheckBox" name="rememberCheckBox">
+           <widget class="KPushButton" name="logInButton">
             <property name="text">
-             <string>Remember my username and password</string>
+             <string>Log in</string>
             </property>
            </widget>
           </item>
           <item row="3" column="2">
-           <widget class="KPushButton" name="logInButton">
+           <widget class="QCheckBox" name="rememberCheckBox">
             <property name="text">
-             <string>Log in</string>
+             <string>Log me in automatically</string>
             </property>
            </widget>
           </item>

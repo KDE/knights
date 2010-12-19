@@ -234,11 +234,10 @@ bool FicsDialog::remember()
 
 void FicsDialog::slotDialogAccepted()
 {
-    Settings::setRememberPassword(ui->rememberCheckBox->isChecked());
-    if ( ui->rememberCheckBox->isChecked() )
-    {
-        Settings::setFicsUsername ( ui->usernameLineEdit->text() );
-        Settings::setGuest ( !ui->registeredCheckBox->isChecked() );
+    Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
+
+    Settings::setFicsUsername ( ui->usernameLineEdit->text() );
+    Settings::setGuest ( !ui->registeredCheckBox->isChecked() );
 
         WId id = 0;
         if ( qApp->activeWindow() )
@@ -257,8 +256,7 @@ void FicsDialog::slotDialogAccepted()
             QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + serverName;
             wallet->writePassword ( key, ui->passwordLineEdit->text() );
         }
-    }
-    Settings::self()->writeConfig();
+        Settings::self()->writeConfig();
 }
 
 

@@ -114,8 +114,8 @@
       <label>whether to log in as guest</label>
       <default>false</default>
     </entry>
-    <entry name="rememberPassword" type="Bool">
-      <label>whether to remember the username and password</label>
+    <entry name="autoLogin" type="Bool">
+      <label>whether to log in to chess server automatically</label>
       <default>true</default>
     </entry>
   </group>
