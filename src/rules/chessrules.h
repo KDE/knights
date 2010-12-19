@@ -49,7 +49,7 @@ namespace Knights
             bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
             virtual bool isAttacking ( const Pos& attackingPos );
 
-            virtual void checkSpecialFlags ( Move& move );
+            virtual void checkSpecialFlags ( Move& move, Color color );
 
         private:
 

@@ -362,12 +362,15 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
     return list;
 }
 
-void ChessRules::checkSpecialFlags ( Move& move )
+void ChessRules::checkSpecialFlags ( Move& move, Color color )
 {
     // If the move is in the short algebraic notation, we set its From and To
     if ( move.notation() == Move::Algebraic )
     {
-        QChar type;
+        QChar c;
+        PieceType type;
+        int file;
+        kDebug() << move.string();
         switch (move.string().size())
         {
             case 2:
@@ -375,7 +378,8 @@ void ChessRules::checkSpecialFlags ( Move& move )
                 move.setTo(move.string());
                 for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                 {
-                    if ( legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                    if ( it.value()->color() == color
+                        && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                     {
                         move.setFrom( it.key() );
                         break;
@@ -384,17 +388,41 @@ void ChessRules::checkSpecialFlags ( Move& move )
                 break;
 
             case 3:
-                // Piece type and the "To" square
-                type = move.string().at(0);
-                move.setTo(move.string().mid(1,2));
-                for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+                // Piece type or file, and the "To" square
+            case 4:
+                // Piece type or file, x, and the "To" square
+                c = move.string().at(0);
+                move.setTo(move.string().right(2));
+                if ( QString(QLatin1String("KQRNBP")).contains(c, Qt::CaseInsensitive) )
                 {
-                    if ( Piece::charFromType(it.value()->pieceType()) == type
-                        && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                    type = Piece::typeFromChar(c);
+                    for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                     {
-                        move.setFrom( it.key() );
-                        break;
+                        if ( it.value()->color() == color && it.value()->pieceType() == type
+                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                        {
+                            move.setFrom( it.key() );
+                            break;
+                        }
                     }
+                }
+                else if ( QString(QLatin1String("abcdefgh")).contains(c, Qt::CaseInsensitive) )
+                {
+                    file = Pos::numFromRow(c);
+                    for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+                    {
+                        if ( it.value()->color() == color
+                            && it.key().first == file
+                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                        {
+                            move.setFrom( it.key() );
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    kWarning() << "Unknown move notation" << move.string();
                 }
                 break;
             default:

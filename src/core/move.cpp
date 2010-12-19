@@ -142,25 +142,34 @@ namespace Knights
         d->flags = None;
         d->extraCaptures.clear();
         d->extraMoves.clear();
-        QRegExp longMoveTest = QRegExp(QLatin1String("[a-h][1-8].?[a-h][1-8]"));
+
+        if ( string.contains(QLatin1Char('x')) )
+        {
+            setFlag ( Take, true );
+            string.remove(QLatin1Char('x'));
+        }
+        
+        if ( string.contains(QLatin1Char('+')) )
+        {
+            setFlag ( Check, true );
+            string.remove(QLatin1Char('+'));
+        }
+
+        string.remove(QLatin1Char('-'));
+        string.remove(QLatin1Char(' '));
+        
+        QRegExp longMoveTest = QRegExp(QLatin1String("[a-h][1-8][a-h][1-8]"));
         if (longMoveTest.indexIn(string) > -1)
         {
             // Long move notation, can be directly converted to From and To
             d->notationType = Coordinate;
-            string.remove(QLatin1Char('-'));
-            string.remove(QLatin1Char(' '));
-        if ( string.contains ( QLatin1Char ( 'x' ) ) )
-        {
-            setFlag ( Take, true );
-            string.remove ( QLatin1Char ( 'x' ) );
-        }
-        setFrom ( string.left ( 2 ) );
-        setTo ( string.mid ( 2, 2 ) );
-        if ( string.size() > 5 )
-        {
-            setFlag ( Promote, true );
-            setPromotedType ( Piece::typeFromChar ( string[5] ) );
-        }
+            setFrom ( string.left ( 2 ) );
+            setTo ( string.mid ( 2, 2 ) );
+            if ( string.size() > 5 )
+            {
+                setFlag ( Promote, true );
+                setPromotedType ( Piece::typeFromChar ( string[5] ) );
+            }
         }
         else
         {

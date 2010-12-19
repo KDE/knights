@@ -99,9 +99,10 @@ namespace Knights
               * Adds appropriate flags to the move.
               * Useful when processing moves from a computer engine, as they only specify the start and end pos,
               * and no other information
-              * @param move Reference to the move with @a from and @a to already set.
+              * @param move a reference to the move with @a from and @a to already set.
+              * @param color the color if the player who made this move
               */
-            virtual void checkSpecialFlags ( Move& move ) = 0;
+            virtual void checkSpecialFlags ( Move& move, Color color ) = 0;
 
             /**
               * Called when a move has been made, either by the player or a computer opponent
