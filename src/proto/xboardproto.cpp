@@ -67,6 +67,7 @@ void XBoardProtocol::init ( const QVariantMap& options )
     setAttributes ( options );
     QStringList args = options[QLatin1String ( "program" ) ].toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
+    kDebug() << "Starting program" << program;
     if ( !args.contains ( QLatin1String ( "--xboard" ) ) && !args.contains ( QLatin1String ( "xboard" ) ) )
     {
         args << QLatin1String ( "xboard" );
