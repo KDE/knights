@@ -110,5 +110,13 @@
       <label>username for the Free Internet Chess Server</label>
       <default></default>
     </entry>
+    <entry name="guest" type="Bool">
+      <label>whether to log in as guest</label>
+      <default>false</default>
+    </entry>
+    <entry name="rememberPassword" type="Bool">
+      <label>whether to remember the username and password</label>
+      <default>true</default>
+    </entry>
   </group>
 </kcfg>

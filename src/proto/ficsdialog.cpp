@@ -26,28 +26,40 @@
 
 #include <KDebug>
 #include <KToolInvocation>
+#include <KWallet/Wallet>
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
+#include <settings.h>
 
 using namespace Knights;
+using KWallet::Wallet;
 
 FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
 {
     ui = new Ui::FicsDialog;
     ui->setupUi ( this );
 
-    for (int i = 1; i < 4; ++i)
+    for ( int i = 1; i < 4; ++i )
     {
-        ui->tabWidget->setTabEnabled(i, false);
+        ui->tabWidget->setTabEnabled ( i, false );
     }
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
-    connect ( ui->registerButton, SIGNAL(clicked(bool)), SLOT(slotCreateAccount()));
-    ui->registerButton->setIcon(KIcon(QLatin1String("list-add")));
 
-    ui->graphView->setScene(new SeekGraphScene(this));
+    connect ( ui->logInButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotLogin() ) );
+    ui->logInButton->setIcon ( KIcon ( QLatin1String ( "network-connect" ) ) );
+
+    connect ( ui->registerButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotCreateAccount() ) );
+    ui->registerButton->setIcon ( KIcon ( QLatin1String ( "list-add" ) ) );
+
+    ui->graphView->setScene ( new SeekGraphScene ( this ) );
+
+    QString username = Settings::ficsUsername();
+    ui->usernameLineEdit->setText ( username );
+
+    QString password;
 }
 
 FicsDialog::~FicsDialog()
@@ -57,28 +69,31 @@ FicsDialog::~FicsDialog()
 
 void FicsDialog::slotSessionStarted()
 {
-    for (int i = 1; i < 4; ++i)
+    setStatus ( i18n ( "Session started" ) );
+    ui->logInButton->setEnabled ( false );
+    for ( int i = 1; i < 4; ++i )
     {
-        ui->tabWidget->setTabEnabled(i, true);
+        ui->tabWidget->setTabEnabled ( i, true );
     }
-    ui->tabWidget->setCurrentIndex(1);
+    ui->tabWidget->setCurrentIndex ( 1 );
+    emit acceptButtonNeeded ( true );
 }
 
 void FicsDialog::slotLogin()
 {
-    emit login(ui->usernameLineEdit->text(), ui->passwordLineEdit->text());
+    emit login ( ui->usernameLineEdit->text(), ui->passwordLineEdit->text() );
 }
 
 void FicsDialog::slotCreateAccount()
 {
     QUrl url;
-    url.setScheme(QLatin1String("http"));
-    url.setHost(serverName);
-    if ( serverName == QLatin1String("freechess.org") )
+    url.setScheme ( QLatin1String ( "http" ) );
+    url.setHost ( serverName );
+    if ( serverName == QLatin1String ( "freechess.org" ) )
     {
-        url.setPath(QLatin1String("/Register/index.html"));
+        url.setPath ( QLatin1String ( "/Register/index.html" ) );
     }
-    KToolInvocation::invokeBrowser( url.toString() );
+    KToolInvocation::invokeBrowser ( url.toString() );
 }
 
 
@@ -98,7 +113,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
     baseTimeEdit->setReadOnly ( true );
     baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
-    baseTimeEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    baseTimeEdit->setButtonSymbols ( QAbstractSpinBox::NoButtons );
     QTime baseTime = QTime();
     baseTime.setHMS ( 0, offer.baseTime, 0 );
     baseTimeEdit->setTime ( baseTime );
@@ -107,7 +122,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     QTimeEdit* incTimeEdit = new QTimeEdit ( this );
     incTimeEdit->setReadOnly ( true );
     incTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
-    incTimeEdit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    incTimeEdit->setButtonSymbols ( QAbstractSpinBox::NoButtons );
     QTime incTime = QTime();
     incTime.setHMS ( 0, 0, offer.timeIncrement );
     incTimeEdit->setTime ( incTime );
@@ -119,13 +134,14 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
 
-    qobject_cast<SeekGraphScene*>(ui->graphView->scene())->addGameOffer(offer);
+    qobject_cast<SeekGraphScene*> ( ui->graphView->scene() )->addGameOffer ( offer );
 }
 
 void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 {
-    QString item = i18nc("PlayerName (rating)", "%1 (%2)", challenger.first, challenger.second);
-    m_challengeModel.setStringList( m_challengeModel.stringList() << item );
+    QString item = i18nc ( "PlayerName (rating)", "%1 (%2)", challenger.first, challenger.second );
+    m_challengeModel.setStringList ( m_challengeModel.stringList() << item );
+    emit declineButtonNeeded ( true );
 }
 
 void FicsDialog::clearOffers()
@@ -159,36 +175,91 @@ void FicsDialog::decline()
 
 void FicsDialog::currentTabChanged ( int tab )
 {
-    emit declineButtonNeeded ( tab == 1 );
+    if ( tab != 4 )
+    {
+        emit declineButtonNeeded ( false );
+    }
 }
 
 void FicsDialog::setServerName ( const QString& name )
 {
+    WId id = 0;
+    if ( qApp->activeWindow() )
+    {
+        id = qApp->activeWindow()->winId();
+    }
+    QString password;
+    Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
+    if ( wallet )
+    {
+        QLatin1String folder ( "Knights" );
+        if ( !wallet->hasFolder ( folder ) )
+        {
+            wallet->createFolder ( folder );
+        }
+        wallet->setFolder ( folder );
+        QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + name;
+        wallet->readPassword ( key, password );
+    }
+    ui->passwordLineEdit->setText ( password );
     serverName = name;
 }
 
 void FicsDialog::setConsoleWidget ( QWidget* widget )
 {
-    ui->tabWidget->widget(4)->layout()->addWidget(widget);
+    ui->tabWidget->widget ( 4 )->layout()->addWidget ( widget );
 }
 
 void FicsDialog::focusOnLogin()
 {
-    ui->tabWidget->setCurrentIndex(0);
+    ui->tabWidget->setCurrentIndex ( 0 );
 }
 
 void FicsDialog::setStatus ( const QString& status, bool error )
 {
     if ( error )
     {
-        ui->logInStatusLabel->setText(i18n("<font color='red'>Error: %1</font>", status));
+        ui->logInStatusLabel->setText ( i18n ( "<font color='red'>Error: %1</font>", status ) );
     }
     else
     {
-        ui->logInStatusLabel->setText(status);
+        ui->logInStatusLabel->setText ( status );
     }
 }
 
+bool FicsDialog::remember()
+{
+    return ui->rememberCheckBox->isChecked();
+}
+
+void FicsDialog::slotDialogAccepted()
+{
+    Settings::setRememberPassword(ui->rememberCheckBox->isChecked());
+    if ( ui->rememberCheckBox->isChecked() )
+    {
+        Settings::setFicsUsername ( ui->usernameLineEdit->text() );
+        Settings::setGuest ( !ui->registeredCheckBox->isChecked() );
+
+        WId id = 0;
+        if ( qApp->activeWindow() )
+        {
+            id = qApp->activeWindow()->winId();
+        }
+        Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
+        if ( wallet )
+        {
+            QLatin1String folder ( "Knights" );
+            if ( !wallet->hasFolder ( folder ) )
+            {
+                wallet->createFolder ( folder );
+            }
+            wallet->setFolder ( folder );
+            QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + serverName;
+            wallet->writePassword ( key, ui->passwordLineEdit->text() );
+        }
+    }
+    Settings::self()->writeConfig();
+}
 
 
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

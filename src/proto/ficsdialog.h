@@ -51,6 +51,7 @@ namespace Knights
 
         public Q_SLOTS:
             void slotSessionStarted();
+            void slotDialogAccepted();
             void addGameOffer ( const FicsGameOffer& offer );
             void addChallenge ( const FicsPlayer& challenger );
             
@@ -73,6 +74,7 @@ namespace Knights
             void seekingChanged ( bool seek );
             void sought();
             void declineButtonNeeded ( bool needed );
+            void acceptButtonNeeded ( bool needed );
 
             void acceptSeek ( int seekId );
             void acceptChallenge();
