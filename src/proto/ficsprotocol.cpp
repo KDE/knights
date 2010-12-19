@@ -275,7 +275,12 @@ void FicsProtocol::readFromSocket()
         }
     }
     QByteArray line = m_socket->readLine();
-    if (m_terminal)
+    if ( line.isEmpty() || line.contains("fics%") )
+    {
+        return;
+    }
+    line.chop(1); // Remove the extra newline
+    if ( m_terminal )
     {
         m_terminal->sendInput( QLatin1String(line) );
     }
