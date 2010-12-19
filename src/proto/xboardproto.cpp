@@ -107,14 +107,17 @@ void XBoardProtocol::readFromProgram()
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
-            // Format used by GnuChess
-            QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
-            if ( moveString != lastMoveString )
+            const QRegExp position(QLatin1String("[a-h][1-8]"));
+            if ( position.indexIn(line) > -1 )
             {
-                // GnuChess may report its move twice, we need only one
-                kDebug() << "Computer's move:" << moveString;
-                lastMoveString = moveString;
-                emit pieceMoved ( Move ( moveString ) );
+                QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
+                if ( moveString != lastMoveString )
+                {
+                    // GnuChess may report its move twice, we need only one
+                    kDebug() << "Computer's move:" << moveString;
+                    lastMoveString = moveString;
+                    emit pieceMoved ( Move ( moveString ) );
+                }
             }
         }
         else if ( line.contains ( QLatin1String ( "wins" ) ) )
