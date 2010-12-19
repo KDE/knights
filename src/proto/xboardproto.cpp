@@ -42,7 +42,7 @@ XBoardProtocol::~XBoardProtocol()
 {
     if ( mProcess && mProcess->isOpen() )
     {
-        mProcess->write ( "exit\n" );
+        mProcess->write ( "quit\n" );
         if ( !mProcess->waitForFinished ( 500 ) )
         {
             mProcess->kill();
@@ -57,8 +57,9 @@ void XBoardProtocol::startGame()
 
 void XBoardProtocol::move ( const Move& m )
 {
-    kDebug() << m.string();
+    kDebug() << "Player's move:" << m.string(false);
     mProcess->write ( m.string(false).toLatin1() + '\n' );
+    lastMoveString.clear();
 }
 
 void XBoardProtocol::init ( const QVariantMap& options )
@@ -106,11 +107,15 @@ void XBoardProtocol::readFromProgram()
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
-            kDebug() << "Move by computer" << line;
             // Format used by GnuChess
             QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
-            kDebug() << moveString;
-            emit pieceMoved ( Move ( moveString ) );
+            if ( moveString != lastMoveString )
+            {
+                // GnuChess may report its move twice, we need only one
+                kDebug() << "Computer's move:" << moveString;
+                lastMoveString = moveString;
+                emit pieceMoved ( Move ( moveString ) );
+            }
         }
         else if ( line.contains ( QLatin1String ( "wins" ) ) )
         {

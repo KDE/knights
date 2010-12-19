@@ -41,6 +41,7 @@ namespace Knights
 
         private:
             KProcess* mProcess;
+            QString lastMoveString;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
