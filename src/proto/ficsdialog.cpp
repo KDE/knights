@@ -175,10 +175,8 @@ void FicsDialog::decline()
 
 void FicsDialog::currentTabChanged ( int tab )
 {
-    if ( tab != 4 )
-    {
-        emit declineButtonNeeded ( false );
-    }
+    emit declineButtonNeeded ( tab == 3 );
+    emit acceptButtonNeeded ( tab == 1 || tab == 2 || tab == 3 );
 }
 
 void FicsDialog::setServerName ( const QString& name )
