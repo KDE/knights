@@ -56,15 +56,17 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     ui->graphView->setScene ( new SeekGraphScene ( this ) );
 
-    QString username = Settings::ficsUsername();
-    ui->usernameLineEdit->setText ( username );
-
-    QString password;
+    ui->usernameLineEdit->setText ( Settings::ficsUsername() );
 }
 
 FicsDialog::~FicsDialog()
 {
     delete ui;
+}
+
+QSize FicsDialog::sizeHint() const
+{
+    return QSize(800,500);
 }
 
 void FicsDialog::slotSessionStarted()

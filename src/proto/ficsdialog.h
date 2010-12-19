@@ -46,8 +46,10 @@ namespace Knights
             QString userName();
             QString password();
             bool remember();
-
+            
             void setServerName(const QString& name);
+
+            virtual QSize sizeHint() const;
 
         public Q_SLOTS:
             void slotSessionStarted();

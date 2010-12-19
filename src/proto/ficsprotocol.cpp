@@ -225,7 +225,7 @@ void FicsProtocol::openGameDialog()
     dialog->setCaption(i18n("Chess server"));
     dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel );
 
-    dialog->setButtonText(KDialog::No, i18n("Reject"));
+    dialog->setButtonText(KDialog::No, i18n("Decline"));
     dialog->button(KDialog::No)->setVisible(false);
     dialog->setButtonText(KDialog::Yes, i18n("Accept"));
     dialog->button(KDialog::Yes)->setVisible(false);
@@ -256,11 +256,11 @@ void FicsProtocol::openGameDialog()
 
     connect ( this, SIGNAL ( initSuccesful() ), dialog, SLOT ( accept() ) );
     connect ( this, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), dialog, SLOT ( deleteLater() ) );
-    dialog->show();
     if ( Settings::autoLogin() )
     {
         m_widget->slotLogin();
     }
+    dialog->show();
 }
 
 void FicsProtocol::readFromSocket()
