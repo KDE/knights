@@ -72,6 +72,11 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             break;
     }
 
+    ui->programComboBox->setHistoryItems( Settings::programs() );
+    ui->programComboBox->setCurrentItem( Settings::currentProgram(), true );
+    ui->serverComboBox->setHistoryItems( Settings::servers() );
+    ui->serverComboBox->setCurrentItem( Settings::currentServer(), true );
+
     hotseatModeToggled ( ui->oppHuman->isChecked() );
     ficsModeToggled ( ui->oppFics->isChecked() );
 }
@@ -87,10 +92,14 @@ void GameDialog::writeConfig()
     if ( ui->oppComp->isChecked() )
     {
         selectedProtocol = Settings::EnumProtocol::XBoard;
+        Settings::setPrograms( ui->programComboBox->historyItems() );
+        Settings::setCurrentProgram( ui->programComboBox->currentText() );
     }
     else if ( ui->oppFics->isChecked() )
     {
         selectedProtocol = Settings::EnumProtocol::FICS;
+        Settings::setServers( ui->serverComboBox->historyItems() );
+        Settings::setCurrentServer( ui->serverComboBox->currentText() );
     }
 
     Settings::EnumColor::type selectedColor = Settings::EnumColor::NoColor;

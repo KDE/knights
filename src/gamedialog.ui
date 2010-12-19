@@ -38,11 +38,9 @@
           <property name="enabled">
            <bool>false</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>gnuchess --xboard</string>
-           </property>
-          </item>
+          <property name="historyItems">
+           <stringlist/>
+          </property>
          </widget>
         </item>
        </layout>
@@ -61,11 +59,9 @@
           <property name="enabled">
            <bool>false</bool>
           </property>
-          <item>
-           <property name="text">
-            <string>freechess.org</string>
-           </property>
-          </item>
+          <property name="historyItems">
+           <stringlist/>
+          </property>
          </widget>
         </item>
        </layout>

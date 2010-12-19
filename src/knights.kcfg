@@ -90,9 +90,21 @@
       <label>the local human player's color in a game against a computer or over the Internet.</label>
       <default>NoColor</default>
     </entry>
-    <entry name="program" type="Path">
-      <label>program to run</label>
-      <default>gnuchess --xboard</default>
+    <entry name="programs" type="StringList">
+      <label>list of programs to run for playing against the computer</label>
+      <default>gnuchess,crafty</default>
+    </entry>
+    <entry name="currentProgram" type="String">
+      <label>the last selected program</label>
+      <default>gnuchess</default>
+    </entry>
+    <entry name="servers" type="StringList">
+      <label>list of servers for playing over the Internet</label>
+      <default>freechess.org</default>
+    </entry>
+    <entry name="currentServer" type="String">
+      <label>the last selected server</label>
+      <default>freechess.org</default>
     </entry>
     <entry name="ficsUsername" type="String">
       <label>username for the Free Internet Chess Server</label>
