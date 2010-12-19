@@ -58,7 +58,7 @@ void XBoardProtocol::startGame()
 void XBoardProtocol::move ( const Move& m )
 {
     kDebug() << m.string();
-    mProcess->write ( m.string().toLatin1() + '\n' );
+    mProcess->write ( m.string(false).toLatin1() + '\n' );
 }
 
 void XBoardProtocol::init ( const QVariantMap& options )
