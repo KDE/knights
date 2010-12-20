@@ -162,16 +162,22 @@ namespace Knights
             {
                 KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), m_protocol, SLOT ( proposeDraw() ) );
                 drawAction->setText ( i18n ( "Propose &Draw" ) );
+                drawAction->setHelpText(i18n("Propose a draw to your oppenent"));
+                drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
             }
             if ( f & Protocol::Resign )
             {
                 KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), m_protocol, SLOT ( resign() ) );
                 resignAction->setText ( i18n ( "Resign" ) );
+                resignAction->setHelpText(i18n("Admit your inevitable defeat"));
+                resignAction->setIcon(KIcon(QLatin1String("flag-red")));
             }
-            if ( f & Protocol::Resign )
+            if ( f & Protocol::Adjourn )
             {
                 KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), m_protocol, SLOT ( adjourn() ) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
+                adjournAction->setHelpText(i18n("Continue this game at a later time"));
+                adjournAction->setIcon(KIcon(QLatin1String("document-save")));
             }
             if ( f & Protocol::Pause )
             {
@@ -179,8 +185,12 @@ namespace Knights
             }
             if ( f & Protocol::Undo )
             {
-                KStandardAction::undo( m_protocol, SLOT(undoLastMove()), actionCollection() );
-                KStandardAction::redo( m_protocol, SLOT(redoLastMove()), actionCollection() );
+                KAction* undoAction = KStandardAction::undo( m_protocol, SLOT(undoLastMove()), actionCollection() );
+                undoAction->setEnabled(false);
+                connect ( m_protocol, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+                KAction* redoAction = KStandardAction::redo( m_protocol, SLOT(redoLastMove()), actionCollection() );
+                redoAction->setEnabled(false);
+                connect ( m_protocol, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
             }
             createGUI();
             foreach ( QWidget* w, m_protocol->toolWidgets() )

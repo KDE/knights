@@ -120,7 +120,9 @@ void XBoardProtocol::readFromProgram()
                     // GnuChess may report its move twice, we need only one
                     kDebug() << "Computer's move:" << moveString;
                     lastMoveString = moveString;
-                    emit pieceMoved ( Move ( moveString ) );
+                    Move m = Move ( moveString );
+                    addMoveToHistory ( m );
+                    emit pieceMoved ( m );
                 }
             }
         }
@@ -166,6 +168,20 @@ void XBoardProtocol::redoLastMove()
 {
     Move m = nextRedoMove();
     m_stream << m.string(false) << endl;
+    switch ( playerColor() )
+    {
+        // We must prevent the computer from taking over the player's side
+        // These command determine which side is played by the computers, so they're opposite to player color
+        case White:
+            m_stream << "black";
+            break;
+        case Black:
+            m_stream << "white";
+            break;
+        default:
+            break;
+    }
+    m_stream << endl;
     emit pieceMoved(m);
 }
 

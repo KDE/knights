@@ -125,13 +125,30 @@ namespace Knights
     void Protocol::addMoveToHistory ( const Knights::Move& move )
     {
         Q_D ( Protocol );
+        if ( d->moveHistory.isEmpty() )
+        {
+            emit undoPossible(true);
+        }
         d->moveHistory << move;
+        if ( !d->moveUndoStack.isEmpty() )
+        {
+            emit redoPossible(false);
+        }
+        d->moveUndoStack.clear();
     }
 
     Move Protocol::nextUndoMove()
     {
         Q_D ( Protocol );
         Move m = d->moveHistory.takeLast();
+        if ( d->moveHistory.isEmpty() )
+        {
+            emit undoPossible(false);
+        }
+        if ( d->moveUndoStack.isEmpty() )
+        {
+            emit redoPossible(true);
+        }
         d->moveUndoStack.push( m );
         return m.reverse();
     }
@@ -140,6 +157,14 @@ namespace Knights
     {
         Q_D ( Protocol );
         Move m = d->moveUndoStack.pop();
+        if ( d->moveUndoStack.isEmpty() )
+        {
+            emit redoPossible(false);
+        }
+        if ( d->moveHistory.isEmpty() )
+        {
+            emit undoPossible(true);
+        }
         d->moveHistory << m;
         return m;
     }

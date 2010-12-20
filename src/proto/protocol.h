@@ -127,6 +127,8 @@ namespace Knights
             void error ( const Protocol::ErrorCode& errorCode, const QString& errorString = QString() );
 
             void timeChanged ( const Color& color, const QTime& time );
+            void undoPossible ( bool possible );
+            void redoPossible ( bool possible );
 
         private:
             ProtocolPrivate* d_ptr;
