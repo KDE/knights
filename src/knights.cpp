@@ -163,17 +163,21 @@ namespace Knights
             {
                 KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), m_protocol, SLOT ( proposeDraw() ) );
                 drawAction->setText ( i18n ( "Propose &Draw" ) );
+                kDebug() << "Adding DrawAction";
             }
             if ( f & Protocol::Resign )
             {
                 KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), m_protocol, SLOT ( resign() ) );
                 resignAction->setText ( i18n ( "Resign" ) );
+                kDebug() << "Adding ResignAction";
             }
             if ( f & Protocol::Resign )
             {
                 KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), m_protocol, SLOT ( adjourn() ) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
+                kDebug() << "Adding AdjournAction";
             }
+            createGUI();
             foreach ( QWidget* w, m_protocol->toolWidgets() )
             {
                 QDockWidget* dock = new QDockWidget ( this );

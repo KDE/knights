@@ -1,14 +1,18 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <kpartgui name="knights" version="1">
-<MenuBar>
-  <Menu name="move"><text>&amp;Move</text>
+  <ToolBar name="mainToolBar">
+    <text>Main Toolbar</text>
+    <Action name="game_new" />
+    <Action name="game_pause" />
     <Action name="propose_draw" />
     <Action name="adjourn" />
     <Action name="resign" />
-  </Menu>
-</MenuBar>
-<ToolBar name="main">
-    <Action name="propose_draw" />
-    <Action name="adjourn" />
-    <Action name="resign" />
+  </ToolBar>
+  <MenuBar>
+    <Menu name="game">
+      <Action name="propose_draw" />
+      <Action name="adjourn" />
+      <Action name="resign" />
+    </Menu>
+  </MenuBar>
 </kpartgui>

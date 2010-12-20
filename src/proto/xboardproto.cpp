@@ -35,7 +35,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return GameOver;
+    return GameOver | Draw | Adjourn | Resign;
 }
 
 XBoardProtocol::~XBoardProtocol()

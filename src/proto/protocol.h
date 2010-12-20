@@ -54,7 +54,7 @@ namespace Knights
                 Undo = 0x20, /**< It is possible to undo a move */
                 GameOver = 0x40, /**< The protocol emits gameOver() when the game is over */
                 Draw = 0x80,
-                Forfeit = 0x100,
+                Adjourn = 0x100,
                 Resign = 0x200
             };
             Q_DECLARE_FLAGS ( Features, Feature )
