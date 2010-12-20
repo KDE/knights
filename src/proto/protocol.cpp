@@ -133,7 +133,7 @@ namespace Knights
         Q_D ( Protocol );
         Move m = d->moveHistory.takeLast();
         d->moveUndoStack.push( m );
-        return m;
+        return m.reverse();
     }
 
     Move Protocol::nextRedoMove()

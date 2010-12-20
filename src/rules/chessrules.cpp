@@ -93,9 +93,9 @@ Knights::Color ChessRules::winner()
     return NoColor;
 }
 
-BoardState ChessRules::startingPieces ( )
+PieceDataMap ChessRules::startingPieces ( )
 {
-    BoardState pieces;
+    PieceDataMap pieces;
     // First, the white pieces
     int baseLine = 0;
     int pawnLine = 0;

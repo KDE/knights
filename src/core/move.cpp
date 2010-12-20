@@ -21,6 +21,8 @@
 
 #include "move.h"
 
+#include <KDebug>
+
 #include <QtCore/QPair>
 #include <QtCore/QSharedData>
 
@@ -43,6 +45,9 @@ namespace Knights
 
             Move::Notation notationType;
             QString string;
+
+            PieceDataMap addedPieces;
+            PieceDataMap removedPieces;
     };
 
     MovePrivate::MovePrivate()
@@ -268,9 +273,64 @@ namespace Knights
         return d->notationType;
     }
 
+    PieceDataMap Move::removedPieces()
+    {
+        return d->removedPieces;
+    }
+
+    void Move::addRemovedPiece ( const Knights::Pos& pos, const Knights::PieceData& data )
+    {
+        d->removedPieces.insert(pos, data);
+    }
+
+    void Move::setRemovedPieces ( const Knights::PieceDataMap& map )
+    {
+        d->removedPieces = map;
+    }
+    PieceDataMap Move::addedPieces()
+    {
+        return d->addedPieces;
+    }
+
+    void Move::addAddedPiece ( const Knights::Pos& pos, const Knights::PieceData& data )
+    {
+        d->addedPieces.insert(pos, data);
+    }
+
+    void Move::setAddedPieces ( const Knights::PieceDataMap& map )
+    {
+        d->addedPieces = map;
+    }
+
     bool Move::operator== ( Move other ) const
     {
         return ( d->from == other.from() && d->to == other.to() );
+    }
+
+    Move Move::reverse() const
+    {
+        Move rev;
+        if ( notation() == Algebraic )
+        {
+            // We can't reverse the move from the algebraic notation alone
+            // Please don't call this with a short notation move
+            kError() << "Can't reverse the move from short algebraic notation";
+            return rev;
+        }
+        rev.setTo(d->from);
+        rev.setFrom(d->to);
+        
+        QList<Move> additionalMoves;
+        foreach ( const Move& m, d->extraMoves )
+        {
+            additionalMoves << m.reverse();
+        }
+        rev.setAdditionalMoves(additionalMoves);
+
+        rev.setAddedPieces(d->removedPieces);
+        rev.setRemovedPieces(d->addedPieces);
+
+        return rev;
     }
 }
 

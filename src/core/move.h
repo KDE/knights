@@ -39,7 +39,7 @@ namespace Knights
         public:
 
             typedef QList<Move> List;
-
+            
             enum MoveFlag
             {
                 None = 0x00,
@@ -76,6 +76,7 @@ namespace Knights
             Pos from() const;
             Pos to() const;
             QString string ( bool includeX = true ) const;
+            Move reverse() const;
 
             void setFrom ( const Pos& value );
             void setFrom ( int first, int second );
@@ -94,6 +95,14 @@ namespace Knights
 
             PieceType promotedType() const;
             void setPromotedType ( PieceType type );
+
+            PieceDataMap removedPieces();
+            void setRemovedPieces ( const PieceDataMap& map );
+            void addRemovedPiece ( const Pos& pos, const PieceData& data );
+            
+            PieceDataMap addedPieces();
+            void setAddedPieces ( const PieceDataMap& map );
+            void addAddedPiece ( const Pos& pos, const PieceData& data );
 
             Notation notation() const;
 

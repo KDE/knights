@@ -68,13 +68,13 @@ namespace Knights
 
     typedef QMap<Pos, Piece*> Grid;
     typedef QPair<Color, PieceType> PieceData;
-    typedef QMap<Pos, PieceData> BoardState;
+    typedef QMap<Pos, PieceData> PieceDataMap;
 }
 
 Q_DECLARE_METATYPE ( Knights::Color )
 Q_DECLARE_METATYPE ( Knights::PieceType )
 Q_DECLARE_METATYPE ( Knights::PieceData )
-Q_DECLARE_METATYPE ( Knights::BoardState )
+Q_DECLARE_METATYPE ( Knights::PieceDataMap )
 
 #endif // KNIGHTS_PIECE_H
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

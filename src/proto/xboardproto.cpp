@@ -36,7 +36,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return GameOver | Draw | Adjourn | Resign;
+    return GameOver | Draw | Adjourn | Resign | Undo;
 }
 
 XBoardProtocol::~XBoardProtocol()
@@ -159,12 +159,14 @@ void XBoardProtocol::resign()
 void XBoardProtocol::undoLastMove()
 {
     m_stream << "undo" << endl;
-    nextUndoMove();
+    emit pieceMoved(nextUndoMove());
 }
 
 void XBoardProtocol::redoLastMove()
 {
-    m_stream << nextRedoMove().string(false) << endl;
+    Move m = nextRedoMove();
+    m_stream << m.string(false) << endl;
+    emit pieceMoved(m);
 }
 
 void XBoardProtocol::proposeDraw()

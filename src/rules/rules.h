@@ -66,7 +66,7 @@ namespace Knights
             /**
               * @return The positions and types of the staring pieces of the color @a color
               */
-            virtual BoardState startingPieces () = 0;
+            virtual PieceDataMap startingPieces () = 0;
 
             /**
               * Used to check whether any player has a winning position.

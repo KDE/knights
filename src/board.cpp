@@ -173,9 +173,9 @@ void Board::movePiece ( Move m, bool changePlayer )
 
 void Board::populate()
 {
-    const BoardState pieces = m_rules->startingPieces();
-    BoardState::const_iterator it = pieces.constBegin();
-    BoardState::const_iterator end = pieces.constEnd();
+    const PieceDataMap pieces = m_rules->startingPieces();
+    PieceDataMap::const_iterator it = pieces.constBegin();
+    PieceDataMap::const_iterator end = pieces.constEnd();
     for ( ; it != end; ++it )
     {
         addPiece ( it.value().second, it.value().first, it.key() );

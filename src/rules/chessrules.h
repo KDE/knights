@@ -40,7 +40,7 @@ namespace Knights
 
             virtual Color winner();
             virtual bool hasLegalMoves ( Color color );
-            virtual BoardState startingPieces ();
+            virtual PieceDataMap startingPieces ();
             virtual QList<Move> legalMoves ( const Pos& pos );
             virtual void moveMade ( const Move& m );
             virtual Directions legalDirections ( PieceType type );
