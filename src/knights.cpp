@@ -80,7 +80,6 @@ namespace Knights
     void MainWindow::setupActions()
     {
         KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
-        KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
         KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
         KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
     }
@@ -173,6 +172,10 @@ namespace Knights
             {
                 KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), m_protocol, SLOT ( adjourn() ) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
+            }
+            if ( f & Protocol::Pause )
+            {
+                KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
             }
             if ( f & Protocol::Undo )
             {
