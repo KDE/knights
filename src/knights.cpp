@@ -144,28 +144,46 @@ namespace Knights
 
     void MainWindow::protocolInitSuccesful()
     {
-        if ( m_protocol && m_protocol->supportedFeatures() & Protocol::SetTimeLimit )
+        if ( m_protocol )
         {
-            // The time limit was set or changed by the protocol
-            m_timeLimit = m_protocol->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
-            if ( m_timeLimit )
+            Protocol::Features f = m_protocol->supportedFeatures();
+
+            if ( f & Protocol::SetTimeLimit )
             {
-                m_playerTime = m_protocol->attribute ( QLatin1String ( "playerTime" ) ).toTime();
-                m_oppTime = m_protocol->attribute ( QLatin1String ( "opponentTime" ) ).toTime();
+                // The time limit was set or changed by the protocol
+                m_timeLimit = m_protocol->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
+                if ( m_timeLimit )
+                {
+                    m_playerTime = m_protocol->attribute ( QLatin1String ( "playerTime" ) ).toTime();
+                    m_oppTime = m_protocol->attribute ( QLatin1String ( "opponentTime" ) ).toTime();
+                }
+            }
+            
+            if ( f & Protocol::Draw )
+            {
+                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), m_protocol, SLOT ( proposeDraw() ) );
+                drawAction->setText ( i18n ( "Propose &Draw" ) );
+            }
+            if ( f & Protocol::Resign )
+            {
+                KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), m_protocol, SLOT ( resign() ) );
+                resignAction->setText ( i18n ( "Resign" ) );
+            }
+            if ( f & Protocol::Resign )
+            {
+                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), m_protocol, SLOT ( adjourn() ) );
+                adjournAction->setText ( i18n ( "Adjourn" ) );
+            }
+            foreach ( QWidget* w, m_protocol->toolWidgets() )
+            {
+                QDockWidget* dock = new QDockWidget ( this );
+                dock->setWidget ( w );
+                addDockWidget ( Qt::BottomDockWidgetArea, dock );
             }
         }
         if ( m_timeLimit )
         {
             showClockWidgets();
-        }
-        if ( m_protocol )
-        {
-            foreach(QWidget* w, m_protocol->toolWidgets())
-            {
-                QDockWidget* dock = new QDockWidget(this);
-                dock->setWidget(w);
-                addDockWidget(Qt::BottomDockWidgetArea, dock);
-            }
         }
         m_view->setupBoard ( m_protocol );
     }

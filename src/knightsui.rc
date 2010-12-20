@@ -2,7 +2,13 @@
 <kpartgui name="knights" version="1">
 <MenuBar>
   <Menu name="move"><text>&amp;Move</text>
-    <Action name="switch_action" />
+    <Action name="propose_draw" />
+    <Action name="adjourn" />
+    <Action name="resign" />
   </Menu>
 </MenuBar>
+<ToolBar name="main">
+    <Action name="propose_draw" />
+    <Action name="adjourn" />
+    <Action name="resign" />
 </kpartgui>

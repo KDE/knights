@@ -164,6 +164,20 @@ namespace Knights
         return Move::List();
     }
 
+    void Protocol::adjourn()
+    {
+
+    }
+    void Protocol::proposeDraw()
+    {
+
+    }
+    void Protocol::resign()
+    {
+
+    }
+
+
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
