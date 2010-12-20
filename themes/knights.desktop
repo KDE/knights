@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Knights
+Name[ca]=Knights
 Name[cs]=Knights
 Name[da]=Knights
 Name[de]=Knights
@@ -17,6 +18,7 @@ Name[uk]=Knights
 Name[x-test]=xxKnightsxx
 Name[zh_TW]=Knights
 Description=Original Knights theme.
+Description[ca]=Tema original del Knights.
 Description[da]=Oprindeligt Knights-tema.
 Description[de]=Das ursprüngliche Design für Knights.
 Description[en_GB]=Original Knights theme.
