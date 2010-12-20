@@ -87,6 +87,10 @@ namespace Knights
             void setAttribute ( const QString& attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
+            void addMoveToHistory ( const Move& move );
+            Move nextUndoMove();
+            Move nextRedoMove();
+
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
             virtual void startGame() = 0;

@@ -36,7 +36,8 @@ namespace Knights
     {
         public:
             QVariantMap attributes;
-            QStack<Move> undoStack;
+            QList<Move> moveHistory;
+            QStack<Move> moveUndoStack;
     };
 
     Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
@@ -119,6 +120,28 @@ namespace Knights
     {
         Q_D ( const Protocol );
         return d->attributes.value ( attribute );
+    }
+
+    void Protocol::addMoveToHistory ( const Knights::Move& move )
+    {
+        Q_D ( Protocol );
+        d->moveHistory << move;
+    }
+
+    Move Protocol::nextUndoMove()
+    {
+        Q_D ( Protocol );
+        Move m = d->moveHistory.takeLast();
+        d->moveUndoStack.push( m );
+        return m;
+    }
+
+    Move Protocol::nextRedoMove()
+    {
+        Q_D ( Protocol );
+        Move m = d->moveUndoStack.pop();
+        d->moveHistory << m;
+        return m;
     }
 
     Protocol::Features Protocol::supportedFeatures()

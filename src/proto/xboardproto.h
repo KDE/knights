@@ -23,6 +23,7 @@
 #define KNIGHTS_XBOARDPROTO_H
 
 #include "protocol.h"
+#include <QTextStream>
 
 class KProcess;
 
@@ -41,10 +42,16 @@ namespace Knights
 
         private:
             KProcess* mProcess;
+            QTextStream m_stream;
             QString lastMoveString;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
+            virtual void proposeDraw();
+            virtual void adjourn();
+            virtual void resign();
+            virtual void undoLastMove();
+            virtual void redoLastMove();
 
         private Q_SLOTS:
             void readFromProgram();

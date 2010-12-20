@@ -25,6 +25,7 @@
 #include <KProcess>
 #include <KDebug>
 #include <KLocale>
+#include <KFileDialog>
 
 using namespace Knights;
 
@@ -58,7 +59,8 @@ void XBoardProtocol::startGame()
 void XBoardProtocol::move ( const Move& m )
 {
     kDebug() << "Player's move:" << m.string(false);
-    mProcess->write ( m.string(false).toLatin1() + '\n' );
+    m_stream << m.string(false) << endl;
+    addMoveToHistory( m );
     lastMoveString.clear();
 }
 
@@ -80,6 +82,7 @@ void XBoardProtocol::init ( const QVariantMap& options )
     connect ( mProcess, SIGNAL ( readyReadStandardOutput() ), SLOT ( readFromProgram() ) );
     connect ( mProcess, SIGNAL ( readyReadStandardError() ), SLOT ( readError() ) );
     mProcess->start();
+    m_stream.setDevice(mProcess);
     if ( !mProcess->waitForStarted ( 1000 ) )
     {
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
@@ -92,14 +95,14 @@ void XBoardProtocol::init ( const QVariantMap& options )
 
     if ( playerColor() == Black )
     {
-        mProcess->write ( "go\n" );
+        m_stream << "go" << endl;
     }
     emit initSuccesful();
 }
 
 void XBoardProtocol::readFromProgram()
 {
-    QString output = QLatin1String ( mProcess->readAllStandardOutput() );
+    QString output = m_stream.readAll();
     foreach ( const QString& line, output.split ( QLatin1Char ( '\n' ) ) )
     {
         if ( line.contains ( QLatin1String ( "Illegal move" ) ) )
@@ -142,5 +145,33 @@ void XBoardProtocol::readError()
 {
     kError() << mProcess->readAllStandardError();
 }
+
+void XBoardProtocol::adjourn()
+{
+    m_stream << "save" << KFileDialog::getSaveFileName() << endl;
+}
+
+void XBoardProtocol::resign()
+{
+    m_stream << "resign" << endl;
+}
+
+void XBoardProtocol::undoLastMove()
+{
+    m_stream << "undo" << endl;
+    nextUndoMove();
+}
+
+void XBoardProtocol::redoLastMove()
+{
+    m_stream << nextRedoMove().string(false) << endl;
+}
+
+void XBoardProtocol::proposeDraw()
+{
+}
+
+
+
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
