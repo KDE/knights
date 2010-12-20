@@ -36,7 +36,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return GameOver | Draw | Adjourn | Resign | Undo;
+    return GameOver | Draw | Adjourn | Resign | Undo | Pause;
 }
 
 XBoardProtocol::~XBoardProtocol()
@@ -62,6 +62,11 @@ void XBoardProtocol::move ( const Move& m )
     m_stream << m.string(false) << endl;
     addMoveToHistory( m );
     lastMoveString.clear();
+    playerActive = false;
+    if ( resumePending )
+    {
+        resumeGame();
+    }
 }
 
 void XBoardProtocol::init ( const QVariantMap& options )
@@ -97,6 +102,8 @@ void XBoardProtocol::init ( const QVariantMap& options )
     {
         m_stream << "go" << endl;
     }
+    playerActive = ( playerColor() == White );
+    resumePending = false;
     emit initSuccesful();
 }
 
@@ -123,6 +130,7 @@ void XBoardProtocol::readFromProgram()
                     Move m = Move ( moveString );
                     addMoveToHistory ( m );
                     emit pieceMoved ( m );
+                    playerActive = true;
                 }
             }
         }
@@ -167,26 +175,43 @@ void XBoardProtocol::undoLastMove()
 void XBoardProtocol::redoLastMove()
 {
     Move m = nextRedoMove();
-    m_stream << m.string(false) << endl;
     switch ( playerColor() )
     {
         // We must prevent the computer from taking over the player's side
-        // These command determine which side is played by the computers, so they're opposite to player color
         case White:
-            m_stream << "black";
+            m_stream << "white";
             break;
         case Black:
-            m_stream << "white";
+            m_stream << "black";
             break;
         default:
             break;
     }
+    kDebug() << m.string(false);
+    m_stream << m.string(false) << endl;
     m_stream << endl;
     emit pieceMoved(m);
 }
 
 void XBoardProtocol::proposeDraw()
 {
+}
+
+void XBoardProtocol::pauseGame()
+{
+    m_stream << "force";
+}
+
+void XBoardProtocol::resumeGame()
+{
+    if ( playerActive )
+    {
+        resumePending = true;
+    }
+    else
+    {
+        m_stream << "go";
+    }
 }
 
 

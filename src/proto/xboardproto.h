@@ -44,14 +44,20 @@ namespace Knights
             KProcess* mProcess;
             QTextStream m_stream;
             QString lastMoveString;
+            bool playerActive;
+            bool resumePending;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
             virtual void proposeDraw();
             virtual void adjourn();
             virtual void resign();
+            
             virtual void undoLastMove();
             virtual void redoLastMove();
+
+            virtual void pauseGame();
+            virtual void resumeGame();
 
         private Q_SLOTS:
             void readFromProgram();
