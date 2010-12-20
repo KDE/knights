@@ -141,6 +141,34 @@ namespace Knights
         }
     }
 
+    void MainWindow::undo()
+    {
+        QAction* pauseAction = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+        if ( pauseAction && !pauseAction->isChecked() )
+        {
+            pauseAction->trigger();
+        }
+        if ( m_protocol )
+        {
+            m_protocol->undoLastMove();
+        }
+    }
+
+    void MainWindow::redo()
+    {
+        QAction* pauseAction = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+
+        if ( pauseAction && !pauseAction->isChecked() )
+        {
+            pauseAction->trigger();
+        }
+        
+        if ( m_protocol )
+        {
+            m_protocol->redoLastMove();
+        }
+    }
+
     void MainWindow::protocolInitSuccesful()
     {
         if ( m_protocol )
@@ -185,10 +213,10 @@ namespace Knights
             }
             if ( f & Protocol::Undo )
             {
-                KAction* undoAction = KStandardAction::undo( m_protocol, SLOT(undoLastMove()), actionCollection() );
+                KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
                 undoAction->setEnabled(false);
                 connect ( m_protocol, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
-                KAction* redoAction = KStandardAction::redo( m_protocol, SLOT(redoLastMove()), actionCollection() );
+                KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
                 redoAction->setEnabled(false);
                 connect ( m_protocol, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
             }
