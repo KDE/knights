@@ -25,6 +25,7 @@
 #include <KLocale>
 
 #include <QtCore/QMetaType>
+#include <QStack>
 
 namespace Knights
 {
@@ -35,6 +36,7 @@ namespace Knights
     {
         public:
             QVariantMap attributes;
+            QStack<Move> undoStack;
     };
 
     Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
@@ -155,6 +157,11 @@ namespace Knights
     }
 
     void Protocol::undoLastMove()
+    {
+
+    }
+
+    void Protocol::redoLastMove()
     {
 
     }

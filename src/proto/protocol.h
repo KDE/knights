@@ -103,6 +103,7 @@ namespace Knights
             virtual void pauseGame();
             virtual void resumeGame();
             virtual void undoLastMove();
+            virtual void redoLastMove();
             virtual void setOpponentTimeLimit ( int seconds );
             virtual void setPlayerTimeLimit ( int seconds );
             
