@@ -137,7 +137,7 @@ FicsProtocol::~FicsProtocol()
 
 Protocol::Features FicsProtocol::supportedFeatures()
 {
-    return TimeLimit | SetTimeLimit | UpdateTime;
+    return TimeLimit | SetTimeLimit | UpdateTime | Adjourn | Resign;
 }
 
 void FicsProtocol::startGame()
@@ -533,6 +533,18 @@ void FicsProtocol::flushSocket()
     kDebug();
     m_stream << endl;
 }
+
+void FicsProtocol::adjourn()
+{
+    m_stream << "adjourn" << endl;
+}
+
+void FicsProtocol::resign()
+{
+    m_stream << "resign" << endl;
+}
+
+
 
 
 

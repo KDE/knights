@@ -114,6 +114,9 @@ class KeyboardEventFilter;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
+            virtual void adjourn();
+            virtual void resign();
+
             void socketConnected();
             void socketError();
             void dialogAccepted();
@@ -121,8 +124,9 @@ class KeyboardEventFilter;
             void acceptSeek ( int id );
             void acceptChallenge();
             void declineChallenge();
-
             void login(const QString& username, const QString& password);
+
+           
 
         private Q_SLOTS:
             void readFromSocket();
