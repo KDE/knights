@@ -34,6 +34,7 @@
 #include <KAction>
 #include <KActionCollection>
 #include <KStandardAction>
+#include <KToggleAction>
 #include <KGameThemeSelector>
 #include <KStandardGameAction>
 #include <KLocale>
@@ -87,6 +88,13 @@ namespace Knights
 
     void MainWindow::fileNew()
     {
+        // Remove protocol-dependent actions
+        foreach ( QAction* action, m_protocolActions )
+        {
+            actionCollection()->removeAction(action);
+        }
+        m_protocolActions.clear();
+        
         KDialog gameNewDialog;
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
@@ -181,6 +189,7 @@ namespace Knights
                 drawAction->setText ( i18n ( "Propose &Draw" ) );
                 drawAction->setHelpText(i18n("Propose a draw to your oppenent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
+                m_protocolActions << drawAction;
             }
             if ( f & Protocol::Resign )
             {
@@ -188,6 +197,7 @@ namespace Knights
                 resignAction->setText ( i18n ( "Resign" ) );
                 resignAction->setHelpText(i18n("Admit your inevitable defeat"));
                 resignAction->setIcon(KIcon(QLatin1String("flag-red")));
+                m_protocolActions << resignAction;
             }
             if ( f & Protocol::Adjourn )
             {
@@ -195,19 +205,23 @@ namespace Knights
                 adjournAction->setText ( i18n ( "Adjourn" ) );
                 adjournAction->setHelpText(i18n("Continue this game at a later time"));
                 adjournAction->setIcon(KIcon(QLatin1String("document-save")));
+                m_protocolActions << adjournAction;
             }
             if ( f & Protocol::Pause )
             {
-                KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
+                m_protocolActions << KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
             }
             if ( f & Protocol::Undo )
             {
                 KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
                 undoAction->setEnabled(false);
                 connect ( m_protocol, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+                m_protocolActions << undoAction;
+                
                 KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
                 redoAction->setEnabled(false);
                 connect ( m_protocol, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
+                m_protocolActions << redoAction;
             }
             createGUI();
             foreach ( QWidget* w, m_protocol->toolWidgets() )

@@ -71,6 +71,7 @@ namespace Knights
 
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
+            QList<QAction*> m_protocolActions;
 
             QPointer<Protocol> m_protocol;
             bool m_timeLimit;
