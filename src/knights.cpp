@@ -42,6 +42,7 @@
 #include <QtGui/QDropEvent>
 #include <QtCore/QTimer>
 #include <QtGui/QDockWidget>
+#include "proto/localprotocol.h"
 
 namespace Knights
 {
@@ -108,6 +109,7 @@ namespace Knights
                     protocolOptions[QLatin1String ( "server" ) ] = dialogWidget->server();
                     break;
                 default:
+                    m_protocol = new LocalProtocol;
                     break;
             }
 
@@ -152,10 +154,6 @@ namespace Knights
         {
             m_protocol->undoLastMove();
         }
-        else
-        {
-            m_view->undoLastMove();
-        }
     }
 
     void MainWindow::redo()
@@ -170,10 +168,6 @@ namespace Knights
         if ( m_protocol )
         {
             m_protocol->redoLastMove();
-        }
-        else
-        {
-            m_view->redoLastMove();
         }
     }
 
