@@ -120,26 +120,15 @@ namespace Knights
                 m_oppTime = dialogWidget->opponentTime();
                 m_playerIncrement = dialogWidget->playerIncrement();
                 m_oppIncrement = dialogWidget->opponentIncrement();
-                if ( m_protocol )
-                {
                     protocolOptions[QLatin1String ( "playerTimeLimit" ) ] = m_playerTime;
                     protocolOptions[QLatin1String ( "playerTimeIncrement" ) ] = m_playerIncrement;
                     protocolOptions[QLatin1String ( "opponentTimeLimit" ) ] = m_oppTime;
                     protocolOptions[QLatin1String ( "opponentTimeIncrement" ) ] = m_oppIncrement;
-                }
             }
-
-            if ( m_protocol )
-            {
                 protocolOptions[QLatin1String ( "PlayerColor" ) ] = QVariant::fromValue<Color> ( dialogWidget->color() );
                 connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
                 connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
                 m_protocol->init ( protocolOptions );
-            }
-            else
-            {
-                QTimer::singleShot ( 0, this, SLOT ( protocolInitSuccesful() ) );
-            }
         }
     }
 
@@ -173,8 +162,6 @@ namespace Knights
 
     void MainWindow::protocolInitSuccesful()
     {
-        if ( m_protocol )
-        {
             Protocol::Features f = m_protocol->supportedFeatures();
 
             if ( f & Protocol::SetTimeLimit )
@@ -229,17 +216,6 @@ namespace Knights
                 dock->setWidget ( w );
                 addDockWidget ( Qt::BottomDockWidgetArea, dock );
             }
-        }
-        else // no protocol
-        {
-            KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
-            KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
-            undoAction->setEnabled(false);
-            connect ( m_view, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
-            KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
-            redoAction->setEnabled(false);
-            connect ( m_view, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
-        }
         if ( m_timeLimit )
         {
             showClockWidgets();
@@ -257,14 +233,14 @@ namespace Knights
         connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
 
-        bool protocolEmitsGameOver = m_protocol && m_protocol->supportedFeatures() & Protocol::GameOver;
-        if ( !protocolEmitsGameOver )
+        if ( !m_protocol->supportedFeatures() & Protocol::GameOver )
         {
             connect ( playerClock, SIGNAL ( opponentTimeOut ( Color ) ), m_view, SLOT ( gameOver ( Color ) ) );
         }
-        if ( m_protocol )
+        Colors playerColors = m_protocol->playerColors();
+        if ( playerColors == White || playerColors == Black )
         {
-            Color playerColor = m_protocol->playerColor();
+            Color playerColor = ( playerColors & White ) ? White : Black;
             if ( !m_protocol->playerName().isEmpty() )
             {
                 playerClock->setPlayerName ( playerColor, m_protocol->playerName() );
@@ -293,6 +269,7 @@ namespace Knights
                 playerClock->setTimeIncrement ( playerColor, m_oppIncrement );
                 playerClock->setTimeIncrement ( oppositeColor ( playerColor ), m_oppIncrement );
             }
+                
             playerClock->setDisplayedPlayer ( playerColor );
         }
         else
@@ -351,7 +328,7 @@ namespace Knights
     {
         kDebug();
         m_view->setPaused ( pause );
-        if ( m_protocol && m_protocol->supportedFeatures() & Protocol::Pause )
+        if ( m_protocol->supportedFeatures() & Protocol::Pause )
         {
             pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
         }

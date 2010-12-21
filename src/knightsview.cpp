@@ -54,15 +54,11 @@ void KnightsView::setupBoard ( Protocol* protocol )
     m_board = new Board ( this );
     ui.canvas->setScene ( m_board );
     resizeScene();
-
-    if ( protocol )
-    {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
         connect ( protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
         m_board->setPlayerColors ( protocol->playerColors() );
-    }
 
-    if ( protocol && protocol->supportedFeatures() & Protocol::GameOver )
+    if ( protocol->supportedFeatures() & Protocol::GameOver )
     {
         connect ( protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     }
