@@ -187,7 +187,7 @@ namespace Knights
             {
                 KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), m_protocol, SLOT ( proposeDraw() ) );
                 drawAction->setText ( i18n ( "Propose &Draw" ) );
-                drawAction->setHelpText(i18n("Propose a draw to your oppenent"));
+                drawAction->setHelpText(i18n("Propose a draw to your opponent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
                 m_protocolActions << drawAction;
             }
