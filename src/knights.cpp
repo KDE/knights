@@ -152,6 +152,10 @@ namespace Knights
         {
             m_protocol->undoLastMove();
         }
+        else
+        {
+            m_view->undoLastMove();
+        }
     }
 
     void MainWindow::redo()
@@ -166,6 +170,10 @@ namespace Knights
         if ( m_protocol )
         {
             m_protocol->redoLastMove();
+        }
+        else
+        {
+            m_view->redoLastMove();
         }
     }
 
@@ -227,6 +235,16 @@ namespace Knights
                 dock->setWidget ( w );
                 addDockWidget ( Qt::BottomDockWidgetArea, dock );
             }
+        }
+        else // no protocol
+        {
+            KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
+            KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
+            undoAction->setEnabled(false);
+            connect ( m_view, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+            KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
+            redoAction->setEnabled(false);
+            connect ( m_view, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
         }
         if ( m_timeLimit )
         {
