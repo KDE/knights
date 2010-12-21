@@ -76,15 +76,19 @@ namespace Knights
             // Needed functions
 
             Color playerColor() const;
+            Colors playerColors() const;
             QString opponentName() const;
             QString playerName() const;
             QVariant attribute ( const QString& attribute ) const;
+            QVariant attribute ( const char* attribute ) const;
 
         protected:
             void setPlayerColor ( Color color );
+            void setPlayerColors ( Colors colors );
             void setOpponentName ( const QString& name );
             void setPlayerName ( const QString& name );
             void setAttribute ( const QString& attribute, QVariant value );
+            void setAttribute ( const char* attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
             void addMoveToHistory ( const Move& move );

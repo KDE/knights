@@ -39,10 +39,13 @@ namespace Knights
     };
     enum Color
     {
-        NoColor = 0,
-        White,
-        Black
+        NoColor = 0x00,
+        White = 0x01,
+        Black = 0x02
     };
+
+    Q_DECLARE_FLAGS(Colors, Color)
+    Q_DECLARE_OPERATORS_FOR_FLAGS(Colors)
     Color oppositeColor ( Color color );
 
     class Piece : public Item
@@ -72,6 +75,7 @@ namespace Knights
 }
 
 Q_DECLARE_METATYPE ( Knights::Color )
+Q_DECLARE_METATYPE ( Knights::Colors )
 Q_DECLARE_METATYPE ( Knights::PieceType )
 Q_DECLARE_METATYPE ( Knights::PieceData )
 Q_DECLARE_METATYPE ( Knights::PieceDataMap )

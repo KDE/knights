@@ -111,7 +111,7 @@ void Board::movePiece ( Move m, bool changePlayer )
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
     delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
-    if ( m_playerColors.contains ( oppositeColor ( m_currentPlayer ) ) )
+    if ( m_playerColors & oppositeColor ( m_currentPlayer ) )
     {
         // We only display motion and danger markers if the next player is a human
         if ( Settings::showMotion() )
@@ -210,7 +210,7 @@ void Board::setRuleSet ( Rules* rules )
 
 void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 {
-    if ( m_paused || !m_playerColors.contains ( m_currentPlayer ) )
+    if ( m_paused || !(m_playerColors & m_currentPlayer) )
     {
         // It is not the human player's turn
         e->ignore();
@@ -390,26 +390,26 @@ bool Board::isInBoard ( const Knights::Pos& pos )
     return pos.first > 0 && pos.first < 9 && pos.second > 0 && pos.second < 9;
 }
 
-QList< Color > Board::playerColors() const
+Colors Board::playerColors() const
 {
     return m_playerColors;
 }
 
-void Board::setPlayerColors ( const QList< Color >& colors )
+void Board::setPlayerColors ( Colors colors )
 {
-    if ( colors.isEmpty() )
+    if ( colors == NoColor )
     {
         qDebug() << "The 'Two computers one board' feature not yet implemented";
         return;
     }
     m_playerColors = colors;
-    if ( m_playerColors.contains ( m_currentPlayer ) )
+    if ( m_playerColors & m_currentPlayer )
     {
         m_displayedPlayer = m_currentPlayer;
     }
     else
     {
-        m_displayedPlayer = m_playerColors.first();
+        m_displayedPlayer = ( m_playerColors & White ) ? White : Black;
     }
     changeDisplayedPlayer();
     populate();
@@ -418,7 +418,7 @@ void Board::setPlayerColors ( const QList< Color >& colors )
 void Board::changeCurrentPlayer()
 {
     m_currentPlayer = oppositeColor ( m_currentPlayer );
-    if ( m_playerColors.contains ( m_currentPlayer ) && m_displayedPlayer != m_currentPlayer )
+    if ( ( m_playerColors & m_currentPlayer ) && m_displayedPlayer != m_currentPlayer )
     {
         m_displayedPlayer = m_currentPlayer;
         changeDisplayedPlayer();

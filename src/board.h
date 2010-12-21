@@ -61,8 +61,8 @@ namespace Knights
             void setRuleSet ( Rules* rules );
 
             static bool isInBoard ( const Pos& pos );
-            void setPlayerColors ( const QList<Color>& colors );
-            QList<Color> playerColors() const;
+            void setPlayerColors ( Colors colors );
+            Colors playerColors() const;
             void setCurrentColor ( Color color );
 
         private:
@@ -98,7 +98,7 @@ namespace Knights
             QPointF m_dragStartPos;
             Color m_currentPlayer;
             Color m_displayedPlayer;
-            QList<Color> m_playerColors;
+            Colors m_playerColors;
             QMap<Pos, Item*> markers;
             bool m_drawFrame;
 

@@ -59,11 +59,7 @@ void KnightsView::setupBoard ( Protocol* protocol )
     {
         connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
         connect ( protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        m_board->setPlayerColors ( QList<Color>() << protocol->playerColor() );
-    }
-    else
-    {
-        m_board->setPlayerColors ( QList<Color>() << White << Black );
+        m_board->setPlayerColors ( protocol->playerColors() );
     }
 
     if ( protocol && protocol->supportedFeatures() & Protocol::GameOver )
@@ -95,7 +91,7 @@ void KnightsView::gameOver ( Color winner )
     else
     {
         text = i18n ( "The %1 player won.", colorName ( winner ) );
-        if ( m_board->playerColors().contains ( winner ) )
+        if ( m_board->playerColors() & winner )
         {
             KMessageBox::information ( this, text, i18n ( "Congratulations!" ) );
         }

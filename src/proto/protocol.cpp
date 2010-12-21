@@ -76,12 +76,31 @@ namespace Knights
 
     void Protocol::setPlayerColor ( Color color )
     {
-        setAttribute ( QLatin1String ( "PlayerColor" ), QVariant::fromValue<Color> ( color ) );
+        setPlayerColors( color );
     }
 
     Color Protocol::playerColor() const
     {
-        return attribute ( QLatin1String ( "PlayerColor" ) ).value<Color>();
+        Colors colors = playerColors();
+        if ( colors == White )
+        {
+            return White;
+        }
+        if ( colors == Black )
+        {
+            return Black;
+        }
+        return NoColor;
+    }
+
+    void Protocol::setPlayerColors( Colors colors )
+    {
+        setAttribute ( "PlayerColors", QVariant::fromValue<Colors>( colors ) );
+    }
+
+    Colors Protocol::playerColors() const
+    {
+        return attribute("PlayerColors").value<Colors>();
     }
 
     void Protocol::setOpponentName ( const QString& name )
@@ -110,6 +129,11 @@ namespace Knights
         d->attributes.insert ( attribute,  value );
     }
 
+    void Protocol::setAttribute ( const char* attribute, QVariant value )
+    {
+        setAttribute( QLatin1String ( attribute ), value );
+    }
+
     void Protocol::setAttributes ( QVariantMap attributes )
     {
         Q_D ( Protocol );
@@ -120,6 +144,11 @@ namespace Knights
     {
         Q_D ( const Protocol );
         return d->attributes.value ( attribute );
+    }
+
+    QVariant Protocol::attribute ( const char* attribute ) const
+    {
+        return this->attribute ( QLatin1String ( attribute ) );
     }
 
     void Protocol::addMoveToHistory ( const Knights::Move& move )
