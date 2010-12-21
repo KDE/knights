@@ -133,7 +133,7 @@ namespace Knights
                     protocolOptions[QLatin1String ( "opponentTimeLimit" ) ] = m_oppTime;
                     protocolOptions[QLatin1String ( "opponentTimeIncrement" ) ] = m_oppIncrement;
             }
-                protocolOptions[QLatin1String ( "PlayerColor" ) ] = QVariant::fromValue<Color> ( dialogWidget->color() );
+                protocolOptions[QLatin1String ( "PlayerColors" ) ] = QVariant::fromValue<Colors> ( dialogWidget->color() );
                 connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
                 connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
                 m_protocol->init ( protocolOptions );

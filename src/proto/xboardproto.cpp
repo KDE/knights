@@ -93,16 +93,16 @@ void XBoardProtocol::init ( const QVariantMap& options )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
-    if ( playerColor() == NoColor )
+    if ( playerColors() == NoColor )
     {
         setPlayerColor ( ( qrand() % 2 == 0 ) ? White : Black );
     }
 
-    if ( playerColor() == Black )
+    if ( playerColors() & Black )
     {
         m_stream << "go" << endl;
     }
-    playerActive = ( playerColor() == White );
+    playerActive = ( playerColors() & White );
     resumePending = false;
     emit initSuccesful();
 }

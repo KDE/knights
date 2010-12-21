@@ -46,8 +46,9 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     }
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
+    ui->refreshButton->setIcon( KIcon ( QLatin1String("view-refresh") ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
-
+    ui->seekButton->setIcon( KIcon ( QLatin1String("edit-find") ) );
     connect ( ui->logInButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotLogin() ) );
     ui->logInButton->setIcon ( KIcon ( QLatin1String ( "network-connect" ) ) );
 

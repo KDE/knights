@@ -284,7 +284,7 @@ void FicsProtocol::readFromSocket()
     {
         m_terminal->sendInput( QLatin1String(line) );
     }
-    kDebug() << line;
+    kDebug() << "Read line:" << line;
     switch ( m_stage )
     {
         case ConnectStage:
@@ -310,7 +310,7 @@ void FicsProtocol::readFromSocket()
             // TODO: Check for incorrect logins
             else if ( line.contains ( "Starting FICS session" ) )
             {
-                kDebug() << line;
+                kDebug() << "Starting session" << line;
                 m_stage = SeekStage;
                 konsoleFilter->setPasswordMode(false);
                 setupOptions();
@@ -324,7 +324,7 @@ void FicsProtocol::readFromSocket()
                 {
                     name.truncate ( name.indexOf ( QLatin1Char ( ' ' ) ) );
                 }
-                kDebug() << name;
+                kDebug() << "Your name is" << name;
                 setPlayerName ( name );
                 emit sessionStarted();
             }
@@ -352,10 +352,6 @@ void FicsProtocol::readFromSocket()
             {
                 kDebug() << "sought:" << line << soughtRegExp.cap();
                 FicsGameOffer offer;
-                for (int i = 0; i < soughtRegExp.numCaptures(); ++i)
-                {
-                    kDebug() << soughtRegExp.cap(i);
-                }
                 int n = 1;
                 offer.gameId = soughtRegExp.cap ( n++ ).toInt();
                 offer.player.second = soughtRegExp.cap ( n++ ).toInt();
@@ -406,7 +402,7 @@ void FicsProtocol::readFromSocket()
                 const int blackTimeLimit = moveRegExp.cap ( 3 ).toInt();
                 const QString moveString = moveRegExp.cap ( 4 );
 
-                kDebug() << moveString;
+                kDebug() << "Move:" << moveString;
 
                 if ( moveString == QLatin1String ( "none" ) )
                 {
