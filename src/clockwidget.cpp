@@ -49,6 +49,8 @@ ClockWidget::~ClockWidget()
 
 void ClockWidget::setActivePlayer ( Color color )
 {
+    if ( !m_paused )
+    {
     killTimer ( m_timerId[m_activePlayer] );
     if ( !m_started [ color ] )
     {
@@ -57,6 +59,7 @@ void ClockWidget::setActivePlayer ( Color color )
     }
     incrementTime ( m_activePlayer, m_timeIncrement[m_activePlayer] );
     m_timerId[color] = startTimer ( timerInterval );
+    }
     m_activePlayer = color;
 }
 
@@ -158,11 +161,13 @@ void Knights::ClockWidget::timerEvent ( QTimerEvent* event )
 void ClockWidget::pauseClock()
 {
     killTimer ( m_timerId[m_activePlayer] );
+    m_paused = true;
 }
 
 void ClockWidget::resumeClock()
 {
     m_timerId[m_activePlayer] = startTimer ( timerInterval );
+    m_paused = false;
 }
 
 void ClockWidget::updateTimeFormat()

@@ -76,6 +76,7 @@ namespace Knights
 
             void updateTimeFormat();
             QString m_timeFormat;
+            bool m_paused;
     };
 }
 
