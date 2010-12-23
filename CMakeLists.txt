@@ -20,7 +20,12 @@ if (${QT_VERSION} VERSION_GREATER "4.6.0")
     option(ANIMATIONS "Use Qt Animations" ON)
 endif()
 
+macro_log_feature(ANIMATIONS "Qt Animation Framework" "Support for property animations in Qt"
+		"http://qt.nokia.com" FALSE "4.6.0" "Animated moving of pieces")
+
 add_subdirectory( src )
 add_subdirectory( icons )
 add_subdirectory( themes )
 add_subdirectory( doc )
+
+macro_display_feature_log()
