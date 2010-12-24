@@ -101,6 +101,7 @@ namespace Knights
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
+            m_view->clearBoard();
             hideClockWidgets();
             delete m_protocol;
             dialogWidget->writeConfig();
@@ -170,6 +171,7 @@ namespace Knights
 
     void MainWindow::protocolInitSuccesful()
     {
+        m_view->setProtocol ( m_protocol );
             Protocol::Features f = m_protocol->supportedFeatures();
 
             if ( f & Protocol::SetTimeLimit )
@@ -230,12 +232,14 @@ namespace Knights
                 dock->setWidget ( w );
                 addDockWidget ( Qt::BottomDockWidgetArea, dock );
             }
+            m_view->setProtocol ( m_protocol );
         if ( m_timeLimit )
         {
             showClockWidgets();
         }
-        m_view->setupBoard ( m_protocol );
-    }
+        QTimer::singleShot(1, m_view, SLOT(setupBoard()));
+        
+}
 
     void MainWindow::showClockWidgets()
     {
@@ -243,7 +247,7 @@ namespace Knights
         m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
         m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()
         m_clockDock->setWidget ( playerClock );
-
+        
         connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
 

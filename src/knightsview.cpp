@@ -49,18 +49,23 @@ KnightsView::~KnightsView()
 
 }
 
-void KnightsView::setupBoard ( Protocol* protocol )
+void KnightsView::setProtocol ( Protocol* protocol )
+{
+    m_protocol = protocol;
+}
+
+void KnightsView::setupBoard()
 {
     m_board = new Board ( this );
     ui.canvas->setScene ( m_board );
     resizeScene();
-        connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), protocol, SLOT ( move ( Move ) ) );
-        connect ( protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        m_board->setPlayerColors ( protocol->playerColors() );
+        connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), m_protocol, SLOT ( move ( Move ) ) );
+        connect ( m_protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
+        m_board->setPlayerColors ( m_protocol->playerColors() );
 
-    if ( protocol->supportedFeatures() & Protocol::GameOver )
+    if ( m_protocol->supportedFeatures() & Protocol::GameOver )
     {
-        connect ( protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
+        connect ( m_protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     }
     else
     {
@@ -71,7 +76,12 @@ void KnightsView::setupBoard ( Protocol* protocol )
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
 
     connect ( m_board, SIGNAL ( centerChanged ( QPointF ) ), this, SLOT ( centerView ( QPointF ) ) );
+}
 
+void KnightsView::clearBoard()
+{
+    delete m_board;
+    m_board = 0;
 }
 
 void KnightsView::gameOver ( Color winner )

@@ -55,7 +55,7 @@ namespace Knights
              * Destructor
              */
             virtual ~KnightsView();
-            void setupBoard ( Knights::Protocol* protocol = 0 );
+            void setProtocol ( Protocol* protocol );
             void setPaused ( bool paused );
 
         private:
@@ -89,6 +89,11 @@ namespace Knights
             void resizeScene();
             void gameOver ( Color winner );
             void centerView ( const QPointF& center );
+
+    public slots:
+            void setupBoard();
+            void clearBoard();
+        
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );
