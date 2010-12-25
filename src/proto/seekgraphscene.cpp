@@ -43,13 +43,15 @@ SeekGraphScene::~SeekGraphScene()
 
 void SeekGraphScene::addGameOffer ( const FicsGameOffer& offer )
 {
-    QRect containerRect(0, 0, 100, 30);
+    QRect containerRect(0, 0, 100, 20);
     QGraphicsRectItem* container = new QGraphicsRectItem ( containerRect );
+    container->setBrush(QBrush(Qt::transparent));
+    container->setPen(QPen(Qt::transparent));
     container->setPos( offer.player.second / 10, offer.baseTime * 10 );
     Item* icon = new Item(m_renderer, QLatin1String("SeekIcon"), 0, Pos(), container);
-    icon->setRenderSize(QSize(24, 24));
-    QGraphicsTextItem* text = new QGraphicsTextItem ( offer.player.first, container );
-    text->setPos(25, 0);
+    icon->setRenderSize(QSize(16, 16));
+    QGraphicsTextItem* text = new QGraphicsTextItem ( offer.player.first + QLatin1String(" ()"), container );
+    text->setPos(20, 0);
     addItem ( container );
 }
 

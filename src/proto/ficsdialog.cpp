@@ -45,8 +45,6 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
         ui->tabWidget->setTabEnabled ( i, false );
     }
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
-    connect ( ui->refreshButton, SIGNAL ( clicked ( bool ) ), SLOT ( refresh() ) );
-    ui->refreshButton->setIcon( KIcon ( QLatin1String("view-refresh") ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
     ui->seekButton->setIcon( KIcon ( QLatin1String("edit-find") ) );
     connect ( ui->logInButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotLogin() ) );
@@ -181,6 +179,7 @@ void FicsDialog::currentTabChanged ( int tab )
 {
     emit declineButtonNeeded ( tab == 3 );
     emit acceptButtonNeeded ( tab == 1 || tab == 2 || tab == 3 );
+    emit reloadButtonNeeded ( tab == 1 || tab == 2 );
 }
 
 void FicsDialog::setServerName ( const QString& name )

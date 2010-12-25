@@ -223,12 +223,15 @@ void FicsProtocol::openGameDialog()
     }
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
     dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel );
+    dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel | KDialog::User1 );
 
     dialog->setButtonText(KDialog::No, i18n("Decline"));
     dialog->button(KDialog::No)->setVisible(false);
     dialog->setButtonText(KDialog::Yes, i18n("Accept"));
     dialog->button(KDialog::Yes)->setVisible(false);
+    dialog->setButtonText(KDialog::User1, i18n("Refresh"));
+    dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("view-refresh")));
+    dialog->button(KDialog::User1)->setVisible(false);
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
@@ -237,11 +240,13 @@ void FicsProtocol::openGameDialog()
 
     connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( slotLogin()) );
     connect ( dialog, SIGNAL ( resetClicked() ), m_widget, SLOT ( decline() ) );
+    connect ( dialog, SIGNAL(user1Clicked()), m_widget, SLOT(refresh()));
     connect ( m_widget, SIGNAL ( acceptSeek ( int ) ), SLOT ( acceptSeek ( int ) ) );
     connect ( m_widget, SIGNAL ( acceptChallenge() ), SLOT ( acceptChallenge() ) );
     connect ( m_widget, SIGNAL ( declineChallenge() ), SLOT ( declineChallenge() ) );
     connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::Yes ), SLOT ( setVisible(bool)) );
     connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::No ), SLOT ( setVisible(bool)) );
+    connect ( m_widget, SIGNAL ( reloadButtonNeeded ( bool ) ), dialog->button ( KDialog::User1 ), SLOT ( setVisible(bool)) );
 
     connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
     

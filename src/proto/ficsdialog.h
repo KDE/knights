@@ -77,6 +77,7 @@ namespace Knights
             void sought();
             void declineButtonNeeded ( bool needed );
             void acceptButtonNeeded ( bool needed );
+            void reloadButtonNeeded ( bool needed );
 
             void acceptSeek ( int seekId );
             void acceptChallenge();

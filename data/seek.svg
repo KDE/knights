@@ -24,7 +24,15 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs4" />
+     id="defs4">
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter3936">
+      <feGaussianBlur
+         id="feGaussianBlur3938"
+         stdDeviation="0.4813325" />
+    </filter>
+  </defs>
   <g
      id="defitem0">
     <g
@@ -35,7 +43,7 @@
          d="m 19.2533,9.62667 c 0,5.31673 -4.3099,9.62663 -9.62663,9.62663 C 4.31001,19.2533 0,14.9434 0,9.62667 0,4.31001 4.31001,0 9.62667,0 14.9434,0 19.2533,4.31001 19.2533,9.62667 z"
          transform="matrix(0.894737,0,0,0.894737,14,14)"
          id="SeekIcon"
-         style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:2.04095006;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:2" />
+         style="fill:#6af7ff;fill-opacity:0.6;stroke:#180f9f;stroke-width:5.58823442;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none;filter:url(#filter3936)" />
     </g>
   </g>
 </svg>
