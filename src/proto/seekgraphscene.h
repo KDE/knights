@@ -28,6 +28,9 @@
 namespace Knights
 {
 
+class Renderer;
+
+
     struct FicsGameOffer;
 
 
@@ -39,6 +42,9 @@ namespace Knights
             virtual ~SeekGraphScene();
 
 	    void addGameOffer ( const FicsGameOffer& offer);
+
+    private:
+      Renderer* m_renderer;
     };
 
 }

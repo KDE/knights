@@ -150,6 +150,7 @@ void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 void FicsDialog::clearOffers()
 {
     ui->offerTable->setRowCount ( 0 );
+    ui->graphView->scene()->clear();
     m_gameId.clear();
 }
 

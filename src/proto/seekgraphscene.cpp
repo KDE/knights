@@ -21,28 +21,36 @@
 
 #include "proto/seekgraphscene.h"
 #include "proto/ficsprotocol.h"
+#include "core/renderer.h"
+#include "core/item.h"
 
-#include <KIcon>
+#include <KDebug>
 
 #include <QGraphicsPixmapItem>
 
 using namespace Knights;
 
 SeekGraphScene::SeekGraphScene ( QObject* parent ) : QGraphicsScene ( parent )
+, m_renderer(new Renderer(QLatin1String("seek.desktop")))
 {
 
 }
 
 SeekGraphScene::~SeekGraphScene()
 {
-
+    delete m_renderer;
 }
 
-void SeekGraphScene::addGameOffer ( const Knights::FicsGameOffer& offer )
+void SeekGraphScene::addGameOffer ( const FicsGameOffer& offer )
 {
-    QGraphicsPixmapItem* item = new QGraphicsPixmapItem(KIcon(QLatin1String("user-online.png")).pixmap(32,32));
-    item->setPos( offer.baseTime, offer.player.second );
-    addItem(item);
+    QRect containerRect(0, 0, 100, 30);
+    QGraphicsRectItem* container = new QGraphicsRectItem ( containerRect );
+    container->setPos( offer.player.second / 10, offer.baseTime * 10 );
+    Item* icon = new Item(m_renderer, QLatin1String("SeekIcon"), 0, Pos(), container);
+    icon->setRenderSize(QSize(24, 24));
+    QGraphicsTextItem* text = new QGraphicsTextItem ( offer.player.first, container );
+    text->setPos(25, 0);
+    addItem ( container );
 }
 
 
