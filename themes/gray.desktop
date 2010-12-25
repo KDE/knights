@@ -1,5 +1,37 @@
 [KGameTheme]
+Name=Grayscale
+Name[ca]=Escala de grisos
+Name[da]=Gråtone
+Name[en_GB]=Greyscale
+Name[et]=Halltoonid
+Name[nds]=Griestöön
+Name[nl]=Grijswaarden
+Name[pt]=Tons de Cinzento
+Name[pt_BR]=Tons de cinza
+Name[ru]=Оттенки серого
+Name[sv]=Gråskala
+Name[uk]=Тони сірого
+Name[x-test]=xxGrayscalexx
+Name[zh_TW]=灰階
+Description=A grayscale theme using the Oxygen palette
+Description[ca]=Un tema en escala de grisos utilitzant la paleta Oxygen
+Description[da]=Et tema i gråtoner som bruger Oxygen-paletten
+Description[en_GB]=A greyscale theme using the Oxygen palette
+Description[et]=Halltoonides teema Oxygeni värvipaletiga
+Description[nds]=En Griestöön-Muster, bruukt den Oxygen-Klörensett
+Description[nl]=Een thema met grijswaarden gebruikmakend van het Oxygen palet
+Description[pt]=Um tema em tons de cinzento que usa a paleta do Oxygen
+Description[pt_BR]=Um tema em tons de cinza que usa a paleta do Oxygen
+Description[ru]=Оформление, использующее серые оттенки палитры Oxygen
+Description[sv]=Ett tema med gråskala som använder Oxygens palett
+Description[uk]=Тема у тонах сірого кольору з використанням палітри Oxygen
+Description[x-test]=xxA grayscale theme using the Oxygen palettexx
+Description[zh_TW]=使用 Oxygen 調色盤的灰階主題
+VersionFormat=1
+Author=Miha Čančula
+AuthorEmail=miha.cancula@gmail.com
 Type=SVG
-FileName=seek.svg
+FileName=gray.svgz
+Preview=gray.png
 
 
