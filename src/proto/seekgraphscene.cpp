@@ -28,6 +28,7 @@
 
 #include <QtCore/QMap>
 #include <QtGui/QGraphicsPixmapItem>
+#include <QtCore/qmath.h>
 
 using namespace Knights;
 
@@ -44,23 +45,50 @@ SeekGraphScene::~SeekGraphScene()
 
 void SeekGraphScene::addGameOffer ( const FicsGameOffer& offer )
 {
-    QRect containerRect(0, 0, 100, 20);
+    QRect containerRect(0, 0, 100, 16);
     QGraphicsRectItem* container = new QGraphicsRectItem ( containerRect );
     container->setBrush(QBrush(Qt::transparent));
     container->setPen(QPen(Qt::transparent));
-    container->setPos( offer.player.second / 10, offer.baseTime * 10 );
+    container->setPos( 30 * sqrt ( offer.player.second ), offer.baseTime * 10 );
     Item* icon = new Item(m_renderer, QLatin1String("SeekIcon"), 0, Pos(), container);
     icon->setRenderSize(QSize(16, 16));
-    QGraphicsTextItem* text = new QGraphicsTextItem ( offer.player.first + QLatin1String(" ()"), container );
-    text->setPos(20, 0);
+    textItems.insert(offer.gameId, new QGraphicsTextItem ( offer.player.first, container ) );
     addItem ( container );
     offerItems.insert(offer.gameId, container);
+    updateTextPositions();
+    updateTextPositions();
 }
 
 void SeekGraphScene::removeGameOffer ( int id )
 {
-    delete offerItems[id];
+    delete offerItems.take(id);
+    textItems.remove(id);
+    lineItems.remove(id);
+    updateTextPositions();
+    updateTextPositions();
 }
+
+void SeekGraphScene::updateTextPositions()
+{
+    qDeleteAll(lineItems);
+    lineItems.clear();
+    foreach ( QGraphicsTextItem* text, textItems )
+    {
+      text->setPos(20, 0);
+      while ( !collidingItems(text, Qt::IntersectsItemBoundingRect).isEmpty() )
+      {
+	qreal deltaX = (qrand() % 2048)/128.0 - 8;
+	qreal deltaY = (qrand() % 2048)/128.0 - 8;
+	kDebug() << deltaX << deltaY;
+	text->moveBy(deltaX, deltaY);
+      }
+    }
+    foreach ( QGraphicsTextItem* text, textItems )
+    {
+      lineItems.insert( textItems.key(text), new QGraphicsLineItem(8, 8, text->pos().x(), text->pos().y() + 8, text->parentItem()));
+    }
+}
+
 
 
 

@@ -25,6 +25,7 @@
 #include <QGraphicsScene>
 #include <QtCore/QMap>
 
+class QGraphicsTextItem;
 
 namespace Knights
 {
@@ -48,6 +49,9 @@ class Renderer;
     private:
       Renderer* m_renderer;
       QMap<int, QGraphicsItem*> offerItems;
+      QMap<int, QGraphicsTextItem*> textItems;
+      QMap<int, QGraphicsLineItem*> lineItems;
+            void updateTextPositions();
     };
 
 }
