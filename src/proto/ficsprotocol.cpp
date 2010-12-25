@@ -364,6 +364,18 @@ void FicsProtocol::readFromSocket()
             {
                 emit clearSeeks();
             }
+            else if ( line.startsWith("<sr>") )
+            {
+                foreach ( const QByteArray& str, line.split(' ') )
+                {
+                    bool ok;
+                    int id = str.toInt(&ok);
+                    if ( ok )
+                    {
+                        emit gameOfferRemoved(id);
+                    }
+                }
+            }
             else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
             {
                 FicsGameOffer offer;
