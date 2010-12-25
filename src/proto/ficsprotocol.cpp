@@ -51,12 +51,15 @@ using KWallet::Wallet;
 const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
 
-const QString FicsProtocol::namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
+const char* boolPattern = "t|f";
+const char* ratedPattern = "r|u";
+
+const QString namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
 const QString FicsProtocol::ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
 const QString FicsProtocol::timePattern = QLatin1String ( "(\\d+)\\s+(\\d+)" );
 const QString FicsProtocol::variantPattern = QLatin1String ( "([a-z]+)\\s+([a-z]+)" );
 const QString FicsProtocol::argsPattern = QLatin1String ( "(.*)" ); //TODO better
-const QString FicsProtocol::idPattern = QLatin1String ( "(\\d+)" );
+const QString idPattern = QLatin1String ( "(\\d+)" );
 const QString FicsProtocol::pieces = QLatin1String ( "PRNBQKprnbqk" );
 const QString FicsProtocol::coordinate = QLatin1String ( "[abdcdefgh][12345678]" );
 const QString FicsProtocol::remainingTime = QLatin1String ( "\\d+ \\d+ \\d+ \\d+ \\d+ (\\d+) (\\d+) \\d+" );
@@ -75,6 +78,21 @@ const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 \\(%2\\) 
         .arg ( argsPattern )
         .arg ( idPattern )
                                        );
+
+const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4  t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
+        .arg ( idPattern ) // %1 = index
+        .arg ( namePattern ) // %2 = name
+        .arg ( QLatin1String("0x([0-9a-f]{2,2})") ) // %3 = titles
+        .arg ( QLatin1String("(\\d+)") ) // %4 = rating
+        .arg ( QLatin1String("(\\d+)") ) // %5 = time
+        .arg ( QLatin1String("(\\d+)") ) // %6 = increment
+        .arg ( QLatin1String(ratedPattern) ) // %7 = rated ('r' or 'u')
+        .arg ( QLatin1String("([a-z]+)") ) // %8 = type (standard, blitz, lightning, etc.)
+        .arg ( QLatin1String("([?WB])") ) // %9 = color ('?', 'W' or 'B')
+        .arg ( QLatin1String("([\\d+])\\-([\\d+])") ) // %10 = rating range (x-y)
+        .arg ( QLatin1String(boolPattern) ) // %11 = automatic ( 't' or 'f' )
+        .arg ( QLatin1String(boolPattern) ) // %12 = formula ( 't' or 'f' )
+                      );
 
 const QRegExp FicsProtocol::soughtRegExp ( QString ( QLatin1String ( "%1 %2 %3\\s+%4\\s+%5\\s+%6" ) )
         .arg ( idPattern )
@@ -212,6 +230,9 @@ void FicsProtocol::login ( const QString& username, const QString& password )
 void FicsProtocol::setupOptions()
 {
     m_stream << "set style 12" << endl;
+    m_stream << "iset seekremove 1" << endl;
+    m_stream << "iset seekinfo 1" << endl;
+    m_stream << "set seek 1" << endl;
 }
 
 void FicsProtocol::openGameDialog()
@@ -339,7 +360,29 @@ void FicsProtocol::readFromSocket()
             }
             break;
         case SeekStage:
-            if ( seekRegExp.indexIn ( QLatin1String ( line ) ) != -1 )
+            if ( line.startsWith("<sc>") )
+            {
+                emit clearSeeks();
+            }
+            else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
+            {
+                FicsGameOffer offer;
+                int n = 1;
+                offer.gameId = seekExp.cap(n++).toInt();
+                offer.player.first = seekExp.cap(n++);
+                n++; // Ignore titles for now, TODO
+                offer.player.second = seekExp.cap(n++).toInt();
+                offer.baseTime = seekExp.cap(n++).toInt();
+                offer.timeIncrement = seekExp.cap(n++).toInt();
+                offer.rated = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('r') );
+                offer.variant = seekExp.cap(n++);
+                offer.color = parseColor(seekExp.cap(n++));
+                offer.ratingRange.first = seekExp.cap(n++).toInt();
+                offer.ratingRange.second = seekExp.cap(n++).toInt();
+                offer.automatic = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
+                offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
+            }
+            else if ( seekRegExp.indexIn ( QLatin1String ( line ) ) != -1 )
             {
                 FicsGameOffer offer;
                 int n = 1;
@@ -460,6 +503,23 @@ void FicsProtocol::readFromSocket()
     {
         readFromSocket();
     }
+}
+
+Color FicsProtocol::parseColor ( QString str )
+{
+    if ( str.isEmpty() || str[0] == QLatin1Char('?') )
+    {
+        return NoColor;
+    }
+    if ( str[0] == QLatin1Char('W') )
+    {
+        return White;
+    }
+    if ( str[0] == QLatin1Char('B') )
+    {
+        return Black;
+    }
+    return NoColor;
 }
 
 void FicsProtocol::checkSought()

@@ -54,6 +54,8 @@ class KeyboardEventFilter;
         bool manual;
         bool formula;
         int gameId;
+    QPair< int, int > ratingRange;
+    bool automatic;
     };
 
     enum Stage
@@ -79,8 +81,6 @@ class KeyboardEventFilter;
         private:
             static const int Timeout;
 
-            static const QString namePattern;
-            static const QString idPattern;
             static const QString ratingPattern;
             static const QString timePattern;
             static const QString variantPattern;
@@ -136,9 +136,12 @@ class KeyboardEventFilter;
             void checkSought();
             void setSeeking ( bool seek );
             void setupOptions();
+    Color parseColor( QString str);
 
         Q_SIGNALS:
             void sessionStarted();
+            void clearSeeks();
+            void gameOfferRemoved ( int id );
             void gameOfferReceived ( const FicsGameOffer& offer );
             void challengeReceived ( const FicsPlayer& challenger );
     };
