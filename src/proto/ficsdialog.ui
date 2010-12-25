@@ -17,7 +17,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="movable">
       <bool>true</bool>
@@ -211,13 +211,6 @@
            <string>Your color</string>
           </property>
          </column>
-        </widget>
-       </item>
-       <item>
-        <widget class="KPushButton" name="refreshButton">
-         <property name="text">
-          <string>Refresh</string>
-         </property>
         </widget>
        </item>
       </layout>

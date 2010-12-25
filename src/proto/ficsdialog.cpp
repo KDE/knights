@@ -102,9 +102,8 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
 {
     int row = ui->offerTable->rowCount();
     ui->offerTable->insertRow ( row );
-
-    m_gameId[row] = offer.gameId;
-
+    m_gameId << offer.gameId;
+    
     ui->offerTable->setItem ( row, 0, new QTableWidgetItem ( offer.player.first ) );
     if ( offer.player.second != 0 )
     {
@@ -152,12 +151,6 @@ void FicsDialog::clearOffers()
     m_gameId.clear();
 }
 
-void FicsDialog::refresh()
-{
-    clearOffers();
-    emit sought();
-}
-
 void FicsDialog::accept()
 {
     if ( ui->seekButton->isChecked() )
@@ -179,7 +172,6 @@ void FicsDialog::currentTabChanged ( int tab )
 {
     emit declineButtonNeeded ( tab == 3 );
     emit acceptButtonNeeded ( tab == 1 || tab == 2 || tab == 3 );
-    emit reloadButtonNeeded ( tab == 1 || tab == 2 );
 }
 
 void FicsDialog::setServerName ( const QString& name )
@@ -259,6 +251,19 @@ void FicsDialog::slotDialogAccepted()
         }
         Settings::self()->writeConfig();
 }
+
+void FicsDialog::removeGameOffer ( int id )
+{
+    kDebug() << id;
+    if (!m_gameId.contains(id))
+    {
+        return;
+    }
+    ui->offerTable->removeRow(m_gameId.indexOf(id));
+    qobject_cast<SeekGraphScene*>(ui->graphView->scene())->removeGameOffer(id);
+    m_gameId.removeAll(id);
+}
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

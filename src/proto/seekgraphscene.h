@@ -23,6 +23,7 @@
 #define KNIGHTS_SEEKGRAPHSCENE_H
 
 #include <QGraphicsScene>
+#include <QtCore/QMap>
 
 
 namespace Knights
@@ -42,9 +43,11 @@ class Renderer;
             virtual ~SeekGraphScene();
 
 	    void addGameOffer ( const FicsGameOffer& offer);
+            void removeGameOffer ( int arg1 );
 
     private:
       Renderer* m_renderer;
+      QMap<int, QGraphicsItem*> offerItems;
     };
 
 }

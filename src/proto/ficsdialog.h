@@ -55,10 +55,10 @@ namespace Knights
             void slotSessionStarted();
             void slotDialogAccepted();
             void addGameOffer ( const FicsGameOffer& offer );
+            void removeGameOffer ( int id );
             void addChallenge ( const FicsPlayer& challenger );
             
             void clearOffers();
-            void refresh();
             void accept();
             void decline();
 
@@ -72,12 +72,10 @@ namespace Knights
         Q_SIGNALS:
             void login ( QString username, QString password );
             void createAccount();
-            
+
             void seekingChanged ( bool seek );
-            void sought();
             void declineButtonNeeded ( bool needed );
             void acceptButtonNeeded ( bool needed );
-            void reloadButtonNeeded ( bool needed );
 
             void acceptSeek ( int seekId );
             void acceptChallenge();
@@ -85,7 +83,7 @@ namespace Knights
 
         private:
             Ui::FicsDialog* ui;
-            QMap<int, int> m_gameId;
+            QList<int> m_gameId;
             QStringListModel m_challengeModel;
             QString serverName;
     };

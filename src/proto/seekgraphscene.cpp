@@ -26,7 +26,8 @@
 
 #include <KDebug>
 
-#include <QGraphicsPixmapItem>
+#include <QtCore/QMap>
+#include <QtGui/QGraphicsPixmapItem>
 
 using namespace Knights;
 
@@ -53,6 +54,13 @@ void SeekGraphScene::addGameOffer ( const FicsGameOffer& offer )
     QGraphicsTextItem* text = new QGraphicsTextItem ( offer.player.first + QLatin1String(" ()"), container );
     text->setPos(20, 0);
     addItem ( container );
+    offerItems.insert(offer.gameId, container);
 }
+
+void SeekGraphScene::removeGameOffer ( int id )
+{
+    delete offerItems[id];
+}
+
 
 

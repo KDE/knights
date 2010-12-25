@@ -51,8 +51,8 @@ using KWallet::Wallet;
 const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
 
-const char* boolPattern = "t|f";
-const char* ratedPattern = "r|u";
+const char* boolPattern = "([tf])";
+const char* ratedPattern = "([ru])";
 
 const QString namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
 const QString FicsProtocol::ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
@@ -82,26 +82,17 @@ const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 \\(%2\\) 
 const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4  t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
         .arg ( idPattern ) // %1 = index
         .arg ( namePattern ) // %2 = name
-        .arg ( QLatin1String("0x([0-9a-f]{2,2})") ) // %3 = titles
+        .arg ( QLatin1String("([0-9a-f]{2,2})") ) // %3 = titles
         .arg ( QLatin1String("(\\d+)") ) // %4 = rating
         .arg ( QLatin1String("(\\d+)") ) // %5 = time
         .arg ( QLatin1String("(\\d+)") ) // %6 = increment
         .arg ( QLatin1String(ratedPattern) ) // %7 = rated ('r' or 'u')
         .arg ( QLatin1String("([a-z]+)") ) // %8 = type (standard, blitz, lightning, etc.)
         .arg ( QLatin1String("([?WB])") ) // %9 = color ('?', 'W' or 'B')
-        .arg ( QLatin1String("([\\d+])\\-([\\d+])") ) // %10 = rating range (x-y)
+        .arg ( QLatin1String("(\\d+)\\-(\\d+)") ) // %10 = rating range (x-y)
         .arg ( QLatin1String(boolPattern) ) // %11 = automatic ( 't' or 'f' )
         .arg ( QLatin1String(boolPattern) ) // %12 = formula ( 't' or 'f' )
                       );
-
-const QRegExp FicsProtocol::soughtRegExp ( QString ( QLatin1String ( "%1 %2 %3\\s+%4\\s+%5\\s+%6" ) )
-        .arg ( idPattern )
-        .arg ( ratingPattern )
-        .arg ( namePattern )
-        .arg ( timePattern )
-        .arg ( variantPattern )
-        .arg ( argsPattern )
-                                         );
 
 const QRegExp FicsProtocol::moveRegExp ( QString ( QLatin1String ( "<12>.*%1.*%2 %3" ) )
         .arg ( currentPlayerPattern )
@@ -141,6 +132,7 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
+    kDebug() << seekExp.pattern();
 
     forcePrompt = false;
 
@@ -244,15 +236,12 @@ void FicsProtocol::openGameDialog()
     }
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
     dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel | KDialog::User1 );
+    dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel );
 
     dialog->setButtonText(KDialog::No, i18n("Decline"));
     dialog->button(KDialog::No)->setVisible(false);
     dialog->setButtonText(KDialog::Yes, i18n("Accept"));
     dialog->button(KDialog::Yes)->setVisible(false);
-    dialog->setButtonText(KDialog::User1, i18n("Refresh"));
-    dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("view-refresh")));
-    dialog->button(KDialog::User1)->setVisible(false);
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
@@ -261,18 +250,17 @@ void FicsProtocol::openGameDialog()
 
     connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( slotLogin()) );
     connect ( dialog, SIGNAL ( resetClicked() ), m_widget, SLOT ( decline() ) );
-    connect ( dialog, SIGNAL(user1Clicked()), m_widget, SLOT(refresh()));
     connect ( m_widget, SIGNAL ( acceptSeek ( int ) ), SLOT ( acceptSeek ( int ) ) );
     connect ( m_widget, SIGNAL ( acceptChallenge() ), SLOT ( acceptChallenge() ) );
     connect ( m_widget, SIGNAL ( declineChallenge() ), SLOT ( declineChallenge() ) );
     connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::Yes ), SLOT ( setVisible(bool)) );
     connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::No ), SLOT ( setVisible(bool)) );
-    connect ( m_widget, SIGNAL ( reloadButtonNeeded ( bool ) ), dialog->button ( KDialog::User1 ), SLOT ( setVisible(bool)) );
 
     connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
     
     connect ( this, SIGNAL(sessionStarted()), m_widget, SLOT(slotSessionStarted() ) );
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
+    connect ( this, SIGNAL ( gameOfferRemoved(int)), m_widget, SLOT ( removeGameOffer(int)) );
     connect ( this, SIGNAL ( challengeReceived ( FicsPlayer ) ), m_widget, SLOT ( addChallenge ( FicsPlayer ) ) );
     connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
     connect ( m_widget, SIGNAL ( seekingChanged ( bool ) ), SLOT ( setSeeking ( bool ) ) );
@@ -301,11 +289,11 @@ void FicsProtocol::readFromSocket()
         }
     }
     QByteArray line = m_socket->readLine();
+    line.remove(0,1);
     if ( line.isEmpty() || line.contains("fics%") )
     {
         return;
     }
-    line.chop(1); // Remove the extra newline
     if ( m_terminal )
     {
         m_terminal->sendInput( QLatin1String(line) );
@@ -378,6 +366,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
             {
+                kDebug() << seekExp.cap();
                 FicsGameOffer offer;
                 int n = 1;
                 offer.gameId = seekExp.cap(n++).toInt();
@@ -393,34 +382,6 @@ void FicsProtocol::readFromSocket()
                 offer.ratingRange.second = seekExp.cap(n++).toInt();
                 offer.automatic = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
                 offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
-            }
-            else if ( seekRegExp.indexIn ( QLatin1String ( line ) ) != -1 )
-            {
-                FicsGameOffer offer;
-                int n = 1;
-                offer.player.first = seekRegExp.cap ( n++ );
-                offer.player.second = seekRegExp.cap ( n++ ).toInt();
-                offer.baseTime = seekRegExp.cap ( n++ ).toInt();
-                offer.timeIncrement = seekRegExp.cap ( n++ ).toInt();
-                offer.rated = ( seekRegExp.cap ( n++ ) == QLatin1String ( "rated" ) );
-                offer.variant = seekRegExp.cap ( n++ );
-                QString extraParams = seekRegExp.cap ( n++ );
-                offer.gameId = seekRegExp.cap ( n++ ).toInt();
-                emit gameOfferReceived ( offer );
-            }
-            else if ( soughtRegExp.indexIn ( QLatin1String ( line ) ) != -1 )
-            {
-                kDebug() << "sought:" << line << soughtRegExp.cap();
-                FicsGameOffer offer;
-                int n = 1;
-                offer.gameId = soughtRegExp.cap ( n++ ).toInt();
-                offer.player.second = soughtRegExp.cap ( n++ ).toInt();
-                offer.player.first = soughtRegExp.cap ( n++ );
-                offer.baseTime = soughtRegExp.cap ( n++ ).toInt();
-                offer.timeIncrement = soughtRegExp.cap ( n++ ).toInt();
-                offer.rated = ( soughtRegExp.cap ( n++ ) == QLatin1String ( "rated" ) );
-                offer.variant = soughtRegExp.cap ( n++ );
-                // TODO: The rest
                 emit gameOfferReceived ( offer );
             }
             else if ( challengeRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
