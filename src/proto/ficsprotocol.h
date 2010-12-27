@@ -40,6 +40,7 @@ namespace Knights
 class KeyboardEventFilter;
 
     class FicsDialog;
+    class FicsConsole;
 
     typedef QPair<QString, int> FicsPlayer;
 
@@ -108,10 +109,13 @@ class KeyboardEventFilter;
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
+            /*
             TerminalInterfaceV2* m_terminal;
             KParts::ReadOnlyPart* m_part;
             KeyboardEventFilter* konsoleFilter;
-
+            */
+            FicsConsole* m_console;
+            
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
             virtual void adjourn();

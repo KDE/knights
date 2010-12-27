@@ -1,14 +1,21 @@
-set(knights_SRCS proto/seekgraph.cpp proto/ficsconsole.cpp proto/localprotocol.cpp proto/keyboardeventfilter.cpp
+set(knights_SRCS
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
     core/item.cpp
     core/piece.cpp
+
     proto/protocol.cpp
+    proto/localprotocol.cpp
     proto/xboardproto.cpp
     proto/ficsprotocol.cpp
     proto/ficsdialog.cpp
+    proto/seekgraph.cpp
+    proto/ficsconsole.cpp
+    proto/keyboardeventfilter.cpp
+
     rules/chessrules.cpp
+
     gamedialog.cpp
     board.cpp
     clock.cpp
@@ -30,7 +37,15 @@ if (ANIMATIONS)
     add_definitions(-DWITH_ANIMATIONS)
 endif()
 
-kde4_add_ui_files(knights_SRCS knightsview_base.ui prefs_base.ui gamedialog.ui clockwidget.ui proto/ficsdialog.ui promotiondialog.ui)
+kde4_add_ui_files(knights_SRCS
+    knightsview_base.ui
+    prefs_base.ui
+    gamedialog.ui
+    clockwidget.ui
+    promotiondialog.ui
+    proto/ficsdialog.ui
+    proto/ficsconsole.ui
+)
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 kde4_add_executable(knights ${knights_SRCS})
 

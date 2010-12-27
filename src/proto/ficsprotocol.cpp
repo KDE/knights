@@ -22,6 +22,7 @@
 #include "ficsprotocol.h"
 
 #include "proto/ficsdialog.h"
+#include "proto/ficsconsole.h"
 #include "settings.h"
 
 #include <KDialog>
@@ -126,9 +127,7 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
     sendPassword(false),
-    m_widget(0),
-    m_terminal(0),
-    konsoleFilter(0)
+    m_widget(0)
 {
     kDebug() << Timeout << endl;
     kDebug() << seekRegExp.pattern();
@@ -167,7 +166,8 @@ void FicsProtocol::init ( const QVariantMap& options )
 
     m_stage = ConnectStage;
 
-
+    /* NOTE: Replace by a custom FicsConsole widget
+     * 
     // FICS Console
     KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
     m_part = loader.factory()->create<KParts::ReadOnlyPart>(this);
@@ -179,6 +179,8 @@ void FicsProtocol::init ( const QVariantMap& options )
         connect ( konsoleFilter, SIGNAL(textTyped(QString)), this, SLOT(writeToSocket(QString)));
         connect(konsoleFilter, SIGNAL(enterPressed()), SLOT(flushSocket()));
     }
+    */
+    m_console = new FicsConsole;
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
@@ -193,7 +195,7 @@ void FicsProtocol::init ( const QVariantMap& options )
 QWidgetList FicsProtocol::toolWidgets()
 {
     QWidgetList widgets;
-    widgets << m_part->widget();
+    widgets << m_console;
 
     // FICS Chat Widget
     // TODO
@@ -245,7 +247,7 @@ void FicsProtocol::openGameDialog()
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
-    m_widget->setConsoleWidget(m_part->widget());
+    m_widget->setConsoleWidget(m_console);
     dialog->setMainWidget ( m_widget );
 
     connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( slotLogin()) );
@@ -298,9 +300,9 @@ void FicsProtocol::readFromSocket()
         
 
     kDebug() << line;
-    if ( m_terminal )
+    if ( m_console )
     {
-        m_terminal->sendInput( QLatin1String(line) );
+        m_console->addText( QLatin1String(line), Qt::black );
     }
     switch ( m_stage )
     {
@@ -317,7 +319,7 @@ void FicsProtocol::readFromSocket()
                 }
                 else
                 {
-                    konsoleFilter->setPasswordMode(true);
+                    m_console->setPasswordMode(true);
                 }
             }
             else if ( line.contains ( "Press return to enter the server" ) )
@@ -328,7 +330,7 @@ void FicsProtocol::readFromSocket()
             else if ( line.contains ( "Starting FICS session" ) )
             {
                 m_stage = SeekStage;
-                konsoleFilter->setPasswordMode(false);
+                m_console->setPasswordMode(false);
                 setupOptions();
                 QString name = QLatin1String ( line );
                 name.remove ( 0, name.indexOf ( QLatin1String ( "session as " ) ) + 11 );

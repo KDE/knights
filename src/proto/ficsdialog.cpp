@@ -20,9 +20,7 @@
 */
 
 #include "proto/ficsdialog.h"
-
 #include "ui_ficsdialog.h"
-#include "proto/seekgraphscene.h"
 
 #include <KDebug>
 #include <KToolInvocation>
