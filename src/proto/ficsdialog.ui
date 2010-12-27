@@ -17,7 +17,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>4</number>
      </property>
      <property name="movable">
       <bool>true</bool>
@@ -31,6 +31,9 @@
       </property>
       <attribute name="title">
        <string>Account</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Log in to the chess server</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
@@ -155,6 +158,9 @@
       <attribute name="title">
        <string>Seek List</string>
       </attribute>
+      <attribute name="toolTip">
+       <string>Current ads arranged in a list</string>
+      </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QTableWidget" name="offerTable">
@@ -219,6 +225,9 @@
       <attribute name="title">
        <string>Seek Graph</string>
       </attribute>
+      <attribute name="toolTip">
+       <string>Current ads arranged by rating and duration</string>
+      </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="Knights::SeekGraph" name="graphView">
@@ -235,6 +244,9 @@
      <widget class="QWidget" name="challengeTab">
       <attribute name="title">
        <string>Challenges</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Post an add for other players</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
@@ -255,6 +267,9 @@
      <widget class="QWidget" name="consoleTab">
       <attribute name="title">
        <string>Console</string>
+      </attribute>
+      <attribute name="toolTip">
+       <string>Use custom commands</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_4"/>
      </widget>

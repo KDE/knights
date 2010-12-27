@@ -80,7 +80,7 @@ const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 \\(%2\\) 
         .arg ( idPattern )
                                        );
 
-const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4  t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
+const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4[PE\\s] t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
         .arg ( idPattern ) // %1 = index
         .arg ( namePattern ) // %2 = name
         .arg ( QLatin1String("([0-9a-f]{2,2})") ) // %3 = titles
@@ -296,23 +296,25 @@ void FicsProtocol::readFromSocket()
     {
         line = m_socket->readLine().replace('\n', "").replace('\r',"");
     }
-    while ( ( line.isEmpty() || line.contains("fics%") ) && m_socket->bytesAvailable() > 0 );
-        
+    while ( ( line.isEmpty() || line.startsWith("fics%") ) && m_socket->bytesAvailable() > 0 );
 
-    kDebug() << line;
-    if ( m_console )
+    if ( line.isEmpty() || line.startsWith("fics%") )
     {
-        m_console->addText( QLatin1String(line), Qt::black );
+        return;
     }
+    bool display = true;
+    QColor color = Qt::black;
     switch ( m_stage )
     {
         case ConnectStage:
             if ( line.contains ( "login:" ) )
             {
+                color = Qt::red;
                 openGameDialog();
             }
             else if ( line.contains ( "password:" ) )
             {
+                color = Qt::red;
                 if ( sendPassword )
                 {
                     m_stream << password << endl;
@@ -324,11 +326,13 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Press return to enter the server" ) )
             {
+                color = Qt::green;
                 m_stream << endl;
             }
             // TODO: Check for incorrect logins
             else if ( line.contains ( "Starting FICS session" ) )
             {
+                color = Qt::green;
                 m_stage = SeekStage;
                 m_console->setPasswordMode(false);
                 setupOptions();
@@ -348,21 +352,23 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Invalid password" ) )
             {
+                color = Qt::red;
                 m_widget->setStatus(i18n("Invalid Password"), true);
             }
             break;
         case SeekStage:
             if ( line.startsWith("<sc>") )
             {
+                display = false;
                 emit clearSeeks();
             }
             else if ( line.startsWith("<sr>") )
             {
+                display = false;
                 foreach ( const QByteArray& str, line.replace("\n", "").split(' ') )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
-                    kDebug() << str << id << ok;
                     if ( ok )
                     {
                         emit gameOfferRemoved(id);
@@ -371,6 +377,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
             {
+                display = false;
                 FicsGameOffer offer;
                 int n = 1;
                 offer.gameId = seekExp.cap(n++).toInt();
@@ -388,8 +395,13 @@ void FicsProtocol::readFromSocket()
                 offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
                 emit gameOfferReceived ( offer );
             }
+            else if ( seekRegExp.indexIn ( QLatin1String(line) ) > -1 )
+            {
+                color = Qt::gray;
+            }
             else if ( challengeRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
+                color = Qt::green;
                 FicsPlayer player;
                 player.first = challengeRegExp.cap ( 1 );
                 player.second = challengeRegExp.cap ( 2 ).toInt();
@@ -397,6 +409,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( gameStartedExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
+                color = Qt::red;
                 QString player1 = gameStartedExp.cap ( 1 );
                 QString player2 = gameStartedExp.cap ( 3 );
                 if ( player1 == playerName() )
@@ -416,6 +429,7 @@ void FicsProtocol::readFromSocket()
         case PlayStage:
             if ( moveRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
+                display = false;
                 if ( ( moveRegExp.cap ( 1 ) == QLatin1String ( "B" ) && playerColor() == White )
                         || ( moveRegExp.cap ( 1 ) == QLatin1String ( "W" ) && playerColor() == Black ) )
                 {
@@ -472,10 +486,16 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "lost contact or quit" ) )
             {
+                color = Qt::red;
                 emit gameOver ( NoColor );
             }
     }
 
+    if ( display )
+    {
+        m_console->addText( QLatin1String(line), color );
+    }
+    
     if ( m_socket->bytesAvailable() > 0 )
     {
         readFromSocket();

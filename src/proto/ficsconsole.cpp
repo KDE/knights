@@ -45,6 +45,7 @@ void FicsConsole::addText ( const QString text, QColor color )
   format.setForeground( QBrush(color) );
   ui->terminal->moveCursor(QTextCursor::End);
   ui->terminal->textCursor().insertText( text + QLatin1Char('\n'), format );
+  ui->terminal->moveCursor(QTextCursor::End);
 }
 
 void FicsConsole::addText ( const char* text, QColor color )
