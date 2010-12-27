@@ -1,4 +1,4 @@
-set(knights_SRCS proto/seekgraph.cpp proto/ficsconsole.cpp proto/localprotocol.cpp proto/seekgraphscene.cpp proto/keyboardeventfilter.cpp
+set(knights_SRCS proto/seekgraph.cpp proto/ficsconsole.cpp proto/localprotocol.cpp proto/keyboardeventfilter.cpp
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
