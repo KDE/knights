@@ -27,6 +27,8 @@
 #include <KDebug>
 #include <KToolInvocation>
 #include <KWallet/Wallet>
+#include <KPlotObject>
+#include <KPlotPoint>
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
@@ -52,8 +54,6 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     connect ( ui->registerButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotCreateAccount() ) );
     ui->registerButton->setIcon ( KIcon ( QLatin1String ( "list-add" ) ) );
-
-    ui->graphView->setScene ( new SeekGraphScene ( this ) );
 
     ui->usernameLineEdit->setText ( Settings::ficsUsername() );
 }
@@ -134,7 +134,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
 
-    qobject_cast<SeekGraphScene*> ( ui->graphView->scene() )->addGameOffer ( offer );
+    ui->graphView->addSeek( offer );
 }
 
 void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
@@ -147,7 +147,7 @@ void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
 void FicsDialog::clearOffers()
 {
     ui->offerTable->setRowCount ( 0 );
-    ui->graphView->scene()->clear();
+    ui->graphView->clearOffers();
     m_gameId.clear();
 }
 
@@ -254,14 +254,13 @@ void FicsDialog::slotDialogAccepted()
 
 void FicsDialog::removeGameOffer ( int id )
 {
-    kDebug() << id;
+    kDebug() << id << m_gameId.contains(id);
     if (!m_gameId.contains(id))
     {
         return;
     }
     ui->offerTable->removeRow(m_gameId.indexOf(id));
-    qobject_cast<SeekGraphScene*>(ui->graphView->scene())->removeGameOffer(id);
-    m_gameId.removeAll(id);
+    ui->graphView->removeSeek(id);
 }
 
 

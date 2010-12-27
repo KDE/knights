@@ -183,7 +183,7 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
     QString address = options.value ( QLatin1String ( "address" ), QLatin1String ( "freechess.org" ) ).toString();
-    int port = options.value ( QLatin1String ( "port" ), 23 ).toInt();
+    int port = options.value ( QLatin1String ( "port" ), 5000 ).toInt();
     connect ( m_socket, SIGNAL ( connected() ), SLOT ( socketConnected() ) );
     connect ( m_socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
     connect ( m_socket, SIGNAL ( readyRead() ), SLOT ( readFromSocket() ) );
@@ -282,23 +282,26 @@ void FicsProtocol::readFromSocket()
     if ( !m_socket->canReadLine() )
     {
         QByteArray next = m_socket->peek ( 10 );
+        kDebug() << "Peek:" << next;
         if ( !next.contains ( "fics" ) && !next.contains ( "login:" ) && !next.contains ( "password:" ) )
         {
             // It is neither a prompt nor a complete line, so we wait for more data
             return;
         }
     }
-    QByteArray line = m_socket->readLine();
-    line.remove(0,1);
-    if ( line.isEmpty() || line.contains("fics%") )
+    QByteArray line;
+    do
     {
-        return;
+        line = m_socket->readLine().replace('\n', "").replace('\r',"");
     }
+    while ( ( line.isEmpty() || line.contains("fics%") ) && m_socket->bytesAvailable() > 0 );
+        
+
+    kDebug() << line;
     if ( m_terminal )
     {
         m_terminal->sendInput( QLatin1String(line) );
     }
-    kDebug() << "Read line:" << line;
     switch ( m_stage )
     {
         case ConnectStage:
@@ -324,7 +327,6 @@ void FicsProtocol::readFromSocket()
             // TODO: Check for incorrect logins
             else if ( line.contains ( "Starting FICS session" ) )
             {
-                kDebug() << "Starting session" << line;
                 m_stage = SeekStage;
                 konsoleFilter->setPasswordMode(false);
                 setupOptions();
@@ -354,10 +356,11 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.startsWith("<sr>") )
             {
-                foreach ( const QByteArray& str, line.split(' ') )
+                foreach ( const QByteArray& str, line.replace("\n", "").split(' ') )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
+                    kDebug() << str << id << ok;
                     if ( ok )
                     {
                         emit gameOfferRemoved(id);
@@ -366,7 +369,6 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
             {
-                kDebug() << seekExp.cap();
                 FicsGameOffer offer;
                 int n = 1;
                 offer.gameId = seekExp.cap(n++).toInt();

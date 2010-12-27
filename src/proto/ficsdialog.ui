@@ -17,7 +17,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <property name="movable">
       <bool>true</bool>
@@ -221,7 +221,14 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QGraphicsView" name="graphView"/>
+        <widget class="Knights::SeekGraph" name="graphView">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -270,6 +277,12 @@
    <class>KTabWidget</class>
    <extends>QTabWidget</extends>
    <header>ktabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Knights::SeekGraph</class>
+   <extends>QFrame</extends>
+   <header>proto/seekgraph.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

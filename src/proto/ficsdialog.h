@@ -28,6 +28,7 @@
 #include <QtGui/QStringListModel>
 #include <boost/concept_check.hpp>
 
+class KPlotObject;
 namespace Ui
 {
     class FicsDialog;
