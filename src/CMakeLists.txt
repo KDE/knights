@@ -36,7 +36,7 @@ kde4_add_executable(knights ${knights_SRCS})
 
 target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
 
-add_subdirectory(qml)
+#add_subdirectory(qml)
 
 install(TARGETS knights ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
