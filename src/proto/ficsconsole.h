@@ -35,6 +35,12 @@ namespace Knights
     {
       Q_OBJECT
 
+      enum MessageType
+      {
+	  SeekMessage,
+	  
+      };
+
         public:
             explicit FicsConsole ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~FicsConsole();

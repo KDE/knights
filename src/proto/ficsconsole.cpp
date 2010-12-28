@@ -20,6 +20,7 @@
 
 #include "ficsconsole.h"
 #include "ui_ficsconsole.h"
+#include <KDebug>
 
 using namespace Knights;
 
@@ -32,6 +33,10 @@ FicsConsole::FicsConsole ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( pare
   connect ( ui->acceptButton, SIGNAL(clicked(bool)), this, SLOT(acceptButtonClicked()) );
   connect ( ui->seekButton, SIGNAL(clicked(bool)), SLOT(seekButtonClicked()));
   connect ( ui->unseekButton, SIGNAL(clicked(bool)), SLOT(unseekButtonClicked()));
+
+  QPalette p = ui->terminal->palette();
+  p.setColor ( QPalette::Base, Qt::black );
+  ui->terminal->setPalette ( p );
 }
 
 FicsConsole::~FicsConsole()
@@ -41,11 +46,11 @@ FicsConsole::~FicsConsole()
 
 void FicsConsole::addText ( const QString text, QColor color )
 {
-  QTextCharFormat format;
-  format.setForeground( QBrush(color) );
   ui->terminal->moveCursor(QTextCursor::End);
-  ui->terminal->textCursor().insertText( text + QLatin1Char('\n'), format );
+  ui->terminal->setTextColor ( color );
+  ui->terminal->textCursor().insertText( text + QLatin1Char('\n') );
   ui->terminal->moveCursor(QTextCursor::End);
+  kDebug() << ui->terminal->textBackgroundColor() << ui->terminal->textColor();
 }
 
 void FicsConsole::addText ( const char* text, QColor color )
