@@ -151,6 +151,8 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
     m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
     m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
+    m_console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
+    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToSocket(QString)) );     
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
@@ -544,13 +546,11 @@ void FicsProtocol::setSeeking ( bool seek )
 
 void FicsProtocol::writeToSocket ( const QString& text )
 {
-    kDebug() << text;
-    m_stream << text;
+    m_stream << text << endl;
 }
 
 void FicsProtocol::flushSocket()
 {
-    kDebug();
     m_stream << endl;
 }
 
