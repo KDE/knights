@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
+    Copyright 2009,2010,2011  Miha Čančula <miha.cancula@gmail.com>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -21,6 +21,7 @@
 
 #include "proto/ficsdialog.h"
 #include "ui_ficsdialog.h"
+#include "settings.h"
 
 #include <KDebug>
 #include <KToolInvocation>
@@ -30,7 +31,6 @@
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
-#include <settings.h>
 
 using namespace Knights;
 using KWallet::Wallet;

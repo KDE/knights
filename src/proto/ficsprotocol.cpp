@@ -19,10 +19,10 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "ficsprotocol.h"
-
+#include "proto/ficsprotocol.h"
 #include "proto/ficsdialog.h"
 #include "proto/ficsconsole.h"
+#include "proto/keyboardeventfilter.h"
 #include "settings.h"
 
 #include <KDialog>
@@ -30,6 +30,7 @@
 #include <KPasswordDialog>
 #include <KLocale>
 #include <KPushButton>
+#include <KActionCollection>
 
 #include <KPluginFactory>
 #include <KPluginLoader>
@@ -42,9 +43,6 @@
 #include <QtCore/QPointer>
 #include <QtGui/QDockWidget>
 #include <QtGui/QMainWindow>
-#include <knights.h>
-#include <KActionCollection>
-#include "keyboardeventfilter.h"
 
 using namespace Knights;
 using KWallet::Wallet;

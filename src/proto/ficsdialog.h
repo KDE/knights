@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
+    Copyright 2009,2010,2011  Miha Čančula <miha.cancula@gmail.com>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -22,11 +22,10 @@
 #ifndef KNIGHTS_FICSDIALOG_H
 #define KNIGHTS_FICSDIALOG_H
 
-#include "ficsprotocol.h"
+#include "proto/ficsprotocol.h"
 
 #include <QtGui/QWidget>
 #include <QtGui/QStringListModel>
-#include <boost/concept_check.hpp>
 
 class KPlotObject;
 namespace Ui

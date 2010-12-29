@@ -22,7 +22,7 @@
 #ifndef KNIGHTS_FICSPROTOCOL_H
 #define KNIGHTS_FICSPROTOCOL_H
 
-#include <proto/protocol.h>
+#include "proto/protocol.h"
 
 #include <QtCore/QTextStream>
 
