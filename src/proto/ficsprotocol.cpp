@@ -26,26 +26,14 @@
 #include "settings.h"
 
 #include <KDialog>
-#include <KWallet/Wallet>
-#include <KPasswordDialog>
 #include <KLocale>
 #include <KPushButton>
-#include <KActionCollection>
-
-#include <KPluginFactory>
-#include <KPluginLoader>
-#include <KParts/ReadOnlyPart>
-#include <kde_terminal_interface_v2.h>
 
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
-#include <QtGui/QPushButton>
 #include <QtCore/QPointer>
-#include <QtGui/QDockWidget>
-#include <QtGui/QMainWindow>
 
 using namespace Knights;
-using KWallet::Wallet;
 
 const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
@@ -127,12 +115,6 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
     sendPassword(false),
     m_widget(0)
 {
-    kDebug() << Timeout << endl;
-    kDebug() << seekRegExp.pattern();
-    kDebug() << seekExp.pattern();
-
-    forcePrompt = false;
-
     // FICS games are always time-limited
     setAttribute ( QLatin1String ( "TimeLimitEnabled" ), true );
 }
@@ -160,31 +142,14 @@ void FicsProtocol::move ( const Move& m )
 void FicsProtocol::init ( const QVariantMap& options )
 {
     setAttributes ( options );
-    kDebug() << Timeout << endl;
-
     m_stage = ConnectStage;
 
-    /* NOTE: Replace by a custom FicsConsole widget
-     * 
-    // FICS Console
-    KPluginLoader loader( QLatin1String( "libkonsolepart" ) );
-    m_part = loader.factory()->create<KParts::ReadOnlyPart>(this);
-    if (m_part)
-    {
-        m_terminal = qobject_cast< TerminalInterfaceV2* >( m_part );
-        konsoleFilter = new KeyboardEventFilter(this);
-        m_part->widget()->installEventFilter(konsoleFilter);
-        connect ( konsoleFilter, SIGNAL(textTyped(QString)), this, SLOT(writeToSocket(QString)));
-        connect(konsoleFilter, SIGNAL(enterPressed()), SLOT(flushSocket()));
-    }
-    */
     m_console = new FicsConsole;
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
     QString address = options.value ( QLatin1String ( "address" ), QLatin1String ( "freechess.org" ) ).toString();
     int port = options.value ( QLatin1String ( "port" ), 5000 ).toInt();
-    connect ( m_socket, SIGNAL ( connected() ), SLOT ( socketConnected() ) );
     connect ( m_socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
     connect ( m_socket, SIGNAL ( readyRead() ), SLOT ( readFromSocket() ) );
     m_socket->connectToHost ( address, port );
@@ -201,14 +166,9 @@ QWidgetList FicsProtocol::toolWidgets()
     return widgets;
 }
 
-void FicsProtocol::socketConnected()
-{
-    kDebug();
-}
-
 void FicsProtocol::socketError()
 {
-    kDebug() << m_socket->errorString();
+    emit error( NetworkError, m_socket->errorString() );
 }
 
 void FicsProtocol::login ( const QString& username, const QString& password )
@@ -537,11 +497,6 @@ void FicsProtocol::acceptChallenge()
 void FicsProtocol::declineChallenge()
 {
     m_stream << "decline" << endl;
-}
-
-void FicsProtocol::dialogAccepted()
-{
-
 }
 
 void FicsProtocol::dialogRejected()

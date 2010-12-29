@@ -27,18 +27,9 @@
 #include <QtCore/QTextStream>
 
 class QTcpSocket;
-class TerminalInterfaceV2;
-
-namespace KParts
-{
-    class ReadOnlyPart;
-}
 
 namespace Knights
 {
-
-class KeyboardEventFilter;
-
     class FicsDialog;
     class FicsConsole;
 
@@ -55,8 +46,8 @@ class KeyboardEventFilter;
         bool manual;
         bool formula;
         int gameId;
-    QPair< int, int > ratingRange;
-    bool automatic;
+        QPair< int, int > ratingRange;
+        bool automatic;
     };
 
     enum Stage
@@ -66,7 +57,7 @@ class KeyboardEventFilter;
         PlayStage
     };
 
-    class FicsProtocol : public Knights::Protocol
+    class FicsProtocol : public Protocol
     {
             Q_OBJECT
         public:
@@ -103,17 +94,11 @@ class KeyboardEventFilter;
             QTcpSocket* m_socket;
             QTextStream m_stream;
             Stage m_stage;
-            QString username;
             QString password;
             bool sendPassword;
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
-            /*
-            TerminalInterfaceV2* m_terminal;
-            KParts::ReadOnlyPart* m_part;
-            KeyboardEventFilter* konsoleFilter;
-            */
             FicsConsole* m_console;
             
         public Q_SLOTS:
@@ -121,9 +106,7 @@ class KeyboardEventFilter;
             virtual void adjourn();
             virtual void resign();
 
-            void socketConnected();
             void socketError();
-            void dialogAccepted();
             void dialogRejected();
             void acceptSeek ( int id );
             void acceptChallenge();
