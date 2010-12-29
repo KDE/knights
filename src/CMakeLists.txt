@@ -11,7 +11,7 @@ set(knights_SRCS
     proto/ficsprotocol.cpp
     proto/ficsdialog.cpp
     proto/seekgraph.cpp
-    proto/ficsconsole.cpp
+    proto/chatwidget.cpp
     proto/keyboardeventfilter.cpp
 
     rules/chessrules.cpp
@@ -44,7 +44,7 @@ kde4_add_ui_files(knights_SRCS
     clockwidget.ui
     promotiondialog.ui
     proto/ficsdialog.ui
-    proto/ficsconsole.ui
+    proto/chatwidget.ui
 )
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 kde4_add_executable(knights ${knights_SRCS})

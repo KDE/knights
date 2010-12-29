@@ -31,7 +31,7 @@ class QTcpSocket;
 namespace Knights
 {
     class FicsDialog;
-    class FicsConsole;
+    class ChatWidget;
 
     typedef QPair<QString, int> FicsPlayer;
 
@@ -99,7 +99,7 @@ namespace Knights
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
-            FicsConsole* m_console;
+            ChatWidget* m_console;
             
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );

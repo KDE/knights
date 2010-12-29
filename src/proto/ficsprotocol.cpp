@@ -21,7 +21,7 @@
 
 #include "proto/ficsprotocol.h"
 #include "proto/ficsdialog.h"
-#include "proto/ficsconsole.h"
+#include "proto/chatwidget.h"
 #include "proto/keyboardeventfilter.h"
 #include "settings.h"
 
@@ -32,6 +32,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
 #include <QtCore/QPointer>
+#include <kmainwindow.h>
 
 using namespace Knights;
 
@@ -144,7 +145,12 @@ void FicsProtocol::init ( const QVariantMap& options )
     setAttributes ( options );
     m_stage = ConnectStage;
 
-    m_console = new FicsConsole;
+    m_console = new ChatWidget;
+    m_console->setConsoleMode ( true );
+    m_console->setWindowTitle ( i18n("Server Console") );
+    m_console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
+    m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
+    m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
@@ -159,10 +165,9 @@ QWidgetList FicsProtocol::toolWidgets()
 {
     QWidgetList widgets;
     widgets << m_console;
-
-    // FICS Chat Widget
-    // TODO
-
+    ChatWidget* chat = new ChatWidget;
+    chat->setWindowTitle ( i18n("Chat with %1", opponentName()) );
+    widgets << chat;
     return widgets;
 }
 
@@ -261,18 +266,18 @@ void FicsProtocol::readFromSocket()
         return;
     }
     bool display = true;
-    QColor color = Qt::black;
+    ChatWidget::MessageType type = ChatWidget::GeneralMessage;
     switch ( m_stage )
     {
         case ConnectStage:
             if ( line.contains ( "login:" ) )
             {
-                color = Qt::red;
+                type = ChatWidget::AccountMessage;
                 openGameDialog();
             }
             else if ( line.contains ( "password:" ) )
             {
-                color = Qt::red;
+                type = ChatWidget::AccountMessage;
                 if ( sendPassword )
                 {
                     m_stream << password << endl;
@@ -284,13 +289,13 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Press return to enter the server" ) )
             {
-                color = Qt::green;
+                type = ChatWidget::AccountMessage;
                 m_stream << endl;
             }
             // TODO: Check for incorrect logins
             else if ( line.contains ( "Starting FICS session" ) )
             {
-                color = Qt::green;
+                type = ChatWidget::StatusMessage;
                 m_stage = SeekStage;
                 m_console->setPasswordMode(false);
                 setupOptions();
@@ -310,7 +315,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Invalid password" ) )
             {
-                color = Qt::red;
+                type = ChatWidget::AccountMessage;
                 m_widget->setStatus(i18n("Invalid Password"), true);
             }
             break;
@@ -355,11 +360,11 @@ void FicsProtocol::readFromSocket()
             }
             else if ( seekRegExp.indexIn ( QLatin1String(line) ) > -1 )
             {
-                color = Qt::gray;
+                type = ChatWidget::SeekMessage;
             }
             else if ( challengeRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
-                color = Qt::green;
+                type = ChatWidget::ChallengeMessage;
                 FicsPlayer player;
                 player.first = challengeRegExp.cap ( 1 );
                 player.second = challengeRegExp.cap ( 2 ).toInt();
@@ -367,7 +372,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( gameStartedExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
-                color = Qt::red;
+                type = ChatWidget::StatusMessage;
                 QString player1 = gameStartedExp.cap ( 1 );
                 QString player2 = gameStartedExp.cap ( 3 );
                 if ( player1 == playerName() )
@@ -444,14 +449,14 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "lost contact or quit" ) )
             {
-                color = Qt::red;
+                type = ChatWidget::AccountMessage;
                 emit gameOver ( NoColor );
             }
     }
 
     if ( display )
     {
-        m_console->addText( QLatin1String(line), color );
+        m_console->addText( QLatin1String(line), type );
     }
     
     if ( m_socket->bytesAvailable() > 0 )
