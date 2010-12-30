@@ -50,6 +50,12 @@ namespace Knights
         bool automatic;
     };
 
+    struct FicsChallenge
+    {
+        FicsPlayer player;
+        int gameId;
+    };
+
     enum Stage
     {
         ConnectStage,
@@ -73,7 +79,6 @@ namespace Knights
         private:
             static const int Timeout;
 
-            static const QString ratingPattern;
             static const QString timePattern;
             static const QString variantPattern;
             static const QString argsPattern;
@@ -110,8 +115,8 @@ namespace Knights
             void socketError();
             void dialogRejected();
             void acceptSeek ( int id );
-            void acceptChallenge();
-            void declineChallenge();
+            void acceptChallenge ( int id );
+            void declineChallenge ( int id );
             void login(const QString& username, const QString& password);
 
            
@@ -121,7 +126,6 @@ namespace Knights
             void writeToSocket(const QString& text);
             void flushSocket();
             void openGameDialog();
-            void checkSought();
             void setSeeking ( bool seek );
             void setupOptions();
     Color parseColor( QString str);
@@ -131,7 +135,8 @@ namespace Knights
             void clearSeeks();
             void gameOfferRemoved ( int id );
             void gameOfferReceived ( const FicsGameOffer& offer );
-            void challengeReceived ( const FicsPlayer& challenger );
+            void challengeReceived ( const FicsChallenge& challenge );
+            void challengeRemoved ( int id );
     };
 }
 

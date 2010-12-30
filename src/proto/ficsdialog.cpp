@@ -141,10 +141,11 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->graphView->addSeek( offer );
 }
 
-void FicsDialog::addChallenge ( const Knights::FicsPlayer& challenger )
+void FicsDialog::addChallenge ( const Knights::FicsChallenge& challenge )
 {
-    QString item = i18nc ( "PlayerName (rating)", "%1 (%2)", challenger.first, challenger.second );
+    QString item = i18nc ( "PlayerName (rating)", "%1 (%2)", challenge.player.first, challenge.player.second );
     m_challengeModel.setStringList ( m_challengeModel.stringList() << item );
+    m_challengeId << challenge.gameId;
     emit declineButtonNeeded ( true );
 }
 
@@ -159,7 +160,7 @@ void FicsDialog::accept()
 {
     if ( ui->seekButton->isChecked() )
     {
-        emit acceptChallenge();
+        emit acceptChallenge( m_challengeId[ui->challengeListView->currentIndex().row()] );
     }
     else
     {
@@ -169,7 +170,7 @@ void FicsDialog::accept()
 
 void FicsDialog::decline()
 {
-    emit declineChallenge();
+    emit declineChallenge ( m_challengeId[ui->challengeListView->currentIndex().row()] );
 }
 
 void FicsDialog::currentTabChanged ( int tab )
@@ -271,6 +272,13 @@ void FicsDialog::setLoginEnabled ( bool enable )
 {
     ui->logInButton->setEnabled ( enable );
 }
+
+void FicsDialog::removeChallenge ( int id )
+{
+    m_challengeModel.removeRows ( m_challengeId.indexOf(id), 1 );
+    m_challengeId.removeAll(id);
+}
+
 
 
 

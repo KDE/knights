@@ -56,7 +56,8 @@ namespace Knights
             void slotDialogAccepted();
             void addGameOffer ( const FicsGameOffer& offer );
             void removeGameOffer ( int id );
-            void addChallenge ( const FicsPlayer& challenger );
+            void addChallenge ( const FicsChallenge& challenge );
+            void removeChallenge ( int id );
             
             void clearOffers();
             void accept();
@@ -79,12 +80,13 @@ namespace Knights
             void acceptButtonNeeded ( bool needed );
 
             void acceptSeek ( int seekId );
-            void acceptChallenge();
-            void declineChallenge();
+            void acceptChallenge ( int challengeId );
+            void declineChallenge ( int challengeId );
 
         private:
             Ui::FicsDialog* ui;
             QList<int> m_gameId;
+            QList<int> m_challengeId;
             QStringListModel m_challengeModel;
             QString serverName;
     };

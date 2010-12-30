@@ -43,7 +43,7 @@ const char* boolPattern = "([tf])";
 const char* ratedPattern = "([ru])";
 
 const QString namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
-const QString FicsProtocol::ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
+const QString ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
 const QString FicsProtocol::timePattern = QLatin1String ( "(\\d+)\\s+(\\d+)" );
 const QString FicsProtocol::variantPattern = QLatin1String ( "([a-z]+)\\s+([a-z]+)" );
 const QString FicsProtocol::argsPattern = QLatin1String ( "(.*)" ); //TODO better
@@ -80,7 +80,13 @@ const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4[PE\\s] t=%5
         .arg ( QLatin1String("(\\d+)\\-(\\d+)") ) // %10 = rating range (x-y)
         .arg ( QLatin1String(boolPattern) ) // %11 = automatic ( 't' or 'f' )
         .arg ( QLatin1String(boolPattern) ) // %12 = formula ( 't' or 'f' )
-                      );
+              );
+
+const QRegExp challengeExp ( QString ( QLatin1String("%1 w=%2 t=match p=%2 \\(%3\\) %2 \\(%3\\)") )
+        .arg ( idPattern ) // %1 = index
+        .arg ( namePattern ) // %2 = name
+        .arg ( ratingPattern ) // %3 = rating
+        );
 
 const QRegExp FicsProtocol::moveRegExp ( QString ( QLatin1String ( "<12>.*%1.*%2 %3" ) )
         .arg ( currentPlayerPattern )
@@ -222,20 +228,21 @@ void FicsProtocol::openGameDialog()
     m_widget->setConsoleWidget(m_console);
     dialog->setMainWidget ( m_widget );
 
-    connect ( dialog, SIGNAL ( user2Clicked()), SLOT ( declineChallenge()) );
+    connect ( dialog, SIGNAL ( user2Clicked()), m_widget, SLOT(decline()) );
     connect ( dialog, SIGNAL ( user1Clicked()), m_widget, SLOT(accept()) );
     connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::User1 ), SLOT ( setVisible(bool)) );
     connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::User2 ), SLOT ( setVisible(bool)) );
 
     connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
     connect ( m_widget, SIGNAL(acceptSeek(int)), SLOT(acceptSeek(int)) );
-    connect ( m_widget, SIGNAL(acceptChallenge()), SLOT(acceptChallenge()) );
+    connect ( m_widget, SIGNAL(acceptChallenge(int)), SLOT(acceptChallenge(int)) );
+    connect ( m_widget, SIGNAL(declineChallenge(int)), SLOT(declineChallenge(int)) );
     
     connect ( this, SIGNAL(sessionStarted()), m_widget, SLOT(slotSessionStarted() ) );
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
     connect ( this, SIGNAL ( gameOfferRemoved(int)), m_widget, SLOT ( removeGameOffer(int)) );
-    connect ( this, SIGNAL ( challengeReceived ( FicsPlayer ) ), m_widget, SLOT ( addChallenge ( FicsPlayer ) ) );
-    connect ( m_widget, SIGNAL ( sought() ), SLOT ( checkSought() ) );
+    connect ( this, SIGNAL ( challengeReceived ( FicsChallenge ) ), m_widget, SLOT ( addChallenge ( FicsChallenge ) ) );
+    connect ( this, SIGNAL(gameOfferRemoved(int)), m_widget, SLOT(removeChallenge(int)) );
     connect ( m_widget, SIGNAL ( seekingChanged ( bool ) ), SLOT ( setSeeking ( bool ) ) );
 
     // connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted()));
@@ -370,13 +377,32 @@ void FicsProtocol::readFromSocket()
             {
                 type = ChatWidget::SeekMessage;
             }
+            else if ( line.startsWith("<pf>") && challengeExp.indexIn ( QLatin1String(line) ) > -1 )
+            {
+                display = false;
+                FicsChallenge challenge;
+                challenge.gameId = challengeExp.cap ( 1 ).toInt();
+                challenge.player.first = challengeExp.cap ( 2 );
+                int ratingPos = ( challengeExp.cap(1) == challengeExp.cap(3) ) ? 4 : 6;
+                challenge.player.second = challengeExp.cap ( ratingPos ).toInt();
+                emit challengeReceived ( challenge );
+            }
             else if ( challengeRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
                 type = ChatWidget::ChallengeMessage;
-                FicsPlayer player;
-                player.first = challengeRegExp.cap ( 1 );
-                player.second = challengeRegExp.cap ( 2 ).toInt();
-                emit challengeReceived ( player );
+            }
+            else if ( line.startsWith("<pr>") )
+            {
+                display = false;
+                foreach ( const QByteArray& str, line.replace("\n", "").split(' ') )
+                {
+                    bool ok;
+                    int id = str.toInt(&ok);
+                    if ( ok )
+                    {
+                        emit challengeRemoved(id);
+                    }
+                }
             }
             else if ( gameStartedExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
@@ -490,26 +516,21 @@ Color FicsProtocol::parseColor ( QString str )
     return NoColor;
 }
 
-void FicsProtocol::checkSought()
-{
-    m_stream << "sought" << endl;
-}
-
 void FicsProtocol::acceptSeek ( int id )
 {
     m_stream << "play " << id << endl;
     m_seeking = false;
 }
 
-void FicsProtocol::acceptChallenge()
+void FicsProtocol::acceptChallenge ( int id )
 {
-    m_stream << "accept" << endl;
+    m_stream << "accept " << id << endl;
     m_seeking = true;
 }
 
-void FicsProtocol::declineChallenge()
+void FicsProtocol::declineChallenge ( int id )
 {
-    m_stream << "decline" << endl;
+    m_stream << "decline " << id << endl;
 }
 
 void FicsProtocol::dialogRejected()
