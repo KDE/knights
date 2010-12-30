@@ -484,6 +484,11 @@ void FicsProtocol::readFromSocket()
                 emit timeChanged ( Black, QTime().addSecs ( blackTimeLimit ) );
                 emit pieceMoved ( m );
             }
+            else if ( line.contains ( " says:" ) )
+            {
+                type = ChatWidget::ChatMessage;
+                m_chat->addText ( line, type );
+            }
             else if ( line.contains ( "lost contact or quit" ) )
             {
                 type = ChatWidget::AccountMessage;

@@ -42,15 +42,28 @@ ChatWidget::~ChatWidget()
 
 }
 
-void ChatWidget::addText ( const QString text, ChatWidget::MessageType type )
+void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type )
 {
   ui->terminal->moveCursor(QTextCursor::End);
-  ui->terminal->setTextColor ( messageColor ( type ) );
-  ui->terminal->textCursor().insertText( text + QLatin1Char('\n') );
-  ui->terminal->moveCursor(QTextCursor::End);
+  if ( type == ChatMessage && text.contains(QLatin1String(" says: ")) )
+  {
+    ui->terminal->setTextColor ( messageColor ( StatusMessage ) );
+    ui->terminal->textCursor().insertText ( text.left ( text.indexOf(QLatin1String(" says: ")) ) );
+    ui->terminal->setTextColor ( messageColor ( GeneralMessage ) );
+    ui->terminal->textCursor().insertText ( i18n(" says: ") );
+    ui->terminal->setTextColor ( messageColor ( ChatMessage ) );
+    ui->terminal->textCursor().insertText ( text.mid ( text.indexOf(QLatin1String(" says: ")) + 7 ) );
+  }
+  else
+  {
+    ui->terminal->setTextColor ( messageColor ( type ) );
+    ui->terminal->textCursor().insertText( text );
+  }
+  ui->terminal->textCursor().insertText(QLatin1String("\n"));
+  ui->terminal->moveCursor ( QTextCursor::End );
 }
 
-void ChatWidget::addText ( const char* text, ChatWidget::MessageType type )
+void ChatWidget::addText ( const QByteArray& text, ChatWidget::MessageType type )
 {
     addText( QLatin1String(text), type );
 }
@@ -94,7 +107,7 @@ void ChatWidget::buttonClicked()
     }
 }
 
-QColor ChatWidget::messageColor ( ChatWidget::MessageType type )
+QColor ChatWidget::messageColor ( ChatWidget::MessageType type ) const
 {
   if ( m_colors.contains ( type ) )
   {
@@ -113,7 +126,6 @@ void ChatWidget::setConsoleMode ( bool console )
   m_consoleMode = console;
   m_colors.clear();
   m_colors[AccountMessage] = Qt::red;
-  m_colors[StatusMessage] = Qt::green;
   m_colors[GreetMessage] = Qt::gray;
   m_colors[ChatMessage] = Qt::blue;
   m_colors[ChallengeMessage] = Qt::cyan;
@@ -124,6 +136,7 @@ void ChatWidget::setConsoleMode ( bool console )
     p.setColor ( QPalette::Base, Qt::black );
     ui->terminal->setPalette ( p );
 
+    m_colors[StatusMessage] = Qt::green;
     m_colors[SeekMessage] = Qt::yellow;
     m_colors[GeneralMessage] = Qt::white;
   }
@@ -131,12 +144,13 @@ void ChatWidget::setConsoleMode ( bool console )
   {
     ui->terminal->setPalette( palette() );
 
+    m_colors[StatusMessage] = Qt::darkGreen;
     m_colors[GeneralMessage] = Qt::black;
     m_colors[SeekMessage] = Qt::darkYellow;
   }
 }
 
-bool ChatWidget::consoleMode()
+bool ChatWidget::consoleMode() const
 {
   return m_consoleMode;
 }

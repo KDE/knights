@@ -55,15 +55,15 @@ namespace Knights
 
 	    void addExtraButton ( const QString& text, const QString& title = QString(), const QString& icon = QString() );
 
-	    QColor messageColor ( MessageType type );
+	    QColor messageColor ( MessageType type ) const;
 	    void setMessageColor ( MessageType type, const QColor& color );
 
 	    void setConsoleMode ( bool console );
-	    bool consoleMode();
+	    bool consoleMode() const;
 
     public slots:
-	    void addText ( const QString text, MessageType type );
-	    void addText ( const char* text, MessageType type );
+	    void addText ( const QString& text, MessageType type );
+	    void addText ( const QByteArray& text, MessageType type );
             void setPasswordMode ( bool pwMode );
 
     private slots:
