@@ -44,6 +44,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     {
         ui->tabWidget->setTabEnabled ( i, false );
     }
+    ui->tabWidget->setCurrentIndex ( 0 );
+    
     connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
     connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
     ui->seekButton->setIcon( KIcon ( QLatin1String("edit-find") ) );
@@ -80,6 +82,8 @@ void FicsDialog::slotSessionStarted()
 
 void FicsDialog::slotLogin()
 {
+    setLoginEnabled ( false );
+    setStatus ( i18n("Logging in...") );
     emit login ( ui->usernameLineEdit->text(), ui->passwordLineEdit->text() );
 }
 
@@ -260,6 +264,12 @@ void FicsDialog::removeGameOffer ( int id )
     ui->offerTable->removeRow(m_gameId.indexOf(id));
     ui->graphView->removeSeek(id);
 }
+
+void FicsDialog::setLoginEnabled ( bool enable )
+{
+    ui->logInButton->setEnabled ( enable );
+}
+
 
 
 

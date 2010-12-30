@@ -152,7 +152,7 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
     m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
     m_console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
-    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToSocket(QString)) );     
+    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToSocket(QString)) );
 
     m_socket = new QTcpSocket ( this );
     m_stream.setDevice ( m_socket );
@@ -215,11 +215,8 @@ void FicsProtocol::openGameDialog()
     m_widget->setConsoleWidget(m_console);
     dialog->setMainWidget ( m_widget );
 
-    connect ( dialog, SIGNAL ( applyClicked() ), m_widget, SLOT ( slotLogin()) );
-    connect ( dialog, SIGNAL ( resetClicked() ), m_widget, SLOT ( decline() ) );
-    connect ( m_widget, SIGNAL ( acceptSeek ( int ) ), SLOT ( acceptSeek ( int ) ) );
-    connect ( m_widget, SIGNAL ( acceptChallenge() ), SLOT ( acceptChallenge() ) );
-    connect ( m_widget, SIGNAL ( declineChallenge() ), SLOT ( declineChallenge() ) );
+    connect ( dialog, SIGNAL ( noClicked()), SLOT ( declineChallenge()) );
+    connect ( dialog, SIGNAL ( yesClicked()), m_widget, SLOT(accept()) );
     connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::Yes ), SLOT ( setVisible(bool)) );
     connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::No ), SLOT ( setVisible(bool)) );
 
@@ -317,6 +314,7 @@ void FicsProtocol::readFromSocket()
             }
             else if ( line.contains ( "Invalid password" ) )
             {
+                m_widget->setLoginEnabled ( true );
                 type = ChatWidget::AccountMessage;
                 m_widget->setStatus(i18n("Invalid Password"), true);
             }

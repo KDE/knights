@@ -68,6 +68,7 @@ namespace Knights
     void setConsoleWidget(QWidget* widget);
     void focusOnLogin();
     void setStatus(const QString& status, bool error = false);
+    void setLoginEnabled ( bool enable );
 
         Q_SIGNALS:
             void login ( QString username, QString password );
