@@ -219,9 +219,12 @@ void FicsProtocol::openGameDialog()
     dialog->setButtons ( KDialog::User1 | KDialog::User2 | KDialog::Cancel );
 
     dialog->setButtonText(KDialog::User2, i18n("Decline"));
+    dialog->setButtonIcon(KDialog::User2, KIcon(QLatin1String("dialog-close")));
     dialog->button(KDialog::User2)->setVisible(false);
+    
     dialog->setButtonText(KDialog::User1, i18n("Accept"));
     dialog->button(KDialog::User1)->setVisible(false);
+    dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("dialog-ok-accept")));
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
