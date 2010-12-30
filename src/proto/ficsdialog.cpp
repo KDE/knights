@@ -256,13 +256,13 @@ void FicsDialog::slotDialogAccepted()
 
 void FicsDialog::removeGameOffer ( int id )
 {
-    kDebug() << id << m_gameId.contains(id);
     if (!m_gameId.contains(id))
     {
         return;
     }
     ui->offerTable->removeRow(m_gameId.indexOf(id));
     ui->graphView->removeSeek(id);
+    m_gameId.removeAll(id);
 }
 
 void FicsDialog::setLoginEnabled ( bool enable )
