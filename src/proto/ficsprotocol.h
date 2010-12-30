@@ -100,6 +100,7 @@ namespace Knights
             bool forcePrompt;
             bool m_seeking;
             ChatWidget* m_console;
+            ChatWidget* m_chat;
             
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );

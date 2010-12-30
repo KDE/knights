@@ -56,6 +56,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->registerButton->setIcon ( KIcon ( QLatin1String ( "list-add" ) ) );
 
     ui->usernameLineEdit->setText ( Settings::ficsUsername() );
+
+    ui->challengeListView->setModel ( &m_challengeModel );
 }
 
 FicsDialog::~FicsDialog()

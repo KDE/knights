@@ -48,7 +48,6 @@ void ChatWidget::addText ( const QString text, ChatWidget::MessageType type )
   ui->terminal->setTextColor ( messageColor ( type ) );
   ui->terminal->textCursor().insertText( text + QLatin1Char('\n') );
   ui->terminal->moveCursor(QTextCursor::End);
-  kDebug() << ui->terminal->textBackgroundColor() << ui->terminal->textColor();
 }
 
 void ChatWidget::addText ( const char* text, ChatWidget::MessageType type )

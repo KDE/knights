@@ -114,7 +114,9 @@ const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
     sendPassword(false),
-    m_widget(0)
+    m_widget(0),
+    m_console(0),
+    m_chat(0)
 {
     // FICS games are always time-limited
     setAttribute ( QLatin1String ( "TimeLimitEnabled" ), true );
@@ -167,9 +169,13 @@ QWidgetList FicsProtocol::toolWidgets()
 {
     QWidgetList widgets;
     widgets << m_console;
-    ChatWidget* chat = new ChatWidget;
-    chat->setWindowTitle ( i18n("Chat with %1", opponentName()) );
-    widgets << chat;
+
+    if ( !m_chat )
+    {
+        m_chat = new ChatWidget;
+        m_chat->setWindowTitle ( i18n("Chat with %1", opponentName()) );
+    }
+    widgets << m_chat;
     return widgets;
 }
 
@@ -191,6 +197,7 @@ void FicsProtocol::setupOptions()
     m_stream << "set style 12" << endl;
     m_stream << "iset seekremove 1" << endl;
     m_stream << "iset seekinfo 1" << endl;
+    m_stream << "iset pendinfo 1" << endl;
     m_stream << "set seek 1" << endl;
 }
 
@@ -203,24 +210,26 @@ void FicsProtocol::openGameDialog()
     }
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
     dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::Yes | KDialog::No | KDialog::Cancel );
+    dialog->setButtons ( KDialog::User1 | KDialog::User2 | KDialog::Cancel );
 
-    dialog->setButtonText(KDialog::No, i18n("Decline"));
-    dialog->button(KDialog::No)->setVisible(false);
-    dialog->setButtonText(KDialog::Yes, i18n("Accept"));
-    dialog->button(KDialog::Yes)->setVisible(false);
+    dialog->setButtonText(KDialog::User2, i18n("Decline"));
+    dialog->button(KDialog::User2)->setVisible(false);
+    dialog->setButtonText(KDialog::User1, i18n("Accept"));
+    dialog->button(KDialog::User1)->setVisible(false);
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName(m_socket->peerName());
     m_widget->setConsoleWidget(m_console);
     dialog->setMainWidget ( m_widget );
 
-    connect ( dialog, SIGNAL ( noClicked()), SLOT ( declineChallenge()) );
-    connect ( dialog, SIGNAL ( yesClicked()), m_widget, SLOT(accept()) );
-    connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::Yes ), SLOT ( setVisible(bool)) );
-    connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::No ), SLOT ( setVisible(bool)) );
+    connect ( dialog, SIGNAL ( user2Clicked()), SLOT ( declineChallenge()) );
+    connect ( dialog, SIGNAL ( user1Clicked()), m_widget, SLOT(accept()) );
+    connect ( m_widget, SIGNAL ( acceptButtonNeeded ( bool ) ), dialog->button ( KDialog::User1 ), SLOT ( setVisible(bool)) );
+    connect ( m_widget, SIGNAL ( declineButtonNeeded ( bool ) ), dialog->button ( KDialog::User2 ), SLOT ( setVisible(bool)) );
 
     connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
+    connect ( m_widget, SIGNAL(acceptSeek(int)), SLOT(acceptSeek(int)) );
+    connect ( m_widget, SIGNAL(acceptChallenge()), SLOT(acceptChallenge()) );
     
     connect ( this, SIGNAL(sessionStarted()), m_widget, SLOT(slotSessionStarted() ) );
     connect ( this, SIGNAL ( gameOfferReceived ( FicsGameOffer ) ), m_widget, SLOT ( addGameOffer ( FicsGameOffer ) ) );
@@ -246,7 +255,6 @@ void FicsProtocol::readFromSocket()
     if ( !m_socket->canReadLine() )
     {
         QByteArray next = m_socket->peek ( 10 );
-        kDebug() << "Peek:" << next;
         if ( !next.contains ( "fics" ) && !next.contains ( "login:" ) && !next.contains ( "password:" ) )
         {
             // It is neither a prompt nor a complete line, so we wait for more data
