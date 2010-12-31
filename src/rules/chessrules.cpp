@@ -397,18 +397,13 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                 if ( QString(QLatin1String("KQRNBP")).contains(c, Qt::CaseInsensitive) )
                 {
                     type = Piece::typeFromChar(c);
-                    kDebug() << type;
                     for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                     {
-                        kDebug() << it.key() << it.value()->color() << it.value()->pieceType();
-                        if ( it.value()->color() == color && it.value()->pieceType() == type )
-                        {
-                            kDebug() << legalMoves(it.key()) << it.key() << move.to();
-                            if ( legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                        if ( it.value()->color() == color && it.value()->pieceType() == type
+                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                         {
                             move.setFrom( it.key() );
                             break;
-                        }
                         }
                     }
                 }
@@ -417,8 +412,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                     file = Pos::numFromRow(c);
                     for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                     {
-                        if ( it.value()->color() == color
-                            && it.key().first == file
+                        if ( it.value()->color() == color && it.key().first == file
                             && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                         {
                             move.setFrom( it.key() );
