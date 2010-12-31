@@ -102,11 +102,19 @@ void SeekGraph::mouseMoveEvent ( QMouseEvent* event )
 
 void SeekGraph::mouseReleaseEvent ( QMouseEvent* event )
 {
-    if ( pointsUnderPoint( event->globalPos() ).isEmpty() )
+    foreach ( KPlotObject* o, plotObjects() )
     {
-      return;
+      if ( o->points().isEmpty() )
+      {
+	continue;
+      }
+      QPointF d = mapToWidget ( o->points().first()->position()) - event->pos() + QPoint(leftPadding(), topPadding());
+      if ( d.x() * d.x() + d.y() * d.y() < 64.0 )
+      {
+	emit seekClicked ( m_objects.key(o) );
+	return;
+      }
     }
-    emit seekClicked( m_pointIds.value(pointsUnderPoint(event->globalPos()).first()) );
 }
 
 void SeekGraph::removeSeek ( int id )

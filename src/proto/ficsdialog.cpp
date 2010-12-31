@@ -58,6 +58,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->usernameLineEdit->setText ( Settings::ficsUsername() );
 
     ui->challengeListView->setModel ( &m_challengeModel );
+
+    connect ( ui->graphView, SIGNAL(seekClicked(int)), SIGNAL(acceptSeek(int)) );
 }
 
 FicsDialog::~FicsDialog()
