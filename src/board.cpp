@@ -172,7 +172,6 @@ void Board::movePiece ( Move m, bool changePlayer )
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
     }
-    kDebug() << m_playerColors << m_currentPlayer << m_displayedPlayer;
     if ( m_playerColors & m_currentPlayer )
     {
         // This was a move made by a human, either by clicking or through a console
