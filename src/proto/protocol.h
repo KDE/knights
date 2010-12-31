@@ -71,6 +71,13 @@ class ChatWidget;
                 UnknownError
             };
 
+            struct ToolWidgetData
+            {
+                QWidget* widget;
+                QString title;
+                QString name;
+            };
+            
             static QString stringFromErrorCode ( ErrorCode code );
 
             Protocol ( QObject* parent = 0 );
@@ -111,7 +118,7 @@ class ChatWidget;
             virtual Features supportedFeatures();
             virtual Move::List moveHistory();
             virtual int timeRemaining();
-            virtual QWidgetList toolWidgets();
+            virtual QList<ToolWidgetData> toolWidgets();
 
         public Q_SLOTS:
             virtual void pauseGame();

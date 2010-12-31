@@ -14,5 +14,11 @@
       <Action name="adjourn" />
       <Action name="resign" />
     </Menu>
+    <Menu name="docks">
+      <text>Show</text>
+      <Action name="clock" />
+      <Action name="chat" />
+      <Action name="console" />
+    </Menu>
   </MenuBar>
 </kpartgui>

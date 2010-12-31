@@ -41,7 +41,7 @@ namespace Knights
             virtual Features supportedFeatures();
 
     protected:
-    virtual QWidgetList toolWidgets();
+    virtual QList<ToolWidgetData> toolWidgets();
 
         private:
             KProcess* mProcess;

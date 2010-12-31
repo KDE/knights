@@ -154,7 +154,6 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_stage = ConnectStage;
 
     m_console = createConsoleWidget();
-    m_console->setWindowTitle ( i18n("Server Console") );
     m_console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
     m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
     m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
@@ -170,19 +169,25 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_socket->connectToHost ( address, port );
 }
 
-QWidgetList FicsProtocol::toolWidgets()
+QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
 {
-    QWidgetList widgets;
-    widgets << m_console;
+    ToolWidgetData consoleData;
+    consoleData.widget = m_console;
+    consoleData.title = i18n("Server Console");
+    consoleData.name = QLatin1String("console");
 
     if ( !m_chat )
     {
         m_chat = createChatWidget();
-        m_chat->setWindowTitle ( i18n("Chat with %1", opponentName()) );
         connect ( m_chat, SIGNAL(sendText(QString)), SLOT(sendChat(QString)));
     }
-    widgets << m_chat;
-    return widgets;
+
+    ToolWidgetData chatData;
+    chatData.widget = m_chat;
+    chatData.title = i18n("Chat with %1", opponentName());
+    chatData.name = QLatin1String("chat");
+
+    return QList<ToolWidgetData>() << consoleData << chatData;
 }
 
 void FicsProtocol::socketError()

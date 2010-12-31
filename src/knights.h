@@ -62,7 +62,6 @@ namespace Knights
         private:
             void setupActions();
             void showClockWidgets();
-            void hideClockWidgets();
 
         private:
             Ui::prefs_base ui_prefs_base ;
@@ -72,6 +71,7 @@ namespace Knights
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
             QList<QAction*> m_protocolActions;
+            QList<QDockWidget*> m_dockWidgets;
 
             QPointer<Protocol> m_protocol;
             bool m_timeLimit;

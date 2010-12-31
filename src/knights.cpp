@@ -39,11 +39,14 @@
 #include <KStandardGameAction>
 #include <KLocale>
 #include <KMessageBox>
+#include <KMenuBar>
+#include <KMenu>
 
 #include <QtGui/QDropEvent>
 #include <QtCore/QTimer>
 #include <QtGui/QDockWidget>
 #include "proto/localprotocol.h"
+#include <KUser>
 
 namespace Knights
 {
@@ -88,22 +91,27 @@ namespace Knights
 
     void MainWindow::fileNew()
     {
-        // Remove protocol-dependent actions
-        foreach ( QAction* action, m_protocolActions )
-        {
-            actionCollection()->removeAction(action);
-        }
-        m_protocolActions.clear();
-        
         KDialog gameNewDialog;
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
-            m_view->clearBoard();
-            hideClockWidgets();
             delete m_protocol;
+            foreach ( QDockWidget* dock, m_dockWidgets )
+            {
+                removeDockWidget ( dock );
+                delete dock;
+            }
+            m_dockWidgets.clear();
+            // Remove protocol-dependent actions
+            foreach ( QAction* action, m_protocolActions )
+            {
+                actionCollection()->removeAction(action);
+            }
+            m_protocolActions.clear();
+
+            m_view->clearBoard();
             dialogWidget->writeConfig();
 
             QVariantMap protocolOptions;
@@ -112,6 +120,7 @@ namespace Knights
                 case Settings::EnumProtocol::XBoard:
                     m_protocol = new XBoardProtocol;
                     protocolOptions[QLatin1String ( "program" ) ] = dialogWidget->program();
+                    protocolOptions[QLatin1String ( "PlayerName" ) ] = KUser().fullName();
                     break;
                 case Settings::EnumProtocol::FICS:
                     m_protocol = new FicsProtocol;
@@ -172,6 +181,14 @@ namespace Knights
     void MainWindow::protocolInitSuccesful()
     {
         m_view->setProtocol ( m_protocol );
+        QString whiteName = m_protocol->playerName();
+        QString blackName = m_protocol->opponentName();
+        if ( !( m_protocol->playerColors() & White ) )
+        {
+            qSwap ( whiteName, blackName );
+        }
+        setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
+        
             Protocol::Features f = m_protocol->supportedFeatures();
 
             if ( f & Protocol::SetTimeLimit )
@@ -225,18 +242,23 @@ namespace Knights
                 connect ( m_protocol, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
                 m_protocolActions << redoAction;
             }
-            createGUI();
-            foreach ( QWidget* w, m_protocol->toolWidgets() )
+            foreach ( const Protocol::ToolWidgetData& data, m_protocol->toolWidgets() )
             {
-                QDockWidget* dock = new QDockWidget ( w->windowTitle(), this );
-                dock->setWidget ( w );
+                QDockWidget* dock = new QDockWidget ( data.title, this );
+                dock->setWidget ( data.widget );
+                dock->setObjectName ( data.name + QLatin1String("DockWidget") );
+                QAction* dockToggleAction = dock->toggleViewAction();
+                actionCollection()->addAction ( data.name, dockToggleAction );
+                m_protocolActions << dockToggleAction;
+                m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
-            m_view->setProtocol ( m_protocol );
-        if ( m_timeLimit )
+            if ( m_timeLimit )
         {
             showClockWidgets();
         }
+            createGUI();
+
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
         
 }
@@ -247,6 +269,10 @@ namespace Knights
         m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
         m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()
         m_clockDock->setWidget ( playerClock );
+        QAction* clockToggleAction = m_clockDock->toggleViewAction();
+        actionCollection()->addAction ( QLatin1String("clock"), clockToggleAction );
+        m_protocolActions << clockToggleAction;
+        m_dockWidgets << m_clockDock;
         
         connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
@@ -304,12 +330,6 @@ namespace Knights
         }
         playerClock->setActivePlayer ( White );
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
-    }
-
-    void MainWindow::hideClockWidgets()
-    {
-        removeDockWidget ( m_clockDock );
-        delete m_clockDock;
     }
 
     void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& errorString )

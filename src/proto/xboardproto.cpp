@@ -107,12 +107,15 @@ void XBoardProtocol::init ( const QVariantMap& options )
     emit initSuccesful();
 }
 
-QWidgetList XBoardProtocol::toolWidgets()
+QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()
 {
     m_console = createConsoleWidget();
     connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToProgram(QString)));
-    m_console->setWindowTitle ( i18n("Console") );
-    return QWidgetList() << m_console;
+    ToolWidgetData data;
+    data.widget = m_console;
+    data.title = i18n("Console");
+    data.name = QLatin1String("console");
+    return QList< Protocol::ToolWidgetData >() << data;
 }
 
 
