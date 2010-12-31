@@ -172,9 +172,10 @@ void Board::movePiece ( Move m, bool changePlayer )
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
     }
-    if ( m_playerColors & m_currentPlayer )
+    if ( ( m_playerColors & m_currentPlayer ) && changePlayer )
     {
         // This was a move made by a human, either by clicking or through a console
+        // We also don't emit this for rook moves during castling
         emit pieceMoved ( m );
     }
     if ( changePlayer )
