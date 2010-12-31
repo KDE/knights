@@ -47,7 +47,9 @@ namespace Knights
 	  ChatMessage,
 	  GreetMessage,
 	  StatusMessage,
-	  GeneralMessage
+	  GeneralMessage,
+	  ErrorMessage,
+	  MoveMessage
       };
 
       explicit ChatWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );

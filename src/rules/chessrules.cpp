@@ -393,20 +393,26 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                 // Piece type or file, x, and the "To" square
                 c = move.string().at(0);
                 move.setTo(move.string().right(2));
+                kDebug() << c << color << move.to();
                 if ( QString(QLatin1String("KQRNBP")).contains(c, Qt::CaseInsensitive) )
                 {
                     type = Piece::typeFromChar(c);
+                    kDebug() << type;
                     for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                     {
-                        if ( it.value()->color() == color && it.value()->pieceType() == type
-                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                        kDebug() << it.key() << it.value()->color() << it.value()->pieceType();
+                        if ( it.value()->color() == color && it.value()->pieceType() == type )
+                        {
+                            kDebug() << legalMoves(it.key()) << it.key() << move.to();
+                            if ( legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                         {
                             move.setFrom( it.key() );
                             break;
                         }
+                        }
                     }
                 }
-                else if ( QString(QLatin1String("abcdefgh")).contains(c, Qt::CaseInsensitive) )
+                if ( move.from() == Pos() && QString(QLatin1String("abcdefgh")).contains(c, Qt::CaseInsensitive) )
                 {
                     file = Pos::numFromRow(c);
                     for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
@@ -419,10 +425,6 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                             break;
                         }
                     }
-                }
-                else
-                {
-                    kWarning() << "Unknown move notation" << move.string();
                 }
                 break;
             default:

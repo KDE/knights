@@ -219,6 +219,7 @@ namespace Knights
     void Move::setFrom ( const Knights::Pos& value )
     {
         d->from = value;
+        d->notationType = Coordinate;
     }
 
     void Move::setFrom ( int first, int second )
@@ -332,7 +333,33 @@ namespace Knights
 
         return rev;
     }
+
+    bool Move::isValid()
+    {
+        if ( d->notationType == Coordinate )
+        {
+            return true;
+        }
+        else if ( d->string.size() < 6 )
+        {
+            if ( d->string.contains(QRegExp(QLatin1String("[a-h][1-8]"))) || d->string.contains(QLatin1String("o-o")) )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    QDebug& operator<<(QDebug& debug, const Move& move)
+    {
+        debug.maybeSpace() << move.string(true);
+        return debug;
+    }
+
 }
+
+
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -109,9 +109,13 @@ namespace Knights
             bool operator== ( Move other ) const;
             void toCoordinateNotation ( Grid grid );
 
+            bool isValid();
+
         private:
             QSharedDataPointer<MovePrivate> d;
     };
+
+    QDebug& operator<< ( QDebug& debug, const Move &move );
 
     Q_DECLARE_OPERATORS_FOR_FLAGS ( Move::Flags )
 }

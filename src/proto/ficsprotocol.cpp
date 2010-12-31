@@ -153,8 +153,7 @@ void FicsProtocol::init ( const QVariantMap& options )
     setAttributes ( options );
     m_stage = ConnectStage;
 
-    m_console = new ChatWidget;
-    m_console->setConsoleMode ( true );
+    m_console = createConsoleWidget();
     m_console->setWindowTitle ( i18n("Server Console") );
     m_console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
     m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
@@ -178,8 +177,9 @@ QWidgetList FicsProtocol::toolWidgets()
 
     if ( !m_chat )
     {
-        m_chat = new ChatWidget;
+        m_chat = createChatWidget();
         m_chat->setWindowTitle ( i18n("Chat with %1", opponentName()) );
+        connect ( m_chat, SIGNAL(sendText(QString)), SLOT(sendChat(QString)));
     }
     widgets << m_chat;
     return widgets;
@@ -581,6 +581,12 @@ void FicsProtocol::setSeeking ( bool seek )
 
 void FicsProtocol::writeToSocket ( const QString& text )
 {
+    Move m = Move(text);
+    if ( m.isValid() )
+    {
+        emit pieceMoved ( m );
+        return;
+    }
     m_stream << text << endl;
 }
 
@@ -597,6 +603,11 @@ void FicsProtocol::adjourn()
 void FicsProtocol::resign()
 {
     m_stream << "resign" << endl;
+}
+
+void FicsProtocol::sendChat ( QString text )
+{
+    m_stream << "say " << text << endl;
 }
 
 

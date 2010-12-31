@@ -106,6 +106,8 @@ namespace Knights
             bool m_seeking;
             ChatWidget* m_console;
             ChatWidget* m_chat;
+
+            Color parseColor( QString str );
             
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
@@ -118,8 +120,7 @@ namespace Knights
             void acceptChallenge ( int id );
             void declineChallenge ( int id );
             void login(const QString& username, const QString& password);
-
-           
+            void sendChat ( QString text );
 
         private Q_SLOTS:
             void readFromSocket();
@@ -128,7 +129,6 @@ namespace Knights
             void openGameDialog();
             void setSeeking ( bool seek );
             void setupOptions();
-    Color parseColor( QString str);
 
         Q_SIGNALS:
             void sessionStarted();

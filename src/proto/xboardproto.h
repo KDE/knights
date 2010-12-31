@@ -40,12 +40,16 @@ namespace Knights
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
 
+    protected:
+    virtual QWidgetList toolWidgets();
+
         private:
             KProcess* mProcess;
             QTextStream m_stream;
             QString lastMoveString;
             bool playerActive;
             bool resumePending;
+    ChatWidget* m_console;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
@@ -58,6 +62,7 @@ namespace Knights
 
             virtual void pauseGame();
             virtual void resumeGame();
+    void writeToProgram(const QString& text);
 
         private Q_SLOTS:
             void readFromProgram();

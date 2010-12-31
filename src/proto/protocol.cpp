@@ -19,13 +19,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "protocol.h"
+#include "proto/protocol.h"
+#include "proto/chatwidget.h"
 #include "core/move.h"
 
 #include <KLocale>
 
-#include <QtCore/QMetaType>
-#include <QStack>
+#include <QtCore/QStack>
 
 namespace Knights
 {
@@ -260,6 +260,20 @@ namespace Knights
     {
 
     }
+
+ChatWidget* Protocol::createChatWidget()
+{
+    return new ChatWidget;
+}
+
+ChatWidget* Protocol::createConsoleWidget()
+{
+    ChatWidget* console = new ChatWidget;
+    console->setConsoleMode(true);
+    return console;
+}
+
+
 
 
 }

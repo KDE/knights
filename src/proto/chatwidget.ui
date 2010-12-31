@@ -19,12 +19,28 @@
      <property name="text">
       <string>Send</string>
      </property>
+     <property name="default">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item row="3" column="0" rowspan="2" colspan="2">
     <layout class="QHBoxLayout" name="hLayout">
      <item>
       <layout class="QHBoxLayout" name="extraButtonsLayout"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item>
       <widget class="QToolButton" name="toolButton">
@@ -68,5 +84,22 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>line</sender>
+   <signal>returnPressed()</signal>
+   <receiver>sendButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>216</x>
+     <y>243</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

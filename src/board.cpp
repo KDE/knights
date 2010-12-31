@@ -104,6 +104,13 @@ void Board::movePiece ( Move m, bool changePlayer )
         return;
     }
     m_rules->checkSpecialFlags ( m, m_currentPlayer );
+    if ( m.to() == m.from() || !m_grid.contains(m.from()) || m_grid[m.from()]->color() != m_currentPlayer )
+    {
+        kWarning() << "Invalid move" << m.from() << m.to();
+        return;
+    }
+    qDeleteAll ( markers );
+    markers.clear();
     if ( m.flags() & Move::Promote )
     {
         m_grid[m.from() ]->setPieceType ( m.promotedType() ? m.promotedType() : Queen );
@@ -164,6 +171,12 @@ void Board::movePiece ( Move m, bool changePlayer )
     {
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
+    }
+    kDebug() << m_playerColors << m_currentPlayer << m_displayedPlayer;
+    if ( m_playerColors & m_currentPlayer )
+    {
+        // This was a move made by a human, either by clicking or through a console
+        emit pieceMoved ( m );
     }
     if ( changePlayer )
     {
@@ -277,8 +290,6 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         }
         else
         {
-            move.setFlag ( Move::Take, m_grid.contains ( to ) );
-
             if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8 ) )
             {
                 move.setFlag ( Move::Promote, true );
@@ -312,7 +323,6 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
                 }
                 move.setPromotedType ( pType );
             }
-            emit pieceMoved ( move );
             movePiece ( move );
         }
         m_draggedItem->setZValue ( pieceZValue );

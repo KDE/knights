@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "xboardproto.h"
-#include "board.h"
+#include "proto/xboardproto.h"
+#include "proto/chatwidget.h"
 
 #include <KProcess>
 #include <KDebug>
@@ -107,17 +107,35 @@ void XBoardProtocol::init ( const QVariantMap& options )
     emit initSuccesful();
 }
 
+QWidgetList XBoardProtocol::toolWidgets()
+{
+    m_console = createConsoleWidget();
+    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToProgram(QString)));
+    m_console->setWindowTitle ( i18n("Console") );
+    return QWidgetList() << m_console;
+}
+
+
 void XBoardProtocol::readFromProgram()
 {
     QString output = m_stream.readAll();
     foreach ( const QString& line, output.split ( QLatin1Char ( '\n' ) ) )
     {
+        if ( line.isEmpty() )
+        {
+            continue;
+        }
+        bool display = true;
+        ChatWidget::MessageType type = ChatWidget::GeneralMessage;
         if ( line.contains ( QLatin1String ( "Illegal move" ) ) )
         {
+            type = ChatWidget::ErrorMessage;
+            playerActive = true;
             emit illegalMove();
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
+            type = ChatWidget::MoveMessage;
             const QRegExp position(QLatin1String("[a-h][1-8]"));
             if ( position.indexIn(line) > -1 )
             {
@@ -136,6 +154,7 @@ void XBoardProtocol::readFromProgram()
         }
         else if ( line.contains ( QLatin1String ( "wins" ) ) )
         {
+            type = ChatWidget::StatusMessage;
             Color winner;
             if ( line.split ( QLatin1Char ( ' ' ) ).last().contains ( QLatin1String ( "white" ) ) )
             {
@@ -148,8 +167,27 @@ void XBoardProtocol::readFromProgram()
             emit gameOver ( winner );
             return;
         }
+        if ( display )
+        {
+            m_console->addText ( line, type );
+        }
     }
 }
+
+void XBoardProtocol::writeToProgram ( const QString& text )
+{
+    if ( playerActive )
+    {
+        Move m = Move(text);
+        if ( m.isValid() )
+        {
+            emit pieceMoved ( m );
+            return;
+        }
+    }
+    m_stream << text << endl;
+}
+
 
 void XBoardProtocol::readError()
 {
@@ -179,10 +217,10 @@ void XBoardProtocol::redoLastMove()
     {
         // We must prevent the computer from taking over the player's side
         case White:
-            m_stream << "white";
+            m_stream << "white" << endl;
             break;
         case Black:
-            m_stream << "black";
+            m_stream << "black" << endl;
             break;
         default:
             break;
@@ -199,7 +237,7 @@ void XBoardProtocol::proposeDraw()
 
 void XBoardProtocol::pauseGame()
 {
-    m_stream << "force";
+    m_stream << "force" << endl;
 }
 
 void XBoardProtocol::resumeGame()

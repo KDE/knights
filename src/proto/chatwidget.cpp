@@ -56,6 +56,7 @@ void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type )
   }
   else
   {
+    ui->terminal->setFontWeight ( ( type == ErrorMessage ) ? QFont::Bold : QFont::Normal );
     ui->terminal->setTextColor ( messageColor ( type ) );
     ui->terminal->textCursor().insertText( text );
   }
@@ -75,7 +76,16 @@ void ChatWidget::setPasswordMode ( bool pwMode )
 
 void ChatWidget::sendButtonClicked()
 {
+    if ( m_consoleMode )
+    {
+      addText ( ui->line->text(), GeneralMessage );
+    }
+    else
+    {
+      addText ( i18n("You: ") + ui->line->text(), ChatMessage );
+    }
     emit sendText ( ui->line->text() );
+    ui->line->clear();
 }
 
 void ChatWidget::addExtraButton ( const QString& text, const QString& title, const QString& icon )
@@ -125,7 +135,8 @@ void ChatWidget::setConsoleMode ( bool console )
 {
   m_consoleMode = console;
   m_colors.clear();
-  m_colors[AccountMessage] = Qt::red;
+  m_colors[AccountMessage] = Qt::magenta;
+  m_colors[ErrorMessage] = Qt::red;
   m_colors[GreetMessage] = Qt::gray;
   m_colors[ChatMessage] = Qt::blue;
   m_colors[ChallengeMessage] = Qt::cyan;

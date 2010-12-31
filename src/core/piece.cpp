@@ -101,7 +101,7 @@ namespace Knights
         {
             pType = Rook;
         }
-        else if ( typeChar == QLatin1Char ( 'K' ) || typeChar == QLatin1Char ( 'k' ) )
+        else if ( typeChar == QLatin1Char ( 'B' ) || typeChar == QLatin1Char ( 'b' ) )
         {
             pType = Bishop;
         }

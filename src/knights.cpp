@@ -228,9 +228,9 @@ namespace Knights
             createGUI();
             foreach ( QWidget* w, m_protocol->toolWidgets() )
             {
-                QDockWidget* dock = new QDockWidget ( this );
+                QDockWidget* dock = new QDockWidget ( w->windowTitle(), this );
                 dock->setWidget ( w );
-                addDockWidget ( Qt::BottomDockWidgetArea, dock );
+                addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
             m_view->setProtocol ( m_protocol );
         if ( m_timeLimit )

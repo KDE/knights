@@ -30,6 +30,9 @@
 
 namespace Knights
 {
+
+class ChatWidget;
+
     class ProtocolPrivate;
 
     class Protocol : public QObject
@@ -94,6 +97,9 @@ namespace Knights
             void addMoveToHistory ( const Move& move );
             Move nextUndoMove();
             Move nextRedoMove();
+
+            ChatWidget* createChatWidget();
+            ChatWidget* createConsoleWidget();
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
