@@ -96,17 +96,19 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
     m_grid.insert ( pos, t_piece );
 }
 
-void Board::movePiece ( Move m, bool changePlayer )
+void Board::movePiece ( const Move& move )
 {
-    if ( m.notation() != Move::Algebraic && ( !m_grid.contains ( m.from() ) || m.to() == m.from() ) )
+    Move m = move;
+    m_rules->checkSpecialFlags ( m, m_currentPlayer );
+    if ( m.flag ( Move::Illegal ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {
-        kWarning() << "Invalid move" << m.from() << m.to();
+        kWarning() << "Invalid move:" << m;
         return;
     }
-    m_rules->checkSpecialFlags ( m, m_currentPlayer );
-    if ( m.to() == m.from() || !m_grid.contains(m.from()) || m_grid[m.from()]->color() != m_currentPlayer )
+    if ( !(m.flag ( Move::Forced ) ) &&
+        ( m_grid[m.from()]->color() != m_currentPlayer || !m_rules->legalMoves(m.from()).contains(m) ) )
     {
-        kWarning() << "Invalid move" << m.from() << m.to();
+        kWarning() << "Move not allowed:" << m;
         return;
     }
     qDeleteAll ( markers );
@@ -162,7 +164,7 @@ void Board::movePiece ( Move m, bool changePlayer )
     {
         foreach ( const Move& additionalMove, m.additionalMoves() )
         {
-            movePiece ( additionalMove, false );
+            movePiece ( additionalMove );
         }
     }
     m_rules->moveMade ( m );
@@ -172,13 +174,13 @@ void Board::movePiece ( Move m, bool changePlayer )
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
     }
-    if ( ( m_playerColors & m_currentPlayer ) && changePlayer )
+    if ( ( m_playerColors & m_currentPlayer ) && !m.flag(Move::Additional) && !m.flag(Move::Forced) )
     {
         // This was a move made by a human, either by clicking or through a console
         // We also don't emit this for rook moves during castling
         emit pieceMoved ( m );
     }
-    if ( changePlayer )
+    if ( !m.flag(Move::Additional) )
     {
         changeCurrentPlayer();
     }
@@ -463,7 +465,7 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
     addMarker ( pos, key );
 }
 
-void Board::addMarker ( const Knights::Pos& pos, QString spriteKey )
+void Board::addMarker ( const Knights::Pos& pos, const QString& spriteKey )
 {
     if ( markers.contains ( pos ) )
     {

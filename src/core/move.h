@@ -42,13 +42,16 @@ namespace Knights
             
             enum MoveFlag
             {
-                None = 0x00,
-                Take = 0x01,
-                Promote = 0x02,
-                Castle = 0x04,
-                EnPassant = 0x08,
-                Check = 0x10,
-                CheckMate = 0x20,
+                None = 0x000,
+                Take = 0x001,
+                Promote = 0x002,
+                Castle = 0x004,
+                EnPassant = 0x008,
+                Check = 0x010,
+                CheckMate = 0x020,
+                Additional = 0x040,
+                Forced = 0x080,
+                Illegal = 0x100
             };
             enum CastlingSide
             {
@@ -84,6 +87,7 @@ namespace Knights
             void setTo ( int first, int second );
             void setString ( QString string );
 
+            bool flag ( Knights::Move::MoveFlag flag ) const;
             Flags flags() const;
             void setFlag ( MoveFlag, bool value );
             void setFlags ( Flags );

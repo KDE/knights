@@ -78,7 +78,7 @@ namespace Knights
 
             void addPiece ( PieceType type, Color color, const Pos& pos );
             void addMarker ( const Pos& pos, MarkerType type );
-            void addMarker ( const Pos& pos, QString spriteKey );
+            void addMarker ( const Pos& pos, const QString& spriteKey );
             void addTiles();
 
             Piece* pieceAt ( const QPointF& point );
@@ -88,7 +88,7 @@ namespace Knights
             void centerOnPos ( Item* item, const Pos& pos, bool animated = true );
             void centerOnPos ( Item* item, bool animated = true );
             void removeFrame();
-            void centerAndResize ( Knights::Item* item, QSize size, bool animated = true );
+            void centerAndResize ( Item* item, QSize size, bool animated = true );
             bool m_paused;
             qreal m_tileSize;
             QRectF m_boardRect;
@@ -109,20 +109,20 @@ namespace Knights
             virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
 
         public slots:
-            void movePiece ( Move m, bool changePlayer = true );
+            void movePiece ( const Move& move );
             void updateTheme();
             void setPaused ( bool paused );
             void updateGraphics();
             void changeDisplayedPlayer();
 
         signals:
-            void pieceMoved ( Move m );
+            void pieceMoved ( const Move& m );
             void gameOver ( Color winner );
 
             void activePlayerChanged ( Color activePlayer );
             void displayedPlayerChanged ( Color displayedPlayer );
 
-            void centerChanged ( QPointF center );
+            void centerChanged ( const QPointF& center );
     };
 
 }

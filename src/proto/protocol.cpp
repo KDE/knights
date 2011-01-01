@@ -179,7 +179,9 @@ namespace Knights
             emit redoPossible(true);
         }
         d->moveUndoStack.push( m );
-        return m.reverse();
+        Move ret = m.reverse();
+        ret.setFlag ( Move::Forced, true );
+        return ret;
     }
 
     Move Protocol::nextRedoMove()
@@ -195,6 +197,7 @@ namespace Knights
             emit undoPossible(true);
         }
         d->moveHistory << m;
+        m.setFlag ( Move::Forced, true );
         return m;
     }
 

@@ -370,7 +370,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
         QChar c;
         PieceType type;
         int file;
-        kDebug() << move.string();
+        bool found = false;
         switch (move.string().size())
         {
             case 2:
@@ -381,8 +381,14 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                     if ( it.value()->color() == color
                         && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                     {
+                        if ( found )
+                        {
+                            kWarning() << "Found more than one possible move";
+                            move.setFlag ( Move::Illegal, true );
+                            return;
+                        }
                         move.setFrom( it.key() );
-                        break;
+                        found = true;
                     }
                 }
                 break;
@@ -402,8 +408,14 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                         if ( it.value()->color() == color && it.value()->pieceType() == type
                             && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                         {
+                            if ( found )
+                            {
+                                kWarning() << "Found more than one possible move";
+                                move.setFlag ( Move::Illegal, true );
+                                return;
+                            }
                             move.setFrom( it.key() );
-                            break;
+                            found = true;
                         }
                     }
                 }
@@ -415,14 +427,26 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                         if ( it.value()->color() == color && it.key().first == file
                             && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                         {
+                            if ( found )
+                            {
+                                kWarning() << "Found more than one possible move";
+                                move.setFlag ( Move::Illegal, true );
+                                return;
+                            }
                             move.setFrom( it.key() );
-                            break;
+                            found = true;
                         }
                     }
                 }
                 break;
             default:
                 kWarning() << "Unknown move notation" << move.string();
+                move.setFlag ( Move::Illegal, true );
+        }
+        if ( !found )
+        {
+            move.setFlag ( Move::Illegal, true );
+            return;
         }
     }
 

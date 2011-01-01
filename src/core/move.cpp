@@ -120,6 +120,11 @@ namespace Knights
         d = other.d;
     }
 
+    bool Move::flag ( Move::MoveFlag flag ) const
+    {
+        return d->flags & flag;
+    }
+
     Move::Flags Move::flags() const
     {
         return d->flags;
@@ -256,7 +261,12 @@ namespace Knights
 
     void Move::setAdditionalMoves ( const QList< Move >& list )
     {
-        d->extraMoves = list;
+        d->extraMoves.clear();
+        foreach ( Move move, list )
+        {
+            move.setFlag ( Move::Additional, true );
+            d->extraMoves << move;
+        }
     }
 
     PieceType Move::promotedType() const
@@ -336,6 +346,10 @@ namespace Knights
 
     bool Move::isValid()
     {
+        if ( d->flags & Illegal )
+        {
+            return false;
+        }
         if ( d->notationType == Coordinate )
         {
             return true;
