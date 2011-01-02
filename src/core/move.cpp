@@ -274,7 +274,7 @@ namespace Knights
         return d->notationType;
     }
 
-    PieceDataMap Move::removedPieces()
+    PieceDataMap Move::removedPieces() const
     {
         return d->removedPieces;
     }
@@ -288,7 +288,7 @@ namespace Knights
     {
         d->removedPieces = map;
     }
-    PieceDataMap Move::addedPieces()
+    PieceDataMap Move::addedPieces() const
     {
         return d->addedPieces;
     }
@@ -334,7 +334,7 @@ namespace Knights
         return rev;
     }
 
-    bool Move::isValid()
+    bool Move::isValid() const
     {
         if ( d->notationType == Coordinate )
         {

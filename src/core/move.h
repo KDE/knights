@@ -96,11 +96,11 @@ namespace Knights
             PieceType promotedType() const;
             void setPromotedType ( PieceType type );
 
-            PieceDataMap removedPieces();
+            PieceDataMap removedPieces() const;
             void setRemovedPieces ( const PieceDataMap& map );
             void addRemovedPiece ( const Pos& pos, const PieceData& data );
             
-            PieceDataMap addedPieces();
+            PieceDataMap addedPieces() const;
             void setAddedPieces ( const PieceDataMap& map );
             void addAddedPiece ( const Pos& pos, const PieceData& data );
 
@@ -109,7 +109,7 @@ namespace Knights
             bool operator== ( Move other ) const;
             void toCoordinateNotation ( Grid grid );
 
-            bool isValid();
+            bool isValid() const;
 
         private:
             QSharedDataPointer<MovePrivate> d;
