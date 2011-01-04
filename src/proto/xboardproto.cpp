@@ -62,6 +62,7 @@ void XBoardProtocol::move ( const Move& m )
     m_stream << m.string(false) << endl;
     addMoveToHistory( m );
     lastMoveString.clear();
+    emit undoPossible ( false );
     playerActive = false;
     if ( resumePending )
     {
@@ -151,6 +152,7 @@ void XBoardProtocol::readFromProgram()
                     Move m = Move ( moveString );
                     addMoveToHistory ( m );
                     emit pieceMoved ( m );
+                    emit undoPossible ( true );
                     playerActive = true;
                 }
             }
@@ -209,12 +211,14 @@ void XBoardProtocol::resign()
 
 void XBoardProtocol::undoLastMove()
 {
+    kDebug();
     m_stream << "undo" << endl;
     emit pieceMoved(nextUndoMove());
 }
 
 void XBoardProtocol::redoLastMove()
 {
+    kDebug();
     Move m = nextRedoMove();
     switch ( playerColor() )
     {
@@ -240,6 +244,7 @@ void XBoardProtocol::proposeDraw()
 
 void XBoardProtocol::pauseGame()
 {
+    kDebug();
     m_stream << "force" << endl;
 }
 
@@ -251,6 +256,7 @@ void XBoardProtocol::resumeGame()
     }
     else
     {
+        kDebug();
         m_stream << "go";
     }
 }

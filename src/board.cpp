@@ -105,7 +105,7 @@ void Board::movePiece ( const Move& move )
         kWarning() << "Invalid move:" << m;
         return;
     }
-    if ( !(m.flag ( Move::Forced ) ) &&
+    if ( !m.flag ( Move::Forced ) &&
         ( m_grid[m.from()]->color() != m_currentPlayer || !m_rules->legalMoves(m.from()).contains(m) ) )
     {
         kWarning() << "Move not allowed:" << m;

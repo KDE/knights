@@ -451,7 +451,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     }
 
     Piece* p = m_grid->value ( move.from() );
-    move.setFlags ( 0 );
+    move.setFlags ( move.flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant) );
     move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
     if ( p->pieceType() == King && length ( move ) == 2 )
     {
