@@ -94,17 +94,15 @@ namespace Knights
 
             const QList<Move>& additionalMoves() const;
             void setAdditionalMoves ( const QList<Move>& list );
-            const QList<Pos>& additionalCaptures() const;
-            void setAdditionalCaptures ( const QList<Pos>& list );
 
             PieceType promotedType() const;
             void setPromotedType ( PieceType type );
 
-            PieceDataMap removedPieces() const;
+            const PieceDataMap& removedPieces() const;
             void setRemovedPieces ( const PieceDataMap& map );
             void addRemovedPiece ( const Pos& pos, const PieceData& data );
             
-            PieceDataMap addedPieces() const;
+            const PieceDataMap& addedPieces() const;
             void setAddedPieces ( const PieceDataMap& map );
             void addAddedPiece ( const Pos& pos, const PieceData& data );
 

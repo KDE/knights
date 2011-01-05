@@ -486,9 +486,16 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
             {
                 move.setFlag ( Move::EnPassant, true );
                 Pos capturedPos = move.from() + Pos ( delta.first, 0 );
-                move.setAdditionalCaptures ( QList<Pos>() << capturedPos );
+                Piece* p = m_grid->value ( capturedPos );
+                move.addRemovedPiece ( move.to(), qMakePair ( p->color(), p->pieceType() ) );
             }
         }
+    }
+
+    if ( move.flag(Move::Take) )
+    {
+        Piece* p = m_grid->value ( move.to() );
+        move.addRemovedPiece ( move.to(), qMakePair ( p->color(), p->pieceType() ) );
     }
 }
 
@@ -541,6 +548,10 @@ QList< Move > ChessRules::pawnMoves ( const Knights::Pos& pos )
 
 void ChessRules::moveMade ( const Knights::Move& m )
 {
+    if ( !m_grid->contains(m.to()) )
+    {
+        kDebug() << *m_grid;
+    }
     m_enPassantMoves.clear();
     switch ( m_grid->value ( m.to() )->pieceType() )
     {

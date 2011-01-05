@@ -117,9 +117,27 @@ void Board::movePiece ( const Move& move )
     {
         m_grid[m.from() ]->setPieceType ( m.promotedType() ? m.promotedType() : Queen );
     }
+
+//    delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
+    PieceDataMap map = m.removedPieces();
+    PieceDataMap::const_iterator it = map.constBegin();
+    PieceDataMap::const_iterator end = map.constEnd();
+    for ( ; it != end; ++it )
+    {
+        delete m_grid.value ( it.key(), 0 );
+        m_grid.remove ( it.key() );
+    }
+    map = m.addedPieces();
+    it = map.constBegin();
+    end = map.constEnd();
+    for ( ; it != end; ++it )
+    {
+        addPiece ( it.value().second, it.value().first, it.key() );
+    }
+
     centerOnPos ( m_grid.value ( m.from() ), m.to() );
-    delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
+
     if ( m_playerColors & oppositeColor ( m_currentPlayer ) )
     {
         // We only display motion and danger markers if the next player is a human
@@ -151,15 +169,7 @@ void Board::movePiece ( const Move& move )
             }
         }
     }
-    if ( m.flags() & Move::EnPassant )
-    {
-        kDebug() << m.additionalCaptures();
-        foreach ( const Pos& p, m.additionalCaptures() )
-        {
-            delete m_grid.value ( p, 0 );
-            m_grid.remove ( p );
-        }
-    }
+
     if ( m.flags() & Move::Castle )
     {
         foreach ( const Move& additionalMove, m.additionalMoves() )

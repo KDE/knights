@@ -38,7 +38,6 @@ namespace Knights
             Pos to;
 
             QList<Move> extraMoves;
-            QList<Pos> extraCaptures;
 
             PieceType promotedType;
             Move::Flags flags;
@@ -150,7 +149,6 @@ namespace Knights
     void Move::setString ( QString string )
     {
         d->flags = None;
-        d->extraCaptures.clear();
         d->extraMoves.clear();
 
         if ( string.contains(QLatin1Char('x')) )
@@ -244,16 +242,6 @@ namespace Knights
         d->to = Pos ( first, second );
     }
 
-    const QList< Pos >& Move::additionalCaptures() const
-    {
-        return d->extraCaptures;
-    }
-
-    void Move::setAdditionalCaptures ( const QList< Pos >& list )
-    {
-        d->extraCaptures = list;
-    }
-
     const QList< Move >& Move::additionalMoves() const
     {
         return d->extraMoves;
@@ -284,7 +272,7 @@ namespace Knights
         return d->notationType;
     }
 
-    PieceDataMap Move::removedPieces() const
+    const Knights::PieceDataMap& Move::removedPieces() const
     {
         return d->removedPieces;
     }
@@ -298,7 +286,7 @@ namespace Knights
     {
         d->removedPieces = map;
     }
-    PieceDataMap Move::addedPieces() const
+    const Knights::PieceDataMap& Move::addedPieces() const
     {
         return d->addedPieces;
     }
