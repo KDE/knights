@@ -120,6 +120,7 @@ void Board::movePiece ( const Move& move )
 
 //    delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     PieceDataMap map = m.removedPieces();
+    kDebug() << map;
     PieceDataMap::const_iterator it = map.constBegin();
     PieceDataMap::const_iterator end = map.constEnd();
     for ( ; it != end; ++it )
@@ -127,16 +128,18 @@ void Board::movePiece ( const Move& move )
         delete m_grid.value ( it.key(), 0 );
         m_grid.remove ( it.key() );
     }
+
+    centerOnPos ( m_grid.value ( m.from() ), m.to() );
+    m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
+
     map = m.addedPieces();
+    kDebug() << map;
     it = map.constBegin();
     end = map.constEnd();
     for ( ; it != end; ++it )
     {
         addPiece ( it.value().second, it.value().first, it.key() );
     }
-
-    centerOnPos ( m_grid.value ( m.from() ), m.to() );
-    m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
 
     if ( m_playerColors & oppositeColor ( m_currentPlayer ) )
     {
