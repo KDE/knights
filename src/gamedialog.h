@@ -51,6 +51,8 @@ namespace Knights
             bool timeLimit() const;
             int playerIncrement() const;
             int opponentIncrement() const;
+            int playerMoves();
+            int opponentMoves();
 
             void writeConfig();
 

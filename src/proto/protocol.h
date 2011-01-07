@@ -118,6 +118,15 @@ class ChatWidget;
             virtual Move::List moveHistory();
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
+            /**
+             * Sets the time control parameters in the same format as XBoard's @c level command works
+             * @param color specifis to which player this setting will apply. If @p color is NoColor then both player use this setting.
+             * @param moves the number of moves to be completed before @p baseTime runs out.
+             * Setting this to 0 causes the timing to be incremental only
+             * @param baseTime the time in minutes in which the player has to complete @p moves moves, or finish the game if @p moves is zero.
+             * @param increment the time in seconds that is added to the player's clock for his every move.
+             */
+            virtual void setTimeControl(Color color, int moves, int baseTime, int increment);
 
         public Q_SLOTS:
             virtual void pauseGame();

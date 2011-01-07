@@ -30,6 +30,11 @@
 using namespace Knights;
 
 XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
+, mProcess(0)
+, m_moves(0)
+, m_increment(0)
+, m_baseTime(0)
+, m_timeLimit(0)
 {
 
 }
@@ -94,6 +99,9 @@ void XBoardProtocol::init ( const QVariantMap& options )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
+
+    setTimeControl(NoColor, m_moves, m_baseTime, m_increment);
+
     if ( playerColors() == NoColor )
     {
         setPlayerColor ( ( qrand() % 2 == 0 ) ? White : Black );
@@ -250,6 +258,21 @@ void XBoardProtocol::resumeGame()
         emit redoPossible ( false );
     }
 }
+
+void XBoardProtocol::setTimeControl(Color color, int moves, int baseTime, int increment)
+{
+    Q_UNUSED(color);
+    m_moves = moves;
+    m_baseTime = baseTime;
+    m_increment = increment;
+
+    if ( mProcess && mProcess->isOpen() )
+    {
+        kDebug() << moves << baseTime << increment;
+        m_stream << QString(QLatin1String("level %1 %2 %3")).arg(moves).arg(baseTime).arg(increment) << endl;
+    }
+}
+
 
 
 

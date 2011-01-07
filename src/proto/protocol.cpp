@@ -264,6 +264,16 @@ namespace Knights
 
     }
 
+void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
+{
+    // TODO: Implement basic/shared time functions here
+    Q_UNUSED(color);
+    Q_UNUSED(moves);
+    Q_UNUSED(baseTime);
+    Q_UNUSED(increment);
+}
+
+
 ChatWidget* Protocol::createChatWidget()
 {
     return new ChatWidget;

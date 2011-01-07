@@ -39,6 +39,7 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
+            virtual void setTimeControl(Color color, int moves, int baseTime, int increment);
 
     protected:
     virtual QList<ToolWidgetData> toolWidgets();
@@ -50,6 +51,10 @@ namespace Knights
             bool playerActive;
             bool resumePending;
     ChatWidget* m_console;
+    int m_moves;
+    int m_increment;
+    int m_baseTime;
+    bool m_timeLimit;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );

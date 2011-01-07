@@ -134,14 +134,18 @@ namespace Knights
             m_timeLimit = dialogWidget->timeLimit();
             if ( m_timeLimit )
             {
-                m_playerTime = dialogWidget->playerTime();
-                m_oppTime = dialogWidget->opponentTime();
-                m_playerIncrement = dialogWidget->playerIncrement();
-                m_oppIncrement = dialogWidget->opponentIncrement();
-                    protocolOptions[QLatin1String ( "playerTimeLimit" ) ] = m_playerTime;
-                    protocolOptions[QLatin1String ( "playerTimeIncrement" ) ] = m_playerIncrement;
-                    protocolOptions[QLatin1String ( "opponentTimeLimit" ) ] = m_oppTime;
-                    protocolOptions[QLatin1String ( "opponentTimeIncrement" ) ] = m_oppIncrement;
+                m_protocol->setTimeControl (
+                                            dialogWidget->color(),
+                                            dialogWidget->playerMoves(),
+                                            dialogWidget->playerTime().hour() * 60 + dialogWidget->playerTime().minute(),
+                                            dialogWidget->playerIncrement()
+                );
+                m_protocol->setTimeControl (
+                                            oppositeColor ( dialogWidget->color() ),
+                                            dialogWidget->opponentMoves(),
+                                            dialogWidget->opponentTime().hour() * 60 + dialogWidget->opponentTime().minute(),
+                                            dialogWidget->opponentIncrement()
+                );
             }
                 protocolOptions[QLatin1String ( "PlayerColors" ) ] = QVariant::fromValue<Colors> ( dialogWidget->color() );
                 connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );

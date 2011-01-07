@@ -141,13 +141,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QRadioButton" name="fixedTimeRadio">
-           <property name="text">
-            <string>Fixed</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </widget>
       </item>
@@ -386,7 +379,7 @@
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>254</x>
+     <x>342</x>
      <y>298</y>
     </hint>
     <hint type="destinationlabel">
@@ -424,6 +417,86 @@
     <hint type="destinationlabel">
      <x>446</x>
      <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameTimeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>oppMoves</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>262</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>152</x>
+     <y>377</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameTimeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>oppTimeEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>349</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>349</x>
+     <y>372</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sameTimeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>oppIncTimeEdit</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>488</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>366</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>oppFics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>conventionalTimeRadio</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>18</x>
+     <y>96</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>25</x>
+     <y>293</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>oppFics</sender>
+   <signal>clicked()</signal>
+   <receiver>incTimeRadio</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>332</x>
+     <y>296</y>
     </hint>
    </hints>
   </connection>

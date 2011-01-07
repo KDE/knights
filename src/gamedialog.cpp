@@ -82,9 +82,6 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
         case Settings::EnumControlType::Incremental:
             ui->incTimeRadio->setChecked ( true );
             break;
-        case Settings::EnumControlType::Fixed:
-            ui->fixedTimeRadio->setChecked ( true );
-            break;
     }
 
     ui->programComboBox->setHistoryItems( Settings::programs() );
@@ -184,7 +181,7 @@ QTime GameDialog::opponentTime() const
 
 int GameDialog::opponentIncrement() const
 {
-    return QTime().secsTo ( ui->oppIncTimeEdit->time() );
+    return ui->incTimeRadio->isChecked() ? QTime().secsTo ( ui->oppIncTimeEdit->time() ) : 0;
 }
 
 QTime GameDialog::playerTime() const
@@ -194,7 +191,7 @@ QTime GameDialog::playerTime() const
 
 int GameDialog::playerIncrement() const
 {
-    return QTime().secsTo ( ui->oppIncTimeEdit->time() );
+    return ui->incTimeRadio->isChecked() ? QTime().secsTo ( ui->oppIncTimeEdit->time() ) : 0;
 }
 
 Settings::EnumProtocol::type GameDialog::protocol() const
@@ -275,10 +272,6 @@ void GameDialog::timeEnabled ( bool enabled )
 
 void GameDialog::updateTimeEdits()
 {
-    ui->sameTimeCheckBox->blockSignals ( true );
-    ui->sameTimeCheckBox->setChecked ( m_sameTime || m_forceSameTime );
-    ui->sameTimeCheckBox->blockSignals ( false );
-
     if ( !m_timeEnabled )
     {
         //Nothin to do, since the group box is already disabled
@@ -286,12 +279,6 @@ void GameDialog::updateTimeEdits()
     }
     if ( ui->sameTimeCheckBox->isChecked() )
     {
-        ui->sameTimeCheckBox->setEnabled ( !m_forceSameTime );
-        ui->playerTimeEdit->setEnabled ( true );
-        ui->oppTimeEdit->setEnabled ( false );
-        ui->playerIncTimeEdit->setEnabled ( true );
-        ui->oppIncTimeEdit->setEnabled ( false );
-        ui->oppMoves->setEnabled ( false );
         connect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
         connect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
         connect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
@@ -301,17 +288,20 @@ void GameDialog::updateTimeEdits()
     }
     else
     {
-        ui->sameTimeCheckBox->setEnabled ( true );
-        ui->playerTimeEdit->setEnabled ( true );
-        ui->oppTimeEdit->setEnabled ( true );
-        ui->playerIncTimeEdit->setEnabled ( true );
-        ui->oppIncTimeEdit->setEnabled ( true );
-        ui->playerTimeEdit->setEnabled ( true );
-        ui->oppTimeEdit->setEnabled ( true );
         disconnect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
         disconnect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
         disconnect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
     }
+}
+
+int GameDialog::playerMoves()
+{
+    return ui->conventionalTimeRadio->isChecked() ? ui->playerMoves->value() : 0;
+}
+
+int GameDialog::opponentMoves()
+{
+    return ui->conventionalTimeRadio->isChecked() ? ui->oppMoves->value() : 0;
 }
 
 void GameDialog::ficsModeToggled ( bool enabled )
