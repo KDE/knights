@@ -100,6 +100,10 @@ class ChatWidget;
             void setAttribute ( const char* attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
+            void changeActivePlayer();
+            void setActivePlayer ( Color player );
+            Color activePlayer();
+
             void addMoveToHistory ( const Move& move );
             Move nextUndoMove();
             Move nextRedoMove();

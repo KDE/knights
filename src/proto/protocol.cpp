@@ -38,11 +38,18 @@ namespace Knights
             QVariantMap attributes;
             QList<Move> moveHistory;
             QStack<Move> moveUndoStack;
+            QMap<int,int> whiteTimeIncrements;
+            QMap<int,int> blackTimeIncrements;
+            int whiteTime;
+            int blackTime;
+            int whiteMove;
+            int blackMove;
+            Color activePlayer;
     };
 
     Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
     {
-
+        setActivePlayer ( White );
     }
 
     Protocol::~Protocol()
@@ -151,7 +158,7 @@ namespace Knights
         return this->attribute ( QLatin1String ( attribute ) );
     }
 
-    void Protocol::addMoveToHistory ( const Knights::Move& move )
+    void Protocol::addMoveToHistory ( const Move& move )
     {
         Q_D ( Protocol );
         if ( d->moveHistory.isEmpty() )
@@ -266,11 +273,25 @@ namespace Knights
 
 void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
 {
-    // TODO: Implement basic/shared time functions here
-    Q_UNUSED(color);
-    Q_UNUSED(moves);
-    Q_UNUSED(baseTime);
-    Q_UNUSED(increment);
+    Q_D(Protocol);
+    if ( color == NoColor )
+    {
+        setTimeControl ( White, moves, baseTime, increment );
+        setTimeControl ( Black, moves, baseTime, increment );
+        return;
+    }
+    if ( color == White )
+    {
+        d->whiteTimeIncrements.insert(moves, baseTime);
+        d->whiteTimeIncrements.insert(1, increment);
+        d->whiteTime = baseTime;
+    }
+    else
+    {
+        d->blackTimeIncrements.insert(moves, baseTime);
+        d->blackTimeIncrements.insert(1, increment);
+        d->blackTime = baseTime;
+    }
 }
 
 
@@ -285,6 +306,26 @@ ChatWidget* Protocol::createConsoleWidget()
     console->setConsoleMode(true);
     return console;
 }
+
+void Protocol::setActivePlayer(Color player)
+{
+    Q_D(Protocol);
+    d->activePlayer = player;
+}
+
+void Protocol::changeActivePlayer()
+{
+    setActivePlayer ( oppositeColor ( activePlayer() ) );
+}
+
+Color Protocol::activePlayer()
+{
+    Q_D(const Protocol);
+    return d->activePlayer;
+}
+
+
+
 
 
 
