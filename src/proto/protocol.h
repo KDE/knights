@@ -26,7 +26,6 @@
 #include <core/piece.h>
 
 #include <QtCore/QObject>
-#include <boost/concept_check.hpp>
 
 namespace Knights
 {
