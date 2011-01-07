@@ -30,13 +30,13 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
     setObjectName ( QLatin1String ( "GameDialogWidget" ) );
-    connect ( ui->timeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
+    connect ( ui->timeGroup, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
     connect ( ui->sameTimeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( sameTimeChanged ( bool ) ) );
     connect ( ui->oppHuman, SIGNAL ( toggled ( bool ) ), this, SLOT ( hotseatModeToggled ( bool ) ) );
     connect ( ui->oppFics, SIGNAL ( toggled ( bool ) ), this, SLOT ( ficsModeToggled ( bool ) ) );
 
     m_timeEnabled = Settings::timeEnabled();
-    ui->timeCheckBox->setChecked ( m_timeEnabled );
+    ui->timeGroup->setChecked ( m_timeEnabled );
 
     m_sameTime  = Settings::sameTime();
     ui->sameTimeCheckBox->setChecked ( m_sameTime );
@@ -79,6 +79,8 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     hotseatModeToggled ( ui->oppHuman->isChecked() );
     ficsModeToggled ( ui->oppFics->isChecked() );
+
+    ui->incTimeRadio->setChecked ( true );
 }
 
 GameDialog::~GameDialog()
@@ -112,7 +114,7 @@ void GameDialog::writeConfig()
         selectedColor = Settings::EnumColor::Black;
     }
 
-    bool timeLimitEnabled = ui->timeCheckBox->isChecked();
+    bool timeLimitEnabled = ui->timeGroup->isChecked();
     Settings::setProtocol ( selectedProtocol );
     Settings::setColor ( selectedColor );
     Settings::setTimeEnabled ( timeLimitEnabled );
@@ -142,7 +144,7 @@ Color GameDialog::color() const
 
 bool GameDialog::timeLimit() const
 {
-    return ui->timeCheckBox->isChecked();
+    return ui->timeGroup->isChecked();
 }
 
 QTime GameDialog::opponentTime() const
@@ -257,10 +259,13 @@ void GameDialog::updateTimeEdits()
         ui->oppTimeEdit->setEnabled ( false );
         ui->playerIncTimeEdit->setEnabled ( true );
         ui->oppIncTimeEdit->setEnabled ( false );
+        ui->oppMoves->setEnabled ( false );
         connect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
         connect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
+        connect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
         ui->oppTimeEdit->setTime ( ui->playerTimeEdit->time() );
         ui->oppIncTimeEdit->setTime ( ui->playerIncTimeEdit->time() );
+        ui->oppMoves->setValue ( ui->playerMoves->value() );
     }
     else
     {
