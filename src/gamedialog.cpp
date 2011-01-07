@@ -45,6 +45,8 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->oppTimeEdit->setTime ( Settings::opponentTime().time() );
     ui->playerIncTimeEdit->setTime ( Settings::playerTimeIncrement().time() );
     ui->oppIncTimeEdit->setTime ( Settings::opponentTimeIncrement().time() );
+    ui->playerMoves->setValue ( Settings::playerMoves() );
+    ui->oppMoves->setValue ( Settings::opponentMoves() );
 
     switch ( Settings::protocol() )
     {
@@ -72,6 +74,19 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             break;
     }
 
+    switch ( Settings::controlType() )
+    {
+        case Settings::EnumControlType::Conventional:
+            ui->conventionalTimeRadio->setChecked ( true );
+            break;
+        case Settings::EnumControlType::Incremental:
+            ui->incTimeRadio->setChecked ( true );
+            break;
+        case Settings::EnumControlType::Fixed:
+            ui->fixedTimeRadio->setChecked ( true );
+            break;
+    }
+
     ui->programComboBox->setHistoryItems( Settings::programs() );
     ui->programComboBox->setCurrentItem( Settings::currentProgram(), true );
     ui->serverComboBox->setHistoryItems( Settings::servers() );
@@ -79,8 +94,6 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     hotseatModeToggled ( ui->oppHuman->isChecked() );
     ficsModeToggled ( ui->oppFics->isChecked() );
-
-    ui->incTimeRadio->setChecked ( true );
 }
 
 GameDialog::~GameDialog()
@@ -118,11 +131,28 @@ void GameDialog::writeConfig()
     Settings::setProtocol ( selectedProtocol );
     Settings::setColor ( selectedColor );
     Settings::setTimeEnabled ( timeLimitEnabled );
-    Settings::setSameTime ( ui->sameTimeCheckBox->isChecked() );
-    Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->playerTimeEdit->time() ) );
-    Settings::setPlayerTimeIncrement ( QDateTime ( QDate::currentDate(), ui->playerIncTimeEdit->time() ) );
-    Settings::setOpponentTime ( QDateTime ( QDate::currentDate(), ui->oppTimeEdit->time() ) );
-    Settings::setOpponentTimeIncrement ( QDateTime ( QDate::currentDate(), ui->oppIncTimeEdit->time() ) );
+    if ( timeLimitEnabled )
+    {
+        Settings::setSameTime ( ui->sameTimeCheckBox->isChecked() );
+        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->playerTimeEdit->time() ) );
+        Settings::setOpponentTime ( QDateTime ( QDate::currentDate(), ui->oppTimeEdit->time() ) );
+        if ( ui->conventionalTimeRadio->isChecked() )
+        {
+            Settings::setOpponentMoves ( ui->oppMoves->value() );
+            Settings::setPlayerMoves ( ui->playerMoves->value() );
+            Settings::setControlType ( Settings::EnumControlType::Conventional );
+        }
+        else if ( ui->incTimeRadio->isChecked() )
+        {
+            Settings::setPlayerTimeIncrement ( QDateTime ( QDate::currentDate(), ui->playerIncTimeEdit->time() ) );
+            Settings::setOpponentTimeIncrement ( QDateTime ( QDate::currentDate(), ui->oppIncTimeEdit->time() ) );
+            Settings::setControlType ( Settings::EnumControlType::Incremental );
+        }
+        else
+        {
+            Settings::setControlType ( Settings::EnumControlType::Fixed );
+        }
+    }
     Settings::self()->writeConfig();
 }
 
@@ -224,12 +254,17 @@ void GameDialog::hotseatModeToggled ( bool enabled )
     {
         ui->playerLabel->setText ( i18n ( "White" ) );
         ui->oppLabel->setText ( i18n ( "Black" ) );
+        ui->sameTimeCheckBox->setEnabled ( true );
     }
     else
     {
         ui->playerLabel->setText ( i18n ( "Player" ) );
         ui->oppLabel->setText ( i18n ( "Opponent" ) );
+
+        ui->sameTimeCheckBox->setChecked ( true );
+        ui->sameTimeCheckBox->setEnabled ( false );
     }
+    updateTimeEdits();
 }
 
 void GameDialog::timeEnabled ( bool enabled )
@@ -246,13 +281,10 @@ void GameDialog::updateTimeEdits()
 
     if ( !m_timeEnabled )
     {
-        ui->sameTimeCheckBox->setEnabled ( false );
-        ui->playerTimeEdit->setEnabled ( false );
-        ui->oppTimeEdit->setEnabled ( false );
-        ui->playerIncTimeEdit->setEnabled ( false );
-        ui->oppIncTimeEdit->setEnabled ( false );
+        //Nothin to do, since the group box is already disabled
+        return;
     }
-    else if ( m_sameTime || m_forceSameTime )
+    if ( ui->sameTimeCheckBox->isChecked() )
     {
         ui->sameTimeCheckBox->setEnabled ( !m_forceSameTime );
         ui->playerTimeEdit->setEnabled ( true );
@@ -274,15 +306,16 @@ void GameDialog::updateTimeEdits()
         ui->oppTimeEdit->setEnabled ( true );
         ui->playerIncTimeEdit->setEnabled ( true );
         ui->oppIncTimeEdit->setEnabled ( true );
+        ui->playerTimeEdit->setEnabled ( true );
+        ui->oppTimeEdit->setEnabled ( true );
         disconnect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
         disconnect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
+        disconnect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
     }
 }
 
 void GameDialog::ficsModeToggled ( bool enabled )
 {
-    m_forceSameTime = enabled;
-    updateTimeEdits();
     if ( enabled )
     {
         ui->colorRandom->setText ( i18n ( "Choose &later" ) );

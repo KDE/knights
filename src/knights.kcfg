@@ -46,21 +46,40 @@
       <label>show opponents move marker</label>
       <default>true</default>
     </entry>
+  </group>
+  <group name="Time Control">
+    <entry name="controlType" type="Enum">
+      <label>the type of time control enforced</label>
+      <choices>
+	<choice name="Conventional" />
+	<choice name="Incremental" />
+	<choice name="Fixed" />
+      </choices>
+      <default>Incremental</default>
+    </entry>
     <entry name="playerTime" type="DateTime">
       <label>time limit for the local player</label>
       <default code="true">QDateTime::fromString(QLatin1String("00:10"), QLatin1String("HH:mm"))</default>
     </entry>
      <entry name="playerTimeIncrement" type="DateTime">
-      <label>time increment per move for the local player</label>
+      <label>time increment per move for the local player (for Incremental time control)</label>
       <default code="true">QDateTime::fromString(QLatin1String("00:00"), QLatin1String("HH:mm"))</default>
+    </entry>
+    <entry name="playerMoves" type="Int">
+      <label>the number of moves the player has to make in the specified time (for Conventional time control)</label>
+      <default>40</default>
     </entry>
     <entry name="opponentTime" type="DateTime">
       <label>time limit for the computer or remote player</label>
       <default code="true">QDateTime::fromString(QLatin1String("00:10"), QLatin1String("HH:mm"))</default>
     </entry>
      <entry name="opponentTimeIncrement" type="DateTime">
-      <label>time increment per move for the computer or remote player</label>
+      <label>time increment per move for the computer or remote player (for Incremental time control)</label>
       <default code="true">QDateTime::fromString(QLatin1String("00:00"), QLatin1String("HH:mm"))</default>
+    </entry>
+    <entry name="opponentMoves" type="Int">
+      <label>the number of moves the opponent has to make in the specified time (for Conventional time control)</label>
+      <default>40</default>
     </entry>
     <entry name="sameTime" type="Bool">
       <label>whether both players have the same time limit</label>
