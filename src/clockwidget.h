@@ -46,37 +46,18 @@ namespace Knights
 
         public Q_SLOTS:
             void setTimeLimit ( Color color, const QTime& time );
-            void setTimeIncrement ( Color color, int seconds );
-            void incrementTime ( Color color, int miliseconds );
-            void setActivePlayer ( Color color );
             void setDisplayedPlayer ( Color color );
             void setPlayerName ( Color color, const QString& name );
             void setCurrentTime ( Color color, const QTime& time );
 
-            void pauseClock();
-            void resumeClock();
-
-        Q_SIGNALS:
-            void timeOut ( Color );
-            void opponentTimeOut ( Color );
-
-        protected:
-            virtual void timerEvent ( QTimerEvent* );
-
         private:
             Ui::ClockWidget* ui;
-            QMap<Color, QTimer> m_timer;
-            QMap<Color, int> m_timerId;
             Color m_activePlayer;
             QMap<Color, QTime> m_timeLimit;
             QMap<Color, QTime> m_currentTime;
-            QMap<Color, QGroupBox*> m_box;
-            QMap<Color, int> m_timeIncrement;
-            QMap<Color, bool> m_started;
 
             void updateTimeFormat();
             QString m_timeFormat;
-            bool m_paused;
     };
 }
 

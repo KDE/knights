@@ -278,13 +278,8 @@ namespace Knights
         m_protocolActions << clockToggleAction;
         m_dockWidgets << m_clockDock;
         
-        connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
 
-        if ( !m_protocol->supportedFeatures() & Protocol::GameOver )
-        {
-            connect ( playerClock, SIGNAL ( opponentTimeOut ( Color ) ), m_view, SLOT ( gameOver ( Color ) ) );
-        }
         Colors playerColors = m_protocol->playerColors();
         if ( playerColors == White || playerColors == Black )
         {
@@ -307,17 +302,17 @@ namespace Knights
             }
             if ( m_protocol->supportedFeatures() & Protocol::UpdateTime )
             {
-                connect ( m_protocol, SIGNAL ( timeChanged ( Color, QTime ) ), playerClock, SLOT ( setCurrentTime ( Color, QTime ) ) );
+                connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+                connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
+                playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
+                playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
             }
             else
             {
                 playerClock->setTimeLimit ( playerColor, m_playerTime );
                 playerClock->setTimeLimit ( oppositeColor ( playerColor ), m_oppTime );
-
-                playerClock->setTimeIncrement ( playerColor, m_oppIncrement );
-                playerClock->setTimeIncrement ( oppositeColor ( playerColor ), m_oppIncrement );
             }
-                
+
             playerClock->setDisplayedPlayer ( playerColor );
         }
         else
@@ -326,13 +321,10 @@ namespace Knights
             playerClock->setPlayerName ( Black, i18n ( "Black" ) );
 
             playerClock->setTimeLimit ( White, m_playerTime );
-            playerClock->setTimeIncrement ( White, m_playerIncrement );
             playerClock->setTimeLimit ( Black, m_oppTime );
-            playerClock->setTimeIncrement ( Black, m_oppIncrement );
 
             playerClock->setDisplayedPlayer ( White );
         }
-        playerClock->setActivePlayer ( White );
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
     }
 
@@ -373,14 +365,6 @@ namespace Knights
         if ( m_protocol->supportedFeatures() & Protocol::Pause )
         {
             pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
-        }
-        if ( m_clockDock )
-        {
-            ClockWidget* clock = qobject_cast< ClockWidget* > ( m_clockDock->widget() );
-            if ( clock )
-            {
-                pause ? clock->pauseClock() : clock->resumeClock();
-            }
         }
     }
 }

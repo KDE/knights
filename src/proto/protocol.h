@@ -111,6 +111,12 @@ class ChatWidget;
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
 
+            void startTime();
+            void stopTime();
+            void setCurrentTime ( Knights::Color color, const QTime& time );
+
+            virtual void timerEvent(QTimerEvent* );
+
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
             virtual void startGame() = 0;
@@ -130,7 +136,9 @@ class ChatWidget;
              * @param baseTime the time in minutes in which the player has to complete @p moves moves, or finish the game if @p moves is zero.
              * @param increment the time in seconds that is added to the player's clock for his every move.
              */
-            virtual void setTimeControl(Color color, int moves, int baseTime, int increment);
+            void setTimeControl(Color color, int moves, int baseTime, int increment);
+            virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
+            virtual QTime timeLimit ( Color color );
 
         public Q_SLOTS:
             virtual void pauseGame();
@@ -139,10 +147,11 @@ class ChatWidget;
             virtual void redoLastMove();
             virtual void setOpponentTimeLimit ( int seconds );
             virtual void setPlayerTimeLimit ( int seconds );
-            
+
             virtual void proposeDraw();
             virtual void resign();
             virtual void adjourn();
+
 
         Q_SIGNALS:
             void pieceMoved ( const Move& m );
@@ -156,6 +165,7 @@ class ChatWidget;
             void error ( const Protocol::ErrorCode& errorCode, const QString& errorString = QString() );
 
             void timeChanged ( const Color& color, const QTime& time );
+            void timeLimitChanged ( const Color& color, const QTime& time );
             void undoPossible ( bool possible );
             void redoPossible ( bool possible );
 

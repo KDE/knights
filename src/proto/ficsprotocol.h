@@ -25,6 +25,7 @@
 #include "proto/protocol.h"
 
 #include <QtCore/QTextStream>
+#include <QtCore/QTime>
 
 class QTcpSocket;
 
@@ -108,7 +109,7 @@ namespace Knights
             ChatWidget* m_chat;
 
             Color parseColor( QString str );
-            
+
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
             virtual void adjourn();

@@ -455,7 +455,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     }
 
     Piece* p = m_grid->value ( move.from() );
-    move.setFlags ( move.flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant) );
+    move.setFlags ( move.flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
     move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
     if ( p->pieceType() == King && length ( move ) == 2 )
     {
@@ -551,8 +551,9 @@ QList< Move > ChessRules::pawnMoves ( const Knights::Pos& pos )
     return list;
 }
 
-void ChessRules::moveMade ( const Knights::Move& m )
+void ChessRules::moveMade ( const Move& m )
 {
+    kDebug() << m.string();
     if ( !m_grid->contains(m.to()) )
     {
         kDebug() << *m_grid;

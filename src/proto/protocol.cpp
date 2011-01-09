@@ -26,26 +26,44 @@
 #include <KLocale>
 
 #include <QtCore/QStack>
+#include <QtCore/QTime>
+#include <KDebug>
 
 namespace Knights
 {
-
+    const int TimerInterval = 100; // miliseconds
     int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
 
     class ProtocolPrivate
     {
         public:
+
+            ProtocolPrivate();
+            
             QVariantMap attributes;
             QList<Move> moveHistory;
             QStack<Move> moveUndoStack;
-            QMap<int,int> whiteTimeIncrements;
-            QMap<int,int> blackTimeIncrements;
-            int whiteTime;
-            int blackTime;
+            QMap<int,QTime> whiteTimeIncrements;
+            QMap<int,QTime> blackTimeIncrements;
+            QTime whiteTime;
+            QTime blackTime;
             int whiteMove;
             int blackMove;
             Color activePlayer;
+
+            int timer;
+            bool running;
     };
+
+    ProtocolPrivate::ProtocolPrivate()
+    : whiteMove(0)
+    , blackMove(0)
+    , timer(0)
+    , running(false)
+    {
+
+    }
+
 
     Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
     {
@@ -55,6 +73,65 @@ namespace Knights
     Protocol::~Protocol()
     {
 
+    }
+
+void Protocol::startTime()
+{
+    Q_D(Protocol);
+    if ( !d->running )
+    {
+        d->timer = startTimer ( TimerInterval );
+        d->running = true;
+    }
+}
+
+void Protocol::stopTime()
+{
+    Q_D(Protocol);
+    if ( d->running )
+    {
+        killTimer(d->timer);
+        d->running = false;
+    }
+}
+
+void Protocol::setCurrentTime(Color color, const QTime& time)
+{
+    Q_D(Protocol);
+    switch ( color )
+    {
+        case White:
+            d->whiteTime = time;
+            break;
+        case Black:
+            d->blackTime = time;
+            break;
+        default:
+            return;
+    }
+    emit timeChanged ( color, time );
+}
+
+    void Protocol::timerEvent(QTimerEvent* )
+    {
+        Q_D(Protocol);
+        kDebug() << d->activePlayer << d->whiteTime << d->blackTime;
+        QTime time;
+        switch ( d->activePlayer )
+        {
+            case White:
+                d->whiteTime = d->whiteTime.addMSecs ( -TimerInterval );
+                time = d->whiteTime;
+                break;
+            case Black:
+                d->blackTime = d->blackTime.addMSecs ( -TimerInterval );
+                time = d->blackTime;
+                break;
+            default:
+                time = QTime();
+                break;
+        }
+        emit timeChanged ( d->activePlayer, time );
     }
 
     QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
@@ -235,12 +312,12 @@ namespace Knights
 
     void Protocol::pauseGame()
     {
-
+        startTime();
     }
 
     void Protocol::resumeGame()
     {
-
+        stopTime();
     }
 
     void Protocol::undoLastMove()
@@ -273,6 +350,11 @@ namespace Knights
 
 void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
 {
+    setTimeControl(color, moves, QTime().addSecs(60 * baseTime), increment);
+}
+
+void Protocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
+{
     Q_D(Protocol);
     if ( color == NoColor )
     {
@@ -283,17 +365,23 @@ void Protocol::setTimeControl(Color color, int moves, int baseTime, int incremen
     if ( color == White )
     {
         d->whiteTimeIncrements.insert(moves, baseTime);
-        d->whiteTimeIncrements.insert(1, increment);
+        d->whiteTimeIncrements.insert(1, QTime().addSecs(increment) );
         d->whiteTime = baseTime;
     }
     else
     {
         d->blackTimeIncrements.insert(moves, baseTime);
-        d->blackTimeIncrements.insert(1, increment);
+        d->blackTimeIncrements.insert(1, QTime().addSecs(increment));
         d->blackTime = baseTime;
     }
+    emit timeLimitChanged ( color, baseTime );
 }
 
+QTime Protocol::timeLimit(Color color)
+{
+    Q_D(Protocol);
+    return ( color == White ) ? d->whiteTime : d->blackTime;
+}
 
 ChatWidget* Protocol::createChatWidget()
 {
@@ -323,12 +411,6 @@ Color Protocol::activePlayer()
     Q_D(const Protocol);
     return d->activePlayer;
 }
-
-
-
-
-
-
 
 }
 

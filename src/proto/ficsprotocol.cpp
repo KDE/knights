@@ -50,7 +50,7 @@ const QString FicsProtocol::argsPattern = QLatin1String ( "(.*)" ); //TODO bette
 const QString idPattern = QLatin1String ( "(\\d+)" );
 const QString FicsProtocol::pieces = QLatin1String ( "PRNBQKprnbqk" );
 const QString FicsProtocol::coordinate = QLatin1String ( "[abdcdefgh][12345678]" );
-const QString FicsProtocol::remainingTime = QLatin1String ( "\\d+ \\d+ \\d+ \\d+ \\d+ (\\d+) (\\d+) \\d+" );
+const QString FicsProtocol::remainingTime = QLatin1String ( "\\d+ \\d+ (\\d+) \\d+ \\d+ (\\d+) (\\d+) (\\d+)" );
 const QString FicsProtocol::movePattern = QString ( QLatin1String ( "(none|o-o|o-o-o|[%2]\\/%3\\-%4(=[%5])?)" ) )
         .arg ( pieces )
         .arg ( coordinate )
@@ -146,6 +146,7 @@ void FicsProtocol::startGame()
 void FicsProtocol::move ( const Move& m )
 {
     m_stream << m.string ( false ) << endl;
+    changeActivePlayer();
 }
 
 void FicsProtocol::init ( const QVariantMap& options )
@@ -435,59 +436,55 @@ void FicsProtocol::readFromSocket()
             if ( moveRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
             {
                 display = false;
-                if ( ( moveRegExp.cap ( 1 ) == QLatin1String ( "B" ) && playerColor() == White )
-                        || ( moveRegExp.cap ( 1 ) == QLatin1String ( "W" ) && playerColor() == Black ) )
-                {
-                    // It is not our turn now
-                    // This is only the confirmation of our previous move, ignore it
-                    break;
-                }
-                const int whiteTimeLimit = moveRegExp.cap ( 2 ).toInt();
-                const int blackTimeLimit = moveRegExp.cap ( 3 ).toInt();
-                const QString moveString = moveRegExp.cap ( 4 );
+                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String ( "B" ) && playerColor() == White )
+                        && !( moveRegExp.cap ( 1 ) == QLatin1String ( "W" ) && playerColor() == Black );
+
+                const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
+                const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
+                const QString moveString = moveRegExp.cap ( 6 );
 
                 kDebug() << "Move:" << moveString;
 
                 if ( moveString == QLatin1String ( "none" ) )
                 {
-                    if ( playerColor() == White )
-                    {
-                        setAttribute ( QLatin1String ( "playerTimeLimit" ), QTime().addSecs ( whiteTimeLimit ) );
-                        setAttribute ( QLatin1String ( "oppTimeLimit" ), QTime().addSecs ( blackTimeLimit ) );
-                    }
-                    else
-                    {
-                        setAttribute ( QLatin1String ( "playerTimeLimit" ), QTime().addSecs ( blackTimeLimit ) );
-                        setAttribute ( QLatin1String ( "oppTimeLimit" ), QTime().addSecs ( whiteTimeLimit ) );
-                    }
+                    setTimeControl ( NoColor, 0, QTime().addSecs(whiteTimeLimit), moveRegExp.cap(2).toInt() );
                     break;
                 }
 
-                Move m;
-                if ( moveString == QLatin1String ( "o-o" ) )
+                if ( validMove )
                 {
-                    // Short (king's rook) castling
-                    m = Move::castling ( Move::KingSide, oppositeColor ( playerColor() ) );
-                }
-                else if ( moveString == QLatin1String ( "o-o-o" ) )
-                {
-                    // Long (Queen's rock) castling
-                    m = Move::castling ( Move::QueenSide, oppositeColor ( playerColor() ) );
-                }
-                else if ( moveStringExp.indexIn ( moveString ) > -1 )
-                {
-                    m.setFrom ( moveStringExp.cap ( 1 ) );
-                    m.setTo ( moveStringExp.cap ( 2 ) );
-                    if ( moveStringExp.numCaptures() > 2 )
+                    Move m;
+                    if ( moveString == QLatin1String ( "o-o" ) )
                     {
-                        m.setFlag ( Move::Promote, true );
-                        QChar typeChar = moveRegExp.cap ( 3 ).mid ( 1, 1 ) [0];
-                        m.setPromotedType ( Piece::typeFromChar ( typeChar ) );
+                        // Short (king's rook) castling
+                        m = Move::castling ( Move::KingSide, oppositeColor ( playerColor() ) );
                     }
+                    else if ( moveString == QLatin1String ( "o-o-o" ) )
+                    {
+                        // Long (Queen's rock) castling
+                        m = Move::castling ( Move::QueenSide, oppositeColor ( playerColor() ) );
+                    }
+                    else if ( moveStringExp.indexIn ( moveString ) > -1 )
+                    {
+                        m.setFrom ( moveStringExp.cap ( 1 ) );
+                        m.setTo ( moveStringExp.cap ( 2 ) );
+                        if ( moveStringExp.numCaptures() > 2 )
+                        {
+                            m.setFlag ( Move::Promote, true );
+                            QChar typeChar = moveRegExp.cap ( 3 ).mid ( 1, 1 ) [0];
+                            m.setPromotedType ( Piece::typeFromChar ( typeChar ) );
+                        }
+                    }
+                    emit pieceMoved ( m );
+                    changeActivePlayer();
                 }
-                emit timeChanged ( White, QTime().addSecs ( whiteTimeLimit ) );
-                emit timeChanged ( Black, QTime().addSecs ( blackTimeLimit ) );
-                emit pieceMoved ( m );
+                setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
+                setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
+
+                if ( moveRegExp.cap(5).toInt() == 2 )
+                {
+                    startTime();
+                }
             }
             else if ( line.contains ( " says:" ) )
             {

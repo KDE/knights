@@ -113,7 +113,7 @@ void Board::movePiece ( const Move& move )
     }
     qDeleteAll ( markers );
     markers.clear();
-    if ( m.flags() & Move::Promote )
+    if ( m.flag(Move::Promote) )
     {
         m_grid[m.from() ]->setPieceType ( m.promotedType() ? m.promotedType() : Queen );
     }

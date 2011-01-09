@@ -39,7 +39,9 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
-            virtual void setTimeControl(Color color, int moves, int baseTime, int increment);
+            
+            using Protocol::setTimeControl;
+            virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
 
     protected:
     virtual QList<ToolWidgetData> toolWidgets();

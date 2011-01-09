@@ -259,17 +259,17 @@ void XBoardProtocol::resumeGame()
     }
 }
 
-void XBoardProtocol::setTimeControl(Color color, int moves, int baseTime, int increment)
+void XBoardProtocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
 {
     Q_UNUSED(color);
     m_moves = moves;
-    m_baseTime = baseTime;
+    m_baseTime = baseTime.minute() + 60 * baseTime.hour();
     m_increment = increment;
 
     if ( mProcess && mProcess->isOpen() )
     {
         kDebug() << moves << baseTime << increment;
-        m_stream << QString(QLatin1String("level %1 %2 %3")).arg(moves).arg(baseTime).arg(increment) << endl;
+        m_stream << QString(QLatin1String("level %1 %2 %3")).arg(moves).arg(m_baseTime).arg(increment) << endl;
     }
 }
 
