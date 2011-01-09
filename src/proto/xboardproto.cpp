@@ -73,6 +73,7 @@ void XBoardProtocol::move ( const Move& m )
     {
         resumeGame();
     }
+    startTime();
 }
 
 void XBoardProtocol::init ( const QVariantMap& options )
@@ -162,6 +163,7 @@ void XBoardProtocol::readFromProgram()
                     playerActive = !playerActive;
                     emit pieceMoved ( m );
                     emit undoPossible ( true );
+                    startTime();
                 }
             }
         }
@@ -242,6 +244,7 @@ void XBoardProtocol::pauseGame()
 {
     kDebug();
     m_stream << "force" << endl;
+    stopTime();
 }
 
 void XBoardProtocol::resumeGame()
@@ -256,6 +259,7 @@ void XBoardProtocol::resumeGame()
         m_stream << "go" << endl;
         emit undoPossible ( false );
         emit redoPossible ( false );
+        startTime();
     }
 }
 
