@@ -26,6 +26,7 @@
 #include <core/piece.h>
 
 #include <QtCore/QObject>
+#include <QtCore/QTime>
 
 namespace Knights
 {
@@ -76,6 +77,14 @@ class ChatWidget;
                 QString title;
                 QString name;
             };
+
+            struct TimeControl
+            {
+                int moves;
+                QTime baseTime;
+                int increment;
+                QTime currentTime;
+            };
             
             static QString stringFromErrorCode ( ErrorCode code );
 
@@ -102,7 +111,7 @@ class ChatWidget;
 
             void changeActivePlayer();
             void setActivePlayer ( Color player );
-            Color activePlayer();
+            Color activePlayer() const;
 
             void addMoveToHistory ( const Move& move );
             Move nextUndoMove();
@@ -113,7 +122,7 @@ class ChatWidget;
 
             void startTime();
             void stopTime();
-            void setCurrentTime ( Knights::Color color, const QTime& time );
+            void setCurrentTime ( Color color, const QTime& time );
 
             virtual void timerEvent(QTimerEvent* );
 
@@ -137,6 +146,8 @@ class ChatWidget;
              * @param increment the time in seconds that is added to the player's clock for his every move.
              */
             void setTimeControl(Color color, int moves, int baseTime, int increment);
+            void setTimeControl ( Color color, const TimeControl& control );
+            TimeControl timeControl ( Color color ) const;
             virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
             virtual QTime timeLimit ( Color color );
 

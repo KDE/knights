@@ -300,18 +300,10 @@ namespace Knights
             {
                 playerClock->setPlayerName ( oppositeColor ( playerColor ), i18n ( "Opponent" ) );
             }
-            if ( m_protocol->supportedFeatures() & Protocol::UpdateTime )
-            {
-                connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-                connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
-                playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
-                playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
-            }
-            else
-            {
-                playerClock->setTimeLimit ( playerColor, m_playerTime );
-                playerClock->setTimeLimit ( oppositeColor ( playerColor ), m_oppTime );
-            }
+            connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+            connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
+            playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
+            playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
 
             playerClock->setDisplayedPlayer ( playerColor );
         }

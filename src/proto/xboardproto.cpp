@@ -101,7 +101,8 @@ void XBoardProtocol::init ( const QVariantMap& options )
         return;
     }
 
-    setTimeControl(NoColor, m_moves, m_baseTime, m_increment);
+    TimeControl c = timeControl ( White );
+    m_stream << "level " << c.moves << ' ' << QTime().secsTo(c.baseTime)/60 << ' ' << c.increment;
 
     if ( playerColors() == NoColor )
     {
@@ -265,16 +266,12 @@ void XBoardProtocol::resumeGame()
 
 void XBoardProtocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
 {
-    Q_UNUSED(color);
-    m_moves = moves;
-    m_baseTime = baseTime.minute() + 60 * baseTime.hour();
-    m_increment = increment;
-
     if ( mProcess && mProcess->isOpen() )
     {
         kDebug() << moves << baseTime << increment;
         m_stream << QString(QLatin1String("level %1 %2 %3")).arg(moves).arg(m_baseTime).arg(increment) << endl;
     }
+    Protocol::setTimeControl ( color, moves, baseTime, increment );
 }
 
 
