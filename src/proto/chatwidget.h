@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KNIGHTS_FICSCONSOLE_H
-#define KNIGHTS_FICSCONSOLE_H
+#ifndef KNIGHTS_CHATWIDGET_H
+#define KNIGHTS_CHATWIDGET_H
 
 #include <QtGui/QWidget>
 #include <QtCore/QMap>
@@ -83,4 +83,4 @@ namespace Knights
 
 }
 
-#endif // KNIGHTS_FICSCONSOLE_H
+#endif // KNIGHTS_CHATWIDGET_H

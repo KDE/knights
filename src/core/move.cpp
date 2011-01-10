@@ -250,10 +250,11 @@ namespace Knights
     void Move::setAdditionalMoves ( const QList< Move >& list )
     {
         d->extraMoves.clear();
-        foreach ( Move move, list )
+        foreach ( const Move& move, list )
         {
-            move.setFlag ( Move::Additional, true );
-            d->extraMoves << move;
+            Move m = move;
+            m.setFlag ( Move::Additional, true );
+            d->extraMoves << m;
         }
     }
 

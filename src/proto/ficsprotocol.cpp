@@ -352,7 +352,7 @@ void FicsProtocol::readFromSocket()
             else if ( line.startsWith("<sr>") )
             {
                 display = false;
-                foreach ( const QByteArray& str, line.replace("\n", "").split(' ') )
+                foreach ( const QByteArray& str, line.replace('\n', "").split(' ') )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
@@ -403,7 +403,7 @@ void FicsProtocol::readFromSocket()
             else if ( line.startsWith("<pr>") )
             {
                 display = false;
-                foreach ( const QByteArray& str, line.replace("\n", "").split(' ') )
+                foreach ( const QByteArray& str, line.replace('\n', "").split(' ') )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
