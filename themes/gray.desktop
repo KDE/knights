@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Grayscale
 Name[ca]=Escala de grisos
+Name[ca@valencia]=Escala de grisos
 Name[cs]=Odstíny šedé
 Name[da]=Gråtone
 Name[de]=Graustufen
@@ -19,6 +20,7 @@ Name[x-test]=xxGrayscalexx
 Name[zh_TW]=灰階
 Description=A grayscale theme using the Oxygen palette
 Description[ca]=Un tema en escala de grisos utilitzant la paleta Oxygen
+Description[ca@valencia]=Un tema en escala de grisos utilitzant la paleta Oxygen
 Description[da]=Et tema i gråtoner som bruger Oxygen-paletten
 Description[de]=Ein Design in Graustufen mittels Oxygen.
 Description[en_GB]=A greyscale theme using the Oxygen palette

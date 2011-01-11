@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Plain
 Name[ca]=Normal
+Name[ca@valencia]=Normal
 Name[da]=Almindeligt
 Name[de]=Einfach
 Name[en_GB]=Plain
@@ -19,6 +20,7 @@ Name[x-test]=xxPlainxx
 Name[zh_TW]=普通
 Description=A plain and simple theme
 Description[ca]=Un tema normal i senzill
+Description[ca@valencia]=Un tema normal i senzill
 Description[da]=Et almindeligt simpelt tema
 Description[de]=Ein einfaches Design für Knights.
 Description[en_GB]=A plain and simple theme
