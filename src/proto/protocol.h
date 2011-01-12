@@ -162,12 +162,13 @@ class ChatWidget;
             virtual void proposeDraw();
             virtual void resign();
             virtual void adjourn();
+            virtual void setWinner ( Color winner );
 
 
         Q_SIGNALS:
             void pieceMoved ( const Move& m );
             void illegalMove();
-            void gameOver ( const Color& winner );
+            void gameOver ( Color winner );
 
             void errorStringChanged ( const QString& errorString );
             void errorCodeChanged ( const ErrorCode& error );
@@ -179,6 +180,8 @@ class ChatWidget;
             void timeLimitChanged ( const Color& color, const QTime& time );
             void undoPossible ( bool possible );
             void redoPossible ( bool possible );
+
+            void drawOffered();
 
         private:
             ProtocolPrivate* d_ptr;

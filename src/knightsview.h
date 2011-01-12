@@ -87,12 +87,12 @@ namespace Knights
         private slots:
             void settingsChanged();
             void resizeScene();
-            void gameOver ( Color winner );
             void centerView ( const QPointF& center );
 
     public slots:
             void setupBoard();
             void clearBoard();
+            void gameOver ( Color winner );
         
 
         protected:

@@ -57,13 +57,15 @@ namespace Knights
     int m_increment;
     int m_baseTime;
     bool m_timeLimit;
+    bool drawPending;
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
             virtual void proposeDraw();
             virtual void adjourn();
             virtual void resign();
-            
+            virtual void setWinner(Color winner);
+
             virtual void undoLastMove();
             virtual void redoLastMove();
 

@@ -58,6 +58,7 @@ namespace Knights
 
             void protocolInitSuccesful();
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );
+            void drawOffered();
 
         private:
             void setupActions();

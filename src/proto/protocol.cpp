@@ -340,6 +340,11 @@ void Protocol::setCurrentTime(Color color, const QTime& time)
     {
 
     }
+    
+void Protocol::setWinner(Color winner)
+{
+    Q_UNUSED(winner);
+}
 
 void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
 {

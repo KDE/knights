@@ -183,6 +183,18 @@ void XBoardProtocol::readFromProgram()
             emit gameOver ( winner );
             return;
         }
+        else if ( line.contains ( QLatin1String("offer") ) && line.contains ( QLatin1String("draw") ) )
+        {
+            display = false;
+            if ( drawPending )
+            {
+                emit gameOver ( NoColor );
+            }
+            else
+            {
+                emit drawOffered();
+            }
+        }
         if ( display )
         {
             m_console->addText ( line, type );
@@ -239,6 +251,8 @@ void XBoardProtocol::redoLastMove()
 
 void XBoardProtocol::proposeDraw()
 {
+    drawPending = true;
+    m_stream << "draw" << endl;
 }
 
 void XBoardProtocol::pauseGame()
@@ -274,8 +288,22 @@ void XBoardProtocol::setTimeControl(Color color, int moves, const QTime& baseTim
     Protocol::setTimeControl ( color, moves, baseTime, increment );
 }
 
-
-
-
+void XBoardProtocol::setWinner(Color winner)
+{
+    QByteArray result = "result ";
+    switch ( winner )
+    {
+        case White:
+            result += "1-0";
+            break;
+        case Black:
+            result += "0-1";
+            break;
+        case NoColor:
+            result += "1/2-1/2";
+            break;
+    }
+    m_stream << result << endl;
+}
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -86,7 +86,6 @@ void KnightsView::clearBoard()
 
 void KnightsView::gameOver ( Color winner )
 {
-    kDebug() << "Received gameOver() from " << sender()->metaObject()->className();
     QString text;
     QString caption;
     if ( winner == NoColor )
@@ -106,6 +105,7 @@ void KnightsView::gameOver ( Color winner )
             KMessageBox::sorry ( this, text );
         }
     }
+    m_protocol->setWinner ( winner );
     emit gameNew();
 }
 

@@ -213,6 +213,7 @@ namespace Knights
                 drawAction->setHelpText(i18n("Propose a draw to your opponent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
                 m_protocolActions << drawAction;
+                connect ( m_protocol, SIGNAL(drawOffered()), SLOT(drawOffered()) );
             }
             if ( f & Protocol::Resign )
             {
@@ -359,6 +360,17 @@ namespace Knights
             pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
         }
     }
+
+    void MainWindow::drawOffered()
+    {
+        if ( KMessageBox::questionYesNo ( this,
+            i18n( "Your opponent, %1, offers you a draw. Do you accept?", m_protocol->opponentName() ),
+            i18n( "Draw offer" )) == KMessageBox::Yes )
+        {
+            m_view->gameOver ( NoColor );
+        }
+    }
+
 }
 
 #include "knights.moc"
