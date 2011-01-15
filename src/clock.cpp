@@ -74,10 +74,9 @@ void Clock::setClockSize(const QSize &size)
 
 void Clock::setTime(const QTime &time)
 {
-    if (time.minute() != this->time.minute() || time.hour() != this->time.hour()) {
-        if (m_repaintCache == RepaintNone) {
-            m_repaintCache = RepaintHands;
-        }
+    if (m_repaintCache == RepaintNone)
+    {
+        m_repaintCache = RepaintHands;
     }
     this->time = time;
     update();
@@ -107,6 +106,7 @@ void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTransla
         static const QPoint offset = QPoint(2, 3);
 
         p->translate(rect.x() + (rect.width() / 2) + offset.x(), rect.y() + (rect.height() / 2) + offset.y());
+	kDebug() << name << rotation;
         p->rotate(rotation);
         p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
         m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
@@ -124,6 +124,7 @@ void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTransla
 
     p->translate(rect.x() + rect.width()/2, rect.y() + rect.height()/2);
     p->rotate(rotation);
+    kDebug() << name << rotation;
     p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
     m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
 
