@@ -352,16 +352,14 @@ namespace Knights
         }
         return false;
     }
-
-    QDebug& operator<<(QDebug& debug, const Move& move)
-    {
-        debug.maybeSpace() << move.string(true);
-        return debug;
-    }
-
 }
 
 
+QDebug operator<<(QDebug debug, const Knights::Move& move)
+{
+    debug << move.string(true);
+    return debug;
+}
 
 
 

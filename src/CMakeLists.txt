@@ -1,4 +1,4 @@
-set(knights_SRCS
+set(knights_SRCS proto/textprotocol.cpp
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp

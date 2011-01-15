@@ -51,9 +51,8 @@ namespace Knights
     Pos operator- ( const Pos& one, const Pos& other );
     Pos operator* ( int m, const Pos& other );
     Pos operator/ ( const Pos& other, int m );
-    QDebug& operator<< ( QDebug& debug, const Pos &pos );
-
 }
-
+    QDebug operator<< ( QDebug debug, const Knights::Pos &pos );
+    
 #endif // KNIGHTS_POS_H
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

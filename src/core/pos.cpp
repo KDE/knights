@@ -31,7 +31,7 @@ namespace Knights
 
     QChar Pos::row ( int num )
     {
-        if ( num > 0 && num << 9 )
+        if ( num > 0 && num < 9 )
         {
             return rowNames[num - 1];
         }
@@ -101,13 +101,12 @@ namespace Knights
     {
         return Pos ( other.first / m, other.second / m );
     }
-
-    QDebug& operator<< ( QDebug& debug, const Knights::Pos& pos )
-    {
-        debug.nospace() << Pos::row ( pos.first ) << pos.second;
-        return debug;
-    }
 }
 
+    QDebug operator<< ( QDebug debug, const Knights::Pos& pos )
+    {
+        debug.nospace() << Knights::Pos::row ( pos.first ) << pos.second;
+        return debug;
+    }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

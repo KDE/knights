@@ -29,7 +29,7 @@
 
 using namespace Knights;
 
-XBoardProtocol::XBoardProtocol ( QObject* parent ) : Protocol ( parent )
+XBoardProtocol::XBoardProtocol ( QObject* parent ) : TextProtocol ( parent )
 , mProcess(0)
 , m_moves(0)
 , m_increment(0)
@@ -48,7 +48,7 @@ XBoardProtocol::~XBoardProtocol()
 {
     if ( mProcess && mProcess->isOpen() )
     {
-        mProcess->write ( "quit\n" );
+        write("quit");
         if ( !mProcess->waitForFinished ( 500 ) )
         {
             mProcess->kill();
@@ -64,11 +64,11 @@ void XBoardProtocol::startGame()
 void XBoardProtocol::move ( const Move& m )
 {
     kDebug() << "Player's move:" << m.string(false);
-    m_stream << m.string(false) << endl;
+    write ( m.string(false) );
     addMoveToHistory( m );
     lastMoveString.clear();
     emit undoPossible ( false );
-    playerActive = !playerActive;
+    changeActivePlayer();
     if ( resumePending )
     {
         resumeGame();
@@ -81,7 +81,6 @@ void XBoardProtocol::init ( const QVariantMap& options )
     setAttributes ( options );
     QStringList args = options[QLatin1String ( "program" ) ].toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
-    kDebug() << "Starting program" << program;
     if ( !args.contains ( QLatin1String ( "--xboard" ) ) && !args.contains ( QLatin1String ( "xboard" ) ) )
     {
         args << QLatin1String ( "xboard" );
@@ -91,29 +90,32 @@ void XBoardProtocol::init ( const QVariantMap& options )
     mProcess->setProgram ( program, args );
     mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
     mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
-    connect ( mProcess, SIGNAL ( readyReadStandardOutput() ), SLOT ( readFromProgram() ) );
+    mProcess->setReadChannel ( KProcess::StandardOutput );
     connect ( mProcess, SIGNAL ( readyReadStandardError() ), SLOT ( readError() ) );
+    setDevice(mProcess);
+    kDebug() << "Starting program" << program << "with args" << args;
     mProcess->start();
-    m_stream.setDevice(mProcess);
     if ( !mProcess->waitForStarted ( 1000 ) )
     {
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
-
     TimeControl c = timeControl ( White );
-    m_stream << "level " << c.moves << ' ' << QTime().secsTo(c.baseTime)/60 << ' ' << c.increment;
-
+    if ( c.baseTime != QTime() )
+    {
+        write(QString(QLatin1String("level %1 %2 %3")).arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
+    }
     if ( playerColors() == NoColor )
     {
         setPlayerColor ( ( qrand() % 2 == 0 ) ? White : Black );
     }
 
+    kDebug() << playerColors();
+
     if ( playerColors() & Black )
     {
-        m_stream << "go" << endl;
+        write("go");
     }
-    playerActive = ( playerColors() & White );
     resumePending = false;
     emit initSuccesful();
 }
@@ -121,7 +123,7 @@ void XBoardProtocol::init ( const QVariantMap& options )
 QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()
 {
     m_console = createConsoleWidget();
-    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToProgram(QString)));
+    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)));
     ToolWidgetData data;
     data.widget = m_console;
     data.title = i18n("Console");
@@ -129,26 +131,30 @@ QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()
     return QList< Protocol::ToolWidgetData >() << data;
 }
 
-
-void XBoardProtocol::readFromProgram()
+bool XBoardProtocol::parseStub(const QString& line)
 {
-    QString output = m_stream.readAll();
-    foreach ( const QString& line, output.split ( QLatin1Char ( '\n' ) ) )
-    {
+    parseLine(line);
+    return true;
+}
+
+void XBoardProtocol::parseLine(const QString& line)
+{
+        kDebug() << line;
         if ( line.isEmpty() )
         {
-            continue;
+            return;
         }
         bool display = true;
         ChatWidget::MessageType type = ChatWidget::GeneralMessage;
         if ( line.contains ( QLatin1String ( "Illegal move" ) ) )
         {
             type = ChatWidget::ErrorMessage;
-            playerActive = true;
+            changeActivePlayer();
             emit illegalMove();
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
+            kDebug() << line;
             type = ChatWidget::MoveMessage;
             const QRegExp position(QLatin1String("[a-h][1-8]"));
             if ( position.indexIn(line) > -1 )
@@ -161,7 +167,7 @@ void XBoardProtocol::readFromProgram()
                     lastMoveString = moveString;
                     Move m = Move ( moveString );
                     addMoveToHistory ( m );
-                    playerActive = !playerActive;
+                    changeActivePlayer();
                     emit pieceMoved ( m );
                     emit undoPossible ( true );
                     startTime();
@@ -200,22 +206,6 @@ void XBoardProtocol::readFromProgram()
             m_console->addText ( line, type );
         }
     }
-}
-
-void XBoardProtocol::writeToProgram ( const QString& text )
-{
-    if ( playerActive )
-    {
-        Move m = Move(text);
-        if ( m.isValid() )
-        {
-            emit pieceMoved ( m );
-            return;
-        }
-    }
-    m_stream << text << endl;
-}
-
 
 void XBoardProtocol::readError()
 {
@@ -224,68 +214,57 @@ void XBoardProtocol::readError()
 
 void XBoardProtocol::adjourn()
 {
-    m_stream << "save" << KFileDialog::getSaveFileName() << endl;
+    write( QLatin1String("save") + KFileDialog::getSaveFileName() );
 }
 
 void XBoardProtocol::resign()
 {
-    m_stream << "resign" << endl;
+    write("resign");
 }
 
 void XBoardProtocol::undoLastMove()
 {
-    playerActive = !playerActive;
+    changeActivePlayer();
     kDebug();
-    m_stream << "undo" << endl;
+    write("undo");
     emit pieceMoved(nextUndoMove());
 }
 
 void XBoardProtocol::redoLastMove()
 {
-    playerActive = !playerActive;
+    changeActivePlayer();
     Move m = nextRedoMove();
     kDebug().nospace() << m;
-    m_stream << m.string(false) << endl;
+    write(m.string(false));
     emit pieceMoved(m);
 }
 
 void XBoardProtocol::proposeDraw()
 {
     drawPending = true;
-    m_stream << "draw" << endl;
+    write("draw");
 }
 
 void XBoardProtocol::pauseGame()
 {
-    kDebug();
-    m_stream << "force" << endl;
+    write("force");
     stopTime();
 }
 
 void XBoardProtocol::resumeGame()
 {
-    if ( playerActive )
+    if ( playerColors() & activePlayer() )
     {
         resumePending = true;
     }
     else
     {
         kDebug();
-        m_stream << "go" << endl;
+        write("go");
         emit undoPossible ( false );
         emit redoPossible ( false );
         startTime();
     }
-}
-
-void XBoardProtocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
-{
-    if ( mProcess && mProcess->isOpen() )
-    {
-        kDebug() << moves << baseTime << increment;
-        m_stream << QString(QLatin1String("level %1 %2 %3")).arg(moves).arg(m_baseTime).arg(increment) << endl;
-    }
-    Protocol::setTimeControl ( color, moves, baseTime, increment );
 }
 
 void XBoardProtocol::setWinner(Color winner)
@@ -303,7 +282,7 @@ void XBoardProtocol::setWinner(Color winner)
             result += "1/2-1/2";
             break;
     }
-    m_stream << result << endl;
+    write(QLatin1String(result));
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

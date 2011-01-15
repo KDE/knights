@@ -22,14 +22,13 @@
 #ifndef KNIGHTS_XBOARDPROTO_H
 #define KNIGHTS_XBOARDPROTO_H
 
-#include "protocol.h"
-#include <QTextStream>
+#include "proto/textprotocol.h"
 
 class KProcess;
 
 namespace Knights
 {
-    class XBoardProtocol : public Protocol
+    class XBoardProtocol : public TextProtocol
     {
             Q_OBJECT
         public:
@@ -39,18 +38,15 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
-            
-            using Protocol::setTimeControl;
-            virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
 
-    protected:
     virtual QList<ToolWidgetData> toolWidgets();
+
+    virtual void parseLine(const QString& line);
+    virtual bool parseStub(const QString& line);
 
         private:
             KProcess* mProcess;
-            QTextStream m_stream;
             QString lastMoveString;
-            bool playerActive;
             bool resumePending;
     ChatWidget* m_console;
     int m_moves;
@@ -71,11 +67,9 @@ namespace Knights
 
             virtual void pauseGame();
             virtual void resumeGame();
-    void writeToProgram(const QString& text);
 
-        private Q_SLOTS:
-            void readFromProgram();
-            void readError();
+    private Q_SLOTS:
+        void readError();
     };
 }
 

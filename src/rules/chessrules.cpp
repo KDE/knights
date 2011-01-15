@@ -364,11 +364,7 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
 
 void ChessRules::checkSpecialFlags ( Move& move, Color color )
 {
-    if ( move.flag(Move::Forced) )
-    {
-        kDebug().nospace() << move << color;
-    }
-    // If the move is in the short algebraic notation, we set its From and To
+    kDebug() << move << move.notation() << Move::Algebraic << Move::Coordinate;
     if ( move.notation() == Move::Algebraic )
     {
         QChar c;
@@ -455,6 +451,14 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     }
 
     Piece* p = m_grid->value ( move.from() );
+    p->color();
+    if ( !p )
+    {
+        kDebug() << move.from();
+        kDebug() << *m_grid;
+        move.setFlag(Move::Illegal, true);
+        return;
+    }
     move.setFlags ( move.flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
     move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
     if ( p->pieceType() == King && length ( move ) == 2 )
