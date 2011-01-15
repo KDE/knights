@@ -32,44 +32,34 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
 #include <QtCore/QPointer>
-#include <kmainwindow.h>
 
 using namespace Knights;
 
-const int FicsProtocol::Timeout = 1000; // One second ought to be enough for everybody
+const int Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
 
 const char* boolPattern = "([tf])";
 const char* ratedPattern = "([ru])";
+const char*  namePattern = "([a-zA-z\\(\\)]+)";
+const char*  ratingPattern = "([0-9\\+\\-\\s]+)";
+const char* timePattern = "(\\d+)\\s+(\\d+)";
+const char* variantPattern = "([a-z]+)\\s+([a-z]+)";
+const char* argsPattern = "(.*)"; //TODO better
+const char*  idPattern = "(\\d+)";
+const char* pieces = "PRNBQKprnbqk";
+const char* coordinate = "[abdcdefgh][12345678]";
+const char* remainingTime = "\\d+ \\d+ (\\d+) \\d+ \\d+ (\\d+) (\\d+) (\\d+)";
+const char* currentPlayerPattern = "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+";
 
-const QString namePattern = QLatin1String ( "([a-zA-z\\(\\)]+)" );
-const QString ratingPattern = QLatin1String ( "([0-9\\+\\-\\s]+)" );
-const QString FicsProtocol::timePattern = QLatin1String ( "(\\d+)\\s+(\\d+)" );
-const QString FicsProtocol::variantPattern = QLatin1String ( "([a-z]+)\\s+([a-z]+)" );
-const QString FicsProtocol::argsPattern = QLatin1String ( "(.*)" ); //TODO better
-const QString idPattern = QLatin1String ( "(\\d+)" );
-const QString FicsProtocol::pieces = QLatin1String ( "PRNBQKprnbqk" );
-const QString FicsProtocol::coordinate = QLatin1String ( "[abdcdefgh][12345678]" );
-const QString FicsProtocol::remainingTime = QLatin1String ( "\\d+ \\d+ (\\d+) \\d+ \\d+ (\\d+) (\\d+) (\\d+)" );
-const QString FicsProtocol::movePattern = QString ( QLatin1String ( "(none|o-o|o-o-o|[%2]\\/%3\\-%4(=[%5])?)" ) )
-        .arg ( pieces )
-        .arg ( coordinate )
-        .arg ( coordinate )
-        .arg ( pieces );
-const QString FicsProtocol::currentPlayerPattern = QLatin1String ( "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+" );
-
-const QRegExp FicsProtocol::seekRegExp ( QString ( QLatin1String ( "%1 \\(%2\\) seeking %3 %4 %5\\(\"play %6\" to respond\\)" ) )
-        .arg ( namePattern )
-        .arg ( ratingPattern )
-        .arg ( timePattern )
-        .arg ( variantPattern )
-        .arg ( argsPattern )
-        .arg ( idPattern )
-                                       );
-
-const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4[PE\\s] t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
-        .arg ( idPattern ) // %1 = index
-        .arg ( namePattern ) // %2 = name
+FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
+    movePattern(QString(QLatin1String("(none|o-o|o-o-o|[%1]\\/%2\\-%3(=[%4])?)"))
+        .arg ( QLatin1String(pieces) )
+        .arg ( QLatin1String(coordinate) )
+        .arg ( QLatin1String(coordinate) )
+        .arg ( QLatin1String(pieces) ) ),
+    seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4[PE\\s] t=%5 i=%6 r=%7 tp=%8 c=%9 rr=%10 a=%11 f=%12") )
+        .arg ( QLatin1String(idPattern) ) // %1 = index
+        .arg ( QLatin1String(namePattern) ) // %2 = name
         .arg ( QLatin1String("([0-9a-f]{2,2})") ) // %3 = titles
         .arg ( QLatin1String("(\\d+)") ) // %4 = rating
         .arg ( QLatin1String("(\\d+)") ) // %5 = time
@@ -79,53 +69,30 @@ const QRegExp seekExp ( QString ( QLatin1String("%1 w=%2 ti=%3 rt=%4[PE\\s] t=%5
         .arg ( QLatin1String("([?WB])") ) // %9 = color ('?', 'W' or 'B')
         .arg ( QLatin1String("(\\d+)\\-(\\d+)") ) // %10 = rating range (x-y)
         .arg ( QLatin1String(boolPattern) ) // %11 = automatic ( 't' or 'f' )
-        .arg ( QLatin1String(boolPattern) ) // %12 = formula ( 't' or 'f' )
-              );
-
-const QRegExp challengeExp ( QString ( QLatin1String("%1 w=%2 t=match p=%2 \\(%3\\) %2 \\(%3\\)") )
-        .arg ( idPattern ) // %1 = index
-        .arg ( namePattern ) // %2 = name
-        .arg ( ratingPattern ) // %3 = rating
-        );
-
-const QRegExp FicsProtocol::moveRegExp ( QString ( QLatin1String ( "<12>.*%1.*%2 %3" ) )
-        .arg ( currentPlayerPattern )
-        .arg ( remainingTime )
-        .arg ( movePattern )
-                                       );
-
-const QRegExp FicsProtocol::moveStringExp ( QString ( QLatin1String ( "[%1]\\/(%2)\\-(%3)(=[%4])?" ) )
-        .arg ( pieces )
-        .arg ( coordinate )
-        .arg ( coordinate )
-        .arg ( pieces )
-                                          );
-
-const QRegExp FicsProtocol::challengeRegExp ( QString ( QLatin1String ( "Challenge: %1 \\(%2\\)( \\[[a-z]+\\])? %3 \\(%4\\) %5 %6" ) )
-        .arg ( namePattern )
-        .arg ( ratingPattern )
-        .arg ( namePattern )
-        .arg ( ratingPattern )
-        .arg ( variantPattern )
-        .arg ( timePattern )
-                                            );
-const QRegExp FicsProtocol::gameStartedExp ( QString ( QLatin1String ( "Creating: %1 \\(%2\\) %3 \\(%4\\) %5 %6" ) )
-        .arg ( namePattern )
-        .arg ( ratingPattern )
-        .arg ( namePattern )
-        .arg ( ratingPattern )
-        .arg ( variantPattern )
-        .arg ( timePattern )
-                                           );
-
-FicsProtocol::FicsProtocol ( QObject* parent ) : Protocol ( parent ),
+        .arg ( QLatin1String(boolPattern) )), // %12 = formula ( 't' or 'f' )
+    challengeExp(QString ( QLatin1String("%1 w=%2 t=match p=%2 \\(%3\\) %2 \\(%3\\)"))
+        .arg ( QLatin1String( idPattern ) ) // %1 = index
+        .arg ( QLatin1String( namePattern ) ) // %2 = name
+        .arg ( QLatin1String( ratingPattern ) ) ), // %3 = rating
+    moveStringExp ( movePattern ),
+    moveRegExp ( QString ( QLatin1String("<12>.*%1.*%2 %3") )
+        .arg ( QLatin1String( currentPlayerPattern ) )
+        .arg ( QLatin1String( remainingTime ) )
+        .arg ( movePattern ) ),
+    gameStartedExp ( QString ( QLatin1String("Creating: %1 \\(%2\\) %3 \\(%4\\) %5 %6") )
+        .arg ( QLatin1String( namePattern ) )
+        .arg ( QLatin1String( ratingPattern ) )
+        .arg ( QLatin1String( namePattern ) )
+        .arg ( QLatin1String( ratingPattern ) )
+        .arg ( QLatin1String( variantPattern ) )
+        .arg ( QLatin1String( timePattern ) ) ),
     sendPassword(false),
     m_widget(0),
     m_console(0),
     m_chat(0)
 {
     // FICS games are always time-limited
-    setAttribute ( QLatin1String ( "TimeLimitEnabled" ), true );
+    setAttribute ( QLatin1String("TimeLimitEnabled"), true );
 }
 
 FicsProtocol::~FicsProtocol()
@@ -145,7 +112,7 @@ void FicsProtocol::startGame()
 
 void FicsProtocol::move ( const Move& m )
 {
-    m_stream << m.string ( false ) << endl;
+    write(m.string(false));
     changeActivePlayer();
 }
 
@@ -159,15 +126,14 @@ void FicsProtocol::init ( const QVariantMap& options )
     m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
     m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
     m_console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
-    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeToSocket(QString)) );
+    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)) );
 
-    m_socket = new QTcpSocket ( this );
-    m_stream.setDevice ( m_socket );
-    QString address = options.value ( QLatin1String ( "address" ), QLatin1String ( "freechess.org" ) ).toString();
-    int port = options.value ( QLatin1String ( "port" ), 5000 ).toInt();
-    connect ( m_socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
-    connect ( m_socket, SIGNAL ( readyRead() ), SLOT ( readFromSocket() ) );
-    m_socket->connectToHost ( address, port );
+    QTcpSocket* socket = new QTcpSocket ( this );
+    setDevice ( socket );
+    QString address = options.value ( QLatin1String("address"), QLatin1String("freechess.org") ).toString();
+    int port = options.value ( QLatin1String("port"), 5000 ).toInt();
+    connect ( socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
+    socket->connectToHost ( address, port );
 }
 
 QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
@@ -193,24 +159,24 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
 
 void FicsProtocol::socketError()
 {
-    emit error( NetworkError, m_socket->errorString() );
+    emit error( NetworkError, QString() );
 }
 
 void FicsProtocol::login ( const QString& username, const QString& password )
 {
     setPlayerName(username);
-    m_stream << username << endl;
+    write(username);
     sendPassword = true;
     this->password = password;
 }
 
 void FicsProtocol::setupOptions()
 {
-    m_stream << "set style 12" << endl;
-    m_stream << "iset seekremove 1" << endl;
-    m_stream << "iset seekinfo 1" << endl;
-    m_stream << "iset pendinfo 1" << endl;
-    m_stream << "set seek 1" << endl;
+    write("set style 12");
+    write("iset seekremove 1");
+    write("iset seekinfo 1");
+    write("iset pendinfo 1");
+    write("set seek 1");
 }
 
 void FicsProtocol::openGameDialog()
@@ -233,7 +199,7 @@ void FicsProtocol::openGameDialog()
     dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("dialog-ok-accept")));
 
     m_widget = new FicsDialog ( dialog );
-    m_widget->setServerName(m_socket->peerName());
+    m_widget->setServerName ( attribute( "address" ).toString());
     m_widget->setConsoleWidget(m_console);
     dialog->setMainWidget ( m_widget );
 
@@ -266,25 +232,19 @@ void FicsProtocol::openGameDialog()
     dialog->show();
 }
 
-void FicsProtocol::readFromSocket()
+bool FicsProtocol::parseStub(const QString& line)
 {
-    if ( !m_socket->canReadLine() )
+    if ( line.contains ( QLatin1String("fics") ) && line.contains ( QLatin1String("login:") ) && line.contains ( QLatin1String("password:") ) )
     {
-        QByteArray next = m_socket->peek ( 10 );
-        if ( !next.contains ( "fics" ) && !next.contains ( "login:" ) && !next.contains ( "password:" ) )
-        {
-            // It is neither a prompt nor a complete line, so we wait for more data
-            return;
-        }
+        parseLine(line);
+        return true;
     }
-    QByteArray line;
-    do
-    {
-        line = m_socket->readLine().replace('\n', "").replace('\r',"");
-    }
-    while ( ( line.isEmpty() || line.startsWith("fics%") ) && m_socket->bytesAvailable() > 0 );
+    return false;
+}
 
-    if ( line.isEmpty() || line.startsWith("fics%") )
+void FicsProtocol::parseLine(const QString& line)
+{
+    if ( line.isEmpty() || line.startsWith( QLatin1String("fics%") ) )
     {
         return;
     }
@@ -293,50 +253,50 @@ void FicsProtocol::readFromSocket()
     switch ( m_stage )
     {
         case ConnectStage:
-            if ( line.contains ( "login:" ) )
+            if ( line.contains ( QLatin1String("login:") ) )
             {
                 type = ChatWidget::AccountMessage;
                 openGameDialog();
             }
-            else if ( line.contains ( "password:" ) )
+            else if ( line.contains ( QLatin1String("password:") ) )
             {
                 type = ChatWidget::AccountMessage;
                 if ( sendPassword )
                 {
-                    m_stream << password << endl;
+                    write(password);
                 }
                 else
                 {
                     m_console->setPasswordMode(true);
                 }
             }
-            else if ( line.contains ( "Press return to enter the server" ) )
+            else if ( line.contains ( QLatin1String("Press return to enter the server") ) )
             {
                 type = ChatWidget::AccountMessage;
-                m_stream << endl;
+                write(QString());
             }
             // TODO: Check for incorrect logins
-            else if ( line.contains ( "Starting FICS session" ) )
+            else if ( line.contains ( QLatin1String("Starting FICS session") ) )
             {
                 type = ChatWidget::StatusMessage;
                 m_stage = SeekStage;
                 m_console->setPasswordMode(false);
                 setupOptions();
-                QString name = QLatin1String ( line );
-                name.remove ( 0, name.indexOf ( QLatin1String ( "session as " ) ) + 11 );
-                if ( name.contains ( QLatin1String ( "(U)" ) ) )
+                QString name = line;
+                name.remove ( 0, name.indexOf ( QLatin1String("session as ") ) + 11 );
+                if ( name.contains ( QLatin1String("(U)") ) )
                 {
-                    name.truncate ( name.indexOf ( QLatin1String ( "(U)" ) ) );
+                    name.truncate ( name.indexOf ( QLatin1String("(U)") ) );
                 }
                 else
                 {
                     name.truncate ( name.indexOf ( QLatin1Char ( ' ' ) ) );
                 }
-                kDebug() << "Your name is" << name;
+                kDebug() << QLatin1String("Your name is") << name;
                 setPlayerName ( name );
                 emit sessionStarted();
             }
-            else if ( line.contains ( "Invalid password" ) )
+            else if ( line.contains ( QLatin1String("Invalid password") ) )
             {
                 m_widget->setLoginEnabled ( true );
                 type = ChatWidget::AccountMessage;
@@ -344,15 +304,15 @@ void FicsProtocol::readFromSocket()
             }
             break;
         case SeekStage:
-            if ( line.startsWith("<sc>") )
+            if ( line.startsWith( QLatin1String("<sc>") ) )
             {
                 display = false;
                 emit clearSeeks();
             }
-            else if ( line.startsWith("<sr>") )
+            else if ( line.startsWith( QLatin1String("<sr>") ) )
             {
                 display = false;
-                foreach ( const QByteArray& str, line.replace('\n', "").split(' ') )
+                foreach ( const QString& str, line.split(QLatin1Char(' ') ) )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
@@ -362,7 +322,7 @@ void FicsProtocol::readFromSocket()
                     }
                 }
             }
-            else if ( line.startsWith("<s>") && seekExp.indexIn(QLatin1String(line)) > -1 )
+            else if ( line.startsWith( QLatin1String("<s>") ) && seekExp.indexIn(line) > -1 )
             {
                 display = false;
                 FicsGameOffer offer;
@@ -382,11 +342,7 @@ void FicsProtocol::readFromSocket()
                 offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
                 emit gameOfferReceived ( offer );
             }
-            else if ( seekRegExp.indexIn ( QLatin1String(line) ) > -1 )
-            {
-                type = ChatWidget::SeekMessage;
-            }
-            else if ( line.startsWith("<pf>") && challengeExp.indexIn ( QLatin1String(line) ) > -1 )
+            else if ( line.startsWith( QLatin1String("<pf>") ) && challengeExp.indexIn ( line ) > -1 )
             {
                 display = false;
                 FicsChallenge challenge;
@@ -396,14 +352,10 @@ void FicsProtocol::readFromSocket()
                 challenge.player.second = challengeExp.cap ( ratingPos ).toInt();
                 emit challengeReceived ( challenge );
             }
-            else if ( challengeRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
-            {
-                type = ChatWidget::ChallengeMessage;
-            }
-            else if ( line.startsWith("<pr>") )
+            else if ( line.startsWith( QLatin1String("<pr>") ) )
             {
                 display = false;
-                foreach ( const QByteArray& str, line.replace('\n', "").split(' ') )
+                foreach ( const QString& str, line.split( QLatin1Char(' ') ) )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
@@ -413,7 +365,7 @@ void FicsProtocol::readFromSocket()
                     }
                 }
             }
-            else if ( gameStartedExp.indexIn ( QLatin1String ( line ) ) > -1 )
+            else if ( gameStartedExp.indexIn ( line ) > -1 )
             {
                 type = ChatWidget::StatusMessage;
                 QString player1 = gameStartedExp.cap ( 1 );
@@ -433,19 +385,19 @@ void FicsProtocol::readFromSocket()
             }
             break;
         case PlayStage:
-            if ( moveRegExp.indexIn ( QLatin1String ( line ) ) > -1 )
+            if ( moveRegExp.indexIn ( line ) > -1 )
             {
                 display = false;
-                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String ( "B" ) && playerColor() == White )
-                        && !( moveRegExp.cap ( 1 ) == QLatin1String ( "W" ) && playerColor() == Black );
+                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("B") && playerColor() == White )
+                        && !( moveRegExp.cap ( 1 ) == QLatin1String("W") && playerColor() == Black );
 
                 const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
                 const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
-                const QString moveString = moveRegExp.cap ( 6 );
+                const QString  moveString = moveRegExp.cap ( 6 );
 
                 kDebug() << "Move:" << moveString;
 
-                if ( moveString == QLatin1String ( "none" ) )
+                if ( moveString == QLatin1String("none") )
                 {
                     setTimeControl ( NoColor, 0, QTime().addSecs(whiteTimeLimit), moveRegExp.cap(2).toInt() );
                     break;
@@ -454,12 +406,12 @@ void FicsProtocol::readFromSocket()
                 if ( validMove )
                 {
                     Move m;
-                    if ( moveString == QLatin1String ( "o-o" ) )
+                    if ( moveString == QLatin1String("o-o") )
                     {
                         // Short (king's rook) castling
                         m = Move::castling ( Move::KingSide, oppositeColor ( playerColor() ) );
                     }
-                    else if ( moveString == QLatin1String ( "o-o-o" ) )
+                    else if ( moveString == QLatin1String("o-o-o") )
                     {
                         // Long (Queen's rock) castling
                         m = Move::castling ( Move::QueenSide, oppositeColor ( playerColor() ) );
@@ -486,12 +438,12 @@ void FicsProtocol::readFromSocket()
                     startTime();
                 }
             }
-            else if ( line.contains ( " says:" ) )
+            else if ( line.contains ( QLatin1String(") says:") ) )
             {
                 type = ChatWidget::ChatMessage;
                 m_chat->addText ( line, type );
             }
-            else if ( line.contains ( "lost contact or quit" ) )
+            else if ( line.contains ( QLatin1String("lost contact or quit") ) )
             {
                 type = ChatWidget::AccountMessage;
                 emit gameOver ( NoColor );
@@ -500,12 +452,7 @@ void FicsProtocol::readFromSocket()
 
     if ( display )
     {
-        m_console->addText( QLatin1String(line), type );
-    }
-    
-    if ( m_socket->bytesAvailable() > 0 )
-    {
-        readFromSocket();
+        m_console->addText( line, type );
     }
 }
 
@@ -528,19 +475,19 @@ Color FicsProtocol::parseColor ( QString str )
 
 void FicsProtocol::acceptSeek ( int id )
 {
-    m_stream << "play " << id << endl;
+    write ( QLatin1String("play ") + QString::number(id) );
     m_seeking = false;
 }
 
 void FicsProtocol::acceptChallenge ( int id )
 {
-    m_stream << "accept " << id << endl;
+    write ( QLatin1String("accept ") + QString::number(id) );
     m_seeking = true;
 }
 
 void FicsProtocol::declineChallenge ( int id )
 {
-    m_stream << "decline " << id << endl;
+    write ( QLatin1String("decline ") + QString::number(id) );
 }
 
 void FicsProtocol::dialogRejected()
@@ -553,63 +500,52 @@ void FicsProtocol::setSeeking ( bool seek )
     m_seeking = seek;
     if ( seek )
     {
-        m_stream << "seek";
-        if ( attribute ( QLatin1String ( "playerTimeLimit" ) ).canConvert<QTime>() && attribute ( QLatin1String ( "playerTimeIncrement" ) ).canConvert<int>() )
+        write("seek");
+        QString seekStr;
+        if ( attribute ( QLatin1String("playerTimeLimit") ).canConvert<QTime>() && attribute ( QLatin1String("playerTimeIncrement") ).canConvert<int>() )
         {
-            QTime time = attribute ( QLatin1String ( "playerTimeLimit" ) ).toTime();
-            m_stream << ' ' << 60 * time.hour() + time.minute();
-            m_stream << ' ' << attribute ( QLatin1String ( "playerTimeIncrement" ) ).toInt();
+            QTime time = attribute ( QLatin1String("playerTimeLimit") ).toTime();
+            int increment = attribute ( QLatin1String("playerTimeIncrement") ).toInt();
+            seekStr += ( QLatin1Char(' ')
+                    + QString::number(60 * time.hour() + time.minute())
+                    + QLatin1Char(' ')
+                    + QString::number(increment) );
         }
-        m_stream << " unrated"; // TODO: Option for this
+        seekStr += QLatin1String(" unrated");
         switch ( playerColor() )
         {
             case White:
-                m_stream << " white";
+                seekStr += QLatin1String("white");
                 break;
             case Black:
-                m_stream << " black";
+                seekStr += QLatin1String("black");
                 break;
             default:
                 break;
         }
-        m_stream << " manual";
+        seekStr += QLatin1String(" manual");
+        write(seekStr);
     }
     else
     {
-        m_stream << "unseek";
+        write("unseek");
     }
-    m_stream << endl;
 }
 
-void FicsProtocol::writeToSocket ( const QString& text )
-{
-    Move m = Move(text);
-    if ( m.isValid() )
-    {
-        emit pieceMoved ( m );
-        return;
-    }
-    m_stream << text << endl;
-}
-
-void FicsProtocol::flushSocket()
-{
-    m_stream << endl;
-}
 
 void FicsProtocol::adjourn()
 {
-    m_stream << "adjourn" << endl;
+    write("adjourn");
 }
 
 void FicsProtocol::resign()
 {
-    m_stream << "resign" << endl;
+    write("resign");
 }
 
 void FicsProtocol::sendChat ( QString text )
 {
-    m_stream << "say " << text << endl;
+    write ( QLatin1String("say ") + text );
 }
 
 

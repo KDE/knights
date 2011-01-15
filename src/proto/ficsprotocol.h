@@ -22,7 +22,7 @@
 #ifndef KNIGHTS_FICSPROTOCOL_H
 #define KNIGHTS_FICSPROTOCOL_H
 
-#include "proto/protocol.h"
+#include "proto/textprotocol.h"
 
 #include <QtCore/QTextStream>
 #include <QtCore/QTime>
@@ -64,7 +64,7 @@ namespace Knights
         PlayStage
     };
 
-    class FicsProtocol : public Protocol
+    class FicsProtocol : public TextProtocol
     {
             Q_OBJECT
         public:
@@ -78,27 +78,13 @@ namespace Knights
             virtual QList<ToolWidgetData> toolWidgets();
 
         private:
-            static const int Timeout;
+            const QString movePattern;
+            const QRegExp seekExp;
+            const QRegExp challengeExp;
+            const QRegExp moveStringExp;
+            const QRegExp moveRegExp;
+            const QRegExp gameStartedExp;
 
-            static const QString timePattern;
-            static const QString variantPattern;
-            static const QString argsPattern;
-            static const QString pieces;
-            static const QString coordinate;
-            static const QString remainingTime;
-            static const QString movePattern;
-            static const QString currentPlayerPattern;
-
-            static const QRegExp moveRegExp;
-            static const QRegExp moveStringExp;
-            static const QRegExp seekRegExp;
-            static const QRegExp soughtRegExp;
-            static const QRegExp challengeRegExp;
-            static const QRegExp gameStartedExp;
-            static const QRegExp gameInfoExp;
-
-            QTcpSocket* m_socket;
-            QTextStream m_stream;
             Stage m_stage;
             QString password;
             bool sendPassword;
@@ -109,6 +95,8 @@ namespace Knights
             ChatWidget* m_chat;
 
             Color parseColor( QString str );
+            virtual void parseLine(const QString& line);
+            virtual bool parseStub(const QString& line);
 
         public Q_SLOTS:
             virtual void init ( const QVariantMap& options );
@@ -123,10 +111,6 @@ namespace Knights
             void login(const QString& username, const QString& password);
             void sendChat ( QString text );
 
-        private Q_SLOTS:
-            void readFromSocket();
-            void writeToSocket(const QString& text);
-            void flushSocket();
             void openGameDialog();
             void setSeeking ( bool seek );
             void setupOptions();
