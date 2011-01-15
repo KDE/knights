@@ -364,7 +364,6 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
 
 void ChessRules::checkSpecialFlags ( Move& move, Color color )
 {
-    kDebug() << move << move.notation() << Move::Algebraic << Move::Coordinate;
     if ( move.notation() == Move::Algebraic )
     {
         QChar c;
@@ -454,8 +453,6 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     p->color();
     if ( !p )
     {
-        kDebug() << move.from();
-        kDebug() << *m_grid;
         move.setFlag(Move::Illegal, true);
         return;
     }

@@ -71,13 +71,11 @@ void TextProtocol::writeCheckMoves(const QString& text)
 
 void TextProtocol::write(const QString& text)
 {
-  kDebug() << text;
     stream << text << endl;
 }
 
 void TextProtocol::write(const char* text)
 {
-  kDebug() << text;
     stream << text << endl;
 }
 

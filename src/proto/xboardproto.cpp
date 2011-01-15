@@ -139,7 +139,6 @@ bool XBoardProtocol::parseStub(const QString& line)
 
 void XBoardProtocol::parseLine(const QString& line)
 {
-        kDebug() << line;
         if ( line.isEmpty() )
         {
             return;

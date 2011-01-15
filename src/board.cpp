@@ -118,9 +118,7 @@ void Board::movePiece ( const Move& move )
         m_grid[m.from() ]->setPieceType ( m.promotedType() ? m.promotedType() : Queen );
     }
 
-//    delete m_grid.value ( m.to(), 0 ); // It's safe to call 'delete 0'
     PieceDataMap map = m.removedPieces();
-    kDebug() << map;
     PieceDataMap::const_iterator it = map.constBegin();
     PieceDataMap::const_iterator end = map.constEnd();
     for ( ; it != end; ++it )
@@ -133,7 +131,6 @@ void Board::movePiece ( const Move& move )
     m_grid.insert ( m.to(), m_grid.take ( m.from() ) );
 
     map = m.addedPieces();
-    kDebug() << map;
     it = map.constBegin();
     end = map.constEnd();
     for ( ; it != end; ++it )
