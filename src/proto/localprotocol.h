@@ -36,11 +36,14 @@ public:
     virtual void move(const Knights::Move& m);
     LocalProtocol(QObject* parent = 0);
     virtual ~LocalProtocol();
-    virtual Knights::Protocol::Features supportedFeatures();
+    virtual Features supportedFeatures();
     virtual void pauseGame();
     virtual void resumeGame();
     virtual void undoLastMove();
     virtual void redoLastMove();
+
+private:
+    int movesSoFar;
 };
 
 }

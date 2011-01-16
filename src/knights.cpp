@@ -285,39 +285,21 @@ namespace Knights
         if ( playerColors == White || playerColors == Black )
         {
             Color playerColor = ( playerColors & White ) ? White : Black;
-            if ( !m_protocol->playerName().isEmpty() )
-            {
-                playerClock->setPlayerName ( playerColor, m_protocol->playerName() );
-            }
-            else
-            {
-                playerClock->setPlayerName ( playerColor, i18n ( "You" ) );
-            }
-            if ( !m_protocol->opponentName().isEmpty() )
-            {
-                playerClock->setPlayerName ( oppositeColor ( playerColor ), m_protocol->opponentName() );
-            }
-            else
-            {
-                playerClock->setPlayerName ( oppositeColor ( playerColor ), i18n ( "Opponent" ) );
-            }
-            connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-            connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
-            playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
-            playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
-
+            playerClock->setPlayerName ( playerColor, m_protocol->playerName() );
+            playerClock->setPlayerName ( oppositeColor ( playerColor ), i18n ( "Opponent" ) );
             playerClock->setDisplayedPlayer ( playerColor );
         }
         else
         {
-            playerClock->setPlayerName ( White, i18n ( "White" ) );
-            playerClock->setPlayerName ( Black, i18n ( "Black" ) );
-
-            playerClock->setTimeLimit ( White, m_playerTime );
-            playerClock->setTimeLimit ( Black, m_oppTime );
-
+            playerClock->setPlayerName ( White, m_protocol->playerName() );
+            playerClock->setPlayerName ( Black, m_protocol->opponentName() );
             playerClock->setDisplayedPlayer ( White );
         }
+        connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+        connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
+        playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
+        playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
+
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
     }
 

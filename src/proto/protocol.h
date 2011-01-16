@@ -148,6 +148,7 @@ class ChatWidget;
             void setTimeControl(Color color, int moves, int baseTime, int increment);
             void setTimeControl ( Color color, const TimeControl& control );
             TimeControl timeControl ( Color color ) const;
+            bool timeControlEnabled ( Color color ) const;
             virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
             virtual QTime timeLimit ( Color color );
 

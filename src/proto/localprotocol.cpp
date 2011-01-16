@@ -22,6 +22,8 @@
 
 #include "localprotocol.h"
 
+#include <KDE/KLocale>
+
 using namespace Knights;
 
 void LocalProtocol::init ( const QVariantMap& options )
@@ -32,17 +34,29 @@ void LocalProtocol::init ( const QVariantMap& options )
 
 void LocalProtocol::startGame()
 {
-
+    if ( timeControlEnabled(White) )
+    {
+	emit timeChanged ( White, timeControl(White).baseTime );
+    }
+    if ( timeControlEnabled(Black) )
+    {
+	emit timeChanged ( Black, timeControl(White).baseTime );
+    }
 }
 
 void LocalProtocol::move ( const Knights::Move& m )
 {
+    ++movesSoFar;
     addMoveToHistory(m);
+    movesSoFar > 1 ? startTime() : stopTime();
 }
 
-LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent )
+LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ),
+  movesSoFar(0)
 {
     setPlayerColors( White | Black );
+    setPlayerName( i18n("White") );
+    setOpponentName( i18n("Black") );
 }
 
 LocalProtocol::~LocalProtocol()
@@ -65,11 +79,13 @@ void LocalProtocol::resumeGame()
 
 void LocalProtocol::undoLastMove()
 {
+    --movesSoFar;
     emit pieceMoved(nextUndoMove());
 }
 
 void LocalProtocol::redoLastMove()
 {
+    ++movesSoFar;
     emit pieceMoved(nextRedoMove());
 }
 

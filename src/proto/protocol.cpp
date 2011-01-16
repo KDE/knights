@@ -46,6 +46,8 @@ namespace Knights
             Protocol::TimeControl whiteTimeControl;
             Protocol::TimeControl blackTimeControl;
             Color activePlayer;
+            bool whiteTimeEnabled;
+            bool blackTimeEnabled;
 
             int timer;
             bool running;
@@ -54,6 +56,8 @@ namespace Knights
     ProtocolPrivate::ProtocolPrivate()
     : timer(0)
     , running(false)
+    , whiteTimeEnabled(false)
+    , blackTimeEnabled(false)
     {
 
     }
@@ -348,7 +352,7 @@ void Protocol::setWinner(Color winner)
 
 void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
 {
-    setTimeControl(color, moves, QTime().addSecs(60 * baseTime), increment);
+    setTimeControl(color, moves, baseTime > 0 ? QTime().addSecs(60 * baseTime) : QTime(), increment);
 }
 
 void Protocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
@@ -374,10 +378,12 @@ void Protocol::setTimeControl(Color color, const TimeControl& control)
     if ( color == White )
     {
         d->whiteTimeControl = c;
+        d->whiteTimeEnabled = c.baseTime.isValid();
     }
     else
     {
         d->blackTimeControl = c;
+        d->blackTimeEnabled = c.baseTime.isValid();
     }
     emit timeLimitChanged ( color, c.baseTime );
 }
@@ -386,6 +392,12 @@ Protocol::TimeControl Protocol::timeControl(Color color) const
 {
     Q_D(const Protocol);
     return (color == White) ? d->whiteTimeControl : d->blackTimeControl;
+}
+
+bool Protocol::timeControlEnabled(Color color) const
+{
+    Q_D(const Protocol);
+    return (color == White) ? d->whiteTimeEnabled : d->blackTimeEnabled;
 }
 
 QTime Protocol::timeLimit(Color color)
