@@ -26,8 +26,6 @@
 #include <KDebug>
 #include <KToolInvocation>
 #include <KWallet/Wallet>
-#include <KPlotObject>
-#include <KPlotPoint>
 
 #include <QtGui/QCheckBox>
 #include <QtGui/QTimeEdit>
