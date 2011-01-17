@@ -31,7 +31,6 @@
 
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
-#include <QtCore/QPointer>
 #include <kmainwindow.h>
 
 using namespace Knights;
