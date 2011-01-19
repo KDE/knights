@@ -31,22 +31,15 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->setupUi ( this );
     setObjectName ( QLatin1String ( "GameDialogWidget" ) );
     connect ( ui->timeGroup, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
-    connect ( ui->sameTimeCheckBox, SIGNAL ( toggled ( bool ) ), this, SLOT ( sameTimeChanged ( bool ) ) );
     connect ( ui->oppHuman, SIGNAL ( toggled ( bool ) ), this, SLOT ( hotseatModeToggled ( bool ) ) );
     connect ( ui->oppFics, SIGNAL ( toggled ( bool ) ), this, SLOT ( ficsModeToggled ( bool ) ) );
 
     m_timeEnabled = Settings::timeEnabled();
     ui->timeGroup->setChecked ( m_timeEnabled );
 
-    m_sameTime  = Settings::sameTime();
-    ui->sameTimeCheckBox->setChecked ( m_sameTime );
-
-    ui->playerTimeEdit->setTime ( Settings::playerTime().time() );
-    ui->oppTimeEdit->setTime ( Settings::opponentTime().time() );
-    ui->playerIncTimeEdit->setTime ( Settings::playerTimeIncrement().time() );
-    ui->oppIncTimeEdit->setTime ( Settings::opponentTimeIncrement().time() );
-    ui->playerMoves->setValue ( Settings::playerMoves() );
-    ui->oppMoves->setValue ( Settings::opponentMoves() );
+    ui->startingTimeBasic->setTime ( Settings::playerTime().time() );
+    ui->timeIncrementBasic->setTime ( Settings::playerTimeIncrement().time() );
+    ui->numberOfMovesBasic->setValue ( Settings::playerMoves() );
 
     switch ( Settings::protocol() )
     {
@@ -71,16 +64,6 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             break;
         case Settings::EnumColor::Black:
             ui->colorBlack->setChecked ( true );
-            break;
-    }
-
-    switch ( Settings::controlType() )
-    {
-        case Settings::EnumControlType::Conventional:
-            ui->conventionalTimeRadio->setChecked ( true );
-            break;
-        case Settings::EnumControlType::Incremental:
-            ui->incTimeRadio->setChecked ( true );
             break;
     }
 
@@ -130,25 +113,8 @@ void GameDialog::writeConfig()
     Settings::setTimeEnabled ( timeLimitEnabled );
     if ( timeLimitEnabled )
     {
-        Settings::setSameTime ( ui->sameTimeCheckBox->isChecked() );
-        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->playerTimeEdit->time() ) );
-        Settings::setOpponentTime ( QDateTime ( QDate::currentDate(), ui->oppTimeEdit->time() ) );
-        if ( ui->conventionalTimeRadio->isChecked() )
-        {
-            Settings::setOpponentMoves ( ui->oppMoves->value() );
-            Settings::setPlayerMoves ( ui->playerMoves->value() );
-            Settings::setControlType ( Settings::EnumControlType::Conventional );
-        }
-        else if ( ui->incTimeRadio->isChecked() )
-        {
-            Settings::setPlayerTimeIncrement ( QDateTime ( QDate::currentDate(), ui->playerIncTimeEdit->time() ) );
-            Settings::setOpponentTimeIncrement ( QDateTime ( QDate::currentDate(), ui->oppIncTimeEdit->time() ) );
-            Settings::setControlType ( Settings::EnumControlType::Incremental );
-        }
-        else
-        {
-            Settings::setControlType ( Settings::EnumControlType::Fixed );
-        }
+        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->startingTimeBasic->time() ) );
+        Settings::setPlayerTimeIncrement( QDateTime ( QDate::currentDate(), ui->timeIncrementBasic->time() ) );
     }
     Settings::self()->writeConfig();
 }

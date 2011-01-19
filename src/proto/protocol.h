@@ -31,6 +31,9 @@
 namespace Knights
 {
 
+struct TimeControl;
+
+
 class ChatWidget;
 
     class ProtocolPrivate;
@@ -41,10 +44,9 @@ class ChatWidget;
             Q_ENUMS ( Feature )
             Q_ENUMS ( ErrorCode )
             Q_FLAGS ( Features )
-            Q_PROPERTY ( Color playerColor READ playerColor WRITE setPlayerColor )
+            Q_PROPERTY ( Color color READ color WRITE setColor )
             Q_PROPERTY ( QString playerName READ playerName WRITE setPlayerName )
-            Q_PROPERTY ( QString opponentName READ opponentName WRITE setOpponentName )
-
+            
         public:
             enum Feature
             {
@@ -77,94 +79,56 @@ class ChatWidget;
                 QString title;
                 QString name;
             };
-
-            struct TimeControl
-            {
-                int moves;
-                QTime baseTime;
-                int increment;
-                QTime currentTime;
-            };
             
             static QString stringFromErrorCode ( ErrorCode code );
+            static Protocol* white();
+            static void setWhiteProtocol ( Protocol* p );
+            static Protocol* black();
+            static void setBlackProtocol ( Protocol* p );
 
             Protocol ( QObject* parent = 0 );
             virtual ~Protocol();
 
             // Needed functions
 
-            Color playerColor() const;
-            Colors playerColors() const;
-            QString opponentName() const;
+            Color color() const;
             QString playerName() const;
             QVariant attribute ( const QString& attribute ) const;
             QVariant attribute ( const char* attribute ) const;
 
         protected:
-            void setPlayerColor ( Color color );
-            void setPlayerColors ( Colors colors );
-            void setOpponentName ( const QString& name );
+            void setColor ( Color color );
             void setPlayerName ( const QString& name );
             void setAttribute ( const QString& attribute, QVariant value );
             void setAttribute ( const char* attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
-            void changeActivePlayer();
-            void setActivePlayer ( Color player );
-            Color activePlayer() const;
-
-            void addMoveToHistory ( const Move& move );
-            Move nextUndoMove();
-            Move nextRedoMove();
-
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
-
-            void startTime();
-            void stopTime();
-            void setCurrentTime ( Color color, const QTime& time );
 
             virtual void timerEvent(QTimerEvent* );
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
-            virtual void startGame() = 0;
             virtual void init ( const QVariantMap& options ) = 0;
 
             // Optional features
         public:
             virtual Features supportedFeatures();
-            virtual Move::List moveHistory();
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
-            /**
-             * Sets the time control parameters in the same format as XBoard's @c level command works
-             * @param color specifis to which player this setting will apply. If @p color is NoColor then both player use this setting.
-             * @param moves the number of moves to be completed before @p baseTime runs out.
-             * Setting this to 0 causes the timing to be incremental only
-             * @param baseTime the time in minutes in which the player has to complete @p moves moves, or finish the game if @p moves is zero.
-             * @param increment the time in seconds that is added to the player's clock for his every move.
-             */
-            void setTimeControl(Color color, int moves, int baseTime, int increment);
-            void setTimeControl ( Color color, const TimeControl& control );
-            TimeControl timeControl ( Color color ) const;
-            bool timeControlEnabled ( Color color ) const;
-            virtual void setTimeControl(Color color, int moves, const QTime& baseTime, int increment);
-            virtual QTime timeLimit ( Color color );
+            virtual void setTimeControl ( const TimeControl& c );
 
         public Q_SLOTS:
             virtual void pauseGame();
             virtual void resumeGame();
             virtual void undoLastMove();
             virtual void redoLastMove();
-            virtual void setOpponentTimeLimit ( int seconds );
-            virtual void setPlayerTimeLimit ( int seconds );
 
             virtual void proposeDraw();
             virtual void resign();
             virtual void adjourn();
             virtual void setWinner ( Color winner );
-
 
         Q_SIGNALS:
             void pieceMoved ( const Move& m );

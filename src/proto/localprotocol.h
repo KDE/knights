@@ -32,13 +32,10 @@ class LocalProtocol : public Knights::Protocol
 
 public:
     virtual void init(const QVariantMap& options);
-    virtual void startGame();
     virtual void move(const Knights::Move& m);
     LocalProtocol(QObject* parent = 0);
     virtual ~LocalProtocol();
     virtual Features supportedFeatures();
-    virtual void pauseGame();
-    virtual void resumeGame();
     virtual void undoLastMove();
     virtual void redoLastMove();
 

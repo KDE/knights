@@ -41,23 +41,14 @@ namespace Knights
             ProtocolPrivate();
             
             QVariantMap attributes;
-            QList<Move> moveHistory;
-            QStack<Move> moveUndoStack;
-            Protocol::TimeControl whiteTimeControl;
-            Protocol::TimeControl blackTimeControl;
-            Color activePlayer;
-            bool whiteTimeEnabled;
-            bool blackTimeEnabled;
-
-            int timer;
-            bool running;
+            Protocol* white;
+            Protocol* black;
+            Color color;
     };
 
     ProtocolPrivate::ProtocolPrivate()
-    : timer(0)
-    , running(false)
-    , whiteTimeEnabled(false)
-    , blackTimeEnabled(false)
+    : white(0)
+    , black(0)
     {
 
     }
@@ -65,70 +56,11 @@ namespace Knights
 
     Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
     {
-        setActivePlayer ( White );
     }
 
     Protocol::~Protocol()
     {
 
-    }
-
-void Protocol::startTime()
-{
-    Q_D(Protocol);
-    if ( !d->running )
-    {
-        d->timer = startTimer ( TimerInterval );
-        d->running = true;
-    }
-}
-
-void Protocol::stopTime()
-{
-    Q_D(Protocol);
-    if ( d->running )
-    {
-        killTimer(d->timer);
-        d->running = false;
-    }
-}
-
-void Protocol::setCurrentTime(Color color, const QTime& time)
-{
-    Q_D(Protocol);
-    switch ( color )
-    {
-        case White:
-            d->whiteTimeControl.currentTime = time;
-            break;
-        case Black:
-            d->blackTimeControl.currentTime = time;
-            break;
-        default:
-            return;
-    }
-    emit timeChanged ( color, time );
-}
-
-    void Protocol::timerEvent(QTimerEvent* )
-    {
-        Q_D(Protocol);
-        QTime time;
-        switch ( d->activePlayer )
-        {
-            case White:
-                d->whiteTimeControl.currentTime = d->whiteTimeControl.currentTime.addMSecs ( -TimerInterval );
-                time = d->whiteTimeControl.currentTime;
-                break;
-            case Black:
-                d->blackTimeControl.currentTime = d->blackTimeControl.currentTime.addMSecs ( -TimerInterval );
-                time = d->blackTimeControl.currentTime;
-                break;
-            default:
-                time = QTime();
-                break;
-        }
-        emit timeChanged ( d->activePlayer, time );
     }
 
     QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
@@ -155,43 +87,16 @@ void Protocol::setCurrentTime(Color color, const QTime& time)
         }
     }
 
-    void Protocol::setPlayerColor ( Color color )
+    void Protocol::setColor ( Color color )
     {
-        setPlayerColors( color );
+        Q_D(Protocol);
+        d->color = color;
     }
 
-    Color Protocol::playerColor() const
+    Color Protocol::color() const
     {
-        Colors colors = playerColors();
-        if ( colors == White )
-        {
-            return White;
-        }
-        if ( colors == Black )
-        {
-            return Black;
-        }
-        return NoColor;
-    }
-
-    void Protocol::setPlayerColors( Colors colors )
-    {
-        setAttribute ( "PlayerColors", QVariant::fromValue<Colors>( colors ) );
-    }
-
-    Colors Protocol::playerColors() const
-    {
-        return attribute("PlayerColors").value<Colors>();
-    }
-
-    void Protocol::setOpponentName ( const QString& name )
-    {
-        setAttribute ( QLatin1String ( "OpponentName" ), name );
-    }
-
-    QString Protocol::opponentName() const
-    {
-        return attribute ( QLatin1String ( "OpponentName" ) ).toString();
+        Q_D(const Protocol);
+        return d->color;
     }
 
     void Protocol::setPlayerName ( const QString& name )
@@ -232,69 +137,10 @@ void Protocol::setCurrentTime(Color color, const QTime& time)
         return this->attribute ( QLatin1String ( attribute ) );
     }
 
-    void Protocol::addMoveToHistory ( const Move& move )
-    {
-        Q_D ( Protocol );
-        if ( d->moveHistory.isEmpty() )
-        {
-            emit undoPossible(true);
-        }
-        d->moveHistory << move;
-        if ( !d->moveUndoStack.isEmpty() )
-        {
-            emit redoPossible(false);
-        }
-        d->moveUndoStack.clear();
-    }
-
-    Move Protocol::nextUndoMove()
-    {
-        Q_D ( Protocol );
-        Move m = d->moveHistory.takeLast();
-        if ( d->moveHistory.isEmpty() )
-        {
-            emit undoPossible(false);
-        }
-        if ( d->moveUndoStack.isEmpty() )
-        {
-            emit redoPossible(true);
-        }
-        d->moveUndoStack.push( m );
-        Move ret = m.reverse();
-        ret.setFlag ( Move::Forced, true );
-        return ret;
-    }
-
-    Move Protocol::nextRedoMove()
-    {
-        Q_D ( Protocol );
-        Move m = d->moveUndoStack.pop();
-        if ( d->moveUndoStack.isEmpty() )
-        {
-            emit redoPossible(false);
-        }
-        if ( d->moveHistory.isEmpty() )
-        {
-            emit undoPossible(true);
-        }
-        d->moveHistory << m;
-        m.setFlag ( Move::Forced, true );
-        return m;
-    }
 
     Protocol::Features Protocol::supportedFeatures()
     {
         return NoFeatures;
-    }
-
-    void Protocol::setOpponentTimeLimit ( int seconds )
-    {
-        Q_UNUSED ( seconds )
-    }
-
-    void Protocol::setPlayerTimeLimit ( int seconds )
-    {
-        Q_UNUSED ( seconds )
     }
 
     int Protocol::timeRemaining()
@@ -309,12 +155,10 @@ void Protocol::setCurrentTime(Color color, const QTime& time)
 
     void Protocol::pauseGame()
     {
-        startTime();
     }
 
     void Protocol::resumeGame()
     {
-        stopTime();
     }
 
     void Protocol::undoLastMove()
@@ -325,11 +169,6 @@ void Protocol::setCurrentTime(Color color, const QTime& time)
     void Protocol::redoLastMove()
     {
 
-    }
-
-    Move::List Protocol::moveHistory()
-    {
-        return Move::List();
     }
 
     void Protocol::adjourn()
@@ -350,61 +189,11 @@ void Protocol::setWinner(Color winner)
     Q_UNUSED(winner);
 }
 
-void Protocol::setTimeControl(Color color, int moves, int baseTime, int increment)
+void Protocol::setTimeControl(const Knights::TimeControl& c)
 {
-    setTimeControl(color, moves, baseTime > 0 ? QTime().addSecs(60 * baseTime) : QTime(), increment);
+    Q_UNUSED(c);
 }
 
-void Protocol::setTimeControl(Color color, int moves, const QTime& baseTime, int increment)
-{
-    TimeControl c;
-    c.baseTime = baseTime;
-    c.moves = moves;
-    c.increment = increment;
-    setTimeControl ( color, c );
-}
-
-void Protocol::setTimeControl(Color color, const TimeControl& control)
-{
-    Q_D(Protocol);
-    TimeControl c = control;
-    c.currentTime = c.baseTime;
-    if ( color == NoColor )
-    {
-        setTimeControl ( White, c );
-        setTimeControl ( Black, c );
-        return;
-    }
-    if ( color == White )
-    {
-        d->whiteTimeControl = c;
-        d->whiteTimeEnabled = c.baseTime.isValid();
-    }
-    else
-    {
-        d->blackTimeControl = c;
-        d->blackTimeEnabled = c.baseTime.isValid();
-    }
-    emit timeLimitChanged ( color, c.baseTime );
-}
-
-Protocol::TimeControl Protocol::timeControl(Color color) const
-{
-    Q_D(const Protocol);
-    return (color == White) ? d->whiteTimeControl : d->blackTimeControl;
-}
-
-bool Protocol::timeControlEnabled(Color color) const
-{
-    Q_D(const Protocol);
-    return (color == White) ? d->whiteTimeEnabled : d->blackTimeEnabled;
-}
-
-QTime Protocol::timeLimit(Color color)
-{
-    Q_D(Protocol);
-    return ( color == White ) ? d->whiteTimeControl.baseTime : d->blackTimeControl.baseTime;
-}
 
 ChatWidget* Protocol::createChatWidget()
 {
@@ -416,23 +205,6 @@ ChatWidget* Protocol::createConsoleWidget()
     ChatWidget* console = new ChatWidget;
     console->setConsoleMode(true);
     return console;
-}
-
-void Protocol::setActivePlayer(Color player)
-{
-    Q_D(Protocol);
-    d->activePlayer = player;
-}
-
-void Protocol::changeActivePlayer()
-{
-    setActivePlayer ( oppositeColor ( activePlayer() ) );
-}
-
-Color Protocol::activePlayer() const
-{
-    Q_D(const Protocol);
-    return d->activePlayer;
 }
 
 }

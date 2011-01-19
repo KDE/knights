@@ -23,6 +23,7 @@
 #include "localprotocol.h"
 
 #include <KDE/KLocale>
+#include "gamemanager.h"
 
 using namespace Knights;
 
@@ -32,31 +33,17 @@ void LocalProtocol::init ( const QVariantMap& options )
     emit initSuccesful();
 }
 
-void LocalProtocol::startGame()
-{
-    if ( timeControlEnabled(White) )
-    {
-	emit timeChanged ( White, timeControl(White).baseTime );
-    }
-    if ( timeControlEnabled(Black) )
-    {
-	emit timeChanged ( Black, timeControl(White).baseTime );
-    }
-}
-
 void LocalProtocol::move ( const Knights::Move& m )
 {
+    
     ++movesSoFar;
-    addMoveToHistory(m);
-    movesSoFar > 1 ? startTime() : stopTime();
+    manager->addMoveToHistory(m);
+    movesSoFar > 1 ? manager->startTime() : manager->stopTime();
 }
 
 LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ),
   movesSoFar(0)
 {
-    setPlayerColors( White | Black );
-    setPlayerName( i18n("White") );
-    setOpponentName( i18n("Black") );
 }
 
 LocalProtocol::~LocalProtocol()
@@ -69,23 +56,15 @@ Knights::Protocol::Features LocalProtocol::supportedFeatures()
     return Pause | Undo | TimeLimit;
 }
 
-void LocalProtocol::pauseGame()
-{
-}
-
-void LocalProtocol::resumeGame()
-{
-}
-
 void LocalProtocol::undoLastMove()
 {
     --movesSoFar;
-    emit pieceMoved(nextUndoMove());
+    emit pieceMoved(manager->nextUndoMove());
 }
 
 void LocalProtocol::redoLastMove()
 {
     ++movesSoFar;
-    emit pieceMoved(nextRedoMove());
+    emit pieceMoved(manager->nextRedoMove());
 }
 

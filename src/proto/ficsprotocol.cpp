@@ -32,6 +32,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtGui/QApplication>
 #include <QtCore/QPointer>
+#include <gamemanager.h>
 
 using namespace Knights;
 
@@ -113,7 +114,6 @@ void FicsProtocol::startGame()
 void FicsProtocol::move ( const Move& m )
 {
     write(m.string(false));
-    changeActivePlayer();
 }
 
 void FicsProtocol::init ( const QVariantMap& options )
@@ -151,7 +151,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
 
     ToolWidgetData chatData;
     chatData.widget = m_chat;
-    chatData.title = i18n("Chat with %1", opponentName());
+    chatData.title = i18n("Chat with %1", playerName());
     chatData.name = QLatin1String("chat");
 
     return QList<ToolWidgetData>() << consoleData << chatData;
@@ -372,13 +372,13 @@ void FicsProtocol::parseLine(const QString& line)
                 QString player2 = gameStartedExp.cap ( 3 );
                 if ( player1 == playerName() )
                 {
-                    setPlayerColor ( White );
-                    setOpponentName ( player2 );
+                    setColor ( Black );
+                    setPlayerName ( player2 );
                 }
                 else
                 {
-                    setPlayerColor ( Black );
-                    setOpponentName ( player1 );
+                    setColor ( White );
+                    setPlayerName ( player1 );
                 }
                 m_stage = PlayStage;
                 emit initSuccesful();
@@ -388,8 +388,8 @@ void FicsProtocol::parseLine(const QString& line)
             if ( moveRegExp.indexIn ( line ) > -1 )
             {
                 display = false;
-                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("B") && playerColor() == White )
-                        && !( moveRegExp.cap ( 1 ) == QLatin1String("W") && playerColor() == Black );
+                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("B") && color() == White )
+                        && !( moveRegExp.cap ( 1 ) == QLatin1String("W") && color() == Black );
 
                 const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
                 const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
@@ -399,7 +399,11 @@ void FicsProtocol::parseLine(const QString& line)
 
                 if ( moveString == QLatin1String("none") )
                 {
-                    setTimeControl ( NoColor, 0, QTime().addSecs(whiteTimeLimit), moveRegExp.cap(2).toInt() );
+                    TimeControl tc;
+                    tc.moves = 0;
+                    tc.baseTime = QTime().addSecs(whiteTimeLimit);
+                    tc.increment = moveRegExp.cap(2).toInt();
+                    manager->setTimeControl(NoColor, tc);
                     break;
                 }
 
@@ -409,12 +413,12 @@ void FicsProtocol::parseLine(const QString& line)
                     if ( moveString == QLatin1String("o-o") )
                     {
                         // Short (king's rook) castling
-                        m = Move::castling ( Move::KingSide, oppositeColor ( playerColor() ) );
+                        m = Move::castling ( Move::KingSide, color() );
                     }
                     else if ( moveString == QLatin1String("o-o-o") )
                     {
                         // Long (Queen's rock) castling
-                        m = Move::castling ( Move::QueenSide, oppositeColor ( playerColor() ) );
+                        m = Move::castling ( Move::QueenSide, color() );
                     }
                     else if ( moveStringExp.indexIn ( moveString ) > -1 )
                     {
@@ -428,14 +432,14 @@ void FicsProtocol::parseLine(const QString& line)
                         }
                     }
                     emit pieceMoved ( m );
-                    changeActivePlayer();
+                    manager->changeActivePlayer();
                 }
-                setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
-                setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
+                manager->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
+                manager->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
 
                 if ( moveRegExp.cap(5).toInt() == 2 )
                 {
-                    startTime();
+                    manager->startTime();
                 }
             }
             else if ( line.contains ( QLatin1String(") says:") ) )
@@ -512,13 +516,13 @@ void FicsProtocol::setSeeking ( bool seek )
                     + QString::number(increment) );
         }
         seekStr += QLatin1String(" unrated");
-        switch ( playerColor() )
+        switch ( oppositeColor( color() ) )
         {
             case White:
-                seekStr += QLatin1String("white");
+                seekStr += QLatin1String(" white");
                 break;
             case Black:
-                seekStr += QLatin1String("black");
+                seekStr += QLatin1String(" black");
                 break;
             default:
                 break;
