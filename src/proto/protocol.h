@@ -118,6 +118,7 @@ class ChatWidget;
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
             virtual void setTimeControl ( const TimeControl& c );
+            virtual bool isLocal();
 
         public Q_SLOTS:
             virtual void pauseGame();
@@ -141,8 +142,8 @@ class ChatWidget;
             void initSuccesful();
             void error ( const Protocol::ErrorCode& errorCode, const QString& errorString = QString() );
 
-            void timeChanged ( const Color& color, const QTime& time );
-            void timeLimitChanged ( const Color& color, const QTime& time );
+            void timeChanged ( const QTime& time );
+            void timeLimitChanged ( const QTime& time );
             void undoPossible ( bool possible );
             void redoPossible ( bool possible );
 

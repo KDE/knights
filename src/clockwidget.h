@@ -48,6 +48,10 @@ namespace Knights
             void setTimeLimit ( Color color, const QTime& time );
             void setDisplayedPlayer ( Color color );
             void setPlayerName ( Color color, const QString& name );
+            void setWhiteCurrentTime ( const QTime& time );
+            void setBlackCurrentTime ( const QTime& time );
+            void setWhiteTimeLimit ( const QTime& time );
+            void setBlackTimeLimit ( const QTime& time );
             void setCurrentTime ( Color color, const QTime& time );
 
         private:

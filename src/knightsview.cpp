@@ -59,22 +59,18 @@ void KnightsView::setupBoard()
     m_board = new Board ( this );
     ui.canvas->setScene ( m_board );
     resizeScene();
-        connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), m_protocol, SLOT ( move ( Move ) ) );
-        connect ( m_protocol, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        m_board->setPlayerColors ( m_protocol->playerColors() );
-
-    if ( m_protocol->supportedFeatures() & Protocol::GameOver )
+    foreach ( Protocol* p, QList<Protocol*>() << Protocol::white() << Protocol::black() )
     {
-        connect ( m_protocol, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
+        connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), p, SLOT ( move ( Move ) ) );
+        connect ( p, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
+        if ( p->supportedFeatures() & Protocol::GameOver )
+        {
+            connect ( p, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+        }
     }
-    else
-    {
-        connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
-    }
-
+    connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
-
     connect ( m_board, SIGNAL ( centerChanged ( QPointF ) ), this, SLOT ( centerView ( QPointF ) ) );
 }
 

@@ -22,6 +22,10 @@
 #include "gamedialog.h"
 
 #include "ui_gamedialog.h"
+#include "proto/localprotocol.h"
+#include "proto/xboardproto.h"
+#include "proto/ficsprotocol.h"
+#include "gamemanager.h"
 
 using namespace Knights;
 
@@ -30,12 +34,8 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
     setObjectName ( QLatin1String ( "GameDialogWidget" ) );
-    connect ( ui->timeGroup, SIGNAL ( toggled ( bool ) ), this, SLOT ( timeEnabled ( bool ) ) );
-    connect ( ui->oppHuman, SIGNAL ( toggled ( bool ) ), this, SLOT ( hotseatModeToggled ( bool ) ) );
-    connect ( ui->oppFics, SIGNAL ( toggled ( bool ) ), this, SLOT ( ficsModeToggled ( bool ) ) );
 
-    m_timeEnabled = Settings::timeEnabled();
-    ui->timeGroup->setChecked ( m_timeEnabled );
+    ui->timeGroupBasic->setEnabled ( Settings::timeEnabled() );
 
     ui->startingTimeBasic->setTime ( Settings::playerTime().time() );
     ui->timeIncrementBasic->setTime ( Settings::playerTimeIncrement().time() );
@@ -71,15 +71,72 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->programComboBox->setCurrentItem( Settings::currentProgram(), true );
     ui->serverComboBox->setHistoryItems( Settings::servers() );
     ui->serverComboBox->setCurrentItem( Settings::currentServer(), true );
-
-    hotseatModeToggled ( ui->oppHuman->isChecked() );
-    ficsModeToggled ( ui->oppFics->isChecked() );
 }
 
 GameDialog::~GameDialog()
 {
     delete ui;
 }
+
+void GameDialog::setupProtocols()
+{
+    if ( ui->tabWidget->currentIndex() == 0 )
+    {
+        // Basic / normal settings
+        Protocol* player = new LocalProtocol();
+        Protocol* opp;
+        if ( ui->oppComp->isChecked() )
+        {
+            opp = new XBoardProtocol();
+        }
+        else if ( ui->oppHuman->isChecked() )
+        {
+            opp = new LocalProtocol();
+        }
+        else
+        {
+            opp = new FicsProtocol();
+        }
+        Color color = NoColor;
+        if ( ui->colorBlack->isChecked() )
+        {
+            color = Black;
+        }
+        else if ( ui->colorWhite->isChecked() )
+        {
+            color = White;
+        }
+        else
+        {
+            color = ( qrand() % 2 ) ? White : Black;
+        }
+        if ( color == White )
+        {
+            Protocol::setWhiteProtocol(player);
+            Protocol::setBlackProtocol(opp);
+        }
+        else
+        {
+            Protocol::setWhiteProtocol(opp);
+            Protocol::setBlackProtocol(player);
+        }
+    }
+    else
+    {
+        // Advanced settings
+        // TODO
+    }
+    TimeControl tc;
+    tc.baseTime = ui->startingTimeWhite->time();
+    tc.moves = ui->numberOfMovesWhite->value();
+    tc.increment = QTime().secsTo ( ui->timeIncrementWhite->time() );
+    Protocol::white()->setTimeControl ( tc );
+    tc.baseTime = ui->startingTimeBlack->time();
+    tc.moves = ui->numberOfMovesBlack->value();
+    tc.increment = QTime().secsTo ( ui->timeIncrementBlack->time() );
+    Protocol::black()->setTimeControl ( tc );
+}
+
 
 void GameDialog::writeConfig()
 {
@@ -107,7 +164,7 @@ void GameDialog::writeConfig()
         selectedColor = Settings::EnumColor::Black;
     }
 
-    bool timeLimitEnabled = ui->timeGroup->isChecked();
+    bool timeLimitEnabled = ui->timeGroupBasic->isChecked();
     Settings::setProtocol ( selectedProtocol );
     Settings::setColor ( selectedColor );
     Settings::setTimeEnabled ( timeLimitEnabled );
@@ -119,167 +176,8 @@ void GameDialog::writeConfig()
     Settings::self()->writeConfig();
 }
 
-Color GameDialog::color() const
-{
-    if ( ui->colorBlack->isChecked() )
-    {
-        return Black;
-    }
-    else if ( ui->colorWhite->isChecked() )
-    {
-        return White;
-    }
-    else
-    {
-        return NoColor;
-    }
-}
-
-bool GameDialog::timeLimit() const
-{
-    return ui->timeGroup->isChecked();
-}
-
-QTime GameDialog::opponentTime() const
-{
-    return ui->oppTimeEdit->time();
-}
-
-int GameDialog::opponentIncrement() const
-{
-    return ui->incTimeRadio->isChecked() ? QTime().secsTo ( ui->oppIncTimeEdit->time() ) : 0;
-}
-
-QTime GameDialog::playerTime() const
-{
-    return ui->playerTimeEdit->time();
-}
-
-int GameDialog::playerIncrement() const
-{
-    return ui->incTimeRadio->isChecked() ? QTime().secsTo ( ui->oppIncTimeEdit->time() ) : 0;
-}
-
-Settings::EnumProtocol::type GameDialog::protocol() const
-{
-    if ( ui->oppComp->isChecked() )
-    {
-        return Settings::EnumProtocol::XBoard;
-    }
-    else if ( ui->oppFics->isChecked() )
-    {
-        return Settings::EnumProtocol::FICS;
-    }
-    else
-    {
-        return Settings::EnumProtocol::None;
-    }
-}
-
-QString GameDialog::program() const
-{
-    if ( ui->oppComp->isChecked() )
-    {
-        return ui->programComboBox->currentText();
-    }
-    else
-    {
-        return QString();
-    }
-}
-
-QString GameDialog::server() const
-{
-    if ( ui->oppFics->isChecked() )
-    {
-        return ui->serverComboBox->currentText();
-    }
-    else
-    {
-        return QString();
-    }
-}
-
-
-void GameDialog::sameTimeChanged ( bool enabled )
-{
-    if ( !m_forceSameTime )
-    {
-        m_sameTime = enabled;
-        updateTimeEdits();
-    }
-}
-
-
-void GameDialog::hotseatModeToggled ( bool enabled )
-{
-    if ( enabled )
-    {
-        ui->playerLabel->setText ( i18n ( "White" ) );
-        ui->oppLabel->setText ( i18n ( "Black" ) );
-        ui->sameTimeCheckBox->setEnabled ( true );
-    }
-    else
-    {
-        ui->playerLabel->setText ( i18n ( "Player" ) );
-        ui->oppLabel->setText ( i18n ( "Opponent" ) );
-
-        ui->sameTimeCheckBox->setChecked ( true );
-        ui->sameTimeCheckBox->setEnabled ( false );
-    }
-    updateTimeEdits();
-}
-
-void GameDialog::timeEnabled ( bool enabled )
-{
-    m_timeEnabled = enabled;
-    updateTimeEdits();
-}
-
 void GameDialog::updateTimeEdits()
 {
-    if ( !m_timeEnabled )
-    {
-        //Nothin to do, since the group box is already disabled
-        return;
-    }
-    if ( ui->sameTimeCheckBox->isChecked() )
-    {
-        connect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
-        connect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
-        connect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
-        ui->oppTimeEdit->setTime ( ui->playerTimeEdit->time() );
-        ui->oppIncTimeEdit->setTime ( ui->playerIncTimeEdit->time() );
-        ui->oppMoves->setValue ( ui->playerMoves->value() );
-    }
-    else
-    {
-        disconnect ( ui->playerTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppTimeEdit, SLOT ( setTime ( QTime ) ) );
-        disconnect ( ui->playerIncTimeEdit, SIGNAL ( timeChanged ( QTime ) ), ui->oppIncTimeEdit, SLOT ( setTime ( QTime ) ) );
-        disconnect ( ui->playerMoves, SIGNAL(valueChanged(int)), ui->oppMoves, SLOT(setValue(int)) );
-    }
-}
-
-int GameDialog::playerMoves()
-{
-    return ui->conventionalTimeRadio->isChecked() ? ui->playerMoves->value() : 0;
-}
-
-int GameDialog::opponentMoves()
-{
-    return ui->conventionalTimeRadio->isChecked() ? ui->oppMoves->value() : 0;
-}
-
-void GameDialog::ficsModeToggled ( bool enabled )
-{
-    if ( enabled )
-    {
-        ui->colorRandom->setText ( i18n ( "Choose &later" ) );
-    }
-    else
-    {
-        ui->colorRandom->setText ( i18n ( "&Random" ) );
-    }
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

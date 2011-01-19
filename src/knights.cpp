@@ -47,6 +47,7 @@
 #include <QtGui/QDockWidget>
 #include "proto/localprotocol.h"
 #include <KUser>
+#include "gamemanager.h"
 
 namespace Knights
 {
@@ -95,9 +96,9 @@ namespace Knights
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
+        connect ( &gameNewDialog, SIGNAL(accepted()), dialogWidget, SLOT(setupProtocols()) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
-            delete m_protocol;
             foreach ( QDockWidget* dock, m_dockWidgets )
             {
                 removeDockWidget ( dock );
@@ -110,47 +111,8 @@ namespace Knights
                 actionCollection()->removeAction(action);
             }
             m_protocolActions.clear();
-
             m_view->clearBoard();
-            dialogWidget->writeConfig();
-
-            QVariantMap protocolOptions;
-            switch ( dialogWidget->protocol() )
-            {
-                case Settings::EnumProtocol::XBoard:
-                    m_protocol = new XBoardProtocol;
-                    protocolOptions[QLatin1String ( "program" ) ] = dialogWidget->program();
-                    protocolOptions[QLatin1String ( "PlayerName" ) ] = KUser().fullName();
-                    break;
-                case Settings::EnumProtocol::FICS:
-                    m_protocol = new FicsProtocol;
-                    protocolOptions[QLatin1String ( "server" ) ] = dialogWidget->server();
-                    break;
-                default:
-                    m_protocol = new LocalProtocol;
-                    break;
-            }
-
-            m_timeLimit = dialogWidget->timeLimit();
-            if ( m_timeLimit )
-            {
-                m_protocol->setTimeControl (
-                                            dialogWidget->color(),
-                                            dialogWidget->playerMoves(),
-                                            dialogWidget->playerTime().hour() * 60 + dialogWidget->playerTime().minute(),
-                                            dialogWidget->playerIncrement()
-                );
-                m_protocol->setTimeControl (
-                                            oppositeColor ( dialogWidget->color() ),
-                                            dialogWidget->opponentMoves(),
-                                            dialogWidget->opponentTime().hour() * 60 + dialogWidget->opponentTime().minute(),
-                                            dialogWidget->opponentIncrement()
-                );
-            }
-                protocolOptions[QLatin1String ( "PlayerColors" ) ] = QVariant::fromValue<Colors> ( dialogWidget->color() );
-                connect ( m_protocol, SIGNAL ( initSuccesful() ), SLOT ( protocolInitSuccesful() ), Qt::QueuedConnection );
-                connect ( m_protocol, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), SLOT ( protocolError ( Protocol::ErrorCode, QString ) ), Qt::QueuedConnection );
-                m_protocol->init ( protocolOptions );
+            manager->initialize();
         }
     }
 
@@ -184,21 +146,47 @@ namespace Knights
 
     void MainWindow::protocolInitSuccesful()
     {
-        m_view->setProtocol ( m_protocol );
-        QString whiteName = m_protocol->playerName();
-        QString blackName = m_protocol->opponentName();
-        if ( !( m_protocol->playerColors() & White ) )
-        {
-            qSwap ( whiteName, blackName );
-        }
+        QString whiteName = Protocol::white()->playerName();
+        QString blackName = Protocol::black()->playerName();
         setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
-        
-            Protocol::Features f = m_protocol->supportedFeatures();
+        if ( manager->timeControlEnabled ( White ) || manager->timeControlEnabled ( Black ) )
+        {
+            showClockWidgets();
+        }
 
+        Protocol* player = 0;
+        Protocol* opp = 0;
+        if ( Protocol::white()->isLocal() )
+        {
+            player = Protocol::white();
+            opp = Protocol::black();
+        }
+        if ( Protocol::black()->isLocal() )
+        {
+            if ( player || opp )
+            {
+                player = 0;
+                opp = 0;
+            }
+            else
+            {
+                player = Protocol::black();
+                opp = Protocol::white();
+            }
+        }
+        if ( !player )
+        {
+            // Either two local humans, or two computers / FICS players
+            // in both cases, we don't need those actions
+        }
+        else
+        {
+            Protocol::Features f = m_protocol->supportedFeatures();
             if ( f & Protocol::SetTimeLimit )
             {
+                
                 // The time limit was set or changed by the protocol
-                m_timeLimit = m_protocol->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
+                m_timeLimit = opp->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
                 if ( m_timeLimit )
                 {
                     m_playerTime = m_protocol->attribute ( QLatin1String ( "playerTime" ) ).toTime();
@@ -267,7 +255,8 @@ namespace Knights
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
         
 }
-
+    }
+    
     void MainWindow::showClockWidgets()
     {
         ClockWidget* playerClock = new ClockWidget ( this );
@@ -280,25 +269,15 @@ namespace Knights
         m_dockWidgets << m_clockDock;
         
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
+        
+        playerClock->setPlayerName(White, Protocol::white()->playerName());
+        playerClock->setPlayerName(Black, Protocol::black()->playerName());
 
-        Colors playerColors = m_protocol->playerColors();
-        if ( playerColors == White || playerColors == Black )
-        {
-            Color playerColor = ( playerColors & White ) ? White : Black;
-            playerClock->setPlayerName ( playerColor, m_protocol->playerName() );
-            playerClock->setPlayerName ( oppositeColor ( playerColor ), i18n ( "Opponent" ) );
-            playerClock->setDisplayedPlayer ( playerColor );
-        }
-        else
-        {
-            playerClock->setPlayerName ( White, m_protocol->playerName() );
-            playerClock->setPlayerName ( Black, m_protocol->opponentName() );
-            playerClock->setDisplayedPlayer ( White );
-        }
-        connect ( m_protocol, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-        connect ( m_protocol, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
-        playerClock->setTimeLimit ( White, m_protocol->timeLimit ( White ) );
-        playerClock->setTimeLimit ( Black, m_protocol->timeLimit ( Black ) );
+        connect ( manager, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+        connect ( manager, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );        
+
+        playerClock->setTimeLimit ( White, manager->timeLimit ( White ) );
+        playerClock->setTimeLimit ( Black, manager->timeLimit ( Black ) );
 
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
     }
@@ -346,7 +325,7 @@ namespace Knights
     void MainWindow::drawOffered()
     {
         if ( KMessageBox::questionYesNo ( this,
-            i18n( "Your opponent, %1, offers you a draw. Do you accept?", m_protocol->opponentName() ),
+            i18n( "Your opponent, %1, offers you a draw. Do you accept?", Protocol::white()->playerName() ),
             i18n( "Draw offer" )) == KMessageBox::Yes )
         {
             m_view->gameOver ( NoColor );

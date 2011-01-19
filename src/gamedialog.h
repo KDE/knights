@@ -42,35 +42,14 @@ namespace Knights
             explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~GameDialog();
 
-            Settings::EnumProtocol::type protocol() const;
-            Color color() const;
-            QTime playerTime() const;
-            QTime opponentTime() const;
-            QString program() const;
-            QString server() const;
-            bool timeLimit() const;
-            int playerIncrement() const;
-            int opponentIncrement() const;
-            int playerMoves();
-            int opponentMoves();
-
-            void writeConfig();
 
         private:
-            Ui::GameDialog* ui;
-            bool m_sameTime;
-            bool m_hotseat;
-            bool m_timeEnabled;
-
-            bool m_forceSameTime;
-
+            Ui::GameDialog* ui;            
+            void writeConfig();
             void updateTimeEdits();
 
         private slots:
-            void timeEnabled ( bool enabled );
-            void sameTimeChanged ( bool enabled );
-            void hotseatModeToggled ( bool enabled );
-            void ficsModeToggled ( bool enabled );
+            void setupProtocols();
     };
 
 }
