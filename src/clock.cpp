@@ -29,7 +29,6 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include <Plasma/Svg>
-#include <KDebug>
 
 using namespace Knights;
 
@@ -106,7 +105,6 @@ void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTransla
         static const QPoint offset = QPoint(2, 3);
 
         p->translate(rect.x() + (rect.width() / 2) + offset.x(), rect.y() + (rect.height() / 2) + offset.y());
-	kDebug() << name << rotation;
         p->rotate(rotation);
         p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
         m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
@@ -124,7 +122,6 @@ void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTransla
 
     p->translate(rect.x() + rect.width()/2, rect.y() + rect.height()/2);
     p->rotate(rotation);
-    kDebug() << name << rotation;
     p->translate(-elementRect.width()/2, elementRect.y()-verticalTranslation);
     m_theme->paint(p, QRectF(QPointF(0, 0), elementRect.size()), name);
 
