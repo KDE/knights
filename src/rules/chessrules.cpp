@@ -370,14 +370,45 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
         PieceType type;
         int file;
         bool found = false;
-        switch (move.string().size())
+        QString s = move.string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
+        if  ( s.size() < 2 )
         {
-            case 2:
-                // Size two => only the "To" square
-                move.setTo(move.string());
+                kWarning() << "Unknown move notation" << move.string();
+                move.setFlag ( Move::Illegal, true );
+                return;
+        }
+        if ( s.size() == 2 )
+        {
+            type = Pawn;
+        }
+        else
+        {
+            c = s[0];
+            type = Piece::typeFromChar( c );
+            s = s.mid(1);
+        }
+        move.setTo ( s.right(2) );
+        for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+        {
+            if ( it.value()->color() == color && it.value()->pieceType() == type
+                 && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+            {
+                if ( found )
+                {
+                    kWarning() << "Found more than one possible move";
+                    move.setFlag ( Move::Illegal, true );
+                    return;
+                }
+                move.setFrom( it.key() );
+                found = true;
+            }
+        }
+            if ( !found )
+            {
+                file = Pos::numFromRow(c);
                 for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
                 {
-                    if ( it.value()->color() == color
+                    if ( it.value()->color() == color && it.key().first == file
                         && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
                     {
                         if ( found )
@@ -390,58 +421,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                         found = true;
                     }
                 }
-                break;
-
-            case 3:
-                // Piece type or file, and the "To" square
-            case 4:
-                // Piece type or file, x, and the "To" square
-                c = move.string().at(0);
-                move.setTo(move.string().right(2));
-                kDebug() << c << color << move.to();
-                if ( QString(QLatin1String("KQRNBP")).contains(c, Qt::CaseInsensitive) )
-                {
-                    type = Piece::typeFromChar(c);
-                    for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
-                    {
-                        if ( it.value()->color() == color && it.value()->pieceType() == type
-                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
-                        {
-                            if ( found )
-                            {
-                                kWarning() << "Found more than one possible move";
-                                move.setFlag ( Move::Illegal, true );
-                                return;
-                            }
-                            move.setFrom( it.key() );
-                            found = true;
-                        }
-                    }
-                }
-                if ( move.from() == Pos() && QString(QLatin1String("abcdefgh")).contains(c, Qt::CaseInsensitive) )
-                {
-                    file = Pos::numFromRow(c);
-                    for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
-                    {
-                        if ( it.value()->color() == color && it.key().first == file
-                            && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
-                        {
-                            if ( found )
-                            {
-                                kWarning() << "Found more than one possible move";
-                                move.setFlag ( Move::Illegal, true );
-                                return;
-                            }
-                            move.setFrom( it.key() );
-                            found = true;
-                        }
-                    }
-                }
-                break;
-            default:
-                kWarning() << "Unknown move notation" << move.string();
-                move.setFlag ( Move::Illegal, true );
-        }
+            }
         if ( !found )
         {
             move.setFlag ( Move::Illegal, true );
