@@ -20,7 +20,7 @@
    <item>
     <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="basicTab">
       <attribute name="title">
@@ -183,7 +183,7 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QRadioButton" name="radioButton">
+           <widget class="QRadioButton" name="whiteHuman">
             <property name="text">
              <string>Human</string>
             </property>
@@ -192,14 +192,14 @@
           <item>
            <layout class="QHBoxLayout" name="compLayout_2">
             <item>
-             <widget class="QRadioButton" name="oppComp_2">
+             <widget class="QRadioButton" name="whiteComp">
               <property name="text">
                <string>Computer engine:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KHistoryComboBox" name="programComboBox_2">
+             <widget class="KHistoryComboBox" name="whiteProgram">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -213,14 +213,14 @@
           <item>
            <layout class="QHBoxLayout" name="ficsLayout_2">
             <item>
-             <widget class="QRadioButton" name="oppFics_2">
+             <widget class="QRadioButton" name="whiteFics">
               <property name="text">
                <string>Human at a chess server:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KHistoryComboBox" name="serverComboBox_2">
+             <widget class="KHistoryComboBox" name="whiteServer">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -263,14 +263,14 @@
           <item>
            <layout class="QHBoxLayout" name="compLayout_3">
             <item>
-             <widget class="QRadioButton" name="oppComp_3">
+             <widget class="QRadioButton" name="blackComp">
               <property name="text">
                <string>Computer engine:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KHistoryComboBox" name="programComboBox_3">
+             <widget class="KHistoryComboBox" name="blackProgram">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -284,14 +284,14 @@
           <item>
            <layout class="QHBoxLayout" name="ficsLayout_3">
             <item>
-             <widget class="QRadioButton" name="oppFics_3">
+             <widget class="QRadioButton" name="blackFics">
               <property name="text">
                <string>Human at a chess server:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="KHistoryComboBox" name="serverComboBox_3">
+             <widget class="KHistoryComboBox" name="blackServer">
               <property name="enabled">
                <bool>false</bool>
               </property>
@@ -545,9 +545,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>oppComp_2</sender>
+   <sender>whiteComp</sender>
    <signal>toggled(bool)</signal>
-   <receiver>programComboBox_2</receiver>
+   <receiver>whiteProgram</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -561,9 +561,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>oppFics_2</sender>
+   <sender>whiteFics</sender>
    <signal>toggled(bool)</signal>
-   <receiver>serverComboBox_2</receiver>
+   <receiver>whiteServer</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -577,9 +577,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>oppComp_3</sender>
+   <sender>blackComp</sender>
    <signal>toggled(bool)</signal>
-   <receiver>programComboBox_3</receiver>
+   <receiver>blackProgram</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -593,9 +593,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>oppFics_3</sender>
+   <sender>blackFics</sender>
    <signal>toggled(bool)</signal>
-   <receiver>serverComboBox_3</receiver>
+   <receiver>blackServer</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">

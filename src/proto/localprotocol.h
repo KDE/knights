@@ -31,7 +31,7 @@ class LocalProtocol : public Knights::Protocol
 {
 
 public:
-    virtual void init(const QVariantMap& options);
+    virtual void init();
     virtual void move(const Knights::Move& m);
     LocalProtocol(QObject* parent = 0);
     virtual ~LocalProtocol();

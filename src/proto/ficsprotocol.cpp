@@ -120,9 +120,8 @@ void FicsProtocol::move ( const Move& m )
     write(m.string(false));
 }
 
-void FicsProtocol::init ( const QVariantMap& options )
+void FicsProtocol::init (  )
 {
-    setAttributes ( options );
     m_stage = ConnectStage;
 
     m_console = createConsoleWidget();
@@ -134,8 +133,8 @@ void FicsProtocol::init ( const QVariantMap& options )
 
     QTcpSocket* socket = new QTcpSocket ( this );
     setDevice ( socket );
-    QString address = options.value ( QLatin1String("address"), QLatin1String("freechess.org") ).toString();
-    int port = options.value ( QLatin1String("port"), 5000 ).toInt();
+    QString address = attribute("server").toString();
+    int port = attribute("port").toInt();
     connect ( socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
     socket->connectToHost ( address, port );
 }

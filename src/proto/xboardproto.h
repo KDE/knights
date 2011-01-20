@@ -57,7 +57,7 @@ namespace Knights
     bool drawPending;
 
         public Q_SLOTS:
-            virtual void init ( const QVariantMap& options );
+            virtual void init ();
             virtual void proposeDraw();
             virtual void adjourn();
             virtual void resign();

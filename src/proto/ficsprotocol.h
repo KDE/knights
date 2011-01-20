@@ -100,7 +100,7 @@ namespace Knights
             virtual bool parseStub(const QString& line);
 
         public Q_SLOTS:
-            virtual void init ( const QVariantMap& options );
+            virtual void init ();
             virtual void adjourn();
             virtual void resign();
 

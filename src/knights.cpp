@@ -96,7 +96,6 @@ namespace Knights
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
-        connect ( &gameNewDialog, SIGNAL(accepted()), dialogWidget, SLOT(setupProtocols()) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
             foreach ( QDockWidget* dock, m_dockWidgets )
@@ -132,6 +131,7 @@ namespace Knights
                     break;
             }
             manager->initialize();
+            protocolInitSuccesful();
         }
     }
 
@@ -162,6 +162,27 @@ namespace Knights
             m_protocol->redoLastMove();
         }
     }
+
+void MainWindow::showFicsDialog(Color color, bool computer)
+{
+    if ( computer || true) // TODO: Implement, and remove this check
+    {
+        KMessageBox::sorry(this, i18n("This feature is not yet implemented in Knights"));
+        QTimer::singleShot(1, this, SLOT(fileNew()));
+        return;
+    }
+    FicsProtocol* p = new FicsProtocol();
+    p->setColor(color);
+    p->init();
+    p->openGameDialog();
+}
+
+void MainWindow::showFicsSpectateDialog()
+{
+    KMessageBox::sorry(this, i18n("This feature is not yet implemented in Knights"));
+    QTimer::singleShot(1, this, SLOT(fileNew()));
+    return;
+}
 
     void MainWindow::protocolInitSuccesful()
     {
@@ -200,7 +221,7 @@ namespace Knights
         }
         else
         {
-            Protocol::Features f = m_protocol->supportedFeatures();
+            Protocol::Features f = opp->supportedFeatures();
             if ( f & Protocol::SetTimeLimit )
             {
                 
@@ -208,23 +229,23 @@ namespace Knights
                 m_timeLimit = opp->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
                 if ( m_timeLimit )
                 {
-                    m_playerTime = m_protocol->attribute ( QLatin1String ( "playerTime" ) ).toTime();
-                    m_oppTime = m_protocol->attribute ( QLatin1String ( "opponentTime" ) ).toTime();
+                    m_playerTime = opp->attribute ( QLatin1String ( "playerTime" ) ).toTime();
+                    m_oppTime = opp->attribute ( QLatin1String ( "opponentTime" ) ).toTime();
                 }
             }
             
             if ( f & Protocol::Draw )
             {
-                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), m_protocol, SLOT ( proposeDraw() ) );
+                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), opp, SLOT ( proposeDraw() ) );
                 drawAction->setText ( i18n ( "Propose &Draw" ) );
                 drawAction->setHelpText(i18n("Propose a draw to your opponent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
                 m_protocolActions << drawAction;
-                connect ( m_protocol, SIGNAL(drawOffered()), SLOT(drawOffered()) );
+                connect ( opp, SIGNAL(drawOffered()), SLOT(drawOffered()) );
             }
             if ( f & Protocol::Resign )
             {
-                KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), m_protocol, SLOT ( resign() ) );
+                KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), opp, SLOT ( resign() ) );
                 resignAction->setText ( i18n ( "Resign" ) );
                 resignAction->setHelpText(i18n("Admit your inevitable defeat"));
                 resignAction->setIcon(KIcon(QLatin1String("flag-red")));
@@ -232,7 +253,7 @@ namespace Knights
             }
             if ( f & Protocol::Adjourn )
             {
-                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), m_protocol, SLOT ( adjourn() ) );
+                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), opp, SLOT ( adjourn() ) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
                 adjournAction->setHelpText(i18n("Continue this game at a later time"));
                 adjournAction->setIcon(KIcon(QLatin1String("document-save")));
@@ -246,15 +267,19 @@ namespace Knights
             {
                 KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
                 undoAction->setEnabled(false);
-                connect ( m_protocol, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+                connect ( opp, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
                 m_protocolActions << undoAction;
                 
                 KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
                 redoAction->setEnabled(false);
-                connect ( m_protocol, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
+                connect ( opp, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
                 m_protocolActions << redoAction;
             }
-            foreach ( const Protocol::ToolWidgetData& data, m_protocol->toolWidgets() )
+        }
+        QList<Protocol::ToolWidgetData> list;
+        list << Protocol::white()->toolWidgets();
+        list << Protocol::black()->toolWidgets();
+        foreach ( const Protocol::ToolWidgetData& data, list )
             {
                 QDockWidget* dock = new QDockWidget ( data.title, this );
                 dock->setWidget ( data.widget );
@@ -266,14 +291,11 @@ namespace Knights
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
             if ( m_timeLimit )
-        {
-            showClockWidgets();
-        }
+            {
+                showClockWidgets();
+            }
             createGUI();
-
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
-        
-}
     }
     
     void MainWindow::showClockWidgets()
@@ -307,7 +329,6 @@ namespace Knights
         {
             KMessageBox::error ( this, errorString, Protocol::stringFromErrorCode ( errorCode ) );
         }
-        delete m_protocol;
         fileNew();
     }
 

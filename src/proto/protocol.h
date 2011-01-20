@@ -97,19 +97,20 @@ class ChatWidget;
             QVariant attribute ( const QString& attribute ) const;
             QVariant attribute ( const char* attribute ) const;
 
-        protected:
             void setColor ( Color color );
             void setPlayerName ( const QString& name );
             void setAttribute ( const QString& attribute, QVariant value );
             void setAttribute ( const char* attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
+    public:
+
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
-            virtual void init ( const QVariantMap& options ) = 0;
+            virtual void init() = 0;
 
             // Optional features
         public:

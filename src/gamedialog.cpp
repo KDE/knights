@@ -71,11 +71,82 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->programComboBox->setCurrentItem( Settings::currentProgram(), true );
     ui->serverComboBox->setHistoryItems( Settings::servers() );
     ui->serverComboBox->setCurrentItem( Settings::currentServer(), true );
+
+    ui->whiteProgram->setHistoryItems( Settings::programs() );
+    ui->whiteProgram->setCurrentItem( Settings::currentProgram(), true );
+    ui->whiteServer->setHistoryItems( Settings::servers() );
+    ui->whiteServer->setCurrentItem( Settings::currentServer(), true );
+    
+    ui->blackProgram->setHistoryItems( Settings::programs() );
+    ui->blackProgram->setCurrentItem( Settings::currentProgram(), true );
+    ui->blackServer->setHistoryItems( Settings::servers() );
+    ui->blackServer->setCurrentItem( Settings::currentServer(), true );
 }
 
 GameDialog::~GameDialog()
 {
     delete ui;
+}
+
+GameDialog::FicsMode GameDialog::ficsMode()
+{
+    if ( ui->tabWidget->currentIndex() == 0 )
+    {
+        return ui->oppFics->isChecked() ? PlayerVsFics : NoFics;
+    }
+    else
+    {
+        if ( ui->whiteFics->isChecked() && ui->blackFics->isChecked() )
+        {
+            return BothPlayersFics;
+        }
+        else if ( ui->whiteFics->isChecked() || ui->blackFics->isChecked() )
+        {
+            return PlayerVsFics;
+        }
+        else
+        {
+            return NoFics;
+        }
+    }
+}
+
+Color GameDialog::ficsColor()
+{
+    if ( ui->tabWidget->currentIndex() == 0 )
+    {
+        if ( ui->colorRandom->isChecked() )
+        {
+            return NoColor;
+        }
+        else if ( ui->colorWhite->isChecked() )
+        {
+            return White;
+        }
+        else
+        {
+            return Black;
+        }
+    }
+    else
+    {
+        if ( ui->whiteFics->isChecked() && ui->blackFics->isChecked() )
+        {
+            return NoColor;
+        }
+        else if ( ui->whiteFics->isChecked() )
+        {
+            return White;
+        }
+        else if ( ui->blackFics->isChecked() )
+        {
+            return Black;
+        }
+        else
+        {
+            return NoColor;
+        }
+    }
 }
 
 void GameDialog::setupProtocols()
@@ -88,6 +159,7 @@ void GameDialog::setupProtocols()
         if ( ui->oppComp->isChecked() )
         {
             opp = new XBoardProtocol();
+            opp->setAttribute("program", ui->programComboBox->currentText());
         }
         else if ( ui->oppHuman->isChecked() )
         {
@@ -96,6 +168,8 @@ void GameDialog::setupProtocols()
         else
         {
             opp = new FicsProtocol();
+            opp->setAttribute("server", ui->serverComboBox->currentText());
+            opp->setAttribute("port", 5000);
         }
         Color color = NoColor;
         if ( ui->colorBlack->isChecked() )
@@ -123,8 +197,36 @@ void GameDialog::setupProtocols()
     }
     else
     {
-        // Advanced settings
-        // TODO
+        if ( ui->whiteHuman->isChecked() )
+        {
+            Protocol::setWhiteProtocol(new LocalProtocol);
+        }
+        else if ( ui->whiteComp->isChecked() )
+        {
+            Protocol::setWhiteProtocol(new XBoardProtocol);
+            Protocol::white()->setAttribute("program", ui->whiteProgram->currentText());
+        }
+        else
+        {
+            Protocol::setWhiteProtocol(new FicsProtocol);
+            Protocol::white()->setAttribute("server", ui->whiteServer->currentText());
+            Protocol::white()->setAttribute("port", 5000);
+        }
+        if ( ui->blackHuman->isChecked() )
+        {
+            Protocol::setBlackProtocol(new LocalProtocol);
+        }
+        else if ( ui->blackComp->isChecked() )
+        {
+            Protocol::setBlackProtocol(new XBoardProtocol);
+            Protocol::black()->setAttribute("program", ui->blackProgram->currentText());
+        }
+        else
+        {
+            Protocol::setBlackProtocol(new FicsProtocol);
+            Protocol::black()->setAttribute("server", ui->blackServer->currentText());
+            Protocol::black()->setAttribute("port", 5000);
+        }
     }
     TimeControl tc;
     tc.baseTime = ui->startingTime->time();
@@ -141,7 +243,12 @@ void GameDialog::writeConfig()
     if ( ui->oppComp->isChecked() )
     {
         selectedProtocol = Settings::EnumProtocol::XBoard;
-        Settings::setPrograms( ui->programComboBox->historyItems() );
+        QStringList programs;
+        programs << ui->programComboBox->historyItems();
+        programs << ui->whiteProgram->historyItems();
+        programs << ui->blackProgram->historyItems();
+        programs.removeDuplicates();
+        Settings::setPrograms( programs );
         Settings::setCurrentProgram( ui->programComboBox->currentText() );
     }
     else if ( ui->oppFics->isChecked() )

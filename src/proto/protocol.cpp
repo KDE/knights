@@ -92,11 +92,13 @@ namespace Knights
 
 void Protocol::setWhiteProtocol(Protocol* p)
 {
+    p->setColor(White);
     m_white = p;
 }
 
 void Protocol::setBlackProtocol(Protocol* p)
 {
+    p->setColor(Black);
     m_black = p;
 }
 

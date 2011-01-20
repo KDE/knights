@@ -27,9 +27,8 @@
 
 using namespace Knights;
 
-void LocalProtocol::init ( const QVariantMap& options )
+void LocalProtocol::init (  )
 {
-    Q_UNUSED(options)
     emit initSuccesful();
 }
 

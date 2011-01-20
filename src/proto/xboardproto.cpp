@@ -82,10 +82,9 @@ void XBoardProtocol::move ( const Move& m )
     manager->startTime();
 }
 
-void XBoardProtocol::init ( const QVariantMap& options )
+void XBoardProtocol::init (  )
 {
-    setAttributes ( options );
-    QStringList args = options[QLatin1String ( "program" ) ].toString().split ( QLatin1Char ( ' ' ) );
+    QStringList args = attribute("program").toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
     if ( !args.contains ( QLatin1String ( "--xboard" ) ) && !args.contains ( QLatin1String ( "xboard" ) ) )
     {
