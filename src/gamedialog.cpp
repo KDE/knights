@@ -37,9 +37,9 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     ui->timeGroupBasic->setEnabled ( Settings::timeEnabled() );
 
-    ui->startingTimeBasic->setTime ( Settings::playerTime().time() );
-    ui->timeIncrementBasic->setTime ( Settings::playerTimeIncrement().time() );
-    ui->numberOfMovesBasic->setValue ( Settings::playerMoves() );
+    ui->startingTime->setTime ( Settings::playerTime().time() );
+    ui->timeIncrement->setTime ( Settings::playerTimeIncrement().time() );
+    ui->numberOfMoves->setValue ( Settings::playerMoves() );
 
     switch ( Settings::protocol() )
     {
@@ -127,13 +127,10 @@ void GameDialog::setupProtocols()
         // TODO
     }
     TimeControl tc;
-    tc.baseTime = ui->startingTimeWhite->time();
-    tc.moves = ui->numberOfMovesWhite->value();
-    tc.increment = QTime().secsTo ( ui->timeIncrementWhite->time() );
+    tc.baseTime = ui->startingTime->time();
+    tc.moves = ui->numberOfMoves->value();
+    tc.increment = QTime().secsTo ( ui->timeIncrement->time() );
     Protocol::white()->setTimeControl ( tc );
-    tc.baseTime = ui->startingTimeBlack->time();
-    tc.moves = ui->numberOfMovesBlack->value();
-    tc.increment = QTime().secsTo ( ui->timeIncrementBlack->time() );
     Protocol::black()->setTimeControl ( tc );
 }
 
@@ -170,8 +167,8 @@ void GameDialog::writeConfig()
     Settings::setTimeEnabled ( timeLimitEnabled );
     if ( timeLimitEnabled )
     {
-        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->startingTimeBasic->time() ) );
-        Settings::setPlayerTimeIncrement( QDateTime ( QDate::currentDate(), ui->timeIncrementBasic->time() ) );
+        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->startingTime->time() ) );
+        Settings::setPlayerTimeIncrement( QDateTime ( QDate::currentDate(), ui->timeIncrement->time() ) );
     }
     Settings::self()->writeConfig();
 }

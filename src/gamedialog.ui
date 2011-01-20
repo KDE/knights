@@ -6,24 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>275</height>
+    <width>600</width>
+    <height>300</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
-    <number>0</number>
-   </property>
-   <item row="3" column="0">
-    <widget class="QTabWidget" name="tabWidget">
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>300</height>
+   </size>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <item>
+    <widget class="KTabWidget" name="tabWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="basicTab">
       <attribute name="title">
-       <string>Normal games</string>
+       <string>Normal Games</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_2">
+      <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="opponentGroup">
          <property name="title">
@@ -123,48 +126,45 @@
          <property name="checkable">
           <bool>true</bool>
          </property>
-         <layout class="QFormLayout" name="formLayout_3">
-          <property name="fieldGrowthPolicy">
-           <enum>QFormLayout::ExpandingFieldsGrow</enum>
-          </property>
+         <layout class="QFormLayout" name="formLayout">
           <item row="0" column="0">
-           <widget class="QLabel" name="startingTimeLabel_3">
-            <property name="text">
-             <string>Starting &amp;Time</string>
-            </property>
-            <property name="buddy">
-             <cstring>startingTimeWhite</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QTimeEdit" name="startingTimeBasic"/>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="numberOfMovesLabel_3">
+           <widget class="QLabel" name="numberOfMovesLabel">
             <property name="text">
              <string>Number of &amp;moves</string>
             </property>
             <property name="buddy">
-             <cstring>numberOfMovesWhite</cstring>
+             <cstring>numberOfMoves</cstring>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="KIntSpinBox" name="numberOfMovesBasic"/>
+          <item row="1" column="0">
+           <widget class="QLabel" name="startingTimeLabel">
+            <property name="text">
+             <string>Starting &amp;Time</string>
+            </property>
+            <property name="buddy">
+             <cstring>startingTime</cstring>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="timeIncrementLabel_3">
+           <widget class="QLabel" name="timeIncrementLabel">
             <property name="text">
              <string>Time &amp;Increment</string>
             </property>
             <property name="buddy">
-             <cstring>timeIncrementWhite</cstring>
+             <cstring>timeIncrement</cstring>
             </property>
            </widget>
           </item>
+          <item row="0" column="1">
+           <widget class="KIntSpinBox" name="numberOfMoves"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTimeEdit" name="startingTime"/>
+          </item>
           <item row="2" column="1">
-           <widget class="QTimeEdit" name="timeIncrementBasic"/>
+           <widget class="QTimeEdit" name="timeIncrement"/>
           </item>
          </layout>
         </widget>
@@ -173,10 +173,10 @@
      </widget>
      <widget class="QWidget" name="customTab">
       <attribute name="title">
-       <string>Custom configuration</string>
+       <string>Custom</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
         <widget class="QGroupBox" name="whiteBox">
          <property name="title">
           <string>White</string>
@@ -232,63 +232,22 @@
            </layout>
           </item>
           <item>
-           <widget class="QGroupBox" name="timeGroupWhite">
-            <property name="title">
-             <string>Time Limit</string>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="checkable">
-             <bool>true</bool>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
             </property>
-            <layout class="QFormLayout" name="formLayout">
-             <property name="fieldGrowthPolicy">
-              <enum>QFormLayout::ExpandingFieldsGrow</enum>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="startingTimeLabel">
-               <property name="text">
-                <string>Starting &amp;Time</string>
-               </property>
-               <property name="buddy">
-                <cstring>startingTimeWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QTimeEdit" name="startingTimeWhite"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="numberOfMovesLabel">
-               <property name="text">
-                <string>Number of &amp;moves</string>
-               </property>
-               <property name="buddy">
-                <cstring>numberOfMovesWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="KIntSpinBox" name="numberOfMovesWhite"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="timeIncrementLabel">
-               <property name="text">
-                <string>Time &amp;Increment</string>
-               </property>
-               <property name="buddy">
-                <cstring>timeIncrementWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QTimeEdit" name="timeIncrementWhite"/>
-             </item>
-            </layout>
-           </widget>
+           </spacer>
           </item>
          </layout>
         </widget>
        </item>
-       <item>
+       <item row="1" column="0">
         <widget class="QGroupBox" name="blackBox">
          <property name="title">
           <string>Black</string>
@@ -344,58 +303,68 @@
            </layout>
           </item>
           <item>
-           <widget class="QGroupBox" name="timeGroupBlack">
-            <property name="title">
-             <string>Time Limit</string>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="checkable">
-             <bool>true</bool>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>0</height>
+             </size>
             </property>
-            <layout class="QFormLayout" name="formLayout_2">
-             <property name="fieldGrowthPolicy">
-              <enum>QFormLayout::ExpandingFieldsGrow</enum>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="startingTimeLabel_2">
-               <property name="text">
-                <string>Starting &amp;Time</string>
-               </property>
-               <property name="buddy">
-                <cstring>startingTimeWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QTimeEdit" name="startingTimeBlack"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="numberOfMovesLabel_2">
-               <property name="text">
-                <string>Number of &amp;moves</string>
-               </property>
-               <property name="buddy">
-                <cstring>numberOfMovesWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="KIntSpinBox" name="numberOfMovesBlack"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="timeIncrementLabel_2">
-               <property name="text">
-                <string>Time &amp;Increment</string>
-               </property>
-               <property name="buddy">
-                <cstring>timeIncrementWhite</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QTimeEdit" name="timeIncrementBlack"/>
-             </item>
-            </layout>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2">
+        <widget class="QGroupBox" name="timeGroupBasic_2">
+         <property name="title">
+          <string>Time Limit</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <layout class="QFormLayout" name="formLayout_2">
+          <item row="0" column="0">
+           <widget class="QLabel" name="numberOfMovesLabel_2">
+            <property name="text">
+             <string>Number of &amp;moves</string>
+            </property>
+            <property name="buddy">
+             <cstring>numberOfMoves_2</cstring>
+            </property>
            </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="startingTimeLabel_2">
+            <property name="text">
+             <string>Starting &amp;Time</string>
+            </property>
+            <property name="buddy">
+             <cstring>startingTime_2</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="timeIncrementLabel_2">
+            <property name="text">
+             <string>Time &amp;Increment</string>
+            </property>
+            <property name="buddy">
+             <cstring>timeIncrement_2</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="KIntSpinBox" name="numberOfMoves_2"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTimeEdit" name="startingTime_2"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QTimeEdit" name="timeIncrement_2"/>
           </item>
          </layout>
         </widget>
@@ -418,6 +387,12 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
+   <class>KTabWidget</class>
+   <extends>QTabWidget</extends>
+   <header>ktabwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>KHistoryComboBox</class>
    <extends>KComboBox</extends>
    <header>khistorycombobox.h</header>
@@ -426,34 +401,114 @@
  <resources/>
  <connections>
   <connection>
+   <sender>numberOfMoves</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>numberOfMoves_2</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>305</x>
+     <y>201</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>465</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startingTime</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>startingTime_2</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>219</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>482</x>
+     <y>108</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeIncrement</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>timeIncrement_2</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>numberOfMoves_2</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>numberOfMoves</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>467</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>startingTime_2</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>startingTime</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>502</x>
+     <y>101</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>295</x>
+     <y>226</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>timeIncrement_2</sender>
+   <signal>timeChanged(QTime)</signal>
+   <receiver>timeIncrement</receiver>
+   <slot>setTime(QTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>490</x>
+     <y>125</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>291</x>
+     <y>250</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>oppComp</sender>
    <signal>toggled(bool)</signal>
    <receiver>programComboBox</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>105</x>
-     <y>106</y>
+     <x>106</x>
+     <y>95</y>
     </hint>
     <hint type="destinationlabel">
-     <x>535</x>
-     <y>107</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>oppHuman</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>colorGroup</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>63</x>
-     <y>79</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>235</x>
-     <y>216</y>
+     <x>300</x>
+     <y>105</y>
     </hint>
    </hints>
   </connection>
@@ -464,172 +519,92 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>136</y>
+     <x>135</x>
+     <y>132</y>
     </hint>
     <hint type="destinationlabel">
-     <x>573</x>
-     <y>137</y>
+     <x>306</x>
+     <y>138</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>oppFics</sender>
+   <sender>oppHuman</sender>
    <signal>toggled(bool)</signal>
-   <receiver>numberOfMovesLabel_3</receiver>
-   <slot>setHidden(bool)</slot>
+   <receiver>colorGroup</receiver>
+   <slot>setDisabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>20</x>
-     <y>126</y>
+     <x>79</x>
+     <y>77</y>
     </hint>
     <hint type="destinationlabel">
-     <x>414</x>
-     <y>220</y>
+     <x>73</x>
+     <y>159</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>oppFics</sender>
+   <sender>oppComp_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>numberOfMovesBasic</receiver>
-   <slot>setHidden(bool)</slot>
+   <receiver>programComboBox_2</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>125</y>
+     <x>111</x>
+     <y>98</y>
     </hint>
     <hint type="destinationlabel">
-     <x>452</x>
-     <y>222</y>
+     <x>198</x>
+     <y>97</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>numberOfMovesBasic</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>numberOfMovesWhite</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>465</x>
-     <y>218</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>164</x>
-     <y>213</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>numberOfMovesBasic</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>numberOfMovesWhite</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>465</x>
-     <y>218</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>164</x>
-     <y>213</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>startingTimeBasic</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>startingTimeWhite</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>473</x>
-     <y>191</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>172</x>
-     <y>186</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>startingTimeBasic</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>startingTimeBlack</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>473</x>
-     <y>191</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>480</x>
-     <y>186</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeIncrementBasic</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>timeIncrementWhite</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>473</x>
-     <y>245</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>172</x>
-     <y>240</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeIncrementBasic</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>timeIncrementBlack</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>473</x>
-     <y>245</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>480</x>
-     <y>240</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeGroupBasic</sender>
+   <sender>oppFics_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>timeGroupWhite</receiver>
-   <slot>setChecked(bool)</slot>
+   <receiver>serverComboBox_2</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>467</x>
-     <y>207</y>
+     <x>163</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel">
-     <x>159</x>
-     <y>201</y>
+     <x>218</x>
+     <y>121</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>timeGroupBasic</sender>
+   <sender>oppComp_3</sender>
    <signal>toggled(bool)</signal>
-   <receiver>timeGroupBlack</receiver>
-   <slot>setChecked(bool)</slot>
+   <receiver>programComboBox_3</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>467</x>
-     <y>207</y>
+     <x>77</x>
+     <y>227</y>
     </hint>
     <hint type="destinationlabel">
-     <x>467</x>
-     <y>201</y>
+     <x>178</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>oppFics_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>serverComboBox_3</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>176</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>223</x>
+     <y>259</y>
     </hint>
    </hints>
   </connection>

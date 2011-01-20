@@ -63,6 +63,8 @@ namespace Knights
         private:
             void setupActions();
             void showClockWidgets();
+            void showFicsDialog( Color playerColor = NoColor, bool computer = false);
+            void showFicsSpectateDialog();
 
         private:
             Ui::prefs_base ui_prefs_base ;

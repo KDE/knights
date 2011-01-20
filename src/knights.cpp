@@ -112,6 +112,25 @@ namespace Knights
             }
             m_protocolActions.clear();
             m_view->clearBoard();
+
+            switch ( dialogWidget->ficsMode() )
+            {
+                case GameDialog::NoFics:
+                    dialogWidget->setupProtocols();
+                    break;
+
+                case GameDialog::PlayerVsFics:
+                    showFicsDialog(dialogWidget->ficsColor(), false);
+                    break;
+
+                case GameDialog::ComputerVsFics:
+                    showFicsDialog(dialogWidget->ficsColor(), true);
+                    break;
+
+                case GameDialog::BothPlayersFics:
+                    showFicsSpectateDialog();
+                    break;
+            }
             manager->initialize();
         }
     }

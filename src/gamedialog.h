@@ -39,16 +39,27 @@ namespace Knights
     {
             Q_OBJECT
         public:
+
+            enum FicsMode
+            {
+                NoFics,
+                PlayerVsFics,
+                ComputerVsFics,
+                BothPlayersFics
+            };
+            
             explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~GameDialog();
 
+            FicsMode ficsMode();
+            Color ficsColor();
 
         private:
             Ui::GameDialog* ui;            
             void writeConfig();
             void updateTimeEdits();
 
-        private slots:
+        public slots:
             void setupProtocols();
     };
 
