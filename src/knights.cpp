@@ -270,8 +270,8 @@ void MainWindow::showFicsSpectateDialog()
             }
         }
         QList<Protocol::ToolWidgetData> list;
-        list << Protocol::white()->toolWidgets();
         list << Protocol::black()->toolWidgets();
+        list << Protocol::white()->toolWidgets();
         foreach ( const Protocol::ToolWidgetData& data, list )
             {
                 QDockWidget* dock = new QDockWidget ( data.title, this );

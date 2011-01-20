@@ -21,6 +21,8 @@
 
 #include "piece.h"
 
+#include <KLocale>
+
 #include <QtGui/QPainter>
 #include <QtGui/QStyleOption>
 #include <QtSvg/QSvgRenderer>
@@ -142,6 +144,20 @@ namespace Knights
                 return color;
         }
     }
+
+QString colorName(Color color)
+{
+        switch ( color )
+        {
+            case White:
+                return i18n("White");
+            case Black:
+                return i18n("Black");
+            default:
+                return QString();
+        }
+}
+
 
     Color Piece::color()
     {
