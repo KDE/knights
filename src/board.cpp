@@ -192,10 +192,6 @@ void Board::movePiece ( const Move& move )
         // We also don't emit this for rook moves during castling
         emit pieceMoved ( m );
     }
-    if ( !m.flag(Move::Additional) )
-    {
-        changeCurrentPlayer();
-    }
 }
 
 void Board::populate()

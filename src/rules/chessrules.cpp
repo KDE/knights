@@ -424,6 +424,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
             }
         if ( !found )
         {
+            kWarning() << "No possible moves found";
             move.setFlag ( Move::Illegal, true );
             return;
         }
@@ -433,6 +434,7 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     p->color();
     if ( !p )
     {
+        kWarning() << "No piece at position" << move.from();
         move.setFlag(Move::Illegal, true);
         return;
     }

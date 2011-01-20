@@ -105,7 +105,6 @@ void Manager::setCurrentTime(Color color, const QTime& time)
     {
         Q_D(GameManager);
         QTime time;
-	kDebug() << colorName(d->activePlayer);
         switch ( d->activePlayer )
         {
             case White:
