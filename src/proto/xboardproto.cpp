@@ -148,33 +148,38 @@ void XBoardProtocol::parseLine(const QString& line)
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
         {
-            kDebug() << line;
             type = ChatWidget::MoveMessage;
             const QRegExp position(QLatin1String("[a-h][1-8]"));
+            QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
+            if ( moveString == lastMoveString )
+            {
+                return;
+            }
+            lastMoveString = moveString;
+            Move m;
             if ( position.indexIn(line) > -1 )
             {
-                QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
-                Move m;
-                if ( moveString.contains(QLatin1String("O-O-O")) || moveString.contains(QLatin1String("o-o-o")) )
-                {
-                    m = Move::castling(Move::QueenSide, Manager::self()->activePlayer());
-                }
-                else if ( moveString.contains(QLatin1String("O-O")) || moveString.contains(QLatin1String("o-o")) )
-                {
-                    m = Move::castling(Move::KingSide, Manager::self()->activePlayer());
-                }
-                else if ( moveString != lastMoveString )
-                {
-                    // GnuChess may report its move twice, we need only one
-                    kDebug() << "Computer's move:" << moveString;
-                    lastMoveString = moveString;
-                    m = Move ( moveString );
-                }
-                else
-                {
-                    // Not a good move
-                    return;
-                }
+                m.setString(moveString);
+            }
+            else if ( moveString.contains(QLatin1String("O-O-O"))
+                    || moveString.contains(QLatin1String("o-o-o"))
+                    || moveString.contains(QLatin1String("0-0-0")) )
+            {
+                m = Move::castling(Move::QueenSide, Manager::self()->activePlayer());
+            }
+            else if ( moveString.contains(QLatin1String("O-O"))
+                    || moveString.contains(QLatin1String("o-o"))
+                    || moveString.contains(QLatin1String("0-0")) )
+            {
+                m = Move::castling(Move::KingSide, Manager::self()->activePlayer());
+            }
+            else
+            {
+                type = ChatWidget::GeneralMessage;
+            }
+            if ( m.isValid() )
+            {
+                kDebug() << "Move by" << attribute("program").toString() << ":" << m;
                 Manager::self()->addMoveToHistory ( m );
                 emit pieceMoved ( m );
                 emit undoPossible ( true );

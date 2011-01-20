@@ -431,7 +431,6 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     }
 
     Piece* p = m_grid->value ( move.from() );
-    p->color();
     if ( !p )
     {
         kWarning() << "No piece at position" << move.from();
@@ -442,10 +441,12 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
     if ( p->pieceType() == King && length ( move ) == 2 )
     {
+        kDebug() << "Castling";
         // It's castling
         move.setFlag ( Move::Castle, true );
         int line = move.to().second;
         Move rookMove;
+        rookMove.setFlag ( Move::Forced, true );
         rookMove.setTo ( ( move.from() + move.to() ) / 2 );
         if ( move.to().first > move.from().first )
         {
@@ -482,7 +483,6 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     if ( move.flag(Move::Take) )
     {
         Piece* p = m_grid->value ( move.to() );
-        kDebug() << p;
         move.addRemovedPiece ( move.to(), qMakePair ( p->color(), p->pieceType() ) );
     }
 }
