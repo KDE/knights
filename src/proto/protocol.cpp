@@ -111,6 +111,20 @@ Protocol* Protocol::black()
 {
     return m_black;
 }
+
+Protocol* Protocol::byColor(Color color)
+{
+    switch ( color )
+    {
+        case White:
+            return white();
+        case Black:
+            return black();
+        case NoColor:
+            return 0;
+    }
+    return 0;
+}
     void Protocol::setColor ( Color color )
     {
         Q_D(Protocol);

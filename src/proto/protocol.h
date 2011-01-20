@@ -85,6 +85,7 @@ class ChatWidget;
             static void setWhiteProtocol ( Protocol* p );
             static Protocol* black();
             static void setBlackProtocol ( Protocol* p );
+            static Protocol* byColor ( Knights::Color color );
 
             Protocol ( QObject* parent = 0 );
             virtual ~Protocol();

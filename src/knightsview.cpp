@@ -33,6 +33,7 @@
 #include <QtGui/QLabel>
 #include <QtCore/QtConcurrentRun>
 #include <QtCore/QEvent>
+#include "gamemanager.h"
 
 using namespace Knights;
 
@@ -49,29 +50,29 @@ KnightsView::~KnightsView()
 
 }
 
-void KnightsView::setProtocol ( Protocol* protocol )
-{
-    m_protocol = protocol;
-}
-
 void KnightsView::setupBoard()
 {
     m_board = new Board ( this );
     ui.canvas->setScene ( m_board );
     resizeScene();
-    foreach ( Protocol* p, QList<Protocol*>() << Protocol::white() << Protocol::black() )
-    {
-        connect ( m_board, SIGNAL ( pieceMoved ( Move ) ), p, SLOT ( move ( Move ) ) );
-        connect ( p, SIGNAL ( pieceMoved ( Move ) ), m_board, SLOT ( movePiece ( Move ) ) );
-        if ( p->supportedFeatures() & Protocol::GameOver )
-        {
-            connect ( p, SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
-        }
-    }
+    kDebug() << Manager::self();
+    connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
+    connect ( m_board, SIGNAL(pieceMoved(Move)), Manager::self(), SLOT(moveByBoard(Move)) );
+    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
     connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
-    connect ( m_board, SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
+    connect ( Manager::self(), SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
     connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
-    connect ( m_board, SIGNAL ( centerChanged ( QPointF ) ), this, SLOT ( centerView ( QPointF ) ) );
+
+    Colors playerColors;
+    if ( Protocol::white()->isLocal() )
+    {
+        playerColors |= White;
+    }
+    if ( Protocol::black()->isLocal() )
+    {
+        playerColors |= Black;
+    }
+    m_board->setPlayerColors(playerColors);
 }
 
 void KnightsView::clearBoard()
@@ -101,7 +102,6 @@ void KnightsView::gameOver ( Color winner )
             KMessageBox::sorry ( this, text );
         }
     }
-    m_protocol->setWinner ( winner );
     emit gameNew();
 }
 

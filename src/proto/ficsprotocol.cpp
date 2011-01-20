@@ -406,7 +406,7 @@ void FicsProtocol::parseLine(const QString& line)
                     tc.moves = 0;
                     tc.baseTime = QTime().addSecs(whiteTimeLimit);
                     tc.increment = moveRegExp.cap(2).toInt();
-                    manager->setTimeControl(NoColor, tc);
+                    Manager::self()->setTimeControl(NoColor, tc);
                     break;
                 }
 
@@ -435,14 +435,14 @@ void FicsProtocol::parseLine(const QString& line)
                         }
                     }
                     emit pieceMoved ( m );
-                    manager->changeActivePlayer();
+                    Manager::self()->changeActivePlayer();
                 }
-                manager->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
-                manager->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
+                Manager::self()->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
+                Manager::self()->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
 
                 if ( moveRegExp.cap(5).toInt() == 2 )
                 {
-                    manager->startTime();
+                    Manager::self()->startTime();
                 }
             }
             else if ( line.contains ( QLatin1String(") says:") ) )

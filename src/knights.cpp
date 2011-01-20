@@ -130,7 +130,7 @@ namespace Knights
                     showFicsSpectateDialog();
                     break;
             }
-            manager->initialize();
+            Manager::self()->initialize();
             protocolInitSuccesful();
         }
     }
@@ -142,10 +142,7 @@ namespace Knights
         {
             pauseAction->trigger();
         }
-        if ( m_protocol )
-        {
-            m_protocol->undoLastMove();
-        }
+        Manager::self()->undo();
     }
 
     void MainWindow::redo()
@@ -156,11 +153,7 @@ namespace Knights
         {
             pauseAction->trigger();
         }
-        
-        if ( m_protocol )
-        {
-            m_protocol->redoLastMove();
-        }
+        Manager::self()->redo();
     }
 
 void MainWindow::showFicsDialog(Color color, bool computer)
@@ -189,7 +182,7 @@ void MainWindow::showFicsSpectateDialog()
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
         setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
-        if ( manager->timeControlEnabled ( White ) || manager->timeControlEnabled ( Black ) )
+        if ( Manager::self()->timeControlEnabled ( White ) || Manager::self()->timeControlEnabled ( Black ) )
         {
             showClockWidgets();
         }
@@ -314,11 +307,11 @@ void MainWindow::showFicsSpectateDialog()
         playerClock->setPlayerName(White, Protocol::white()->playerName());
         playerClock->setPlayerName(Black, Protocol::black()->playerName());
 
-        connect ( manager, SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-        connect ( manager, SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );        
+        connect ( Manager::self(), SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+        connect ( Manager::self(), SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
 
-        playerClock->setTimeLimit ( White, manager->timeLimit ( White ) );
-        playerClock->setTimeLimit ( Black, manager->timeLimit ( Black ) );
+        playerClock->setTimeLimit ( White, Manager::self()->timeLimit ( White ) );
+        playerClock->setTimeLimit ( Black, Manager::self()->timeLimit ( Black ) );
 
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
     }
@@ -356,10 +349,7 @@ void MainWindow::showFicsSpectateDialog()
     {
         kDebug();
         m_view->setPaused ( pause );
-        if ( m_protocol->supportedFeatures() & Protocol::Pause )
-        {
-            pause ? m_protocol->pauseGame() : m_protocol->resumeGame();
-        }
+        pause ? Manager::self()->stopTime() : Manager::self()->startTime();
     }
 
     void MainWindow::drawOffered()

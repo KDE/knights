@@ -61,9 +61,7 @@ namespace Knights
             void setRuleSet ( Rules* rules );
 
             static bool isInBoard ( const Pos& pos );
-            void setPlayerColors ( Colors colors );
             Colors playerColors() const;
-            void setCurrentColor ( Color color );
 
         private:
             Rules *m_rules;
@@ -114,6 +112,8 @@ namespace Knights
             void setPaused ( bool paused );
             void updateGraphics();
             void changeDisplayedPlayer();
+            void setCurrentColor ( Color color );
+            void setPlayerColors ( Colors colors );
 
         signals:
             void pieceMoved ( const Move& m );

@@ -98,6 +98,7 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 
 void Board::movePiece ( const Move& move )
 {
+    kDebug() << move;
     Move m = move;
     m_rules->checkSpecialFlags ( m, m_currentPlayer );
     if ( m.flag ( Move::Illegal ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
@@ -186,6 +187,7 @@ void Board::movePiece ( const Move& move )
     }
     if ( ( m_playerColors & m_currentPlayer ) && !m.flag(Move::Additional) && !m.flag(Move::Forced) )
     {
+        kDebug() << "Move by a human";
         // This was a move made by a human, either by clicking or through a console
         // We also don't emit this for rook moves during castling
         emit pieceMoved ( m );
@@ -419,11 +421,6 @@ Colors Board::playerColors() const
 
 void Board::setPlayerColors ( Colors colors )
 {
-    if ( colors == NoColor )
-    {
-        qDebug() << "The 'Two computers one board' feature not yet implemented";
-        return;
-    }
     m_playerColors = colors;
     if ( m_playerColors & m_currentPlayer )
     {
@@ -431,7 +428,14 @@ void Board::setPlayerColors ( Colors colors )
     }
     else
     {
-        m_displayedPlayer = ( m_playerColors & White ) ? White : Black;
+        if ( m_playerColors == Black )
+        {
+            m_displayedPlayer = Black;
+        }
+        else
+        {
+            m_displayedPlayer = White;
+        }
     }
     changeDisplayedPlayer();
     populate();
@@ -450,10 +454,8 @@ void Board::changeCurrentPlayer()
 
 void Board::setCurrentColor ( Color color )
 {
-    if ( m_currentPlayer != color )
-    {
-        m_currentPlayer = color;
-    }
+    m_currentPlayer = color;
+    emit activePlayerChanged ( m_currentPlayer );
 }
 
 

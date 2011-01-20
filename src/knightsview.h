@@ -55,13 +55,11 @@ namespace Knights
              * Destructor
              */
             virtual ~KnightsView();
-            void setProtocol ( Protocol* protocol );
             void setPaused ( bool paused );
 
         private:
             Ui::knightsview_base ui;
             Board* m_board;
-            Protocol* m_protocol;
 
             static QString pieceTypeName ( PieceType );
             static QString colorName ( Color );

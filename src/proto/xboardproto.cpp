@@ -71,15 +71,13 @@ void XBoardProtocol::move ( const Move& m )
 {
     kDebug() << "Player's move:" << m.string(false);
     write ( m.string(false) );
-    manager->addMoveToHistory( m );
     lastMoveString.clear();
     emit undoPossible ( false );
-    manager->changeActivePlayer();
     if ( resumePending )
     {
         resumeGame();
     }
-    manager->startTime();
+    Manager::self()->startTime();
 }
 
 void XBoardProtocol::init (  )
@@ -105,12 +103,12 @@ void XBoardProtocol::init (  )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
-    TimeControl c = manager->timeControl ( White );
+    TimeControl c = Manager::self()->timeControl ( White );
     if ( c.baseTime != QTime() )
     {
         write(QString(QLatin1String("level %1 %2 %3")).arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
     }
-    if ( color() == Black )
+    if ( color() == White )
     {
         write("go");
     }
@@ -146,7 +144,6 @@ void XBoardProtocol::parseLine(const QString& line)
         if ( line.contains ( QLatin1String ( "Illegal move" ) ) )
         {
             type = ChatWidget::ErrorMessage;
-            manager->changeActivePlayer();
             emit illegalMove();
         }
         else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) )
@@ -163,11 +160,10 @@ void XBoardProtocol::parseLine(const QString& line)
                     kDebug() << "Computer's move:" << moveString;
                     lastMoveString = moveString;
                     Move m = Move ( moveString );
-                    manager->addMoveToHistory ( m );
-                    manager->changeActivePlayer();
+                    Manager::self()->addMoveToHistory ( m );
                     emit pieceMoved ( m );
                     emit undoPossible ( true );
-                    manager->startTime();
+                    Manager::self()->startTime();
                 }
             }
         }
@@ -222,16 +218,12 @@ void XBoardProtocol::resign()
 void XBoardProtocol::undoLastMove()
 {
     write("undo");
-    manager->changeActivePlayer();
-    emit pieceMoved(manager->nextUndoMove());
 }
 
 void XBoardProtocol::redoLastMove()
 {
-    manager->changeActivePlayer();
-    Move m = manager->nextRedoMove();
+    Move m = Manager::self()->nextRedoMove();
     write(m.string(false));
-    emit pieceMoved(m);
 }
 
 void XBoardProtocol::proposeDraw()
@@ -247,7 +239,7 @@ void XBoardProtocol::pauseGame()
 
 void XBoardProtocol::resumeGame()
 {
-    if ( manager->activePlayer() != color() )
+    if ( Manager::self()->activePlayer() != color() )
     {
         resumePending = true;
     }
@@ -256,7 +248,7 @@ void XBoardProtocol::resumeGame()
         write("go");
         emit undoPossible ( false );
         emit redoPossible ( false );
-        manager->startTime();
+        Manager::self()->startTime();
     }
 }
 

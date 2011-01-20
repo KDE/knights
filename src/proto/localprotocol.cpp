@@ -36,8 +36,8 @@ void LocalProtocol::move ( const Knights::Move& m )
 {
     
     ++movesSoFar;
-    manager->addMoveToHistory(m);
-    movesSoFar > 1 ? manager->startTime() : manager->stopTime();
+    Manager::self()->addMoveToHistory(m);
+    movesSoFar > 1 ? Manager::self()->startTime() : Manager::self()->stopTime();
 }
 
 LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ),
@@ -63,12 +63,12 @@ Knights::Protocol::Features LocalProtocol::supportedFeatures()
 void LocalProtocol::undoLastMove()
 {
     --movesSoFar;
-    emit pieceMoved(manager->nextUndoMove());
+    emit pieceMoved(Manager::self()->nextUndoMove());
 }
 
 void LocalProtocol::redoLastMove()
 {
     ++movesSoFar;
-    emit pieceMoved(manager->nextRedoMove());
+    emit pieceMoved(Manager::self()->nextRedoMove());
 }
 

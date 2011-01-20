@@ -76,7 +76,6 @@ namespace Knights
             QList<QAction*> m_protocolActions;
             QList<QDockWidget*> m_dockWidgets;
 
-            QPointer<Protocol> m_protocol;
             bool m_timeLimit;
             QTime m_playerTime;
             QTime m_oppTime;
