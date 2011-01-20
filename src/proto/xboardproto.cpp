@@ -154,17 +154,31 @@ void XBoardProtocol::parseLine(const QString& line)
             if ( position.indexIn(line) > -1 )
             {
                 QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
-                if ( moveString != lastMoveString )
+                Move m;
+                if ( moveString.contains(QLatin1String("O-O-O")) || moveString.contains(QLatin1String("o-o-o")) )
+                {
+                    m = Move::castling(Move::QueenSide, Manager::self()->activePlayer());
+                }
+                else if ( moveString.contains(QLatin1String("O-O")) || moveString.contains(QLatin1String("o-o")) )
+                {
+                    m = Move::castling(Move::KingSide, Manager::self()->activePlayer());
+                }
+                else if ( moveString != lastMoveString )
                 {
                     // GnuChess may report its move twice, we need only one
                     kDebug() << "Computer's move:" << moveString;
                     lastMoveString = moveString;
-                    Move m = Move ( moveString );
-                    Manager::self()->addMoveToHistory ( m );
-                    emit pieceMoved ( m );
-                    emit undoPossible ( true );
-                    Manager::self()->startTime();
+                    m = Move ( moveString );
                 }
+                else
+                {
+                    // Not a good move
+                    return;
+                }
+                Manager::self()->addMoveToHistory ( m );
+                emit pieceMoved ( m );
+                emit undoPossible ( true );
+                Manager::self()->startTime();
             }
         }
         else if ( line.contains ( QLatin1String ( "wins" ) ) )
