@@ -90,6 +90,7 @@ class ChatWidget;
             virtual ~Protocol();
 
             // Needed functions
+            virtual bool isLocal() = 0;
 
             Color color() const;
             QString playerName() const;
@@ -106,8 +107,6 @@ class ChatWidget;
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
 
-            virtual void timerEvent(QTimerEvent* );
-
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
             virtual void init ( const QVariantMap& options ) = 0;
@@ -118,7 +117,6 @@ class ChatWidget;
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
             virtual void setTimeControl ( const TimeControl& c );
-            virtual bool isLocal();
 
         public Q_SLOTS:
             virtual void pauseGame();
@@ -150,6 +148,8 @@ class ChatWidget;
             void drawOffered();
 
         private:
+            static Protocol* m_white;
+            static Protocol* m_black;
             ProtocolPrivate* d_ptr;
             Q_DECLARE_PRIVATE ( Protocol )
     };

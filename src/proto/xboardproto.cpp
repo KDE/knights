@@ -57,6 +57,11 @@ XBoardProtocol::~XBoardProtocol()
     }
 }
 
+bool XBoardProtocol::isLocal()
+{
+    return false;
+}
+
 void XBoardProtocol::startGame()
 {
 

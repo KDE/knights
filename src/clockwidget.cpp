@@ -62,26 +62,6 @@ void ClockWidget::setPlayerName ( Color color, const QString& name )
     }
 }
 
-void ClockWidget::setWhiteCurrentTime(const QTime& time)
-{
-    setCurrentTime(White, time);
-}
-
-void ClockWidget::setBlackCurrentTime(const QTime& time)
-{
-    setCurrentTime(Black, time);
-}
-
-void ClockWidget::setWhiteTimeLimit(const QTime& time)
-{
-    setTimeLimit(White, time);
-}
-
-void ClockWidget::setBlackTimeLimit(const QTime& time)
-{
-    setTimeLimit(Black, time);
-}
-
 void ClockWidget::setCurrentTime ( Color color, const QTime& time )
 {
     m_currentTime[color] = time;

@@ -51,6 +51,11 @@ LocalProtocol::~LocalProtocol()
 
 }
 
+bool LocalProtocol::isLocal()
+{
+  return true;
+}
+
 Knights::Protocol::Features LocalProtocol::supportedFeatures()
 {
     return Pause | Undo | TimeLimit;

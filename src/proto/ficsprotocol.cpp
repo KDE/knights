@@ -106,6 +106,11 @@ Protocol::Features FicsProtocol::supportedFeatures()
     return TimeLimit | SetTimeLimit | UpdateTime | Adjourn | Resign;
 }
 
+bool FicsProtocol::isLocal()
+{
+    return false;
+}
+
 void FicsProtocol::startGame()
 {
 

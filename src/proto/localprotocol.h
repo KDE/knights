@@ -38,6 +38,7 @@ public:
     virtual Features supportedFeatures();
     virtual void undoLastMove();
     virtual void redoLastMove();
+    virtual bool isLocal();
 
 private:
     int movesSoFar;

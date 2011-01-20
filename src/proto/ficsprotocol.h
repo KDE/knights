@@ -76,6 +76,7 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual QList<ToolWidgetData> toolWidgets();
+            virtual bool isLocal();
 
         private:
             const QString movePattern;

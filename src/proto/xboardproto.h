@@ -38,6 +38,7 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
+    virtual bool isLocal();
 
     virtual QList<ToolWidgetData> toolWidgets();
 
