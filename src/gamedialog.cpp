@@ -229,11 +229,10 @@ void GameDialog::setupProtocols()
         }
     }
     TimeControl tc;
-    tc.baseTime = ui->startingTime->time();
+    tc.baseTime = ui->timeGroupBasic->isChecked() ? ui->startingTime->time() : QTime();
     tc.moves = ui->numberOfMoves->value();
     tc.increment = QTime().secsTo ( ui->timeIncrement->time() );
-    Protocol::white()->setTimeControl ( tc );
-    Protocol::black()->setTimeControl ( tc );
+    Manager::self()->setTimeControl(NoColor, tc);
 }
 
 

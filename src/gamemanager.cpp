@@ -105,6 +105,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
     {
         Q_D(GameManager);
         QTime time;
+	kDebug() << colorName(d->activePlayer);
         switch ( d->activePlayer )
         {
             case White:
@@ -194,7 +195,10 @@ Color Manager::activePlayer() const
 void Manager::initialize()
 {
   Q_D(GameManager);
+  d->running = false;
   d->activePlayer = White;
+  d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
+  d->blackTimeControl.currentTime = d->blackTimeControl.baseTime;
   Protocol::white()->setTimeControl(d->whiteTimeControl);
   Protocol::black()->setTimeControl(d->blackTimeControl);
   connect ( Protocol::white(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
