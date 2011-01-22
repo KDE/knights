@@ -368,10 +368,10 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
     {
         /**
          * Possible notations:
-         * * e4 == Pe4 == pawn to e4 >> done
-         * * Ne4 == Knight to e4 >> done
-         * * Rbe1 == Rook from file b to e1 >> TODO
-         * * cd4 == Pawn from file c to d4 >> TODO
+         * * e4 == Pe4 == pawn to e4
+         * * Ne4 == Knight to e4
+         * * Rbe1 == Rook from file b to e1
+         * * cd4 == Pawn from file c to d4
          */
         QChar c;
         PieceType type = NoType;
