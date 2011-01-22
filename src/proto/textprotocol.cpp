@@ -39,12 +39,12 @@ void TextProtocol::readFromDevice()
     {
 	if ( stream.device()->canReadLine() )
 	{
-	    parseLine(stream.readLine());
+	    parseLine(stream.readLine().trimmed());
 	}
 	else
 	{
 	    int n = stream.pos();
-	    if ( !parseStub(stream.readAll()) )
+	    if ( !parseStub(stream.readAll().trimmed()) )
 	    {
 	        stream.seek(n);
 	    }
