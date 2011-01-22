@@ -366,10 +366,19 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
 {
     if ( move.notation() == Move::Algebraic )
     {
+        /**
+         * Possible notations:
+         * * e4 == Pe4 == pawn to e4 >> done
+         * * Ne4 == Knight to e4 >> done
+         * * Rbe1 == Rook from file b to e1 >> TODO
+         * * cd4 == Pawn from file c to d4 >> TODO
+         */
         QChar c;
-        PieceType type;
-        int file;
+        PieceType type = NoType;
+        int file = -1;
         bool found = false;
+        bool fileSet = false;
+        bool typeSet = false;
         QString s = move.string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
         if  ( s.size() < 2 )
         {
@@ -377,21 +386,42 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                 move.setFlag ( Move::Illegal, true );
                 return;
         }
-        if ( s.size() == 2 )
+        switch ( s.size() )
         {
-            type = Pawn;
-        }
-        else
-        {
-            c = s[0];
-            type = Piece::typeFromChar( c );
-            s = s.mid(1);
+            case 2: // Only the destination square
+                type = Pawn;
+                typeSet = true;
+                break;
+
+            case 3:
+                //TODO:
+                if ( QByteArray("abcdefgh").contains ( s[0].toLatin1() ) )
+                {
+                    file = Pos::numFromRow ( s[0] );
+                    fileSet = true;
+                }
+                else if ( QByteArray("KQRBNP").contains ( s[0].toLatin1() ) )
+                {
+                    type = Piece::typeFromChar ( s[0] );
+                    typeSet = true;
+                }
+                break;
+                
+            case 4:
+                // Both piece type and starting file
+                type = Piece::typeFromChar ( s[0] );
+                typeSet = true;
+                file = Pos::numFromRow ( s[1] );
+                fileSet = true;
+                break;
         }
         move.setTo ( s.right(2) );
         for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
         {
-            if ( it.value()->color() == color && it.value()->pieceType() == type
-                 && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+            if ( it.value()->color() == color
+                && ( !typeSet || it.value()->pieceType() == type )
+                && ( !fileSet || it.key().first == file )
+                && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
             {
                 if ( found )
                 {
@@ -403,28 +433,9 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                 found = true;
             }
         }
-            if ( !found )
-            {
-                file = Pos::numFromRow(c);
-                for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
-                {
-                    if ( it.value()->color() == color && it.key().first == file
-                        && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
-                    {
-                        if ( found )
-                        {
-                            kWarning() << "Found more than one possible move";
-                            move.setFlag ( Move::Illegal, true );
-                            return;
-                        }
-                        move.setFrom( it.key() );
-                        found = true;
-                    }
-                }
-            }
         if ( !found )
         {
-            kWarning() << "No possible moves found";
+            kWarning() << "No possible moves found" << move;
             move.setFlag ( Move::Illegal, true );
             return;
         }
