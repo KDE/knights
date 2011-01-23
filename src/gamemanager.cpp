@@ -270,11 +270,12 @@ bool Manager::isRunning()
   return d->running;
 }
 
-void Manager::moveByProtocol(const Knights::Move& move)
+void Manager::moveByProtocol(const Move& move)
 {
   Q_D(GameManager);
   if ( sender() != Protocol::byColor ( d->activePlayer ) )
   {
+    kDebug() << "Move by the non-active player" << move;
     // Ignore duplicates and/or moves by the inactive player
     return;
   }
@@ -301,6 +302,8 @@ void Manager::protocolInitSuccesful()
   if ( Protocol::white()->isReady() && Protocol::black()->isReady() )
   {
     emit initComplete();
+    Protocol::white()->startGame();
+    Protocol::black()->startGame();
   }
 }
 

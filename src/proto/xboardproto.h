@@ -35,7 +35,6 @@ namespace Knights
             XBoardProtocol ( QObject* parent = 0 );
             ~XBoardProtocol();
 
-            virtual void startGame();
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
     virtual bool isLocal();
@@ -58,6 +57,7 @@ namespace Knights
 
         public Q_SLOTS:
             virtual void init ();
+            virtual void startGame();
             virtual void proposeDraw();
             virtual void adjourn();
             virtual void resign();

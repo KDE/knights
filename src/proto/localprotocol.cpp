@@ -32,6 +32,11 @@ void LocalProtocol::init (  )
     initComplete();
 }
 
+void LocalProtocol::startGame()
+{
+
+}
+
 void LocalProtocol::move ( const Move& m )
 {
     

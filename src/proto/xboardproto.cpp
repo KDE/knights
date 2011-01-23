@@ -64,7 +64,17 @@ bool XBoardProtocol::isLocal()
 
 void XBoardProtocol::startGame()
 {
-
+    kDebug() << colorName(color());
+    TimeControl c = Manager::self()->timeControl ( White );
+    if ( c.baseTime != QTime() )
+    {
+        write(QString(QLatin1String("level %1 %2 %3")).arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
+    }
+    if ( color() == White )
+    {
+        write("go");
+    }
+    resumePending = false;
 }
 
 void XBoardProtocol::move ( const Move& m )
@@ -103,16 +113,6 @@ void XBoardProtocol::init (  )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
-    TimeControl c = Manager::self()->timeControl ( White );
-    if ( c.baseTime != QTime() )
-    {
-        write(QString(QLatin1String("level %1 %2 %3")).arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
-    }
-    if ( color() == White )
-    {
-        write("go");
-    }
-    resumePending = false;
     initComplete();
 }
 

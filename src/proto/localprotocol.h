@@ -32,6 +32,7 @@ class LocalProtocol : public Knights::Protocol
 
 public:
     virtual void init();
+    virtual void startGame();
     virtual void move(const Knights::Move& m);
     LocalProtocol(QObject* parent = 0);
     virtual ~LocalProtocol();

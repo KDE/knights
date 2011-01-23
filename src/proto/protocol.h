@@ -113,6 +113,7 @@ class ChatWidget;
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
             virtual void init() = 0;
+            virtual void startGame() = 0;
 
             // Optional features
         public:

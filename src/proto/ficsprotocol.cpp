@@ -386,11 +386,13 @@ void FicsProtocol::parseLine(const QString& line)
 
                 if ( byColor(color) != this )
                 {
+                    kDebug() << "Switching protocols";
                     // The color is different than was assigned at first
                     // We have to switch the protocols
                     Protocol* t = white();
                     setWhiteProtocol(black());
                     setBlackProtocol(t);
+                    kDebug() << white() << black();
                 }
                 
                 m_stage = PlayStage;
@@ -438,7 +440,7 @@ void FicsProtocol::parseLine(const QString& line)
                     {
                         m.setFrom ( moveStringExp.cap ( 1 ) );
                         m.setTo ( moveStringExp.cap ( 2 ) );
-                        if ( moveStringExp.numCaptures() > 2 )
+                        if ( !moveStringExp.cap(3).isEmpty() )
                         {
                             m.setFlag ( Move::Promote, true );
                             QChar typeChar = moveRegExp.cap ( 3 ).mid ( 1, 1 ) [0];
