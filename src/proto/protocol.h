@@ -27,6 +27,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QTime>
+#include <QtCore/QPointer>
 
 namespace Knights
 {
@@ -153,8 +154,8 @@ class ChatWidget;
             void drawOffered();
 
         private:
-            static Protocol* m_white;
-            static Protocol* m_black;
+            static QPointer<Protocol> m_white;
+            static QPointer<Protocol> m_black;
             ProtocolPrivate* d_ptr;
             Q_DECLARE_PRIVATE ( Protocol )
     };

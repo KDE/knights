@@ -34,8 +34,8 @@ namespace Knights
     const int TimerInterval = 100; // miliseconds
     int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
 
-    Protocol* Protocol::m_white = 0;
-    Protocol* Protocol::m_black = 0;
+    QPointer<Protocol> Protocol::m_white = 0;
+    QPointer<Protocol> Protocol::m_black = 0;
 
     class ProtocolPrivate
     {

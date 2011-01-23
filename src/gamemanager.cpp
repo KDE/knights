@@ -321,7 +321,17 @@ void Manager::protocolInitSuccesful()
   }
 }
 
-
+void Manager::gameOver()
+{
+  Q_D(GameManager);
+  stopTime();
+  if ( d->gameStarted )
+  {
+    delete Protocol::white();
+    delete Protocol::black();
+  }
+  d->gameStarted = false;
+}
 
 
 

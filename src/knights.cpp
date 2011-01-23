@@ -99,6 +99,7 @@ namespace Knights
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
+            Manager::self()->gameOver();
             foreach ( QDockWidget* dock, m_dockWidgets )
             {
                 removeDockWidget ( dock );
