@@ -88,10 +88,12 @@ signals:
   void redoPossible ( bool possible );
   void pieceMoved ( const Move& move );
   void activePlayerChanged ( Color player );
+  void initComplete();
 
 public slots:
   void moveByProtocol ( const Move& move );
   void moveByBoard ( const Move& move );
+  void protocolInitSuccesful();
 
 private:
   GameManagerPrivate* d_ptr;

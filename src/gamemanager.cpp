@@ -201,7 +201,9 @@ void Manager::initialize()
   Protocol::white()->setTimeControl(d->whiteTimeControl);
   Protocol::black()->setTimeControl(d->blackTimeControl);
   connect ( Protocol::white(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
+  connect ( Protocol::white(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
   connect ( Protocol::black(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
+  connect ( Protocol::black(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
   Protocol::white()->init();
   Protocol::black()->init();
 }
@@ -293,6 +295,15 @@ void Manager::moveByBoard(const Knights::Move& move)
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move(move);
   changeActivePlayer();
 }
+
+void Manager::protocolInitSuccesful()
+{
+  if ( Protocol::white()->isReady() && Protocol::black()->isReady() )
+  {
+    emit initComplete();
+  }
+}
+
 
 
 

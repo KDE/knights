@@ -104,10 +104,11 @@ class ChatWidget;
             void setAttribute ( const char* attribute, QVariant value );
             void setAttributes ( QVariantMap attributes );
 
-    public:
+    protected:
 
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
+            void initComplete();
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
@@ -119,6 +120,7 @@ class ChatWidget;
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
             virtual void setTimeControl ( const TimeControl& c );
+            virtual bool isReady();
 
         public Q_SLOTS:
             virtual void pauseGame();

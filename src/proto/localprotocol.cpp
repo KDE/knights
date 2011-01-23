@@ -29,10 +29,10 @@ using namespace Knights;
 
 void LocalProtocol::init (  )
 {
-    emit initSuccesful();
+    initComplete();
 }
 
-void LocalProtocol::move ( const Knights::Move& m )
+void LocalProtocol::move ( const Move& m )
 {
     
     ++movesSoFar;

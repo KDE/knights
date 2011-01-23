@@ -52,7 +52,7 @@ const char* remainingTime = "\\d+ \\d+ (\\d+) \\d+ \\d+ (\\d+) (\\d+) (\\d+)";
 const char* currentPlayerPattern = "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+";
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
-    movePattern(QString(QLatin1String("(none|o-o|o-o-o|[%1]\\/%2\\-%3(=[%4])?)"))
+    movePattern(QString(QLatin1String("[%1]\\/(%2)\\-(%3)(=[%4])?"))
         .arg ( QLatin1String(pieces) )
         .arg ( QLatin1String(coordinate) )
         .arg ( QLatin1String(coordinate) )
@@ -75,7 +75,7 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
         .arg ( QLatin1String( namePattern ) ) // %2 = name
         .arg ( QLatin1String( ratingPattern ) ) ), // %3 = rating
     moveStringExp ( movePattern ),
-    moveRegExp ( QString ( QLatin1String("<12>.*%1.*%2 %3") )
+    moveRegExp ( QString ( QLatin1String("<12>.*%1.*%2 (none|o-o|o-o-o|%3)") )
         .arg ( QLatin1String( currentPlayerPattern ) )
         .arg ( QLatin1String( remainingTime ) )
         .arg ( movePattern ) ),
@@ -187,6 +187,8 @@ void FicsProtocol::openGameDialog()
     if ( m_widget )
     {
         m_widget->setStatus(i18n("Login failed"), true);
+        Settings::setAutoLogin(false);
+        m_widget->setLoginEnabled(true);
         return;
     }
     KDialog* dialog = new KDialog ( qApp->activeWindow() );
@@ -237,12 +239,8 @@ void FicsProtocol::openGameDialog()
 
 bool FicsProtocol::parseStub(const QString& line)
 {
-    if ( line.contains ( QLatin1String("fics") ) && line.contains ( QLatin1String("login:") ) && line.contains ( QLatin1String("password:") ) )
-    {
-        parseLine(line);
-        return true;
-    }
-    return false;
+    parseLine(line);
+    return true;
 }
 
 void FicsProtocol::parseLine(const QString& line)
@@ -370,29 +368,42 @@ void FicsProtocol::parseLine(const QString& line)
             }
             else if ( gameStartedExp.indexIn ( line ) > -1 )
             {
+                kDebug() << "Game Started" << line;
                 type = ChatWidget::StatusMessage;
                 QString player1 = gameStartedExp.cap ( 1 );
                 QString player2 = gameStartedExp.cap ( 3 );
+                Color color = NoColor;
                 if ( player1 == playerName() )
                 {
-                    setColor ( Black );
+                    color = Black;
                     setPlayerName ( player2 );
                 }
                 else
                 {
-                    setColor ( White );
+                    color = White;
                     setPlayerName ( player1 );
                 }
+
+                if ( byColor(color) != this )
+                {
+                    // The color is different than was assigned at first
+                    // We have to switch the protocols
+                    Protocol* t = white();
+                    setWhiteProtocol(black());
+                    setBlackProtocol(t);
+                }
+                
                 m_stage = PlayStage;
-                emit initSuccesful();
+                initComplete();
             }
             break;
         case PlayStage:
             if ( moveRegExp.indexIn ( line ) > -1 )
             {
                 display = false;
-                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("B") && color() == White )
-                        && !( moveRegExp.cap ( 1 ) == QLatin1String("W") && color() == Black );
+                kDebug() << moveRegExp.cap(1) << colorName(color());
+                bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("W") && color() == White )
+                        && !( moveRegExp.cap ( 1 ) == QLatin1String("B") && color() == Black );
 
                 const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
                 const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
@@ -434,8 +445,8 @@ void FicsProtocol::parseLine(const QString& line)
                             m.setPromotedType ( Piece::typeFromChar ( typeChar ) );
                         }
                     }
+                    kDebug() << "Valid move" << m;
                     emit pieceMoved ( m );
-                    Manager::self()->changeActivePlayer();
                 }
                 Manager::self()->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
                 Manager::self()->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
@@ -445,7 +456,7 @@ void FicsProtocol::parseLine(const QString& line)
                     Manager::self()->startTime();
                 }
             }
-            else if ( line.contains ( QLatin1String(") says:") ) )
+            else if ( line.contains ( QLatin1String(" says:") ) )
             {
                 type = ChatWidget::ChatMessage;
                 m_chat->addText ( line, type );

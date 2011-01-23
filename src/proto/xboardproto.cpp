@@ -113,7 +113,7 @@ void XBoardProtocol::init (  )
         write("go");
     }
     resumePending = false;
-    emit initSuccesful();
+    initComplete();
 }
 
 QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()

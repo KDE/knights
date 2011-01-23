@@ -47,11 +47,13 @@ namespace Knights
             Protocol* white;
             Protocol* black;
             Color color;
+    bool ready;
     };
 
     ProtocolPrivate::ProtocolPrivate()
     : white(0)
     , black(0)
+    , ready(false)
     {
 
     }
@@ -243,6 +245,19 @@ ChatWidget* Protocol::createConsoleWidget()
     ChatWidget* console = new ChatWidget;
     console->setConsoleMode(true);
     return console;
+}
+
+void Protocol::initComplete()
+{
+    Q_D(Protocol);
+    d->ready = true;
+    emit initSuccesful();
+}
+
+bool Protocol::isReady()
+{
+    Q_D(const Protocol);
+    return d->ready;
 }
 
 }
