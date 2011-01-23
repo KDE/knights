@@ -33,8 +33,11 @@ const int TimerInterval = 100;
 class Knights::GameManagerPrivate
 {
 public:
+  GameManagerPrivate();
+  
   Color activePlayer;
   bool running;
+  bool gameStarted;
   int timer;
 
   TimeControl whiteTimeControl;
@@ -43,6 +46,15 @@ public:
   QStack<Move> moveHistory;
   QStack<Move> moveUndoStack;
 };
+
+GameManagerPrivate::GameManagerPrivate()
+  : activePlayer(NoColor),
+    running(false),
+    gameStarted(false),
+    timer(0)
+{
+
+}
 
 K_GLOBAL_STATIC(Manager, instance)
 
@@ -54,7 +66,6 @@ Manager* Manager::self()
 Manager::Manager(QObject* parent) : QObject(parent),
 d_ptr(new GameManagerPrivate)
 {
-  
   kDebug() << "creating a GameManager";
 }
 
@@ -299,11 +310,13 @@ void Manager::moveByBoard(const Knights::Move& move)
 
 void Manager::protocolInitSuccesful()
 {
-  if ( Protocol::white()->isReady() && Protocol::black()->isReady() )
+  Q_D(GameManager);
+  if ( !d->gameStarted && Protocol::white()->isReady() && Protocol::black()->isReady() )
   {
     emit initComplete();
     Protocol::white()->startGame();
     Protocol::black()->startGame();
+    d->gameStarted = true;
   }
 }
 
