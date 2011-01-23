@@ -23,7 +23,7 @@
 
 using namespace Knights;
 
-TextProtocol::TextProtocol(QObject* parent): Protocol(parent)
+TextProtocol::TextProtocol(QObject* parent): Protocol(parent), m_console(0)
 {
 
 }
@@ -79,19 +79,24 @@ void TextProtocol::write(const char* text)
 
 void TextProtocol::setConsole(ChatWidget* widget)
 {
-    console = widget;
+    m_console = widget;
     foreach ( const ChatWidget::Message& message, messages )
     {
-      console->addText ( message );
+      m_console->addText ( message );
     }
     messages.clear();
 }
 
+ChatWidget* TextProtocol::console()
+{
+    return m_console;
+}
+
 void TextProtocol::writeToConsole(const QString& text, ChatWidget::MessageType type)
 {
-    if ( console )
+    if ( m_console )
     {
-      console->addText ( text, type );
+      m_console->addText ( text, type );
     }
     else
     {

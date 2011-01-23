@@ -92,7 +92,6 @@ namespace Knights
             FicsDialog* m_widget;
             bool forcePrompt;
             bool m_seeking;
-            ChatWidget* m_console;
             ChatWidget* m_chat;
 
             Color parseColor( QString str );

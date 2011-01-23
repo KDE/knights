@@ -48,7 +48,6 @@ namespace Knights
             KProcess* mProcess;
             QString lastMoveString;
             bool resumePending;
-    ChatWidget* m_console;
     int m_moves;
     int m_increment;
     int m_baseTime;

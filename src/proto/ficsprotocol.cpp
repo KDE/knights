@@ -88,7 +88,6 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
         .arg ( QLatin1String( timePattern ) ) ),
     sendPassword(false),
     m_widget(0),
-    m_console(0),
     m_chat(0)
 {
     // FICS games are always time-limited
@@ -124,12 +123,13 @@ void FicsProtocol::init (  )
 {
     m_stage = ConnectStage;
 
-    m_console = createConsoleWidget();
-    m_console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
-    m_console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
-    m_console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
-    m_console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
-    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)) );
+    ChatWidget* console = createConsoleWidget();
+    console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
+    console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
+    console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
+    console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
+    connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)) );
+    setConsole ( console );
 
     QTcpSocket* socket = new QTcpSocket ( this );
     setDevice ( socket );
@@ -142,7 +142,7 @@ void FicsProtocol::init (  )
 QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
 {
     ToolWidgetData consoleData;
-    consoleData.widget = m_console;
+    consoleData.widget = console();
     consoleData.title = i18n("Server Console");
     consoleData.name = QLatin1String("console");
 
@@ -205,7 +205,7 @@ void FicsProtocol::openGameDialog()
 
     m_widget = new FicsDialog ( dialog );
     m_widget->setServerName ( attribute( "address" ).toString());
-    m_widget->setConsoleWidget(m_console);
+    m_widget->setConsoleWidget ( console() );
     dialog->setMainWidget ( m_widget );
 
     connect ( dialog, SIGNAL ( user2Clicked()), m_widget, SLOT(decline()) );
@@ -268,7 +268,7 @@ void FicsProtocol::parseLine(const QString& line)
                 }
                 else
                 {
-                    m_console->setPasswordMode(true);
+                    console()->setPasswordMode(true);
                 }
             }
             else if ( line.contains ( QLatin1String("Press return to enter the server") ) )
@@ -281,7 +281,7 @@ void FicsProtocol::parseLine(const QString& line)
             {
                 type = ChatWidget::StatusMessage;
                 m_stage = SeekStage;
-                m_console->setPasswordMode(false);
+                console()->setPasswordMode(false);
                 setupOptions();
                 QString name = line;
                 name.remove ( 0, name.indexOf ( QLatin1String("session as ") ) + 11 );
@@ -472,7 +472,7 @@ void FicsProtocol::parseLine(const QString& line)
 
     if ( display )
     {
-        m_console->addText( line, type );
+        writeToConsole ( line, type );
     }
 }
 

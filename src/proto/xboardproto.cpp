@@ -118,10 +118,11 @@ void XBoardProtocol::init (  )
 
 QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()
 {
-    m_console = createConsoleWidget();
-    connect ( m_console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)));
+    ChatWidget* console = createConsoleWidget();
+    connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)));
+    setConsole ( console );
     ToolWidgetData data;
-    data.widget = m_console;
+    data.widget = console;
     data.title = i18n("Console for %1 (%2)", attribute("program").toString(), colorName ( color() ) );
     data.name = QLatin1String("console") + attribute("program").toString() + QLatin1Char( color() == White ? 'W' : 'B' );
     return QList< Protocol::ToolWidgetData >() << data;
@@ -215,7 +216,7 @@ void XBoardProtocol::parseLine(const QString& line)
         }
         if ( display )
         {
-            m_console->addText ( line, type );
+            writeToConsole ( line, type );
         }
     }
 
