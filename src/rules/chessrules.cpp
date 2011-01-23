@@ -362,9 +362,9 @@ QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knight
     return list;
 }
 
-void ChessRules::checkSpecialFlags ( Move& move, Color color )
+void ChessRules::checkSpecialFlags ( Move* move, Color color )
 {
-    if ( move.notation() == Move::Algebraic )
+    if ( move->notation() == Move::Algebraic )
     {
         /**
          * Possible notations:
@@ -379,11 +379,11 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
         bool found = false;
         bool fileSet = false;
         bool typeSet = false;
-        QString s = move.string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
+        QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
         if  ( s.size() < 2 )
         {
-                kWarning() << "Unknown move notation" << move.string();
-                move.setFlag ( Move::Illegal, true );
+                kWarning() << "Unknown move notation" << move->string();
+                move->setFlag ( Move::Illegal, true );
                 return;
         }
         switch ( s.size() )
@@ -415,51 +415,51 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
                 fileSet = true;
                 break;
         }
-        move.setTo ( s.right(2) );
+        move->setTo ( s.right(2) );
         for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
         {
             if ( it.value()->color() == color
                 && ( !typeSet || it.value()->pieceType() == type )
                 && ( !fileSet || it.key().first == file )
-                && legalMoves(it.key()).contains( Move( it.key(), move.to() ) ) )
+                && legalMoves(it.key()).contains( Move( it.key(), move->to() ) ) )
             {
                 if ( found )
                 {
                     kWarning() << "Found more than one possible move";
-                    move.setFlag ( Move::Illegal, true );
+                    move->setFlag ( Move::Illegal, true );
                     return;
                 }
-                move.setFrom( it.key() );
+                move->setFrom( it.key() );
                 found = true;
             }
         }
         if ( !found )
         {
             kWarning() << "No possible moves found" << move;
-            move.setFlag ( Move::Illegal, true );
+            move->setFlag ( Move::Illegal, true );
             return;
         }
     }
 
-    Piece* p = m_grid->value ( move.from() );
+    Piece* p = m_grid->value ( move->from() );
     if ( !p )
     {
-        kWarning() << "No piece at position" << move.from();
-        move.setFlag(Move::Illegal, true);
+        kWarning() << "No piece at position" << move->from();
+        move->setFlag(Move::Illegal, true);
         return;
     }
-    move.setFlags ( move.flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
-    move.setFlag ( Move::Take, m_grid->contains ( move.to() ) );
-    if ( p->pieceType() == King && length ( move ) == 2 )
+    move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
+    move->setFlag ( Move::Take, m_grid->contains ( move->to() ) );
+    if ( p->pieceType() == King && length ( *move ) == 2 )
     {
         kDebug() << "Castling";
         // It's castling
-        move.setFlag ( Move::Castle, true );
-        int line = move.to().second;
+        move->setFlag ( Move::Castle, true );
+        int line = move->to().second;
         Move rookMove;
         rookMove.setFlag ( Move::Forced, true );
-        rookMove.setTo ( ( move.from() + move.to() ) / 2 );
-        if ( move.to().first > move.from().first )
+        rookMove.setTo ( ( move->from() + move->to() ) / 2 );
+        if ( move->to().first > move->from().first )
         {
             rookMove.setFrom ( 8, line );
         }
@@ -467,38 +467,38 @@ void ChessRules::checkSpecialFlags ( Move& move, Color color )
         {
             rookMove.setFrom ( 1, line );
         }
-        move.setAdditionalMoves ( QList<Move>() << rookMove );
-        kDebug() << move.additionalMoves().size();
+        move->setAdditionalMoves ( QList<Move>() << rookMove );
+        kDebug() << move->additionalMoves().size();
     }
     else
     {
         if ( p->pieceType() == Pawn )
         {
             // Promotion?
-            if ( ( p->color() == White && move.to().second == 8 ) || ( p->color() == Black && move.to().second == 1 ) )
+            if ( ( p->color() == White && move->to().second == 8 ) || ( p->color() == Black && move->to().second == 1 ) )
             {
-                move.setFlag ( Move::Promote, true );
+                move->setFlag ( Move::Promote, true );
             }
-            Pos delta = move.to() - move.from();
+            Pos delta = move->to() - move->from();
             // En Passant?
-            if ( delta.first != 0 && !m_grid->contains ( move.to() ) )
+            if ( delta.first != 0 && !m_grid->contains ( move->to() ) )
             {
-                move.setFlag ( Move::EnPassant, true );
-                Pos capturedPos = move.from() + Pos ( delta.first, 0 );
+                move->setFlag ( Move::EnPassant, true );
+                Pos capturedPos = move->from() + Pos ( delta.first, 0 );
                 Piece* p = m_grid->value ( capturedPos );
-                move.addRemovedPiece ( move.to(), qMakePair ( p->color(), p->pieceType() ) );
+                move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
             }
         }
     }
 
-    if ( move.flag(Move::Take) )
+    if ( move->flag(Move::Take) )
     {
-        Piece* p = m_grid->value ( move.to() );
-        move.addRemovedPiece ( move.to(), qMakePair ( p->color(), p->pieceType() ) );
+        Piece* p = m_grid->value ( move->to() );
+        move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
     }
 }
 
-int ChessRules::length ( const Knights::Move& move )
+int ChessRules::length ( const Move& move )
 {
     Pos delta = move.to() - move.from();
     return qMax ( qAbs ( delta.first ), qAbs ( delta.second ) );

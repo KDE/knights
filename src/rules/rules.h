@@ -102,7 +102,7 @@ namespace Knights
               * @param move a reference to the move with either @a from and @a to or its @a string already set.
               * @param color the color if the player who made this move
               */
-            virtual void checkSpecialFlags ( Move& move, Color color ) = 0;
+            virtual void checkSpecialFlags ( Move* move, Color color ) = 0;
 
             /**
               * Called when a move has been made, either by the player or a computer opponent

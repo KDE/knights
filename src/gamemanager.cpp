@@ -25,6 +25,8 @@
 #include <QStack>
 #include "proto/protocol.h"
 #include <KDebug>
+#include "rules/rules.h"
+#include "rules/chessrules.h"
 
 using namespace Knights;
 
@@ -45,13 +47,16 @@ public:
 
   QStack<Move> moveHistory;
   QStack<Move> moveUndoStack;
+
+  Rules* rules;
 };
 
 GameManagerPrivate::GameManagerPrivate()
   : activePlayer(NoColor),
     running(false),
     gameStarted(false),
-    timer(0)
+    timer(0),
+    rules(0)
 {
 
 }
@@ -291,13 +296,15 @@ void Manager::moveByProtocol(const Move& move)
     // Ignore duplicates and/or moves by the inactive player
     return;
   }
-  d->moveHistory << move;
-  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move(move);
-  emit pieceMoved(move);
+  Move m = move;
+  d->rules->checkSpecialFlags ( &m, d->activePlayer );
+  d->moveHistory << m;
+  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
+  emit pieceMoved ( m );
   changeActivePlayer();
 }
 
-void Manager::moveByBoard(const Knights::Move& move)
+void Manager::moveByBoard(const Move& move)
 {
   Q_D(GameManager);
   if ( !Protocol::byColor(d->activePlayer)->isLocal() )
@@ -305,7 +312,9 @@ void Manager::moveByBoard(const Knights::Move& move)
     // Only local protocols can make moves from the board
     return;
   }
-  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move(move);
+  Move m = move;
+  d->rules->checkSpecialFlags ( &m, d->activePlayer );
+  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   changeActivePlayer();
 }
 
@@ -315,6 +324,7 @@ void Manager::protocolInitSuccesful()
   if ( !d->gameStarted && Protocol::white()->isReady() && Protocol::black()->isReady() )
   {
     emit initComplete();
+    d->rules = new ChessRules();
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
@@ -329,9 +339,17 @@ void Manager::gameOver()
   {
     delete Protocol::white();
     delete Protocol::black();
+    delete d->rules;
   }
   d->gameStarted = false;
 }
+
+Rules* Manager::rules()
+{
+  Q_D(const GameManager);
+  return d->rules;
+}
+
 
 
 

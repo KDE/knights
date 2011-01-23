@@ -58,8 +58,6 @@ namespace Knights
 
             void populate();
 
-            void setRuleSet ( Rules* rules );
-
             static bool isInBoard ( const Pos& pos );
             Colors playerColors() const;
 

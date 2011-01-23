@@ -29,6 +29,9 @@
 
 namespace Knights {
 
+class Rules;
+
+
   class Move;
   class GameManagerPrivate;
 
@@ -79,6 +82,8 @@ public:
     void initialize();
     void redo();
 
+    Rules* rules();
+
 protected:
     virtual void timerEvent(QTimerEvent* );
 
@@ -94,7 +99,7 @@ public slots:
   void moveByProtocol ( const Move& move );
   void moveByBoard ( const Move& move );
   void protocolInitSuccesful();
-  void gameOver (  );
+  void gameOver();
 
 private:
   GameManagerPrivate* d_ptr;

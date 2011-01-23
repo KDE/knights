@@ -26,6 +26,7 @@
 #include "core/move.h"
 #include "rules/chessrules.h"
 #include "ui_promotiondialog.h"
+#include "gamemanager.h"
 
 #include <KGameTheme>
 #include <KDebug>
@@ -71,7 +72,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
     renderer = new Renderer ( Settings::theme() );
     m_background = 0;
-    setRuleSet ( new ChessRules );
+    Manager::self()->rules()->setGrid ( &m_grid );
     m_currentPlayer = White;
     updateTheme();
     m_paused = false;
@@ -100,14 +101,13 @@ void Board::movePiece ( const Move& move )
 {
     kDebug() << move;
     Move m = move;
-    m_rules->checkSpecialFlags ( m, m_currentPlayer );
     if ( m.flag ( Move::Illegal ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {
         kWarning() << "Invalid move:" << m;
         return;
     }
     if ( !m.flag ( Move::Forced ) &&
-        ( m_grid[m.from()]->color() != m_currentPlayer || !m_rules->legalMoves(m.from()).contains(m) ) )
+        ( m_grid[m.from()]->color() != m_currentPlayer || !Manager::self()->rules()->legalMoves(m.from()).contains(m) ) )
     {
         kWarning() << "Move not allowed:" << m;
         return;
@@ -152,7 +152,7 @@ void Board::movePiece ( const Move& move )
             bool check = false;
             foreach ( Piece* piece, m_grid )
             {
-                if ( piece->color() == m_currentPlayer && m_rules->isAttacking ( piece->boardPos() ) )
+                if ( piece->color() == m_currentPlayer && Manager::self()->rules()->isAttacking ( piece->boardPos() ) )
                 {
                     check = true;
                     addMarker ( piece->boardPos(), Danger );
@@ -178,9 +178,9 @@ void Board::movePiece ( const Move& move )
             movePiece ( additionalMove );
         }
     }
-    m_rules->moveMade ( m );
-    Color winner = m_rules->winner();
-    if ( winner != NoColor || !m_rules->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
+    Manager::self()->rules()->moveMade ( m );
+    Color winner = Manager::self()->rules()->winner();
+    if ( winner != NoColor || !Manager::self()->rules()->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
     {
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
@@ -196,7 +196,7 @@ void Board::movePiece ( const Move& move )
 
 void Board::populate()
 {
-    const PieceDataMap pieces = m_rules->startingPieces();
+    const PieceDataMap pieces = Manager::self()->rules()->startingPieces();
     PieceDataMap::const_iterator it = pieces.constBegin();
     PieceDataMap::const_iterator end = pieces.constEnd();
     for ( ; it != end; ++it )
@@ -225,12 +225,6 @@ void Board::addTiles()
     }
 }
 
-void Board::setRuleSet ( Rules* rules )
-{
-    m_rules = rules;
-    m_rules->setGrid ( &m_grid );
-}
-
 void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 {
     if ( m_paused || !(m_playerColors & m_currentPlayer) )
@@ -252,7 +246,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         qDeleteAll ( markers );
         markers.clear();
         Pos t_pos = mapFromScene ( e->scenePos() );
-        QList<Move> t_legalMoves = m_rules->legalMoves ( t_pos );
+        QList<Move> t_legalMoves = Manager::self()->rules()->legalMoves ( t_pos );
         if ( t_legalMoves.isEmpty() )
         {
             e->ignore();
@@ -294,7 +288,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
         Pos from ( list.first().toInt(), list.last().toInt() );
         Pos to = mapFromScene ( e->scenePos() );
         Move move ( from, to );
-        if ( !m_rules->legalMoves ( from ).contains ( move ) )
+        if ( !Manager::self()->rules()->legalMoves ( from ).contains ( move ) )
         {
             centerOnPos ( m_draggedItem );
         }
