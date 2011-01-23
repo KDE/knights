@@ -75,6 +75,7 @@ namespace Knights
         // toolbar position, icon size, etc.
         setupGUI();
         connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ) );
+        connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
 
         QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
     }
@@ -112,7 +113,6 @@ namespace Knights
             m_protocolActions.clear();
             m_view->clearBoard();
             dialogWidget->setupProtocols();
-            connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
             Manager::self()->initialize();
         }
     }
@@ -161,6 +161,7 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::protocolInitSuccesful()
     {
+        kDebug();
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
         setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
@@ -197,18 +198,6 @@ void MainWindow::showFicsSpectateDialog()
         else
         {
             Protocol::Features f = opp->supportedFeatures();
-            if ( f & Protocol::SetTimeLimit )
-            {
-                
-                // The time limit was set or changed by the protocol
-                m_timeLimit = opp->attribute ( QLatin1String ( "TimeLimitEnabled" ) ).toBool();
-                if ( m_timeLimit )
-                {
-                    m_playerTime = opp->attribute ( QLatin1String ( "playerTime" ) ).toTime();
-                    m_oppTime = opp->attribute ( QLatin1String ( "opponentTime" ) ).toTime();
-                }
-            }
-            
             if ( f & Protocol::Draw )
             {
                 KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), opp, SLOT ( proposeDraw() ) );
@@ -265,16 +254,13 @@ void MainWindow::showFicsSpectateDialog()
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
-            if ( m_timeLimit )
-            {
-                showClockWidgets();
-            }
             createGUI();
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }
     
     void MainWindow::showClockWidgets()
     {
+        kDebug();
         ClockWidget* playerClock = new ClockWidget ( this );
         m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
         m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()

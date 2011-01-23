@@ -75,12 +75,6 @@ namespace Knights
             KToggleAction *m_statusbarAction;
             QList<QAction*> m_protocolActions;
             QList<QDockWidget*> m_dockWidgets;
-
-            bool m_timeLimit;
-            QTime m_playerTime;
-            QTime m_oppTime;
-            int m_playerIncrement;
-            int m_oppIncrement;
     };
 }
 

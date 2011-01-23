@@ -205,6 +205,7 @@ Color Manager::activePlayer() const
 void Manager::initialize()
 {
   Q_D(GameManager);
+  d->gameStarted = false;
   d->running = false;
   d->activePlayer = White;
   d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
@@ -232,7 +233,7 @@ void Manager::setTimeControl(Color color, const Knights::TimeControl& control)
   }
   else
   {
-    kDebug() << "Setting time control fo NoColor";
+    kDebug() << "Setting time control for both colors";
     d->blackTimeControl = control;
     d->whiteTimeControl = control;
   }
