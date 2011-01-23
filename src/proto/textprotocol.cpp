@@ -43,12 +43,10 @@ void TextProtocol::readFromDevice()
 	}
 	else
 	{
-	    int n = stream.pos();
-	    if ( !parseStub(stream.readAll().trimmed()) )
+	    foreach ( const QString& line, stream.readAll().split( QLatin1Char('\n') ) )
 	    {
-	        stream.seek(n);
+		parseStub(line.trimmed());
 	    }
-	    return;
 	}
     }
 }
