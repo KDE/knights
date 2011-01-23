@@ -77,6 +77,29 @@ void TextProtocol::write(const char* text)
     stream << text << endl;
 }
 
+void TextProtocol::setConsole(ChatWidget* widget)
+{
+    console = widget;
+    foreach ( const ChatWidget::Message& message, messages )
+    {
+      console->addText ( message );
+    }
+    messages.clear();
+}
+
+void TextProtocol::writeToConsole(const QString& text, ChatWidget::MessageType type)
+{
+    if ( console )
+    {
+      console->addText ( text, type );
+    }
+    else
+    {
+      messages << qMakePair( text, type );
+    }
+}
+
+
 
 
 

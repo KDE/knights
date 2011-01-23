@@ -69,6 +69,11 @@ void ChatWidget::addText ( const QByteArray& text, ChatWidget::MessageType type 
     addText( QLatin1String(text), type );
 }
 
+void ChatWidget::addText(const Message& message)
+{
+    addText ( message.first, message.second );
+}
+
 void ChatWidget::setPasswordMode ( bool pwMode )
 {
     ui->line->setPasswordMode ( pwMode );

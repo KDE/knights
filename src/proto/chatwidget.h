@@ -52,6 +52,8 @@ namespace Knights
 	  MoveMessage
       };
 
+      typedef QPair<QString,MessageType> Message;
+
       explicit ChatWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~ChatWidget();
 
@@ -66,6 +68,7 @@ namespace Knights
     public slots:
 	    void addText ( const QString& text, MessageType type );
 	    void addText ( const QByteArray& text, MessageType type );
+	    void addText ( const Message& message );
             void setPasswordMode ( bool pwMode );
 
     private slots:

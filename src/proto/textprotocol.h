@@ -23,6 +23,8 @@
 
 #include <proto/protocol.h>
 #include <QTextStream>
+#include "chatwidget.h"
+#include <QList>
 
 namespace Knights {
 
@@ -35,6 +37,8 @@ public:
 
 protected:
     void setDevice(QIODevice* device);
+    void setConsole(ChatWidget* widget);
+    void writeToConsole(const QString& text, ChatWidget::MessageType type);
 
     virtual void parseLine(const QString& line) = 0;
     virtual bool parseStub(const QString& line) = 0;
@@ -49,6 +53,8 @@ protected Q_SLOTS:
 private:
     QIODevice* device;
     QTextStream stream;
+    ChatWidget* console;
+    QList < ChatWidget::Message > messages;
 };
 
 }
