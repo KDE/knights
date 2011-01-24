@@ -24,7 +24,7 @@
 
 #include "core/pos.h"
 #include "core/move.h"
-#include "rules/chessrules.h"
+#include "rules/rules.h"
 #include "ui_promotiondialog.h"
 #include "gamemanager.h"
 
@@ -178,7 +178,6 @@ void Board::movePiece ( const Move& move )
             movePiece ( additionalMove );
         }
     }
-    Manager::self()->rules()->moveMade ( m );
     Color winner = Manager::self()->rules()->winner();
     if ( winner != NoColor || !Manager::self()->rules()->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
     {
