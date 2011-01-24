@@ -100,6 +100,7 @@ public slots:
   void moveByBoard ( const Move& move );
   void protocolInitSuccesful();
   void gameOver();
+  void resign();
 
 private:
   GameManagerPrivate* d_ptr;

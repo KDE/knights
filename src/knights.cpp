@@ -89,6 +89,19 @@ namespace Knights
         KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
         KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
         KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
+
+        KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), Manager::self(), SLOT ( resign() ) );
+        resignAction->setText ( i18n ( "Resign" ) );
+        resignAction->setHelpText(i18n("Admit your inevitable defeat"));
+        resignAction->setIcon(KIcon(QLatin1String("flag-red")));
+
+        KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
+        undoAction->setEnabled(false);
+        connect ( Manager::self(), SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+
+        KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
+        redoAction->setEnabled(false);
+        connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
     }
 
     void MainWindow::fileNew()
@@ -210,11 +223,7 @@ void MainWindow::showFicsSpectateDialog()
             }
             if ( f & Protocol::Resign )
             {
-                KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), opp, SLOT ( resign() ) );
-                resignAction->setText ( i18n ( "Resign" ) );
-                resignAction->setHelpText(i18n("Admit your inevitable defeat"));
-                resignAction->setIcon(KIcon(QLatin1String("flag-red")));
-                m_protocolActions << resignAction;
+
             }
             if ( f & Protocol::Adjourn )
             {
@@ -230,15 +239,7 @@ void MainWindow::showFicsSpectateDialog()
             }
             if ( f & Protocol::Undo )
             {
-                KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
-                undoAction->setEnabled(false);
-                connect ( opp, SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
-                m_protocolActions << undoAction;
-                
-                KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
-                redoAction->setEnabled(false);
-                connect ( opp, SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
-                m_protocolActions << redoAction;
+
             }
         }
         QList<Protocol::ToolWidgetData> list;

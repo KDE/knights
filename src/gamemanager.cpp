@@ -273,12 +273,23 @@ bool Manager::timeControlEnabled(Color color) const
 
 void Manager::undo()
 {
+  Protocol::white()->undoLastMove();
+  Protocol::black()->undoLastMove();
   emit pieceMoved ( nextUndoMove() );
 }
 
 void Manager::redo()
 {
+  Move m = nextRedoMove();
+  Protocol::white()->move ( m );
+  Protocol::black()->move ( m );
   emit pieceMoved ( nextRedoMove() );
+}
+
+void Manager::resign()
+{
+  Q_D(const GameManager);
+  Protocol::byColor ( oppositeColor(d->activePlayer) )->resign();
 }
 
 bool Manager::isRunning()
