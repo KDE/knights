@@ -568,6 +568,12 @@ void FicsProtocol::sendChat ( QString text )
     write ( QLatin1String("say ") + text );
 }
 
+void FicsProtocol::undoLastMove()
+{
+    write ( "takeback 2" );
+}
+
+
 
 
 

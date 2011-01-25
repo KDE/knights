@@ -94,6 +94,9 @@ namespace Knights
             bool m_seeking;
             ChatWidget* m_chat;
 
+            bool undoPending;
+            bool drawPending;
+
             Color parseColor( QString str );
             virtual void parseLine(const QString& line);
             virtual bool parseStub(const QString& line);
@@ -102,6 +105,7 @@ namespace Knights
             virtual void init ();
             virtual void adjourn();
             virtual void resign();
+            virtual void undoLastMove();
 
             void socketError();
             void dialogRejected();
