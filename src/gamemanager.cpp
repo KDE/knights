@@ -310,7 +310,7 @@ void Manager::moveByProtocol(const Move& move)
   }
   Move m = move;
   d->rules->checkSpecialFlags ( &m, d->activePlayer );
-  d->moveHistory << m;
+  addMoveToHistory ( m );
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   emit pieceMoved ( m );
   rules()->moveMade ( m );
@@ -329,6 +329,7 @@ void Manager::moveByBoard(const Move& move)
   d->rules->checkSpecialFlags ( &m, d->activePlayer );
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   d->rules->moveMade ( m );
+  addMoveToHistory ( m );
   changeActivePlayer();
 }
 
