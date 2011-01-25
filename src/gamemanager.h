@@ -43,6 +43,13 @@ class Rules;
                 QTime currentTime;
             };
 
+	    enum GameAction
+	    {
+	      Draw,
+	      Undo,
+	      Adjourn
+	    };
+
 class Manager : public QObject
 {
   Q_OBJECT
@@ -94,6 +101,7 @@ signals:
   void pieceMoved ( const Move& move );
   void activePlayerChanged ( Color player );
   void initComplete();
+  void notification ( const QString& text, bool offer );
 
 public slots:
   void moveByProtocol ( const Move& move );
@@ -101,6 +109,10 @@ public slots:
   void protocolInitSuccesful();
   void gameOver();
   void resign();
+
+  void offer ( Knights::GameAction action, int param = 1 );
+  void acceptOffer();
+  void rejectOffer();
 
 private:
   GameManagerPrivate* d_ptr;

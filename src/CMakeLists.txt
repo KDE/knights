@@ -45,6 +45,7 @@ kde4_add_ui_files(knights_SRCS
     promotiondialog.ui
     proto/ficsdialog.ui
     proto/chatwidget.ui
+    popup.ui
 )
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 kde4_add_executable(knights ${knights_SRCS})

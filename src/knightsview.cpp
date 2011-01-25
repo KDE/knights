@@ -20,6 +20,7 @@
 */
 
 #include "knightsview.h"
+#include "ui_popup.h"
 
 #include "core/pos.h"
 #include "proto/protocol.h"
@@ -43,6 +44,7 @@ KnightsView::KnightsView ( QWidget *parent )
     ui.setupUi ( this );
     m_board = 0;
     settingsChanged();
+    connect ( Manager::self(), SIGNAL(notification(QString,bool)), SLOT(showPopup(QString,bool)) );
 }
 
 KnightsView::~KnightsView()
@@ -176,6 +178,38 @@ void KnightsView::centerView ( const QPointF& center )
         ui.canvas->centerOn ( center );
     }
 }
+
+void KnightsView::showPopup(const QString& text, bool offer)
+{
+    hidePopup();
+    QLayout* layout = new QVBoxLayout(ui.notificationWidget);
+    layout->setContentsMargins(0,0,0,0);
+    QWidget* popup = new QWidget(ui.notificationWidget);
+    Ui::Popup* popupUi = new Ui::Popup;
+    popupUi->setupUi(popup);
+    layout->addWidget(popup);
+    ui.notificationWidget->setLayout(layout);
+    popupUi->label->setText ( text );
+    if ( offer )
+    {
+        popupUi->acceptButton->setIcon ( KIcon(QLatin1String( "dialog-ok" )) );
+        popupUi->declineButton->setIcon ( KIcon(QLatin1String( "edit-delete" )) );
+        connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SIGNAL(popupAccepted()) );
+        connect ( popupUi->declineButton, SIGNAL(clicked(bool)), SIGNAL(popupRejected()) );
+        connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
+        connect ( popupUi->declineButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
+    }
+    popupUi->closeButton->setIcon( KIcon(QLatin1String( "dialog-close" )) );
+    connect ( popupUi->closeButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
+    popup->show();
+}
+
+void KnightsView::hidePopup()
+{
+    // The QWidget child (label and buttons container) has to be deleted before the layout.
+    delete ui.notificationWidget->findChild<QWidget*>();
+}
+
 
 
 #include "knightsview.moc"

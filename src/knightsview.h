@@ -82,6 +82,9 @@ namespace Knights
             void activePlayerChanged ( Color );
             void displayedPlayerChanged ( Color );
 
+            void popupAccepted();
+            void popupRejected();
+
         private slots:
             void settingsChanged();
             void resizeScene();
@@ -91,7 +94,9 @@ namespace Knights
             void setupBoard();
             void clearBoard();
             void gameOver ( Color winner );
-        
+
+            void showPopup ( const QString& text, bool offer );
+            void hidePopup();
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

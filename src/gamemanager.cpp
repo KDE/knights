@@ -25,6 +25,7 @@
 #include <QStack>
 #include "proto/protocol.h"
 #include <KDebug>
+#include <KLocale>
 #include "rules/rules.h"
 #include "rules/chessrules.h"
 
@@ -362,6 +363,36 @@ Rules* Manager::rules()
   Q_D(const GameManager);
   return d->rules;
 }
+
+void Manager::offer(GameAction action, int param)
+{
+  QString text;
+  switch ( action )
+  {
+    case Draw:
+      text = i18n("Your opponent has offered you a draw");
+      break;
+    case Undo:
+      text = i18n("Your oppenent requests you take back %1 moves", param);
+      break;
+    case Adjourn:
+      text = i18n("You opponent would like to save the game and continue at a later time");
+      break;
+  }
+  emit notification(text, true);
+}
+
+void Manager::acceptOffer()
+{
+
+}
+
+void Manager::rejectOffer()
+{
+
+}
+
+
 
 
 

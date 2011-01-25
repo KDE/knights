@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>274</height>
+    <width>264</width>
+    <height>212</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,6 +17,12 @@
    <bool>true</bool>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="notificationWidget" native="true"/>
+   </item>
    <item>
     <widget class="QGraphicsView" name="canvas">
      <property name="verticalScrollBarPolicy">
