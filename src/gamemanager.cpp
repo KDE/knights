@@ -77,6 +77,7 @@ d_ptr(new GameManagerPrivate)
 Manager::~Manager()
 {
   kDebug() << " !!! ----- Destroying a Game Manager ----- !!!";
+  delete d_ptr;
 }
 
 
