@@ -366,20 +366,23 @@ Rules* Manager::rules()
   return d->rules;
 }
 
-void Manager::offer(GameAction action, int param)
+void Manager::offer(Offer offer)
 {
   QString text;
-  switch ( action )
+  switch ( offer.action )
   {
-    case Draw:
-      text = i18n("Your opponent has offered you a draw");
+    case ActionDraw:
+      text = i18n("%1 offers you a draw", offer.player);
       break;
-    case Undo:
-      text = i18n("Your oppenent requests you take back %1 moves", param);
+    case ActionUndo:
+      text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", offer.numberOfMoves, offer.player);
       break;
-    case Adjourn:
-      text = i18n("You opponent would like to save the game and continue at a later time");
+    case ActionAdjourn:
+      text = i18n("%1 would like to adjourn the game", offer.player);
       break;
+
+    case ActionAbort:
+      text = i18n("%1 would like to abort the game");
   }
   emit notification(text, true);
 }

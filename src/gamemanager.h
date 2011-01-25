@@ -45,10 +45,20 @@ class Rules;
 
 	    enum GameAction
 	    {
-	      Draw,
-	      Undo,
-	      Adjourn
+	      ActionDraw,
+	      ActionUndo,
+	      ActionAdjourn,
+	      ActionAbort
 	    };
+
+	    struct Offer
+    {
+        GameAction action;
+        int id;
+        QString player;
+        bool fromYou;
+        int numberOfMoves; // Only used for Takeback offers.
+    };
 
 class Manager : public QObject
 {
@@ -110,7 +120,7 @@ public slots:
   void gameOver();
   void resign();
 
-  void offer ( Knights::GameAction action, int param = 1 );
+  void offer ( Offer offer );
   void acceptOffer();
   void rejectOffer();
 

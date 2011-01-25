@@ -40,7 +40,7 @@ const int Timeout = 1000; // One second ought to be enough for everybody
 
 const char* boolPattern = "([tf])";
 const char* ratedPattern = "([ru])";
-const char*  namePattern = "([a-zA-z\\(\\)]+)";
+const char*  namePattern = "([a-zA-Z\\(\\)]+)";
 const char*  ratingPattern = "([0-9\\+\\-\\s]+)";
 const char* timePattern = "(\\d+)\\s+(\\d+)";
 const char* variantPattern = "([a-z]+)\\s+([a-z]+)";
@@ -50,6 +50,7 @@ const char* pieces = "PRNBQKprnbqk";
 const char* coordinate = "[abdcdefgh][12345678]";
 const char* remainingTime = "\\d+ \\d+ (\\d+) \\d+ \\d+ (\\d+) (\\d+) (\\d+)";
 const char* currentPlayerPattern = "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+";
+const char* offerPattern = "<pf> (\\d+) w=([a-zA-Z\\(\\)]+) t=([a-z]+) p=(.+)";
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
     movePattern(QString(QLatin1String("[%1]\\/(%2)\\-(%3)(=[%4])?"))
@@ -86,6 +87,7 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
         .arg ( QLatin1String( ratingPattern ) )
         .arg ( QLatin1String( variantPattern ) )
         .arg ( QLatin1String( timePattern ) ) ),
+    offerExp ( QLatin1String( offerPattern ) ),
     sendPassword(false),
     m_widget(0),
     m_chat(0)
@@ -457,6 +459,32 @@ void FicsProtocol::parseLine(const QString& line)
                 {
                     Manager::self()->startTime();
                 }
+            }
+            else if ( offerExp.indexIn(line) > -1 )
+            {
+                Offer offer;
+                offer.id = offerExp.cap(1).toInt();
+                offer.player = offerExp.cap(2);
+                QString type = offerExp.cap(3);
+                if ( type == QLatin1String("abort") )
+                {
+                    offer.action = ActionAbort;
+                }
+                else if ( type == QLatin1String("adjourn") )
+                {
+                    offer.action = ActionAdjourn;
+                }
+                else if ( type == QLatin1String("draw") )
+                {
+                    offer.action = ActionDraw;
+                }
+                else if ( type == QLatin1String("takeback") )
+                {
+                    offer.action = ActionUndo;
+                    offer.numberOfMoves = offerExp.cap(4).toInt();
+                }
+                m_offers.insert ( offer.id, offer );
+                Manager::self()->offer ( offer );
             }
             else if ( line.contains ( QLatin1String(" says:") ) )
             {

@@ -26,6 +26,7 @@
 
 #include <QtCore/QTextStream>
 #include <QtCore/QTime>
+#include <gamemanager.h>
 
 class QTcpSocket;
 
@@ -64,6 +65,15 @@ namespace Knights
         PlayStage
     };
 
+    enum OfferType
+    {
+        OfferAbort,
+        OfferAdjourn,
+        OfferDraw,
+        OfferMatch,
+        OfferTakeback
+    };
+
     class FicsProtocol : public TextProtocol
     {
             Q_OBJECT
@@ -85,6 +95,7 @@ namespace Knights
             const QRegExp moveStringExp;
             const QRegExp moveRegExp;
             const QRegExp gameStartedExp;
+            const QRegExp offerExp;
 
             Stage m_stage;
             QString password;
@@ -93,6 +104,7 @@ namespace Knights
             bool forcePrompt;
             bool m_seeking;
             ChatWidget* m_chat;
+            QMap<int, Offer> m_offers;
 
             bool undoPending;
             bool drawPending;
