@@ -65,7 +65,7 @@ namespace Knights
 
     Protocol::~Protocol()
     {
-
+         delete d_ptr;
     }
 
     QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
