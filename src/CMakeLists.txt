@@ -1,4 +1,4 @@
-set(knights_SRCS gamemanager.cpp proto/textprotocol.cpp
+set(knights_SRCS offerwidget.cpp gamemanager.cpp proto/textprotocol.cpp
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
