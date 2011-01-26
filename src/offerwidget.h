@@ -32,8 +32,17 @@ namespace Knights {
 
   struct Offer;
 
+  enum OfferAction
+  {
+    AcceptOffer,
+    DeclineOffer,
+    IgnoreOffer
+  };
+    
+
 class OfferWidget : public QWidget
 {
+  Q_OBJECT
 
 public:
     explicit OfferWidget(const Offer& offer, QWidget* parent = 0, Qt::WindowFlags f = 0);
@@ -42,6 +51,14 @@ public:
 private:
   Ui::Popup* ui;
   int offerId;
+
+private slots:
+  void acceptClicked();
+  void declineClicked();
+  void closeClicked();
+  
+signals:
+  void close(int id, OfferAction action);
 };
 
 }

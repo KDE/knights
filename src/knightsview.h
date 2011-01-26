@@ -31,6 +31,9 @@
 
 namespace Knights
 {
+
+struct Offer;
+
     class Protocol;
 
     /**
@@ -95,7 +98,7 @@ namespace Knights
             void clearBoard();
             void gameOver ( Color winner );
 
-            void showPopup ( const QString& text, bool offer );
+            void showPopup ( const QString& text, const Offer& offer );
             void hidePopup();
 
         protected:

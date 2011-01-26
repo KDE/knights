@@ -20,16 +20,53 @@
 
 #include "offerwidget.h"
 #include "gamemanager.h"
+#include "ui_popup.h"
 
 using namespace Knights;
 
 OfferWidget::OfferWidget(const Offer& offer, QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
 {
   offerId = offer.id;
+  ui = new Ui::Popup;
+  ui->setupUi(this);
+
+  ui->closeButton->setIcon ( KIcon(QLatin1String( "dialog-close" )) );
+  connect ( ui->acceptButton, SIGNAL(clicked(bool)), SLOT(acceptClicked()) );
+
+  if ( offer.action == ActionNone )
+  {
+    ui->acceptButton->hide();
+    ui->declineButton->hide();
+  }
+  else
+  {
+    ui->acceptButton->setIcon ( KIcon(QLatin1String( "dialog-ok" )) );
+    ui->declineButton->setIcon ( KIcon(QLatin1String( "edit-delete" )) );
+    connect ( ui->declineButton, SIGNAL(clicked(bool)), SLOT(declineClicked()) );
+    connect ( ui->closeButton, SIGNAL(clicked(bool)), SLOT(closeClicked()) );
+  }
 }
 
 OfferWidget::~OfferWidget()
 {
-
+  delete ui;
 }
+
+void OfferWidget::acceptClicked()
+{
+  emit close(offerId, AcceptOffer);
+}
+
+void OfferWidget::declineClicked()
+{
+  emit close(offerId, DeclineOffer);
+}
+
+void OfferWidget::closeClicked()
+{
+  emit close(offerId, IgnoreOffer);
+}
+
+
+
 

@@ -380,9 +380,12 @@ void Manager::offer(Offer offer)
     case ActionAdjourn:
       text = i18n("%1 would like to adjourn the game", offer.player);
       break;
-
     case ActionAbort:
       text = i18n("%1 would like to abort the game");
+      break;
+    default:
+      kWarning() << "Invalid offer";
+      return;
   }
   emit notification(text, true);
 }

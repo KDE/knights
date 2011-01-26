@@ -179,9 +179,8 @@ void KnightsView::centerView ( const QPointF& center )
     }
 }
 
-void KnightsView::showPopup(const QString& text, bool offer)
+void KnightsView::showPopup(const QString& text, const Knights::Offer& offer)
 {
-    hidePopup();
     QLayout* layout = new QVBoxLayout(ui.notificationWidget);
     layout->setContentsMargins(0,0,0,0);
     QWidget* popup = new QWidget(ui.notificationWidget);
@@ -190,10 +189,8 @@ void KnightsView::showPopup(const QString& text, bool offer)
     layout->addWidget(popup);
     ui.notificationWidget->setLayout(layout);
     popupUi->label->setText ( text );
-    if ( offer )
+    if ( offer.action )
     {
-        popupUi->acceptButton->setIcon ( KIcon(QLatin1String( "dialog-ok" )) );
-        popupUi->declineButton->setIcon ( KIcon(QLatin1String( "edit-delete" )) );
         connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SIGNAL(popupAccepted()) );
         connect ( popupUi->declineButton, SIGNAL(clicked(bool)), SIGNAL(popupRejected()) );
         connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );

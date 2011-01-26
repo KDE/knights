@@ -45,6 +45,7 @@ class Rules;
 
 	    enum GameAction
 	    {
+	      ActionNone,
 	      ActionDraw,
 	      ActionUndo,
 	      ActionAdjourn,
