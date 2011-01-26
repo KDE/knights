@@ -35,16 +35,19 @@
 #include <QtCore/QtConcurrentRun>
 #include <QtCore/QEvent>
 #include "gamemanager.h"
+#include "offerwidget.h"
+#include "ui_knightsview_base.h"
 
 using namespace Knights;
 
 KnightsView::KnightsView ( QWidget *parent )
         : QWidget ( parent )
+        , ui ( new Ui::KnightsView )
 {
-    ui.setupUi ( this );
+    ui->setupUi ( this );
+  //  ui->notificationWidget->hide();
     m_board = 0;
     settingsChanged();
-    connect ( Manager::self(), SIGNAL(notification(QString,bool)), SLOT(showPopup(QString,bool)) );
 }
 
 KnightsView::~KnightsView()
@@ -55,7 +58,7 @@ KnightsView::~KnightsView()
 void KnightsView::setupBoard()
 {
     m_board = new Board ( this );
-    ui.canvas->setScene ( m_board );
+    ui->canvas->setScene ( m_board );
     resizeScene();
     kDebug() << Manager::self();
     connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
@@ -124,11 +127,11 @@ void KnightsView::resizeEvent ( QResizeEvent* e )
 
 void KnightsView::resizeScene()
 {
-    if ( ui.canvas && m_board )
+    if ( ui->canvas && m_board )
     {
-        m_board->setSceneRect ( ui.canvas->contentsRect() );
+        m_board->setSceneRect ( ui->canvas->contentsRect() );
         m_board->updateGraphics();
-        ui.canvas->setTransform ( QTransform() );
+        ui->canvas->setTransform ( QTransform() );
     }
 }
 
@@ -173,40 +176,19 @@ QString KnightsView::pieceTypeName ( PieceType type )
 
 void KnightsView::centerView ( const QPointF& center )
 {
-    if ( ui.canvas )
+    if ( ui->canvas )
     {
-        ui.canvas->centerOn ( center );
+        ui->canvas->centerOn ( center );
     }
 }
 
-void KnightsView::showPopup(const QString& text, const Knights::Offer& offer)
+void KnightsView::showPopup(const Offer& offer)
 {
-    QLayout* layout = new QVBoxLayout(ui.notificationWidget);
-    layout->setContentsMargins(0,0,0,0);
-    QWidget* popup = new QWidget(ui.notificationWidget);
-    Ui::Popup* popupUi = new Ui::Popup;
-    popupUi->setupUi(popup);
-    layout->addWidget(popup);
-    ui.notificationWidget->setLayout(layout);
-    popupUi->label->setText ( text );
-    if ( offer.action )
-    {
-        connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SIGNAL(popupAccepted()) );
-        connect ( popupUi->declineButton, SIGNAL(clicked(bool)), SIGNAL(popupRejected()) );
-        connect ( popupUi->acceptButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
-        connect ( popupUi->declineButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
-    }
-    popupUi->closeButton->setIcon( KIcon(QLatin1String( "dialog-close" )) );
-    connect ( popupUi->closeButton, SIGNAL(clicked(bool)), SLOT(hidePopup()) );
-    popup->show();
+    OfferWidget* widget = new OfferWidget(offer, ui->notificationWidget);
+    connect ( widget, SIGNAL(close(int,OfferAction)), Manager::self(), SLOT(setOfferResult(int,OfferAction)) );
+  //  ui->offerLayout->addWidget ( widget );
+    widget->show();
 }
-
-void KnightsView::hidePopup()
-{
-    // The QWidget child (label and buttons container) has to be deleted before the layout.
-    delete ui.notificationWidget->findChild<QWidget*>();
-}
-
 
 
 #include "knightsview.moc"

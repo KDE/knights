@@ -55,16 +55,19 @@ OfferWidget::~OfferWidget()
 void OfferWidget::acceptClicked()
 {
   emit close(offerId, AcceptOffer);
+  deleteLater();
 }
 
 void OfferWidget::declineClicked()
 {
   emit close(offerId, DeclineOffer);
+  deleteLater();
 }
 
 void OfferWidget::closeClicked()
 {
   emit close(offerId, IgnoreOffer);
+  deleteLater();
 }
 
 

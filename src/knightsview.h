@@ -22,12 +22,14 @@
 #ifndef KNIGHTS_VIEW_H
 #define KNIGHTS_VIEW_H
 
-#include "board.h"
-
-#include "ui_knightsview_base.h"
-
+#include "offerwidget.h"
+#include "core/piece.h"
 #include <QtGui/QWidget>
 
+namespace Ui
+{
+    class KnightsView;
+}
 
 namespace Knights
 {
@@ -35,6 +37,7 @@ namespace Knights
 struct Offer;
 
     class Protocol;
+    class Board;
 
     /**
      * This is the main view class for Knights.  Most of the non-menu,
@@ -46,14 +49,14 @@ struct Offer;
      * @version %{VERSION}
      */
 
-    class KnightsView : public QWidget, public Ui::knightsview_base
+    class KnightsView : public QWidget
     {
             Q_OBJECT
         public:
             /**
              * Default constructor
              */
-            KnightsView ( QWidget *parent );
+            explicit KnightsView ( QWidget *parent );
             /**
              * Destructor
              */
@@ -61,7 +64,7 @@ struct Offer;
             void setPaused ( bool paused );
 
         private:
-            Ui::knightsview_base ui;
+            Ui::KnightsView* ui;
             Board* m_board;
 
             static QString pieceTypeName ( PieceType );
@@ -97,9 +100,7 @@ struct Offer;
             void setupBoard();
             void clearBoard();
             void gameOver ( Color winner );
-
-            void showPopup ( const QString& text, const Offer& offer );
-            void hidePopup();
+            void showPopup ( const Offer& offer );
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

@@ -366,7 +366,7 @@ Rules* Manager::rules()
   return d->rules;
 }
 
-void Manager::offer(Offer offer)
+void Manager::offer(const Knights::Offer& offer)
 {
   QString text;
   switch ( offer.action )
@@ -387,18 +387,14 @@ void Manager::offer(Offer offer)
       kWarning() << "Invalid offer";
       return;
   }
-  emit notification(text, true);
+  emit notification(offer);
 }
 
-void Manager::acceptOffer()
+void Manager::setOfferResult(int id, OfferAction result)
 {
-
+  // TODO:
 }
 
-void Manager::rejectOffer()
-{
-
-}
 
 
 

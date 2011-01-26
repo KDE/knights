@@ -26,6 +26,7 @@
 #include <QtCore/QTime>
 
 #include <KGlobal>
+#include "offerwidget.h"
 
 namespace Knights {
 
@@ -49,13 +50,15 @@ class Rules;
 	      ActionDraw,
 	      ActionUndo,
 	      ActionAdjourn,
-	      ActionAbort
+	      ActionAbort,
+	      ActionOther
 	    };
 
 	    struct Offer
     {
         GameAction action;
         int id;
+	QString text;
         QString player;
         bool fromYou;
         int numberOfMoves; // Only used for Takeback offers.
@@ -112,7 +115,7 @@ signals:
   void pieceMoved ( const Move& move );
   void activePlayerChanged ( Color player );
   void initComplete();
-  void notification ( const QString& text, bool offer );
+  void notification ( const Offer& offer );
 
 public slots:
   void moveByProtocol ( const Move& move );
@@ -121,9 +124,8 @@ public slots:
   void gameOver();
   void resign();
 
-  void offer ( Offer offer );
-  void acceptOffer();
-  void rejectOffer();
+  void offer ( const Offer& offer );
+  void setOfferResult ( int id, OfferAction result );
 
 private:
   GameManagerPrivate* d_ptr;
