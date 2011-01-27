@@ -52,6 +52,11 @@ OfferWidget::~OfferWidget()
   delete ui;
 }
 
+int OfferWidget::id()
+{
+  return offerId;
+}
+
 void OfferWidget::acceptClicked()
 {
   emit close(offerId, AcceptOffer);

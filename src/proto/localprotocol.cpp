@@ -39,10 +39,13 @@ void LocalProtocol::startGame()
 
 void LocalProtocol::move ( const Move& m )
 {
-    
     ++movesSoFar;
     Manager::self()->addMoveToHistory(m);
     movesSoFar > 1 ? Manager::self()->startTime() : Manager::self()->stopTime();
+    Offer o;
+    o.action = ActionDraw;
+    o.id = movesSoFar + 20 * (int)color();
+    Manager::self()->offer(o);
 }
 
 LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ),

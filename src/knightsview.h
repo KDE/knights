@@ -66,6 +66,9 @@ struct Offer;
         private:
             Ui::KnightsView* ui;
             Board* m_board;
+            bool m_showAllOffers;
+            bool m_allOffers;
+            QList<OfferWidget*> m_offerWidgets;
 
             static QString pieceTypeName ( PieceType );
             static QString colorName ( Color );
@@ -95,12 +98,14 @@ struct Offer;
             void settingsChanged();
             void resizeScene();
             void centerView ( const QPointF& center );
+            void showAllOffersToggled();
 
     public slots:
             void setupBoard();
             void clearBoard();
             void gameOver ( Color winner );
             void showPopup ( const Offer& offer );
+    void popupHidden(int id);
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

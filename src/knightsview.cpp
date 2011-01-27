@@ -37,6 +37,7 @@
 #include "gamemanager.h"
 #include "offerwidget.h"
 #include "ui_knightsview_base.h"
+#include <KActionCollection>
 
 using namespace Knights;
 
@@ -45,7 +46,13 @@ KnightsView::KnightsView ( QWidget *parent )
         , ui ( new Ui::KnightsView )
 {
     ui->setupUi ( this );
-  //  ui->notificationWidget->hide();
+
+    // By default, show only one offer (set showAll to true then toggle it)
+    m_showAllOffers = true;
+    showAllOffersToggled();
+    
+    connect ( ui->showAllOffers, SIGNAL(clicked(bool)), SLOT(showAllOffersToggled()) );
+    connect ( Manager::self(), SIGNAL(notification(Offer)), SLOT(showPopup(Offer)) );
     m_board = 0;
     settingsChanged();
 }
@@ -186,9 +193,51 @@ void KnightsView::showPopup(const Offer& offer)
 {
     OfferWidget* widget = new OfferWidget(offer, ui->notificationWidget);
     connect ( widget, SIGNAL(close(int,OfferAction)), Manager::self(), SLOT(setOfferResult(int,OfferAction)) );
-  //  ui->offerLayout->addWidget ( widget );
+    connect ( widget, SIGNAL(close(int,OfferAction)), SLOT(popupHidden(int)));
+    ui->offerLayout->addWidget ( widget );
+    ui->notificationWidget->show();
+    m_offerWidgets << widget;
     widget->show();
 }
+
+void KnightsView::showAllOffersToggled()
+{
+    kDebug() << m_showAllOffers << m_showAllOffers << !m_showAllOffers << !m_showAllOffers;
+    m_showAllOffers = !m_showAllOffers;
+    kDebug() << m_showAllOffers;
+    foreach ( OfferWidget* widget, m_offerWidgets )
+    {
+        widget->setVisible(m_showAllOffers);
+    }
+    if ( !m_showAllOffers && !m_offerWidgets.isEmpty() )
+    {
+        m_offerWidgets.last()->show();
+    }
+    ui->showAllOffers->setIcon ( KIcon(QLatin1String( m_showAllOffers ? "arrow-up-double" : "arrow-down-double" )) );
+}
+
+void KnightsView::popupHidden(int id)
+{
+    kDebug() << m_offerWidgets << id << m_showAllOffers;
+    foreach ( OfferWidget* widget, m_offerWidgets )
+    {
+        if ( widget->id() == id )
+        {
+            m_offerWidgets.removeAll(widget);
+        }
+    }
+    kDebug() << m_offerWidgets << id << m_showAllOffers;
+    if ( m_offerWidgets.isEmpty() )
+    {
+        ui->notificationWidget->hide();
+    }
+    else if ( !m_showAllOffers )
+    {
+        m_offerWidgets.last()->show();
+    }
+}
+
+
 
 
 #include "knightsview.moc"
