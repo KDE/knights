@@ -243,12 +243,6 @@ void XBoardProtocol::redoLastMove()
     write(m.string(false));
 }
 
-void XBoardProtocol::proposeDraw()
-{
-    drawPendingFromOpponent = true;
-    write("draw");
-}
-
 void XBoardProtocol::pauseGame()
 {
     write("force");

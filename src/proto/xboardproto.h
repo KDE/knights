@@ -57,7 +57,6 @@ namespace Knights
         public Q_SLOTS:
             virtual void init ();
             virtual void startGame();
-            virtual void proposeDraw();
             virtual void adjourn();
             virtual void resign();
             virtual void setWinner(Color winner);
