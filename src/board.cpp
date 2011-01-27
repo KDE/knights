@@ -444,6 +444,11 @@ void Board::changeCurrentPlayer()
 void Board::setCurrentColor ( Color color )
 {
     m_currentPlayer = color;
+    if ( m_playerColors & color )
+    {
+        m_displayedPlayer = color;
+        changeDisplayedPlayer();
+    }
     emit activePlayerChanged ( m_currentPlayer );
 }
 
