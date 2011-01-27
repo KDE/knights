@@ -45,6 +45,7 @@ void LocalProtocol::move ( const Move& m )
     Offer o;
     o.action = ActionDraw;
     o.id = movesSoFar + 20 * (int)color();
+    o.text = QString::number(o.id);
     Manager::self()->offer(o);
 }
 

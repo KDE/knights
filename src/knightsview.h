@@ -106,6 +106,7 @@ struct Offer;
             void gameOver ( Color winner );
             void showPopup ( const Offer& offer );
     void popupHidden(int id);
+    void updateOffers();
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

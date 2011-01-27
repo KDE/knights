@@ -45,6 +45,7 @@ OfferWidget::OfferWidget(const Offer& offer, QWidget* parent, Qt::WindowFlags f)
     connect ( ui->declineButton, SIGNAL(clicked(bool)), SLOT(declineClicked()) );
     connect ( ui->closeButton, SIGNAL(clicked(bool)), SLOT(closeClicked()) );
   }
+  ui->label->setText ( offer.text );
 }
 
 OfferWidget::~OfferWidget()
