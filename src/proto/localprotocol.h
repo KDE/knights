@@ -36,7 +36,6 @@ public:
     virtual ~LocalProtocol();
     virtual Features supportedFeatures();
     virtual void undoLastMove();
-    virtual void redoLastMove();
     virtual bool isLocal();
     virtual void init();
     virtual void startGame();

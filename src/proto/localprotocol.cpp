@@ -67,13 +67,6 @@ Knights::Protocol::Features LocalProtocol::supportedFeatures()
 void LocalProtocol::undoLastMove()
 {
     --movesSoFar;
-    emit pieceMoved(Manager::self()->nextUndoMove());
-}
-
-void LocalProtocol::redoLastMove()
-{
-    ++movesSoFar;
-    emit pieceMoved(Manager::self()->nextRedoMove());
 }
 
 void LocalProtocol::makeOffer(Offer offer)
