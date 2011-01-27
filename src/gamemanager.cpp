@@ -391,7 +391,15 @@ void Manager::offer(const Offer& offer)
       break;
   }
   d->offers.insert ( o.id, o );
-  emit notification(o);
+  Protocol* opp = Protocol::byColor( oppositeColor(o.player) );
+  if ( opp->isLocal() )
+  {
+    emit notification(offer);
+  }
+  else
+  {
+    opp->makeOffer(o);
+  }
 }
 
 void Manager::setOfferResult(int id, OfferAction result)

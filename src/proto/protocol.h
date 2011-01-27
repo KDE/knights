@@ -32,6 +32,9 @@
 namespace Knights
 {
 
+class Offer;
+
+
 struct TimeControl;
 
 
@@ -110,11 +113,17 @@ class ChatWidget;
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
             void initComplete();
+            void addOfferFrom(Offer offer);
+            Offer takeOfferFrom(int id);
+            void addOfferTo(Offer offer);
+            Offer takeOfferTo(int id);
+            int nextId();
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;
             virtual void init() = 0;
             virtual void startGame() = 0;
+            virtual void makeOffer(Offer offer) = 0;
 
             // Optional features
         public:

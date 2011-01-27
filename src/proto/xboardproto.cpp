@@ -290,4 +290,13 @@ void XBoardProtocol::setWinner(Color winner)
     write(QLatin1String(result));
 }
 
+void XBoardProtocol::makeOffer(Offer offer)
+{
+    if ( offer.action == ActionDraw )
+    {
+        write("draw");
+    }
+}
+
+
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

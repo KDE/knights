@@ -611,6 +611,17 @@ void FicsProtocol::declineOffer(int id)
     write ( QLatin1String("decline ") + QString::number(id) );
 }
 
+void FicsProtocol::makeOffer(Offer offer)
+{
+    switch (offer.action)
+    {
+        default:
+            break;
+    }
+    addOfferTo(offer);
+}
+
+
 
 
 

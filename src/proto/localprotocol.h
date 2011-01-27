@@ -29,17 +29,20 @@ namespace Knights {
 
 class LocalProtocol : public Knights::Protocol
 {
+  Q_OBJECT
 
 public:
-    virtual void init();
-    virtual void startGame();
-    virtual void move(const Knights::Move& m);
     LocalProtocol(QObject* parent = 0);
     virtual ~LocalProtocol();
     virtual Features supportedFeatures();
     virtual void undoLastMove();
     virtual void redoLastMove();
     virtual bool isLocal();
+    virtual void init();
+    virtual void startGame();
+    virtual void move(const Knights::Move& m);
+    virtual void makeOffer(Offer offer);
+    
 
 private:
     int movesSoFar;

@@ -40,6 +40,7 @@ namespace Knights
     virtual bool isLocal();
 
     virtual QList<ToolWidgetData> toolWidgets();
+    virtual void makeOffer(Offer offer);
 
     virtual void parseLine(const QString& line);
     virtual bool parseStub(const QString& line);

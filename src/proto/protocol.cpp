@@ -28,6 +28,7 @@
 #include <QtCore/QStack>
 #include <QtCore/QTime>
 #include <KDebug>
+#include <gamemanager.h>
 
 namespace Knights
 {
@@ -48,12 +49,18 @@ namespace Knights
             Protocol* black;
             Color color;
     bool ready;
+    
+    QMap<int, Offer> offersFrom;
+    QMap<int, Offer> offersTo;
+    
+    int nextId;
     };
 
     ProtocolPrivate::ProtocolPrivate()
     : white(0)
     , black(0)
     , ready(false)
+    , nextId(0)
     {
 
     }
@@ -268,6 +275,39 @@ bool Protocol::isReady()
     Q_D(const Protocol);
     return d->ready;
 }
+
+void Protocol::addOfferFrom(Offer offer)
+{
+    Q_D(Protocol);
+    d->offersFrom.insert(offer.id, offer);
+}
+
+Offer Protocol::takeOfferFrom(int id)
+{
+    Q_D(Protocol);
+    return d->offersFrom.take(id);
+}
+
+void Protocol::addOfferTo(Offer offer)
+{
+    Q_D(Protocol);
+    d->offersTo.insert(offer.id, offer);
+}
+
+Offer Protocol::takeOfferTo(int id)
+{
+    Q_D(Protocol);
+    return d->offersTo.take(id);
+}
+
+int Protocol::nextId()
+{
+    Q_D(Protocol);
+    return d->nextId++;
+}
+
+
+
 
 }
 

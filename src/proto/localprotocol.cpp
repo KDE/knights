@@ -76,3 +76,8 @@ void LocalProtocol::redoLastMove()
     emit pieceMoved(Manager::self()->nextRedoMove());
 }
 
+void LocalProtocol::makeOffer(Offer offer)
+{
+}
+
+

@@ -90,6 +90,7 @@ namespace Knights
             
             virtual void acceptOffer(int id);
             virtual void declineOffer(int id);
+            virtual void makeOffer(Offer offer);
 
         private:
             const QString movePattern;
