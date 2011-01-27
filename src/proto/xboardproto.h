@@ -53,7 +53,6 @@ namespace Knights
     int m_increment;
     int m_baseTime;
     bool m_timeLimit;
-    bool drawPending;
 
         public Q_SLOTS:
             virtual void init ();

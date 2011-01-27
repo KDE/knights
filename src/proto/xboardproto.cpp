@@ -205,14 +205,11 @@ void XBoardProtocol::parseLine(const QString& line)
         else if ( line.contains ( QLatin1String("offer") ) && line.contains ( QLatin1String("draw") ) )
         {
             display = false;
-            if ( drawPending )
-            {
-                emit gameOver ( NoColor );
-            }
-            else
-            {
-                emit drawOffered();
-            }
+            Offer o;
+            o.action = ActionDraw;
+            o.id = nextId();
+            o.player = color();
+            Manager::self()->offer(o);
         }
         if ( display )
         {
@@ -248,7 +245,7 @@ void XBoardProtocol::redoLastMove()
 
 void XBoardProtocol::proposeDraw()
 {
-    drawPending = true;
+    drawPendingFromOpponent = true;
     write("draw");
 }
 
