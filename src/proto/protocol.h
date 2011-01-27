@@ -134,6 +134,8 @@ class ChatWidget;
             virtual void resign();
             virtual void adjourn();
             virtual void setWinner ( Color winner );
+            virtual void acceptOffer(int id);
+            virtual void declineOffer(int id);
 
         Q_SIGNALS:
             void pieceMoved ( const Move& m );

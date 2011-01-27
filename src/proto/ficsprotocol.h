@@ -87,6 +87,9 @@ namespace Knights
             virtual void move ( const Move& m );
             virtual QList<ToolWidgetData> toolWidgets();
             virtual bool isLocal();
+            
+            virtual void acceptOffer(int id);
+            virtual void declineOffer(int id);
 
         private:
             const QString movePattern;

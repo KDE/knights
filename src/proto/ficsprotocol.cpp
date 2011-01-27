@@ -464,7 +464,7 @@ void FicsProtocol::parseLine(const QString& line)
             {
                 Offer offer;
                 offer.id = offerExp.cap(1).toInt();
-                offer.player = offerExp.cap(2);
+                offer.player = color();
                 QString type = offerExp.cap(3);
                 if ( type == QLatin1String("abort") )
                 {
@@ -600,6 +600,17 @@ void FicsProtocol::undoLastMove()
 {
     write ( "takeback 2" );
 }
+
+void FicsProtocol::acceptOffer(int id)
+{
+    write ( QLatin1String("accept ") + QString::number(id) );
+}
+
+void FicsProtocol::declineOffer(int id)
+{
+    write ( QLatin1String("decline ") + QString::number(id) );
+}
+
 
 
 

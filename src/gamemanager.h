@@ -59,7 +59,7 @@ class Rules;
         GameAction action;
         int id;
 	QString text;
-        QString player;
+        Color player;
         bool fromYou;
         int numberOfMoves; // Only used for Takeback offers.
     };

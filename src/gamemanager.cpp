@@ -50,6 +50,8 @@ public:
   QStack<Move> moveUndoStack;
 
   Rules* rules;
+
+  QMap<int, Offer> offers;
 };
 
 GameManagerPrivate::GameManagerPrivate()
@@ -366,33 +368,47 @@ Rules* Manager::rules()
   return d->rules;
 }
 
-void Manager::offer(const Knights::Offer& offer)
+void Manager::offer(const Offer& offer)
 {
-  QString text;
+  Q_D(GameManager);
+  Offer o = offer;
+  QString name = Protocol::byColor(offer.player)->playerName();
   switch ( offer.action )
   {
     case ActionDraw:
-      text = i18n("%1 offers you a draw", offer.player);
+      o.text = i18n("%1 offers you a draw", name);
       break;
     case ActionUndo:
-      text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", offer.numberOfMoves, offer.player);
+      o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
       break;
     case ActionAdjourn:
-      text = i18n("%1 would like to adjourn the game", offer.player);
+      o.text = i18n("%1 would like to adjourn the game", o.player);
       break;
     case ActionAbort:
-      text = i18n("%1 would like to abort the game");
+      o.text = i18n("%1 would like to abort the game");
       break;
     default:
-      kWarning() << "Invalid offer";
-      return;
+      break;
   }
-  emit notification(offer);
+  d->offers.insert ( o.id, o );
+  emit notification(o);
 }
 
 void Manager::setOfferResult(int id, OfferAction result)
 {
-  // TODO:
+  Q_D(GameManager);
+  switch ( result )
+  {
+    case AcceptOffer:
+      Protocol::byColor(d->offers[id].player)->acceptOffer(id);
+      break;
+    case DeclineOffer:
+      Protocol::byColor(d->offers[id].player)->declineOffer(id);
+      break;
+    default:
+      break;
+  }
+  d->offers.remove(id);
 }
 
 
