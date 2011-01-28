@@ -1,0 +1,27 @@
+This file describes the design of Knights, especally interactions between the board and the protocols. It focuses on the interaction of various parts of the program, especially regarding offers and requests for game action other than moves. The description is not how it currently works, but a plan for implementation. 
+
+The central class managing the game is the Manager. It's a global static, created on application startup and destroyed only on exit. The main window, the Board, and both protocols never communicate with each other directly, but always through the manager. There are only two exceptions:
+ - Creating the protocols is done in Knights class
+ - The board emits the pieceMoved() signal to the local protocol, making sure the manager gets moves only from the proocols. 
+ 
+1. Interaction with the manager. 
+The application (its actions: undo, redo, pause, adjourn, draw, resign) calls the Manager's methods. The Manager then create an offer of the appropriate type. Offers (rather than direct commands) are needed because of the FICS protocol, all these actions must be agreed upon by both players. 
+
+2. Manager <=> Protocol
+When the manager receives an offer, either from the application or from a protocol, it does the following:
+ - If the sender is the application and exactly one protocol is local, it sends the offer to the non-local protocol
+ - If the sender is a non-local protocol and the other protocol is local, it sends the offer to the application, which displays it in a drop-down. 
+ - If both protocols are local, all offers are immediately accepted
+ - If both protocols are non-local, all offers are sent to the opposing protocol. 
+ 
+The protocol deals with the offer depending on its type:
+ - The FICS protocol has to ask the opponent for approval of every action
+ - The local protocol accepts them all
+ - The XBoard protocol auto-accepts all offers except draws. If the program responds to the draw offer, it notifies the Manager about it. 
+ 
+When a protocol is accepted, protocol notifies the Manager by calling the Manager::setOfferResult() function with the offer's id. 
+ 
+The protocols can also send offers to the manager, using the Manager::sendOffer() function. 
+ 
+3. Manager <=> Board
+Manager emits a pieceMoved() signals, which is connected to the Board. The board then visualizes the move. Moves made by moving pieces on the board are not connected directly to the manager, but to the LocalProtocol's move signal. 
