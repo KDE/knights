@@ -99,7 +99,6 @@ void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
 
 void Board::movePiece ( const Move& move )
 {
-    kDebug() << move;
     Move m = move;
     if ( m.flag ( Move::Illegal ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {
@@ -184,12 +183,7 @@ void Board::movePiece ( const Move& move )
         kDebug() << "Winner: " << winner;
         emit gameOver ( winner );
     }
-    if ( ( m_playerColors & m_currentPlayer ) && !m.flag(Move::Additional) && !m.flag(Move::Forced) )
-    {
-        kDebug() << "Move by a human";
-        // This was a move made by a human, either by clicking or through a console
-        // We also don't emit this for rook moves during castling
-    }
+    updateGraphics();
 }
 
 void Board::populate()
