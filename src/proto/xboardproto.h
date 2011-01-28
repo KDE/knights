@@ -62,7 +62,6 @@ namespace Knights
             virtual void setWinner(Color winner);
 
             virtual void undoLastMove();
-            virtual void redoLastMove();
 
             virtual void pauseGame();
             virtual void resumeGame();

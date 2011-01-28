@@ -181,7 +181,6 @@ void XBoardProtocol::parseLine(const QString& line)
             if ( m.isValid() )
             {
                 kDebug() << "Move by" << attribute("program").toString() << ":" << m;
-                Manager::self()->addMoveToHistory ( m );
                 emit pieceMoved ( m );
                 emit undoPossible ( true );
                 Manager::self()->startTime();
@@ -235,12 +234,6 @@ void XBoardProtocol::resign()
 void XBoardProtocol::undoLastMove()
 {
     write("undo");
-}
-
-void XBoardProtocol::redoLastMove()
-{
-    Move m = Manager::self()->nextRedoMove();
-    write(m.string(false));
 }
 
 void XBoardProtocol::pauseGame()

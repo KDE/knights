@@ -72,10 +72,6 @@ public:
     explicit Manager(QObject* parent = 0);
     virtual ~Manager();
 
-    void addMoveToHistory ( const Move& move );
-    Move nextUndoMove();
-    Move nextRedoMove();
-
     void startTime();
     void stopTime();
     void setCurrentTime ( Color color, const QTime& time );
@@ -104,6 +100,12 @@ public:
     void redo();
 
     Rules* rules();
+    
+private:
+    void addMoveToHistory ( const Move& move );
+    Move nextUndoMove();
+    Move nextRedoMove();
+
 
 protected:
     virtual void timerEvent(QTimerEvent* );

@@ -40,7 +40,6 @@ void LocalProtocol::startGame()
 void LocalProtocol::move ( const Move& m )
 {
     ++movesSoFar;
-    Manager::self()->addMoveToHistory(m);
     movesSoFar > 1 ? Manager::self()->startTime() : Manager::self()->stopTime();
 }
 

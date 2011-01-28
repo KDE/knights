@@ -155,6 +155,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
             emit redoPossible(false);
         }
         d->moveUndoStack.clear();
+	kDebug() << d->moveHistory;
     }
 
     Move Manager::nextUndoMove()
@@ -171,6 +172,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         }
         d->moveUndoStack.push( m );
         Move ret = m.reverse();
+	kDebug() << m << ret;
         ret.setFlag ( Move::Forced, true );
         return ret;
     }
@@ -287,7 +289,7 @@ void Manager::redo()
   Move m = nextRedoMove();
   Protocol::white()->move ( m );
   Protocol::black()->move ( m );
-  emit pieceMoved ( nextRedoMove() );
+  emit pieceMoved ( m );
 }
 
 void Manager::resign()
@@ -318,6 +320,7 @@ void Manager::moveByProtocol(const Move& move)
     // Most likely happens in a local game, when both protocols report the same move from the board.
     return;
   }
+  kDebug() << "Adding move" << m << "to history";
   addMoveToHistory ( m );
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   emit pieceMoved ( m );
