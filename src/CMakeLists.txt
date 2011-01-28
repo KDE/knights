@@ -29,6 +29,10 @@ if (KGR)
     add_definitions(-DWITH_KGR)
 endif (KGR)
 
+if (OCS_ABOUT)
+    add_definitions(-DWITH_OCS)
+endif (OCS_ABOUT)
+
 if (${QT_VERSION} VERSION_GREATER "4.6.0")
     add_definitions(-DWITH_QT_46)
 endif()
