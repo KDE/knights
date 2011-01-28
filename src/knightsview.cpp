@@ -69,7 +69,6 @@ void KnightsView::setupBoard()
     resizeScene();
     kDebug() << Manager::self();
     connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
-    connect ( m_board, SIGNAL(pieceMoved(Move)), Manager::self(), SLOT(moveByBoard(Move)) );
     connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
     connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
     connect ( Manager::self(), SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
@@ -79,10 +78,12 @@ void KnightsView::setupBoard()
     if ( Protocol::white()->isLocal() )
     {
         playerColors |= White;
+        connect ( m_board, SIGNAL(pieceMoved(Move)), Protocol::white(), SIGNAL(pieceMoved(Move)) );
     }
     if ( Protocol::black()->isLocal() )
     {
         playerColors |= Black;
+        connect ( m_board, SIGNAL(pieceMoved(Move)), Protocol::black(), SIGNAL(pieceMoved(Move)) );
     }
     m_board->setPlayerColors(playerColors);
 }

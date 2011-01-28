@@ -313,6 +313,11 @@ void Manager::moveByProtocol(const Move& move)
   }
   Move m = move;
   d->rules->checkSpecialFlags ( &m, d->activePlayer );
+  if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )
+  {
+    // Most likely happens in a local game, when both protocols report the same move from the board.
+    return;
+  }
   addMoveToHistory ( m );
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   emit pieceMoved ( m );

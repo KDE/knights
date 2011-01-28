@@ -449,7 +449,12 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         return;
     }
     move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
-    move->setFlag ( Move::Take, m_grid->contains ( move->to() ) );
+    if ( m_grid->contains ( move->to() ) )
+    {
+        Piece* p = m_grid->value ( move->to() );
+        move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
+        move->setFlag ( Move::Take, true );
+    }
     if ( p->pieceType() == King && length ( *move ) == 2 )
     {
         kDebug() << "Castling";

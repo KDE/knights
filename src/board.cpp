@@ -189,7 +189,6 @@ void Board::movePiece ( const Move& move )
         kDebug() << "Move by a human";
         // This was a move made by a human, either by clicking or through a console
         // We also don't emit this for rook moves during castling
-        emit pieceMoved ( m );
     }
 }
 
@@ -326,7 +325,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
                 }
                 move.setPromotedType ( pType );
             }
-            movePiece ( move );
+            emit pieceMoved(move);
         }
         m_draggedItem->setZValue ( pieceZValue );
         m_draggedItem = 0;
