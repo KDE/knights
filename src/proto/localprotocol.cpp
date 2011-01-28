@@ -39,12 +39,9 @@ void LocalProtocol::startGame()
 
 void LocalProtocol::move ( const Move& m )
 {
-    ++movesSoFar;
-    movesSoFar > 1 ? Manager::self()->startTime() : Manager::self()->stopTime();
 }
 
-LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ),
-  movesSoFar(0)
+LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent )
 {
 }
 
@@ -65,7 +62,6 @@ Knights::Protocol::Features LocalProtocol::supportedFeatures()
 
 void LocalProtocol::undoLastMove()
 {
-    --movesSoFar;
 }
 
 void LocalProtocol::makeOffer(Offer offer)

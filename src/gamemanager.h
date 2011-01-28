@@ -72,8 +72,6 @@ public:
     explicit Manager(QObject* parent = 0);
     virtual ~Manager();
 
-    void startTime();
-    void stopTime();
     void setCurrentTime ( Color color, const QTime& time );
 
 
@@ -95,9 +93,6 @@ public:
             void setActivePlayer ( Color player );
             Color activePlayer() const;
 	    bool isRunning();
-    void undo();
-    void initialize();
-    void redo();
 
     Rules* rules();
     
@@ -106,6 +101,8 @@ private:
     Move nextUndoMove();
     Move nextRedoMove();
 
+    void startTime();
+    void stopTime();
 
 protected:
     virtual void timerEvent(QTimerEvent* );
@@ -128,6 +125,12 @@ public slots:
 
   void offer ( const Offer& offer );
   void setOfferResult ( int id, OfferAction result );
+  
+    void initialize();
+    void undo();
+    void redo();
+    
+    void setTimeRunning(bool running); 
 
 private:
   GameManagerPrivate* d_ptr;

@@ -104,6 +104,23 @@ void Manager::stopTime()
     }
 }
 
+void Manager::setTimeRunning(bool running)
+{
+  if ( running )
+  {
+    Protocol::white()->resumeGame();
+    Protocol::black()->resumeGame();
+    startTime();
+  }
+  else
+  {
+    Protocol::white()->pauseGame();
+    Protocol::black()->pauseGame();
+    stopTime();
+  }
+}
+
+
 void Manager::setCurrentTime(Color color, const QTime& time)
 {
     Q_D(GameManager);
@@ -282,6 +299,7 @@ void Manager::undo()
   Protocol::white()->undoLastMove();
   Protocol::black()->undoLastMove();
   emit pieceMoved ( nextUndoMove() );
+  changeActivePlayer();
 }
 
 void Manager::redo()
@@ -290,6 +308,7 @@ void Manager::redo()
   Protocol::white()->move ( m );
   Protocol::black()->move ( m );
   emit pieceMoved ( m );
+  changeActivePlayer();
 }
 
 void Manager::resign()

@@ -41,10 +41,6 @@ public:
     virtual void startGame();
     virtual void move(const Knights::Move& m);
     virtual void makeOffer(Offer offer);
-    
-
-private:
-    int movesSoFar;
 };
 
 }

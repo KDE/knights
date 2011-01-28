@@ -87,7 +87,6 @@ void XBoardProtocol::move ( const Move& m )
     {
         resumeGame();
     }
-    Manager::self()->startTime();
 }
 
 void XBoardProtocol::init (  )
@@ -183,7 +182,6 @@ void XBoardProtocol::parseLine(const QString& line)
                 kDebug() << "Move by" << attribute("program").toString() << ":" << m;
                 emit pieceMoved ( m );
                 emit undoPossible ( true );
-                Manager::self()->startTime();
             }
         }
         else if ( line.contains ( QLatin1String ( "wins" ) ) )
@@ -243,6 +241,7 @@ void XBoardProtocol::pauseGame()
 
 void XBoardProtocol::resumeGame()
 {
+    kDebug() << color() << Manager::self()->activePlayer();
     if ( Manager::self()->activePlayer() != color() )
     {
         resumePending = true;
@@ -252,7 +251,7 @@ void XBoardProtocol::resumeGame()
         write("go");
         emit undoPossible ( false );
         emit redoPossible ( false );
-        Manager::self()->startTime();
+        resumePending = false;
     }
 }
 

@@ -88,6 +88,7 @@ namespace Knights
     {
         KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
         KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
+        KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
         KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
 
         KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), Manager::self(), SLOT ( resign() ) );
@@ -221,10 +222,6 @@ void MainWindow::showFicsSpectateDialog()
                 m_protocolActions << drawAction;
                 connect ( opp, SIGNAL(drawOffered()), SLOT(drawOffered()) );
             }
-            if ( f & Protocol::Resign )
-            {
-
-            }
             if ( f & Protocol::Adjourn )
             {
                 KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), opp, SLOT ( adjourn() ) );
@@ -232,14 +229,6 @@ void MainWindow::showFicsSpectateDialog()
                 adjournAction->setHelpText(i18n("Continue this game at a later time"));
                 adjournAction->setIcon(KIcon(QLatin1String("document-save")));
                 m_protocolActions << adjournAction;
-            }
-            if ( f & Protocol::Pause )
-            {
-                m_protocolActions << KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
-            }
-            if ( f & Protocol::Undo )
-            {
-
             }
         }
         QList<Protocol::ToolWidgetData> list;
@@ -317,9 +306,8 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::pauseGame ( bool pause )
     {
-        kDebug();
         m_view->setPaused ( pause );
-        pause ? Manager::self()->stopTime() : Manager::self()->startTime();
+        Manager::self()->setTimeRunning ( !pause );
     }
 
     void MainWindow::drawOffered()

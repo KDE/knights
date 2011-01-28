@@ -457,7 +457,7 @@ void FicsProtocol::parseLine(const QString& line)
 
                 if ( moveRegExp.cap(5).toInt() == 2 )
                 {
-                    Manager::self()->startTime();
+                    // TODO: Notify the manager that time is starting now
                 }
             }
             else if ( offerExp.indexIn(line) > -1 )
