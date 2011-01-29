@@ -85,7 +85,8 @@ void XBoardProtocol::move ( const Move& m )
     emit undoPossible ( false );
     if ( resumePending )
     {
-        resumeGame();
+        write("go");
+        resumePending = false;
     }
 }
 
@@ -219,40 +220,24 @@ void XBoardProtocol::readError()
     kError() << mProcess->readAllStandardError();
 }
 
-void XBoardProtocol::adjourn()
+void XBoardProtocol::acceptOffer(const Offer& offer)
 {
-    write( QLatin1String("save") + KFileDialog::getSaveFileName() );
-}
-
-void XBoardProtocol::resign()
-{
-    write("resign");
-}
-
-void XBoardProtocol::undoLastMove()
-{
-    write("undo");
-}
-
-void XBoardProtocol::pauseGame()
-{
-    write("force");
-}
-
-void XBoardProtocol::resumeGame()
-{
-    kDebug() << color() << Manager::self()->activePlayer();
-    if ( Manager::self()->activePlayer() != color() )
+    switch ( offer.action )
     {
-        resumePending = true;
+        case ActionDraw:
+            setWinner(NoColor);
+            break;
+            
+        default:
+            kError() << "XBoard should not send any offers except Draw offers";
+            break;
     }
-    else
-    {
-        write("go");
-        emit undoPossible ( false );
-        emit redoPossible ( false );
-        resumePending = false;
-    }
+}
+
+void XBoardProtocol::declineOffer(const Offer& offer)
+{
+    // No special action to do here, ignoring an offer is the same as declining. 
+    Q_UNUSED(offer);
 }
 
 void XBoardProtocol::setWinner(Color winner)
@@ -273,11 +258,40 @@ void XBoardProtocol::setWinner(Color winner)
     write(QLatin1String(result));
 }
 
-void XBoardProtocol::makeOffer(Offer offer)
+void XBoardProtocol::makeOffer(const Offer& offer)
 {
-    if ( offer.action == ActionDraw )
+    switch ( offer.action )
     {
-        write("draw");
+        case ActionDraw:
+            write("draw");
+            break;
+            
+        case ActionAdjourn:
+            write( QLatin1String("save") + KFileDialog::getSaveFileName() );
+            offer.accept();
+            break;
+            
+        case ActionUndo:
+            write ( "undo" );
+            offer.accept();
+            break;
+            
+        case ActionPause:
+            write ( "force" );
+            offer.accept();
+            break;
+            
+        case ActionResume:
+            if ( Manager::self()->activePlayer() == color() )
+            {
+                write ( "go" );
+            }
+            else
+            {
+                resumePending = true;
+            }
+            offer.accept();
+            break;
     }
 }
 

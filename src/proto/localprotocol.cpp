@@ -24,6 +24,7 @@
 
 #include <KDE/KLocale>
 #include "gamemanager.h"
+#include <KDebug>
 
 using namespace Knights;
 
@@ -60,12 +61,22 @@ Knights::Protocol::Features LocalProtocol::supportedFeatures()
     return Pause | Undo | TimeLimit;
 }
 
-void LocalProtocol::undoLastMove()
+void LocalProtocol::makeOffer(const Offer& offer)
 {
+  Manager::self()->setOfferResult(offer.id, AcceptOffer);
 }
 
-void LocalProtocol::makeOffer(Offer offer)
+void LocalProtocol::acceptOffer(const Offer& offer)
 {
+  Q_UNUSED(offer);
+  kError() << "The Local protocol should not send offers!";
 }
+
+void LocalProtocol::declineOffer(const Offer& offer)
+{
+  Q_UNUSED(offer);
+  kError() << "The Local protocol should not send offers!";
+}
+
 
 

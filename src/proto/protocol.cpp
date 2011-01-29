@@ -206,14 +206,14 @@ void Protocol::setTimeControl(const Knights::TimeControl& c)
     Q_UNUSED(c);
 }
 
-void Protocol::acceptOffer(int id)
+void Protocol::acceptOffer(const Offer& offer)
 {
-    Q_UNUSED(id);
+    Q_UNUSED(offer);
 }
 
-void Protocol::declineOffer(int id)
+void Protocol::declineOffer(const Offer& offer)
 {
-    Q_UNUSED(id);
+    Q_UNUSED(offer);
 }
 
 ChatWidget* Protocol::createChatWidget()

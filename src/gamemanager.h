@@ -56,14 +56,17 @@ class Rules;
 	      ActionOther
 	    };
 
-	    struct Offer
+	    class Offer
     {
+    public:
         GameAction action;
         int id;
 	QString text;
         Color player;
-        bool fromYou;
         int numberOfMoves; // Only used for Takeback offers.
+        
+        void accept() const;
+	void decline() const;
     };
 
 class Manager : public QObject

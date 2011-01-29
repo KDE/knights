@@ -40,7 +40,6 @@ namespace Knights
     virtual bool isLocal();
 
     virtual QList<ToolWidgetData> toolWidgets();
-    virtual void makeOffer(Offer offer);
 
     virtual void parseLine(const QString& line);
     virtual bool parseStub(const QString& line);
@@ -57,14 +56,12 @@ namespace Knights
         public Q_SLOTS:
             virtual void init ();
             virtual void startGame();
-            virtual void adjourn();
-            virtual void resign();
             virtual void setWinner(Color winner);
-
-            virtual void undoLastMove();
-
-            virtual void pauseGame();
-            virtual void resumeGame();
+            
+    virtual void makeOffer(const Offer& offer);
+    virtual void acceptOffer(const Offer& offer);
+    virtual void declineOffer(const Offer& offer);
+            
 
     private Q_SLOTS:
         void readError();

@@ -119,9 +119,9 @@ class ChatWidget;
             virtual void move ( const Move& m ) = 0;
             virtual void init() = 0;
             virtual void startGame() = 0;
-            virtual void makeOffer(Offer offer) = 0;
-            virtual void acceptOffer(int id) = 0;
-            virtual void declineOffer(int id) = 0;
+            virtual void makeOffer ( const Offer& offer ) = 0;
+            virtual void acceptOffer ( const Offer& offer ) = 0;
+            virtual void declineOffer ( const Offer& offer ) = 0;
 
             // Optional features
             virtual void setWinner ( Color winner );

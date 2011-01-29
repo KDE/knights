@@ -1,6 +1,11 @@
-This file describes the design of Knights, especally interactions between the board and the protocols. It focuses on the interaction of various parts of the program, especially regarding offers and requests for game action other than moves. The description is not how it currently works, but a plan for implementation. 
+This file describes the design of Knights, especally interactions between the board and the protocols. 
+It focuses on the interaction of various parts of the program, especially regarding offers and requests for game action other than moves. 
+The description is not how it currently works, but a plan for implementation. 
 
-The central class managing the game is the Manager. It's a global static, created on application startup and destroyed only on exit. The main window, the Board, and both protocols never communicate with each other directly, but always through the manager. There are only two exceptions:
+The central class managing the game is the Manager. 
+It's a global static, created on application startup and destroyed only on exit. 
+The main window, the Board, and both protocols never communicate with each other directly, but always through the manager. 
+There are only two exceptions:
  - Creating the protocols is done in Knights class
  - The board emits the pieceMoved() signal to the local protocol, making sure the manager gets moves only from the proocols. 
  
@@ -19,9 +24,16 @@ The protocol deals with the offer depending on its type:
  - The local protocol accepts them all
  - The XBoard protocol auto-accepts all offers except draws. If the program responds to the draw offer, it notifies the Manager about it. 
  
-When a protocol is accepted, protocol notifies the Manager by calling the Manager::setOfferResult() function with the offer's id. The manager then does whatever was offered (pause/start the timers, undo moves). At this point, the Manager's doesn't call any of the Protocol's functions except acceptOffer(), and this only to the protocol who originally sent the offer. 
+When a protocol is accepted, protocol notifies the Manager by calling Offer::accept() and Offer::decline().
+Alternatively, it can also use the Manager::setOfferResult() function with the offer's id. 
+The manager then does whatever was offered (pause/start the timers, undo moves). 
+At this point, the Manager's doesn't call any of the Protocol's functions except acceptOffer(), and this only to the protocol who originally sent the offer. 
  
-The protocols can also send offers to the manager, using the Manager::sendOffer() function. Because with FICS and XBoard, accepting the offer is often the same command as the offer itself, the Manager provides a offersTo(Color,GameAction) function which checks if there's already a pending offer for the same command. If there is, the protocols accepts it, otherwise it creates a new one. 
- 
+The protocols can also send offers to the manager, using the Manager::sendOffer() function. 
+Because with FICS and XBoard, accepting the offer is often the same command as the offer itself, the Manager will make sure that Protocol::acceptOffer() is called if there's already a pending offer for the same command. 
+If there is not, it will call Protocol::makeOffer().
+
 3. Manager <=> Board
-Manager emits a pieceMoved() signals, which is connected to the Board. The board then visualizes the move. Moves made by moving pieces on the board are not connected directly to the manager, but to the LocalProtocol's move signal. 
+Manager emits a pieceMoved() signals, which is connected to the Board. 
+The board then visualizes the move. 
+Moves made by moving pieces on the board are not connected directly to the manager, but to the LocalProtocol's move signal. 

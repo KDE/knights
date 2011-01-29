@@ -601,22 +601,38 @@ void FicsProtocol::undoLastMove()
     write ( "takeback 2" );
 }
 
-void FicsProtocol::acceptOffer(int id)
+void FicsProtocol::acceptOffer(const Offer& offer)
 {
-    write ( QLatin1String("accept ") + QString::number(id) );
+    write ( QLatin1String("accept ") + QString::number(offer.id) );
 }
 
-void FicsProtocol::declineOffer(int id)
+void FicsProtocol::declineOffer(const Offer& offer)
 {
-    write ( QLatin1String("decline ") + QString::number(id) );
+    write ( QLatin1String("decline ") + QString::number(offer.id) );
 }
 
-void FicsProtocol::makeOffer(Offer offer)
+void FicsProtocol::makeOffer(const Offer& offer)
 {
     switch (offer.action)
     {
-        default:
+        case ActionDraw:
+            write ( "draw" );
             break;
+            
+        case ActionPause:
+            write ( "pause" );
+            break;
+            
+        case ActionUndo:
+            write ( "takeback" );
+            break;
+            
+        case ActionResume:
+            write ( "unpause" );
+            break;
+            
+        case ActionAdjourn:
+            write ( "adjourn" );
     }
 }
 

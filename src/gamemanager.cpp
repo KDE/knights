@@ -33,6 +33,16 @@ using namespace Knights;
 
 const int TimerInterval = 100;
 
+void Offer::accept() const
+{
+  Manager::self()->setOfferResult(id, AcceptOffer);
+}
+
+void Offer::decline() const
+{
+  Manager::self()->setOfferResult(id, DeclineOffer);
+}
+
 class Knights::GameManagerPrivate
 {
 public:
@@ -426,7 +436,7 @@ void Manager::setOfferResult(int id, OfferAction result)
   Q_D(GameManager);
   if ( result == AcceptOffer )
   {  
-      Protocol::byColor(d->offers[id].player)->acceptOffer(id);
+      Protocol::byColor(d->offers[id].player)->acceptOffer(d->offers[id]);
       switch ( d->offers[id].action )
       {
 	case ActionUndo:
@@ -457,7 +467,7 @@ void Manager::setOfferResult(int id, OfferAction result)
   }
    else if ( result == DeclineOffer )
    { 
-     Protocol::byColor(d->offers[id].player)->declineOffer(id);
+     Protocol::byColor(d->offers[id].player)->declineOffer(d->offers[id]);
   }
   d->offers.remove(id);
 }
