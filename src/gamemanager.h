@@ -30,6 +30,9 @@
 
 namespace Knights {
 
+class Protocol;
+
+
 class Rules;
 
 
@@ -108,6 +111,8 @@ private:
 
     void startTime();
     void stopTime();
+    
+    Protocol* local();
 
 protected:
     virtual void timerEvent(QTimerEvent* );

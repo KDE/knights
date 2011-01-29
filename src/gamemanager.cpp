@@ -302,6 +302,11 @@ bool Manager::timeControlEnabled(Color color) const
 
 void Manager::undo()
 {
+  Offer o;
+  o.action = ActionUndo;
+  o.numberOfMoves = 1; // TODO: Maybe set it to 2
+  o.player = local()->color();
+  sendOffer(o);
 }
 
 void Manager::redo()
@@ -424,7 +429,8 @@ void Manager::sendOffer(const Offer& offer)
   }
   d->offers.insert ( o.id, o );
   Protocol* opp = Protocol::byColor( oppositeColor(o.player) );
-  if ( opp->isLocal() )
+  // Only display a notification if only one player is local.
+  if ( opp->isLocal() && !Protocol::byColor(o.player)->isLocal() )
   {
     emit notification(o);
   }
@@ -475,7 +481,19 @@ void Manager::setOfferResult(int id, OfferAction result)
   d->offers.remove(id);
 }
 
-
+Protocol* Manager::local()
+{
+  Q_D(const GameManager);
+  if ( Protocol::byColor(d->activePlayer)->isLocal() )
+  {
+    return Protocol::byColor(d->activePlayer);
+  }
+  if ( Protocol::byColor(oppositeColor(d->activePlayer))->isLocal() )
+  {
+    return Protocol::byColor(oppositeColor(d->activePlayer));
+  }
+  return 0;
+}
 
 
 
