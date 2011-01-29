@@ -402,28 +402,31 @@ void Manager::sendOffer(const Offer& offer)
   Q_D(GameManager);
   Offer o = offer;
   QString name = Protocol::byColor(offer.player)->playerName();
-  switch ( offer.action )
+  if ( o.text.isEmpty() )
   {
-    case ActionDraw:
-      o.text = i18n("%1 offers you a draw", name);
-      break;
-    case ActionUndo:
-      o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
-      break;
-    case ActionAdjourn:
-      o.text = i18n("%1 would like to adjourn the game", o.player);
-      break;
-    case ActionAbort:
-      o.text = i18n("%1 would like to abort the game");
-      break;
-    default:
-      break;
+    switch ( offer.action )
+    {
+      case ActionDraw:
+	o.text = i18n("%1 offers you a draw", name);
+	break;
+      case ActionUndo:
+	o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
+	break;
+      case ActionAdjourn:
+	o.text = i18n("%1 would like to adjourn the game", o.player);
+	break;
+      case ActionAbort:
+	o.text = i18n("%1 would like to abort the game");
+	break;
+      default:
+	break;
+    }
   }
   d->offers.insert ( o.id, o );
   Protocol* opp = Protocol::byColor( oppositeColor(o.player) );
   if ( opp->isLocal() )
   {
-    emit notification(offer);
+    emit notification(o);
   }
   else
   {
