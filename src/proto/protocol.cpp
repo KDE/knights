@@ -49,10 +49,6 @@ namespace Knights
             Protocol* black;
             Color color;
     bool ready;
-    
-    QMap<int, Offer> offersFrom;
-    QMap<int, Offer> offersTo;
-    
     int nextId;
     };
 
@@ -199,37 +195,6 @@ Protocol* Protocol::byColor(Color color)
     {
         return QList< Protocol::ToolWidgetData >();
     }
-
-    void Protocol::pauseGame()
-    {
-    }
-
-    void Protocol::resumeGame()
-    {
-    }
-
-    void Protocol::undoLastMove()
-    {
-
-    }
-
-    void Protocol::redoLastMove()
-    {
-
-    }
-
-    void Protocol::adjourn()
-    {
-
-    }
-    void Protocol::proposeDraw()
-    {
-
-    }
-    void Protocol::resign()
-    {
-
-    }
     
 void Protocol::setWinner(Color winner)
 {
@@ -274,30 +239,6 @@ bool Protocol::isReady()
 {
     Q_D(const Protocol);
     return d->ready;
-}
-
-void Protocol::addOfferFrom(Offer offer)
-{
-    Q_D(Protocol);
-    d->offersFrom.insert(offer.id, offer);
-}
-
-Offer Protocol::takeOfferFrom(int id)
-{
-    Q_D(Protocol);
-    return d->offersFrom.take(id);
-}
-
-void Protocol::addOfferTo(Offer offer)
-{
-    Q_D(Protocol);
-    d->offersTo.insert(offer.id, offer);
-}
-
-Offer Protocol::takeOfferTo(int id)
-{
-    Q_D(Protocol);
-    return d->offersTo.take(id);
 }
 
 int Protocol::nextId()

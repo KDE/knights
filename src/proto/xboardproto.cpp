@@ -206,7 +206,7 @@ void XBoardProtocol::parseLine(const QString& line)
             o.action = ActionDraw;
             o.id = nextId();
             o.player = color();
-            Manager::self()->offer(o);
+            Manager::self()->sendOffer(o);
         }
         if ( display )
         {

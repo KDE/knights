@@ -51,6 +51,8 @@ class Rules;
 	      ActionUndo,
 	      ActionAdjourn,
 	      ActionAbort,
+	      ActionPause,
+	      ActionResume,
 	      ActionOther
 	    };
 
@@ -123,7 +125,7 @@ public slots:
   void gameOver();
   void resign();
 
-  void offer ( const Offer& offer );
+  void sendOffer ( const Offer& offer );
   void setOfferResult ( int id, OfferAction result );
   
     void initialize();

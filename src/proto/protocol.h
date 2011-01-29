@@ -113,10 +113,6 @@ class ChatWidget;
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
             void initComplete();
-            void addOfferFrom(Offer offer);
-            Offer takeOfferFrom(int id);
-            void addOfferTo(Offer offer);
-            Offer takeOfferTo(int id);
             int nextId();
 
         public Q_SLOTS:
@@ -124,27 +120,18 @@ class ChatWidget;
             virtual void init() = 0;
             virtual void startGame() = 0;
             virtual void makeOffer(Offer offer) = 0;
+            virtual void acceptOffer(int id) = 0;
+            virtual void declineOffer(int id) = 0;
 
             // Optional features
+            virtual void setWinner ( Color winner );
+            
         public:
             virtual Features supportedFeatures();
             virtual int timeRemaining();
             virtual QList<ToolWidgetData> toolWidgets();
             virtual void setTimeControl ( const TimeControl& c );
             virtual bool isReady();
-
-        public Q_SLOTS:
-            virtual void pauseGame();
-            virtual void resumeGame();
-            virtual void undoLastMove();
-            virtual void redoLastMove();
-
-            virtual void proposeDraw();
-            virtual void resign();
-            virtual void adjourn();
-            virtual void setWinner ( Color winner );
-            virtual void acceptOffer(int id);
-            virtual void declineOffer(int id);
 
         Q_SIGNALS:
             void pieceMoved ( const Move& m );
@@ -161,8 +148,6 @@ class ChatWidget;
             void timeLimitChanged ( const QTime& time );
             void undoPossible ( bool possible );
             void redoPossible ( bool possible );
-
-            void drawOffered();
 
         private:
             static QPointer<Protocol> m_white;

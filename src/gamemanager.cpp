@@ -108,14 +108,10 @@ void Manager::setTimeRunning(bool running)
 {
   if ( running )
   {
-    Protocol::white()->resumeGame();
-    Protocol::black()->resumeGame();
     startTime();
   }
   else
   {
-    Protocol::white()->pauseGame();
-    Protocol::black()->pauseGame();
     stopTime();
   }
 }
@@ -296,10 +292,6 @@ bool Manager::timeControlEnabled(Color color) const
 
 void Manager::undo()
 {
-  Protocol::white()->undoLastMove();
-  Protocol::black()->undoLastMove();
-  emit pieceMoved ( nextUndoMove() );
-  changeActivePlayer();
 }
 
 void Manager::redo()
@@ -314,7 +306,7 @@ void Manager::redo()
 void Manager::resign()
 {
   Q_D(const GameManager);
-  Protocol::byColor ( oppositeColor(d->activePlayer) )->resign();
+  //TODO:
 }
 
 bool Manager::isRunning()
@@ -395,7 +387,7 @@ Rules* Manager::rules()
   return d->rules;
 }
 
-void Manager::offer(const Offer& offer)
+void Manager::sendOffer(const Offer& offer)
 {
   Q_D(GameManager);
   Offer o = offer;
@@ -432,16 +424,40 @@ void Manager::offer(const Offer& offer)
 void Manager::setOfferResult(int id, OfferAction result)
 {
   Q_D(GameManager);
-  switch ( result )
-  {
-    case AcceptOffer:
+  if ( result == AcceptOffer )
+  {  
       Protocol::byColor(d->offers[id].player)->acceptOffer(id);
-      break;
-    case DeclineOffer:
-      Protocol::byColor(d->offers[id].player)->declineOffer(id);
-      break;
-    default:
-      break;
+      switch ( d->offers[id].action )
+      {
+	case ActionUndo:
+	  emit pieceMoved ( nextUndoMove() );
+	  changeActivePlayer();
+	  break;
+	  
+	case ActionDraw:
+	  Protocol::white()->setWinner(NoColor);
+	  Protocol::black()->setWinner(NoColor);
+	  break;
+	  
+	case ActionAbort:
+	  gameOver();
+	  break;
+	  
+	case ActionPause:
+	  stopTime();
+	  break;
+	  
+	case ActionResume:
+	  startTime();
+	  break;
+	  
+	default:
+	  break;
+      }
+  }
+   else if ( result == DeclineOffer )
+   { 
+     Protocol::byColor(d->offers[id].player)->declineOffer(id);
   }
   d->offers.remove(id);
 }

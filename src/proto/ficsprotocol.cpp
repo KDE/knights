@@ -484,7 +484,7 @@ void FicsProtocol::parseLine(const QString& line)
                     offer.numberOfMoves = offerExp.cap(4).toInt();
                 }
                 m_offers.insert ( offer.id, offer );
-                Manager::self()->offer ( offer );
+                Manager::self()->sendOffer ( offer );
             }
             else if ( line.contains ( QLatin1String(" says:") ) )
             {
@@ -618,7 +618,6 @@ void FicsProtocol::makeOffer(Offer offer)
         default:
             break;
     }
-    addOfferTo(offer);
 }
 
 
