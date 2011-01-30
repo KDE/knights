@@ -25,7 +25,6 @@ macro_log_feature(ANIMATIONS "Qt Animation Framework" "Support for property anim
 		"http://qt.nokia.com" FALSE "4.6.0" "Animated moving of pieces")
 
 add_subdirectory( src )
-add_subdirectory( data )
 add_subdirectory( icons )
 add_subdirectory( themes )
 add_subdirectory( doc )

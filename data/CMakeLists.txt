@@ -1,1 +1,0 @@
-install(FILES seek.desktop seek.svg DESTINATION ${DATA_INSTALL_DIR}/knights)
