@@ -173,7 +173,7 @@ void FicsProtocol::socketError()
 
 void FicsProtocol::login ( const QString& username, const QString& password )
 {
-    setPlayerName(username);
+    otherPlayerName = username;
     write(username);
     sendPassword = true;
     this->password = password;
@@ -300,7 +300,7 @@ void FicsProtocol::parseLine(const QString& line)
                     name.truncate ( name.indexOf ( QLatin1Char ( ' ' ) ) );
                 }
                 kDebug() << QLatin1String("Your name is") << name;
-                setPlayerName ( name );
+                otherPlayerName = name;
                 emit sessionStarted();
             }
             else if ( line.contains ( QLatin1String("Invalid password") ) )
@@ -379,7 +379,7 @@ void FicsProtocol::parseLine(const QString& line)
                 QString player1 = gameStartedExp.cap ( 1 );
                 QString player2 = gameStartedExp.cap ( 3 );
                 Color color = NoColor;
-                if ( player1 == playerName() )
+                if ( player1 == otherPlayerName )
                 {
                     color = Black;
                     setPlayerName ( player2 );
@@ -389,7 +389,6 @@ void FicsProtocol::parseLine(const QString& line)
                     color = White;
                     setPlayerName ( player1 );
                 }
-
                 if ( byColor(color) != this )
                 {
                     kDebug() << "Switching protocols";
@@ -398,7 +397,11 @@ void FicsProtocol::parseLine(const QString& line)
                     Protocol* t = white();
                     setWhiteProtocol(black());
                     setBlackProtocol(t);
-                    kDebug() << white() << black();
+                }
+                Protocol* opp = Protocol::byColor ( oppositeColor ( color ) );
+                if ( opp->isLocal() )
+                {
+                    opp->setPlayerName ( otherPlayerName );
                 }
                 
                 m_stage = PlayStage;

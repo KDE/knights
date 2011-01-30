@@ -109,7 +109,8 @@ namespace Knights
             bool m_seeking;
             ChatWidget* m_chat;
             QMap<int, Offer> m_offers;
-
+            QString otherPlayerName;
+            
             bool undoPending;
             bool drawPending;
 
