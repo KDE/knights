@@ -354,22 +354,6 @@ void Manager::moveByProtocol(const Move& move)
   changeActivePlayer();
 }
 
-void Manager::moveByBoard(const Move& move)
-{
-  Q_D(GameManager);
-  if ( !Protocol::byColor(d->activePlayer)->isLocal() )
-  {
-    // Only local protocols can make moves from the board
-    return;
-  }
-  Move m = move;
-  d->rules->checkSpecialFlags ( &m, d->activePlayer );
-  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
-  d->rules->moveMade ( m );
-  addMoveToHistory ( m );
-  changeActivePlayer();
-}
-
 void Manager::protocolInitSuccesful()
 {
   Q_D(GameManager);

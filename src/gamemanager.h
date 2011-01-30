@@ -128,7 +128,6 @@ signals:
 
 public slots:
   void moveByProtocol ( const Move& move );
-  void moveByBoard ( const Move& move );
   void protocolInitSuccesful();
   void gameOver();
   void resign();
