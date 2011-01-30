@@ -386,6 +386,8 @@ void Manager::gameOver()
     delete Protocol::black();
     delete d->rules;
   }
+  d->moveHistory.clear();
+  d->moveUndoStack.clear();
   d->gameStarted = false;
 }
 
