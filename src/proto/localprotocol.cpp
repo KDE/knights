@@ -25,11 +25,21 @@
 #include <KDE/KLocale>
 #include "gamemanager.h"
 #include <KDebug>
+#include <KUser>
 
 using namespace Knights;
 
 void LocalProtocol::init (  )
 {
+    KUser user;
+    if ( user.isValid() )
+    {
+      setPlayerName ( user.fullName().isEmpty() ? user.loginName() : user.fullName() );
+    }
+    else
+    {
+      setPlayerName ( colorName ( color() ) );
+    }
     initComplete();
 }
 

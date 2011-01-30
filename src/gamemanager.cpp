@@ -348,6 +348,10 @@ void Manager::moveByProtocol(const Move& move)
   }
   kDebug() << "Adding move" << m << "to history";
   addMoveToHistory ( m );
+  if ( d->moveHistory.size() == 2 )
+  {
+    startTime();
+  }
   Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
   emit pieceMoved ( m );
   rules()->moveMade ( m );
@@ -359,6 +363,11 @@ void Manager::protocolInitSuccesful()
   Q_D(GameManager);
   if ( !d->gameStarted && Protocol::white()->isReady() && Protocol::black()->isReady() )
   {
+    if ( Protocol::white()->isLocal() && Protocol::black()->isLocal() )
+    {
+      Protocol::white()->setPlayerName ( i18nc ( "The player of this color", "White" ) );
+      Protocol::black()->setPlayerName ( i18nc ( "The player of this color", "Black" ) );
+    }
     emit initComplete();
     d->rules = new ChessRules();
     Protocol::white()->startGame();
