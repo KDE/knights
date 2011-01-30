@@ -128,6 +128,7 @@ namespace Knights
             m_protocolActions.clear();
             m_view->clearBoard();
             dialogWidget->setupProtocols();
+            dialogWidget->writeConfig();
             Manager::self()->initialize();
         }
     }

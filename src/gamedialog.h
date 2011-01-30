@@ -51,18 +51,14 @@ namespace Knights
             explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
             virtual ~GameDialog();
 
-            FicsMode ficsMode();
-            Color ficsColor();
+            void setupProtocols();
+            void writeConfig();
 
         private:
             Ui::GameDialog* ui;            
-            void writeConfig();
-
-        public slots:
-            void setupProtocols();
-            
-    private slots:
-        void updateTimeEdits();
+    
+        private slots:
+            void updateTimeEdits();
     };
 
 }
