@@ -96,11 +96,11 @@ namespace Knights
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
 
-        KAction* undoAction = KStandardAction::undo( this, SLOT(undo()), actionCollection() );
+        KAction* undoAction = KStandardAction::undo( Manager::self(), SLOT(undo()), actionCollection() );
         undoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
 
-        KAction* redoAction = KStandardAction::redo( this, SLOT(redo()), actionCollection() );
+        KAction* redoAction = KStandardAction::redo( Manager::self(), SLOT(redo()), actionCollection() );
         redoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
     }
@@ -130,27 +130,6 @@ namespace Knights
             dialogWidget->setupProtocols();
             Manager::self()->initialize();
         }
-    }
-
-    void MainWindow::undo()
-    {
-        QAction* pauseAction = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
-        if ( pauseAction && !pauseAction->isChecked() )
-        {
-            pauseAction->trigger();
-        }
-        Manager::self()->undo();
-    }
-
-    void MainWindow::redo()
-    {
-        QAction* pauseAction = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
-
-        if ( pauseAction && !pauseAction->isChecked() )
-        {
-            pauseAction->trigger();
-        }
-        Manager::self()->redo();
     }
 
 void MainWindow::showFicsDialog(Color color, bool computer)

@@ -52,8 +52,6 @@ namespace Knights
         private Q_SLOTS:
             void fileNew();
             void pauseGame ( bool pause );
-            void undo();
-            void redo();
             void optionsPreferences();
 
             void protocolInitSuccesful();
