@@ -35,22 +35,19 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->setupUi ( this );
     setObjectName ( QLatin1String ( "GameDialogWidget" ) );
 
-    ui->timeGroupBasic->setEnabled ( Settings::timeEnabled() );
+    ui->timeGroup->setEnabled ( Settings::timeEnabled() );
 
-    ui->startingTime->setTime ( Settings::playerTime().time() );
-    ui->timeIncrement->setTime ( Settings::playerTimeIncrement().time() );
-    ui->numberOfMoves->setValue ( Settings::playerMoves() );
+    ui->timeLimit->setValue ( Settings::timeLimit() );
+    ui->timeIncrement->setValue ( Settings::timeIncrement() );
+    ui->numberOfMoves->setValue ( Settings::numberOfMoves() );
 
-    switch ( Settings::protocol() )
+    switch ( Settings::player1Protocol() )
     {
-        case Settings::EnumProtocol::XBoard:
-            ui->oppComp->setChecked ( true );
+        case Settings::EnumPlayer1Protocol::Local:
+            ui->player1Human->setChecked ( true );
             break;
-        case Settings::EnumProtocol::FICS:
-            ui->oppFics->setChecked ( true );
-            break;
-        default:
-            ui->oppHuman->setChecked ( true );
+        case Settings::EnumPlayer1Protocol::XBoard:
+            ui->player1Comp->setChecked ( true );
             break;
     }
 
@@ -66,21 +63,32 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             ui->colorBlack->setChecked ( true );
             break;
     }
-
-    ui->programComboBox->setHistoryItems( Settings::programs() );
-    ui->programComboBox->setCurrentItem( Settings::currentProgram(), true );
-    ui->serverComboBox->setHistoryItems( Settings::servers() );
-    ui->serverComboBox->setCurrentItem( Settings::currentServer(), true );
-
-    ui->whiteProgram->setHistoryItems( Settings::programs() );
-    ui->whiteProgram->setCurrentItem( Settings::currentProgram(), true );
-    ui->whiteServer->setHistoryItems( Settings::servers() );
-    ui->whiteServer->setCurrentItem( Settings::currentServer(), true );
     
-    ui->blackProgram->setHistoryItems( Settings::programs() );
-    ui->blackProgram->setCurrentItem( Settings::currentProgram(), true );
-    ui->blackServer->setHistoryItems( Settings::servers() );
-    ui->blackServer->setCurrentItem( Settings::currentServer(), true );
+    switch ( Settings::player2Protocol() )
+    {
+        case Settings::EnumPlayer2Protocol::Local:
+            ui->player2Human->setChecked ( true );
+            break;
+        case Settings::EnumPlayer2Protocol::XBoard:
+            ui->player2Comp->setChecked ( true );
+            break;
+        case Settings::EnumPlayer2Protocol::Fics:
+            ui->player2Fics->setChecked ( true );
+            break;
+    }
+
+    ui->player1Program->setHistoryItems( Settings::programs() );
+    ui->player1Program->setCurrentItem( Settings::player1Program(), true );
+    
+    ui->player2Program->setHistoryItems( Settings::programs() );
+    ui->player2Program->setCurrentItem( Settings::player2Program(), true );
+    ui->player2Server->setHistoryItems( Settings::servers() );
+    ui->player2Server->setCurrentItem( Settings::currentServer(), true );
+
+    connect ( ui->timeLimit, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
+    connect ( ui->timeIncrement, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
+    connect ( ui->numberOfMoves, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
+    updateTimeEdits();
 }
 
 GameDialog::~GameDialog()
@@ -88,175 +96,97 @@ GameDialog::~GameDialog()
     delete ui;
 }
 
-GameDialog::FicsMode GameDialog::ficsMode()
-{
-    if ( ui->tabWidget->currentIndex() == 0 )
-    {
-        return ui->oppFics->isChecked() ? PlayerVsFics : NoFics;
-    }
-    else
-    {
-        if ( ui->whiteFics->isChecked() && ui->blackFics->isChecked() )
-        {
-            return BothPlayersFics;
-        }
-        else if ( ui->whiteFics->isChecked() || ui->blackFics->isChecked() )
-        {
-            return PlayerVsFics;
-        }
-        else
-        {
-            return NoFics;
-        }
-    }
-}
-
-Color GameDialog::ficsColor()
-{
-    if ( ui->tabWidget->currentIndex() == 0 )
-    {
-        if ( ui->colorRandom->isChecked() )
-        {
-            return NoColor;
-        }
-        else if ( ui->colorWhite->isChecked() )
-        {
-            return White;
-        }
-        else
-        {
-            return Black;
-        }
-    }
-    else
-    {
-        if ( ui->whiteFics->isChecked() && ui->blackFics->isChecked() )
-        {
-            return NoColor;
-        }
-        else if ( ui->whiteFics->isChecked() )
-        {
-            return White;
-        }
-        else if ( ui->blackFics->isChecked() )
-        {
-            return Black;
-        }
-        else
-        {
-            return NoColor;
-        }
-    }
-}
-
 void GameDialog::setupProtocols()
 {
-    if ( ui->tabWidget->currentIndex() == 0 )
+    Protocol* p1 = 0;
+    Protocol* p2 = 0;
+    Color c1 = NoColor;
+    if ( ui->player1Human->isChecked() )
     {
-        // Basic / normal settings
-        Protocol* player = new LocalProtocol();
-        Protocol* opp;
-        if ( ui->oppComp->isChecked() )
-        {
-            opp = new XBoardProtocol();
-            opp->setAttribute("program", ui->programComboBox->currentText());
-        }
-        else if ( ui->oppHuman->isChecked() )
-        {
-            opp = new LocalProtocol();
-        }
-        else
-        {
-            opp = new FicsProtocol();
-            opp->setAttribute("server", ui->serverComboBox->currentText());
-            opp->setAttribute("port", 5000);
-        }
-        Color color = NoColor;
-        if ( ui->colorBlack->isChecked() )
-        {
-            color = Black;
-        }
-        else if ( ui->colorWhite->isChecked() )
-        {
-            color = White;
-        }
-        else
-        {
-            color = ( qrand() % 2 ) ? White : Black;
-        }
-        if ( color == White )
-        {
-            Protocol::setWhiteProtocol(player);
-            Protocol::setBlackProtocol(opp);
-        }
-        else
-        {
-            Protocol::setWhiteProtocol(opp);
-            Protocol::setBlackProtocol(player);
-        }
+        p1 = new LocalProtocol;
     }
     else
     {
-        if ( ui->whiteHuman->isChecked() )
-        {
-            Protocol::setWhiteProtocol(new LocalProtocol);
-        }
-        else if ( ui->whiteComp->isChecked() )
-        {
-            Protocol::setWhiteProtocol(new XBoardProtocol);
-            Protocol::white()->setAttribute("program", ui->whiteProgram->currentText());
-        }
-        else
-        {
-            Protocol::setWhiteProtocol(new FicsProtocol);
-            Protocol::white()->setAttribute("server", ui->whiteServer->currentText());
-            Protocol::white()->setAttribute("port", 5000);
-        }
-        if ( ui->blackHuman->isChecked() )
-        {
-            Protocol::setBlackProtocol(new LocalProtocol);
-        }
-        else if ( ui->blackComp->isChecked() )
-        {
-            Protocol::setBlackProtocol(new XBoardProtocol);
-            Protocol::black()->setAttribute("program", ui->blackProgram->currentText());
-        }
-        else
-        {
-            Protocol::setBlackProtocol(new FicsProtocol);
-            Protocol::black()->setAttribute("server", ui->blackServer->currentText());
-            Protocol::black()->setAttribute("port", 5000);
-        }
+        p1 = new XBoardProtocol;
+        p1->setAttribute ( "program", ui->player1Program->currentText() );
     }
+    
+    if ( ui->colorWhite->isChecked() )
+    {
+        c1 = White;
+    }
+    else if ( ui->colorBlack->isChecked() )
+    {
+        c1 = Black;
+    }
+    
+    if ( ui->player2Human->isChecked() )
+    {
+        p2 = new LocalProtocol;
+    }
+    else if ( ui->player2Comp->isChecked() )
+    {
+        p2 = new XBoardProtocol;
+        p2->setAttribute ( "program", ui->player2Program->currentText() );
+    }
+    else
+    {
+        p2 = new FicsProtocol;
+        p2->setAttribute ( "server", ui->player2Server->currentText() );
+    }
+    if ( c1 == NoColor )
+    {
+        c1 = qrand() % 2 ? White : Black;
+    }
+    // Color-changing by the FICS protocol happens later, so it doesn't matter what we do here. 
+    Protocol::setWhiteProtocol ( c1 == White ? p1 : p2 );
+    Protocol::setBlackProtocol ( c1 == White ? p2 : p1 );
+    
     TimeControl tc;
-    tc.baseTime = ui->timeGroupBasic->isChecked() ? ui->startingTime->time() : QTime();
+    tc.baseTime = ui->timeGroup->isChecked() ? QTime().addSecs( 60 * ui->timeLimit->value() ) : QTime();
     tc.moves = ui->numberOfMoves->value();
-    tc.increment = QTime().secsTo ( ui->timeIncrement->time() );
+    tc.increment = ui->timeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
 }
 
 
 void GameDialog::writeConfig()
 {
-    Settings::EnumProtocol::type selectedProtocol = Settings::EnumProtocol::None;
-    if ( ui->oppComp->isChecked() )
+    QStringList programs;
+    Settings::EnumPlayer1Protocol::type p1;
+    if ( ui->player1Human->isChecked() )
     {
-        selectedProtocol = Settings::EnumProtocol::XBoard;
-        QStringList programs;
-        programs << ui->programComboBox->historyItems();
-        programs << ui->whiteProgram->historyItems();
-        programs << ui->blackProgram->historyItems();
-        programs.removeDuplicates();
-        Settings::setPrograms( programs );
-        Settings::setCurrentProgram( ui->programComboBox->currentText() );
+        p1 = Settings::EnumPlayer1Protocol::Local;
     }
-    else if ( ui->oppFics->isChecked() )
+    else
     {
-        selectedProtocol = Settings::EnumProtocol::FICS;
-        Settings::setServers( ui->serverComboBox->historyItems() );
-        Settings::setCurrentServer( ui->serverComboBox->currentText() );
+        p1 = Settings::EnumPlayer1Protocol::XBoard;
+        programs << ui->player1Program->historyItems();
+        Settings::setPlayer1Program ( ui->player1Program->currentText() );
     }
-
+    Settings::setPlayer1Protocol ( p1 );
+    
+    Settings::EnumPlayer2Protocol::type p2;
+    if ( ui->player2Human->isChecked() )
+    {
+        p2 = Settings::EnumPlayer2Protocol::Local;
+    }
+    else if ( ui->player2Comp->isChecked() )
+    {
+        p2 = Settings::EnumPlayer2Protocol::XBoard;
+        programs << ui->player2Program->historyItems();
+        Settings::setPlayer2Program ( ui->player2Program->currentText() );
+    }
+    else
+    {
+        p2 = Settings::EnumPlayer2Protocol::Fics;
+        Settings::setServers ( ui->player2Server->historyItems() );
+        Settings::setCurrentServer ( ui->player2Server->currentText() );
+    }   
+    Settings::setPlayer1Protocol ( p2 );
+    programs.removeDuplicates();
+    Settings::setPrograms ( programs );
+    
     Settings::EnumColor::type selectedColor = Settings::EnumColor::NoColor;
     if ( ui->colorWhite->isChecked() )
     {
@@ -266,21 +196,24 @@ void GameDialog::writeConfig()
     {
         selectedColor = Settings::EnumColor::Black;
     }
-
-    bool timeLimitEnabled = ui->timeGroupBasic->isChecked();
-    Settings::setProtocol ( selectedProtocol );
     Settings::setColor ( selectedColor );
+    
+    bool timeLimitEnabled = ui->timeGroup->isChecked();
     Settings::setTimeEnabled ( timeLimitEnabled );
     if ( timeLimitEnabled )
     {
-        Settings::setPlayerTime ( QDateTime ( QDate::currentDate(), ui->startingTime->time() ) );
-        Settings::setPlayerTimeIncrement( QDateTime ( QDate::currentDate(), ui->timeIncrement->time() ) );
+        Settings::setTimeLimit ( ui->timeLimit->value() );
+        Settings::setTimeIncrement( ui->timeIncrement->value() );
     }
+    
     Settings::self()->writeConfig();
 }
 
 void GameDialog::updateTimeEdits()
 {
+    ui->timeLimit->setSuffix ( i18np ( " minute", " minutes", ui->timeLimit->value() ) );
+    ui->timeIncrement->setSuffix ( i18np ( " second", " seconds", ui->timeIncrement->value() ) );
+    ui->numberOfMoves->setSuffix ( i18np ( " move", " moves", ui->numberOfMoves->value() ) );
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

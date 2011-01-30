@@ -6,380 +6,285 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>300</height>
+    <width>642</width>
+    <height>325</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
     <width>600</width>
-    <height>300</height>
+    <height>240</height>
    </size>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_5">
-   <item>
-    <widget class="KTabWidget" name="tabWidget">
-     <property name="currentIndex">
-      <number>0</number>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QGroupBox" name="player1Box">
+     <property name="title">
+      <string>Player 1</string>
      </property>
-     <widget class="QWidget" name="basicTab">
-      <attribute name="title">
-       <string>Normal Games</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0" colspan="2">
-        <widget class="QGroupBox" name="opponentGroup">
-         <property name="title">
-          <string>Opponent</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QRadioButton" name="oppHuman">
-            <property name="text">
-             <string>Human at the same computer</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="compLayout">
-            <item>
-             <widget class="QRadioButton" name="oppComp">
-              <property name="text">
-               <string>Computer engine:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="programComboBox">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="ficsLayout">
-            <item>
-             <widget class="QRadioButton" name="oppFics">
-              <property name="text">
-               <string>Human at a chess server:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="serverComboBox">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="colorGroup">
-         <property name="title">
-          <string>Your Color</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QRadioButton" name="colorWhite">
-            <property name="text">
-             <string>White</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="colorBlack">
-            <property name="text">
-             <string>Black</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="colorRandom">
-            <property name="text">
-             <string>Choose randomly</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QGroupBox" name="timeGroupBasic">
-         <property name="title">
-          <string>Time Limit</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <layout class="QFormLayout" name="formLayout">
-          <item row="0" column="0">
-           <widget class="QLabel" name="numberOfMovesLabel">
-            <property name="text">
-             <string>Number of &amp;moves</string>
-            </property>
-            <property name="buddy">
-             <cstring>numberOfMoves</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="startingTimeLabel">
-            <property name="text">
-             <string>Starting &amp;Time</string>
-            </property>
-            <property name="buddy">
-             <cstring>startingTime</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="timeIncrementLabel">
-            <property name="text">
-             <string>Time &amp;Increment</string>
-            </property>
-            <property name="buddy">
-             <cstring>timeIncrement</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="KIntSpinBox" name="numberOfMoves"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QTimeEdit" name="startingTime"/>
-          </item>
-          <item row="2" column="1">
-           <widget class="QTimeEdit" name="timeIncrement"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="customTab">
-      <attribute name="title">
-       <string>Custom</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QGroupBox" name="whiteBox">
-         <property name="title">
-          <string>White</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QRadioButton" name="whiteHuman">
-            <property name="text">
-             <string>Human</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="compLayout_2">
-            <item>
-             <widget class="QRadioButton" name="whiteComp">
-              <property name="text">
-               <string>Computer engine:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="whiteProgram">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="ficsLayout_2">
-            <item>
-             <widget class="QRadioButton" name="whiteFics">
-              <property name="text">
-               <string>Human at a chess server:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="whiteServer">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="blackBox">
-         <property name="title">
-          <string>Black</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QRadioButton" name="blackHuman">
-            <property name="text">
-             <string>Human</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="compLayout_3">
-            <item>
-             <widget class="QRadioButton" name="blackComp">
-              <property name="text">
-               <string>Computer engine:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="blackProgram">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="ficsLayout_3">
-            <item>
-             <widget class="QRadioButton" name="blackFics">
-              <property name="text">
-               <string>Human at a chess server:</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="KHistoryComboBox" name="blackServer">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="historyItems">
-               <stringlist/>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="1" rowspan="2">
-        <widget class="QGroupBox" name="timeGroupBasic_2">
-         <property name="title">
-          <string>Time Limit</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-         <layout class="QFormLayout" name="formLayout_2">
-          <item row="0" column="0">
-           <widget class="QLabel" name="numberOfMovesLabel_2">
-            <property name="text">
-             <string>Number of &amp;moves</string>
-            </property>
-            <property name="buddy">
-             <cstring>numberOfMoves_2</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="startingTimeLabel_2">
-            <property name="text">
-             <string>Starting &amp;Time</string>
-            </property>
-            <property name="buddy">
-             <cstring>startingTime_2</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="timeIncrementLabel_2">
-            <property name="text">
-             <string>Time &amp;Increment</string>
-            </property>
-            <property name="buddy">
-             <cstring>timeIncrement_2</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="KIntSpinBox" name="numberOfMoves_2"/>
-          </item>
-          <item row="1" column="1">
-           <widget class="QTimeEdit" name="startingTime_2"/>
-          </item>
-          <item row="2" column="1">
-           <widget class="QTimeEdit" name="timeIncrement_2"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QRadioButton" name="player1Human">
+        <property name="text">
+         <string>Human (You)</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="compLayout_1">
+        <item>
+         <widget class="QRadioButton" name="player1Comp">
+          <property name="text">
+           <string>Computer engine:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KHistoryComboBox" name="player1Program">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="historyItems">
+           <stringlist/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="player2Box">
+     <property name="title">
+      <string>Player 2</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QRadioButton" name="player2Human">
+        <property name="text">
+         <string>Human</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="compLayout_2">
+        <item>
+         <widget class="QRadioButton" name="player2Comp">
+          <property name="text">
+           <string>Computer engine:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KHistoryComboBox" name="player2Program">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="historyItems">
+           <stringlist/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="ficsLayout_2">
+        <item>
+         <widget class="QRadioButton" name="player2Fics">
+          <property name="text">
+           <string>Chess server:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="KHistoryComboBox" name="player2Server">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="historyItems">
+           <stringlist/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QGroupBox" name="timeGroup">
+     <property name="title">
+      <string>Use Time Control</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <layout class="QFormLayout" name="formLayout_2">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="numberOfMovesLabel">
+        <property name="text">
+         <string>Number of &amp;moves</string>
+        </property>
+        <property name="buddy">
+         <cstring>numberOfMoves</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="KIntSpinBox" name="numberOfMoves">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="specialValueText">
+         <string comment="Time control mode">Sudden Death</string>
+        </property>
+        <property name="maximum">
+         <number>120</number>
+        </property>
+        <property name="value">
+         <number>40</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="timeLimitLabel">
+        <property name="text">
+         <string>&amp;Initial Time Limit</string>
+        </property>
+        <property name="buddy">
+         <cstring>timeLimit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="KIntSpinBox" name="timeLimit">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>300</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="timeIncrementLabel">
+        <property name="text">
+         <string>&amp;Increment per move</string>
+        </property>
+        <property name="buddy">
+         <cstring>timeIncrement</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="KIntSpinBox" name="timeIncrement">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>900</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="colorGroup">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Player 1's Color</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="colorWhite">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>White</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="colorBlack">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Black</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="colorRandom">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>Choose randomly</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
@@ -396,12 +301,6 @@
    <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>KHistoryComboBox</class>
    <extends>KComboBox</extends>
    <header>khistorycombobox.h</header>
@@ -410,242 +309,82 @@
  <resources/>
  <connections>
   <connection>
-   <sender>numberOfMoves</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>numberOfMoves_2</receiver>
-   <slot>setValue(int)</slot>
+   <sender>player1Comp</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>player1Program</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>69</y>
+     <x>124</x>
+     <y>82</y>
     </hint>
     <hint type="destinationlabel">
-     <x>564</x>
-     <y>85</y>
+     <x>309</x>
+     <y>83</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>startingTime</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>startingTime_2</receiver>
-   <slot>setTime(QTime)</slot>
+   <sender>player2Comp</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>player2Program</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>67</y>
+     <x>90</x>
+     <y>281</y>
     </hint>
     <hint type="destinationlabel">
-     <x>580</x>
-     <y>112</y>
+     <x>309</x>
+     <y>282</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>timeIncrement</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>timeIncrement_2</receiver>
-   <slot>setTime(QTime)</slot>
+   <sender>player2Fics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>player2Server</receiver>
+   <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>96</x>
-     <y>65</y>
+     <x>159</x>
+     <y>310</y>
     </hint>
     <hint type="destinationlabel">
-     <x>580</x>
-     <y>139</y>
+     <x>309</x>
+     <y>311</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>numberOfMoves_2</sender>
-   <signal>valueChanged(int)</signal>
+   <sender>player2Fics</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>numberOfMovesLabel</receiver>
+   <slot>setHidden(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>44</x>
+     <y>297</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>47</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>player2Fics</sender>
+   <signal>toggled(bool)</signal>
    <receiver>numberOfMoves</receiver>
-   <slot>setValue(int)</slot>
+   <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>564</x>
-     <y>85</y>
+     <x>104</x>
+     <y>307</y>
     </hint>
     <hint type="destinationlabel">
-     <x>96</x>
-     <y>69</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>startingTime_2</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>startingTime</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>580</x>
-     <y>112</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>96</x>
-     <y>67</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>timeIncrement_2</sender>
-   <signal>timeChanged(QTime)</signal>
-   <receiver>timeIncrement</receiver>
-   <slot>setTime(QTime)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>580</x>
-     <y>139</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>96</x>
-     <y>65</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>oppComp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>programComboBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>55</x>
-     <y>58</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>95</x>
-     <y>58</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>oppFics</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>serverComboBox</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>55</x>
-     <y>53</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>95</x>
-     <y>53</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>oppHuman</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>colorGroup</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>94</x>
-     <y>62</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>55</x>
-     <y>54</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>whiteComp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>whiteProgram</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>98</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>375</x>
-     <y>111</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>whiteFics</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>whiteServer</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>163</x>
-     <y>130</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>218</x>
-     <y>121</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>blackComp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>blackProgram</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>77</x>
-     <y>227</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>374</x>
-     <y>240</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>blackFics</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>blackServer</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>176</x>
-     <y>259</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>223</x>
-     <y>259</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>whiteFics</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>blackFics</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>53</x>
-     <y>128</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>60</x>
-     <y>261</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>blackFics</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>whiteFics</receiver>
-   <slot>setDisabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>89</x>
-     <y>257</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>99</x>
-     <y>136</y>
+     <x>524</x>
+     <y>45</y>
     </hint>
    </hints>
   </connection>

@@ -57,10 +57,12 @@ namespace Knights
         private:
             Ui::GameDialog* ui;            
             void writeConfig();
-            void updateTimeEdits();
 
         public slots:
             void setupProtocols();
+            
+    private slots:
+        void updateTimeEdits();
     };
 
 }
