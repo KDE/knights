@@ -137,6 +137,10 @@ void FicsProtocol::init (  )
     setDevice ( socket );
     QString address = attribute("server").toString();
     int port = attribute("port").toInt();
+    if ( port == 0 )
+    {
+        port = 5000;
+    }
     connect ( socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
     socket->connectToHost ( address, port );
 }
