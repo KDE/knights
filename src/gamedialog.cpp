@@ -35,7 +35,7 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->setupUi ( this );
     setObjectName ( QLatin1String ( "GameDialogWidget" ) );
 
-    ui->timeGroup->setEnabled ( Settings::timeEnabled() );
+    ui->timeGroup->setChecked ( Settings::timeEnabled() );
 
     ui->timeLimit->setValue ( Settings::timeLimit() );
     ui->timeIncrement->setValue ( Settings::timeIncrement() );
