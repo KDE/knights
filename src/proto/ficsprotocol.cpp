@@ -210,7 +210,7 @@ void FicsProtocol::openGameDialog()
     dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("dialog-ok-accept")));
 
     m_widget = new FicsDialog ( dialog );
-    m_widget->setServerName ( attribute( "address" ).toString());
+    m_widget->setServerName ( attribute( "server" ).toString());
     m_widget->setConsoleWidget ( console() );
     dialog->setMainWidget ( m_widget );
 
