@@ -183,7 +183,7 @@ void GameDialog::writeConfig()
         Settings::setServers ( ui->player2Server->historyItems() );
         Settings::setCurrentServer ( ui->player2Server->currentText() );
     }   
-    Settings::setPlayer1Protocol ( p2 );
+    Settings::setPlayer2Protocol ( p2 );
     programs.removeDuplicates();
     Settings::setPrograms ( programs );
     
