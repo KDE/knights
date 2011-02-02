@@ -49,7 +49,7 @@
   </group>
   <group name="Time Control">
     <entry name="timeLimit" type="Int">
-      <label>inital time limit for both players</label>
+      <label>initial time limit for both players</label>
       <default>10</default>
     </entry>
      <entry name="timeIncrement" type="Int">
