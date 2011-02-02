@@ -65,15 +65,6 @@ namespace Knights
         PlayStage
     };
 
-    enum OfferType
-    {
-        OfferAbort,
-        OfferAdjourn,
-        OfferDraw,
-        OfferMatch,
-        OfferTakeback
-    };
-
     class FicsProtocol : public TextProtocol
     {
             Q_OBJECT
@@ -120,7 +111,6 @@ namespace Knights
 
         public Q_SLOTS:
             virtual void init ();
-            virtual void adjourn();
             virtual void resign();
             virtual void undoLastMove();
 

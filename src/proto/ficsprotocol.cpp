@@ -588,12 +588,6 @@ void FicsProtocol::setSeeking ( bool seek )
     }
 }
 
-
-void FicsProtocol::adjourn()
-{
-    write("adjourn");
-}
-
 void FicsProtocol::resign()
 {
     write("resign");
@@ -641,14 +635,8 @@ void FicsProtocol::makeOffer(const Offer& offer)
             
         case ActionAdjourn:
             write ( "adjourn" );
+            break;
     }
 }
-
-
-
-
-
-
-
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
