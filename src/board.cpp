@@ -526,12 +526,10 @@ void Board::updateTheme()
         m_borders << new Item ( renderer, tbBorderKey, this, Pos() );
 
         Item *tItem = new Item ( renderer, lrBorderKey, this, Pos() );
-        tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
         tItem->setRotation ( 180 );
         m_borders << tItem;
 
         tItem = new Item ( renderer, tbBorderKey, this, Pos() );
-        tItem->setTransformOriginPoint ( tItem->boundingRect().center() );
         tItem->setRotation ( 180 );
         m_borders << tItem;
 
@@ -588,30 +586,53 @@ void Board::updateGraphics()
         sideMargin = 0.0;
         topMargin = 0.0;
     }
-    boardSize = boardSize + 2 * QSizeF ( sideMargin, topMargin );
+    boardSize = boardSize + 2 * QSize ( sideMargin, topMargin );
     qreal ratio = qMin ( sceneRect().width() / boardSize.width(), sceneRect().height() / boardSize.height() );
     sideMargin *= ratio;
     topMargin *= ratio;
 
     QSizeF tpSize = tileSize * ratio;
-    m_tileSize = floor ( qMin ( tpSize.width(), tpSize.height() ) );
-
-    QSize hBorderSize = ( QSizeF ( 8 * m_tileSize + 2 * sideMargin, topMargin ) ).toSize();
-    QSize vBorderSize = ( QSizeF ( sideMargin, 8 * m_tileSize ) ).toSize();
-    qreal hBorderMargin = topMargin;
-    qreal vBorderMargin = sideMargin;
+    m_tileSize = qFloor ( qMin ( tpSize.width(), tpSize.height() ) );
+    /*
+    if ( m_displayBorders )
+    {
+        if (  m_tileSize % 2 )
+        {
+            m_tileSize -= 1;
+        }
+        sideMargin = m_tileSize / 2;
+        topMargin = m_tileSize / 2;
+    }
+    */
+    
+    QSize hBorderSize = QSize ( 8 * m_tileSize + 2 * qRound ( sideMargin ), qRound ( topMargin ) );
+    QSize vBorderSize = QSize ( qRound ( sideMargin ), 8 * m_tileSize );
+    int hBorderMargin = qRound ( topMargin );
+    int vBorderMargin = qRound ( sideMargin );
+    
 
     sideMargin = qMax ( sideMargin, ( sceneRect().width() - 8 * m_tileSize ) / 2 );
     topMargin = qMax ( topMargin, ( sceneRect().height() - 8 * m_tileSize ) / 2 );
-    m_boardRect = QRectF( sceneRect().topLeft() + QPointF( sideMargin, topMargin ),
-                          QSizeF( m_tileSize, m_tileSize ) * 8);
+    m_boardRect = QRect( sceneRect().topLeft().toPoint() + QPoint( sideMargin, topMargin ),
+                          QSize( m_tileSize, m_tileSize ) * 8);
+    
+    
+    kDebug() << hBorderMargin << hBorderSize << renderer->boundsOnSprite ( lrBorderKey ).size();
+    kDebug() << vBorderMargin << vBorderSize << renderer->boundsOnSprite ( tbBorderKey ).size();
+    kDebug() << m_boardRect.size() << boardSize << 8*m_tileSize;
+    
     QSize tSize = QSizeF ( m_tileSize, m_tileSize ).toSize();
-
-    QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPointF ( vBorderMargin, 0.0 );
-    QPointF topBorderPoint = m_boardRect.topLeft() - QPointF ( vBorderMargin, hBorderMargin );
-    QPointF leftBorderPoint = m_boardRect.topLeft() - QPointF ( vBorderMargin, 0.0 );
-    QPointF rightBorderPoint = m_boardRect.topRight();
-
+    /*
+     * For historical reasons, QRect's 
+     */
+    QPointF topBorderPoint = m_boardRect.topRight() + QPoint ( vBorderMargin, 0 );
+    QPointF rightBorderPoint = m_boardRect.bottomRight() + QPoint ( vBorderMargin, 0 );
+    QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPoint ( vBorderMargin, 0 );
+    QPointF leftBorderPoint = m_boardRect.topLeft() - QPoint ( vBorderMargin, 0 );
+    
+    kDebug() << m_boardRect << topBorderPoint - bottomBorderPoint << rightBorderPoint - leftBorderPoint;
+    kDebug() << topBorderPoint << rightBorderPoint << bottomBorderPoint << leftBorderPoint;
+    
     foreach ( Piece* p, m_grid )
     {
         centerAndResize ( p, tSize );
@@ -634,8 +655,8 @@ void Board::updateGraphics()
     if ( m_displayNotations )
     {
         m_notations[0]->moveAndResize ( bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
-        m_notations[1]->moveAndResize ( rightBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
-        m_notations[2]->moveAndResize ( topBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
+        m_notations[1]->moveAndResize ( m_boardRect.topRight(), m_tileSize, vBorderSize, Settings::animateBoard() );
+        m_notations[2]->moveAndResize ( m_boardRect.topLeft() - QPointF ( vBorderMargin, hBorderMargin ), m_tileSize, hBorderSize, Settings::animateBoard() );
         m_notations[3]->moveAndResize ( leftBorderPoint, m_tileSize, vBorderSize, Settings::animateBoard() );
     }
 }

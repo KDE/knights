@@ -54,7 +54,6 @@ namespace Knights
             QString spriteKey() const;
 
 #  ifndef WITH_QT_46
-            void setTransformOriginPoint(const QPointF& origin);
             void setRotation ( qreal angle );
             qreal rotation();
 #  endif
@@ -73,7 +72,6 @@ namespace Knights
 
 #ifndef WITH_QT_46
             qreal m_rotation;
-            QPointF m_origin;
 #endif
     };
 }

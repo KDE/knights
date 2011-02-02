@@ -86,7 +86,7 @@ namespace Knights
             void removeFrame();
             void centerAndResize ( Item* item, QSize size, bool animated = true );
             bool m_paused;
-            qreal m_tileSize;
+            int m_tileSize;
             QRectF m_boardRect;
             bool m_animated;
             Piece* m_draggedItem;

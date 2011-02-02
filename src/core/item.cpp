@@ -75,9 +75,7 @@ void Item::setRenderSize ( const QSize& size )
     prepareGeometryChange();
     setTransform ( QTransform().scale ( xScale, yScale ) );
 #if not defined WITH_QT_46
-    translate(m_origin.x(), m_origin.y());
     rotate(m_rotation);
-    translate(-m_origin.x(), -m_origin.y());
 #endif
 }
 
@@ -247,11 +245,6 @@ void Item::setRotation ( qreal angle )
 qreal Item::rotation()
 {
     return m_rotation;
-}
-
-void Item::setTransformOriginPoint(const QPointF& origin)
-{
-    m_origin = origin;
 }
 
 #endif
