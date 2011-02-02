@@ -555,31 +555,30 @@ void FicsProtocol::setSeeking ( bool seek )
     m_seeking = seek;
     if ( seek )
     {
-        write("seek");
-        QString seekStr;
-        if ( attribute ( QLatin1String("playerTimeLimit") ).canConvert<QTime>() && attribute ( QLatin1String("playerTimeIncrement") ).canConvert<int>() )
+        QByteArray seekText = "seek";
+        TimeControl tc = Manager::self()->timeControl(color());
+        if ( tc.baseTime.isValid() )
         {
-            QTime time = attribute ( QLatin1String("playerTimeLimit") ).toTime();
-            int increment = attribute ( QLatin1String("playerTimeIncrement") ).toInt();
-            seekStr += ( QLatin1Char(' ')
-                    + QString::number(60 * time.hour() + time.minute())
-                    + QLatin1Char(' ')
-                    + QString::number(increment) );
+            // Time control enabled
+            seekText += ' ';
+            seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toAscii();
+            seekText += ' ';
+            seekText += QString::number ( tc.increment ).toAscii();
         }
-        seekStr += QLatin1String(" unrated");
-        switch ( oppositeColor( color() ) )
+        seekText += m_widget->rated() ? " rated" : " unrated";
+        switch ( color() )
         {
             case White:
-                seekStr += QLatin1String(" white");
+                seekText += " white";
                 break;
             case Black:
-                seekStr += QLatin1String(" black");
+                seekText += " black";
                 break;
             default:
                 break;
         }
-        seekStr += QLatin1String(" manual");
-        write(seekStr);
+        seekText += m_widget->autoAcceptChallenge() ? " auto" : " manual";
+        write(QLatin1String(seekText));
     }
     else
     {

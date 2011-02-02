@@ -20,7 +20,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <property name="movable">
       <bool>true</bool>
@@ -253,6 +253,20 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
+        <widget class="QCheckBox" name="ratedCheckBox">
+         <property name="text">
+          <string>Rated match</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="autoCheckBox">
+         <property name="text">
+          <string>Automatically start the game</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="seekButton">
          <property name="text">
           <string>Seek</string>
@@ -317,8 +331,24 @@
      <y>71</y>
     </hint>
     <hint type="destinationlabel">
-     <x>409</x>
-     <y>101</y>
+     <x>348</x>
+     <y>103</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registeredCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ratedCheckBox</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>452</x>
+     <y>65</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>39</y>
     </hint>
    </hints>
   </connection>

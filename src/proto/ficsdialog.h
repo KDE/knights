@@ -50,6 +50,9 @@ namespace Knights
             void setServerName(const QString& name);
 
             virtual QSize sizeHint() const;
+            
+            bool autoAcceptChallenge();
+            bool rated();
 
         public Q_SLOTS:
             void slotSessionStarted();

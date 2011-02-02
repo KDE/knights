@@ -279,6 +279,17 @@ void FicsDialog::removeChallenge ( int id )
     m_challengeId.removeAll(id);
 }
 
+bool FicsDialog::autoAcceptChallenge()
+{
+    return ui->autoCheckBox->isChecked();
+}
+
+bool FicsDialog::rated()
+{
+    return ui->ratedCheckBox->isChecked();
+}
+
+
 
 
 
