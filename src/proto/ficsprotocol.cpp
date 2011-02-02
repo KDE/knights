@@ -556,16 +556,16 @@ void FicsProtocol::setSeeking ( bool seek )
     if ( seek )
     {
         QByteArray seekText = "seek";
+        
         TimeControl tc = Manager::self()->timeControl(color());
-        if ( tc.baseTime.isValid() )
-        {
-            // Time control enabled
-            seekText += ' ';
-            seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toAscii();
-            seekText += ' ';
-            seekText += QString::number ( tc.increment ).toAscii();
-        }
+        seekText += ' ';
+        seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toAscii();
+        seekText += ' ';
+        seekText += QString::number ( tc.increment ).toAscii();
+
         seekText += m_widget->rated() ? " rated" : " unrated";
+        /*
+         * Commented out until I figure out a simple way to determine if a color should be forced. 
         switch ( color() )
         {
             case White:
@@ -577,7 +577,9 @@ void FicsProtocol::setSeeking ( bool seek )
             default:
                 break;
         }
+        */
         seekText += m_widget->autoAcceptChallenge() ? " auto" : " manual";
+        kDebug() << seekText;
         write(QLatin1String(seekText));
     }
     else
