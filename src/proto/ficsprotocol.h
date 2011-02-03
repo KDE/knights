@@ -112,7 +112,6 @@ namespace Knights
         public Q_SLOTS:
             virtual void init ();
             virtual void resign();
-            virtual void undoLastMove();
 
             void socketError();
             void dialogRejected();

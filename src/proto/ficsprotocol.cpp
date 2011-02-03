@@ -598,11 +598,6 @@ void FicsProtocol::sendChat ( QString text )
     write ( QLatin1String("say ") + text );
 }
 
-void FicsProtocol::undoLastMove()
-{
-    write ( "takeback 2" );
-}
-
 void FicsProtocol::acceptOffer(const Offer& offer)
 {
     write ( QLatin1String("accept ") + QString::number(offer.id) );
@@ -626,7 +621,7 @@ void FicsProtocol::makeOffer(const Offer& offer)
             break;
             
         case ActionUndo:
-            write ( "takeback" );
+            write ( QLatin1String("takeback ") + QString::number ( offer.numberOfMoves ) );
             break;
             
         case ActionResume:

@@ -302,9 +302,19 @@ bool Manager::timeControlEnabled(Color color) const
 
 void Manager::undo()
 {
+  Q_D(const GameManager);
   Offer o;
   o.action = ActionUndo;
-  o.numberOfMoves = 1; // TODO: Maybe set it to 2
+  
+  // We always undo moves until it's local player's turn again. 
+  if ( d->activePlayer == local()->color() )
+  {
+    o.numberOfMoves = 2;
+  }
+  else
+  {
+    o.numberOfMoves = 1;
+  }
   o.player = local()->color();
   sendOffer(o);
 }
@@ -444,8 +454,11 @@ void Manager::setOfferResult(int id, OfferAction result)
       switch ( d->offers[id].action )
       {
 	case ActionUndo:
-	  emit pieceMoved ( nextUndoMove() );
-	  changeActivePlayer();
+	  for ( int i = 0; i < d->offers[id].numberOfMoves; ++i )
+	  {
+	    emit pieceMoved ( nextUndoMove() );
+	    changeActivePlayer();
+	  }
 	  break;
 	  
 	case ActionDraw:

@@ -272,7 +272,10 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             break;
             
         case ActionUndo:
-            write ( "undo" );
+            for ( int i = 0; i < offer.numberOfMoves; ++i )
+            {
+                write ( "undo" );
+            }
             offer.accept();
             break;
             
