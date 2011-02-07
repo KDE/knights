@@ -155,7 +155,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="numberOfMovesLabel">
         <property name="text">
-         <string>Number of &amp;moves</string>
+         <string>Time control period</string>
         </property>
         <property name="buddy">
          <cstring>numberOfMoves</cstring>
@@ -171,7 +171,7 @@
          </size>
         </property>
         <property name="specialValueText">
-         <string comment="Time control mode">Sudden Death</string>
+         <string comment="Time control mode">Timer Only</string>
         </property>
         <property name="maximum">
          <number>120</number>
@@ -184,7 +184,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="timeLimitLabel">
         <property name="text">
-         <string>&amp;Initial Time Limit</string>
+         <string>Initial time limit</string>
         </property>
         <property name="buddy">
          <cstring>timeLimit</cstring>
@@ -207,7 +207,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="timeIncrementLabel">
         <property name="text">
-         <string>&amp;Increment per move</string>
+         <string>Increment per move</string>
         </property>
         <property name="buddy">
          <cstring>timeIncrement</cstring>
