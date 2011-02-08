@@ -12,7 +12,7 @@ set(knights_SRCS offerwidget.cpp gamemanager.cpp proto/textprotocol.cpp
     proto/ficsdialog.cpp
     proto/seekgraph.cpp
     proto/chatwidget.cpp
-    proto/keyboardeventfilter.cpp
+   
 
     rules/chessrules.cpp
 
