@@ -24,7 +24,9 @@
 
 #include <KPlotObject>
 #include <KPlotPoint>
+#include <KPlotAxis>
 #include <KDebug>
+#include <KLocale>
 
 #include <QtGui/QPainter>
 #include <QtGui/QMouseEvent>
@@ -35,8 +37,10 @@ SeekGraph::SeekGraph ( QWidget* parent ) : KPlotWidget ( parent )
 {
     setBackgroundColor( Qt::white );
     setShowGrid(true);
-    setForegroundColor( Qt::darkGray );
+    setForegroundColor( Qt::black );
     setGridColor( QColor::fromRgb(220,220,220) );
+    axis ( BottomAxis )->setLabel ( i18n("Time limit [minutes]") );
+    axis ( LeftAxis )->setLabel ( i18n("Opponent's rating") );
     setMouseTracking(true);
 }
 
