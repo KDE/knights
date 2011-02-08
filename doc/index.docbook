@@ -3,7 +3,7 @@
   <!ENTITY knights "<application>Knights</application>">
   <!ENTITY kappname "&knights;">
   <!ENTITY package "extragear/games">
-  <!ENTITY kappversion "2.2.0"><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "2.3.0 Beta 1"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -25,14 +25,14 @@
 
 		</authorgroup>
 		<copyright>
-			<year>2010</year>
+			<year>2011</year>
 			<holder>Miha Čančula</holder>
 		</copyright>
 
 		<legalnotice>&FDLNotice;
 		</legalnotice>
 
-		<date>2010-12-17</date><!-- Date of (re)writing, or update.-->
+		<date>2011-02-08</date><!-- Date of (re)writing, or update.-->
 		<releaseinfo>&kappversion;
 		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
@@ -94,17 +94,21 @@
 				<mediaobject><imageobject><imagedata fileref="Knights-newgame-dialog.png" /></imageobject></mediaobject>
 			<para>
 				If you wish to play against a friend on the same computer, select 
-				<guilabel>Human at the same computer</guilabel>.
+				  <guilabel>Human</guilabel> for <guilabel>Player 1</guilabel>
+				  and for <guilabel>Player 2</guilabel>.
 			</para>
 			<para>
 				If you wish to play against the computer, select 
-				<guilabel>Computer engine</guilabel>
-				and make sure that the program you specify is installed
+				<guilabel>Human</guilabel> for <guilabel>Player 1</guilabel> and 
+				<guilabel>Computer engine</guilabel> for <guilabel>Player 1</guilabel>.
+				Choose the program you would like to play agains, and
+				make sure that the program you specify is installed
 				on your computer and that it supports the XBoard protocol.
 			</para>
 			<para>
 				If you wish to play against someone over the internet,
-				select <guilabel>Human at a chess server</guilabel>.
+				select <guilabel>Human</guilabel> for <guilabel>Player 1</guilabel> and
+				<guilabel>Human at a chess server</guilabel> for <guilabel>Player 1</guilabel>.
 				You will have to login into the server and find
 				an opponent before you can start playing. 
 				The Free Internet Chess Server
@@ -113,12 +117,49 @@
 				play games which affect your rating.
 			</para>
 			<para>
-				A <guilabel>Time Limit</guilabel> section allows you to turn on an optional
-				timer.  You can set an initial time limit for the game and add additional time 
-				per move if desired.  This allows great flexibility in setting up time limits.
+				You can also watch two programs play against each other, by selecting 
+				<guilabel>Computer engine</guilabel> for both players. 
 			</para>
-			<para>After you press the <guibutton>Ok</guibutton> button, 
-				you may start playing. 
+			<para>
+				Similarly, you can play a computer engine against an opponent at a chess server.
+				However, note that the chess server may have a policy regarding such play. For the Free
+				Internet Chess Server it is located 
+				<ulink url="http://www.freechess.org/Help/HelpFiles/computers.html">here</ulink>.
+			</para>
+			<para>
+				The <guilabel>Use Time Control</guilabel> section allows you to turn on an optional
+				timer.  Knights uses the standard chess time control which has three parameters:
+			      </para>
+			      <itemizedlist>
+				<listitem>
+				  <para>
+				    <guilabel>Time control period</guilabel> specifies the number of moves after which the <guilabel>Initial time limit</guilabel> is added to the player's clock.
+				    You can disable this addition by setting the value to zero. 
+				  </para>
+				  <note><title>Note</title>
+				    <para>
+				      This option is not available when playing on a chess server. 
+				    </para>
+				  </note>
+				</listitem>
+				<listitem>
+				  <para>
+				    The <guilabel>Initial time limit</guilabel> is the amount of time the players start with. 
+				  </para>
+				</listitem>
+				<listitem>
+				  <para>
+				    <guilabel>Increment per move</guilabel> specifies how much time will be added
+				    to the player's clock after every move he makes. 
+				    It can be safely set to zero to disable incrementing the clock.  
+				  </para>
+				</listitem>
+				
+			</itemizedlist>
+			<para>
+				After you press the <guibutton>Ok</guibutton> button, the dialog will close.
+				If you selected a player at a chess server, you will have to log in and find your opponent.
+				Otherwise, the game will start immediately. 
 			</para>
 			<note><title>Note</title>
 			<para>
@@ -127,7 +168,7 @@
 			</para>
 			</note>
 		</sect1>
-
+		
 		<sect1 id="playing-the-game">
 			<title>Playing the Game</title>
 			<para>
