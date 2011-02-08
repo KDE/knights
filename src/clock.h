@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2010 Miha Čančula <miha.cancula@gmail.com>
+    Copyright 2010,2011 Miha Čančula <miha@noughmad.eu>
 
     Plasma analog-clock drawing code:
     Copyright 2007 by Aaron Seigo <aseigo@kde.org>

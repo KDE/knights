@@ -1,6 +1,6 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2009-2010  Miha Čančula <miha.cancula@gmail.com>
+    Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -22,7 +22,6 @@
 #include "proto/ficsprotocol.h"
 #include "proto/ficsdialog.h"
 #include "proto/chatwidget.h"
-#include "proto/keyboardeventfilter.h"
 #include "settings.h"
 
 #include <KDialog>
