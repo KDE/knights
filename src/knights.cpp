@@ -172,9 +172,10 @@ void MainWindow::showFicsSpectateDialog()
         {
             showClockWidgets();
             
-            KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Clock"), actionCollection() );
+            KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
             actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
             connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
+            connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
         }
 
         Protocol* player = 0;
@@ -233,33 +234,44 @@ void MainWindow::showFicsSpectateDialog()
                 dock->setObjectName ( data.name + QLatin1String("DockWidget") );
                 QString iconName;
                 QString actionName;
+                QString actionText;
                
                 switch ( data.type )
                 {
                     case Protocol::ConsoleToolWidget:
                         iconName = QLatin1String("utilities-terminal");
-                        actionName = QLatin1String("show_console");
+                        actionName = QLatin1String( data.owner == White ? "show_console_white" : "show_console_black" );
+                        actionText = i18n("Show Console");
                         break;
                         
                     case Protocol::ChatToolWidget:
                         iconName = QLatin1String("meeting-attending");
                         actionName = QLatin1String("show_chat");
+                        actionText = i18n("Show Chat");
                         break;
                         
                     default:
                         actionName = data.name;
+                        actionText = data.title;
                         break;
                 }
         
-                KToggleAction* toolAction = new KToggleAction ( KIcon(iconName), data.title, actionCollection() );
+                KToggleAction* toolAction = new KToggleAction ( KIcon(iconName), actionText, actionCollection() );
                 connect ( toolAction, SIGNAL(toggled(bool)), dock, SLOT(setVisible(bool)) );
+                connect ( dock, SIGNAL(visibilityChanged(bool)), toolAction, SLOT(setChecked(bool)) );
                 actionCollection()->addAction ( actionName, toolAction );
                 m_protocolActions << toolAction;
                 
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
-        //    kDebug() << actionCollection()->actions();
+        QAction* wc = actionCollection()->action ( QLatin1String("show_console_white") );
+        QAction* bc = actionCollection()->action ( QLatin1String("show_console_black") );
+        if ( wc && bc )
+        {
+            wc->setText ( i18n("Show White Console") );
+            bc->setText ( i18n("Show Black Console") );
+        }
         createGUI();
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }

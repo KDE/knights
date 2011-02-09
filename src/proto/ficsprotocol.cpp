@@ -151,6 +151,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
     consoleData.title = i18n("Server Console");
     consoleData.name = QLatin1String("console");
     consoleData.type = ConsoleToolWidget;
+    consoleData.owner = color();
 
     if ( !m_chat )
     {

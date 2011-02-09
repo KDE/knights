@@ -90,6 +90,7 @@ class ChatWidget;
                 QString title;
                 QString name;
                 ToolWidgetType type;
+                Color owner;
             };
             
             static QString stringFromErrorCode ( ErrorCode code );
