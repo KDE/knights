@@ -96,13 +96,19 @@ namespace Knights
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
 
-        KAction* undoAction = KStandardAction::undo( Manager::self(), SLOT(undo()), actionCollection() );
+        KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), Manager::self(), SLOT(undo()) );
+        undoAction->setText ( i18n("Undo") );
+        undoAction->setHelpText ( i18n("Take back your last move") );
+        undoAction->setIcon ( KIcon(QLatin1String("edit-undo")) );;
         undoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
 
-        KAction* redoAction = KStandardAction::redo( Manager::self(), SLOT(redo()), actionCollection() );
+        KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), Manager::self(), SLOT(redo()) );
+        redoAction->setText ( i18n("Redo") );
+        redoAction->setHelpText ( i18n("Repeat your last move") );
+        redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
         redoAction->setEnabled(false);
-        connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
+        connect ( Manager::self(), SIGNAL(redoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
     }
 
     void MainWindow::fileNew()
@@ -165,6 +171,9 @@ void MainWindow::showFicsSpectateDialog()
         if ( Manager::self()->timeControlEnabled ( White ) || Manager::self()->timeControlEnabled ( Black ) )
         {
             showClockWidgets();
+            
+            KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Clock"), actionCollection() );
+            connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
         }
 
         Protocol* player = 0;
@@ -221,9 +230,11 @@ void MainWindow::showFicsSpectateDialog()
                 QDockWidget* dock = new QDockWidget ( data.title, this );
                 dock->setWidget ( data.widget );
                 dock->setObjectName ( data.name + QLatin1String("DockWidget") );
-                QAction* dockToggleAction = dock->toggleViewAction();
-                actionCollection()->addAction ( data.name, dockToggleAction );
-                m_protocolActions << dockToggleAction;
+        
+                KToggleAction* toolAction = new KToggleAction ( KIcon(data.name), data.title, actionCollection() );
+                connect ( toolAction, SIGNAL(toggled(bool)), dock, SLOT(setVisible(bool)) );
+                m_protocolActions << toolAction;
+                
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }

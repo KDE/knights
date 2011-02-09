@@ -4,6 +4,8 @@
     <text>Main Toolbar</text>
     <Action name="game_new" />
     <Action name="game_pause" />
+    <Action name="move_undo" />
+    <Action name="move_redo" />
     <Action name="propose_draw" />
     <Action name="adjourn" />
     <Action name="resign" />
@@ -14,11 +16,16 @@
       <Action name="adjourn" />
       <Action name="resign" />
     </Menu>
+    <Menu name="move">
+      <text>Move</text>
+      <Action name="move_undo" />
+      <Action name="move_redo" />
+    </Menu>
     <Menu name="docks">
       <text>Show</text>
-      <Action name="clock" />
-      <Action name="chat" />
-      <Action name="console" />
+      <Action name="show_clock" />
+      <Action name="show_chat" />
+      <Action name="show_console" />
     </Menu>
   </MenuBar>
 </kpartgui>
