@@ -91,7 +91,7 @@ namespace Knights
         KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
         KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
 
-        KAction* resignAction = actionCollection()->addAction ( QLatin1String ( "resign" ), Manager::self(), SLOT ( resign() ) );
+        KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT ( resign() ) );
         resignAction->setText ( i18n ( "Resign" ) );
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
@@ -108,7 +108,7 @@ namespace Knights
         redoAction->setHelpText ( i18n("Repeat your last move") );
         redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
         redoAction->setEnabled(false);
-        connect ( Manager::self(), SIGNAL(redoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
+        connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
     }
 
     void MainWindow::fileNew()
@@ -259,8 +259,8 @@ void MainWindow::showFicsSpectateDialog()
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
-            kDebug() << actionCollection()->actions();
-            createGUI();
+        //    kDebug() << actionCollection()->actions();
+        createGUI();
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }
     
