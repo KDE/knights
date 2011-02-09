@@ -181,6 +181,7 @@ void FicsDialog::currentTabChanged ( int tab )
 
 void FicsDialog::setServerName ( const QString& name )
 {
+    kDebug() << name;
     WId id = 0;
     if ( qApp->activeWindow() )
     {
@@ -198,6 +199,10 @@ void FicsDialog::setServerName ( const QString& name )
         wallet->setFolder ( folder );
         QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + name;
         wallet->readPassword ( key, password );
+    }
+    else
+    {
+        kDebug() << "KWallet not available";
     }
     ui->passwordLineEdit->setText ( password );
     serverName = name;

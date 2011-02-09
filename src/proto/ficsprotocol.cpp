@@ -237,6 +237,7 @@ void FicsProtocol::openGameDialog()
     connect ( dialog, SIGNAL ( rejected() ), SLOT ( dialogRejected() ) );
 
     connect ( this, SIGNAL ( initSuccesful() ), dialog, SLOT ( accept() ) );
+    connect ( this, SIGNAL(initSuccesful()), m_widget, SLOT(slotDialogAccepted()) );
     connect ( this, SIGNAL ( error ( Protocol::ErrorCode, QString ) ), dialog, SLOT ( deleteLater() ) );
     if ( Settings::autoLogin() )
     {
