@@ -95,20 +95,20 @@
 			<para>
 				If you wish to play against a friend on the same computer, select 
 				  <guilabel>Human</guilabel> for <guilabel>Player 1</guilabel>
-				  and for <guilabel>Player 2</guilabel>.
+				  and <guilabel>Human</guilabel> for <guilabel>Player 2</guilabel>.
 			</para>
 			<para>
 				If you wish to play against the computer, select 
 				<guilabel>Human</guilabel> for <guilabel>Player 1</guilabel> and 
-				<guilabel>Computer engine</guilabel> for <guilabel>Player 1</guilabel>.
-				Choose the program you would like to play agains, and
+				<guilabel>Computer engine</guilabel> for <guilabel>Player 2</guilabel>.
+				Choose the program you would like to play against, and
 				make sure that the program you specify is installed
 				on your computer and that it supports the XBoard protocol.
 			</para>
 			<para>
 				If you wish to play against someone over the internet,
 				select <guilabel>Human</guilabel> for <guilabel>Player 1</guilabel> and
-				<guilabel>Human at a chess server</guilabel> for <guilabel>Player 1</guilabel>.
+				<guilabel>Human at a chess server</guilabel> for <guilabel>Player 2</guilabel>.
 				You will have to login into the server and find
 				an opponent before you can start playing. 
 				The Free Internet Chess Server
