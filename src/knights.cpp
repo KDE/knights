@@ -176,6 +176,7 @@ void MainWindow::showFicsSpectateDialog()
             actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
             connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
             connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
+            m_clockDock->setVisible ( Settings::showClock() );
         }
 
         Protocol* player = 0;
@@ -235,6 +236,7 @@ void MainWindow::showFicsSpectateDialog()
                 QString iconName;
                 QString actionName;
                 QString actionText;
+                bool show = false;
                
                 switch ( data.type )
                 {
@@ -242,12 +244,14 @@ void MainWindow::showFicsSpectateDialog()
                         iconName = QLatin1String("utilities-terminal");
                         actionName = QLatin1String( data.owner == White ? "show_console_white" : "show_console_black" );
                         actionText = i18n("Show Console");
+                        show = Settings::showConsole();
                         break;
                         
                     case Protocol::ChatToolWidget:
                         iconName = QLatin1String("meeting-attending");
                         actionName = QLatin1String("show_chat");
                         actionText = i18n("Show Chat");
+                        show = Settings::showChat();
                         break;
                         
                     default:
@@ -264,6 +268,7 @@ void MainWindow::showFicsSpectateDialog()
                 
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
+                dock->setVisible ( show );
             }
         QAction* wc = actionCollection()->action ( QLatin1String("show_console_white") );
         QAction* bc = actionCollection()->action ( QLatin1String("show_console_black") );

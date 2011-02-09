@@ -46,6 +46,18 @@
       <label>show opponents move marker</label>
       <default>true</default>
     </entry>
+    <entry name="showClock" type="Bool">
+      <label>show clocks when time control is in use</label>
+      <default>true</default>
+    </entry>
+    <entry name="showChat" type="Bool">
+      <label>show chat window, if supported by the protocol</label>
+      <default>true</default>
+    </entry>
+    <entry name="showConsole" type="Bool">
+      <label>show the text console, if supported by the protocol</label>
+      <default>false</default>
+    </entry>
   </group>
   <group name="Time Control">
     <entry name="timeLimit" type="Int">
