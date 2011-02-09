@@ -173,6 +173,7 @@ void MainWindow::showFicsSpectateDialog()
             showClockWidgets();
             
             KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Clock"), actionCollection() );
+            actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
             connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
         }
 
@@ -230,14 +231,35 @@ void MainWindow::showFicsSpectateDialog()
                 QDockWidget* dock = new QDockWidget ( data.title, this );
                 dock->setWidget ( data.widget );
                 dock->setObjectName ( data.name + QLatin1String("DockWidget") );
+                QString iconName;
+                QString actionName;
+               
+                switch ( data.type )
+                {
+                    case Protocol::ConsoleToolWidget:
+                        iconName = QLatin1String("utilities-terminal");
+                        actionName = QLatin1String("show_console");
+                        break;
+                        
+                    case Protocol::ChatToolWidget:
+                        iconName = QLatin1String("meeting-attending");
+                        actionName = QLatin1String("show_chat");
+                        break;
+                        
+                    default:
+                        actionName = data.name;
+                        break;
+                }
         
-                KToggleAction* toolAction = new KToggleAction ( KIcon(data.name), data.title, actionCollection() );
+                KToggleAction* toolAction = new KToggleAction ( KIcon(iconName), data.title, actionCollection() );
                 connect ( toolAction, SIGNAL(toggled(bool)), dock, SLOT(setVisible(bool)) );
+                actionCollection()->addAction ( actionName, toolAction );
                 m_protocolActions << toolAction;
                 
                 m_dockWidgets << dock;
                 addDockWidget ( Qt::LeftDockWidgetArea, dock );
             }
+            kDebug() << actionCollection()->actions();
             createGUI();
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }
@@ -249,9 +271,6 @@ void MainWindow::showFicsSpectateDialog()
         m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
         m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()
         m_clockDock->setWidget ( playerClock );
-        QAction* clockToggleAction = m_clockDock->toggleViewAction();
-        actionCollection()->addAction ( QLatin1String("clock"), clockToggleAction );
-        m_protocolActions << clockToggleAction;
         m_dockWidgets << m_clockDock;
         
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );

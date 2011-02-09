@@ -125,6 +125,7 @@ QList< Protocol::ToolWidgetData > XBoardProtocol::toolWidgets()
     data.widget = console;
     data.title = i18n("Console for %1 (%2)", attribute("program").toString(), colorName ( color() ) );
     data.name = QLatin1String("console") + attribute("program").toString() + QLatin1Char( color() == White ? 'W' : 'B' );
+    data.type = ConsoleToolWidget;
     return QList< Protocol::ToolWidgetData >() << data;
 }
 

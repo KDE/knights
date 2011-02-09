@@ -76,12 +76,20 @@ class ChatWidget;
                 InstallationError,
                 UnknownError
             };
+            
+            enum ToolWidgetType
+            {
+                ConsoleToolWidget,
+                ChatToolWidget,
+                OtherToolWidget
+            };
 
             struct ToolWidgetData
             {
                 QWidget* widget;
                 QString title;
                 QString name;
+                ToolWidgetType type;
             };
             
             static QString stringFromErrorCode ( ErrorCode code );

@@ -150,6 +150,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
     consoleData.widget = console();
     consoleData.title = i18n("Server Console");
     consoleData.name = QLatin1String("console");
+    consoleData.type = ConsoleToolWidget;
 
     if ( !m_chat )
     {
@@ -161,6 +162,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
     chatData.widget = m_chat;
     chatData.title = i18n("Chat with %1", playerName());
     chatData.name = QLatin1String("chat");
+    chatData.type = ChatToolWidget;
 
     return QList<ToolWidgetData>() << consoleData << chatData;
 }
