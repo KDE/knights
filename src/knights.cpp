@@ -128,6 +128,8 @@ namespace Knights
             m_protocolActions.clear();
             m_view->clearBoard();
             dialogWidget->setupProtocols();
+            connect ( Protocol::white(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
+            connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
             dialogWidget->writeConfig();
             Manager::self()->initialize();
         }
@@ -261,6 +263,8 @@ void MainWindow::showFicsSpectateDialog()
         {
             KMessageBox::error ( this, errorString, Protocol::stringFromErrorCode ( errorCode ) );
         }
+        Protocol::white()->deleteLater();
+        Protocol::black()->deleteLater();
         fileNew();
     }
 

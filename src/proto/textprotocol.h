@@ -38,8 +38,11 @@ public:
 
 protected:
     void setDevice(QIODevice* device);
+    QIODevice* device() const;
+    
     void setConsole(ChatWidget* widget);
-    ChatWidget* console();
+    ChatWidget* console() const;
+    
     void writeToConsole(const QString& text, ChatWidget::MessageType type);
 
     virtual void parseLine(const QString& line) = 0;
@@ -53,9 +56,8 @@ protected Q_SLOTS:
     void writeCheckMoves(const QString& text);
 
 private:
-    QIODevice* device;
     QTextStream stream;
-    ChatWidget* m_console;
+    QPointer < ChatWidget > m_console;
     QList < ChatWidget::Message > messages;
 };
 

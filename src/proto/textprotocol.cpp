@@ -58,6 +58,11 @@ void TextProtocol::setDevice(QIODevice* device)
     connect ( device, SIGNAL(readyRead()), SLOT(readFromDevice()) );
 }
 
+QIODevice* TextProtocol::device() const
+{
+    return stream.device();
+}
+
 void TextProtocol::writeCheckMoves(const QString& text)
 {
     Move m = Move(text);
@@ -88,7 +93,7 @@ void TextProtocol::setConsole(ChatWidget* widget)
     messages.clear();
 }
 
-ChatWidget* TextProtocol::console()
+ChatWidget* TextProtocol::console() const
 {
     return m_console;
 }

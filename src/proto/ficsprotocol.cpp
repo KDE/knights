@@ -140,7 +140,7 @@ void FicsProtocol::init (  )
     {
         port = 5000;
     }
-    connect ( socket, SIGNAL ( error ( QAbstractSocket::SocketError ) ), SLOT ( socketError() ) );
+    connect ( socket, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(socketError()) );
     socket->connectToHost ( address, port );
 }
 
@@ -167,7 +167,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
 
 void FicsProtocol::socketError()
 {
-    emit error( NetworkError, QString() );
+    emit error( NetworkError, device()->errorString() );
 }
 
 void FicsProtocol::login ( const QString& username, const QString& password )
