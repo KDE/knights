@@ -616,11 +616,6 @@ void Board::updateGraphics()
     m_boardRect = QRect( sceneRect().topLeft().toPoint() + QPoint( sideMargin, topMargin ),
                           QSize( m_tileSize, m_tileSize ) * 8);
     
-    
-    kDebug() << hBorderMargin << hBorderSize << renderer->boundsOnSprite ( lrBorderKey ).size();
-    kDebug() << vBorderMargin << vBorderSize << renderer->boundsOnSprite ( tbBorderKey ).size();
-    kDebug() << m_boardRect.size() << boardSize << 8*m_tileSize;
-    
     QSize tSize = QSizeF ( m_tileSize, m_tileSize ).toSize();
     /*
      * For historical reasons, QRect's 
@@ -629,9 +624,6 @@ void Board::updateGraphics()
     QPointF rightBorderPoint = m_boardRect.bottomRight() + QPoint ( vBorderMargin, 0 );
     QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPoint ( vBorderMargin, 0 );
     QPointF leftBorderPoint = m_boardRect.topLeft() - QPoint ( vBorderMargin, 0 );
-    
-    kDebug() << m_boardRect << topBorderPoint - bottomBorderPoint << rightBorderPoint - leftBorderPoint;
-    kDebug() << topBorderPoint << rightBorderPoint << bottomBorderPoint << leftBorderPoint;
     
     foreach ( Piece* p, m_grid )
     {
