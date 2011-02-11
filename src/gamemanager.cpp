@@ -429,6 +429,10 @@ void Manager::sendOffer(const Offer& offer)
 {
   Q_D(GameManager);
   Offer o = offer;
+  if ( offer.player == NoColor )
+  {
+    o.player = local()->color();
+  }
   QString name = Protocol::byColor(offer.player)->playerName();
   if ( o.text.isEmpty() )
   {

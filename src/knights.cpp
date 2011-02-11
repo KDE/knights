@@ -356,7 +356,11 @@ void MainWindow::showFicsSpectateDialog()
     void MainWindow::pauseGame ( bool pause )
     {
         m_view->setPaused ( pause );
-        Manager::self()->setTimeRunning ( !pause );
+        Offer o;
+        o.action = pause ? ActionPause : ActionResume;
+        o.id = qrand();
+        o.player = NoColor;
+        Manager::self()->sendOffer(o);
     }
 
 }
