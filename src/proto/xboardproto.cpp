@@ -297,6 +297,9 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             }
             offer.accept();
             break;
+            
+        default:
+            break;
     }
 }
 
