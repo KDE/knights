@@ -358,7 +358,7 @@ void FicsProtocol::parseLine(const QString& line)
                 FicsChallenge challenge;
                 challenge.gameId = challengeExp.cap ( 1 ).toInt();
                 challenge.player.first = challengeExp.cap ( 2 );
-                int ratingPos = ( challengeExp.cap(1) == challengeExp.cap(3) ) ? 4 : 6;
+                int ratingPos = ( challengeExp.cap(2) == challengeExp.cap(3) ) ? 4 : 6;
                 challenge.player.second = challengeExp.cap ( ratingPos ).toInt();
                 emit challengeReceived ( challenge );
             }
