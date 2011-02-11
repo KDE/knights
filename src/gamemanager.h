@@ -139,6 +139,8 @@ public slots:
     void initialize();
     void undo();
     void redo();
+    void offerDraw();
+    void adjourn();
     
     void setTimeRunning(bool running); 
 

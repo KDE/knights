@@ -329,9 +329,26 @@ void Manager::redo()
   changeActivePlayer();
 }
 
+void Manager::adjourn()
+{
+  Offer o;
+  o.action = ActionAdjourn;
+  o.id = qrand();
+  o.player = local()->color();
+  sendOffer(o);
+}
+
+void Manager::offerDraw()
+{
+  Offer o;
+  o.action = ActionDraw;
+  o.id = qrand();
+  o.player = local()->color();
+  sendOffer(o);
+}
+
 void Manager::resign()
 {
-  Q_D(const GameManager);
   //TODO:
 }
 

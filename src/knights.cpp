@@ -164,7 +164,7 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::protocolInitSuccesful()
     {
-        kDebug();
+        kDebug() << Settings::showClock() << Settings::showConsole();
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
         setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
@@ -176,7 +176,6 @@ void MainWindow::showFicsSpectateDialog()
             actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
             connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
             connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
-            m_clockDock->setVisible ( Settings::showClock() );
         }
 
         Protocol* player = 0;
@@ -209,16 +208,15 @@ void MainWindow::showFicsSpectateDialog()
             Protocol::Features f = opp->supportedFeatures();
             if ( f & Protocol::Draw )
             {
-                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), opp, SLOT ( proposeDraw() ) );
-                drawAction->setText ( i18n ( "Propose &Draw" ) );
-                drawAction->setHelpText(i18n("Propose a draw to your opponent"));
+                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT ( offerDraw() ) );
+                drawAction->setText ( i18n ( "Offer &Draw" ) );
+                drawAction->setHelpText(i18n("Offer a draw to your opponent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
                 m_protocolActions << drawAction;
-                connect ( opp, SIGNAL(drawOffered()), SLOT(drawOffered()) );
             }
             if ( f & Protocol::Adjourn )
             {
-                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), opp, SLOT ( adjourn() ) );
+                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT ( adjourn() ) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
                 adjournAction->setHelpText(i18n("Continue this game at a later time"));
                 adjournAction->setIcon(KIcon(QLatin1String("document-save")));
@@ -277,7 +275,28 @@ void MainWindow::showFicsSpectateDialog()
             wc->setText ( i18n("Show White Console") );
             bc->setText ( i18n("Show Black Console") );
         }
-        createGUI();
+        createGUI(); // Resets dock widget states
+        
+        QAction* a = actionCollection()->action ( QLatin1String("show_clock") );
+        if ( a )
+        {
+            a->setChecked ( Settings::showClock() );
+        }
+        a = actionCollection()->action ( QLatin1String("show_chat") );
+        if ( a )
+        {
+            a->setChecked ( Settings::showChat() );
+        }
+        
+        if ( wc )
+        {
+            wc->setChecked ( Settings::showConsole() );
+        }
+        if ( bc )
+        {
+            bc->setChecked ( Settings::showConsole() );
+        }
+        
         QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }
     
@@ -296,7 +315,6 @@ void MainWindow::showFicsSpectateDialog()
         playerClock->setPlayerName(Black, Protocol::black()->playerName());
 
         connect ( Manager::self(), SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-        connect ( Manager::self(), SIGNAL(timeLimitChanged(Color,QTime)), playerClock, SLOT(setTimeLimit(Color,QTime)) );
 
         playerClock->setTimeLimit ( White, Manager::self()->timeLimit ( White ) );
         playerClock->setTimeLimit ( Black, Manager::self()->timeLimit ( Black ) );
@@ -339,16 +357,6 @@ void MainWindow::showFicsSpectateDialog()
     {
         m_view->setPaused ( pause );
         Manager::self()->setTimeRunning ( !pause );
-    }
-
-    void MainWindow::drawOffered()
-    {
-        if ( KMessageBox::questionYesNo ( this,
-            i18n( "Your opponent, %1, offers you a draw. Do you accept?", Protocol::white()->playerName() ),
-            i18n( "Draw offer" )) == KMessageBox::Yes )
-        {
-            m_view->gameOver ( NoColor );
-        }
     }
 
 }
