@@ -49,6 +49,7 @@ void LocalProtocol::startGame()
 
 void LocalProtocol::move ( const Move& m )
 {
+  Q_UNUSED(m)
 }
 
 LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent )
