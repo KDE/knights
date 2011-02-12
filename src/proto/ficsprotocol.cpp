@@ -504,7 +504,24 @@ void FicsProtocol::parseLine(const QString& line)
             else if ( line.contains ( QLatin1String("lost contact or quit") ) )
             {
                 type = ChatWidget::AccountMessage;
-                emit gameOver ( NoColor );
+            }
+            else if ( line.startsWith(QLatin1Char('{')) && line.contains(QLatin1Char('}')))
+            {
+                if ( line.endsWith ( QLatin1String("1-0") ) )
+                {
+                    type = ChatWidget::AccountMessage;
+                    emit gameOver ( White );
+                }
+                else if ( line.endsWith ( QLatin1String("1/2-1/2") ) )
+                {
+                    type = ChatWidget::AccountMessage;
+                    emit gameOver ( NoColor );
+                }
+                else if ( line.endsWith ( QLatin1String("0-1") ) )
+                {
+                    type = ChatWidget::AccountMessage;
+                    emit gameOver ( Black );
+                }
             }
     }
 
