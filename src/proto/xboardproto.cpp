@@ -27,6 +27,8 @@
 #include <KDebug>
 #include <KLocale>
 #include <KFileDialog>
+#include <QTimer>
+#include <settings.h>
 
 using namespace Knights;
 
@@ -183,7 +185,8 @@ void XBoardProtocol::parseLine(const QString& line)
             if ( m.isValid() )
             {
                 kDebug() << "Move by" << attribute("program").toString() << ":" << m;
-                emit pieceMoved ( m );
+                pendingMove = m;
+                QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendMove()) );
                 emit undoPossible ( true );
             }
         }
@@ -302,6 +305,12 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             break;
     }
 }
+
+void XBoardProtocol::sendMove()
+{
+    emit pieceMoved ( pendingMove );
+}
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

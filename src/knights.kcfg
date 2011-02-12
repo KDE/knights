@@ -136,5 +136,9 @@
       <label>whether to log in to chess server automatically</label>
       <default>true</default>
     </entry>
+    <entry name="computerDelay" type="Int">
+      <label>delay before a computer's move is reported, in miliseconds</label>
+      <default>500</default>
+    </entry>
   </group>
 </kcfg>
