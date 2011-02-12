@@ -463,10 +463,10 @@ void Manager::sendOffer(const Offer& offer)
 	o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
 	break;
       case ActionAdjourn:
-	o.text = i18n("%1 would like to adjourn the game", o.player);
+	o.text = i18n("%1 would like to adjourn the game", name);
 	break;
       case ActionAbort:
-	o.text = i18n("%1 would like to abort the game");
+	o.text = i18n("%1 would like to abort the game", name);
 	break;
       default:
 	break;
