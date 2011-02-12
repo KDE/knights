@@ -76,6 +76,7 @@ namespace Knights
         setupGUI();
         connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ) );
         connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
+        connect ( Manager::self(), SIGNAL(winnerNotify(Color)), m_view, SLOT(gameOver(Color)) );
 
         QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
     }
@@ -119,7 +120,7 @@ namespace Knights
         gameNewDialog.setCaption ( i18n ( "New Game" ) );
         if ( gameNewDialog.exec() == KDialog::Accepted )
         {
-            Manager::self()->gameOver();
+            Manager::self()->reset();
             foreach ( QDockWidget* dock, m_dockWidgets )
             {
                 removeDockWidget ( dock );

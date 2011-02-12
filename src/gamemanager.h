@@ -104,6 +104,8 @@ public:
 	    bool isRunning();
 
     Rules* rules();
+        void reset();
+
     
 private:
     void addMoveToHistory ( const Move& move );
@@ -126,11 +128,12 @@ signals:
   void activePlayerChanged ( Color player );
   void initComplete();
   void notification ( const Offer& offer );
+  void winnerNotify ( Color winner );
 
 public slots:
   void moveByProtocol ( const Move& move );
   void protocolInitSuccesful();
-  void gameOver();
+  void gameOver ( Color winner );
   void resign();
 
   void sendOffer ( const Offer& offer );

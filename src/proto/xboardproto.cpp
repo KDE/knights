@@ -214,6 +214,18 @@ void XBoardProtocol::parseLine(const QString& line)
             o.player = color();
             Manager::self()->sendOffer(o);
         }
+        else if ( line.startsWith ( QLatin1String("1-0") ) )
+        {
+            emit gameOver ( White );
+        }
+        else if ( line.startsWith ( QLatin1String("0-1") ) )
+        {
+            emit gameOver ( NoColor );
+        }
+        else if ( line.startsWith ( QLatin1String("1/2-1/2") ) )
+        {
+            emit gameOver ( Black );
+        }
         if ( display )
         {
             writeToConsole ( line, type );

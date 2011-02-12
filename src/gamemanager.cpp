@@ -245,12 +245,15 @@ void Manager::initialize()
   d->activePlayer = White;
   d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
   d->blackTimeControl.currentTime = d->blackTimeControl.baseTime;
+  QList<Protocol*> protocols;
   Protocol::white()->setTimeControl(d->whiteTimeControl);
   Protocol::black()->setTimeControl(d->blackTimeControl);
   connect ( Protocol::white(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
   connect ( Protocol::white(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
+  connect ( Protocol::white(), SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
   connect ( Protocol::black(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
   connect ( Protocol::black(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
+  connect ( Protocol::black(), SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
   Protocol::white()->init();
   Protocol::black()->init();
 }
@@ -405,14 +408,28 @@ void Manager::protocolInitSuccesful()
   }
 }
 
-void Manager::gameOver()
+void Manager::gameOver(Color winner)
+{
+  Protocol::white()->setWinner(winner);
+  Protocol::black()->setWinner(winner);
+  emit winnerNotify(winner);
+  reset();
+}
+
+void Manager::reset()
 {
   Q_D(GameManager);
   stopTime();
   if ( d->gameStarted )
   {
-    delete Protocol::white();
-    delete Protocol::black();
+    if ( Protocol::white() )
+    {
+      Protocol::white()->deleteLater();
+    }
+    if ( Protocol::black() )
+    {
+      Protocol::black()->deleteLater();
+    }
     delete d->rules;
   }
   d->moveHistory.clear();
@@ -490,7 +507,7 @@ void Manager::setOfferResult(int id, OfferAction result)
 	  break;
 	  
 	case ActionAbort:
-	  gameOver();
+	  gameOver(NoColor);
 	  break;
 	  
 	case ActionPause:
