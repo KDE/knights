@@ -316,6 +316,7 @@ void Manager::undo()
   {
     o.numberOfMoves = 1;
   }
+  o.numberOfMoves = qMin ( o.numberOfMoves, d->moveHistory.size() );
   o.player = local()->color();
   sendOffer(o);
 }
