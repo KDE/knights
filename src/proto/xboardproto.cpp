@@ -96,10 +96,6 @@ void XBoardProtocol::init (  )
 {
     QStringList args = attribute("program").toString().split ( QLatin1Char ( ' ' ) );
     QString program = args.takeFirst();
-    if ( !args.contains ( QLatin1String ( "--xboard" ) ) && !args.contains ( QLatin1String ( "xboard" ) ) )
-    {
-        args << QLatin1String ( "xboard" );
-    }
     setPlayerName ( program );
     mProcess = new KProcess ( this );
     mProcess->setProgram ( program, args );
@@ -115,6 +111,7 @@ void XBoardProtocol::init (  )
         emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
         return;
     }
+    write("xboard");
     initComplete();
 }
 
