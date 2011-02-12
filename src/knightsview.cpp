@@ -110,9 +110,13 @@ void KnightsView::gameOver ( Color winner )
         {
             KMessageBox::information ( this, text, i18n ( "Congratulations!" ) );
         }
-        else
+        else if ( m_board->playerColors() )
         {
             KMessageBox::sorry ( this, text );
+        }
+        else
+        {
+            KMessageBox::information ( this, text );
         }
     }
     emit gameNew();
