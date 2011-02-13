@@ -139,6 +139,13 @@ namespace Knights
         {
             d->flags &= ~flag;
         }
+        if ( flag == Forced )
+        {
+            for ( QList<Move>::iterator it = d->extraMoves.begin(); it != d->extraMoves.end(); ++it )
+            {
+                it->setFlag(flag, value);
+            }
+        }
     }
 
     void Move::setFlags ( Move::Flags flags )
