@@ -144,7 +144,7 @@ void GameDialog::setupProtocols()
     
     TimeControl tc;
     tc.baseTime = ui->timeGroup->isChecked() ? QTime().addSecs( 60 * ui->timeLimit->value() ) : QTime();
-    tc.moves = ui->numberOfMoves->value();
+    tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
     tc.increment = ui->timeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
 }
@@ -204,6 +204,10 @@ void GameDialog::writeConfig()
     {
         Settings::setTimeLimit ( ui->timeLimit->value() );
         Settings::setTimeIncrement( ui->timeIncrement->value() );
+        if ( p2 != Settings::EnumPlayer2Protocol::Fics )
+        {
+            Settings::setNumberOfMoves ( ui->numberOfMoves->value() );
+        }
     }
     
     Settings::self()->writeConfig();
