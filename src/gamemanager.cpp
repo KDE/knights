@@ -608,7 +608,7 @@ void Manager::sendPendingMove()
 	d->blackMoves++;
 	if ( d->blackTimeControl.moves > 0 && ( d->blackMoves % d->blackTimeControl.moves ) == 0 )
 	{
-	  setCurrentTime ( White, d->blackTimeControl.currentTime.addSecs ( d->blackTimeControl.baseTime.minute() * 60 ) );
+	  setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( d->blackTimeControl.baseTime.minute() * 60 ) );
 	}
 	break;
 	
