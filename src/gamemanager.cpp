@@ -74,6 +74,8 @@ GameManagerPrivate::GameManagerPrivate()
     running(false),
     gameStarted(false),
     timer(0),
+    whiteMoves(0),
+    blackMoves(0),
     rules(0)
 {
 
@@ -453,6 +455,8 @@ void Manager::reset()
   d->moveHistory.clear();
   d->moveUndoStack.clear();
   d->gameStarted = false;
+  d->whiteMoves = 0;
+  d->blackMoves = 0;
 }
 
 Rules* Manager::rules() const
@@ -597,6 +601,7 @@ void Manager::sendPendingMove()
     switch ( d->activePlayer )
     {
       case White:
+	kDebug() << d->whiteMoves;
 	d->whiteMoves++;
 	if ( d->whiteTimeControl.moves > 0 && ( d->whiteMoves % d->whiteTimeControl.moves ) == 0 )
 	{
