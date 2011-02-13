@@ -37,7 +37,7 @@ namespace Knights
 
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
-    virtual bool isLocal();
+    virtual bool isComputer();
 
     virtual QList<ToolWidgetData> toolWidgets();
 

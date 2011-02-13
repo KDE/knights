@@ -449,9 +449,9 @@ void Manager::sendOffer(const Offer& offer)
   Offer o = offer;
   if ( offer.player == NoColor )
   {
-    o.player = local()->color();
+      o.player = local()->color();
   }
-  QString name = Protocol::byColor(offer.player)->playerName();
+  QString name = Protocol::byColor(o.player)->playerName();
   if ( o.text.isEmpty() )
   {
     switch ( offer.action )
@@ -540,6 +540,16 @@ Protocol* Manager::local()
   {
     return Protocol::byColor(oppositeColor(d->activePlayer));
   }
+  kWarning() << "No local protocols, trying a computer";
+  if ( Protocol::byColor(d->activePlayer)->isComputer() )
+  {
+    return Protocol::byColor(d->activePlayer);
+  }
+  if ( Protocol::byColor(oppositeColor(d->activePlayer))->isComputer() )
+  {
+    return Protocol::byColor(oppositeColor(d->activePlayer));
+  }
+  kWarning() << "No local or computer protocols, returning 0";
   return 0;
 }
 

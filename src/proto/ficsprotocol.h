@@ -77,7 +77,6 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual QList<ToolWidgetData> toolWidgets();
-            virtual bool isLocal();
             
     virtual void makeOffer(const Offer& offer);
     virtual void acceptOffer(const Offer& offer);

@@ -59,9 +59,9 @@ XBoardProtocol::~XBoardProtocol()
     }
 }
 
-bool XBoardProtocol::isLocal()
+bool XBoardProtocol::isComputer()
 {
-    return false;
+    return true;
 }
 
 void XBoardProtocol::startGame()
@@ -242,8 +242,34 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             setWinner(NoColor);
             break;
             
+        case ActionAdjourn:
+            write( QLatin1String("save") + KFileDialog::getSaveFileName() );
+            break;
+            
+        case ActionUndo:
+            for ( int i = 0; i < offer.numberOfMoves; ++i )
+            {
+                write ( "undo" );
+            }
+            break;
+            
+        case ActionPause:
+            write ( "force" );
+            break;
+            
+        case ActionResume:
+            if ( Manager::self()->activePlayer() == color() )
+            {
+                write ( "go" );
+            }
+            else
+            {
+                resumePending = true;
+            }
+            break;
+            
         default:
-            kError() << "XBoard should not send any offers except Draw offers";
+            kError() << "XBoard should not send this kind offers";
             break;
     }
 }

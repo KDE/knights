@@ -247,6 +247,18 @@ int Protocol::nextId()
     return d->nextId++;
 }
 
+bool Protocol::isLocal()
+{
+    return false;
+}
+
+bool Protocol::isComputer()
+{
+    return false;
+}
+
+
+
 
 
 

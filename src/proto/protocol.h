@@ -104,7 +104,8 @@ class ChatWidget;
             virtual ~Protocol();
 
             // Needed functions
-            virtual bool isLocal() = 0;
+            virtual bool isLocal();
+            virtual bool isComputer();
 
             Color color() const;
             QString playerName() const;
