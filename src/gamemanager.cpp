@@ -156,10 +156,18 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         switch ( d->activePlayer )
         {
             case White:
+		if ( QTime().msecsTo(d->whiteTimeControl.currentTime) < TimerInterval )
+		{
+		  gameOver(Black);
+		}
                 d->whiteTimeControl.currentTime = d->whiteTimeControl.currentTime.addMSecs ( -TimerInterval );
                 time = d->whiteTimeControl.currentTime;
                 break;
             case Black:
+		if ( QTime().msecsTo(d->blackTimeControl.currentTime) < TimerInterval )
+		{
+		  gameOver(White);
+		}
                 d->blackTimeControl.currentTime = d->blackTimeControl.currentTime.addMSecs ( -TimerInterval );
                 time = d->blackTimeControl.currentTime;
                 break;
