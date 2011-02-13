@@ -52,7 +52,6 @@ namespace Knights
     int m_increment;
     int m_baseTime;
     bool m_timeLimit;
-    Move pendingMove;
 
         public Q_SLOTS:
             virtual void init ();
@@ -66,7 +65,6 @@ namespace Knights
 
     private Q_SLOTS:
         void readError();
-        void sendMove();
     };
 }
 
