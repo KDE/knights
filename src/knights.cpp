@@ -179,7 +179,7 @@ void MainWindow::showFicsSpectateDialog()
             
             KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
             actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
-            connect ( clockAction, SIGNAL(toggled(bool)), m_clockDock, SLOT(setVisible(bool)) );
+            connect ( clockAction, SIGNAL(triggered(bool)), m_clockDock, SLOT(setVisible(bool)) );
             connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
         }
 
@@ -264,7 +264,7 @@ void MainWindow::showFicsSpectateDialog()
                 }
         
                 KToggleAction* toolAction = new KToggleAction ( KIcon(iconName), actionText, actionCollection() );
-                connect ( toolAction, SIGNAL(toggled(bool)), dock, SLOT(setVisible(bool)) );
+                connect ( toolAction, SIGNAL(triggered(bool)), dock, SLOT(setVisible(bool)) );
                 connect ( dock, SIGNAL(visibilityChanged(bool)), toolAction, SLOT(setChecked(bool)) );
                 actionCollection()->addAction ( actionName, toolAction );
                 m_protocolActions << toolAction;
