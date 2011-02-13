@@ -595,7 +595,6 @@ void Manager::sendPendingMove()
     Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
     emit pieceMoved ( pendingMove );
     rules()->moveMade ( pendingMove );
-    changeActivePlayer();
     pendingMove = Move();
     
     switch ( d->activePlayer )
@@ -620,6 +619,7 @@ void Manager::sendPendingMove()
       default:
 	break;
     }
+    changeActivePlayer();
   }
 }
 
