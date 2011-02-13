@@ -97,14 +97,14 @@ namespace Knights
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
 
-        KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), Manager::self(), SLOT(undo()) );
+        KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), this, SLOT(undo()) );
         undoAction->setText ( i18n("Undo") );
         undoAction->setHelpText ( i18n("Take back your last move") );
         undoAction->setIcon ( KIcon(QLatin1String("edit-undo")) );;
         undoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(undoPossible(bool)), undoAction, SLOT(setEnabled(bool)) );
 
-        KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), Manager::self(), SLOT(redo()) );
+        KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), this, SLOT(redo()) );
         redoAction->setText ( i18n("Redo") );
         redoAction->setHelpText ( i18n("Repeat your last move") );
         redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
@@ -363,6 +363,36 @@ void MainWindow::showFicsSpectateDialog()
         o.player = NoColor;
         Manager::self()->sendOffer(o);
     }
+    
+    void MainWindow::undo()
+    {
+        if ( !Protocol::white()->isLocal() && !Protocol::black()->isLocal() )
+        {
+            // No need to pause the game if both players are local
+            QAction* pa = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+            if ( pa )
+            {
+                pa->setChecked(true);
+            }
+        }
+        Manager::self()->undo();
+    }
+    
+    void MainWindow::redo()
+    {
+        Manager::self()->redo();
+        if ( !Protocol::white()->isLocal() && !Protocol::black()->isLocal() )
+        {
+            // No need to pause the game if both players are local
+            QAction* pa = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+            if ( pa && !Manager::self()->canRedo() )
+            {
+                pa->setChecked(false);
+            }
+        }
+    }
+
+
 
 }
 

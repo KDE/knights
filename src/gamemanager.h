@@ -102,6 +102,8 @@ public:
             void setActivePlayer ( Color player );
             Color activePlayer() const;
 	    bool isRunning();
+	    
+	    bool canRedo() const;
 
     Rules* rules();
         void reset();

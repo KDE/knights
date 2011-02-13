@@ -311,7 +311,7 @@ void Manager::undo()
   o.action = ActionUndo;
   
   // We always undo moves until it's local player's turn again. 
-  if ( d->activePlayer == local()->color() )
+  if ( Protocol::byColor(d->activePlayer)->isLocal() )
   {
     o.numberOfMoves = 2;
   }
@@ -552,6 +552,13 @@ Protocol* Manager::local()
   kWarning() << "No local or computer protocols, returning 0";
   return 0;
 }
+
+bool Manager::canRedo() const
+{
+  Q_D(const GameManager);
+  return !d->moveUndoStack.isEmpty();
+}
+
 
 
 
