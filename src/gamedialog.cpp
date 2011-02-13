@@ -161,7 +161,7 @@ void GameDialog::writeConfig()
     else
     {
         p1 = Settings::EnumPlayer1Protocol::XBoard;
-        programs << ui->player1Program->historyItems();
+        programs << ui->player1Program->historyItems() << ui->player1Program->currentText();
         Settings::setPlayer1Program ( ui->player1Program->currentText() );
     }
     Settings::setPlayer1Protocol ( p1 );
@@ -174,7 +174,7 @@ void GameDialog::writeConfig()
     else if ( ui->player2Comp->isChecked() )
     {
         p2 = Settings::EnumPlayer2Protocol::XBoard;
-        programs << ui->player2Program->historyItems();
+        programs << ui->player2Program->historyItems() << ui->player2Program->currentText() ;
         Settings::setPlayer2Program ( ui->player2Program->currentText() );
     }
     else
