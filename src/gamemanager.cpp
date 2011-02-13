@@ -29,6 +29,8 @@
 #include <KLocale>
 #include "rules/rules.h"
 #include "rules/chessrules.h"
+#include <QTimer>
+#include <settings.h>
 
 using namespace Knights;
 
@@ -306,6 +308,7 @@ bool Manager::timeControlEnabled(Color color) const
 
 void Manager::undo()
 {
+  sendPendingMove();
   Q_D(const GameManager);
   Offer o;
   o.action = ActionUndo;
@@ -326,6 +329,7 @@ void Manager::undo()
 
 void Manager::redo()
 {
+  sendPendingMove();
   Move m = nextRedoMove();
   Protocol::white()->move ( m );
   Protocol::black()->move ( m );
@@ -384,10 +388,8 @@ void Manager::moveByProtocol(const Move& move)
   {
     startTime();
   }
-  Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( m );
-  emit pieceMoved ( m );
-  rules()->moveMade ( m );
-  changeActivePlayer();
+  pendingMove = m;
+  QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
 }
 
 void Manager::protocolInitSuccesful()
@@ -558,6 +560,20 @@ bool Manager::canRedo() const
   Q_D(const GameManager);
   return !d->moveUndoStack.isEmpty();
 }
+
+void Manager::sendPendingMove()
+{
+  if ( pendingMove.isValid() )
+  {
+    Q_D(const GameManager);
+    Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
+    emit pieceMoved ( pendingMove );
+    rules()->moveMade ( pendingMove );
+    changeActivePlayer();
+    pendingMove = Move();
+  }
+}
+
 
 
 

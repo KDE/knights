@@ -23,6 +23,8 @@
 #define KNIGHTS_GAMEMANAGER_H
 
 #include <core/piece.h>
+#include <core/move.h>
+
 #include <QtCore/QObject>
 #include <QtCore/QTime>
 
@@ -31,12 +33,8 @@
 
 namespace Knights {
 
-class Protocol;
-
-
-class Rules;
-
-
+  class Protocol;
+  class Rules;
   class Move;
   class GameManagerPrivate;
 
@@ -118,6 +116,9 @@ private:
     void stopTime();
     
     Protocol* local();
+    
+private slots:
+    void sendPendingMove();
 
 protected:
     virtual void timerEvent(QTimerEvent* );
@@ -151,6 +152,7 @@ public slots:
 
 private:
   GameManagerPrivate* d_ptr;
+    Move pendingMove;
   Q_DECLARE_PRIVATE(GameManager)
   
 

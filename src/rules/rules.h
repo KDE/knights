@@ -25,6 +25,7 @@
 #include "core/piece.h"
 
 #include "board.h"
+#include <KDebug>
 
 template<class Key, class T > class QMap;
 namespace Knights
@@ -59,6 +60,7 @@ namespace Knights
 
             virtual void setGrid ( QMap<Pos, Piece*>* grid )
             {
+                kDebug() << "Setting Grid";
                 m_grid = grid;
             }
 
