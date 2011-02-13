@@ -180,7 +180,7 @@ void XBoardProtocol::parseLine(const QString& line)
             }
             if ( m.isValid() )
             {
-                kDebug() << "Move by" << attribute("program").toString() << ":" << m;
+                kDebug() << "Move by" << attribute("program").toString() << ":" << moveString << "=>" << m;
                 emit pieceMoved ( m );
                 emit undoPossible ( true );
             }

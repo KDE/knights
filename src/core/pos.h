@@ -39,7 +39,8 @@ namespace Knights
             static QChar row ( int num );
             static int numFromRow ( const QChar& row );
 
-            QString string();
+            QString string() const;
+            bool isValid() const;
 
             const Pos& operator+= ( const Pos& other );
 

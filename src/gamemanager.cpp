@@ -57,7 +57,9 @@ public:
   int timer;
 
   TimeControl whiteTimeControl;
+  int whiteMoves;
   TimeControl blackTimeControl;
+  int blackMoves;
 
   QStack<Move> moveHistory;
   QStack<Move> moveUndoStack;
@@ -410,7 +412,6 @@ void Manager::protocolInitSuccesful()
       Protocol::black()->setPlayerName ( i18nc ( "The player of this color", "Black" ) );
     }
     emit initComplete();
-    d->rules = new ChessRules();
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
@@ -446,10 +447,16 @@ void Manager::reset()
   d->gameStarted = false;
 }
 
-Rules* Manager::rules()
+Rules* Manager::rules() const
 {
   Q_D(const GameManager);
   return d->rules;
+}
+
+void Manager::setRules(Rules* rules)
+{
+  Q_D(GameManager);
+  d->rules = rules;
 }
 
 void Manager::sendOffer(const Offer& offer)
@@ -572,12 +579,34 @@ void Manager::sendPendingMove()
 {
   if ( pendingMove.isValid() )
   {
-    Q_D(const GameManager);
+    Q_D(GameManager);
     Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
     emit pieceMoved ( pendingMove );
     rules()->moveMade ( pendingMove );
     changeActivePlayer();
     pendingMove = Move();
+    
+    switch ( d->activePlayer )
+    {
+      case White:
+	d->whiteMoves++;
+	if ( d->whiteTimeControl.moves > 0 && ( d->whiteMoves % d->whiteTimeControl.moves ) == 0 )
+	{
+	  setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( d->whiteTimeControl.baseTime.minute() * 60 ) );
+	}
+	break;
+	
+      case Black:
+	d->blackMoves++;
+	if ( d->blackTimeControl.moves > 0 && ( d->blackMoves % d->blackTimeControl.moves ) == 0 )
+	{
+	  setCurrentTime ( White, d->blackTimeControl.currentTime.addSecs ( d->blackTimeControl.baseTime.minute() * 60 ) );
+	}
+	break;
+	
+      default:
+	break;
+    }
   }
 }
 

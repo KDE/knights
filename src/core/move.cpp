@@ -341,7 +341,7 @@ namespace Knights
         }
         if ( d->notationType == Coordinate )
         {
-            return true;
+            return d->from.isValid() && d->to.isValid();
         }
         else if ( d->string.size() < 6 )
         {

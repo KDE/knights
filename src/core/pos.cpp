@@ -70,9 +70,21 @@ namespace Knights
 
     }
 
-    QString Pos::string()
+    QString Pos::string() const
     {
-        return row ( first ) + QString::number ( second );
+        if ( isValid() )
+        {
+            return row ( first ) + QString::number ( second );
+        }
+        else
+        {
+            return QString();
+        }
+    }
+    
+    bool Pos::isValid() const
+    {
+        return first > 0 && first < 9 && second > 0 && second < 9;
     }
 
     const Pos& Pos::operator+= ( const Pos & other )

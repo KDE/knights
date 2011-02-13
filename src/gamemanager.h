@@ -103,7 +103,8 @@ public:
 	    
 	    bool canRedo() const;
 
-    Rules* rules();
+    Rules* rules() const;
+    void setRules ( Rules* rules );
         void reset();
 
     

@@ -48,6 +48,7 @@
 #include "proto/localprotocol.h"
 #include <KUser>
 #include "gamemanager.h"
+#include "rules/chessrules.h"
 
 namespace Knights
 {
@@ -138,6 +139,9 @@ namespace Knights
             connect ( Protocol::white(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
             connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
             dialogWidget->writeConfig();
+            
+            Manager::self()->setRules ( new ChessRules );
+            m_view->setupBoard();
             Manager::self()->initialize();
         }
     }
@@ -298,7 +302,7 @@ void MainWindow::showFicsSpectateDialog()
             bc->setChecked ( Settings::showConsole() );
         }
         
-        QTimer::singleShot(1, m_view, SLOT(setupBoard()));
+   //     QTimer::singleShot(1, m_view, SLOT(setupBoard()));
     }
     
     void MainWindow::showClockWidgets()
