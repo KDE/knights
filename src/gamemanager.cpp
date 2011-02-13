@@ -389,7 +389,14 @@ void Manager::moveByProtocol(const Move& move)
     startTime();
   }
   pendingMove = m;
-  QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
+  if ( Protocol::byColor(d->activePlayer)->isComputer() )
+  {
+    QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
+  }
+  else
+  {
+    sendPendingMove();
+  }
 }
 
 void Manager::protocolInitSuccesful()
