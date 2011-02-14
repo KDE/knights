@@ -110,6 +110,19 @@ namespace Knights
 
             bool operator== ( Move other ) const;
             void toCoordinateNotation ( Grid grid );
+            
+            /**
+             * Sets the time at which this move was made.
+             * It is used to reset the clock after undoing.
+             */
+            void setTime ( const QTime& time );
+            /**
+             * Returns the time at which the move was made.
+             */
+            QTime time();
+            
+            void setPieceData ( const PieceData& data );
+            PieceData pieceData();
 
             bool isValid() const;
 

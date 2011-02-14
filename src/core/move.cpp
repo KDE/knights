@@ -25,6 +25,7 @@
 
 #include <QtCore/QPair>
 #include <QtCore/QSharedData>
+#include <QtCore/QTime>
 
 namespace Knights
 {
@@ -47,6 +48,9 @@ namespace Knights
 
             PieceDataMap addedPieces;
             PieceDataMap removedPieces;
+            
+            QTime time;
+            PieceData pieceData;
     };
 
     MovePrivate::MovePrivate()
@@ -359,8 +363,31 @@ namespace Knights
         }
         return false;
     }
+    
+    void Move::setTime(const QTime& time)
+    {
+        d->time = time;
+    }
+
+    QTime Move::time()
+    {
+        return d->time;
+    }
+    
+void Move::setPieceData(const Knights::PieceData& data)
+{
+    d->pieceData = data;
 }
 
+PieceData Move::pieceData()
+{
+    return d->pieceData;
+}
+
+
+
+
+}
 
 QDebug operator<<(QDebug debug, const Knights::Move& move)
 {

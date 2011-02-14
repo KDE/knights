@@ -388,6 +388,14 @@ void Manager::moveByProtocol(const Move& move)
     return;
   }
   Move m = move;
+  if ( activePlayer() == White )
+  {
+    m.setTime ( d->whiteTimeControl.currentTime );
+  }
+  else
+  {
+    m.setTime ( d->blackTimeControl.currentTime );
+  }
   d->rules->checkSpecialFlags ( &m, d->activePlayer );
   if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )
   {
