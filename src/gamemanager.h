@@ -106,6 +106,8 @@ public:
     Rules* rules() const;
     void setRules ( Rules* rules );
         void reset();
+	
+	void startGame();
 
     
 private:

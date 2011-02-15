@@ -435,11 +435,17 @@ void Manager::protocolInitSuccesful()
       Protocol::black()->setPlayerName ( i18nc ( "The player of this color", "Black" ) );
     }
     emit initComplete();
+  }
+}
+
+void Manager::startGame()
+{
+    Q_D(GameManager);
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
-  }
 }
+
 
 void Manager::gameOver(Color winner)
 {

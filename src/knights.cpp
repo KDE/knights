@@ -140,8 +140,6 @@ namespace Knights
             connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
             dialogWidget->writeConfig();
             
-            Manager::self()->setRules ( new ChessRules );
-            m_view->setupBoard();
             Manager::self()->initialize();
         }
     }
@@ -302,7 +300,9 @@ void MainWindow::showFicsSpectateDialog()
             bc->setChecked ( Settings::showConsole() );
         }
         
-   //     QTimer::singleShot(1, m_view, SLOT(setupBoard()));
+        Manager::self()->setRules ( new ChessRules );
+        Manager::self()->startGame();
+        m_view->setupBoard();
     }
     
     void MainWindow::showClockWidgets()
