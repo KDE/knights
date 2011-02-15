@@ -57,9 +57,7 @@ public:
   int timer;
 
   TimeControl whiteTimeControl;
-  int whiteMoves;
   TimeControl blackTimeControl;
-  int blackMoves;
 
   QStack<Move> moveHistory;
   QStack<Move> moveUndoStack;
@@ -74,8 +72,6 @@ GameManagerPrivate::GameManagerPrivate()
     running(false),
     gameStarted(false),
     timer(0),
-    whiteMoves(0),
-    blackMoves(0),
     rules(0)
 {
 
@@ -200,6 +196,15 @@ void Manager::setCurrentTime(Color color, const QTime& time)
     {
         Q_D ( GameManager );
         Move m = d->moveHistory.pop();
+	if ( m.pieceData().first == White )
+	{
+	  d->whiteTimeControl.currentTime = m.time();
+	}
+	else
+	{
+	  d->blackTimeControl.currentTime = m.time();
+	}
+	emit timeChanged ( m.pieceData().first, m.time() );
         if ( d->moveHistory.isEmpty() )
         {
             emit undoPossible(false);
@@ -463,8 +468,6 @@ void Manager::reset()
   d->moveHistory.clear();
   d->moveUndoStack.clear();
   d->gameStarted = false;
-  d->whiteMoves = 0;
-  d->blackMoves = 0;
 }
 
 Rules* Manager::rules() const
@@ -605,20 +608,20 @@ void Manager::sendPendingMove()
     rules()->moveMade ( pendingMove );
     pendingMove = Move();
     
+    int moveNumber;
     switch ( d->activePlayer )
     {
       case White:
-	kDebug() << d->whiteMoves;
-	d->whiteMoves++;
-	if ( d->whiteTimeControl.moves > 0 && ( d->whiteMoves % d->whiteTimeControl.moves ) == 0 )
+	moveNumber = ( d->moveHistory.size() + 1 ) / 2;
+	if ( d->whiteTimeControl.moves > 0 && ( moveNumber % d->whiteTimeControl.moves ) == 0 )
 	{
 	  setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( d->whiteTimeControl.baseTime.minute() * 60 ) );
 	}
 	break;
 	
       case Black:
-	d->blackMoves++;
-	if ( d->blackTimeControl.moves > 0 && ( d->blackMoves % d->blackTimeControl.moves ) == 0 )
+	moveNumber = d->moveHistory.size() / 2;
+	if ( d->blackTimeControl.moves > 0 && ( moveNumber % d->blackTimeControl.moves ) == 0 )
 	{
 	  setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( d->blackTimeControl.baseTime.minute() * 60 ) );
 	}
