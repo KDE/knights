@@ -245,9 +245,20 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             break;
             
         case ActionUndo:
+            write ( "force" );
             for ( int i = 0; i < offer.numberOfMoves; ++i )
             {
                 write ( "undo" );
+            }
+            // This function is called before changeActivePlayer, so we must take into accont 
+            // the number of moves being undone. 
+            if ( ( Manager::self()->activePlayer() == color() ) == ( ( offer.numberOfMoves % 2 ) == 0 ) )
+            {
+                write ( "go" );
+            }
+            else
+            {
+                resumePending = true;
             }
             break;
             
