@@ -86,8 +86,8 @@
 			<title>Starting the Game</title>
 			<para>
 				When the program starts or the user selects 
-				  <menuchoice><guimenu>Game</guimenu> <guimenuitem>New</guimenuitem></menuchoice>,
-				  a dialog is shown. In this dialog, it's possible to 
+				<menuchoice><guimenu>Game</guimenu> <guimenuitem>New</guimenuitem></menuchoice>,
+				a dialog is shown. In this dialog, it's possible to 
 				specify who you are playing against, your color and 
 				the time limits.
 			</para>
@@ -166,6 +166,47 @@
 				&knights; will load a default theme automatically once
 				you start the game and you can begin playing right away.
 			</para>
+			</note>
+		</sect1>
+		
+		<sect1 id="server-dialog">
+			<title>The Chess Server Dialog</title>
+			<mediaobject><imageobject><imagedata fileref="Knights-server-account.png" /></imageobject></mediaobject>
+			<para>
+				If you chose to play on a chess server, you must first log in to the server. 
+				If you have an account at the server, type in your username and password, and 
+				select <guilabel>This is a registered account</guilabel>. 
+				Otherwise, type in a username of your choice, and click <guibutton>Log in</guibutton>.
+			</para>
+			<para>
+				There are two ways to choose the opponent. Either you post an ad for your game 
+				(called a "seek"), or you respond to someone else's seek. 
+			</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-server-challenges.png" /></imageobject></mediaobject>
+			<para>
+				To post your own, go to the <guilabel>Challenges</guilabel> tab and click
+				<guibutton>Seek</guibutton>. If you checked 
+				<guilabel>Automatically start the game</guilabel>, once a player has accepted 
+				your seek, the game will start immediately. 
+				Otherwise, you have to accept the challenge manually, 
+				by selecting it from the list and clicking <guibutton>Accept</guibutton>.
+			</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-server-list.png" /></imageobject></mediaobject>
+			<para>
+				To respond to other people's seeks, use the <guilabel>Seek List</guilabel> 
+				or <guilabel>Seek Graph</guilabel> tabs. On either tab, select the seek by clicking on it 
+				and then pressing the <guibutton>Accept</guibutton>.
+			</para>
+			<mediaobject><imageobject><imagedata fileref="Knights-server-graph.png" /></imageobject></mediaobject>
+			<para>
+				The seek graph displayes all currently posted seeks, arranged by opponent's rating
+				and game duration. Clicking on a point on the graph accepts the seek. 
+			</para>
+			<note>
+				<para>
+					For advanced usage, &knights; provides direct access to the server console.
+					Select the <guilabel>Console</guilabel> tab to use it. 
+				</para>
 			</note>
 		</sect1>
 		
