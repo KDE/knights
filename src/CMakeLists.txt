@@ -41,8 +41,6 @@ if (ANIMATIONS)
     add_definitions(-DWITH_ANIMATIONS)
 endif()
 
-qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml)
-
 kde4_add_ui_files(knights_SRCS
     knightsview_base.ui
     prefs_base.ui
