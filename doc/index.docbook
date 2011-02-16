@@ -3,7 +3,7 @@
   <!ENTITY knights "<application>Knights</application>">
   <!ENTITY kappname "&knights;">
   <!ENTITY package "extragear/games">
-  <!ENTITY kappversion "2.3.0 Beta 1"><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "2.3 beta 1"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -32,7 +32,7 @@
 		<legalnotice>&FDLNotice;
 		</legalnotice>
 
-		<date>2011-02-08</date><!-- Date of (re)writing, or update.-->
+		<date>2011-02-16</date><!-- Date of (re)writing, or update.-->
 		<releaseinfo>&kappversion;
 		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
