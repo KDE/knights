@@ -199,7 +199,7 @@
 			</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-server-graph.png" /></imageobject></mediaobject>
 			<para>
-				The seek graph displayes all currently posted seeks, arranged by opponent's rating
+				The seek graph displays all currently posted seeks, arranged by opponent's rating
 				and game duration. Clicking on a point on the graph accepts the seek. 
 			</para>
 			<note>
