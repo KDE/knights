@@ -29,6 +29,7 @@
 #include <QtCore/QMap>
 #include <QtCore/QSet>
 
+class QDrag;
 
 
 namespace Knights
@@ -85,6 +86,9 @@ namespace Knights
             void centerOnPos ( Item* item, bool animated = true );
             void removeFrame();
             void centerAndResize ( Item* item, QSize size, bool animated = true );
+            PieceType getPromotedType();
+            QDrag* drag;
+            
             bool m_paused;
             int m_tileSize;
             QRectF m_boardRect;
@@ -97,9 +101,12 @@ namespace Knights
             Colors m_playerColors;
             QMap<Pos, Item*> markers;
             bool m_drawFrame;
+            Piece* selectedPiece;
+            QPoint dragStartPoint;
 
         protected:
             virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
+            virtual void mouseMoveEvent( QGraphicsSceneMouseEvent* e );
             virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );

@@ -72,6 +72,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
 {
     renderer = new Renderer ( Settings::theme() );
     m_background = 0;
+    selectedPiece = 0;
     Manager::self()->rules()->setGrid ( &m_grid );
     m_currentPlayer = White;
     updateTheme();
@@ -228,15 +229,36 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
     Piece* d_piece = pieceAt ( e->scenePos() );
     if ( !d_piece || d_piece->color() != m_currentPlayer )
     {
-        // The piece doesn't belong to the player whose turn it is
-        e->ignore();
-        return;
+        // The piece doesn't belong to the player whose turn it is, or there is no piece
+        if ( !selectedPiece )
+        {
+            e->ignore();
+            return;
+        }
+        Pos from = selectedPiece->boardPos();
+        Pos to = mapFromScene ( e->scenePos() );
+        if ( Manager::self()->rules()->legalMoves ( from ).contains ( Move ( from, to ) ) )
+        {
+            Move move ( from, to );
+            move.setFlag ( Move::Take, m_grid.contains ( to ) );
+            
+            if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8 ) )
+            {
+                move.setFlag ( Move::Promote, true );
+                move.setPromotedType ( getPromotedType() );
+            }
+            emit pieceMoved(move);
+            selectedPiece = 0;
+        }
     }
     else
     {
         // The active player clicked on his/her own piece
         qDeleteAll ( markers );
         markers.clear();
+        
+        selectedPiece = d_piece;
+        
         Pos t_pos = mapFromScene ( e->scenePos() );
         QList<Move> t_legalMoves = Manager::self()->rules()->legalMoves ( t_pos );
         if ( t_legalMoves.isEmpty() )
@@ -252,7 +274,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
                 addMarker ( t_move.to(), LegalMove );
             }
         }
-        QDrag* drag = new QDrag ( e->widget() );
+        drag = new QDrag ( e->widget() );
         QString posText = QString::number ( t_pos.first ) + QLatin1Char ( '_' ) + QString::number ( t_pos.second );
         QMimeData* data = new QMimeData;
         data->setText ( posText );
@@ -260,6 +282,14 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         m_draggedPos = e->scenePos();
         m_dragStartPos = m_draggedPos;
         drag->setMimeData ( data );
+    }
+}
+
+void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
+{
+    QPoint delta = e->screenPos() - dragStartPoint;
+    if ( delta.manhattanLength() >= QApplication::startDragDistance() )
+    {
         drag->exec();
     }
 }
@@ -289,35 +319,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
             if ( m_grid[from]->pieceType() == Pawn && ( to.second == 1 || to.second == 8 ) )
             {
                 move.setFlag ( Move::Promote, true );
-                KDialog dialog;
-                dialog.setButtons ( KDialog::Ok );
-                dialog.setButtonText ( KDialog::Ok, i18n ( "Promote" ) );
-                dialog.setCaption ( i18n ( "Promotion" ) );
-                QWidget promotionWidget ( &dialog );
-                Ui::PromotionWidget ui;
-                ui.setupUi ( &promotionWidget );
-                dialog.setMainWidget ( &promotionWidget );
-                PieceType pType = Queen;
-                if ( dialog.exec() == KDialog::Accepted )
-                {
-                    if ( ui.radioButtonQueen->isChecked() )
-                    {
-                        pType = Queen;
-                    }
-                    else if ( ui.radioButtonKnight->isChecked() )
-                    {
-                        pType = Knight;
-                    }
-                    else if ( ui.radioButtonBishop->isChecked() )
-                    {
-                        pType = Bishop;
-                    }
-                    else if ( ui.radioButtonRook->isChecked() )
-                    {
-                        pType = Rook;
-                    }
-                }
-                move.setPromotedType ( pType );
+                move.setPromotedType ( getPromotedType() );
             }
             emit pieceMoved(move);
         }
@@ -690,6 +692,36 @@ void Board::changeDisplayedPlayer()
     emit displayedPlayerChanged ( m_displayedPlayer );
 }
 
-
+PieceType Board::getPromotedType()
+{
+    KDialog dialog;
+    dialog.setButtons ( KDialog::Ok );
+    dialog.setButtonText ( KDialog::Ok, i18n ( "Promote" ) );
+    dialog.setCaption ( i18n ( "Promotion" ) );
+    QWidget promotionWidget ( &dialog );
+    Ui::PromotionWidget ui;
+    ui.setupUi ( &promotionWidget );
+    dialog.setMainWidget ( &promotionWidget );
+    if ( dialog.exec() == KDialog::Accepted )
+    {
+        if ( ui.radioButtonQueen->isChecked() )
+        {
+            return Queen;
+        }
+        else if ( ui.radioButtonKnight->isChecked() )
+        {
+            return Knight;
+        }
+        else if ( ui.radioButtonBishop->isChecked() )
+        {
+            return Bishop;
+        }
+        else if ( ui.radioButtonRook->isChecked() )
+        {
+            return Rook;
+        }
+    }
+    return NoType;
+}
 #include "board.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
