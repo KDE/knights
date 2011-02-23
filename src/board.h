@@ -28,6 +28,7 @@
 #include <QtGui/QGraphicsScene>
 #include <QtCore/QMap>
 #include <QtCore/QSet>
+#include <QtCore/QPointer>
 
 class QDrag;
 
@@ -87,7 +88,7 @@ namespace Knights
             void removeFrame();
             void centerAndResize ( Item* item, QSize size, bool animated = true );
             PieceType getPromotedType();
-            QDrag* drag;
+            QPointer<QDrag> drag;
             
             bool m_paused;
             int m_tileSize;

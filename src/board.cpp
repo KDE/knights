@@ -288,7 +288,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
 {
     QPoint delta = e->screenPos() - dragStartPoint;
-    if ( delta.manhattanLength() >= QApplication::startDragDistance() )
+    if ( (delta.manhattanLength() >= QApplication::startDragDistance()) && drag )
     {
         drag->exec();
     }
