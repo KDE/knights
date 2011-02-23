@@ -111,6 +111,8 @@ namespace Knights
         redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
         redoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
+
+        connect( qApp, SIGNAL( lastWindowClosed() ), this, SLOT( exitKnights() ) );
     }
 
     void MainWindow::fileNew()
@@ -396,7 +398,16 @@ void MainWindow::showFicsSpectateDialog()
         }
     }
 
-
+    void MainWindow::exitKnights()
+    {
+        //This will close the gnuchess/crafty/whatever process if it's running.
+        if ( Protocol::white() ) {
+            delete Protocol::white();
+        }
+        if ( Protocol::black() ) {
+            delete Protocol::black();
+        }
+    }
 
 }
 

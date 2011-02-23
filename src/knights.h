@@ -59,6 +59,8 @@ namespace Knights
             void protocolInitSuccesful();
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );
 
+            void exitKnights();
+
         private:
             void setupActions();
             void showClockWidgets();
