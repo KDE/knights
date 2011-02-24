@@ -261,7 +261,7 @@
        <string>Challenges</string>
       </attribute>
       <attribute name="toolTip">
-       <string>Post an add for other players</string>
+       <string>Post an ad for other players</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
