@@ -180,6 +180,7 @@ void MainWindow::showFicsSpectateDialog()
             KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
             actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
             connect ( clockAction, SIGNAL(triggered(bool)), m_clockDock, SLOT(setVisible(bool)) );
+            connect ( clockAction, SIGNAL(triggered(bool)), this, SLOT(setShowClockSetting(bool)) );
             connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
         }
 
@@ -265,6 +266,15 @@ void MainWindow::showFicsSpectateDialog()
         
                 KToggleAction* toolAction = new KToggleAction ( KIcon(iconName), actionText, actionCollection() );
                 connect ( toolAction, SIGNAL(triggered(bool)), dock, SLOT(setVisible(bool)) );
+                switch ( data.type )
+                {
+                    case Protocol::ConsoleToolWidget:
+                        connect ( toolAction, SIGNAL(triggered(bool)), this, SLOT(setShowConsoleSetting(bool)) );
+                        break;
+                    case Protocol::ChatToolWidget:
+                        connect ( toolAction, SIGNAL(triggered(bool)), this, SLOT(setShowChatSetting(bool)) );
+                        break;
+                }
                 connect ( dock, SIGNAL(visibilityChanged(bool)), toolAction, SLOT(setChecked(bool)) );
                 actionCollection()->addAction ( actionName, toolAction );
                 m_protocolActions << toolAction;
@@ -398,6 +408,21 @@ void MainWindow::showFicsSpectateDialog()
         }
     }
 
+    void MainWindow::setShowClockSetting( bool value )
+    {
+        Settings::self()->setShowClock( value );
+    }
+
+    void MainWindow::setShowConsoleSetting( bool value )
+    {
+        Settings::self()->setShowConsole( value );
+    }
+
+    void MainWindow::setShowChatSetting( bool value )
+    {
+        Settings::self()->setShowChat( value );
+    }
+
     void MainWindow::exitKnights()
     {
         //This will close the gnuchess/crafty/whatever process if it's running.
@@ -407,6 +432,7 @@ void MainWindow::showFicsSpectateDialog()
         if ( Protocol::black() ) {
             delete Protocol::black();
         }
+        Settings::self()->writeConfig();
     }
 
 }

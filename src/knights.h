@@ -59,6 +59,10 @@ namespace Knights
             void protocolInitSuccesful();
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );
 
+            void setShowClockSetting( bool value );
+            void setShowConsoleSetting( bool value );
+            void setShowChatSetting( bool value );
+
             void exitKnights();
 
         private:
