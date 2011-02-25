@@ -104,7 +104,7 @@ void KnightsView::gameOver ( Color winner )
             KMessageBox::sorry ( this, text );
         }
     }
-    emit gameNew();
+    //emit gameNew();
 }
 
 void KnightsView::settingsChanged()
