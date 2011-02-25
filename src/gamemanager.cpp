@@ -449,6 +449,7 @@ void Manager::startGame()
 
 void Manager::gameOver(Color winner)
 {
+  stopTime();
   Protocol::white()->setWinner(winner);
   Protocol::black()->setWinner(winner);
   emit winnerNotify(winner);
