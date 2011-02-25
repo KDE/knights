@@ -93,6 +93,11 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
 {
     // FICS games are always time-limited
     setAttribute ( QLatin1String("TimeLimitEnabled"), true );
+    // This is a bit hackish; we set a valid QTime as baseTime in order to make
+    // Manager::timeControlEnabled() working properly.
+    TimeControl tc;
+    tc.baseTime = QTime(0,0,0,0);
+    Manager::self()->setTimeControl(NoColor, tc);
 }
 
 FicsProtocol::~FicsProtocol()

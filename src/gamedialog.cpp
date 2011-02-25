@@ -98,6 +98,12 @@ GameDialog::~GameDialog()
 
 void GameDialog::setupProtocols()
 {
+    TimeControl tc;
+    tc.baseTime = ui->timeGroup->isChecked() ? QTime().addSecs( 60 * ui->timeLimit->value() ) : QTime();
+    tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
+    tc.increment = ui->timeIncrement->value();
+    Manager::self()->setTimeControl(NoColor, tc);
+
     Protocol* p1 = 0;
     Protocol* p2 = 0;
     Color c1 = NoColor;
@@ -141,12 +147,6 @@ void GameDialog::setupProtocols()
     // Color-changing by the FICS protocol happens later, so it doesn't matter what we do here. 
     Protocol::setWhiteProtocol ( c1 == White ? p1 : p2 );
     Protocol::setBlackProtocol ( c1 == White ? p2 : p1 );
-    
-    TimeControl tc;
-    tc.baseTime = ui->timeGroup->isChecked() ? QTime().addSecs( 60 * ui->timeLimit->value() ) : QTime();
-    tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
-    tc.increment = ui->timeIncrement->value();
-    Manager::self()->setTimeControl(NoColor, tc);
 }
 
 
