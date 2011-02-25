@@ -6,7 +6,7 @@
     modify it under the terms of the GNU General Public License as
     published by the Free Software Foundation; either version 2 of
     the License or (at your option) version 3 or any later version
-    accepted by the membership of KDE e.V. (or its successor approved
+        accepted by the membership of KDE e.V. (or its successor approved
     by the membership of KDE e.V.), which shall act as a proxy
     defined in Section 14 of version 3 of the license.
 
@@ -40,6 +40,7 @@ ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( pare
 
     m_timeIncrement[White] = 0;
     m_timeIncrement[Black] = 0;
+    m_disabled = false;
 }
 
 ClockWidget::~ClockWidget()
@@ -49,15 +50,17 @@ ClockWidget::~ClockWidget()
 
 void ClockWidget::setActivePlayer ( Color color )
 {
-    killTimer ( m_timerId[m_activePlayer] );
-    if ( !m_started [ color ] )
-    {
-        m_started [ color ] = true;
-        return;
+    if (!m_disabled) {
+        killTimer ( m_timerId[m_activePlayer] );
+        if ( !m_started [ color ] )
+        {
+            m_started [ color ] = true;
+            return;
+        }
+        incrementTime ( m_activePlayer, m_timeIncrement[m_activePlayer] );
+        m_timerId[color] = startTimer ( timerInterval );
+        m_activePlayer = color;
     }
-    incrementTime ( m_activePlayer, m_timeIncrement[m_activePlayer] );
-    m_timerId[color] = startTimer ( timerInterval );
-    m_activePlayer = color;
 }
 
 void ClockWidget::setDisplayedPlayer ( Color color )
@@ -83,20 +86,22 @@ void ClockWidget::setPlayerName ( Color color, const QString& name )
 
 void ClockWidget::setCurrentTime ( Color color, const QTime& time )
 {
-    m_currentTime[color] = time;
+    if (!m_disabled) {
+        m_currentTime[color] = time;
+        
+        const int miliSeconds = time.hour() * 3600 * 1000 + time.minute() * 60 * 1000 + time.second() * 1000 + time.msec();
+        const int units = miliSeconds / timerInterval;
+        QProgressBar* bar = ( color == White ) ? ui->progressW : ui->progressB;
+        if ( units > bar->maximum() )
+        {
+            bar->setMaximum ( units );
+        }
+        bar->setValue ( units );
+        bar->setFormat ( time.toString( QLatin1String("h:mm:ss") ) );
     
-    const int miliSeconds = time.hour() * 3600 * 1000 + time.minute() * 60 * 1000 + time.second() * 1000 + time.msec();
-    const int units = miliSeconds / timerInterval;
-    QProgressBar* bar = ( color == White ) ? ui->progressW : ui->progressB;
-    if ( units > bar->maximum() )
-    {
-        bar->setMaximum ( units );
+        Clock* clock = ( color == White ) ? ui->clockW : ui->clockB;
+        clock->setTime ( time );
     }
-    bar->setValue ( units );
-    bar->setFormat ( time.toString( QLatin1String("h:mm:ss") ) );
-
-    Clock* clock = ( color == White ) ? ui->clockW : ui->clockB;
-    clock->setTime ( time );
 }
 
 void ClockWidget::setTimeLimit ( Color color, const QTime& time )
@@ -124,43 +129,63 @@ void ClockWidget::setTimeIncrement ( Color color, int seconds )
 
 void ClockWidget::incrementTime ( Color color, int miliseconds )
 {
-    switch ( color )
-    {
-        case White:
-            setCurrentTime ( White, m_currentTime[White].addMSecs ( miliseconds ) );
-            if ( ui->progressW->value() <= 0 )
-            {
-                emit timeOut ( White );
-                emit opponentTimeOut ( Black );
-            }
-            break;
-        case Black:
-            setCurrentTime ( Black, m_currentTime[Black].addMSecs ( miliseconds ) );
-            if ( ui->progressB->value() <= 0 )
-            {
-                emit timeOut ( Black );
-                emit opponentTimeOut ( White );
-            }
-            break;
-        default:
-            break;
+    if (!m_disabled) {
+        switch ( color )
+        {
+            case White:
+                setCurrentTime ( White, m_currentTime[White].addMSecs ( miliseconds ) );
+                if ( ui->progressW->value() <= 0 )
+                {
+                    emit timeOut ( White );
+                    emit opponentTimeOut ( Black );
+                }
+                break;
+            case Black:
+                setCurrentTime ( Black, m_currentTime[Black].addMSecs ( miliseconds ) );
+                if ( ui->progressB->value() <= 0 )
+                {
+                    emit timeOut ( Black );
+                    emit opponentTimeOut ( White );
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
 
 void Knights::ClockWidget::timerEvent ( QTimerEvent* event )
 {
     Q_UNUSED ( event )
-    incrementTime ( m_activePlayer, -timerInterval );
+    if (!m_disabled) {
+        incrementTime ( m_activePlayer, -timerInterval );
+    }
 }
 
 void ClockWidget::pauseClock()
 {
-    killTimer ( m_timerId[m_activePlayer] );
+    if (!m_disabled) {
+    	killTimer ( m_timerId[m_activePlayer] );
+    }
 }
 
 void ClockWidget::resumeClock()
 {
-    m_timerId[m_activePlayer] = startTimer ( timerInterval );
+    if (!m_disabled) {
+        m_timerId[m_activePlayer] = startTimer ( timerInterval );
+    }
+}
+
+void ClockWidget::disableClock()
+{
+    	killTimer ( m_timerId[Black] );
+    	killTimer ( m_timerId[White] );
+	m_disabled = true;
+}
+
+void ClockWidget::enableClock()
+{
+	m_disabled = false;
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

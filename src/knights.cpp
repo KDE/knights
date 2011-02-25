@@ -170,6 +170,8 @@ namespace Knights
 
         connect ( m_view, SIGNAL ( activePlayerChanged ( Color ) ), playerClock, SLOT ( setActivePlayer ( Color ) ) );
         connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
+        connect ( m_view, SIGNAL ( gameNew () ), playerClock, SLOT ( enableClock() ) );
+        connect ( m_view, SIGNAL ( gameOver () ), playerClock, SLOT ( disableClock() ) );
 
         bool protocolEmitsGameOver = m_protocol && m_protocol->supportedFeatures() & Protocol::GameOver;
         if ( !protocolEmitsGameOver )

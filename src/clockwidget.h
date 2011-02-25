@@ -56,6 +56,9 @@ namespace Knights
             void pauseClock();
             void resumeClock();
 
+            void disableClock();
+            void enableClock();
+
         Q_SIGNALS:
             void timeOut ( Color );
             void opponentTimeOut ( Color );
@@ -73,6 +76,7 @@ namespace Knights
             QMap<Color, QGroupBox*> m_box;
             QMap<Color, int> m_timeIncrement;
             QMap<Color, bool> m_started;
+            bool m_disabled;
     };
 }
 

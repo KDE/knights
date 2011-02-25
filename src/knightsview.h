@@ -84,6 +84,10 @@ namespace Knights
             void activePlayerChanged ( Color );
             void displayedPlayerChanged ( Color );
 
+            //Other signals
+
+            void gameOver();
+
         private slots:
             void settingsChanged();
             void resizeScene();

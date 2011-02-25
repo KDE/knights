@@ -87,6 +87,7 @@ void KnightsView::gameOver ( Color winner )
     kDebug() << "Received gameOver() from " << sender()->metaObject()->className();
     QString text;
     QString caption;
+    emit gameOver();
     if ( winner == NoColor )
     {
         text = i18n ( "The game ended in a draw" );
