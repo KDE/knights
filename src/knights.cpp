@@ -55,7 +55,8 @@ namespace Knights
     MainWindow::MainWindow()
             : KXmlGuiWindow(),
             m_view ( new KnightsView ( this ) ),
-            m_clockDock ( 0 )
+            m_clockDock ( 0 ),
+            m_clockAction ( 0 )
     {
         // accept dnd
         setAcceptDrops ( true );
@@ -176,12 +177,25 @@ void MainWindow::showFicsSpectateDialog()
         if ( Manager::self()->timeControlEnabled ( White ) || Manager::self()->timeControlEnabled ( Black ) )
         {
             showClockWidgets();
-            
-            KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
-            actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
-            connect ( clockAction, SIGNAL(triggered(bool)), m_clockDock, SLOT(setVisible(bool)) );
-            connect ( clockAction, SIGNAL(triggered(bool)), this, SLOT(setShowClockSetting(bool)) );
-            connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
+            if (!m_clockAction) 
+            {
+                m_clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
+                actionCollection()->addAction ( QLatin1String("show_clock"), m_clockAction );
+                connect ( m_clockAction, SIGNAL(triggered(bool)), m_clockDock, SLOT(setVisible(bool)) );
+                connect ( m_clockAction, SIGNAL(triggered(bool)), this, SLOT(setShowClockSetting(bool)) );
+                connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), m_clockAction, SLOT(setChecked(bool)) );
+            } 
+            else 
+            {
+                m_clockAction->setVisible( true );
+            }
+        }
+        else
+        {
+            if ( m_clockAction )
+            {
+                m_clockAction->setVisible( false );
+            }
         }
 
         Protocol* player = 0;
@@ -320,23 +334,29 @@ void MainWindow::showFicsSpectateDialog()
     void MainWindow::showClockWidgets()
     {
         kDebug();
-        ClockWidget* playerClock = new ClockWidget ( this );
-        m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
-        m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()
-        m_clockDock->setWidget ( playerClock );
-        m_dockWidgets << m_clockDock;
-        
-        connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
-        
-        playerClock->setPlayerName(White, Protocol::white()->playerName());
-        playerClock->setPlayerName(Black, Protocol::black()->playerName());
-
-        connect ( Manager::self(), SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
-
-        playerClock->setTimeLimit ( White, Manager::self()->timeLimit ( White ) );
-        playerClock->setTimeLimit ( Black, Manager::self()->timeLimit ( Black ) );
-
-        addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
+        if ( !m_clockDock ) {
+            ClockWidget* playerClock = new ClockWidget ( this );
+            m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
+            m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()
+            m_clockDock->setWidget ( playerClock );
+            m_dockWidgets << m_clockDock;
+            
+            connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
+            
+            playerClock->setPlayerName(White, Protocol::white()->playerName());
+            playerClock->setPlayerName(Black, Protocol::black()->playerName());
+    
+            connect ( Manager::self(), SIGNAL(timeChanged(Color,QTime)), playerClock, SLOT(setCurrentTime(Color,QTime)) );
+    
+            playerClock->setTimeLimit ( White, Manager::self()->timeLimit ( White ) );
+            playerClock->setTimeLimit ( Black, Manager::self()->timeLimit ( Black ) );
+    
+            addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
+        }
+        else
+        {
+            m_clockDock->setVisible(true);
+        }
     }
 
     void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& errorString )
