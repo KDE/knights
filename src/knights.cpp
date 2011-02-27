@@ -76,7 +76,7 @@ namespace Knights
         // mainwindow to automatically save settings if changed: window size,
         // toolbar position, icon size, etc.
         setupGUI();
-        connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ) );
+        connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
         connect ( Manager::self(), SIGNAL(winnerNotify(Color)), m_view, SLOT(gameOver(Color)) );
 

@@ -70,9 +70,9 @@ void KnightsView::setupBoard()
     kDebug() << Manager::self();
     connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
     connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
-    connect ( m_board, SIGNAL ( gameOver ( Color ) ), SLOT ( gameOver ( Color ) ) );
-    connect ( Manager::self(), SIGNAL ( activePlayerChanged ( Color ) ), SIGNAL ( activePlayerChanged ( Color ) ) );
-    connect ( m_board, SIGNAL ( displayedPlayerChanged ( Color ) ), SIGNAL ( displayedPlayerChanged ( Color ) ) );
+    connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
+    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), SIGNAL(activePlayerChanged(Color)) );
+    connect ( m_board, SIGNAL(displayedPlayerChanged(Color)), SIGNAL(displayedPlayerChanged(Color)) );
 
     Colors playerColors;
     if ( Protocol::white()->isLocal() )
@@ -90,12 +90,14 @@ void KnightsView::setupBoard()
 
 void KnightsView::clearBoard()
 {
+    kDebug();
     delete m_board;
     m_board = 0;
 }
 
 void KnightsView::gameOver ( Color winner )
 {
+    kDebug() << sender();
     QString text;
     QString caption;
     if ( winner == NoColor )

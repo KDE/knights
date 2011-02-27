@@ -123,8 +123,6 @@ namespace Knights
 
         signals:
             void pieceMoved ( const Move& m );
-            void gameOver ( Color winner );
-
             void activePlayerChanged ( Color activePlayer );
             void displayedPlayerChanged ( Color displayedPlayer );
 

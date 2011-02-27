@@ -386,7 +386,7 @@ bool Manager::isRunning()
 void Manager::moveByProtocol(const Move& move)
 {
   Q_D(GameManager);
-  if ( sender() != Protocol::byColor ( d->activePlayer ) )
+  if ( sender() != Protocol::byColor ( d->activePlayer ) || !d->gameStarted )
   {
     kDebug() << "Move by the non-active player" << move;
     // Ignore duplicates and/or moves by the inactive player
@@ -449,11 +449,15 @@ void Manager::startGame()
 
 void Manager::gameOver(Color winner)
 {
-  stopTime();
-  Protocol::white()->setWinner(winner);
-  Protocol::black()->setWinner(winner);
-  emit winnerNotify(winner);
-  reset();
+  Q_D(const GameManager);
+  if ( d->gameStarted )
+  {
+    stopTime();
+    Protocol::white()->setWinner(winner);
+    Protocol::black()->setWinner(winner);
+    emit winnerNotify(winner);
+    reset();
+  }
 }
 
 void Manager::reset()
@@ -614,6 +618,13 @@ void Manager::sendPendingMove()
     emit pieceMoved ( pendingMove );
     rules()->moveMade ( pendingMove );
     pendingMove = Move();
+    
+    Color winner = rules()->winner();
+    if ( winner != NoColor || !rules()->hasLegalMoves ( oppositeColor( d->activePlayer ) ) )
+    {
+        kDebug() << "Winner: " << winner;
+        gameOver ( winner );
+    }
     
     int moveNumber;
     switch ( d->activePlayer )

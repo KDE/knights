@@ -178,12 +178,6 @@ void Board::movePiece ( const Move& move )
             movePiece ( additionalMove );
         }
     }
-    Color winner = Manager::self()->rules()->winner();
-    if ( winner != NoColor || !Manager::self()->rules()->hasLegalMoves ( oppositeColor ( m_currentPlayer ) ) )
-    {
-        kDebug() << "Winner: " << winner;
-        emit gameOver ( winner );
-    }
     updateGraphics();
 }
 
