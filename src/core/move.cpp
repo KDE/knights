@@ -107,7 +107,7 @@ namespace Knights
         setString ( string );
     }
 
-    Move::Move ( const Knights::Move& other )
+    Move::Move ( const Move& other )
             : d ( other.d )
     {
 
@@ -118,7 +118,7 @@ namespace Knights
 
     }
 
-    void Move::operator= ( const Knights::Move& other )
+    void Move::operator= ( const Move& other )
     {
         d = other.d;
     }
@@ -230,7 +230,7 @@ namespace Knights
     }
 
 
-    void Move::setFrom ( const Knights::Pos& value )
+    void Move::setFrom ( const Pos& value )
     {
         d->from = value;
         d->notationType = Coordinate;
@@ -242,7 +242,7 @@ namespace Knights
     }
 
 
-    void Move::setTo ( const Knights::Pos& value )
+    void Move::setTo ( const Pos& value )
     {
         d->to = value;
     }
@@ -284,31 +284,31 @@ namespace Knights
         return d->notationType;
     }
 
-    const Knights::PieceDataMap& Move::removedPieces() const
+    const PieceDataMap& Move::removedPieces() const
     {
         return d->removedPieces;
     }
 
-    void Move::addRemovedPiece ( const Knights::Pos& pos, const Knights::PieceData& data )
+    void Move::addRemovedPiece ( const Pos& pos, const PieceData& data )
     {
         d->removedPieces.insert(pos, data);
     }
 
-    void Move::setRemovedPieces ( const Knights::PieceDataMap& map )
+    void Move::setRemovedPieces ( const PieceDataMap& map )
     {
         d->removedPieces = map;
     }
-    const Knights::PieceDataMap& Move::addedPieces() const
+    const PieceDataMap& Move::addedPieces() const
     {
         return d->addedPieces;
     }
 
-    void Move::addAddedPiece ( const Knights::Pos& pos, const Knights::PieceData& data )
+    void Move::addAddedPiece ( const Pos& pos, const PieceData& data )
     {
         d->addedPieces.insert(pos, data);
     }
 
-    void Move::setAddedPieces ( const Knights::PieceDataMap& map )
+    void Move::setAddedPieces ( const PieceDataMap& map )
     {
         d->addedPieces = map;
     }
@@ -374,7 +374,7 @@ namespace Knights
         return d->time;
     }
     
-void Move::setPieceData(const Knights::PieceData& data)
+void Move::setPieceData(const PieceData& data)
 {
     d->pieceData = data;
 }

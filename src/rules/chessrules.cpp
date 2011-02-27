@@ -80,7 +80,7 @@ bool ChessRules::hasLegalMoves ( Color color )
     return false;
 }
 
-Knights::Color ChessRules::winner()
+Color ChessRules::winner()
 {
     if ( isKingAttacked ( Black ) && !hasLegalMoves ( Black ) )
     {
@@ -219,7 +219,7 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos )
     return moves;
 }
 
-QList<Move> ChessRules::legalAttackMoves ( const Knights::Pos& pos, Grid* grid )
+QList<Move> ChessRules::legalAttackMoves ( const Pos& pos, Grid* grid )
 {
     if ( !grid )
     {
@@ -308,7 +308,7 @@ Rules::Directions ChessRules::legalDirections ( PieceType type )
 }
 
 
-bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
+bool ChessRules::isAttacked ( const Pos& pos, Color color, Grid* grid )
 {
     if ( !grid )
     {
@@ -326,7 +326,7 @@ bool ChessRules::isAttacked ( const Knights::Pos& pos, Color color, Grid* grid )
     return false;
 }
 
-bool ChessRules::isAttacking ( const Knights::Pos& attackingPos )
+bool ChessRules::isAttacking ( const Pos& attackingPos )
 {
     const Color pieceColor = m_grid->value ( attackingPos )->color();
     const Color kingColor = oppositeColor ( pieceColor );
@@ -334,7 +334,7 @@ bool ChessRules::isAttacking ( const Knights::Pos& attackingPos )
 }
 
 
-QList<Move> ChessRules::movesInDirection ( const Knights::Pos& dir, const Knights::Pos& pos, int length, bool attackYours, Grid* grid )
+QList<Move> ChessRules::movesInDirection ( const Pos& dir, const Pos& pos, int length, bool attackYours, Grid* grid )
 {
     if ( !grid )
     {
@@ -510,7 +510,7 @@ int ChessRules::length ( const Move& move )
     return qMax ( qAbs ( delta.first ), qAbs ( delta.second ) );
 }
 
-QList< Move > ChessRules::pawnMoves ( const Knights::Pos& pos )
+QList< Move > ChessRules::pawnMoves ( const Pos& pos )
 {
     QList<Move> list;
     Pos forwardDirection;
@@ -609,7 +609,7 @@ void ChessRules::moveMade ( const Move& m )
     moveHistory << data;
 }
 
-QList< Move > ChessRules::castlingMoves ( const Knights::Pos& pos )
+QList< Move > ChessRules::castlingMoves ( const Pos& pos )
 {
     QList<Move> moves;
     Color color = m_grid->value ( pos )->color();

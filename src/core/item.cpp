@@ -187,7 +187,7 @@ void Item::resize ( const QSize& size, bool animated )
 #endif
 }
 
-void Knights::Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated )
+void Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated )
 {
 #if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )

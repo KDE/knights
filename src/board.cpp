@@ -87,7 +87,7 @@ Board::~Board()
     delete renderer;
 }
 
-void Board::addPiece ( PieceType type, Color color, const Knights::Pos& pos )
+void Board::addPiece ( PieceType type, Color color, const Pos& pos )
 {
     Piece* t_piece = new Piece ( renderer, type, color, this, pos );
     if ( Settings::animationSpeed() != Settings::EnumAnimationSpeed::Instant )
@@ -387,7 +387,7 @@ void Board::centerAndResize ( Item* item, QSize size, bool animated )
     item->moveAndResize ( mapToScene ( item->boardPos() ), m_tileSize, size, animated );
 }
 
-bool Board::isInBoard ( const Knights::Pos& pos )
+bool Board::isInBoard ( const Pos& pos )
 {
     return pos.first > 0 && pos.first < 9 && pos.second > 0 && pos.second < 9;
 }
@@ -442,7 +442,7 @@ void Board::setCurrentColor ( Color color )
 }
 
 
-void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
+void Board::addMarker ( const Pos& pos, MarkerType type )
 {
     QString key;
     switch ( type )
@@ -460,7 +460,7 @@ void Board::addMarker ( const Knights::Pos& pos, MarkerType type )
     addMarker ( pos, key );
 }
 
-void Board::addMarker ( const Knights::Pos& pos, const QString& spriteKey )
+void Board::addMarker ( const Pos& pos, const QString& spriteKey )
 {
     if ( markers.contains ( pos ) )
     {

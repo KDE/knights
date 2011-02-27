@@ -102,7 +102,7 @@ void FicsDialog::slotCreateAccount()
 }
 
 
-void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
+void FicsDialog::addGameOffer ( const FicsGameOffer& offer )
 {
     int row = ui->offerTable->rowCount();
     ui->offerTable->insertRow ( row );
@@ -141,7 +141,7 @@ void FicsDialog::addGameOffer ( const Knights::FicsGameOffer& offer )
     ui->graphView->addSeek( offer );
 }
 
-void FicsDialog::addChallenge ( const Knights::FicsChallenge& challenge )
+void FicsDialog::addChallenge ( const FicsChallenge& challenge )
 {
     QString item = i18nc ( "PlayerName (rating)", "%1 (%2)", challenge.player.first, challenge.player.second );
     m_challengeModel.setStringList ( m_challengeModel.stringList() << item );

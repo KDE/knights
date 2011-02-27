@@ -277,7 +277,7 @@ void Manager::initialize()
   Protocol::black()->init();
 }
 
-void Manager::setTimeControl(Color color, const Knights::TimeControl& control)
+void Manager::setTimeControl(Color color, const TimeControl& control)
 {
   Q_D(GameManager);
   if ( color == White )
@@ -645,7 +645,7 @@ void Manager::moveByBoard(const Move& move)
   processMove(move);
 }
 
-void Manager::processMove(const Knights::Move& move)
+void Manager::processMove(const Move& move)
 {
   Q_D(const GameManager);
   Move m = move;

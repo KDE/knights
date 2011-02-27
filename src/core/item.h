@@ -47,7 +47,7 @@ namespace Knights
             virtual ~Item();
 
 #if not defined WITH_KGR
-            // Duplicating the KGameRenderedObjectItem API to minimize #ifdef's in Knights::Board
+            // Duplicating the KGameRenderedObjectItem API to minimize #ifdef's in Board
             void setRenderSize ( const QSize& size );
             QSize renderSize() const;
             void setSpriteKey ( const QString& key );

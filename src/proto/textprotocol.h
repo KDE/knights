@@ -29,7 +29,7 @@
 
 namespace Knights {
 
-class TextProtocol : public Knights::Protocol
+class TextProtocol : public Protocol
 {
     Q_OBJECT
 public:
