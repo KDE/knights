@@ -39,7 +39,7 @@ ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
 ChatWidget::~ChatWidget()
 {
-
+  delete ui;
 }
 
 void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type )
