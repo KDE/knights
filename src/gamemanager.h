@@ -118,6 +118,8 @@ private:
     void startTime();
     void stopTime();
     
+    void processMove(const Move& move);
+    
     Protocol* local();
     
 private slots:
@@ -138,6 +140,7 @@ signals:
 
 public slots:
   void moveByProtocol ( const Move& move );
+  void moveByBoard ( const Move& move );
   void protocolInitSuccesful();
   void gameOver ( Color winner );
   void resign();
