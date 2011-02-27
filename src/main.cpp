@@ -54,6 +54,9 @@ int main ( int argc, char **argv )
     KCmdLineArgs::addCmdLineOptions ( options );
     KApplication app;
     KGlobal::locale()->insertCatalog ( QLatin1String ( "libkdegames" ) );
+    
+    // register types for connecting with Qt::QueuedConnection
+    qRegisterMetaType<Knights::Color>("Color");
 
     // see if we are starting with session management
     if ( app.isSessionRestored() )

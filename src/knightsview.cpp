@@ -73,17 +73,16 @@ void KnightsView::setupBoard()
     connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
     connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), SIGNAL(activePlayerChanged(Color)) );
     connect ( m_board, SIGNAL(displayedPlayerChanged(Color)), SIGNAL(displayedPlayerChanged(Color)) );
+    connect ( m_board, SIGNAL(pieceMoved(Move)), Manager::self(), SLOT(moveByBoard(Move)) );
 
     Colors playerColors;
     if ( Protocol::white()->isLocal() )
     {
         playerColors |= White;
-        connect ( m_board, SIGNAL(pieceMoved(Move)), Protocol::white(), SIGNAL(pieceMoved(Move)) );
     }
     if ( Protocol::black()->isLocal() )
     {
         playerColors |= Black;
-        connect ( m_board, SIGNAL(pieceMoved(Move)), Protocol::black(), SIGNAL(pieceMoved(Move)) );
     }
     m_board->setPlayerColors(playerColors);
 }

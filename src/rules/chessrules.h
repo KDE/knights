@@ -32,7 +32,7 @@ namespace Knights
     class Move;
     class Pos;
 
-    class ChessRules : public Knights::Rules
+    class ChessRules : public Rules
     {
         public:
 
@@ -70,7 +70,7 @@ namespace Knights
             QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = 0 );
             QList<Move> pawnMoves ( const Pos& pos );
             QList<Move> castlingMoves ( const Pos& pos );
-            int length ( const Knights::Move& move );
+            int length ( const Move& move );
             bool isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos );
             QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
             bool isKingAttacked ( Color color , Grid* grid = 0 );

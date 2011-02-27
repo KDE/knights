@@ -66,7 +66,7 @@ bool LocalProtocol::isLocal()
   return true;
 }
 
-Knights::Protocol::Features LocalProtocol::supportedFeatures()
+Protocol::Features LocalProtocol::supportedFeatures()
 {
     return Pause | Undo | TimeLimit;
 }

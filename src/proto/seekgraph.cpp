@@ -127,7 +127,7 @@ void SeekGraph::removeSeek ( int id )
     update();
 }
 
-void SeekGraph::addSeek ( const Knights::FicsGameOffer& offer )
+void SeekGraph::addSeek ( const FicsGameOffer& offer )
 {
     KPlotObject* object = new KPlotObject;
     QPen labelPen = object->labelPen();

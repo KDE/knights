@@ -201,7 +201,7 @@ void Protocol::setWinner(Color winner)
     Q_UNUSED(winner);
 }
 
-void Protocol::setTimeControl(const Knights::TimeControl& c)
+void Protocol::setTimeControl(const TimeControl& c)
 {
     Q_UNUSED(c);
 }

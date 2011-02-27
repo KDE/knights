@@ -87,7 +87,7 @@ namespace Knights
             void setTo ( int first, int second );
             void setString ( QString string );
 
-            bool flag ( Knights::Move::MoveFlag flag ) const;
+            bool flag ( Move::MoveFlag flag ) const;
             Flags flags() const;
             void setFlag ( MoveFlag, bool value );
             void setFlags ( Flags );

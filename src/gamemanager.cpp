@@ -277,7 +277,7 @@ void Manager::initialize()
   Protocol::black()->init();
 }
 
-void Manager::setTimeControl(Color color, const Knights::TimeControl& control)
+void Manager::setTimeControl(Color color, const TimeControl& control)
 {
   Q_D(GameManager);
   if ( color == White )
@@ -392,36 +392,7 @@ void Manager::moveByProtocol(const Move& move)
     // Ignore duplicates and/or moves by the inactive player
     return;
   }
-  Move m = move;
-  if ( activePlayer() == White )
-  {
-    m.setTime ( d->whiteTimeControl.currentTime );
-  }
-  else
-  {
-    m.setTime ( d->blackTimeControl.currentTime );
-  }
-  d->rules->checkSpecialFlags ( &m, d->activePlayer );
-  if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )
-  {
-    // Most likely happens in a local game, when both protocols report the same move from the board.
-    return;
-  }
-  kDebug() << "Adding move" << m << "to history";
-  addMoveToHistory ( m );
-  if ( d->moveHistory.size() == 2 )
-  {
-    startTime();
-  }
-  pendingMove = m;
-  if ( Protocol::byColor(d->activePlayer)->isComputer() )
-  {
-    QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
-  }
-  else
-  {
-    sendPendingMove();
-  }
+  processMove(move);
 }
 
 void Manager::protocolInitSuccesful()
@@ -669,11 +640,40 @@ void Manager::sendPendingMove()
   }
 }
 
+void Manager::moveByBoard(const Move& move)
+{
+  processMove(move);
+}
 
-
-
-
-
-
-
-
+void Manager::processMove(const Move& move)
+{
+  Q_D(const GameManager);
+  Move m = move;
+  if ( activePlayer() == White )
+  {
+    m.setTime ( d->whiteTimeControl.currentTime );
+  }
+  else
+  {
+    m.setTime ( d->blackTimeControl.currentTime );
+  }
+  d->rules->checkSpecialFlags ( &m, d->activePlayer );
+  if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )
+  {
+    return;
+  }
+  addMoveToHistory ( m );
+  if ( d->moveHistory.size() == 2 )
+  {
+    startTime();
+  }
+  pendingMove = m;
+  if ( Protocol::byColor(d->activePlayer)->isComputer() )
+  {
+    QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
+  }
+  else
+  {
+    sendPendingMove();
+  }
+}
