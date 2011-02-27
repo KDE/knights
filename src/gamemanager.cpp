@@ -627,21 +627,38 @@ void Manager::sendPendingMove()
     }
     
     int moveNumber;
+    int secondsAdded = 0;
     switch ( d->activePlayer )
     {
       case White:
 	moveNumber = ( d->moveHistory.size() + 1 ) / 2;
+	if ( moveNumber > 1 )
+	{
+	  secondsAdded += d->whiteTimeControl.increment;
+	}
 	if ( d->whiteTimeControl.moves > 0 && ( moveNumber % d->whiteTimeControl.moves ) == 0 )
 	{
-	  setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( d->whiteTimeControl.baseTime.minute() * 60 ) );
+	  secondsAdded += QTime().secsTo( d->whiteTimeControl.baseTime );
+	}
+	if ( secondsAdded != 0 )
+	{
+	  setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( secondsAdded ) );
 	}
 	break;
 	
       case Black:
 	moveNumber = d->moveHistory.size() / 2;
+	if ( moveNumber > 1 )
+	{
+	  secondsAdded += d->blackTimeControl.increment;
+	}
 	if ( d->blackTimeControl.moves > 0 && ( moveNumber % d->blackTimeControl.moves ) == 0 )
 	{
-	  setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( d->blackTimeControl.baseTime.minute() * 60 ) );
+	  secondsAdded += QTime().secsTo ( d->blackTimeControl.baseTime );
+	}
+	if ( secondsAdded != 0 )
+	{
+	  setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( secondsAdded ) );
 	}
 	break;
 	
