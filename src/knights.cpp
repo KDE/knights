@@ -78,7 +78,6 @@ namespace Knights
         setupGUI();
         connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
-        connect ( Manager::self(), SIGNAL(winnerNotify(Color)), m_view, SLOT(gameOver(Color)) );
 
         QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
     }
