@@ -59,7 +59,7 @@ KnightsView::KnightsView ( QWidget *parent )
 
 KnightsView::~KnightsView()
 {
-
+    delete ui;
 }
 
 void KnightsView::setupBoard()
