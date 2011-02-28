@@ -25,6 +25,8 @@
 #include <QtGui/QWidget>
 #include <QtCore/QMap>
 
+#include <KTextBrowser>
+
 namespace Ui
 {
   class ChatWidget;
@@ -32,6 +34,11 @@ namespace Ui
 
 namespace Knights
 {
+
+    class Terminal: public KTextBrowser {
+      protected:
+        virtual void resizeEvent ( QResizeEvent * event );
+    };
 
     class ChatWidget : public QWidget
     {
@@ -79,6 +86,7 @@ namespace Knights
 
     private:
       Ui::ChatWidget* ui;
+      Terminal * m_terminal;
       QMap<QObject*, QString> m_extraButtons;
       QMap<MessageType, QColor> m_colors;
       bool m_consoleMode;

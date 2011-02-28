@@ -24,8 +24,11 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" rowspan="2" colspan="2">
+   <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="hLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMinimumSize</enum>
+     </property>
      <item>
       <layout class="QHBoxLayout" name="extraButtonsLayout"/>
      </item>
@@ -51,18 +54,12 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="0" colspan="2">
-    <widget class="KTextBrowser" name="terminal">
-     <property name="autoFillBackground">
-      <bool>true</bool>
+   <item row="0" column="0" rowspan="4" colspan="2">
+    <layout class="QHBoxLayout" name="consoleLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
      </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextBrowserInteraction</set>
-     </property>
-     <property name="openExternalLinks">
-      <bool>true</bool>
-     </property>
-    </widget>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -76,11 +73,6 @@
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTextBrowser</class>
-   <extends>QTextBrowser</extends>
-   <header>ktextbrowser.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

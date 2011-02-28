@@ -24,7 +24,34 @@
 
 #include <KDebug>
 
+#include <QtGui/QScrollBar>
+
+#include <KTextBrowser>
+
 using namespace Knights;
+
+class ScrollBarPin
+{
+  public:
+    ScrollBarPin(QScrollBar *scrollBar) : m_bar(scrollBar)
+    {
+      if (m_bar)
+        m_bar = m_bar->value() == m_bar->maximum()? m_bar : 0;
+    }
+    ~ScrollBarPin()
+    {
+      if (m_bar)
+        m_bar->setValue(m_bar->maximum());
+    }
+  private:
+    QPointer<QScrollBar> m_bar;
+};
+
+void Terminal::resizeEvent ( QResizeEvent * event )
+{
+  ScrollBarPin b(verticalScrollBar());
+  KTextBrowser::resizeEvent(event);
+}
 
 ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
 {
@@ -33,6 +60,9 @@ ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
   connect ( ui->sendButton, SIGNAL(clicked(bool)), this, SLOT(sendButtonClicked()) );
   ui->sendButton->setIcon( KIcon(QLatin1String("mail-send")) );
+
+  m_terminal = new Terminal;
+  ui->consoleLayout->addWidget(m_terminal);
 
   setConsoleMode ( false );
 }
@@ -44,24 +74,29 @@ ChatWidget::~ChatWidget()
 
 void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type )
 {
-  ui->terminal->moveCursor(QTextCursor::End);
+  ScrollBarPin b(m_terminal->verticalScrollBar());
+  QTextCursor cursor = m_terminal->textCursor();
+  QTextCharFormat format = cursor.charFormat();
+  cursor.movePosition(QTextCursor::End);
   if ( type == ChatMessage && text.contains(QLatin1String(" says: ")) )
   {
-    ui->terminal->setTextColor ( messageColor ( StatusMessage ) );
-    ui->terminal->textCursor().insertText ( text.left ( text.indexOf(QLatin1String(" says: ")) ) );
-    ui->terminal->setTextColor ( messageColor ( GeneralMessage ) );
-    ui->terminal->textCursor().insertText ( i18n(" says: ") );
-    ui->terminal->setTextColor ( messageColor ( ChatMessage ) );
-    ui->terminal->textCursor().insertText ( text.mid ( text.indexOf(QLatin1String(" says: ")) + 7 ) );
+    format.setForeground( QBrush( messageColor ( StatusMessage ) ) );
+    cursor.setCharFormat( format );
+    cursor.insertText ( text.left ( text.indexOf(QLatin1String(" says: ")) ) );
+    format.setForeground( QBrush( messageColor ( GeneralMessage ) ) );
+    cursor.setCharFormat( format );
+    cursor.insertText ( i18n(" says: ") );
+    format.setForeground( QBrush( messageColor ( ChatMessage ) ) );
+    cursor.setCharFormat( format );
+    cursor.insertText ( text.mid ( text.indexOf(QLatin1String(" says: ")) + 7 ) );
   }
   else
   {
-    ui->terminal->setFontWeight ( ( type == ErrorMessage ) ? QFont::Bold : QFont::Normal );
-    ui->terminal->setTextColor ( messageColor ( type ) );
-    ui->terminal->textCursor().insertText( text );
+    format.setForeground( QBrush( messageColor ( type ) ) );
+    cursor.setCharFormat( format );
+    cursor.insertText( text );
   }
-  ui->terminal->textCursor().insertText(QLatin1String("\n"));
-  ui->terminal->moveCursor ( QTextCursor::End );
+  cursor.insertText(QLatin1String("\n"));
 }
 
 void ChatWidget::addText ( const QByteArray& text, ChatWidget::MessageType type )
@@ -148,9 +183,9 @@ void ChatWidget::setConsoleMode ( bool console )
 
   if ( console )
   {
-    QPalette p = ui->terminal->palette();
+    QPalette p = m_terminal->palette();
     p.setColor ( QPalette::Base, Qt::black );
-    ui->terminal->setPalette ( p );
+    m_terminal->setPalette ( p );
 
     m_colors[StatusMessage] = Qt::green;
     m_colors[SeekMessage] = Qt::yellow;
@@ -158,7 +193,7 @@ void ChatWidget::setConsoleMode ( bool console )
   }
   else
   {
-    ui->terminal->setPalette( palette() );
+    m_terminal->setPalette( palette() );
 
     m_colors[StatusMessage] = Qt::darkGreen;
     m_colors[GeneralMessage] = Qt::black;
