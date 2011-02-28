@@ -60,6 +60,8 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     connect ( ui->graphView, SIGNAL(seekClicked(int)), SIGNAL(acceptSeek(int)) );
 
     ui->rememberCheckBox->setChecked(Settings::autoLogin());
+
+    connect ( ui->rememberCheckBox, SIGNAL( stateChanged( int ) ), this, SLOT( rememberCheckBoxChanged( int ) ) );
 }
 
 FicsDialog::~FicsDialog()
@@ -296,9 +298,11 @@ bool FicsDialog::rated()
     return ui->ratedCheckBox->isChecked();
 }
 
-
-
-
-
+void FicsDialog::rememberCheckBoxChanged( int state )
+{
+    Q_UNUSED(state)
+    Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
+    Settings::self()->writeConfig();
+}
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

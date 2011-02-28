@@ -86,6 +86,9 @@ namespace Knights
             void acceptChallenge ( int challengeId );
             void declineChallenge ( int challengeId );
 
+        private Q_SLOTS:
+            void rememberCheckBoxChanged( int state );
+
         private:
             Ui::FicsDialog* ui;
             QList<int> m_gameId;
