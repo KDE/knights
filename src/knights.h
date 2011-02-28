@@ -78,7 +78,6 @@ namespace Knights
 
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
-            KToggleAction *m_clockAction;
             QList<QAction*> m_protocolActions;
             QList<QDockWidget*> m_dockWidgets;
     };
