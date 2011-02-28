@@ -663,7 +663,7 @@ void Manager::processMove(const Move& move)
     return;
   }
   addMoveToHistory ( m );
-  if ( d->moveHistory.size() == 2 )
+  if ( d->moveHistory.size() == 2 && timeControlEnabled(d->activePlayer) )
   {
     startTime();
   }
