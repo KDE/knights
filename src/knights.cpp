@@ -181,6 +181,7 @@ void MainWindow::showFicsSpectateDialog()
             connect ( clockAction, SIGNAL(triggered(bool)), m_clockDock, SLOT(setVisible(bool)) );
             connect ( clockAction, SIGNAL(triggered(bool)), this, SLOT(setShowClockSetting(bool)) );
             connect ( m_clockDock, SIGNAL(visibilityChanged(bool)), clockAction, SLOT(setChecked(bool)) );
+            m_protocolActions << clockAction;
         }
 
         Protocol* player = 0;
