@@ -274,6 +274,9 @@ void MainWindow::showFicsSpectateDialog()
                     case Protocol::ChatToolWidget:
                         connect ( toolAction, SIGNAL(triggered(bool)), this, SLOT(setShowChatSetting(bool)) );
                         break;
+                        
+                    default:
+                        break;
                 }
                 connect ( dock, SIGNAL(visibilityChanged(bool)), toolAction, SLOT(setChecked(bool)) );
                 actionCollection()->addAction ( actionName, toolAction );
