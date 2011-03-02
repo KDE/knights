@@ -1,4 +1,5 @@
 install(FILES
+    default.desktop
     knights.desktop
     knights.svgz
     knights.png
