@@ -54,7 +54,7 @@ OfferWidget::~OfferWidget()
   delete ui;
 }
 
-int OfferWidget::id()
+int OfferWidget::id() const
 {
   return offerId;
 }

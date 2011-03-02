@@ -49,7 +49,7 @@ public:
     explicit OfferWidget(const Offer& offer, QWidget* parent = 0, Qt::WindowFlags f = 0);
     virtual ~OfferWidget();
 
-    int id();
+    int id() const;
 
 private:
   Ui::Popup* ui;
