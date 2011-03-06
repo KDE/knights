@@ -144,19 +144,41 @@ namespace Knights
                 return color;
         }
     }
-
-QString colorName(Color color)
-{
+    
+    
+    QString colorName ( Color color )
+    {
         switch ( color )
         {
             case White:
-                return i18n("White");
+                return i18n ( "White" );
             case Black:
-                return i18n("Black");
+                return i18n ( "Black" );
             default:
                 return QString();
         }
-}
+    }
+    
+    QString pieceTypeName ( PieceType type )
+    {
+        switch ( type )
+        {
+            case Pawn:
+                return i18n ( "Pawn" );
+            case Rook:
+                return i18n ( "Rook" );
+            case Knight:
+                return i18n ( "Knight" );
+            case Bishop:
+                return i18n ( "Bishop" );
+            case Queen:
+                return i18n ( "Queen" );
+            case King:
+                return i18n ( "King" );
+            default:
+                return QString();
+        }
+    }
 
 
     Color Piece::color()

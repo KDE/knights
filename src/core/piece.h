@@ -48,6 +48,7 @@ namespace Knights
     Q_DECLARE_OPERATORS_FOR_FLAGS(Colors)
     Color oppositeColor ( Color color );
     QString colorName ( Color color );
+    QString pieceTypeName ( PieceType type );
 
     class Piece : public Item
     {

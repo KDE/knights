@@ -70,9 +70,6 @@ struct Offer;
             bool m_allOffers;
             QList<OfferWidget*> m_offerWidgets;
 
-            static QString pieceTypeName ( PieceType );
-            static QString colorName ( Color );
-
         signals:
             /**
              * Use this signal to change the content of the statusbar

@@ -153,40 +153,6 @@ void KnightsView::setPaused ( bool paused )
     m_board->setPaused ( paused );
 }
 
-QString KnightsView::colorName ( Color color )
-{
-    switch ( color )
-    {
-        case White:
-            return i18n ( "White" );
-        case Black:
-            return i18n ( "Black" );
-        default:
-            return QString();
-    }
-}
-
-QString KnightsView::pieceTypeName ( PieceType type )
-{
-    switch ( type )
-    {
-        case Pawn:
-            return i18n ( "Pawn" );
-        case Rook:
-            return i18n ( "Rook" );
-        case Knight:
-            return i18n ( "Knight" );
-        case Bishop:
-            return i18n ( "Bishop" );
-        case Queen:
-            return i18n ( "Queen" );
-        case King:
-            return i18n ( "King" );
-        default:
-            return QString();
-    }
-}
-
 void KnightsView::centerView ( const QPointF& center )
 {
     if ( ui->canvas )
