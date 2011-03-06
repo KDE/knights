@@ -602,6 +602,7 @@ void Manager::sendPendingMove()
     Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
     emit pieceMoved ( pendingMove );
     rules()->moveMade ( pendingMove );
+    
     if ( Settings::speakOpponentsMoves() 
         && !Protocol::byColor(d->activePlayer)->isLocal()
         && Protocol::byColor(oppositeColor(d->activePlayer))->isLocal() )

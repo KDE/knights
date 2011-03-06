@@ -496,6 +496,27 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
             }
         }
     }
+    
+    /**
+     * Check for check after the move has been made
+     */
+    Grid afterMoveGrid = *m_grid;
+    afterMoveGrid.insert(move->to(), afterMoveGrid.take(move->from()));
+    
+    Grid::ConstIterator it = afterMoveGrid.constBegin();
+    Grid::ConstIterator end = afterMoveGrid.constEnd();
+    
+    const Color kingColor = oppositeColor ( color );
+    
+    for ( ; it != end; ++it )
+    {
+        
+        if ( it.value()->color() == color && 
+            legalAttackMoves ( it.key(), &afterMoveGrid ).contains ( Move ( it.key(), kingPos[kingColor] ) ) )
+        {
+            move->setFlag ( Move::Check, true );
+        }
+    }
 
     if ( move->flag(Move::Take) )
     {
