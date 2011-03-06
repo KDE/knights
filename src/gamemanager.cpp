@@ -633,9 +633,17 @@ void Manager::sendPendingMove()
         }
         kDebug() << toSpeak;
         d->speech->say(toSpeak, KSpeech::soPlainText);
+        
         if ( pendingMove.flag(Move::Check) )
         {
-            d->speech->say ( i18nc( "Your king is under attack", "Check" ), KSpeech::soPlainText );
+            if ( d->rules->hasLegalMoves ( oppositeColor( d->activePlayer ) ) )
+            {
+                d->speech->say ( i18nc( "Your king is under attack", "Check" ), KSpeech::soPlainText );
+            }
+            else
+            {
+                d->speech->say ( i18nc( "Your king is dead", "Checkmate" ), KSpeech::soPlainText );
+            }
         }
     }
     
