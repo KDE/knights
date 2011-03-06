@@ -434,6 +434,7 @@ void Manager::startGame()
 
 void Manager::gameOver(Color winner)
 {
+  sendPendingMove();
   Q_D(const GameManager);
   if ( d->gameStarted )
   {
