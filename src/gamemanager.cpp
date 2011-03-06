@@ -32,6 +32,9 @@
 #include <QTimer>
 #include <settings.h>
 
+#include <KSpeech>
+#include "kspeechinterface.h"
+
 using namespace Knights;
 
 const int TimerInterval = 100;
@@ -63,8 +66,9 @@ public:
   QStack<Move> moveUndoStack;
 
   Rules* rules;
-
   QMap<int, Offer> offers;
+  
+  org::kde::KSpeech* speech;
 };
 
 GameManagerPrivate::GameManagerPrivate()
@@ -72,7 +76,8 @@ GameManagerPrivate::GameManagerPrivate()
     running(false),
     gameStarted(false),
     timer(0),
-    rules(0)
+    rules(0),
+    speech(0)
 {
 
 }
@@ -88,11 +93,20 @@ Manager::Manager(QObject* parent) : QObject(parent),
 d_ptr(new GameManagerPrivate)
 {
   kDebug() << "creating a GameManager";
+  Q_D(GameManager);
+  d->speech = new org::kde::KSpeech(
+      QLatin1String("org.kde.kttsd"), 
+                    QLatin1String("/KSpeech"),
+                    QDBusConnection::sessionBus()
+      );
+  d->speech->setApplicationName(qAppName());
 }
 
 Manager::~Manager()
 {
   kDebug() << " !!! ----- Destroying a Game Manager ----- !!!";
+  Q_D(GameManager);
+  delete d->speech;
   delete d_ptr;
 }
 
@@ -588,6 +602,41 @@ void Manager::sendPendingMove()
     Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
     emit pieceMoved ( pendingMove );
     rules()->moveMade ( pendingMove );
+    if ( Settings::speakOpponentsMoves() 
+        && !Protocol::byColor(d->activePlayer)->isLocal()
+        && Protocol::byColor(oppositeColor(d->activePlayer))->isLocal() )
+    {
+        QString toSpeak;
+        QString name = Protocol::byColor(d->activePlayer)->playerName();
+        if ( pendingMove.flag(Move::Castle) )
+        {
+            if ( pendingMove.to().first == 3 )
+            {
+                toSpeak = i18nc("string to be spoken when the opponent castles queenside",
+                    "%1 castles queenside", name);
+            }
+            else
+            {
+                toSpeak = i18nc("string to be spoken when the opponent castles queenside",
+                               "%1 castles kingside", name);
+            }
+        }
+        else
+        {
+            toSpeak = i18nc("string to be spoken when the opponent makes a normal  move",
+                            "%1 to %2",
+                            pieceTypeName ( pendingMove.pieceData().second ),
+                            pendingMove.to().string()
+            );
+        }
+        kDebug() << toSpeak;
+        d->speech->say(toSpeak, KSpeech::soPlainText);
+        if ( pendingMove.flag(Move::Check) )
+        {
+            d->speech->say ( i18nc( "Your king is under attack", "Check" ), KSpeech::soPlainText );
+        }
+    }
+    
     pendingMove = Move();
     
     Color winner = rules()->winner();

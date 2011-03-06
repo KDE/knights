@@ -141,4 +141,10 @@
       <default>500</default>
     </entry>
   </group>
+  <group name="Voice">
+      <entry name="speakOpponentsMoves" type="Bool">
+          <label>whether opponents' moves are spoken by Jovie</label>
+          <default>true</default>
+      </entry>
+  </group>
 </kcfg>
