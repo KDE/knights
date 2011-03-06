@@ -76,7 +76,8 @@ namespace Knights
 	    void addText ( const QString& text, MessageType type );
 	    void addText ( const QByteArray& text, MessageType type );
 	    void addText ( const Message& message );
-            void setPasswordMode ( bool pwMode );
+        void setPasswordMode ( bool pwMode );
+        void setExtraButtonsShown ( bool show );
 
     private slots:
             void sendButtonClicked ( );
@@ -90,6 +91,7 @@ namespace Knights
       QMap<QObject*, QString> m_extraButtons;
       QMap<MessageType, QColor> m_colors;
       bool m_consoleMode;
+      bool m_extraButtonsShown();
     };
 
 }

@@ -408,6 +408,7 @@ void FicsProtocol::parseLine(const QString& line)
                 }
                 
                 m_stage = PlayStage;
+                console()->setExtraButtonsShown ( false );
                 initComplete();
             }
             break;

@@ -148,6 +148,11 @@ void ChatWidget::addExtraButton ( const QString& text, const QString& title, con
     connect ( button, SIGNAL(clicked(bool)), SLOT(buttonClicked()) );
 }
 
+void ChatWidget::setExtraButtonsShown(bool show)
+{
+    ui->buttonContainer->setVisible(show);
+}
+
 void ChatWidget::buttonClicked()
 {
     QObject* s = sender();
