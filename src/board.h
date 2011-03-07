@@ -88,13 +88,17 @@ namespace Knights
             void removeFrame();
             void centerAndResize ( Item* item, QSize size, bool animated = true );
             PieceType getPromotedType();
+            
             QPointer<QDrag> drag;
+            bool m_dragActive;
+            Piece* draggedPiece;
+            Piece* selectedPiece;
+            QPoint dragStartPoint;
             
             bool m_paused;
             int m_tileSize;
             QRectF m_boardRect;
             bool m_animated;
-            Piece* m_draggedItem;
             QPointF m_draggedPos;
             QPointF m_dragStartPos;
             Color m_currentPlayer;
@@ -102,8 +106,6 @@ namespace Knights
             Colors m_playerColors;
             QMap<Pos, Item*> markers;
             bool m_drawFrame;
-            Piece* selectedPiece;
-            QPoint dragStartPoint;
 
         protected:
             virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
