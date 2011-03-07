@@ -77,6 +77,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     m_currentPlayer = White;
     updateTheme();
     m_paused = false;
+    m_dragActive = false;
 }
 
 Board::~Board()
@@ -220,6 +221,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         e->ignore();
         return;
     }
+    
     Piece* d_piece = pieceAt ( e->scenePos() );
     if ( !d_piece || d_piece->color() != m_currentPlayer )
     {
@@ -243,6 +245,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             }
             emit pieceMoved(move);
             selectedPiece = 0;
+            delete drag;
         }
     }
     else
@@ -268,22 +271,19 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
                 addMarker ( t_move.to(), LegalMove );
             }
         }
+        draggedPiece = d_piece;
         drag = new QDrag ( e->widget() );
-        QString posText = QString::number ( t_pos.first ) + QLatin1Char ( '_' ) + QString::number ( t_pos.second );
-        QMimeData* data = new QMimeData;
-        data->setText ( posText );
-        m_draggedItem = d_piece;
+        drag->setMimeData ( new QMimeData() );
         m_draggedPos = e->scenePos();
-        m_dragStartPos = m_draggedPos;
-        drag->setMimeData ( data );
     }
 }
 
 void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
 {
     QPoint delta = e->screenPos() - dragStartPoint;
-    if ( (delta.manhattanLength() >= QApplication::startDragDistance()) && drag )
+    if ( drag && !m_dragActive && (delta.manhattanLength() >= QApplication::startDragDistance()) )
     {
+        m_dragActive = true;
         drag->exec();
     }
 }
@@ -293,20 +293,15 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
     qDeleteAll ( markers );
     markers.clear();
 
-    if ( e->mimeData()->hasText() )
+    if ( draggedPiece )
     {
-        QStringList list = e->mimeData()->text().split ( QLatin1Char ( '_' ) );
-        if ( list.size() < 2 )
-        {
-            e->ignore();
-            return;
-        }
-        Pos from ( list.first().toInt(), list.last().toInt() );
+        m_dragActive = false;
+        Pos from = draggedPiece->boardPos();
         Pos to = mapFromScene ( e->scenePos() );
         Move move ( from, to );
         if ( !Manager::self()->rules()->legalMoves ( from ).contains ( move ) )
         {
-            centerOnPos ( m_draggedItem );
+            centerOnPos ( draggedPiece );
         }
         else
         {
@@ -317,8 +312,8 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
             }
             emit pieceMoved(move);
         }
-        m_draggedItem->setZValue ( pieceZValue );
-        m_draggedItem = 0;
+        draggedPiece->setZValue ( pieceZValue );
+        draggedPiece = 0;
     }
 }
 
@@ -329,7 +324,7 @@ void Board::dragEnterEvent ( QGraphicsSceneDragDropEvent* e )
 
 void Board::dragMoveEvent ( QGraphicsSceneDragDropEvent* e )
 {
-    if ( !m_draggedItem )
+    if ( !draggedPiece )
     {
         e->ignore();
         return;
@@ -338,7 +333,7 @@ void Board::dragMoveEvent ( QGraphicsSceneDragDropEvent* e )
     qreal x = e->scenePos().x() - m_draggedPos.x();
     qreal y = e->scenePos().y() - m_draggedPos.y();
 
-    m_draggedItem->moveBy ( x, y );
+    draggedPiece->moveBy ( x, y );
     m_draggedPos = e->scenePos();
 }
 
