@@ -245,7 +245,6 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             }
             emit pieceMoved(move);
             selectedPiece = 0;
-            delete drag;
         }
     }
     else
@@ -277,6 +276,13 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
         m_draggedPos = e->scenePos();
     }
 }
+
+void Board::mouseReleaseEvent(QGraphicsSceneMouseEvent* e)
+{
+    delete drag;
+    draggedPiece = 0;
+}
+
 
 void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
 {
