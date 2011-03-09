@@ -53,6 +53,9 @@ KnightsView::KnightsView ( QWidget *parent )
     
     connect ( ui->showAllOffers, SIGNAL(clicked(bool)), SLOT(showAllOffersToggled()) );
     connect ( Manager::self(), SIGNAL(notification(Offer)), SLOT(showPopup(Offer)) );
+    connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
+    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), SIGNAL(activePlayerChanged(Color)) );
+    
     m_board = 0;
     settingsChanged();
 }
@@ -70,8 +73,6 @@ void KnightsView::setupBoard()
     kDebug() << Manager::self();
     connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
     connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
-    connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
-    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), SIGNAL(activePlayerChanged(Color)) );
     connect ( m_board, SIGNAL(displayedPlayerChanged(Color)), SIGNAL(displayedPlayerChanged(Color)) );
     connect ( m_board, SIGNAL(pieceMoved(Move)), Manager::self(), SLOT(moveByBoard(Move)) );
 
