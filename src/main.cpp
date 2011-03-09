@@ -29,7 +29,7 @@
 static const char description[] =
     I18N_NOOP ( "Chess board based on KDE Development Platform 4" );
 
-static const char version[] = "2.2.90 (2.3 beta 1)";
+static const char version[] = "2.3.0";
 
 int main ( int argc, char **argv )
 {
