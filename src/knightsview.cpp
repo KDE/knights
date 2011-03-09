@@ -67,7 +67,6 @@ void KnightsView::setupBoard()
     m_board = new Board ( this );
     ui->canvas->setScene ( m_board );
     resizeScene();
-    kDebug() << Manager::self();
     connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
     connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
     connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
@@ -212,7 +211,6 @@ void KnightsView::showAllOffersToggled()
 
 void KnightsView::popupHidden(int id)
 {
-    kDebug() << m_offerWidgets << id << m_showAllOffers;
     foreach ( OfferWidget* widget, m_offerWidgets )
     {
         if ( widget->id() == id )

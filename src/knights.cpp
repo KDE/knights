@@ -168,7 +168,6 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::protocolInitSuccesful()
     {
-        kDebug() << Settings::showClock() << Settings::showConsole();
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
         setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
@@ -322,7 +321,6 @@ void MainWindow::showFicsSpectateDialog()
     
     void MainWindow::showClockWidgets()
     {
-        kDebug();
         ClockWidget* playerClock = new ClockWidget ( this );
         m_clockDock = new QDockWidget ( i18n ( "Clock" ), this );
         m_clockDock->setObjectName ( QLatin1String ( "ClockDockWidget" ) ); // for QMainWindow::saveState()

@@ -474,7 +474,6 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
             rookMove.setFrom ( 1, line );
         }
         move->setAdditionalMoves ( QList<Move>() << rookMove );
-        kDebug() << move->additionalMoves().size();
     }
     else
     {
@@ -553,11 +552,6 @@ QList< Move > ChessRules::pawnMoves ( const Pos& pos )
 
 void ChessRules::moveMade ( const Move& m )
 {
-    kDebug() << m.string();
-    if ( !m_grid->contains(m.to()) )
-    {
-        kDebug() << *m_grid;
-    }
     m_enPassantMoves.clear();
     switch ( m_grid->value ( m.to() )->pieceType() )
     {

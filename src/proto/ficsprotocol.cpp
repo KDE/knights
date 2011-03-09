@@ -600,7 +600,6 @@ void FicsProtocol::setSeeking ( bool seek )
         }
         */
         seekText += m_widget->autoAcceptChallenge() ? " auto" : " manual";
-        kDebug() << seekText;
         write(QLatin1String(seekText));
     }
     else

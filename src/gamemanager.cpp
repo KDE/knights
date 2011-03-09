@@ -189,7 +189,6 @@ void Manager::setCurrentTime(Color color, const QTime& time)
             emit redoPossible(false);
         }
         d->moveUndoStack.clear();
-	kDebug() << d->moveHistory;
     }
 
     Move Manager::nextUndoMove()
@@ -215,7 +214,6 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         }
         d->moveUndoStack.push( m );
         Move ret = m.reverse();
-	kDebug() << m << ret;
         ret.setFlag ( Move::Forced, true );
         return ret;
     }
