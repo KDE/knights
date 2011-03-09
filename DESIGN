@@ -1,6 +1,5 @@
 This file describes the design of Knights, especally interactions between the board and the protocols. 
 It focuses on the interaction of various parts of the program, especially regarding offers and requests for game action other than moves. 
-The description is not how it currently works, but a plan for implementation. 
 
 The central class managing the game is the Manager. 
 It's a global static, created on application startup and destroyed only on exit. 
