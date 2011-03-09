@@ -110,6 +110,7 @@ namespace Knights
         protected:
             virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
             virtual void mouseMoveEvent( QGraphicsSceneMouseEvent* e );
+            virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* e);
             virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
