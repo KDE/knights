@@ -279,6 +279,7 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 
 void Board::mouseReleaseEvent(QGraphicsSceneMouseEvent* e)
 {
+    Q_UNUSED(e);
     delete drag;
     draggedPiece = 0;
 }
