@@ -491,7 +491,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
                 move->setFlag ( Move::EnPassant, true );
                 Pos capturedPos = move->from() + Pos ( delta.first, 0 );
                 Piece* p = m_grid->value ( capturedPos );
-                move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
+                move->addRemovedPiece ( capturedPos, qMakePair ( p->color(), p->pieceType() ) );
             }
         }
     }
