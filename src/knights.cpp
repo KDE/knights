@@ -367,6 +367,11 @@ void MainWindow::showFicsSpectateDialog()
 #endif
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
         connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
+        
+        QWidget* accessDlg = new QWidget;
+        ui_prefs_access.setupUi ( accessDlg );
+        dialog->addPage ( accessDlg, i18n( "Accessibility"), QLatin1String("preferences-desktop-accessibility") );
+        
         QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );
         dialog->addPage ( themeDlg, i18n ( "Theme" ), QLatin1String ( "games-config-theme" ) );
         dialog->setAttribute ( Qt::WA_DeleteOnClose );

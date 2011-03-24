@@ -23,6 +23,7 @@
 #define KNIGHTS_H
 
 #include "ui_prefs_base.h"
+#include "ui_prefs_access.h"
 #include "proto/protocol.h"
 
 #include <KXmlGuiWindow>
@@ -72,7 +73,8 @@ namespace Knights
             void showFicsSpectateDialog();
 
         private:
-            Ui::prefs_base ui_prefs_base ;
+            Ui::prefs_base ui_prefs_base;
+            Ui::prefs_access ui_prefs_access;
             KnightsView *m_view;
             QPointer<QDockWidget> m_clockDock;
 

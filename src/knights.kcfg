@@ -141,9 +141,13 @@
       <default>500</default>
     </entry>
   </group>
-  <group name="Voice">
+  <group name="Accessibility">
       <entry name="speakOpponentsMoves" type="Bool">
           <label>whether opponents' moves are spoken by Jovie</label>
+          <default>true</default>
+      </entry>
+      <entry name="allowExternalControl" type="Bool">
+          <label>whether commands over D-Bus are accepted</label>
           <default>true</default>
       </entry>
   </group>

@@ -50,6 +50,7 @@ endif()
 kde4_add_ui_files(knights_SRCS
     knightsview_base.ui
     prefs_base.ui
+    prefs_access.ui
     gamedialog.ui
     clockwidget.ui
     promotiondialog.ui

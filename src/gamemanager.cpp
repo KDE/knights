@@ -722,11 +722,10 @@ void Manager::moveByBoard(const Move& move)
 void Manager::moveByExternalControl(const Knights::Move& move)
 {
     Q_D(GameManager);
-    if ( !Protocol::byColor(d->activePlayer)->isLocal() )
+    if ( Settings::allowExternalControl() && Protocol::byColor(d->activePlayer)->isLocal() )
     {
-        return;
+        processMove(move);
     }
-    processMove(move);
 }
 
 
