@@ -141,10 +141,12 @@ signals:
 public slots:
   void moveByProtocol ( const Move& move );
   void moveByBoard ( const Move& move );
+  void moveByExternalControl ( const Move& move );
   void protocolInitSuccesful();
   void gameOver ( Color winner );
   void resign();
 
+  void sendOffer ( GameAction action, Color player, int id );
   void sendOffer ( const Offer& offer );
   void setOfferResult ( int id, OfferAction result );
   

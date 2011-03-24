@@ -34,6 +34,7 @@
 
 #include <KSpeech>
 #include "kspeechinterface.h"
+#include "externalcontrol.h"
 
 using namespace Knights;
 
@@ -69,6 +70,7 @@ public:
   QMap<int, Offer> offers;
   
   org::kde::KSpeech* speech;
+  ExternalControl* extControl;
 };
 
 GameManagerPrivate::GameManagerPrivate()
@@ -77,7 +79,8 @@ GameManagerPrivate::GameManagerPrivate()
     gameStarted(false),
     timer(0),
     rules(0),
-    speech(0)
+    speech(0),
+    extControl(0)
 {
 
 }
@@ -289,6 +292,7 @@ void Manager::initialize()
   connect ( Protocol::black(), SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
   Protocol::white()->init();
   Protocol::black()->init();
+  d->extControl = new ExternalControl(this);
 }
 
 void Manager::setTimeControl(Color color, const TimeControl& control)
@@ -465,6 +469,7 @@ void Manager::reset()
   d->moveHistory.clear();
   d->moveUndoStack.clear();
   d->gameStarted = false;
+  delete d->extControl;
 }
 
 Rules* Manager::rules() const
@@ -478,6 +483,16 @@ void Manager::setRules(Rules* rules)
   Q_D(GameManager);
   d->rules = rules;
 }
+
+void Manager::sendOffer(GameAction action, Color player, int id)
+{
+    Offer o;
+    o.action = action;
+    o.player = player;
+    o.id = id;
+    sendOffer(o);
+}
+
 
 void Manager::sendOffer(const Offer& offer)
 {
@@ -704,8 +719,20 @@ void Manager::moveByBoard(const Move& move)
   processMove(move);
 }
 
+void Manager::moveByExternalControl(const Knights::Move& move)
+{
+    Q_D(GameManager);
+    if ( !Protocol::byColor(d->activePlayer)->isLocal() )
+    {
+        return;
+    }
+    processMove(move);
+}
+
+
 void Manager::processMove(const Move& move)
 {
+  sendPendingMove();
   Q_D(const GameManager);
   Move m = move;
   if ( activePlayer() == White )

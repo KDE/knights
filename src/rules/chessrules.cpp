@@ -448,6 +448,12 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         move->setFlag(Move::Illegal, true);
         return;
     }
+    if ( !legalMoves ( move->from() ).contains(*move) )
+    {
+        kWarning() << "Illegal move" << move;
+        move->setFlag(Move::Illegal, true);
+        return;
+    }
     move->setPieceData ( qMakePair( p->color(), p->pieceType() ) );
     move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
     if ( m_grid->contains ( move->to() ) )

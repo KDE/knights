@@ -1,4 +1,4 @@
-set(knights_SRCS offerwidget.cpp gamemanager.cpp proto/textprotocol.cpp
+set(knights_SRCS
     core/pos.cpp
     core/move.cpp
     core/renderer.cpp
@@ -7,19 +7,25 @@ set(knights_SRCS offerwidget.cpp gamemanager.cpp proto/textprotocol.cpp
 
     proto/protocol.cpp
     proto/localprotocol.cpp
+    proto/textprotocol.cpp
     proto/xboardproto.cpp
     proto/ficsprotocol.cpp
-    proto/ficsdialog.cpp
+    
     proto/seekgraph.cpp
     proto/chatwidget.cpp
-   
-
+    proto/ficsdialog.cpp
+    
     rules/chessrules.cpp
 
     gamedialog.cpp
-    board.cpp
+    offerwidget.cpp
     clock.cpp
     clockwidget.cpp
+    
+    externalcontrol.cpp
+    gamemanager.cpp
+    
+    board.cpp
     knightsview.cpp
     knights.cpp
     main.cpp
@@ -53,6 +59,7 @@ kde4_add_ui_files(knights_SRCS
 )
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml)
+qt4_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
 kde4_add_executable(knights ${knights_SRCS})
 
 target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})

@@ -35,7 +35,8 @@ namespace Knights
         Bishop,
         Knight,
         Rook,
-        Pawn
+        Pawn,
+        PieceTypeCount
     };
     enum Color
     {
