@@ -1,0 +1,23 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.Knights">
+    <signal name="moveMade">
+      <arg name="move" type="s" direction="out"/>
+    </signal>
+    <method name="movePiece">
+      <arg name="move" type="s" direction="in"/>
+    </method>
+    <method name="pauseGame">
+    </method>
+    <method name="resumeGame">
+    </method>
+    <method name="undo">
+    </method>
+    <method name="offerDraw">
+    </method>
+    <method name="adjourn">
+    </method>
+    <method name="abort">
+    </method>
+  </interface>
+</node>
