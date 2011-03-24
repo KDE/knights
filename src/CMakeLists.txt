@@ -75,5 +75,6 @@ install( PROGRAMS knights.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR} )
 install( FILES knights.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES knightsui.rc  DESTINATION  ${DATA_INSTALL_DIR}/knights )
 install( FILES knights.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
+install( FILES org.kde.Knights.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} )
 
 
