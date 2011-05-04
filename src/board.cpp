@@ -721,7 +721,7 @@ PieceType Board::getPromotedType()
             return Rook;
         }
     }
-    return NoType;
+    return Queen;
 }
 #include "board.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
