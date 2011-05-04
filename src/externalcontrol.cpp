@@ -30,7 +30,7 @@ using namespace Knights;
 
 ExternalControl::ExternalControl(QObject* parent) : QObject(parent)
 {
-    connect(Manager::self(), SIGNAL(pieceMoved(Move)), SIGNAL(moveMade(QString)));
+    connect(Manager::self(), SIGNAL(pieceMoved(Move)), SLOT(slotMoveMade(Move)));
     new KnightsAdaptor(this);
     kDebug() << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
     kDebug() << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
@@ -52,5 +52,11 @@ void ExternalControl::movePiece(const QString& move)
 {
     Manager::self()->moveByExternalControl(move);
 }
+
+void ExternalControl::slotMoveMade(const Knights::Move& move)
+{
+    emit moveMade(move.string());
+}
+
 
 

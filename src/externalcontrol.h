@@ -26,6 +26,8 @@
 #include <QtCore/QPair>
 
 namespace Knights {
+  
+  class Move;
 
 class ExternalControl : public QObject
 {
@@ -44,6 +46,7 @@ public Q_SLOTS:
     void offerDraw();
     void adjourn();
     void abort();
+    void slotMoveMade(const Move& move);
     
 Q_SIGNALS:
     void moveMade(const QString& move);
