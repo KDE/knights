@@ -271,25 +271,29 @@ void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
             }
         }
         draggedPiece = d_piece;
-        drag = new QDrag ( e->widget() );
-        drag->setMimeData ( new QMimeData() );
         m_draggedPos = e->scenePos();
+        dragStartPoint = e->screenPos();
     }
 }
 
 void Board::mouseReleaseEvent(QGraphicsSceneMouseEvent* e)
 {
     Q_UNUSED(e);
-    delete drag;
     draggedPiece = 0;
 }
 
 
 void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
 {
-    QPoint delta = e->screenPos() - dragStartPoint;
-    if ( drag && !m_dragActive && (delta.manhattanLength() >= QApplication::startDragDistance()) )
+    if (!(e->buttons() & Qt::LeftButton) || m_dragActive)
     {
+        return;
+    }
+    if (draggedPiece && ((e->screenPos() - dragStartPoint).manhattanLength() >= QApplication::startDragDistance()) )
+    {
+        //initiate a new drag event
+        drag = new QDrag ( e->widget() );
+        drag->setMimeData ( new QMimeData() );
         m_dragActive = true;
         drag->exec();
     }
