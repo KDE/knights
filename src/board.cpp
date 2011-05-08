@@ -300,6 +300,20 @@ void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
     }
 }
 
+void Board::dragLeaveEvent(QGraphicsSceneDragDropEvent* e)
+{
+    if ( !m_dragActive )
+    {
+        return;
+    }
+    qDeleteAll ( markers );
+    markers.clear();
+    centerOnPos ( draggedPiece );
+    draggedPiece->setZValue ( pieceZValue );
+    draggedPiece = 0;
+    m_dragActive = false;
+}
+
 void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 {
     qDeleteAll ( markers );

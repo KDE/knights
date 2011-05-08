@@ -114,6 +114,7 @@ namespace Knights
             virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
             virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
+            virtual void dragLeaveEvent ( QGraphicsSceneDragDropEvent* e );
 
         public slots:
             void movePiece ( const Move& move );
