@@ -295,6 +295,7 @@ void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
         drag = new QDrag ( e->widget() );
         drag->setMimeData ( new QMimeData() );
         m_dragActive = true;
+        selectedPiece = 0;
         drag->exec();
     }
 }
