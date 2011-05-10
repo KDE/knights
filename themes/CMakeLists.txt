@@ -6,7 +6,6 @@ install(FILES
     plain.desktop
     plain.svgz
     plain.png
-    gray.desktop
     gray.svgz
     gray.png
     xboard2.desktop
