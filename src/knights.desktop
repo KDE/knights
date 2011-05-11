@@ -34,6 +34,7 @@ Type=Application
 X-DocPath=knights/index.html
 Categories=Qt;KDE;Game;BoardGame;
 GenericName=Chess game
+GenericName[bs]=Šahovska igra
 GenericName[ca]=Joc d'escacs
 GenericName[ca@valencia]=Joc d'escacs
 GenericName[cs]=Šachy
