@@ -302,6 +302,7 @@ void Board::mouseMoveEvent ( QGraphicsSceneMouseEvent* e )
 
 void Board::dragLeaveEvent(QGraphicsSceneDragDropEvent* e)
 {
+    Q_UNUSED(e);
     if ( !m_dragActive )
     {
         return;
