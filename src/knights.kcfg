@@ -7,7 +7,7 @@
   <group name="KGameTheme">
         <entry name="Theme" type="String">
 	    <label>Theme file for the board</label>
-	    <default>themes/gray.desktop</default>
+	    <default>themes/default.desktop</default>
 	</entry>
   </group>
   <group name="Preferences">
