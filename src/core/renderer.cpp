@@ -25,9 +25,9 @@ using namespace Knights;
 
 #if defined WITH_KGR 
 
-Renderer::Renderer ( const QString& defaultTheme ) : KGameRenderer ( defaultTheme )
+Renderer::Renderer ( const QString& defaultTheme ) : KGameRenderer ( QLatin1String("themes/default.desktop") )
 {
-
+    setTheme ( defaultTheme );
 }
 Renderer::~Renderer () 
 {
