@@ -82,7 +82,6 @@ namespace Knights
             Piece* pieceAt ( const QPointF& point );
             Pos mapFromScene ( const QPointF& point );
             QPointF mapToScene ( Pos pos );
-            void changeCurrentPlayer();
             void centerOnPos ( Item* item, const Pos& pos, bool animated = true );
             void centerOnPos ( Item* item, bool animated = true );
             void removeFrame();

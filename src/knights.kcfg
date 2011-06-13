@@ -25,6 +25,10 @@
       <label>whether the Board is animated during rotating and resizing</label>
       <default>false</default>
     </entry>
+    <entry name="flipBoard" type="Bool">
+      <label>whether to rotate the board when in local two-player mode</label>
+      <default>true</default>
+    </entry>
     <entry name="borderDisplayType" type="Enum">
       <choices>
         <choice name="None" />

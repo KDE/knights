@@ -6,23 +6,48 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>455</width>
+    <height>260</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QCheckBox" name="kcfg_speakOpponentsMoves">
-     <property name="text">
-      <string>Speak opponent's moves</string>
+    <widget class="QGroupBox" name="display_box">
+     <property name="title">
+      <string>Board display</string>
      </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="kcfg_flipBoard">
+        <property name="text">
+         <string>Flip the board in local matches between humans</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="kcfg_allowExternalControl">
-     <property name="text">
-      <string>Allow other programs to control Knights</string>
+    <widget class="QGroupBox" name="external_box">
+     <property name="title">
+      <string>External programs</string>
      </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="kcfg_speakOpponentsMoves">
+        <property name="text">
+         <string>Speak opponent's moves</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_allowExternalControl">
+        <property name="text">
+         <string>Allow other programs to control Knights</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>

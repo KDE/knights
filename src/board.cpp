@@ -441,23 +441,21 @@ void Board::setPlayerColors ( Colors colors )
     populate();
 }
 
-void Board::changeCurrentPlayer()
-{
-    m_currentPlayer = oppositeColor ( m_currentPlayer );
-    if ( ( m_playerColors & m_currentPlayer ) && m_displayedPlayer != m_currentPlayer )
-    {
-        m_displayedPlayer = m_currentPlayer;
-        changeDisplayedPlayer();
-    }
-    emit activePlayerChanged ( m_currentPlayer );
-}
-
 void Board::setCurrentColor ( Color color )
 {
     m_currentPlayer = color;
-    if ( m_playerColors & color )
+    Color nextPlayer = m_displayedPlayer;
+    if ( m_playerColors & (Black|White) && !Settings::flipBoard() )
     {
-        m_displayedPlayer = color;
+        nextPlayer = White;
+    }
+    else if ( m_playerColors & color )
+    {
+        nextPlayer = color;
+    }
+    if ( m_displayedPlayer != nextPlayer )
+    {
+        m_displayedPlayer = nextPlayer;
         changeDisplayedPlayer();
     }
     emit activePlayerChanged ( m_currentPlayer );

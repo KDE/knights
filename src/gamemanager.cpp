@@ -206,7 +206,6 @@ void Manager::setCurrentTime(Color color, const QTime& time)
             emit redoPossible(false);
         }
         d->moveUndoStack.clear();
-	kDebug() << d->moveHistory;
     }
 
     Move Manager::nextUndoMove()
