@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Grayscale
+Name[bg]=Сиво
 Name[bs]=Crno‑bijela
 Name[ca]=Escala de grisos
 Name[ca@valencia]=Escala de grisos
@@ -33,6 +34,7 @@ Name[x-test]=xxGrayscalexx
 Name[zh_CN]=灰度
 Name[zh_TW]=灰階
 Description=A grayscale theme using the Oxygen palette
+Description[bg]=Изглед в сиво с палитра от Oxygen
 Description[bs]=Crno‑bijela tema na osnovu Kiseonikove palete
 Description[ca]=Un tema en escala de grisos utilitzant la paleta Oxygen
 Description[ca@valencia]=Un tema en escala de grisos utilitzant la paleta Oxygen

@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Plain
+Name[bg]=Изчистен
 Name[bs]=Jednostavna
 Name[ca]=Normal
 Name[ca@valencia]=Normal
@@ -35,6 +36,7 @@ Name[x-test]=xxPlainxx
 Name[zh_CN]=普通
 Name[zh_TW]=普通
 Description=A plain and simple theme
+Description[bg]=Изчистен и прост изглед
 Description[bs]=Čista i jednostavna tema
 Description[ca]=Un tema normal i senzill
 Description[ca@valencia]=Un tema normal i senzill
