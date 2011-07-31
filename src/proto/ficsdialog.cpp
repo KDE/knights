@@ -44,13 +44,13 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     }
     ui->tabWidget->setCurrentIndex ( 0 );
     
-    connect ( ui->tabWidget, SIGNAL ( currentChanged ( int ) ), SLOT ( currentTabChanged ( int ) ) );
-    connect ( ui->seekButton, SIGNAL ( toggled ( bool ) ), SIGNAL ( seekingChanged ( bool ) ) );
+    connect ( ui->tabWidget, SIGNAL (currentChanged(int)), SLOT (currentTabChanged(int)) );
+    connect ( ui->seekButton, SIGNAL (toggled(bool)), SIGNAL (seekingChanged(bool)) );
     ui->seekButton->setIcon( KIcon ( QLatin1String("edit-find") ) );
-    connect ( ui->logInButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotLogin() ) );
+    connect ( ui->logInButton, SIGNAL (clicked(bool)), SLOT (slotLogin()) );
     ui->logInButton->setIcon ( KIcon ( QLatin1String ( "network-connect" ) ) );
 
-    connect ( ui->registerButton, SIGNAL ( clicked ( bool ) ), SLOT ( slotCreateAccount() ) );
+    connect ( ui->registerButton, SIGNAL (clicked(bool)), SLOT (slotCreateAccount()) );
     ui->registerButton->setIcon ( KIcon ( QLatin1String ( "list-add" ) ) );
 
     ui->usernameLineEdit->setText ( Settings::ficsUsername() );
@@ -61,7 +61,7 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
     ui->rememberCheckBox->setChecked(Settings::autoLogin());
 
-    connect ( ui->rememberCheckBox, SIGNAL( stateChanged( int ) ), this, SLOT( rememberCheckBoxChanged( int ) ) );
+    connect ( ui->rememberCheckBox, SIGNAL(stateChanged(int)), this, SLOT(rememberCheckBoxChanged(int)) );
 }
 
 FicsDialog::~FicsDialog()

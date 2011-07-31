@@ -75,10 +75,10 @@ namespace Knights
         // mainwindow to automatically save settings if changed: window size,
         // toolbar position, icon size, etc.
         setupGUI();
-        connect ( m_view, SIGNAL ( gameNew() ), this, SLOT ( fileNew() ), Qt::QueuedConnection );
+        connect ( m_view, SIGNAL (gameNew()), this, SLOT (fileNew()), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL(initComplete()), SLOT(protocolInitSuccesful()) );
 
-        QTimer::singleShot ( 0, this, SLOT ( fileNew() ) );
+        QTimer::singleShot ( 0, this, SLOT (fileNew()) );
     }
 
     MainWindow::~MainWindow()
@@ -87,12 +87,12 @@ namespace Knights
 
     void MainWindow::setupActions()
     {
-        KStandardGameAction::gameNew ( this, SLOT ( fileNew() ), actionCollection() );
-        KStandardGameAction::quit ( qApp, SLOT ( closeAllWindows() ), actionCollection() );
-        KStandardGameAction::pause ( this, SLOT ( pauseGame ( bool ) ), actionCollection() );
-        KStandardAction::preferences ( this, SLOT ( optionsPreferences() ), actionCollection() );
+        KStandardGameAction::gameNew ( this, SLOT (fileNew()), actionCollection() );
+        KStandardGameAction::quit ( qApp, SLOT (closeAllWindows()), actionCollection() );
+        KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
+        KStandardAction::preferences ( this, SLOT (optionsPreferences()), actionCollection() );
 
-        KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT ( resign() ) );
+        KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
         resignAction->setText ( i18n ( "Resign" ) );
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
@@ -111,7 +111,7 @@ namespace Knights
         redoAction->setEnabled(false);
         connect ( Manager::self(), SIGNAL(redoPossible(bool)), redoAction, SLOT(setEnabled(bool)) );
 
-        connect( qApp, SIGNAL( lastWindowClosed() ), this, SLOT( exitKnights() ) );
+        connect( qApp, SIGNAL(lastWindowClosed()), this, SLOT(exitKnights()) );
     }
 
     void MainWindow::fileNew()
@@ -214,7 +214,7 @@ void MainWindow::showFicsSpectateDialog()
             Protocol::Features f = opp->supportedFeatures();
             if ( f & Protocol::Draw )
             {
-                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT ( offerDraw() ) );
+                KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT (offerDraw()) );
                 drawAction->setText ( i18n ( "Offer &Draw" ) );
                 drawAction->setHelpText(i18n("Offer a draw to your opponent"));
                 drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
@@ -222,7 +222,7 @@ void MainWindow::showFicsSpectateDialog()
             }
             if ( f & Protocol::Adjourn )
             {
-                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT ( adjourn() ) );
+                KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT (adjourn()) );
                 adjournAction->setText ( i18n ( "Adjourn" ) );
                 adjournAction->setHelpText(i18n("Continue this game at a later time"));
                 adjournAction->setIcon(KIcon(QLatin1String("document-save")));
@@ -329,7 +329,7 @@ void MainWindow::showFicsSpectateDialog()
         m_clockDock->setWidget ( playerClock );
         m_dockWidgets << m_clockDock;
         
-        connect ( m_view, SIGNAL ( displayedPlayerChanged ( Color ) ), playerClock, SLOT ( setDisplayedPlayer ( Color ) ) );
+        connect ( m_view, SIGNAL (displayedPlayerChanged(Color)), playerClock, SLOT (setDisplayedPlayer(Color)) );
         
         playerClock->setPlayerName(White, Protocol::white()->playerName());
         playerClock->setPlayerName(Black, Protocol::black()->playerName());
@@ -366,7 +366,7 @@ void MainWindow::showFicsSpectateDialog()
         ui_prefs_base.animationGroup->hide();
 #endif
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
-        connect ( dialog, SIGNAL ( settingsChanged ( QString ) ), m_view, SLOT ( settingsChanged() ) );
+        connect ( dialog, SIGNAL (settingsChanged(QString)), m_view, SLOT (settingsChanged()) );
         
         QWidget* accessDlg = new QWidget;
         ui_prefs_access.setupUi ( accessDlg );

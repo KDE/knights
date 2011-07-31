@@ -101,7 +101,7 @@ void XBoardProtocol::init (  )
     mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
     mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
     mProcess->setReadChannel ( KProcess::StandardOutput );
-    connect ( mProcess, SIGNAL ( readyReadStandardError() ), SLOT ( readError() ) );
+    connect ( mProcess, SIGNAL (readyReadStandardError()), SLOT (readError()) );
     setDevice(mProcess);
     kDebug() << "Starting program" << program << "with args" << args;
     mProcess->start();
