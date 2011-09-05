@@ -27,6 +27,8 @@
 #include "proto/ficsprotocol.h"
 #include "gamemanager.h"
 
+#include <Solid/Networking>
+
 using namespace Knights;
 
 GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
@@ -88,6 +90,9 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     connect ( ui->timeLimit, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
     connect ( ui->timeIncrement, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
     connect ( ui->numberOfMoves, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
+    connect ( Solid::Networking::notifier(), SIGNAL(statusChanged(Solid::Networking::Status)), SLOT(changeNetworkStatus(Solid::Networking::Status)) );
+    
+    changeNetworkStatus(Solid::Networking::status());
     updateTimeEdits();
 }
 
@@ -219,5 +224,17 @@ void GameDialog::updateTimeEdits()
     ui->timeIncrement->setSuffix ( i18np ( " second", " seconds", ui->timeIncrement->value() ) );
     ui->numberOfMoves->setSuffix ( i18np ( " move", " moves", ui->numberOfMoves->value() ) );
 }
+
+void GameDialog::changeNetworkStatus(Solid::Networking::Status status)
+{
+    kDebug() << status;
+    bool enableFics = status == Solid::Networking::Connected || status == Solid::Networking::Unknown;
+    if (!enableFics && ui->player2Fics->isChecked())
+    {
+        ui->player2Comp->setChecked ( true );
+    }
+    ui->player2Fics->setEnabled ( enableFics );
+}
+
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
