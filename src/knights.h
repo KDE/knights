@@ -34,6 +34,7 @@ namespace Knights
 {
     class Protocol;
     class KnightsView;
+    class ClockWidget;
 
     /**
     * This class serves as the main window for Knights.  It handles the
@@ -61,14 +62,15 @@ namespace Knights
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );
 
             void setShowClockSetting( bool value );
-            void setShowConsoleSetting( bool value );
+            void setShowConsoleSetting();
             void setShowChatSetting( bool value );
 
             void exitKnights();
 
         private:
             void setupActions();
-            void showClockWidgets();
+            void setupClockDock();
+            void setupConsoleDocks();
             void showFicsDialog( Color color = NoColor, bool computer = false);
             void showFicsSpectateDialog();
 
@@ -77,11 +79,14 @@ namespace Knights
             Ui::prefs_access ui_prefs_access;
             KnightsView *m_view;
             QPointer<QDockWidget> m_clockDock;
+            QPointer<ClockWidget> playerClock;
+            QPointer<QDockWidget> m_wconsoleDock;
+            QPointer<QDockWidget> m_bconsoleDock;
+            QPointer<QDockWidget> m_chatDock;
 
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
             QList<QAction*> m_protocolActions;
-            QList<QDockWidget*> m_dockWidgets;
     };
 }
 

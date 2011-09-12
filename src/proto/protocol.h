@@ -64,7 +64,8 @@ class ChatWidget;
                 GameOver = 0x40, /**< The protocol emits gameOver() when the game is over */
                 Draw = 0x80,
                 Adjourn = 0x100,
-                Resign = 0x200
+                Resign = 0x200,
+                Abort = 0x400
             };
             Q_DECLARE_FLAGS ( Features, Feature )
 
