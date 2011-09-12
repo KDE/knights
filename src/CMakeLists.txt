@@ -47,6 +47,10 @@ if (ANIMATIONS)
     add_definitions(-DWITH_ANIMATIONS)
 endif()
 
+if (MESSAGE_WIDGET)
+    add_definitions(-DWITH_KMW)
+endif()
+
 kde4_add_ui_files(knights_SRCS
     knightsview_base.ui
     prefs_base.ui

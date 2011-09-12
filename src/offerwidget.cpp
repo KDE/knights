@@ -22,8 +22,35 @@
 #include "offerwidget.h"
 #include "gamemanager.h"
 #include "ui_popup.h"
+#include <KStandardAction>
 
 using namespace Knights;
+
+#if defined WITH_KMW
+
+OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::WindowFlags f): KMessageWidget(offer.text, parent)
+{
+  Q_UNUSED(f)
+  offerId = offer.id;
+  if ( offer.action != ActionNone )
+  {
+    QAction* action;
+    action = new QAction( KIcon(QLatin1String("dialog-ok")), i18n("Accept"), this );
+    connect ( action, SIGNAL(triggered(bool)), SLOT(acceptClicked()) );
+    addAction(action);
+    action = new QAction( KIcon(QLatin1String("edit-delete")), i18n("Decline"), this );
+    connect ( action, SIGNAL(triggered(bool)), SLOT(declineClicked()) );
+    addAction ( action );
+  }
+  setCloseButtonVisible(true);
+}
+
+OfferWidget::~OfferWidget()
+{
+
+}
+
+#else
 
 OfferWidget::OfferWidget(const Offer& offer, QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
 {
@@ -53,6 +80,8 @@ OfferWidget::~OfferWidget()
 {
   delete ui;
 }
+
+#endif
 
 int OfferWidget::id() const
 {
