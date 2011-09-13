@@ -1,40 +1,56 @@
-<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<kpartgui name="knights" version="1">
-  <Toolbar name="mainToolBar">
+<?xml version="1.0" encoding="UTF-8"?>
+<gui name="knights"
+     version="2"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
+  
+  <MenuBar>
+    <Menu name="game">
+      <Action name="game_new" />
+      <Action name="game_pause" />
+      <Action name="propose_draw" />
+      <Action name="resign" />
+      <Action name="adjourn" />
+      <Action name="abort" />
+      <Action name="quit" />
+    </Menu>
+        
+    <Menu name="move">
+      <text>Move</text>
+      <Action name="move_undo" />
+      <Action name="move_redo" />
+    </Menu>
+    
+    <Menu name="settings">
+      <Action name="show_clock" />
+      <Action name="show_console_black" />
+      <Action name="show_console_white" />
+      <Action name="show_chat" />
+    </Menu>
+    
+  </MenuBar>
+  
+  <ToolBar name="mainToolBar" >
     <text>Main Toolbar</text>
     <Action name="game_new" />
     <Action name="game_pause" />
     <Action name="move_undo" />
     <Action name="move_redo" />
     <Action name="propose_draw" />
+    <Action name="resign" />
     <Action name="adjourn" />
     <Action name="abort" />
-  </Toolbar>
-  <Toolbar name="dockToolBar" >
-    <text>Widgets Toolbar</text>
-      <Action name="show_clock" />
-      <Action name="show_console_white" />
-      <Action name="show_console_black" />
-      <Action name="show_chat" />
-    </Toolbar>
-  <Menubar>
-    <Menu name="game">
-      <Action name="game_new" />
-      <Action name="game_pause" />
-      <Action name="propose_draw" />
-      <Action name="adjourn" />
-      <Action name="quit" />
-    </Menu>
-    <Menu name="move">
-      <text>Move</text>
-      <Action name="move_undo" />
-      <Action name="move_redo" />
-    </Menu>
-    <Menu name="settings">
-      <Action name="show_clock" />
-      <Action name="show_console_white" />
-      <Action name="show_console_black" />
-      <Action name="show_chat" />
-    </Menu>
-  </Menubar>
-</kpartgui>
+  </ToolBar>
+  
+  
+  <ToolBar name="dockToolBar" >
+    <text>Dockable Windows Toolbar</text>
+    <Action name="show_clock" />
+    <Action name="show_console_black" />
+    <Action name="show_console_white" />
+    <Action name="show_chat" />
+  </ToolBar>
+ 
+</gui> 
