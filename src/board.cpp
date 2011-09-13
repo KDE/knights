@@ -102,7 +102,7 @@ void Board::addPiece ( PieceType type, Color color, const Pos& pos )
 void Board::movePiece ( const Move& move )
 {
     Move m = move;
-    if ( m.flag ( Move::Illegal ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
+    if ( ( m.flag ( Move::Illegal ) && !m.flag ( Move::Forced ) ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {
         kWarning() << "Invalid move:" << m;
         return;
@@ -172,13 +172,11 @@ void Board::movePiece ( const Move& move )
         }
     }
 
-    if ( m.flags() & Move::Castle )
+    foreach ( const Move& additionalMove, m.additionalMoves() )
     {
-        foreach ( const Move& additionalMove, m.additionalMoves() )
-        {
-            movePiece ( additionalMove );
-        }
+        movePiece ( additionalMove );
     }
+
     updateGraphics();
 }
 

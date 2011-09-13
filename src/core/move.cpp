@@ -321,6 +321,8 @@ namespace Knights
     Move Move::reverse() const
     {
         Move rev;
+        rev.setFlags(d->flags);
+        
         if ( notation() == Algebraic )
         {
             // We can't reverse the move from the algebraic notation alone
