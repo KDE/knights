@@ -43,7 +43,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : TextProtocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return GameOver | Draw | Adjourn | Resign | Undo | Pause;
+    return GameOver | Pause | Draw | Adjourn | Resign | Undo;
 }
 
 XBoardProtocol::~XBoardProtocol()

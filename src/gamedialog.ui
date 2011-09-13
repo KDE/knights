@@ -291,14 +291,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
-  </customwidget>
-  <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KIntSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KHistoryComboBox</class>
@@ -315,12 +315,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>124</x>
-     <y>82</y>
+     <x>136</x>
+     <y>79</y>
     </hint>
     <hint type="destinationlabel">
-     <x>309</x>
-     <y>83</y>
+     <x>362</x>
+     <y>80</y>
     </hint>
    </hints>
   </connection>
@@ -331,12 +331,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>90</x>
-     <y>281</y>
+     <x>102</x>
+     <y>214</y>
     </hint>
     <hint type="destinationlabel">
-     <x>309</x>
-     <y>282</y>
+     <x>362</x>
+     <y>214</y>
     </hint>
    </hints>
   </connection>
@@ -347,12 +347,12 @@
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>310</y>
+     <x>171</x>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
-     <x>309</x>
-     <y>311</y>
+     <x>362</x>
+     <y>289</y>
     </hint>
    </hints>
   </connection>
@@ -363,12 +363,12 @@
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>44</x>
-     <y>297</y>
+     <x>56</x>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
-     <x>366</x>
-     <y>47</y>
+     <x>506</x>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
@@ -379,12 +379,28 @@
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>104</x>
-     <y>307</y>
+     <x>116</x>
+     <y>288</y>
     </hint>
     <hint type="destinationlabel">
-     <x>524</x>
-     <y>45</y>
+     <x>630</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>player2Fics</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>timeGroup</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>51</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>454</x>
+     <y>129</y>
     </hint>
    </hints>
   </connection>
