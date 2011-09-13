@@ -68,9 +68,12 @@ public:
 
   Rules* rules;
   QMap<int, Offer> offers;
+  QSet<int> usedOfferIds;
   
   org::kde::KSpeech* speech;
   ExternalControl* extControl;
+  
+  int nextOfferId();
 };
 
 GameManagerPrivate::GameManagerPrivate()
@@ -83,6 +86,16 @@ GameManagerPrivate::GameManagerPrivate()
     extControl(0)
 {
 
+}
+
+int GameManagerPrivate::nextOfferId()
+{
+  int i = usedOfferIds.size() + 1;
+  while (usedOfferIds.contains(i))
+  {
+    ++i;
+  }
+  return i;
 }
 
 K_GLOBAL_STATIC(Manager, instance)
@@ -467,6 +480,10 @@ void Manager::reset()
   }
   d->moveHistory.clear();
   d->moveUndoStack.clear();
+  
+  d->offers.clear();
+  d->usedOfferIds.clear();
+  
   d->gameStarted = false;
   delete d->extControl;
 }
@@ -501,6 +518,12 @@ void Manager::sendOffer(const Offer& offer)
   {
       o.player = local()->color();
   }
+  
+  if (o.id == 0)
+  {
+    o.id = d->nextOfferId();
+  }
+  
   QString name = Protocol::byColor(o.player)->playerName();
   if ( o.text.isEmpty() )
   {
@@ -523,6 +546,7 @@ void Manager::sendOffer(const Offer& offer)
     }
   }
   d->offers.insert ( o.id, o );
+  d->usedOfferIds << o.id;
   Protocol* opp = Protocol::byColor( oppositeColor(o.player) );
   // Only display a notification if only one player is local.
   if ( opp->isLocal() && !Protocol::byColor(o.player)->isLocal() )

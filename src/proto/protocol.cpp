@@ -241,12 +241,6 @@ bool Protocol::isReady()
     return d->ready;
 }
 
-int Protocol::nextId()
-{
-    Q_D(Protocol);
-    return d->nextId++;
-}
-
 bool Protocol::isLocal()
 {
     return false;

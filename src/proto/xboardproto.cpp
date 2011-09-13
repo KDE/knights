@@ -205,7 +205,7 @@ void XBoardProtocol::parseLine(const QString& line)
             display = false;
             Offer o;
             o.action = ActionDraw;
-            o.id = nextId();
+            o.id = 0;
             o.player = color();
             Manager::self()->sendOffer(o);
         }
@@ -234,6 +234,7 @@ void XBoardProtocol::readError()
 
 void XBoardProtocol::acceptOffer(const Offer& offer)
 {
+    kDebug() << "Accepting offer" << offer.text;
     switch ( offer.action )
     {
         case ActionDraw:
@@ -325,9 +326,24 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             break;
             
         case ActionUndo:
-            for ( int i = 0; i < offer.numberOfMoves; ++i )
+            for ( int i = 0; i < offer.numberOfMoves/2; ++i )
             {
+                write ( "remove" );
+            }
+            if (offer.numberOfMoves % 2)
+            {
+                write ( "force" );
                 write ( "undo" );
+            }
+            // This function is called before changeActivePlayer, so we must take into accont 
+            // the number of moves being undone. 
+            if ( ( Manager::self()->activePlayer() == color() ) == ( ( offer.numberOfMoves % 2 ) == 0 ) )
+            {
+                write ( "go" );
+            }
+            else
+            {
+                resumePending = true;
             }
             offer.accept();
             break;

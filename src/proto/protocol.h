@@ -124,7 +124,6 @@ class ChatWidget;
             ChatWidget* createChatWidget();
             ChatWidget* createConsoleWidget();
             void initComplete();
-            int nextId();
 
         public Q_SLOTS:
             virtual void move ( const Move& m ) = 0;

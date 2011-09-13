@@ -73,19 +73,17 @@ Protocol::Features LocalProtocol::supportedFeatures()
 
 void LocalProtocol::makeOffer(const Offer& offer)
 {
-  Manager::self()->setOfferResult(offer.id, AcceptOffer);
+  offer.accept();
 }
 
 void LocalProtocol::acceptOffer(const Offer& offer)
 {
   Q_UNUSED(offer);
-  kError() << "The Local protocol should not send offers!";
 }
 
 void LocalProtocol::declineOffer(const Offer& offer)
 {
   Q_UNUSED(offer);
-  kError() << "The Local protocol should not send offers!";
 }
 
 
