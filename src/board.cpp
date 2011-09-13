@@ -76,7 +76,6 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     Manager::self()->rules()->setGrid ( &m_grid );
     m_currentPlayer = White;
     updateTheme();
-    m_paused = false;
     m_dragActive = false;
 }
 
@@ -213,7 +212,7 @@ void Board::addTiles()
 
 void Board::mousePressEvent ( QGraphicsSceneMouseEvent* e )
 {
-    if ( m_paused || !(m_playerColors & m_currentPlayer) )
+    if ( !Manager::self()->canLocalMove() )
     {
         // It is not the human player's turn
         e->ignore();
@@ -344,7 +343,7 @@ void Board::dropEvent ( QGraphicsSceneDragDropEvent* e )
 
 void Board::dragEnterEvent ( QGraphicsSceneDragDropEvent* e )
 {
-    e->accept();
+    e->setAccepted ( Manager::self()->canLocalMove() );
 }
 
 void Board::dragMoveEvent ( QGraphicsSceneDragDropEvent* e )
@@ -491,12 +490,6 @@ void Board::addMarker ( const Pos& pos, const QString& spriteKey )
     marker->setZValue ( legalMarkerZValue );
     markers.insert ( pos, marker );
 }
-
-void Board::setPaused ( bool paused )
-{
-    m_paused = paused;
-}
-
 
 void Board::updateTheme()
 {

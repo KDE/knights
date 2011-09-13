@@ -102,7 +102,9 @@ public:
 	    bool isRunning();
 	    
 	    bool canRedo() const;
-
+            bool isGameActive() const;
+            bool canLocalMove() const;
+            
     Rules* rules() const;
     void setRules ( Rules* rules );
         void reset();

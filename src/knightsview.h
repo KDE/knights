@@ -61,7 +61,6 @@ struct Offer;
              * Destructor
              */
             virtual ~KnightsView();
-            void setPaused ( bool paused );
 
         private:
             Ui::KnightsView* ui;

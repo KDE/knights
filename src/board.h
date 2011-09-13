@@ -118,7 +118,6 @@ namespace Knights
         public slots:
             void movePiece ( const Move& move );
             void updateTheme();
-            void setPaused ( bool paused );
             void updateGraphics();
             void changeDisplayedPlayer();
             void setCurrentColor ( Color color );

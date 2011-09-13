@@ -149,11 +149,6 @@ void KnightsView::resizeScene()
     }
 }
 
-void KnightsView::setPaused ( bool paused )
-{
-    m_board->setPaused ( paused );
-}
-
 void KnightsView::centerView ( const QPointF& center )
 {
     if ( ui->canvas )

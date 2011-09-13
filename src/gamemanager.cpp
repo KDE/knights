@@ -339,7 +339,9 @@ TimeControl Manager::timeControl(Color color) const
   }
   else
   {
-    return TimeControl();
+    // FICS protocol needs the time control parameters even before the color is determined
+    // It only supports equal time for both players, so it doesn't matter which one we return
+    return d->whiteTimeControl;
   }
 }
 
@@ -350,7 +352,14 @@ QTime Manager::timeLimit(Color color)
 
 bool Manager::timeControlEnabled(Color color) const
 {
-  return timeControl(color).baseTime.isValid();
+  TimeControl tc = timeControl(color);
+  
+  // For a time to be valid, either the base time or increment must be greater than 0
+  if ( QTime().secsTo(tc.baseTime) > 0 || tc.increment > 0 )
+  {
+    return true;
+  }
+  return false;
 }
 
 void Manager::undo()
@@ -785,3 +794,25 @@ void Manager::processMove(const Move& move)
     sendPendingMove();
   }
 }
+
+bool Manager::isGameActive() const
+{
+  Q_D(const GameManager);
+  return d->gameStarted;
+}
+
+bool Manager::canLocalMove() const
+{
+  Q_D(const GameManager);
+  if ( !d->gameStarted )
+  {
+    return false;
+  }
+  if ( d->running || d->moveHistory.size() < 2 || !timeControlEnabled(NoColor) )
+  {
+    return Protocol::byColor(d->activePlayer)->isLocal();
+  }
+  return false;
+}
+
+
