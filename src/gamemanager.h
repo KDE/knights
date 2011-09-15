@@ -148,7 +148,7 @@ public slots:
   void gameOver ( Color winner );
   void resign();
 
-  void sendOffer ( GameAction action, Color player, int id );
+  void sendOffer ( GameAction action, Color player = NoColor, int id = 0 );
   void sendOffer ( const Offer& offer );
   void setOfferResult ( int id, OfferAction result );
   
@@ -157,6 +157,7 @@ public slots:
     void redo();
     void offerDraw();
     void adjourn();
+    void abort();
     
     void setTimeRunning(bool running); 
 

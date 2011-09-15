@@ -395,20 +395,17 @@ void Manager::redo()
 
 void Manager::adjourn()
 {
-  Offer o;
-  o.action = ActionAdjourn;
-  o.id = qrand();
-  o.player = local()->color();
-  sendOffer(o);
+  sendOffer(ActionAdjourn);
+}
+
+void Manager::abort()
+{
+  sendOffer(ActionAbort);
 }
 
 void Manager::offerDraw()
 {
-  Offer o;
-  o.action = ActionDraw;
-  o.id = qrand();
-  o.player = local()->color();
-  sendOffer(o);
+  sendOffer(ActionDraw);
 }
 
 void Manager::resign()

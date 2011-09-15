@@ -654,6 +654,10 @@ void FicsProtocol::makeOffer(const Offer& offer)
             write ( "adjourn" );
             break;
             
+        case ActionAbort:
+            write ( "abort" );
+            break;
+            
         default:
             break;
     }
