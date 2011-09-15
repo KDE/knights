@@ -514,8 +514,10 @@ void FicsProtocol::parseLine(const QString& line)
                     type = ChatWidget::AccountMessage;
                     emit gameOver ( White );
                 }
-                else if ( line.endsWith ( QLatin1String("1/2-1/2") ) )
+                else if ( line.endsWith ( QLatin1String("1/2-1/2") ) || line.endsWith ( QLatin1Char('*') ) )
                 {
+                    // Knights has no way of reporting aborted or unfinished games
+                    // so we report aborted games as draws
                     type = ChatWidget::AccountMessage;
                     emit gameOver ( NoColor );
                 }
