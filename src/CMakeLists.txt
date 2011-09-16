@@ -67,7 +67,7 @@ qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech
 qt4_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
 kde4_add_executable(knights ${knights_SRCS})
 
-target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
+target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDE4_SOLID_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
 
 #add_subdirectory(qml)
 
