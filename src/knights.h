@@ -86,7 +86,7 @@ namespace Knights
 
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
-            QList<QAction*> m_protocolActions;
+            QMap<QByteArray, Protocol::Feature> protocolFeatures;
     };
 }
 

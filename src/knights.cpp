@@ -110,39 +110,33 @@ namespace Knights
         resignAction->setText ( i18n ( "Resign" ) );
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
-        m_protocolActions << resignAction;
 
         KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), this, SLOT(undo()) );
         undoAction->setText ( i18n("Undo") );
         undoAction->setHelpText ( i18n("Take back your last move") );
         undoAction->setIcon ( KIcon(QLatin1String("edit-undo")) );;
         connect ( Manager::self(), SIGNAL (undoPossible(bool)), undoAction, SLOT (setEnabled(bool)) );
-        m_protocolActions << undoAction;
 
         KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), this, SLOT(redo()) );
         redoAction->setText ( i18n("Redo") );
         redoAction->setHelpText ( i18n("Repeat your last move") );
         redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
         connect ( Manager::self(), SIGNAL (redoPossible(bool)), redoAction, SLOT (setEnabled(bool)) );
-        m_protocolActions << redoAction;
         
         KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT (offerDraw()) );
         drawAction->setText ( i18n ( "Offer &Draw" ) );
         drawAction->setHelpText(i18n("Offer a draw to your opponent"));
         drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
-        m_protocolActions << drawAction;
         
         KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT (adjourn()) );
         adjournAction->setText ( i18n ( "Adjourn" ) );
         adjournAction->setHelpText(i18n("Continue this game at a later time"));
         adjournAction->setIcon(KIcon(QLatin1String("document-save")));
-        m_protocolActions << adjournAction;
         
         KAction* abortAction = actionCollection()->addAction ( QLatin1String("abort"), Manager::self(), SLOT (abort()) );
         abortAction->setText ( i18n ( "Abort" ) );
         abortAction->setHelpText(i18n("End the game immediately"));
         abortAction->setIcon(KIcon(QLatin1String("dialog-cancel")));
-        m_protocolActions << abortAction;
         
         KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
@@ -166,7 +160,12 @@ namespace Knights
         actionCollection()->addAction ( QLatin1String("show_chat"), chatAction );
         connect ( chatAction, SIGNAL (triggered(bool)), m_chatDock, SLOT (setVisible(bool)) );
         connect ( chatAction, SIGNAL (triggered(bool)), this, SLOT (setShowChatSetting(bool)) );
-        chatAction->setVisible (false);         
+        chatAction->setVisible (false); 
+        
+        protocolFeatures [ "propose_draw" ] = Protocol::Draw;
+        protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
+        protocolFeatures [ "resign" ] = Protocol::Resign;
+        protocolFeatures [ "abort" ] = Protocol::Abort;
     }
 
     void MainWindow::fileNew()
@@ -242,13 +241,7 @@ void MainWindow::showFicsSpectateDialog()
             actionCollection()->action ( QLatin1String ( "show_clock" ) )->setVisible (false);
         }
 
-        // enable protocol dependent menu/toolbar actions if only one player is local human
-        // actions enabled are from the supported features list of the second player
-        foreach ( QAction* action, m_protocolActions )
-        {
-           action->setEnabled (false);
-        }
-        Protocol::Features f;
+        Protocol::Features f = Protocol::NoFeatures;
         if ( Protocol::white()->isLocal() && !(Protocol::black()->isLocal()) )
         {
             f = Protocol::black()->supportedFeatures();
@@ -257,14 +250,12 @@ void MainWindow::showFicsSpectateDialog()
         {
             f = Protocol::white()->supportedFeatures();
         }
-        else
+                
+        QMap<QByteArray, Protocol::Feature>::ConstIterator it;
+        for ( it = protocolFeatures.constBegin(); it != protocolFeatures.constEnd(); ++it )
         {
-            f = 0;   //NoFeatures supported
+            actionCollection()->action( QLatin1String(it.key()) )->setVisible ( f & it.value() );
         }
-        if ( f & Protocol::Draw )  actionCollection()->action ( QLatin1String ( "propose_draw" ) )->setEnabled (true);
-        if ( f & Protocol::Adjourn )  actionCollection()->action ( QLatin1String ( "adjourn" ) )->setEnabled (true);
-        if ( f & Protocol::Resign )  actionCollection()->action ( QLatin1String ( "resign" ) )->setEnabled (true);
-        if ( f & Protocol::Abort )  actionCollection()->action ( QLatin1String ( "abort" ) )->setEnabled (true);
         
         // show console action button if protocol allows a console
         // show console dock widget if protocol allows and configuration file entry has visible = true
