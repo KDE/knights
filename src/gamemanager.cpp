@@ -486,6 +486,8 @@ void Manager::reset()
   }
   d->moveHistory.clear();
   d->moveUndoStack.clear();
+  emit undoPossible( false );
+  emit redoPossible( false );
   
   d->offers.clear();
   d->usedOfferIds.clear();
