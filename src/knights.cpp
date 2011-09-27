@@ -116,12 +116,14 @@ namespace Knights
         undoAction->setHelpText ( i18n("Take back your last move") );
         undoAction->setIcon ( KIcon(QLatin1String("edit-undo")) );;
         connect ( Manager::self(), SIGNAL (undoPossible(bool)), undoAction, SLOT (setEnabled(bool)) );
+        undoAction->setEnabled( false );
 
         KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), this, SLOT(redo()) );
         redoAction->setText ( i18n("Redo") );
         redoAction->setHelpText ( i18n("Repeat your last move") );
         redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
         connect ( Manager::self(), SIGNAL (redoPossible(bool)), redoAction, SLOT (setEnabled(bool)) );
+        redoAction->setEnabled( false );
         
         KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT (offerDraw()) );
         drawAction->setText ( i18n ( "Offer &Draw" ) );
@@ -254,7 +256,7 @@ void MainWindow::showFicsSpectateDialog()
         QMap<QByteArray, Protocol::Feature>::ConstIterator it;
         for ( it = protocolFeatures.constBegin(); it != protocolFeatures.constEnd(); ++it )
         {
-            actionCollection()->action( QLatin1String(it.key()) )->setVisible ( f & it.value() );
+            actionCollection()->action( QLatin1String(it.key()) )->setEnabled ( f & it.value() );
         }
         
         // show console action button if protocol allows a console
