@@ -26,7 +26,7 @@
 #  include <KMessageWidget>
 #  define OfferWidgetBase KMessageWidget
 #else
-#  include <QWidget
+#  include <QWidget>
 #  define OfferWidgetBase QWidget
 #endif
 
