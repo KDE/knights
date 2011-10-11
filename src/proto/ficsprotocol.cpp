@@ -127,8 +127,8 @@ void FicsProtocol::init (  )
     m_stage = ConnectStage;
 
     ChatWidget* console = createConsoleWidget();
-    console->addExtraButton ( QLatin1String("seek"), i18n("Seek"), QLatin1String("edit-find") );
-    console->addExtraButton ( QLatin1String("unseek"), i18n("Unseek"), QLatin1String("edit-clear") );
+    console->addExtraButton ( QLatin1String("seek"), i18nc("Start searching for opponents", "Seek"), QLatin1String("edit-find") );
+    console->addExtraButton ( QLatin1String("unseek"), i18nc("Stop searching for opponents", "Unseek"), QLatin1String("edit-clear") );
     console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
     console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
     connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)) );

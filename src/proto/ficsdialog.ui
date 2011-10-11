@@ -281,7 +281,7 @@
        <item>
         <widget class="QPushButton" name="seekButton">
          <property name="text">
-          <string>Seek</string>
+          <string comment="Start searching for opponents">Seek</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
