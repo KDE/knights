@@ -947,7 +947,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   stream << ' ' << result;
   
-  stream << endl << endl;
+  stream << endl;
   stream.flush();
 }
 
