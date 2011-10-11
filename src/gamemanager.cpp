@@ -38,7 +38,8 @@
 
 #include <KDE/KFileDialog>
 #include <KDE/KLocale>
-#include <QtCore/qtextstream.h>
+#include <QtCore/QTextStream>
+#include <KDE/KSaveFile>
 
 using namespace Knights;
 
@@ -78,6 +79,7 @@ public:
   ExternalControl* extControl;
   
   QString filename;
+   Color winner;
   
   int nextOfferId();
 };
@@ -463,10 +465,11 @@ void Manager::startGame()
 void Manager::gameOver(Color winner)
 {
   sendPendingMove();
-  Q_D(const GameManager);
+  Q_D(GameManager);
   if ( d->gameStarted )
   {
     stopTime();
+    d->winner = winner;
     Protocol::white()->setWinner(winner);
     Protocol::black()->setWinner(winner);
     emit winnerNotify(winner);
@@ -499,6 +502,8 @@ void Manager::reset()
   d->usedOfferIds.clear();
   
   d->gameStarted = false;
+  d->winner = NoColor;
+  
   delete d->extControl;
 }
 
@@ -837,12 +842,113 @@ void Manager::loadGameHistoryFrom(const QString& filename)
 
 void Manager::saveGameHistory()
 {
-  saveGameHistoryAs ( KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) ) ); 
+  Q_D(GameManager);
+  saveGameHistoryAs( d->filename );
 }
 
 void Manager::saveGameHistoryAs(const QString& filename)
 {
-  // TODO
+  Q_D(GameManager);
+  
+  if ( filename.isEmpty() )
+  {
+    d->filename = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+  }
+  else
+  {
+    d->filename = filename;
+  }
+  
+  KSaveFile file ( d->filename );
+  QTextStream stream ( &file );
+  
+  // Write the player tags first
+  
+  // Standard Tag Roster: Event, Site, Date, Round, White, Black, Result
+  
+  stream << "[Event \"Casual Game\"]" << endl;
+  stream << "[Site \"?\"]" << endl;
+  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("YYYY.MM.DD") ) << "\"]" << endl;
+  stream << "[Round \"-\"]" << endl;
+  stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
+  stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
+  
+  // Supplemental tags, ordered alphabetacally. 
+  // Currently, only TimeControl is added
+  
+  stream << "[TimeControl \"";
+  if ( timeControlEnabled ( NoColor ) )
+  {
+    // The PGN specification doesn't include a time control combination with both a number of moves 
+    // and an increment per move defined, so we only output one of them
+    // If the spec will ever be expanded, the two lines should be combined:
+    // stream << tc.moves << '/' << QTime().secsTo ( tc.baseTime ) << '+' << tc.increment
+  
+    TimeControl tc = timeControl ( NoColor );
+    if ( tc.moves )
+    {
+      stream << tc.moves << '/' << QTime().secsTo ( tc.baseTime );
+    }
+    else
+    {
+      stream << QTime().secsTo ( tc.baseTime ) << '+' << tc.increment;
+    }
+  }
+  else
+  {
+    stream << '-';
+  }
+  stream << "\"]";
+    
+  QByteArray result;
+ 
+  if ( d->running )
+  {
+    result = "*";
+  }
+  else
+  {
+    switch ( d->winner )
+    {
+      case White:
+        result = "1-0";
+        break;
+      case Black:
+        result = "0-1";
+        break;
+      default:
+        result = "1/2-1/2";
+        break;
+    }
+  }
+  stream << "[Result \"" << result << "\"]" << endl;
+  
+  // A single newline separates the tag pairs from the movetext section
+  stream << endl;
+  
+  int n = d->moveHistory.size();
+  for (int i = 0; i < n; ++i)
+  {
+    if ( i % 2 == 0 )
+    {
+      // White move
+      stream << i/2 << ". " << d->moveHistory[i].string();
+    }
+    else
+    {
+      // Black move
+      stream << ' ' << d->moveHistory[i].string();
+    }
+    
+    // TODO: Calculate that there are at most 80 characters in every line. 
+  }
+  
+  stream << ' ' << result;
+  
+  stream << endl << endl;
+  stream.flush();
+  
+  file.finalize();
 }
 
 
