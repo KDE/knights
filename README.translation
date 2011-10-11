@@ -1,0 +1,25 @@
+Notes for translators of Knights
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Here are a few notes to make the translators' lifes a little easier. 
+
+The name
+-=-=-=-=
+
+In some languages (for example Slovene), the name of Knight the chess piece may
+be different from the translation of the word "Knight". In such cases, I would prefer
+the localized name to be (plural) name of the chess piece, rather than a man with a horse
+and a sword with no relation to chess.
+
+Chess Server terminology
+-=-=-=-=-=-=-=-=-=-=-=-=
+
+The Free Internet Chess Server uses some command names that may be difficult to translate. 
+In Knights, I decided to use the command names as user-visible strings instead of possibly
+more appropriate words. This way, the interface is more familiar to people who are used
+to playing on the server. 
+
+There is an extensive documentation on the server, at http://www.freechess.org/Help/index.html
+and http://www.freechess.org/Help/AllFiles.html. It may come in handy when looking for 
+explanations about the terminology used. I have tried to add context to i81n() calls
+wherever appropriate, but this way you get the whole picture. 
