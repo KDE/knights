@@ -160,6 +160,11 @@ public slots:
     void abort();
     
     void setTimeRunning(bool running); 
+    
+    void saveGameHistory();
+    void saveGameHistoryAs(const QString& filename);
+    void loadGameHistory();
+    void loadGameHistoryFrom(const QString& filename);
 
 private:
   GameManagerPrivate* d_ptr;

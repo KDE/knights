@@ -36,6 +36,10 @@
 #include "kspeechinterface.h"
 #include "externalcontrol.h"
 
+#include <KDE/KFileDialog>
+#include <KDE/KLocale>
+#include <QtCore/qtextstream.h>
+
 using namespace Knights;
 
 const int TimerInterval = 100;
@@ -72,6 +76,8 @@ public:
   
   org::kde::KSpeech* speech;
   ExternalControl* extControl;
+  
+  QString filename;
   
   int nextOfferId();
 };
@@ -813,5 +819,32 @@ bool Manager::canLocalMove() const
   }
   return false;
 }
+
+void Manager::loadGameHistory()
+{
+  loadGameHistoryFrom ( KFileDialog::getOpenFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) ) );
+}
+
+void Manager::loadGameHistoryFrom(const QString& filename)
+{
+  QFile file(filename);
+  if ( !file.open(QIODevice::ReadOnly) )
+  {
+    return;
+  }
+  // TODO
+}
+
+void Manager::saveGameHistory()
+{
+  saveGameHistoryAs ( KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) ) ); 
+}
+
+void Manager::saveGameHistoryAs(const QString& filename)
+{
+  // TODO
+}
+
+
 
 
