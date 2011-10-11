@@ -859,7 +859,10 @@ void Manager::saveGameHistoryAs(const QString& filename)
     d->filename = filename;
   }
   
-  KSaveFile file ( d->filename );
+  kDebug() << filename;
+  
+  QFile file ( d->filename );
+  file.open(QIODevice::WriteOnly);
   QTextStream stream ( &file );
   
   // Write the player tags first
@@ -872,7 +875,29 @@ void Manager::saveGameHistoryAs(const QString& filename)
   stream << "[Round \"-\"]" << endl;
   stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
   stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
-  
+
+  QByteArray result;
+  if ( d->running )
+  {
+    result = "*";
+  }
+  else
+  {
+    switch ( d->winner )
+    {
+      case White:
+        result = "1-0";
+        break;
+      case Black:
+        result = "0-1";
+        break;
+      default:
+        result = "1/2-1/2";
+        break;
+    }
+  }
+  stream << "[Result \"" << result << "\"]" << endl;
+
   // Supplemental tags, ordered alphabetacally. 
   // Currently, only TimeControl is added
   
@@ -898,30 +923,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   {
     stream << '-';
   }
-  stream << "\"]";
-    
-  QByteArray result;
- 
-  if ( d->running )
-  {
-    result = "*";
-  }
-  else
-  {
-    switch ( d->winner )
-    {
-      case White:
-        result = "1-0";
-        break;
-      case Black:
-        result = "0-1";
-        break;
-      default:
-        result = "1/2-1/2";
-        break;
-    }
-  }
-  stream << "[Result \"" << result << "\"]" << endl;
+  stream << "\"]";    
   
   // A single newline separates the tag pairs from the movetext section
   stream << endl;
@@ -932,12 +934,12 @@ void Manager::saveGameHistoryAs(const QString& filename)
     if ( i % 2 == 0 )
     {
       // White move
-      stream << i/2 << ". " << d->moveHistory[i].string();
+      stream << i/2+1 << ". " << d->moveHistory[i].string();
     }
     else
     {
       // Black move
-      stream << ' ' << d->moveHistory[i].string();
+      stream << ' ' << d->moveHistory[i].string() << ' ';
     }
     
     // TODO: Calculate that there are at most 80 characters in every line. 
@@ -947,8 +949,6 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   stream << endl << endl;
   stream.flush();
-  
-  file.finalize();
 }
 
 
