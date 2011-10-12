@@ -871,7 +871,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   stream << "[Event \"Casual Game\"]" << endl;
   stream << "[Site \"?\"]" << endl;
-  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("YYYY.MM.DD") ) << "\"]" << endl;
+  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << endl;
   stream << "[Round \"-\"]" << endl;
   stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
   stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
@@ -928,27 +928,37 @@ void Manager::saveGameHistoryAs(const QString& filename)
   // A single newline separates the tag pairs from the movetext section
   stream << endl;
   
+  kDebug() << "Starting to write movetext";
+  
   int n = d->moveHistory.size();
   for (int i = 0; i < n; ++i)
   {
+    Move m = d->moveHistory[i];
+    Color color = m.pieceData().first;
+    QString str = m.stringForNotation ( Move::Algebraic );
+    
     if ( i % 2 == 0 )
     {
       // White move
-      stream << i/2+1 << ". " << d->moveHistory[i].string();
+      stream << i/2+1 << ". " << str;
     }
     else
     {
       // Black move
-      stream << ' ' << d->moveHistory[i].string() << ' ';
+      stream << ' ' << str << ' ';
     }
     
     // TODO: Calculate that there are at most 80 characters in every line. 
   }
   
+  kDebug();
+  
   stream << ' ' << result;
   
   stream << endl;
   stream.flush();
+  
+  kDebug() << "Saved";
 }
 
 

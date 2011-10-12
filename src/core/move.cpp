@@ -51,6 +51,8 @@ namespace Knights
             
             QTime time;
             PieceData pieceData;
+            
+            QMap<Move::Notation, QString> notationStrings;
     };
 
     MovePrivate::MovePrivate()
@@ -177,8 +179,8 @@ namespace Knights
         string.remove(QLatin1Char('-'));
         string.remove(QLatin1Char(' '));
         
-        QRegExp longMoveTest = QRegExp(QLatin1String("[a-h][1-8][a-h][1-8]"));
-        if (longMoveTest.indexIn(string) > -1)
+        QRegExp longMoveTest = QRegExp(QLatin1String("^[a-h][1-8][a-h][1-8]"));
+        if (longMoveTest.indexIn(string) > -1 )
         {
             // Long move notation, can be directly converted to From and To
             d->notationType = Coordinate;
@@ -196,6 +198,8 @@ namespace Knights
             d->string = string;
             d->notationType = Algebraic;
         }
+        
+        Q_ASSERT ( this->string() == string );
     }
 
     QString Move::string ( bool includeX ) const
@@ -386,8 +390,22 @@ PieceData Move::pieceData()
     return d->pieceData;
 }
 
+void Move::setStringForNotation(Move::Notation notation, const QString& string)
+{
+    d->notationStrings [ notation ] = string;
+}
 
-
+QString Move::stringForNotation(Move::Notation notation)
+{
+    if ( d->notationStrings.contains ( notation ) )
+    {
+        return d->notationStrings [ notation ];
+    }
+    else
+    {
+        return QString();
+    }
+}
 
 }
 
