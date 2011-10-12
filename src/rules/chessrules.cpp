@@ -381,7 +381,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         move->setStringForNotation ( Move::Coordinate, move->string() );
     }
     
-    Q_ASSERT ( move->notation() == Move::Coordinate );
+    Q_ASSERT ( move->notation() == Move::Coordinate || !move->isValid()  );
     
     Piece* p = m_grid->value ( move->from() );
     if ( !p )
