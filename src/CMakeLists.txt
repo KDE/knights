@@ -10,6 +10,7 @@ set(knights_SRCS
     proto/textprotocol.cpp
     proto/xboardproto.cpp
     proto/ficsprotocol.cpp
+    proto/uciprotocol.cpp
     
     proto/seekgraph.cpp
     proto/chatwidget.cpp
