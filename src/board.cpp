@@ -73,6 +73,7 @@ Board::Board ( QObject* parent ) : QGraphicsScene ( parent )
     renderer = new Renderer ( Settings::theme() );
     m_background = 0;
     selectedPiece = 0;
+    draggedPiece = 0;
     Manager::self()->rules()->setGrid ( &m_grid );
     m_currentPlayer = White;
     updateTheme();
