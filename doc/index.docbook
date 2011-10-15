@@ -106,7 +106,7 @@
 				on your computer and that it supports the XBoard protocol.
 			</para>
 			<para>
-				If you wish to play against someone over the internet,
+				If you wish to play against someone over the Internet,
 				select <guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and
 				<guilabel>Human at a chess server</guilabel> for <guilabel>Player 2</guilabel>.
 				You will have to login into the server and find
@@ -157,7 +157,7 @@
 				
 			</itemizedlist>
 			<para>
-				After you press the <guibutton>Ok</guibutton> button, the dialog will close.
+				After you press the <guibutton>OK</guibutton> button, the dialog will close.
 				If you selected a player at a chess server, you will have to log in and find your opponent.
 				Otherwise, the game will start immediately. 
 			</para>
@@ -324,7 +324,7 @@
 			only piece that cannot move backward.  The pawn is also the only piece that does not capture in the same way that it moves.  The 
 			pawn captures an opposing piece by moving diagonally one square - it cannot capture by moving straight ahead.</para>
 			
-			<para>In the picture below the lower pawn is still on its original square, so it may move one or two squares forward (indicted
+			<para>In the picture below the lower pawn is still on its original square, so it may move one or two squares forward (indicated
 			by the green X).  It may capture by moving to the right or left at a diagonal, but only if that square is occupied by an opposing
 			piece (indicated by the red X).  Otherwise, it may not move diagonally.  The upper pawn has already moved from its original square.
 			It may move only one square forward.  Likewise, it can capture moving to the left or right diagonally if the square contains an
@@ -556,7 +556,7 @@
 		to the player's remaining time before the move.  If the move is made before the delay time expires, 
 		the remaining delay time is kept by the player and their clock time increases.  Similarly, a fixed time can 
 		be added to the player's clock after a move is completed.  When time is added to the clock, the time amount is 
-		refered to as the <quote>time increment</quote>.</para>
+		referred to as the <quote>time increment</quote>.</para>
 		
 		<para>Time controls vary widely depending upon the game, game type and any sponsor.  Also during a game there 
 		may be several types of time controls joined together, with unused time added to the next time control.  For 
@@ -607,15 +607,15 @@
 		<para>
 			Once you are satisfied with the changes you have selected you
 			can make the changes by either clicking the <guibutton>Apply</guibutton> 
-			or the <guibutton>Ok</guibutton> button, located at the bottom part 
-			of the dialog. Clicking <guibutton>Ok</guibutton> will also close the
+			or the <guibutton>OK</guibutton> button, located at the bottom part 
+			of the dialog. Clicking <guibutton>OK</guibutton> will also close the
 			configuration dialog.
 		</para>
 		<para>
 			If, however, you are dissatisfied with your changes – simply click
 			<guibutton>Cancel</guibutton> to discard the changes and close
 			the configuration dialog. You must click <guibutton>Cancel</guibutton>
-			before clicking <guibutton>Apply</guibutton> or <guibutton>Ok</guibutton>.
+			before clicking <guibutton>Apply</guibutton> or <guibutton>OK</guibutton>.
 		</para>
 
 		<sect1 id="configuration-general">
