@@ -473,7 +473,6 @@ void Manager::gameOver(Color winner)
     Protocol::white()->setWinner(winner);
     Protocol::black()->setWinner(winner);
     emit winnerNotify(winner);
-    reset();
   }
 }
 

@@ -106,9 +106,9 @@ namespace Knights
         KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
         KStandardAction::preferences ( this, SLOT (optionsPreferences()), actionCollection() );
         
-        KStandardAction::save ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
-        KStandardAction::saveAs ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
-        KStandardAction::open ( Manager::self(), SLOT (loadGameHistory()), actionCollection() );
+        KStandardGameAction::save ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
+        KStandardGameAction::saveAs ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
+        KStandardGameAction::load ( Manager::self(), SLOT (loadGameHistory()), actionCollection() );
         
         KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
         resignAction->setText ( i18n ( "Resign" ) );
