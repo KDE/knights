@@ -80,6 +80,7 @@ public:
   
   QString filename;
    Color winner;
+   bool winnerNotified;
   
   int nextOfferId();
 };
@@ -297,6 +298,7 @@ void Manager::initialize()
 {
   Q_D(GameManager);
   d->gameStarted = false;
+  d->winnerNotified = false;
   d->running = false;
   d->activePlayer = White;
   d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
@@ -469,10 +471,15 @@ void Manager::gameOver(Color winner)
   if ( d->gameStarted )
   {
     stopTime();
-    d->winner = winner;
-    Protocol::white()->setWinner(winner);
-    Protocol::black()->setWinner(winner);
-    emit winnerNotify(winner);
+    if ( !d->winnerNotified )
+    {
+      d->winner = winner;
+      Protocol::white()->setWinner(winner);
+      Protocol::black()->setWinner(winner);
+      emit winnerNotify(winner);
+      
+      d->winnerNotified = true;
+    }
   }
 }
 
@@ -502,6 +509,7 @@ void Manager::reset()
   
   d->gameStarted = false;
   d->winner = NoColor;
+  d->winnerNotified = false;
   
   delete d->extControl;
 }
@@ -873,6 +881,7 @@ void Manager::loadGameHistoryFrom(const QString& filename)
 	  // Only move numbers contain dots, not move data itself
 	  // We also exclude the game termination markers (results)
 	  
+	  kDebug() << "Read string" << str;
 	  Move m = Move ( QLatin1String(str) );
 	  moveByExternalControl ( m );
 	}

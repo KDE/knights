@@ -99,8 +99,7 @@ void KnightsView::clearBoard()
 
 void KnightsView::gameOver ( Color winner )
 {
-    kDebug() << Protocol::white();
-    kDebug() << Protocol::black();
+    kDebug() << sender() << colorName ( winner );
     
     QPointer<KDialog> dlg = new KDialog ( this );
     dlg->setButtons ( KDialog::Yes | KDialog::User2 | KDialog::Cancel );
@@ -136,7 +135,8 @@ void KnightsView::gameOver ( Color winner )
     }
     else
     {
-        if ( Protocol::byColor(winner)->playerName() == colorName(winner) )
+        QString winnerName = Protocol::byColor ( winner )->playerName();
+        if ( winnerName == colorName(winner) )
         {
             if ( winner == White )
             {
@@ -154,12 +154,12 @@ void KnightsView::gameOver ( Color winner )
             if ( winner == White )
             {
                 label->setText ( i18nc("Player name, then <White as in the player with white pieces", 
-                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing White") );
+                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing White", winnerName) );
             }
             else
             {                
                 label->setText ( i18nc("Player name, then Black as in the player with black pieces", 
-                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing Black") );
+                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing Black", winnerName) );
             }
         }
     }

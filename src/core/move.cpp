@@ -198,8 +198,6 @@ namespace Knights
             d->string = string;
             d->notationType = Algebraic;
         }
-        
-        Q_ASSERT ( this->string() == string );
     }
 
     QString Move::string ( bool includeX ) const
