@@ -831,12 +831,54 @@ void Manager::loadGameHistory()
 
 void Manager::loadGameHistoryFrom(const QString& filename)
 {
+  kDebug() << filename;
   QFile file(filename);
   if ( !file.open(QIODevice::ReadOnly) )
   {
     return;
   }
-  // TODO
+      
+  QRegExp tagPairExp = QRegExp(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
+  
+  while ( file.bytesAvailable() > 0 )
+  {
+    QByteArray line = file.readLine();
+    kDebug() << "Read line" << line;
+    if ( tagPairExp.indexIn ( QLatin1String(line) ) > -1 )
+    {
+      // Parse a tag pair
+      QString key = tagPairExp.cap(1);
+      QString value = tagPairExp.cap(2);
+      
+      if ( key == QLatin1String("White") )
+      {
+	Protocol::white()->setPlayerName ( value );
+      }
+      else if ( key == QLatin1String("Black") )
+      {
+	Protocol::black()->setPlayerName ( value );
+      }
+      else if ( key == QLatin1String("TimeControl") )
+      {
+	// TODO, optional: Parse TimeControl Tag
+      }
+    }
+    else
+    {
+      // Parse a line of moves
+      foreach ( const QByteArray& str, line.split(' ') )
+      {
+	if ( !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') )
+	{
+	  // Only move numbers contain dots, not move data itself
+	  // We also exclude the game termination markers (results)
+	  
+	  Move m = Move ( QLatin1String(str) );
+	  moveByExternalControl ( m );
+	}
+      }
+    }
+  }
 }
 
 void Manager::saveGameHistory()
@@ -870,7 +912,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   stream << "[Event \"Casual Game\"]" << endl;
   stream << "[Site \"?\"]" << endl;
-  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("YYYY.MM.DD") ) << "\"]" << endl;
+  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << endl;
   stream << "[Round \"-\"]" << endl;
   stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
   stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
@@ -927,27 +969,36 @@ void Manager::saveGameHistoryAs(const QString& filename)
   // A single newline separates the tag pairs from the movetext section
   stream << endl;
   
+  kDebug() << "Starting to write movetext";
+  
   int n = d->moveHistory.size();
   for (int i = 0; i < n; ++i)
   {
+    Move m = d->moveHistory[i];
+    QString str = m.stringForNotation ( Move::Algebraic );
+    
     if ( i % 2 == 0 )
     {
       // White move
-      stream << i/2+1 << ". " << d->moveHistory[i].string();
+      stream << i/2+1 << ". " << str;
     }
     else
     {
       // Black move
-      stream << ' ' << d->moveHistory[i].string() << ' ';
+      stream << ' ' << str << ' ';
     }
     
     // TODO: Calculate that there are at most 80 characters in every line. 
   }
   
+  kDebug();
+  
   stream << ' ' << result;
   
   stream << endl;
   stream.flush();
+  
+  kDebug() << "Saved";
 }
 
 

@@ -125,6 +125,9 @@ namespace Knights
             PieceData pieceData();
 
             bool isValid() const;
+            
+            void setStringForNotation ( Notation notation, const QString& string );
+            QString stringForNotation ( Notation notation );
 
         private:
             QSharedDataPointer<MovePrivate> d;

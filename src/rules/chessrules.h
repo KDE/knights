@@ -50,6 +50,7 @@ namespace Knights
             virtual bool isAttacking ( const Pos& attackingPos );
 
             virtual void checkSpecialFlags ( Move* move, Color color );
+            virtual void changeNotation ( Knights::Move* move, Move::Notation notation, Color color );
 
         private:
 

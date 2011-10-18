@@ -364,83 +364,25 @@ QList<Move> ChessRules::movesInDirection ( const Pos& dir, const Pos& pos, int l
 
 void ChessRules::checkSpecialFlags ( Move* move, Color color )
 {
-    if ( move->notation() == Move::Algebraic )
+    kDebug() << move->string() << colorName ( color );
+    if ( move->notation() == Move::Coordinate )
     {
-        /**
-         * Possible notations:
-         * * e4 == Pe4 == pawn to e4
-         * * Ne4 == Knight to e4
-         * * Rbe1 == Rook from file b to e1
-         * * cd4 == Pawn from file c to d4
-         */
-        QChar c;
-        PieceType type = NoType;
-        int file = -1;
-        bool found = false;
-        bool fileSet = false;
-        bool typeSet = false;
-        QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
-        if  ( s.size() < 2 )
-        {
-                kWarning() << "Unknown move notation" << move->string();
-                move->setFlag ( Move::Illegal, true );
-                return;
-        }
-        switch ( s.size() )
-        {
-            case 2: // Only the destination square
-                type = Pawn;
-                typeSet = true;
-                break;
-
-            case 3:
-                //TODO:
-                if ( QByteArray("abcdefgh").contains ( s[0].toLatin1() ) )
-                {
-                    file = Pos::numFromRow ( s[0] );
-                    fileSet = true;
-                }
-                else if ( QByteArray("KQRBNP").contains ( s[0].toLatin1() ) )
-                {
-                    type = Piece::typeFromChar ( s[0] );
-                    typeSet = true;
-                }
-                break;
-                
-            case 4:
-                // Both piece type and starting file
-                type = Piece::typeFromChar ( s[0] );
-                typeSet = true;
-                file = Pos::numFromRow ( s[1] );
-                fileSet = true;
-                break;
-        }
-        move->setTo ( s.right(2) );
-        for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
-        {
-            if ( it.value()->color() == color
-                && ( !typeSet || it.value()->pieceType() == type )
-                && ( !fileSet || it.key().first == file )
-                && legalMoves(it.key()).contains( Move( it.key(), move->to() ) ) )
-            {
-                if ( found )
-                {
-                    kWarning() << "Found more than one possible move";
-                    move->setFlag ( Move::Illegal, true );
-                    return;
-                }
-                move->setFrom( it.key() );
-                found = true;
-            }
-        }
-        if ( !found )
-        {
-            kWarning() << "No possible moves found" << move;
-            move->setFlag ( Move::Illegal, true );
-            return;
-        }
+        QString str = move->string();
+        move->setStringForNotation ( Move::Coordinate, str );
+        changeNotation ( move, Move::Algebraic, color );
+        move->setStringForNotation ( Move::Algebraic, move->string() );
+        move->setString ( str );
+        kDebug() << move->notation() << move->string();
     }
-
+    else
+    {
+        move->setStringForNotation ( Move::Algebraic, move->string() );
+        changeNotation ( move, Move::Coordinate, color );
+        move->setStringForNotation ( Move::Coordinate, move->string() );
+    }
+    
+    Q_ASSERT ( move->notation() == Move::Coordinate || !move->isValid()  );
+    
     Piece* p = m_grid->value ( move->from() );
     if ( !p )
     {
@@ -706,4 +648,159 @@ bool ChessRules::isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos
 
     return true;
 }
+
+void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color color )
+{
+    if ( !move->isValid() ||  move->notation() == notation || move->flag ( Move::Castle ) )
+    {
+        return;
+    }
+    
+    kDebug() << move->string();
+    
+    if ( notation == Move::Coordinate )
+    {
+        // Converting from Algebraic to Coordinate
+        /**
+         * Possible notations:
+         * * e4 == Pe4 == pawn to e4
+         * * Ne4 == Knight to e4
+         * * Rbe1 == Rook from file b to e1
+         * * cd4 == Pawn from file c to d4
+         */
+        QChar c;
+        PieceType type = NoType;
+        int file = -1;
+        int rank = -1;
+        bool found = false;
+        bool fileSet = false;
+        bool typeSet = false;
+        bool rankSet = false;
+        QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
+        if  ( s.size() < 2 )
+        {
+                kWarning() << "Unknown move notation" << move->string();
+                move->setFlag ( Move::Illegal, true );
+                return;
+        }
+        
+        if ( !QByteArray("KQBNRP").contains ( s[0].toLatin1() ) )
+        {
+            s = QLatin1Char('P') + s;
+        }
+        
+        type = Piece::typeFromChar ( s[0] );
+        typeSet = true;
+        s.remove ( 0, 1 );
+        
+        switch ( s.size() )
+        {
+            case 2:
+                // Only destination square
+                break;
+                
+            case 3:
+                // Either starting file or rank
+                if ( QByteArray("abcdefgh").contains( s[0].toLatin1() ) )
+                {
+                    file = Pos::numFromRow ( s[0] );
+                    fileSet = true;
+                }
+                else if ( QByteArray("12345678").contains ( s[0].toLatin1() ) )
+                {
+                    rank = QString( s[0] ).toInt();
+                    rankSet = true;
+                }
+                break;
+                
+            case 4:
+                // Both starting file and rank
+                file = Pos::numFromRow ( s[0] );
+                fileSet = true;
+                rank = QString ( s[1] ).toInt();
+                rankSet = true;
+                break;
+        }
+        move->setTo ( s.right(2) );
+        
+        kDebug() << "Conditions:";
+        if ( typeSet ) kDebug() << "Type == " << Piece::charFromType(type);
+        if ( fileSet ) kDebug() << "File == " << file;
+        if ( rankSet ) kDebug() << "Rank == " << rank;
+
+        for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
+        {
+            if ( it.value()->color() == color
+                && ( !typeSet || it.value()->pieceType() == type )
+                && ( !fileSet || it.key().first == file )
+                && ( !rankSet || it.key().second == rank )
+                && legalMoves(it.key()).contains( Move( it.key(), move->to() ) ) )
+            {
+                if ( found )
+                {
+                    kWarning() << "Found more than one possible move";
+                    move->setFlag ( Move::Illegal, true );
+                    return;
+                }
+                move->setFrom( it.key() );
+                found = true;
+            }
+        }
+        if ( !found )
+        {
+            kWarning() << "No possible moves found" << move->string();
+            move->setFlag ( Move::Illegal, true );
+            return;
+        }
+    }
+    else 
+    {
+        // Converting from Coordinate to Algebraic
+        
+        QStringList possibilities;
+        
+        /*
+         * We try (in this order):
+         * Ne6, Nde7, N5e6, Nd5e6
+         */
+        const PieceType type = m_grid->value ( move->from() )->pieceType();
+        const QString typeLetter = (type != Pawn) ? Piece::charFromType ( type ) : QString();
+        QString end = move->to().string();
+        
+        if ( move->flag ( Move::Take ) )
+        {
+            end = QLatin1Char('x') + end;
+        }
+        
+        if ( move->flag ( Move::Promote ) )
+        {
+            end += QLatin1Char('=') + Piece::charFromType( move->promotedType() );
+        }
+        
+        possibilities << typeLetter + end;
+        possibilities << typeLetter + Pos::row ( move->from().first ) + end;
+        possibilities << typeLetter + QString::number ( move->from().second ) + end;
+        possibilities << typeLetter + move->from().string() + end;
+                
+        kDebug() << possibilities;
+        
+        foreach ( const QString& text, possibilities )
+        {
+            Move m ( text );
+            checkSpecialFlags ( &m, color );
+            if ( m.isValid() )
+            {
+                move->setString ( text );
+                break;
+            }
+        }
+        
+    }
+    
+    kDebug() << move->string();
+    
+    Q_ASSERT ( move->notation() == notation );
+}
+
+
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;
