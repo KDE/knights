@@ -111,7 +111,7 @@ void KnightsView::gameOver ( Color winner )
     QMap<KDialog::ButtonCode, QByteArray> buttonsMap;
     
     buttonsMap[KDialog::Yes] = KStandardGameAction::name ( KStandardGameAction::New );
-    buttonsMap[KDialog::User2] = KStandardGameAction::name ( KStandardGameAction::Save );
+    buttonsMap[KDialog::User2] = KStandardGameAction::name ( KStandardGameAction::SaveAs );
     
     for ( QMap<KDialog::ButtonCode, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it )
     {
