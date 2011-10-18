@@ -1,7 +1,8 @@
 #ifndef KNIGHTS_UCIPROTOCOL_H
 #define KNIGHTS_UCIPROTOCOL_H
 
-#include <proto/textprotocol.h>
+#include "proto/textprotocol.h"
+#include <QStack>
 
 class KProcess;
 
@@ -26,8 +27,15 @@ public:
     virtual void init();
     virtual void move(const Knights::Move& m);
     
+private slots:
+    void changeCurrentTime(Knights::Color color, const QTime& time);
+    
 private:
     KProcess* mProcess;
+    QStack<Move> mMoveHistory;
+    int mWhiteTime;
+    int mBlackTime;
+    Move mPonderMove;
 };
 
 }

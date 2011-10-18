@@ -3,6 +3,7 @@
 #include <KProcess>
 #include <KDebug>
 #include <KLocale>
+#include "gamemanager.h"
 
 using namespace Knights;
 
@@ -13,16 +14,25 @@ UciProtocol::UciProtocol(QObject* parent): TextProtocol(parent)
 
 UciProtocol::~UciProtocol()
 {
-
+    if ( mProcess && mProcess->isOpen() )
+    {
+        write("quit");
+        if ( !mProcess->waitForFinished ( 500 ) )
+        {
+            mProcess->kill();
+        }
+    }
 }
 
 bool UciProtocol::parseStub(const QString& line)
 {
+  Q_UNUSED(line);
   return false;
 }
 
 void UciProtocol::parseLine(const QString& line)
 {
+  kDebug() << line;
   if ( line.startsWith ( QLatin1String("uciok") ) )
   {
     write ( "isready" );
@@ -35,6 +45,21 @@ void UciProtocol::parseLine(const QString& line)
   {
     // Chop off the "id name " port, the remainder if the engine's name
     setPlayerName ( line.mid ( 8 ) );
+  }
+  else if ( line.startsWith ( QLatin1String("bestmove") ) )
+  {
+    kDebug() << line;
+    QStringList lst = line.split(QLatin1Char(' '));
+    if ( lst.size() > 1 )
+    {
+      Move m = Move ( lst[1] );
+      mMoveHistory << m;
+      emit pieceMoved ( m );
+    }
+    if ( lst.size() > 3 && lst[2] == QLatin1String("ponder") )
+    {
+      mPonderMove.setString ( lst[3] );      
+    }
   }
 }
 
@@ -85,13 +110,64 @@ void UciProtocol::init()
 
 void UciProtocol::move(const Knights::Move& m)
 {
-  QString str;
-  str += m.from().string() += m.to().string();
-  if ( m.promotedType() )
+  mMoveHistory << m;
+  
+  QString str = QLatin1String("position startpos moves ");
+  foreach ( const Move& move, mMoveHistory )
+  { 
+    QString moveString = move.from().string() + move.to().string();
+    if ( m.promotedType() )
+    {
+      moveString += Piece::charFromType ( move.promotedType() ).toLower();
+    }
+    str += moveString += QLatin1Char(' ');
+  }
+  write ( str );
+  
+  QString goString = QLatin1String("go depth 4"); // TODO: Change the magic number, this is basically difficulty
+  
+  if ( Manager::self()->timeControlEnabled(NoColor) )
   {
-    str += Piece::charFromType ( m.promotedType() ).toLower();
+    goString += QLatin1String(" wtime ") + QString::number ( mWhiteTime );
+    goString += QLatin1String(" btime ") + QString::number ( mBlackTime );
+    
+    int winc = Manager::self()->timeControl ( White ).increment;
+    if ( winc )
+    {
+      goString += QLatin1String(" winc ") + QString::number ( winc * 1000 );
+    }
+    int binc = Manager::self()->timeControl ( Black ).increment;
+    if ( winc )
+    {
+      goString += QLatin1String(" binc ") + QString::number ( binc * 1000 );
+    }
+    
+    int moves = Manager::self()->timeControl ( NoColor ).moves;
+    int movesToGo = mMoveHistory.size() % moves;
+    if ( movesToGo > 0 )
+    {
+      goString += QLatin1String(" movestogo ") + QString::number ( movesToGo );
+    }
   }
   
-  write ( str );
+  write ( goString );
+}
+
+void UciProtocol::changeCurrentTime(Color color, const QTime& time)
+{
+  int msecs = QTime().msecsTo ( time );
+  switch ( color )
+  {
+    case White:
+      mWhiteTime = msecs;
+      break;
+      
+    case Black:
+      mBlackTime = msecs;
+      break;
+      
+    default:
+      break;
+  }
 }
 
