@@ -32,8 +32,8 @@
 		<legalnotice>&FDLNotice;
 		</legalnotice>
 
-		<date>2011-02-16</date><!-- Date of (re)writing, or update.-->
-		<releaseinfo>&kappversion;
+		<date>2011-10-23</date><!-- Date of (re)writing, or update.-->
+		<releaseinfo>&kappversion; (&kde; 4.7)
 		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 		<abstract>
@@ -638,6 +638,29 @@
 					but will be remembered in case you change themes again.
 				</para>
 			</note>
+		</sect1>
+		
+		<sect1 id="configuration-accessibility">
+			<title>Accessibility</title>
+			<para>
+				The <guimenu>Accessibility</guimenu> section has some options
+				regarding the board dislay and usage of external programs to
+				make it easier for people with impairments to play the game.
+			</para>
+			<para>
+				The feature of turning around the board when the local player changes 
+				now optional, making it possible to use &knights; on a tablet as a 
+				chess board replacement. 
+			</para>
+			<para>
+				&jovie; the &kde; Text To Speech Service can be used to speak the opponents’ moves. 
+			</para>
+			<para>
+				It is possible to control &knights; via a &DBus; interface. 
+				It has no current uses, except with an unreleased version of 
+				<ulink url="http://simon-listens.org/">Simon</ulink>, 
+				enabling voice-only interaction.
+			</para>
 		</sect1>
 
 		<sect1 id="configuration-themes">
