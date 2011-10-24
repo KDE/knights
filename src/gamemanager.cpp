@@ -814,4 +814,42 @@ bool Manager::canLocalMove() const
   return false;
 }
 
+void Manager::levelChanged ( KGameDifficulty::standardLevel level )
+{
+  int depth = 0;
+  switch ( level )
+  {
+    case KGameDifficulty::VeryEasy:
+      depth = 1;
+      break;
+      
+    case KGameDifficulty::Easy:
+      depth = 3;
+      break;
+      
+    case KGameDifficulty::Medium:
+      depth = 8;
+      break;
+      
+    case KGameDifficulty::Hard:
+      depth = 16;
+      break;
+      
+    case KGameDifficulty::VeryHard:
+      depth = 29;
+      break;
+      
+    default: 
+      break;
+  }
+  foreach ( Protocol* p, QList<Protocol*>() << Protocol::white() << Protocol::black() )
+  {
+    if ( p && p->supportedFeatures() & Protocol::AdjustDifficulty )
+    {
+      p->setDifficulty ( depth );
+    }
+  }
+}
+
+
 

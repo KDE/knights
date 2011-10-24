@@ -350,7 +350,10 @@ void XBoardProtocol::makeOffer(const Offer& offer)
 
 void XBoardProtocol::setDifficulty(int level)
 {
+    // Gnuchess only supports 'depth', while Crafty (and the XBoard protocol) wants 'sd'. 
+    // So we give both. 
     write ( QLatin1String("depth ") + QString::number ( level ) );
+    write ( QLatin1String("sd ") + QString::number ( level ) );
 }
 
 
