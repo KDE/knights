@@ -22,7 +22,7 @@
 #include "knights.h"
 
 #include "core/piece.h"
-#include "proto/xboardproto.h"
+#include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
 #include "knightsview.h"
 #include "settings.h"

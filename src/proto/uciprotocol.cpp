@@ -7,7 +7,7 @@
 
 using namespace Knights;
 
-UciProtocol::UciProtocol(QObject* parent): TextProtocol(parent)
+UciProtocol::UciProtocol(QObject* parent): ComputerProtocol(parent)
 {
 
 }
@@ -22,6 +22,11 @@ UciProtocol::~UciProtocol()
             mProcess->kill();
         }
     }
+}
+
+Protocol::Features UciProtocol::supportedFeatures()
+{
+    return GameOver | Pause | Draw | Adjourn | Resign | Undo | SetDifficulty | AdjustDifficulty;
 }
 
 bool UciProtocol::parseStub(const QString& line)
@@ -85,26 +90,7 @@ void UciProtocol::startGame()
 
 void UciProtocol::init()
 {
-    QStringList args = attribute("program").toString().split ( QLatin1Char ( ' ' ) );
-    QString program = args.takeFirst();
-    setPlayerName ( program );
-    mProcess = new KProcess ( this );
-    mProcess->setProgram ( program, args );
-    mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
-    mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
-    mProcess->setReadChannel ( KProcess::StandardOutput );
-    connect ( mProcess, SIGNAL (readyReadStandardError()), SLOT (readError()) );
-    setDevice ( mProcess );
-    kDebug() << "Starting program" << program << "with args" << args;
-    mProcess->start();
-    if ( !mProcess->waitForStarted ( 1000 ) )
-    {
-        emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
-        return;
-    }
-    
-    // TODO: Write options and register here
-    
+    startProgram();
     write("uci");
 }
 
@@ -124,8 +110,13 @@ void UciProtocol::move(const Knights::Move& m)
   }
   write ( str );
   
-  QString goString = QLatin1String("go depth 4"); // TODO: Change the magic number, this is basically difficulty
+  QString goString = QLatin1String("go");
   
+  if ( mDifficulty )
+  {
+    goString += QLatin1String(" depth ") + QString::number ( mDifficulty );
+  }
+
   if ( Manager::self()->timeControlEnabled(NoColor) )
   {
     goString += QLatin1String(" wtime ") + QString::number ( mWhiteTime );
@@ -170,4 +161,10 @@ void UciProtocol::changeCurrentTime(Color color, const QTime& time)
       break;
   }
 }
+
+void UciProtocol::setDifficulty(int level)
+{
+    mDifficulty = level;
+}
+
 
