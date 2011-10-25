@@ -448,6 +448,7 @@ void Manager::protocolInitSuccesful()
 void Manager::startGame()
 {
     Q_D(GameManager);
+    levelChanged ( KGameDifficulty::level() );
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
@@ -836,12 +837,15 @@ void Manager::levelChanged ( KGameDifficulty::standardLevel level )
       break;
       
     case KGameDifficulty::VeryHard:
-      depth = 29;
+      depth = 32;
       break;
       
     default: 
       break;
   }
+  
+  kDebug() << "Difficulty changed to" << KGameDifficulty::localizedLevelStrings() [ KGameDifficulty::levelWeights() [ level ] ] << ", setting computer search depth to" << depth;
+  
   foreach ( Protocol* p, QList<Protocol*>() << Protocol::white() << Protocol::black() )
   {
     if ( p && p->supportedFeatures() & Protocol::AdjustDifficulty )

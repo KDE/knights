@@ -75,6 +75,15 @@ namespace Knights
         // add a status bar
         statusBar()->show();
         
+        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel) ) );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryEasy );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Easy );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Medium );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Hard );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryHard );
+        KGameDifficulty::setRestartOnChange ( KGameDifficulty::NoRestartOnChange );
+        KGameDifficulty::setLevel ( (KGameDifficulty::standardLevel)Settings::computerDifficulty() );
+
         // a call to KXmlGuiWindow::setupGUI() populates the GUI
         // with actions, using KXMLGUI.
         // It also applies the saved mainwindow settings, if any, and ask the
@@ -92,16 +101,7 @@ namespace Knights
         connect ( m_view, SIGNAL (gameNew()), this, SLOT (fileNew()), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL (initComplete()), SLOT (protocolInitSuccesful()) );
         connect( qApp, SIGNAL (lastWindowClosed()), this, SLOT (exitKnights()) );
-        
-        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel) ) );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryEasy );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Easy );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Medium );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Hard );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryHard );
-        KGameDifficulty::setRestartOnChange ( KGameDifficulty::NoRestartOnChange );
-        KGameDifficulty::setLevel ( (KGameDifficulty::standardLevel)Settings::computerDifficulty() );
-        
+                
         QTimer::singleShot ( 0, this, SLOT (fileNew()) );
     }
 
