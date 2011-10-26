@@ -36,6 +36,11 @@
 #include "kspeechinterface.h"
 #include "externalcontrol.h"
 
+#include <KDE/KFileDialog>
+#include <KDE/KLocale>
+#include <QtCore/QTextStream>
+#include <KDE/KSaveFile>
+
 using namespace Knights;
 
 const int TimerInterval = 100;
@@ -72,6 +77,10 @@ public:
   
   org::kde::KSpeech* speech;
   ExternalControl* extControl;
+  
+  QString filename;
+   Color winner;
+   bool winnerNotified;
   
   int nextOfferId();
 };
@@ -289,6 +298,7 @@ void Manager::initialize()
 {
   Q_D(GameManager);
   d->gameStarted = false;
+  d->winnerNotified = false;
   d->running = false;
   d->activePlayer = White;
   d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
@@ -458,14 +468,19 @@ void Manager::startGame()
 void Manager::gameOver(Color winner)
 {
   sendPendingMove();
-  Q_D(const GameManager);
+  Q_D(GameManager);
   if ( d->gameStarted )
   {
     stopTime();
-    Protocol::white()->setWinner(winner);
-    Protocol::black()->setWinner(winner);
-    emit winnerNotify(winner);
-    reset();
+    if ( !d->winnerNotified )
+    {
+      d->winner = winner;
+      Protocol::white()->setWinner(winner);
+      Protocol::black()->setWinner(winner);
+      emit winnerNotify(winner);
+      
+      d->winnerNotified = true;
+    }
   }
 }
 
@@ -494,6 +509,9 @@ void Manager::reset()
   d->usedOfferIds.clear();
   
   d->gameStarted = false;
+  d->winner = NoColor;
+  d->winnerNotified = false;
+  
   delete d->extControl;
 }
 
@@ -855,5 +873,180 @@ void Manager::levelChanged ( KGameDifficulty::standardLevel level )
   }
 }
 
+void Manager::loadGameHistory()
+{
+  loadGameHistoryFrom ( KFileDialog::getOpenFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) ) );
+}
 
+void Manager::loadGameHistoryFrom(const QString& filename)
+{
+  kDebug() << filename;
+  QFile file(filename);
+  if ( !file.open(QIODevice::ReadOnly) )
+  {
+    return;
+  }
+      
+  QRegExp tagPairExp = QRegExp(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
+  
+  while ( file.bytesAvailable() > 0 )
+  {
+    QByteArray line = file.readLine();
+    kDebug() << "Read line" << line;
+    if ( tagPairExp.indexIn ( QLatin1String(line) ) > -1 )
+    {
+      // Parse a tag pair
+      QString key = tagPairExp.cap(1);
+      QString value = tagPairExp.cap(2);
+      
+      if ( key == QLatin1String("White") )
+      {
+	Protocol::white()->setPlayerName ( value );
+      }
+      else if ( key == QLatin1String("Black") )
+      {
+	Protocol::black()->setPlayerName ( value );
+      }
+      else if ( key == QLatin1String("TimeControl") )
+      {
+	// TODO, optional: Parse TimeControl Tag
+      }
+    }
+    else
+    {
+      // Parse a line of moves
+      foreach ( const QByteArray& str, line.split(' ') )
+      {
+	if ( !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') )
+	{
+	  // Only move numbers contain dots, not move data itself
+	  // We also exclude the game termination markers (results)
+	  
+	  kDebug() << "Read string" << str;
+	  Move m = Move ( QLatin1String(str) );
+	  moveByExternalControl ( m );
+	}
+      }
+    }
+  }
+}
 
+void Manager::saveGameHistory()
+{
+  Q_D(GameManager);
+  saveGameHistoryAs( d->filename );
+}
+
+void Manager::saveGameHistoryAs(const QString& filename)
+{
+  Q_D(GameManager);
+  
+  if ( filename.isEmpty() )
+  {
+    d->filename = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+  }
+  else
+  {
+    d->filename = filename;
+  }
+  
+  kDebug() << filename;
+  
+  QFile file ( d->filename );
+  file.open(QIODevice::WriteOnly);
+  QTextStream stream ( &file );
+  
+  // Write the player tags first
+  
+  // Standard Tag Roster: Event, Site, Date, Round, White, Black, Result
+  
+  stream << "[Event \"Casual Game\"]" << endl;
+  stream << "[Site \"?\"]" << endl;
+  stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << endl;
+  stream << "[Round \"-\"]" << endl;
+  stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
+  stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
+
+  QByteArray result;
+  if ( d->running )
+  {
+    result = "*";
+  }
+  else
+  {
+    switch ( d->winner )
+    {
+      case White:
+        result = "1-0";
+        break;
+      case Black:
+        result = "0-1";
+        break;
+      default:
+        result = "1/2-1/2";
+        break;
+    }
+  }
+  stream << "[Result \"" << result << "\"]" << endl;
+
+  // Supplemental tags, ordered alphabetacally. 
+  // Currently, only TimeControl is added
+  
+  stream << "[TimeControl \"";
+  if ( timeControlEnabled ( NoColor ) )
+  {
+    // The PGN specification doesn't include a time control combination with both a number of moves 
+    // and an increment per move defined, so we only output one of them
+    // If the spec will ever be expanded, the two lines should be combined:
+    // stream << tc.moves << '/' << QTime().secsTo ( tc.baseTime ) << '+' << tc.increment
+  
+    TimeControl tc = timeControl ( NoColor );
+    if ( tc.moves )
+    {
+      stream << tc.moves << '/' << QTime().secsTo ( tc.baseTime );
+    }
+    else
+    {
+      stream << QTime().secsTo ( tc.baseTime ) << '+' << tc.increment;
+    }
+  }
+  else
+  {
+    stream << '-';
+  }
+  stream << "\"]";    
+  
+  // A single newline separates the tag pairs from the movetext section
+  stream << endl;
+  
+  kDebug() << "Starting to write movetext";
+  
+  int n = d->moveHistory.size();
+  for (int i = 0; i < n; ++i)
+  {
+    Move m = d->moveHistory[i];
+    QString str = m.stringForNotation ( Move::Algebraic );
+    
+    if ( i % 2 == 0 )
+    {
+      // White move
+      stream << i/2+1 << ". " << str;
+    }
+    else
+    {
+      // Black move
+      stream << ' ' << str << ' ';
+    }
+    
+    // TODO: Calculate that there are at most 80 characters in every line. 
+  }
+  
+  kDebug();
+  
+  stream << ' ' << result;
+  
+  stream << endl;
+  stream.flush();
+  
+  kDebug() << "Saved";
+}

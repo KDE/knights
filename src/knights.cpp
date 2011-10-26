@@ -116,7 +116,11 @@ namespace Knights
         KStandardGameAction::quit ( qApp, SLOT (closeAllWindows()), actionCollection() );
         KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
         KStandardAction::preferences ( this, SLOT (optionsPreferences()), actionCollection() );
-
+        
+        KStandardGameAction::save ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
+        KStandardGameAction::saveAs ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
+        KStandardGameAction::load ( Manager::self(), SLOT (loadGameHistory()), actionCollection() );
+        
         KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
         resignAction->setText ( i18n ( "Resign" ) );
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));

@@ -164,6 +164,11 @@ public slots:
     
     void levelChanged ( KGameDifficulty::standardLevel level );
 
+    void saveGameHistory();
+    void saveGameHistoryAs(const QString& filename);
+    void loadGameHistory();
+    void loadGameHistoryFrom(const QString& filename);
+
 private:
   GameManagerPrivate* d_ptr;
     Move pendingMove;
