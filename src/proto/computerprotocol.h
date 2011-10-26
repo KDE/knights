@@ -19,48 +19,28 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KNIGHTS_UCIPROTOCOL_H
-#define KNIGHTS_UCIPROTOCOL_H
+#ifndef KNIGHTS_COMPUTERPROTOCOL_H
+#define KNIGHTS_COMPUTERPROTOCOL_H
 
-#include "proto/computerprotocol.h"
-#include <QStack>
+#include <proto/textprotocol.h>
 
 class KProcess;
 
 namespace Knights {
 
-class UciProtocol : public ComputerProtocol
+class ComputerProtocol : public TextProtocol
 {
-  
 public:
-    UciProtocol(QObject* parent = 0);
-    virtual ~UciProtocol();
+    ComputerProtocol(QObject* parent = 0);
+    virtual ~ComputerProtocol();
 
+    virtual void startProgram();
+    virtual bool isComputer();
+    
 protected:
-    virtual bool parseStub(const QString& line);
-    virtual void parseLine(const QString& line);
-
-public:
-    virtual Features supportedFeatures();
-    virtual void declineOffer(const Knights::Offer& offer);
-    virtual void acceptOffer(const Knights::Offer& offer);
-    virtual void makeOffer(const Knights::Offer& offer);
-    virtual void startGame();
-    virtual void init();
-    virtual void move(const Knights::Move& m);
-    virtual void setDifficulty(int level);
-    
-private slots:
-    void changeCurrentTime(Knights::Color color, const QTime& time);
-    
-private:
-    QStack<Move> mMoveHistory;
-    int mWhiteTime;
-    int mBlackTime;
-    Move mPonderMove;
-    int mDifficulty;
+    KProcess* mProcess;
 };
 
 }
 
-#endif // KNIGHTS_UCIPROTOCOL_H
+#endif // KNIGHTS_COMPUTERPROTOCOL_H
