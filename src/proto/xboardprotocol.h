@@ -22,13 +22,13 @@
 #ifndef KNIGHTS_XBOARDPROTO_H
 #define KNIGHTS_XBOARDPROTO_H
 
-#include "proto/textprotocol.h"
+#include "proto/computerprotocol.h"
 
 class KProcess;
 
 namespace Knights
 {
-    class XBoardProtocol : public TextProtocol
+    class XBoardProtocol : public ComputerProtocol
     {
             Q_OBJECT
         public:
@@ -37,7 +37,6 @@ namespace Knights
 
             virtual void move ( const Move& m );
             virtual Features supportedFeatures();
-    virtual bool isComputer();
 
     virtual QList<ToolWidgetData> toolWidgets();
 
@@ -45,7 +44,6 @@ namespace Knights
     virtual bool parseStub(const QString& line);
 
         private:
-            KProcess* mProcess;
             QString lastMoveString;
             bool resumePending;
     int m_moves;
@@ -61,6 +59,8 @@ namespace Knights
     virtual void makeOffer(const Offer& offer);
     virtual void acceptOffer(const Offer& offer);
     virtual void declineOffer(const Offer& offer);
+    
+    virtual void setDifficulty(int level);
             
 
     private Q_SLOTS:

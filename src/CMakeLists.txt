@@ -8,8 +8,10 @@ set(knights_SRCS
     proto/protocol.cpp
     proto/localprotocol.cpp
     proto/textprotocol.cpp
-    proto/xboardproto.cpp
     proto/ficsprotocol.cpp
+    proto/computerprotocol.cpp
+    proto/xboardprotocol.cpp
+    proto/uciprotocol.cpp
     
     proto/seekgraph.cpp
     proto/chatwidget.cpp

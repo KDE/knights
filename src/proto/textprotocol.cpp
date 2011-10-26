@@ -46,7 +46,11 @@ void TextProtocol::readFromDevice()
 	{
 	    foreach ( const QString& line, stream.readAll().split( QLatin1Char('\n') ) )
 	    {
-		parseStub(line.trimmed());
+                bool parsed = parseStub(line.trimmed());
+                if ( !parsed )
+                {
+                    parseLine(line.trimmed());
+                }
 	    }
 	}
     }
@@ -75,11 +79,13 @@ void TextProtocol::writeCheckMoves(const QString& text)
 
 void TextProtocol::write(const QString& text)
 {
+    kDebug() << text;
     stream << text << endl;
 }
 
 void TextProtocol::write(const char* text)
 {
+    kDebug() << text;
     stream << text << endl;
 }
 

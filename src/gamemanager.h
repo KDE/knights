@@ -30,6 +30,7 @@
 
 #include <KGlobal>
 #include "offerwidget.h"
+#include <KGameDifficulty>
 
 namespace Knights {
 
@@ -160,6 +161,8 @@ public slots:
     void abort();
     
     void setTimeRunning(bool running); 
+    
+    void levelChanged ( KGameDifficulty::standardLevel level );
 
 private:
   GameManagerPrivate* d_ptr;

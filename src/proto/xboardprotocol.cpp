@@ -19,7 +19,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "proto/xboardproto.h"
+#include "proto/xboardprotocol.h"
 #include "proto/chatwidget.h"
 #include "gamemanager.h"
 
@@ -31,8 +31,7 @@
 
 using namespace Knights;
 
-XBoardProtocol::XBoardProtocol ( QObject* parent ) : TextProtocol ( parent )
-, mProcess(0)
+XBoardProtocol::XBoardProtocol ( QObject* parent ) : ComputerProtocol ( parent )
 , m_moves(0)
 , m_increment(0)
 , m_baseTime(0)
@@ -43,7 +42,7 @@ XBoardProtocol::XBoardProtocol ( QObject* parent ) : TextProtocol ( parent )
 
 Protocol::Features XBoardProtocol::supportedFeatures()
 {
-    return GameOver | Pause | Draw | Adjourn | Resign | Undo;
+    return GameOver | Pause | Draw | Adjourn | Resign | Undo | SetDifficulty | AdjustDifficulty;
 }
 
 XBoardProtocol::~XBoardProtocol()
@@ -56,11 +55,6 @@ XBoardProtocol::~XBoardProtocol()
             mProcess->kill();
         }
     }
-}
-
-bool XBoardProtocol::isComputer()
-{
-    return true;
 }
 
 void XBoardProtocol::startGame()
@@ -93,23 +87,7 @@ void XBoardProtocol::move ( const Move& m )
 
 void XBoardProtocol::init (  )
 {
-    QStringList args = attribute("program").toString().split ( QLatin1Char ( ' ' ) );
-    QString program = args.takeFirst();
-    setPlayerName ( program );
-    mProcess = new KProcess ( this );
-    mProcess->setProgram ( program, args );
-    mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
-    mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
-    mProcess->setReadChannel ( KProcess::StandardOutput );
-    connect ( mProcess, SIGNAL (readyReadStandardError()), SLOT (readError()) );
-    setDevice(mProcess);
-    kDebug() << "Starting program" << program << "with args" << args;
-    mProcess->start();
-    if ( !mProcess->waitForStarted ( 1000 ) )
-    {
-        emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
-        return;
-    }
+    startProgram();
     write("xboard");
     initComplete();
 }
@@ -368,6 +346,14 @@ void XBoardProtocol::makeOffer(const Offer& offer)
         default:
             break;
     }
+}
+
+void XBoardProtocol::setDifficulty(int level)
+{
+    // Gnuchess only supports 'depth', while Crafty (and the XBoard protocol) wants 'sd'. 
+    // So we give both. 
+    write ( QLatin1String("depth ") + QString::number ( level ) );
+    write ( QLatin1String("sd ") + QString::number ( level ) );
 }
 
 

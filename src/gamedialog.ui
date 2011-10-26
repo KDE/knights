@@ -39,6 +39,19 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
       <item row="1" column="0">
        <layout class="QHBoxLayout" name="compLayout_1">
         <item>
@@ -59,19 +72,6 @@
          </widget>
         </item>
        </layout>
-      </item>
-      <item row="2" column="0">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>0</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </widget>
@@ -309,22 +309,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>player1Comp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>player1Program</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>79</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>362</x>
-     <y>80</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>player2Comp</sender>
    <signal>toggled(bool)</signal>
    <receiver>player2Program</receiver>
@@ -401,6 +385,22 @@
     <hint type="destinationlabel">
      <x>454</x>
      <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>player1Comp</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>player1Program</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>79</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>362</x>
+     <y>80</y>
     </hint>
    </hints>
   </connection>

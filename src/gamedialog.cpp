@@ -23,7 +23,7 @@
 
 #include "ui_gamedialog.h"
 #include "proto/localprotocol.h"
-#include "proto/xboardproto.h"
+#include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
 #include "gamemanager.h"
 

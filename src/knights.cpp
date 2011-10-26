@@ -22,7 +22,7 @@
 #include "knights.h"
 
 #include "core/piece.h"
-#include "proto/xboardproto.h"
+#include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
 #include "knightsview.h"
 #include "settings.h"
@@ -49,6 +49,7 @@
 #include <KUser>
 #include "gamemanager.h"
 #include "rules/chessrules.h"
+#include <KGameDifficulty>
 
 namespace Knights
 {
@@ -73,6 +74,15 @@ namespace Knights
 
         // add a status bar
         statusBar()->show();
+        
+        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel) ) );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryEasy );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Easy );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Medium );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::Hard );
+        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryHard );
+        KGameDifficulty::setRestartOnChange ( KGameDifficulty::NoRestartOnChange );
+        KGameDifficulty::setLevel ( (KGameDifficulty::standardLevel)Settings::computerDifficulty() );
 
         // a call to KXmlGuiWindow::setupGUI() populates the GUI
         // with actions, using KXMLGUI.
@@ -91,12 +101,13 @@ namespace Knights
         connect ( m_view, SIGNAL (gameNew()), this, SLOT (fileNew()), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL (initComplete()), SLOT (protocolInitSuccesful()) );
         connect( qApp, SIGNAL (lastWindowClosed()), this, SLOT (exitKnights()) );
-
+                
         QTimer::singleShot ( 0, this, SLOT (fileNew()) );
     }
 
     MainWindow::~MainWindow()
     {
+        Settings::setComputerDifficulty ( (int)KGameDifficulty::level() );
     }
 
     void MainWindow::setupActions()
