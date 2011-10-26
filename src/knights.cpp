@@ -50,6 +50,9 @@
 #include "gamemanager.h"
 #include "rules/chessrules.h"
 #include <KGameDifficulty>
+#include <QListView>
+#include <QStringListModel>
+#include "historywidget.h"
 
 namespace Knights
 {
@@ -68,6 +71,7 @@ namespace Knights
         setDockNestingEnabled (true);
         setupClockDock();
         setupConsoleDocks();
+        setupHistoryDock();
 
         // then, setup our actions
         setupActions();
@@ -160,6 +164,13 @@ namespace Knights
         connect ( clockAction, SIGNAL (triggered(bool)), m_clockDock, SLOT (setVisible(bool)) );
         connect ( clockAction, SIGNAL (triggered(bool)), this, SLOT (setShowClockSetting(bool)) );
         clockAction->setVisible (false);
+        
+        KToggleAction* historyAction = new KToggleAction ( KIcon(QLatin1String("view-history")), i18n("Show History"), actionCollection() );
+        actionCollection()->addAction ( QLatin1String("show_history"), historyAction );
+        connect ( historyAction, SIGNAL (triggered(bool)), m_historyDock, SLOT (setVisible(bool)) );
+        connect ( historyAction, SIGNAL (triggered(bool)), this, SLOT (setShowHistorySetting(bool)) );
+        historyAction->setVisible (true);
+        historyAction->setChecked ( Settings::showHistory() );
       
         KToggleAction* wconsoleAction = new KToggleAction ( KIcon(QLatin1String("utilities-terminal")), i18n("Show White Console"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_console_white"), wconsoleAction );
@@ -390,6 +401,19 @@ void MainWindow::showFicsSpectateDialog()
         addDockWidget ( Qt::LeftDockWidgetArea, m_chatDock );
     }    
     
+    void MainWindow::setupHistoryDock()
+    {
+        m_historyDock = new QDockWidget ();
+        m_historyDock->setObjectName ( QLatin1String("HistoryDockWidget") );
+        m_historyDock->setFeatures ( QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable );
+        
+        m_historyDock->setWindowTitle ( i18n("Move History") );
+        m_historyDock->setWidget ( new HistoryWidget );
+
+        addDockWidget ( Qt::LeftDockWidgetArea, m_historyDock );
+    }
+
+    
     void MainWindow::protocolError ( Protocol::ErrorCode errorCode, const QString& errorString )
     {
         if ( errorCode != Protocol::UserCancelled )
@@ -465,39 +489,41 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::setShowClockSetting( bool value )
     {
-        Settings::self()->setShowClock( value );
+        Settings::setShowClock( value );
     }
+    
+    void MainWindow::setShowHistorySetting(bool value)
+    {
+        Settings::setShowHistory ( value );
+    }
+
 
     void MainWindow::setShowConsoleSetting()
     {
          if ( (actionCollection()->action( QLatin1String ( "show_console_white" ) )->isChecked() ) && (actionCollection()->action( QLatin1String ( "show_console_white" ) )->isVisible() ) )
          {
-             Settings::self()->setShowConsole( true );
+             Settings::setShowConsole( true );
          }
          else if ( (actionCollection()->action( QLatin1String ( "show_console_black" ) )->isChecked() ) && (actionCollection()->action( QLatin1String ( "show_console_black" ) )->isVisible() ) )
          {
-             Settings::self()->setShowConsole( true );
+             Settings::setShowConsole( true );
          }
          else
          {
-             Settings::self()->setShowConsole( false );
+             Settings::setShowConsole( false );
          }
     }
 
     void MainWindow::setShowChatSetting( bool value )
     {
-        Settings::self()->setShowChat( value );
+        Settings::setShowChat( value );
     }
 
     void MainWindow::exitKnights()
     {
         //This will close the gnuchess/crafty/whatever process if it's running.
-        if ( Protocol::white() ) {
-            delete Protocol::white();
-        }
-        if ( Protocol::black() ) {
-            delete Protocol::black();
-        }
+        delete Protocol::white();
+        delete Protocol::black();
         Settings::self()->writeConfig();
     }
 

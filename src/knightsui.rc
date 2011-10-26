@@ -24,10 +24,11 @@
     </Menu>
     
     <Menu name="settings">
+      <Action name="show_history" />
       <Action name="show_clock" />
+      <Action name="show_chat" />
       <Action name="show_console_black" />
       <Action name="show_console_white" />
-      <Action name="show_chat" />
     </Menu>
     
   </MenuBar>
@@ -47,10 +48,11 @@
   
   <ToolBar name="dockToolBar" >
     <text>Dockable Windows Toolbar</text>
+    <Action name="show_history" />
     <Action name="show_clock" />
+    <Action name="show_chat" />
     <Action name="show_console_black" />
     <Action name="show_console_white" />
-    <Action name="show_chat" />
   </ToolBar>
  
 </gui> 

@@ -393,7 +393,7 @@ void Move::setStringForNotation(Move::Notation notation, const QString& string)
     d->notationStrings [ notation ] = string;
 }
 
-QString Move::stringForNotation(Move::Notation notation)
+QString Move::stringForNotation(Move::Notation notation) const
 {
     if ( d->notationStrings.contains ( notation ) )
     {

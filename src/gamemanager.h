@@ -31,6 +31,9 @@
 #include <KGlobal>
 #include "offerwidget.h"
 #include <KGameDifficulty>
+#include <QStack>
+
+class QAbstractListModel;
 
 namespace Knights {
 
@@ -111,7 +114,7 @@ public:
         void reset();
 	
 	void startGame();
-
+        QStack<Move> moveHistory() const;
     
 private:
     void addMoveToHistory ( const Move& move );
@@ -140,6 +143,8 @@ signals:
   void initComplete();
   void notification ( const Offer& offer );
   void winnerNotify ( Color winner );
+  
+  void historyChanged();
 
 public slots:
   void moveByProtocol ( const Move& move );

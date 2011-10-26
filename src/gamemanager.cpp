@@ -40,6 +40,7 @@
 #include <KDE/KLocale>
 #include <QtCore/QTextStream>
 #include <KDE/KSaveFile>
+#include <QStringListModel>
 
 using namespace Knights;
 
@@ -228,6 +229,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
             emit redoPossible(false);
         }
         d->moveUndoStack.clear();
+        emit historyChanged();
     }
 
     Move Manager::nextUndoMove()
@@ -252,6 +254,9 @@ void Manager::setCurrentTime(Color color, const QTime& time)
             emit redoPossible(true);
         }
         d->moveUndoStack.push( m );
+
+        emit historyChanged();
+        
         Move ret = m.reverse();
 	kDebug() << m << ret;
         ret.setFlag ( Move::Forced, true );
@@ -272,6 +277,8 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         }
         d->moveHistory << m;
         m.setFlag ( Move::Forced, true );
+        emit historyChanged();
+        
         return m;
     }
 
@@ -1050,3 +1057,11 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   kDebug() << "Saved";
 }
+
+QStack< Move > Manager::moveHistory() const
+{
+  Q_D(const GameManager);
+  return d->moveHistory;
+}
+
+

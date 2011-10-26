@@ -63,6 +63,10 @@
       <label>show the text console, if supported by the protocol</label>
       <default>false</default>
     </entry>
+    <entry name="showHistory" type="Bool">
+      <label>show move history</label>
+      <default>true</default>
+    </entry>
   </group>
   <group name="Time Control">
     <entry name="timeLimit" type="Int">

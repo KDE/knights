@@ -28,6 +28,7 @@
 
 #include <KXmlGuiWindow>
 
+class QStringListModel;
 class KToggleAction;
 
 namespace Knights
@@ -62,6 +63,7 @@ namespace Knights
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );
 
             void setShowClockSetting( bool value );
+            void setShowHistorySetting( bool value );
             void setShowConsoleSetting();
             void setShowChatSetting( bool value );
 
@@ -71,6 +73,8 @@ namespace Knights
             void setupActions();
             void setupClockDock();
             void setupConsoleDocks();
+            void setupHistoryDock();
+            
             void showFicsDialog( Color color = NoColor, bool computer = false);
             void showFicsSpectateDialog();
 
@@ -83,6 +87,7 @@ namespace Knights
             QPointer<QDockWidget> m_wconsoleDock;
             QPointer<QDockWidget> m_bconsoleDock;
             QPointer<QDockWidget> m_chatDock;
+            QPointer<QDockWidget> m_historyDock;
 
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;

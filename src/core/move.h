@@ -127,7 +127,7 @@ namespace Knights
             bool isValid() const;
             
             void setStringForNotation ( Notation notation, const QString& string );
-            QString stringForNotation ( Notation notation );
+            QString stringForNotation ( Notation notation ) const;
 
         private:
             QSharedDataPointer<MovePrivate> d;

@@ -23,6 +23,7 @@ set(knights_SRCS
     offerwidget.cpp
     clock.cpp
     clockwidget.cpp
+    historywidget.cpp
     
     externalcontrol.cpp
     gamemanager.cpp
@@ -59,6 +60,7 @@ kde4_add_ui_files(knights_SRCS
     prefs_access.ui
     gamedialog.ui
     clockwidget.ui
+    historywidget.ui
     promotiondialog.ui
     proto/ficsdialog.ui
     proto/chatwidget.ui
