@@ -24,6 +24,8 @@ set(knights_SRCS
     clock.cpp
     clockwidget.cpp
     historywidget.cpp
+    enginesettings.cpp
+    engineconfigdialog.cpp
     
     externalcontrol.cpp
     gamemanager.cpp
@@ -65,6 +67,8 @@ kde4_add_ui_files(knights_SRCS
     proto/ficsdialog.ui
     proto/chatwidget.ui
     popup.ui
+    enginesettings.ui
+    engineconfigdialog.ui
 )
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml)

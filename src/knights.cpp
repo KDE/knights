@@ -53,6 +53,7 @@
 #include <QListView>
 #include <QStringListModel>
 #include "historywidget.h"
+#include "enginesettings.h"
 
 namespace Knights
 {
@@ -439,6 +440,8 @@ void MainWindow::showFicsSpectateDialog()
 #endif
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
         connect ( dialog, SIGNAL (settingsChanged(QString)), m_view, SLOT (settingsChanged()) );
+        
+        dialog->addPage ( new EngineSettings ( this ), i18n("Computer Engines"), QLatin1String("computer") );
         
         QWidget* accessDlg = new QWidget;
         ui_prefs_access.setupUi ( accessDlg );

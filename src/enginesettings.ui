@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EngineSettings</class>
+ <widget class="QWidget" name="EngineSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>523</width>
+    <height>151</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0" rowspan="4" colspan="2">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="columnCount">
+      <number>4</number>
+     </property>
+     <column>
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Command</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Protocol</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Installed</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item row="3" column="2">
+    <widget class="KPushButton" name="removeButton">
+     <property name="text">
+      <string>Remove</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="KPushButton" name="addButton">
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="KPushButton" name="modifyButton">
+     <property name="text">
+      <string>Modify</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

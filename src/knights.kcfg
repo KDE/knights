@@ -153,6 +153,10 @@
       <label>delay before a computer's move is reported, in milliseconds</label>
       <default>500</default>
     </entry>
+    <entry name="engineConfigurations" type="StringList">
+      <label>stored configurations of engine-specific settings</label>
+      <default>GNU Chess:gnuchess:xboard,Crafty:crafty:xboard,GNU Chess:gnuches --uci:uci</default>
+    </entry>
   </group>
   <group name="Accessibility">
       <entry name="speakOpponentsMoves" type="Bool">
