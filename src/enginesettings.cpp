@@ -211,3 +211,14 @@ void EngineSettings::selectionChanged()
   ui->modifyButton->setEnabled ( selected );
   ui->removeButton->setEnabled ( selected );
 }
+
+void EngineSettings::writeConfig()
+{
+  QStringList out;
+  foreach ( const EngineConfiguration& c, configurations )
+  {
+    out << c.toString();
+  }
+  Settings::setEngineConfigurations ( out );
+}
+

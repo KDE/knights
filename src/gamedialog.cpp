@@ -28,6 +28,8 @@
 #include "gamemanager.h"
 
 #include <Solid/Networking>
+#include "enginesettings.h"
+#include "engineconfigdialog.h"
 
 using namespace Knights;
 
@@ -79,14 +81,10 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
             break;
     }
 
-    ui->player1Program->setHistoryItems( Settings::programs() );
-    ui->player1Program->setCurrentItem( Settings::player1Program(), true );
+    loadEngines();
+    connect ( ui->player1Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
+    connect ( ui->player2Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
     
-    ui->player2Program->setHistoryItems( Settings::programs() );
-    ui->player2Program->setCurrentItem( Settings::player2Program(), true );
-    ui->player2Server->setHistoryItems( Settings::servers() );
-    ui->player2Server->setCurrentItem( Settings::currentServer(), true );
-
     connect ( ui->timeLimit, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
     connect ( ui->timeIncrement, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
     connect ( ui->numberOfMoves, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
@@ -108,6 +106,12 @@ void GameDialog::setupProtocols()
     tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
     tc.increment = ui->timeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
+    
+    QList<EngineConfiguration> configs;
+    foreach ( const QString& s, Settings::engineConfigurations() )
+    {
+        configs << EngineConfiguration ( s );
+    }
 
     Protocol* p1 = 0;
     Protocol* p2 = 0;
@@ -119,7 +123,7 @@ void GameDialog::setupProtocols()
     else
     {
         p1 = new XBoardProtocol;
-        p1->setAttribute ( "program", ui->player1Program->currentText() );
+        p1->setAttribute ( "program", configs [ ui->player1Program->currentIndex() ].commandLine );
     }
     
     if ( ui->colorWhite->isChecked() )
@@ -138,7 +142,7 @@ void GameDialog::setupProtocols()
     else if ( ui->player2Comp->isChecked() )
     {
         p2 = new XBoardProtocol;
-        p2->setAttribute ( "program", ui->player2Program->currentText() );
+        p2->setAttribute ( "program", configs [ ui->player2Program->currentIndex() ].commandLine );
     }
     else
     {
@@ -157,7 +161,6 @@ void GameDialog::setupProtocols()
 
 void GameDialog::writeConfig()
 {
-    QStringList programs;
     Settings::EnumPlayer1Protocol::type p1;
     if ( ui->player1Human->isChecked() )
     {
@@ -166,7 +169,6 @@ void GameDialog::writeConfig()
     else
     {
         p1 = Settings::EnumPlayer1Protocol::XBoard;
-        programs << ui->player1Program->historyItems() << ui->player1Program->currentText();
         Settings::setPlayer1Program ( ui->player1Program->currentText() );
     }
     Settings::setPlayer1Protocol ( p1 );
@@ -179,7 +181,6 @@ void GameDialog::writeConfig()
     else if ( ui->player2Comp->isChecked() )
     {
         p2 = Settings::EnumPlayer2Protocol::XBoard;
-        programs << ui->player2Program->historyItems() << ui->player2Program->currentText() ;
         Settings::setPlayer2Program ( ui->player2Program->currentText() );
     }
     else
@@ -189,8 +190,6 @@ void GameDialog::writeConfig()
         Settings::setCurrentServer ( ui->player2Server->currentText() );
     }   
     Settings::setPlayer2Protocol ( p2 );
-    programs.removeDuplicates();
-    Settings::setPrograms ( programs );
     
     Settings::EnumColor::type selectedColor = Settings::EnumColor::NoColor;
     if ( ui->colorWhite->isChecked() )
@@ -235,6 +234,47 @@ void GameDialog::changeNetworkStatus(Solid::Networking::Status status)
     }
     ui->player2Fics->setEnabled ( enableFics );
 }
+
+void GameDialog::showEngineConfigDialog()
+{
+    KDialog* dlg = new KDialog ( this );
+    EngineSettings* ecd = new EngineSettings ( dlg );
+    dlg->setMainWidget ( ecd );
+    connect ( dlg, SIGNAL(accepted()), ecd, SLOT(writeConfig()) );
+    connect ( dlg, SIGNAL(accepted()), this, SLOT(loadEngines()) );
+    dlg->show();
+}
+
+void GameDialog::loadEngines()
+{
+    QStringList programs;
+    QList<EngineConfiguration> configs;
+    foreach ( const QString& s, Settings::engineConfigurations() )
+    {
+        QStringList l = s.split ( QLatin1Char(':'), QString::SkipEmptyParts );
+        EngineConfiguration e = EngineConfiguration ( s );
+        if ( !e.name.isEmpty() )
+        {
+            programs << e.name;
+            configs << e;
+        }
+    }
+    
+    int n = qMax ( ui->player1Program->count(), ui->player2Program->count() );
+    for (int i = 0; i < n; ++i)
+    {
+        ui->player1Program->removeItem(0);
+        ui->player2Program->removeItem(0);
+    }
+
+    ui->player1Program->addItems ( programs );
+    ui->player1Program->setCurrentItem ( Settings::player1Program(), false );
+    
+    ui->player2Program->addItems ( programs );
+    ui->player2Program->setCurrentItem ( Settings::player2Program(), false );
+}
+
+
 
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

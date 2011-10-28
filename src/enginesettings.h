@@ -75,6 +75,8 @@ public slots:
     void modifyClicked();
     void removeClicked();
     void selectionChanged();
+    
+    void writeConfig();
 };
 
 }

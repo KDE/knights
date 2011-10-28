@@ -441,7 +441,9 @@ void MainWindow::showFicsSpectateDialog()
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
         connect ( dialog, SIGNAL (settingsChanged(QString)), m_view, SLOT (settingsChanged()) );
         
-        dialog->addPage ( new EngineSettings ( this ), i18n("Computer Engines"), QLatin1String("computer") );
+        EngineSettings* engineSettings = new EngineSettings ( this );
+        dialog->addPage ( engineSettings, i18n("Computer Engines"), QLatin1String("computer") );
+        connect ( dialog, SIGNAL(accepted()), engineSettings, SLOT(writeConfig()) );
         
         QWidget* accessDlg = new QWidget;
         ui_prefs_access.setupUi ( accessDlg );
@@ -450,6 +452,7 @@ void MainWindow::showFicsSpectateDialog()
         QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );
         dialog->addPage ( themeDlg, i18n ( "Theme" ), QLatin1String ( "games-config-theme" ) );
         dialog->setAttribute ( Qt::WA_DeleteOnClose );
+                
         dialog->show();
     }
 

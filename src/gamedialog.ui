@@ -62,12 +62,12 @@
          </widget>
         </item>
         <item>
-         <widget class="KHistoryComboBox" name="player1Program">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="historyItems">
-           <stringlist/>
+         <widget class="KComboBox" name="player1Program"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="player1Engines">
+          <property name="text">
+           <string>...</string>
           </property>
          </widget>
         </item>
@@ -102,12 +102,12 @@
          </widget>
         </item>
         <item>
-         <widget class="KHistoryComboBox" name="player2Program">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="historyItems">
-           <stringlist/>
+         <widget class="KComboBox" name="player2Program"/>
+        </item>
+        <item>
+         <widget class="QToolButton" name="player2Engines">
+          <property name="text">
+           <string>...</string>
           </property>
          </widget>
         </item>
@@ -309,22 +309,6 @@
  <resources/>
  <connections>
   <connection>
-   <sender>player2Comp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>player2Program</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>102</x>
-     <y>214</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>362</x>
-     <y>214</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>player2Fics</sender>
    <signal>toggled(bool)</signal>
    <receiver>player2Server</receiver>
@@ -385,22 +369,6 @@
     <hint type="destinationlabel">
      <x>454</x>
      <y>129</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>player1Comp</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>player1Program</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>136</x>
-     <y>79</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>362</x>
-     <y>80</y>
     </hint>
    </hints>
   </connection>
