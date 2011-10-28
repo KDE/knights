@@ -54,7 +54,10 @@
 		</keywordset>
 
 	</bookinfo>
-
+<!-- 
+new in >2.4.0 history, UCI, Difficulty settings, see
+http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
+-->
 	<chapter id="introduction">
 		<title>Introduction</title>
 		<note>
@@ -649,7 +652,7 @@
 			</para>
 			<para>
 				The feature of turning around the board when the local player changes 
-				now optional, making it possible to use &knights; on a tablet as a 
+				is now optional, making it possible to use &knights; on a tablet as a 
 				chess board replacement. 
 			</para>
 			<para>
