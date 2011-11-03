@@ -183,9 +183,10 @@ void UciProtocol::changeCurrentTime(Color color, const QTime& time)
   }
 }
 
-void UciProtocol::setDifficulty(int level)
+void UciProtocol::setDifficulty(int depth, int memory)
 {
-    mDifficulty = level;
+    mDifficulty = depth;
+    write ( QLatin1String("setoption name Hash value ") + QString::number ( memory ) );
 }
 
 

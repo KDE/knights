@@ -129,6 +129,14 @@
       <label>the skill of computer players</label>
       <default code="true">KGameDifficulty::Medium</default>
     </entry>
+    <entry name="computerSearchDepth" type="Int">
+      <label>the search depth of computer engines, when the difficulty is set to Configurable</label>
+      <default>29</default>
+    </entry>
+    <entry name="computerMemorySize" type="Int">
+      <label>the memory size used by computer engines, when the difficulty is set to Configurable</label>
+      <default>50</default>
+    </entry>
     <entry name="servers" type="StringList">
       <label>list of servers for playing over the Internet</label>
       <default>freechess.org</default>

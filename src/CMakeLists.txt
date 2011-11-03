@@ -69,6 +69,7 @@ kde4_add_ui_files(knights_SRCS
     popup.ui
     enginesettings.ui
     engineconfigdialog.ui
+    customdifficultydialog.ui
 )
 kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
 qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml)

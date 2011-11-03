@@ -144,7 +144,7 @@ class ChatWidget;
             virtual QList<ToolWidgetData> toolWidgets();
             virtual void setTimeControl ( const TimeControl& c );
             virtual bool isReady();
-            virtual void setDifficulty ( int level );
+            virtual void setDifficulty ( int depth, int memory );
             
         Q_SIGNALS:
             void pieceMoved ( const Move& m );

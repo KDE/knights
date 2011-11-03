@@ -22,24 +22,24 @@
 #include "gamemanager.h"
 
 #include "core/move.h"
-
-#include <QStack>
 #include "proto/protocol.h"
-#include <KDebug>
-#include <KLocale>
 #include "rules/rules.h"
 #include "rules/chessrules.h"
-#include <QTimer>
-#include <settings.h>
+#include "externalcontrol.h"
+#include "settings.h"
+#include "ui_customdifficultydialog.h"
 
+#include <KDebug>
+#include <KLocale>
 #include <KSpeech>
 #include "kspeechinterface.h"
-#include "externalcontrol.h"
+#include <KFileDialog>
+#include <KLocale>
+#include <KSaveFile>
 
-#include <KDE/KFileDialog>
-#include <KDE/KLocale>
-#include <QtCore/QTextStream>
-#include <KDE/KSaveFile>
+#include <QStack>
+#include <QTimer>
+#include <QTextStream>
 #include <QStringListModel>
 
 using namespace Knights;
@@ -843,6 +843,7 @@ bool Manager::canLocalMove() const
 void Manager::levelChanged ( KGameDifficulty::standardLevel level )
 {
   int depth = 0;
+  int size = 32;
   switch ( level )
   {
     case KGameDifficulty::VeryEasy:
@@ -865,19 +866,54 @@ void Manager::levelChanged ( KGameDifficulty::standardLevel level )
       depth = 32;
       break;
       
+    case KGameDifficulty::Configurable:
+      // Open the dialog for the user to specify custom difficulty parameters
+      if ( !getCustomDifficulty(&depth, &size) )
+      {
+        return;
+      }
+      break;
+      
     default: 
       break;
   }
   
-  kDebug() << "Difficulty changed to" << KGameDifficulty::localizedLevelStrings() [ KGameDifficulty::levelWeights() [ level ] ] << ", setting computer search depth to" << depth;
-  
+  setDifficulty ( depth, size );
+}
+
+void Manager::setDifficulty(int searchDepth, int memorySize)
+{
   foreach ( Protocol* p, QList<Protocol*>() << Protocol::white() << Protocol::black() )
   {
     if ( p && p->supportedFeatures() & Protocol::AdjustDifficulty )
     {
-      p->setDifficulty ( depth );
+      p->setDifficulty ( searchDepth, memorySize );
     }
   }
+}
+
+bool Manager::getCustomDifficulty(int* depth, int* size)
+{
+  bool accepted = false;
+  QPointer<KDialog> dialog = new KDialog();
+  QWidget* widget = new QWidget ( dialog );
+  Ui::CustomDifficultyDialog* ui = new Ui::CustomDifficultyDialog;
+  ui->setupUi ( widget );
+  ui->searchDepthIntSpinBox->setSuffix ( ki18np(" move", " moves") );
+  ui->memorySizeIntSpinBox->setValue ( Settings::computerMemorySize() );
+  ui->searchDepthIntSpinBox->setValue ( Settings::computerSearchDepth() );
+  dialog->setMainWidget ( widget );
+  if ( dialog->exec() == KDialog::Accepted )
+  {
+    accepted = true;
+    *depth = ui->searchDepthIntSpinBox->value();
+    Settings::setComputerSearchDepth ( ui->searchDepthIntSpinBox->value() );
+    *size = ui->memorySizeIntSpinBox->value();
+    Settings::setComputerMemorySize ( ui->memorySizeIntSpinBox->value() );
+  }
+  delete dialog;
+  delete ui;
+  return accepted;
 }
 
 void Manager::loadGameHistory()

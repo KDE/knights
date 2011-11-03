@@ -48,7 +48,7 @@ public:
     virtual void startGame();
     virtual void init();
     virtual void move(const Knights::Move& m);
-    virtual void setDifficulty(int level);
+    virtual void setDifficulty(int depth, int memory);
     
 private slots:
     void changeCurrentTime(Knights::Color color, const QTime& time);

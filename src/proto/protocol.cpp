@@ -251,9 +251,10 @@ bool Protocol::isComputer()
     return false;
 }
 
-void Protocol::setDifficulty(int level)
+void Protocol::setDifficulty(int depth, int memory)
 {
-    Q_UNUSED(level);
+    Q_UNUSED(depth);
+    Q_UNUSED(memory);
 }
 
 }

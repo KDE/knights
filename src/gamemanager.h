@@ -127,6 +127,7 @@ private:
     void processMove(const Move& move);
     
     Protocol* local();
+    bool getCustomDifficulty(int* depth, int* size);
     
 private slots:
     void sendPendingMove();
@@ -168,6 +169,7 @@ public slots:
     void setTimeRunning(bool running); 
     
     void levelChanged ( KGameDifficulty::standardLevel level );
+    void setDifficulty ( int searchDepth, int memorySize );
 
     void saveGameHistory();
     void saveGameHistoryAs(const QString& filename);
