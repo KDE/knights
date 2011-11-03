@@ -6,38 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>531</width>
-    <height>352</height>
+    <width>353</width>
+    <height>432</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="spacing">
-    <number>-1</number>
-   </property>
-   <property name="margin">
-    <number>0</number>
-   </property>
    <item>
     <widget class="QGroupBox" name="animationGroup">
      <property name="title">
       <string>Animations</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
        <widget class="QLabel" name="animationSpeedLabel">
         <property name="text">
-         <string>Animation Speed</string>
+         <string>Animation &amp;speed:</string>
+        </property>
+        <property name="buddy">
+         <cstring>kcfg_animationSpeed</cstring>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="QCheckBox" name="kcfg_animateBoard">
-        <property name="text">
-         <string>Animate Board as well</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
+      <item row="0" column="1">
        <widget class="KComboBox" name="kcfg_animationSpeed">
         <item>
          <property name="text">
@@ -61,6 +51,29 @@
         </item>
        </widget>
       </item>
+      <item row="1" column="1">
+       <widget class="QCheckBox" name="kcfg_animateBoard">
+        <property name="text">
+         <string>Animate the board as well</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="display_box">
+     <property name="title">
+      <string>Board Display</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="kcfg_flipBoard">
+        <property name="text">
+         <string>Flip the board in local matches between humans</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -69,18 +82,28 @@
      <property name="title">
       <string>Appearance</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0" colspan="2">
-       <widget class="QCheckBox" name="kcfg_showMarker">
+     <layout class="QFormLayout" name="formLayout_2">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="showMarkersForLabel">
         <property name="text">
-         <string>Show Legal Moves</string>
+         <string>Show &amp;markers for:</string>
         </property>
-        <property name="checked">
-         <bool>true</bool>
+        <property name="buddy">
+         <cstring>showMarkersForCheckBox</cstring>
         </property>
        </widget>
       </item>
-      <item row="2" column="0" colspan="2">
+      <item row="0" column="1">
+       <widget class="QCheckBox" name="showMarkersForCheckBox">
+        <property name="text">
+         <string comment="Option to show markers for">Legal moves</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
        <widget class="QCheckBox" name="kcfg_showMotion">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -89,20 +112,27 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>Show Opponent's Move</string>
+         <string comment="Option to show markers for">Opponent's move</string>
         </property>
         <property name="checked">
          <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" colspan="2">
+      <item row="3" column="1">
        <widget class="QCheckBox" name="kcfg_showDanger">
         <property name="text">
-         <string>Show Check</string>
+         <string comment="Option to show markers for">Check</string>
         </property>
         <property name="checked">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Border display:</string>
         </property>
        </widget>
       </item>
@@ -110,30 +140,36 @@
        <widget class="KComboBox" name="kcfg_borderDisplayType">
         <item>
          <property name="text">
-          <string>No Borders</string>
+          <string>No borders</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Only Borders</string>
+          <string>Only borders</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Borders and Notation</string>
+          <string>Borders and notation</string>
          </property>
         </item>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Border Display</string>
-        </property>
        </widget>
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>133</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

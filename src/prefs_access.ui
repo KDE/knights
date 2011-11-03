@@ -12,25 +12,9 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="display_box">
-     <property name="title">
-      <string>Board display</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QCheckBox" name="kcfg_flipBoard">
-        <property name="text">
-         <string>Flip the board in local matches between humans</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <widget class="QGroupBox" name="external_box">
      <property name="title">
-      <string>External programs</string>
+      <string>External Programs</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
