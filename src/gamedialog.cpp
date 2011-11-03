@@ -30,6 +30,7 @@
 #include <Solid/Networking>
 #include "enginesettings.h"
 #include "engineconfigdialog.h"
+#include "proto/uciprotocol.h"
 
 using namespace Knights;
 
@@ -122,8 +123,16 @@ void GameDialog::setupProtocols()
     }
     else
     {
-        p1 = new XBoardProtocol;
-        p1->setAttribute ( "program", configs [ ui->player1Program->currentIndex() ].commandLine );
+        EngineConfiguration c = configs [ ui->player1Program->currentIndex() ];
+        if ( c.iface == EngineConfiguration::XBoard )
+        {
+            p1 = new XBoardProtocol;
+        }
+        else
+        {
+            p1 = new UciProtocol; 
+        }
+        p1->setAttribute ( "program", c.commandLine );
     }
     
     if ( ui->colorWhite->isChecked() )
@@ -141,8 +150,16 @@ void GameDialog::setupProtocols()
     }
     else if ( ui->player2Comp->isChecked() )
     {
-        p2 = new XBoardProtocol;
-        p2->setAttribute ( "program", configs [ ui->player2Program->currentIndex() ].commandLine );
+        EngineConfiguration c = configs [ ui->player2Program->currentIndex() ];
+        if ( c.iface == EngineConfiguration::XBoard )
+        {
+            p2 = new XBoardProtocol;
+        }
+        else
+        {
+            p2 = new UciProtocol; 
+        }
+        p2->setAttribute ( "program", c.commandLine );
     }
     else
     {
