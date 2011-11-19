@@ -47,7 +47,7 @@ UciProtocol::~UciProtocol()
 
 Protocol::Features UciProtocol::supportedFeatures()
 {
-    return GameOver | Pause | Draw | Adjourn | Resign | Undo | SetDifficulty | AdjustDifficulty;
+    return GameOver | Pause | Resign | Undo | SetDifficulty | AdjustDifficulty;
 }
 
 bool UciProtocol::parseStub(const QString& line)
@@ -129,6 +129,7 @@ void UciProtocol::move(const Knights::Move& m)
     }
     str += moveString += QLatin1Char(' ');
   }
+  str.chop(1);
   write ( str );
   
   QString goString = QLatin1String("go");
