@@ -31,13 +31,6 @@
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="modifyButton">
-       <property name="text">
-        <string>Modify</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -54,9 +47,6 @@
    </item>
    <item>
     <widget class="QTableWidget" name="tableWidget">
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
      <property name="alternatingRowColors">
       <bool>true</bool>
      </property>

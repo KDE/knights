@@ -24,11 +24,9 @@
 #include "settings.h"
 
 #include <KStandardDirs>
+#include <KComboBox>
 
 #include <QLabel>
-#include <QPointer>
-#include "engineconfigdialog.h"
-
 
 using namespace Knights;
 
@@ -88,7 +86,7 @@ QString EngineConfiguration::interfaceName() const
   return QString();
 }
 
-EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget()
+EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
 {
   ui = new Ui::EngineSettings;
   ui->setupUi ( this );
@@ -96,18 +94,22 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget()
   ui->addButton->setIcon ( KIcon(QLatin1String("list-add")) );
   connect ( ui->addButton, SIGNAL(clicked(bool)), SLOT(addClicked()) );
   
-  ui->modifyButton->setIcon ( KIcon(QLatin1String("document-edit")) );
-  connect ( ui->modifyButton, SIGNAL(clicked(bool)), SLOT(modifyClicked()) );
-  
   ui->removeButton->setIcon ( KIcon(QLatin1String("list-remove")) );
   connect ( ui->removeButton, SIGNAL(clicked(bool)), SLOT(removeClicked()) );
   
+  int row = 0;
   foreach ( const QString s, Settings::engineConfigurations() )
   {
-    addConfiguration ( EngineConfiguration ( s ) );
+    addClicked();
+    EngineConfiguration c = EngineConfiguration ( s );
+    ui->tableWidget->setItem ( row, NameColumn, new QTableWidgetItem ( c.name ) );
+    ui->tableWidget->setItem ( row, CommandColumn, new QTableWidgetItem ( c.commandLine ) );
+    qobject_cast<KComboBox*> ( ui->tableWidget->cellWidget ( row, ProtocolColumn ) )->setCurrentIndex ( (int)c.iface );
+    ++row;
   }
   
-  connect ( ui->tableWidget, SIGNAL(itemSelectionChanged()), SLOT(selectionChanged()));
+  checkInstalled();
+  connect ( ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem*)), SLOT(checkInstalled()) );
 }
 
 EngineSettings::~EngineSettings()
@@ -115,108 +117,56 @@ EngineSettings::~EngineSettings()
 
 }
 
-EngineConfiguration EngineSettings::selectedConfiguration()
+void EngineSettings::checkInstalled()
 {
-  return configurationAt ( selectedIndex() );
-}
-
-int EngineSettings::selectedIndex()
-{
-  QModelIndexList list = ui->tableWidget->selectionModel()->selectedRows();
-  if ( list.isEmpty() )
+  int n = ui->tableWidget->rowCount();
+  for ( int i = 0; i < n; ++i )
   {
-    return -1;
+    QTableWidgetItem* item = ui->tableWidget->item ( i, CommandColumn );
+    QLatin1Char s ( ' ' );
+    bool ok = item && !item->text().isEmpty() && !KStandardDirs::findExe ( item->text().split ( s ).first() ).isEmpty();
+    const char* iconName = ok ? "dialog-ok" : "dialog-error"; 
+    QLabel* label = new QLabel ( this );
+    label->setPixmap ( KIcon(QLatin1String(iconName)).pixmap(32, 32) );
+    ui->tableWidget->setCellWidget ( i, InstalledColumn, label );
   }
-  return list.first().row();
-}
-
-void EngineSettings::addConfiguration(const EngineConfiguration& config)
-{
-  kDebug() << config.name << config.commandLine << config.interfaceName();
-  configurations << config;
-  int i = configurations.size();
-  ui->tableWidget->setRowCount ( i );
-  editConfiguration ( i-1, config );
-}
-
-EngineConfiguration EngineSettings::configurationAt(int index)
-{
-  if ( index < 0 || index >= configurations.size() )
-  {
-    return EngineConfiguration ( QString() );
-  }
-  return configurations.at ( index );
-}
-
-void EngineSettings::editConfiguration(int i, const EngineConfiguration& config)
-{
-  ui->tableWidget->setItem ( i, 0, new QTableWidgetItem ( config.name ) );
-  ui->tableWidget->setItem ( i, 1, new QTableWidgetItem ( config.commandLine ) );
-  ui->tableWidget->setItem ( i, 2, new QTableWidgetItem ( config.interfaceName() ) );
-  
-  QString exe = config.commandLine.split ( QLatin1Char(' '), QString::KeepEmptyParts ).first();
-  QLabel* label = new QLabel ();
-  if ( !KStandardDirs::findExe ( exe ).isEmpty() )
-  {
-    label->setPixmap ( KIcon(QLatin1String("dialog-ok")).pixmap(32, 32) );
-  }
-  else
-  {
-    label->setPixmap ( KIcon(QLatin1String("dialog-error")).pixmap(32, 32) );
-  }
-  ui->tableWidget->setCellWidget ( i, 3, label );
 }
 
 void EngineSettings::addClicked()
 {
-  QPointer<KDialog> dlg = new KDialog(this);
-  EngineConfigDialog* config = new EngineConfigDialog ( dlg );
-  dlg->setMainWidget ( config );
-  if ( dlg->exec() == KDialog::Accepted )
-  {
-    addConfiguration ( config->configuration() );
-  }
-  delete dlg;
-}
-
-void EngineSettings::modifyClicked()
-{
-  QPointer<KDialog> dlg = new KDialog(this);
-  int i = selectedIndex();
-  EngineConfigDialog* config = new EngineConfigDialog ( dlg );
-  config->setConfiguration ( selectedConfiguration() );
-  dlg->setMainWidget ( config );
-  if ( dlg->exec() == KDialog::Accepted )
-  {
-    editConfiguration ( i, config->configuration() );
-  }
-  delete dlg;
+  int n = ui->tableWidget->rowCount();
+  ui->tableWidget->insertRow ( n );
+  KComboBox* box = new KComboBox ( this );
+  box->insertItems ( 0, QStringList() << i18nc("Protocol name", "XBoard") << i18nc("Protocol name", "UCI") );
+  ui->tableWidget->setCellWidget ( n, ProtocolColumn, box );
+  checkInstalled();
+  ui->tableWidget->edit ( ui->tableWidget->model()->index ( n, NameColumn ) );
 }
 
 void EngineSettings::removeClicked()
 {
-  int i = selectedIndex();
-  if ( i == -1)
+  if ( ui->tableWidget->selectionModel()->selectedRows().isEmpty() )
   {
     return;
   }
   
-  configurations.removeAt ( i );
+  int i = ui->tableWidget->selectionModel()->selectedRows().first().row();
+  if ( i == -1)
+  {
+    return;
+  }
   ui->tableWidget->removeRow ( i );
-}
-
-void EngineSettings::selectionChanged()
-{
-  bool selected = ( selectedIndex() > -1 );
-  ui->modifyButton->setEnabled ( selected );
-  ui->removeButton->setEnabled ( selected );
 }
 
 void EngineSettings::writeConfig()
 {
   QStringList out;
-  foreach ( const EngineConfiguration& c, configurations )
+  for ( int i = 0; i < ui->tableWidget->rowCount(); ++i )
   {
+    EngineConfiguration c = EngineConfiguration ( QString() );
+    c.name = ui->tableWidget->item ( i, NameColumn )->text();
+    c.commandLine = ui->tableWidget->item ( i, CommandColumn )->text();
+    c.iface = (EngineConfiguration::Interface)qobject_cast<KComboBox*>(ui->tableWidget->cellWidget ( i, ProtocolColumn ))->currentIndex();    
     out << c.toString();
   }
   Settings::setEngineConfigurations ( out );

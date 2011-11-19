@@ -29,7 +29,6 @@
 
 #include <Solid/Networking>
 #include "enginesettings.h"
-#include "engineconfigdialog.h"
 #include "proto/uciprotocol.h"
 
 using namespace Knights;

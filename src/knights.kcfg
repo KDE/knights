@@ -163,7 +163,7 @@
     </entry>
     <entry name="engineConfigurations" type="StringList">
       <label>stored configurations of engine-specific settings</label>
-      <default>GNU Chess:gnuchess:xboard,Crafty:crafty:xboard,GNU Chess:gnuches --uci:uci</default>
+      <default>GNU Chess:gnuchess:xboard,Crafty:crafty:xboard,Stockfish:stockfish:uci</default>
     </entry>
   </group>
   <group name="Accessibility">

@@ -35,9 +35,9 @@ class EngineConfiguration
   public:
     enum Interface
     {
-      Invalid,
-      XBoard,
-      Uci
+      XBoard = 0,
+      Uci = 1,
+      Invalid = 0x10
     };
     
     EngineConfiguration(const QString& string);
@@ -54,27 +54,28 @@ class EngineConfiguration
 class EngineSettings : public QWidget
 {
   Q_OBJECT
+  
+  enum Column
+  {
+    NameColumn = 0,
+    CommandColumn = 1,
+    ProtocolColumn = 2,
+    InstalledColumn = 3,
+    ColumnCount = 4
+  };
 
 public:
     explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
     virtual ~EngineSettings();
-    
-    int selectedIndex();
-    EngineConfiguration configurationAt ( int index );
-    EngineConfiguration selectedConfiguration();
-    
+        
 private:
     Ui::EngineSettings* ui;
     QList<EngineConfiguration> configurations;
     
-public slots:
-    void addConfiguration ( const EngineConfiguration& config );
-    void editConfiguration ( int i, const Knights::EngineConfiguration& config );
-    
+public slots:    
     void addClicked();
-    void modifyClicked();
     void removeClicked();
-    void selectionChanged();
+    void checkInstalled();
     
     void writeConfig();
 };
