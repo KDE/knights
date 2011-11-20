@@ -36,6 +36,7 @@ public:
 
     virtual void startProgram();
     virtual bool isComputer();
+    virtual QList< ToolWidgetData > toolWidgets();
     
 protected:
     KProcess* mProcess;

@@ -52,6 +52,7 @@ public:
     
 private slots:
     void changeCurrentTime(Knights::Color color, const QTime& time);
+    void requestNextMove();
     
 private:
     QStack<Move> mMoveHistory;

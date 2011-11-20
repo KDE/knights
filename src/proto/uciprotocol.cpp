@@ -58,22 +58,27 @@ bool UciProtocol::parseStub(const QString& line)
 
 void UciProtocol::parseLine(const QString& line)
 {
+  ChatWidget::MessageType type = ChatWidget::GeneralMessage;
   kDebug() << line;
   if ( line.startsWith ( QLatin1String("uciok") ) )
   {
+    type = ChatWidget::AccountMessage;
     write ( "isready" );
   }
   else if ( line.startsWith ( QLatin1String("readyok") ) )
   {
+    type = ChatWidget::AccountMessage;
     emit initComplete();
   }
   else if ( line.startsWith ( QLatin1String("id name ") ) )
   {
+    type = ChatWidget::AccountMessage;
     // Chop off the "id name " port, the remainder if the engine's name
     setPlayerName ( line.mid ( 8 ) );
   }
   else if ( line.startsWith ( QLatin1String("bestmove") ) )
   {
+    type = ChatWidget::MoveMessage;
     kDebug() << line;
     QStringList lst = line.split(QLatin1Char(' '));
     if ( lst.size() > 1 )
@@ -87,6 +92,7 @@ void UciProtocol::parseLine(const QString& line)
       mPonderMove.setString ( lst[3] );      
     }
   }
+  writeToConsole ( line, type );
 }
 
 void UciProtocol::declineOffer(const Knights::Offer& offer)
@@ -107,6 +113,10 @@ void UciProtocol::makeOffer(const Knights::Offer& offer)
 void UciProtocol::startGame()
 {
   write ( "ucinewgame" );
+  if ( color() == White )
+  {
+    requestNextMove();
+  }
 }
 
 void UciProtocol::init()
@@ -118,18 +128,25 @@ void UciProtocol::init()
 void UciProtocol::move(const Knights::Move& m)
 {
   mMoveHistory << m;
+  requestNextMove();
+}
+
+void UciProtocol::requestNextMove()
+{
+  QString str = QLatin1String("position startpos");
   
-  QString str = QLatin1String("position startpos moves ");
-  foreach ( const Move& move, mMoveHistory )
-  { 
-    QString moveString = move.from().string() + move.to().string();
-    if ( m.promotedType() )
+  if ( !mMoveHistory.isEmpty() )
+  {
+    str += QLatin1String(" moves");
+    foreach ( const Move& move, mMoveHistory )
     {
-      moveString += Piece::charFromType ( move.promotedType() ).toLower();
+      QString moveString = QLatin1Char(' ') + move.from().string() + move.to().string();
+      if ( move.promotedType() )
+      {
+        moveString += Piece::charFromType ( move.promotedType() ).toLower();
+      }
     }
-    str += moveString += QLatin1Char(' ');
   }
-  str.chop(1);
   write ( str );
   
   QString goString = QLatin1String("go");

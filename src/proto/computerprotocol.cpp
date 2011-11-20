@@ -63,4 +63,19 @@ bool ComputerProtocol::isComputer()
     return true;
 }
 
+QList< Protocol::ToolWidgetData > ComputerProtocol::toolWidgets()
+{
+    ChatWidget* console = createConsoleWidget();
+    connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)));
+    setConsole ( console );
+    ToolWidgetData data;
+    data.widget = console;
+    data.title = i18n("Console for %1 (%2)", playerName(), colorName ( color() ) );
+    data.name = QLatin1String("console") + attribute("program").toString() + QLatin1Char( color() == White ? 'W' : 'B' );
+    data.type = ConsoleToolWidget;
+    data.owner = color();
+    return QList< Protocol::ToolWidgetData >() << data;
+}
+
+
 
