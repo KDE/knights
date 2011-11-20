@@ -277,14 +277,10 @@ void GameDialog::loadEngines()
             configs << e;
         }
     }
+       
+    ui->player1Program->clear();
+    ui->player2Program->clear();
     
-    int n = qMax ( ui->player1Program->count(), ui->player2Program->count() );
-    for (int i = 0; i < n; ++i)
-    {
-        ui->player1Program->removeItem(0);
-        ui->player2Program->removeItem(0);
-    }
-
     ui->player1Program->addItems ( programs );
     ui->player1Program->setCurrentItem ( Settings::player1Program(), false );
     
