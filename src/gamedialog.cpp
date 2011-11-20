@@ -132,6 +132,7 @@ void GameDialog::setupProtocols()
             p1 = new UciProtocol; 
         }
         p1->setAttribute ( "program", c.commandLine );
+        p1->setPlayerName ( c.name );
     }
     
     if ( ui->colorWhite->isChecked() )
@@ -159,6 +160,7 @@ void GameDialog::setupProtocols()
             p2 = new UciProtocol; 
         }
         p2->setAttribute ( "program", c.commandLine );
+        p2->setPlayerName ( c.name );
     }
     else
     {
