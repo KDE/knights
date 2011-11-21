@@ -88,11 +88,9 @@ namespace Knights
         KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryHard );
         KGameDifficulty::addStandardLevel ( KGameDifficulty::Configurable );
         KGameDifficulty::setRestartOnChange ( KGameDifficulty::NoRestartOnChange );
+        
         KGameDifficulty::standardLevel level = (KGameDifficulty::standardLevel)Settings::computerDifficulty();
-        if ( level == KGameDifficulty::Configurable )
-        {
-            
-        }
+        KGameDifficulty::setLevel ( level );
 
         // a call to KXmlGuiWindow::setupGUI() populates the GUI
         // with actions, using KXMLGUI.

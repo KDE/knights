@@ -58,6 +58,10 @@ bool UciProtocol::parseStub(const QString& line)
 
 void UciProtocol::parseLine(const QString& line)
 {
+  if ( line.isEmpty() )
+  {
+    return;
+  }
   ChatWidget::MessageType type = ChatWidget::GeneralMessage;
   kDebug() << line;
   if ( line.startsWith ( QLatin1String("uciok") ) )
@@ -79,7 +83,6 @@ void UciProtocol::parseLine(const QString& line)
   else if ( line.startsWith ( QLatin1String("bestmove") ) )
   {
     type = ChatWidget::MoveMessage;
-    kDebug() << line;
     QStringList lst = line.split(QLatin1Char(' '));
     if ( lst.size() > 1 )
     {
