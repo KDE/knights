@@ -48,6 +48,7 @@ private:
 private slots:
     void updateModel();
     void updateModelStandardNotation ( Move::Notation notation );
+    void saveHistory();
 };
 
 }

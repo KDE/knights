@@ -27,6 +27,9 @@
 #include <QStringListModel>
 #include <KDebug>
 #include <QScrollBar>
+#include <KStandardGameAction>
+#include <KActionCollection>
+#include "knights.h"
 
 using namespace Knights;
 
@@ -42,6 +45,7 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
   connect ( Manager::self(), SIGNAL(historyChanged()), SLOT(updateModel()) );
   
   ui->saveButton->setIcon ( KIcon(QLatin1String("document-save")) );
+  connect ( ui->saveButton, SIGNAL(clicked(bool)), SLOT(saveHistory()));
   
   kDebug();
 }
@@ -95,6 +99,13 @@ void HistoryWidget::updateModelStandardNotation ( Move::Notation notation )
     ui->listView->scrollToBottom();
   }
 }
+
+void HistoryWidget::saveHistory()
+{
+  MainWindow* mw = qobject_cast<MainWindow*>(window());
+  mw->actionCollection()->action( QLatin1String(KStandardGameAction::name(KStandardGameAction::Save)) )->trigger();
+}
+
 
 
 
