@@ -60,6 +60,9 @@ void HistoryWidget::updateModel()
       break;
       
     case 1:
+      updateModelStandardNotation ( Move::LongAlgebraic );
+      break;
+      
     case 2:
       updateModelStandardNotation ( Move::Coordinate );
       break;

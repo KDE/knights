@@ -62,7 +62,8 @@ namespace Knights
             {
                 NoNotation, /**< No string has been set */
                 Algebraic, /**< It omits the starting file and rank of the piece, unless it is necessary to disambiguate the move. */
-                Coordinate /**< includes the starting file and rank of the piece */
+                Coordinate, /**< specifies the starting and end position */
+                LongAlgebraic /**< specifies almost everything */
             };
             Q_DECLARE_FLAGS ( Flags, MoveFlag )
 

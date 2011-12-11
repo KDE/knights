@@ -372,7 +372,6 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         changeNotation ( move, Move::Algebraic, color );
         move->setStringForNotation ( Move::Algebraic, move->string() );
         move->setString ( str );
-        kDebug() << move->notation() << move->string();
     }
     else
     {
@@ -397,6 +396,25 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         return;
     }
     move->setPieceData ( qMakePair( p->color(), p->pieceType() ) );
+    
+    // The long algebraic notation can be constructed from the two above
+    QString lan;
+    if ( move->pieceData().second != Pawn )
+    {
+        lan += Piece::charFromType ( move->pieceData().second );
+    }
+    lan += move->from().string();
+    if ( move->flag ( Move::Take ) )
+    {
+        lan += QLatin1Char('x');
+    }
+    else
+    {
+        lan += QLatin1Char('-');
+    }
+    lan += move->to().string();
+    move->setStringForNotation ( Move::LongAlgebraic, lan );
+
     move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
     if ( m_grid->contains ( move->to() ) )
     {
