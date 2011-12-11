@@ -45,6 +45,7 @@
 using namespace Knights;
 
 const int TimerInterval = 100;
+const int LineLimit = 80; // Maximum characters per line for PGN format
 
 void Offer::accept() const
 {
@@ -1064,24 +1065,38 @@ void Manager::saveGameHistoryAs(const QString& filename)
   
   kDebug() << "Starting to write movetext";
   
+  int characters = 0;
   int n = d->moveHistory.size();
   for (int i = 0; i < n; ++i)
   {
     Move m = d->moveHistory[i];
-    QString str = m.stringForNotation ( Move::Algebraic );
+    const QString moveString = m.stringForNotation ( Move::Algebraic );
+    QString output;
     
     if ( i % 2 == 0 )
     {
       // White move
-      stream << i/2+1 << ". " << str;
+      output = QString::number(i/2+1) + QLatin1String(". ") + moveString;
     }
     else
     {
       // Black move
-      stream << ' ' << str << ' ';
+      output = moveString;
     }
     
-    // TODO: Calculate that there are at most 80 characters in every line. 
+    if ( characters + output.size() > LineLimit )
+    {
+      stream << endl;
+      characters = 0;
+    }
+    
+    if ( characters != 0 )
+    {
+      stream << QLatin1Char(' ');
+    }
+    
+    stream << output;
+    characters += output.size();
   }
   
   kDebug();
