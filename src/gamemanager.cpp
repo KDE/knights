@@ -936,7 +936,6 @@ void Manager::loadGameHistoryFrom(const QString& filename)
   while ( file.bytesAvailable() > 0 )
   {
     QByteArray line = file.readLine();
-    kDebug() << "Read line" << line;
     if ( tagPairExp.indexIn ( QLatin1String(line) ) > -1 )
     {
       // Parse a tag pair
@@ -966,13 +965,14 @@ void Manager::loadGameHistoryFrom(const QString& filename)
 	  // Only move numbers contain dots, not move data itself
 	  // We also exclude the game termination markers (results)
 	  
-	  kDebug() << "Read string" << str;
 	  Move m = Move ( QLatin1String(str) );
 	  moveByExternalControl ( m );
 	}
       }
     }
   }
+  
+  emit playerNameChanged();
 }
 
 void Manager::saveGameHistory()

@@ -108,6 +108,7 @@ namespace Knights
         
         connect ( m_view, SIGNAL (gameNew()), this, SLOT (fileNew()), Qt::QueuedConnection );
         connect ( Manager::self(), SIGNAL (initComplete()), SLOT (protocolInitSuccesful()) );
+        connect ( Manager::self(), SIGNAL (playerNameChanged()), SLOT (updateCaption()) );
         connect( qApp, SIGNAL (lastWindowClosed()), this, SLOT (exitKnights()) );
                 
         QTimer::singleShot ( 0, this, SLOT (fileNew()) );
@@ -245,7 +246,7 @@ void MainWindow::showFicsSpectateDialog()
         kDebug() << Settings::showClock() << Settings::showConsole();
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
-        setCaption( i18n ( "%1 vs. %2", whiteName, blackName ) );
+        updateCaption();
         
         // show clock action button if timer active
         // show clock dock widget if timer active and configuration file entry has visible = true
@@ -535,6 +536,15 @@ void MainWindow::showFicsSpectateDialog()
         delete Protocol::black();
         Settings::self()->writeConfig();
     }
+    
+    void MainWindow::updateCaption()
+    {
+        if (Protocol::white() && Protocol::black())
+        {
+            setCaption( i18n ( "%1 vs. %2", Protocol::white()->playerName(), Protocol::black()->playerName() ) );
+        }
+    }
+
 
 }
 

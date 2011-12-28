@@ -146,6 +146,7 @@ signals:
   void winnerNotify ( Color winner );
   
   void historyChanged();
+  void playerNameChanged();
 
 public slots:
   void moveByProtocol ( const Move& move );
