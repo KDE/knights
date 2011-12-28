@@ -110,15 +110,16 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
                         </para>
                         <para>
                                 If you have installed a chess engine but it does not appear in the list,
-                                click the <guilabel>Configure Engine</guilabel> button and add the engine
-                                there. 
+                                click the <guilabel>Configure Engines</guilabel> button and add the engine
+                                there. See <xref linkend="configuration-engines"/> for more information
+                                regarding this dialog. 
                         </para>
                         <note><title>Note</title>
                         <para>
                                 Even though a program is listed in the dialog, it does not mean it is installed.
                                 Make sure you install whatever chess engine you wish to play against. 
                                 You can check whether an engine is installed on your system or not in the
-                                    <guilabel>Configure Engine</guilabel> dialog. 
+                                <guilabel>Configure Engines</guilabel> dialog. 
                         </para>
                         </note>
 			<para>
@@ -657,7 +658,8 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
                 </sect1>
 
                 <sect1 id="configuration-engines">
-                        <title>General</title>
+                        <title>Computer Engines</title>
+                        <mediaobject><imageobject><imagedata fileref="Knights-engines.png" /></imageobject></mediaobject>
                         <para>
                                 The <guimenu>Computer Engines</guimenu> section allows you to configure
                                 your computer opponents. For each engine specify the program name, the command used
