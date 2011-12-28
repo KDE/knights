@@ -932,7 +932,6 @@ void Manager::loadGameHistoryFrom(const QString& filename)
   }
       
   QRegExp tagPairExp = QRegExp(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
-  
   while ( file.bytesAvailable() > 0 )
   {
     QByteArray line = file.readLine();
@@ -958,15 +957,28 @@ void Manager::loadGameHistoryFrom(const QString& filename)
     else
     {
       // Parse a line of moves
-      foreach ( const QByteArray& str, line.split(' ') )
+      foreach ( const QByteArray& str, line.trimmed().split(' ') )
       {
-	if ( !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') )
+	if ( !str.trimmed().isEmpty() && !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') )
 	{
 	  // Only move numbers contain dots, not move data itself
 	  // We also exclude the game termination markers (results)
-	  
-	  Move m = Move ( QLatin1String(str) );
-	  moveByExternalControl ( m );
+	  kDebug() << "Read move" << str;
+	  Move m;
+          if (str.contains("O-O-O") || str.contains("o-o-o") || str.contains("0-0-0"))
+          {
+            m = Move::castling(Move::QueenSide, activePlayer());
+          }
+          else if (str.contains("O-O") || str.contains("o-o") || str.contains("0-0"))
+          {
+            m = Move::castling(Move::KingSide, activePlayer());
+          }
+          else
+          {
+            m = Move ( QLatin1String(str) );
+          }
+          m.setFlag ( Move::Forced, true );
+	  processMove ( m );
 	}
       }
     }

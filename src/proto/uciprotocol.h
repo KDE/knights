@@ -38,7 +38,7 @@ public:
 
 protected:
     virtual bool parseStub(const QString& line);
-    virtual void parseLine(const QString& line);
+    virtual bool parseLine(const QString& line);
 
 public:
     virtual Features supportedFeatures();

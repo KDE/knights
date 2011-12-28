@@ -250,15 +250,15 @@ void FicsProtocol::openGameDialog()
 
 bool FicsProtocol::parseStub(const QString& line)
 {
-    parseLine(line);
-    return true;
+    Q_UNUSED(line);
+    return false;
 }
 
-void FicsProtocol::parseLine(const QString& line)
+bool FicsProtocol::parseLine(const QString& line)
 {
     if ( line.isEmpty() || line.startsWith( QLatin1String("fics%") ) )
     {
-        return;
+        return true;
     }
     bool display = true;
     ChatWidget::MessageType type = ChatWidget::GeneralMessage;
@@ -533,6 +533,7 @@ void FicsProtocol::parseLine(const QString& line)
     {
         writeToConsole ( line, type );
     }
+    return true;
 }
 
 Color FicsProtocol::parseColor ( QString str )

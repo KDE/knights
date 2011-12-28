@@ -40,7 +40,7 @@ namespace Knights
 
     virtual QList<ToolWidgetData> toolWidgets();
 
-    virtual void parseLine(const QString& line);
+    virtual bool parseLine(const QString& line);
     virtual bool parseStub(const QString& line);
 
         private:

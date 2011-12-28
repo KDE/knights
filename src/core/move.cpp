@@ -163,7 +163,7 @@ namespace Knights
     {
         d->flags = None;
         d->extraMoves.clear();
-
+        
         if ( string.contains(QLatin1Char('x')) )
         {
             setFlag ( Take, true );
@@ -175,7 +175,7 @@ namespace Knights
             setFlag ( Check, true );
             string.remove(QLatin1Char('+'));
         }
-
+        
         string.remove(QLatin1Char('-'));
         string.remove(QLatin1Char(' '));
         

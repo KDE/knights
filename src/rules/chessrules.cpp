@@ -440,7 +440,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
             rookMove.setFrom ( 1, line );
         }
         move->setAdditionalMoves ( QList<Move>() << rookMove );
-        kDebug() << move->additionalMoves().size();
+        Q_ASSERT(move->additionalMoves().size() == 1);
     }
     else
     {
@@ -669,6 +669,7 @@ bool ChessRules::isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos
 
 void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color color )
 {
+    kDebug() << *move << color;
     if ( !move->isValid() ||  move->notation() == notation || move->flag ( Move::Castle ) )
     {
         return;
