@@ -495,6 +495,7 @@ void Manager::gameOver(Color winner)
 void Manager::reset()
 {
   Q_D(GameManager);
+  sendPendingMove();
   stopTime();
   if ( d->gameStarted )
   {
