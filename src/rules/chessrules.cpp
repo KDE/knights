@@ -780,7 +780,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         
         /*
          * We try (in this order):
-         * Ne6, Nde7, N5e6, Nd5e6
+         * Ne6, Nde6, N5e6, Nd5e6
          */
         const PieceType type = m_grid->value ( move->from() )->pieceType();
         const QString typeLetter = (type != Pawn) ? Piece::charFromType ( type ) : QString();
