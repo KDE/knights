@@ -97,31 +97,30 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 				<mediaobject><imageobject><imagedata fileref="Knights-newgame-dialog.png" /></imageobject></mediaobject>
 			<para>
 				If you wish to play against a friend on the same computer, select 
-				  <guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel>
-				  and <guilabel>Human</guilabel> for <guilabel>Player 2</guilabel>.
+				<guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel>
+				and <guilabel>Human</guilabel> for <guilabel>Player 2</guilabel>.
 			</para>
-                        <para>
-                                If you wish to play against the computer, select 
-                                <guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and 
-                                <guilabel>Computer engine</guilabel> for <guilabel>Player 2</guilabel>.
-                                Choose the program you would like to play against, and
-                                make sure that the program you specify is installed
-                                on your computer and that it supports the XBoard protocol.
-                        </para>
-                        <para>
-                                If you have installed a chess engine but it does not appear in the list,
-                                click the <guilabel>Configure Engines</guilabel> button and add the engine
-                                there. See <xref linkend="configuration-engines"/> for more information
-                                regarding this dialog. 
-                        </para>
-                        <note><title>Note</title>
-                        <para>
-                                Even though a program is listed in the dialog, it does not mean it is installed.
-                                Make sure you install whatever chess engine you wish to play against. 
-                                You can check whether an engine is installed on your system or not in the
-                                <guilabel>Configure Engines</guilabel> dialog. 
-                        </para>
-                        </note>
+			<para>
+				If you wish to play against the computer, select 
+				<guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and 
+				<guilabel>Computer engine</guilabel> for <guilabel>Player 2</guilabel>.
+				Choose the program you would like to play against, and
+				make sure that the program you specify is installed on your
+				computer and that it supports either the XBoard or UCI protocol.
+			</para>
+			<para>
+				If you have installed a chess engine but it does not appear in the list,
+				click the <guilabel>Configure Engines</guilabel> button and add the engine
+				there. For more information on this dialog see <link linkend="configuration-engines">Computer Engines</link>.
+			</para>
+			<note><title>Note</title>
+			<para>
+				Even though a program is listed in the dialog, it does not mean it is installed.
+				Make sure you install whatever chess engine you wish to play against. 
+				You can check whether an engine is installed on your system or not in the
+				<guilabel>Configure Engines</guilabel> dialog. 
+			</para>
+			</note>
 			<para>
 				If you wish to play against someone over the Internet,
 				select <guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and
@@ -635,43 +634,46 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			before clicking <guibutton>Apply</guibutton> or <guibutton>OK</guibutton>.
 		</para>
 
-                <sect1 id="configuration-general">
-                        <title>General</title>
-                        <para>
-                                The <guimenu>General</guimenu> section contains options on the
-                                general appearance of &knights;.  Animations of the pieces and
-                                board can be enabled or modified. The animations section is visible
-                                based upon system software, and is seen only if animations are 
-                                available.  All three types of <link linkend="markers">markers</link>
-                                can be enabled or disabled.  Borders around the chess board can be 
-                                activated with or without algebraic chess notation by using a drop 
-                                down menu.
-                        </para>
-                        <note>
-                                <title>Note:</title>
-                                <para>
-                                        Some themes may not support markers, borders and/or notations.
-                                        In this case, the configuration will have no effect on them,
-                                        but will be remembered in case you change themes again.
-                                </para>
-                        </note>
-                </sect1>
+		<sect1 id="configuration-general">
+			<title>General</title>
+			<para>
+				The <guimenu>General</guimenu> section contains options on the
+				general appearance of &knights;.  Animations of the pieces and
+				board can be enabled or modified. The animations section is visible
+				based upon system software, and is seen only if animations are 
+				available. Turning around the board is available, allowing the &knights;
+				chess board to be flipped when used on a computer screen or stationary when 
+				used on a tablet computer as a chess board replacement.
+				All three types of <link linkend="markers">markers</link>
+				can be enabled or disabled.  Borders around the chess board can be 
+				activated with or without algebraic chess notation by using a drop 
+				down menu.
+			</para>
+			<note>
+				<title>Note:</title>
+				<para>
+					Some themes may not support markers, borders and/or notations.
+					In this case, the configuration will have no effect on them,
+					but will be remembered in case you change themes again.
+				</para>
+			</note>
+		</sect1>
 
-                <sect1 id="configuration-engines">
-                        <title>Computer Engines</title>
-                        <mediaobject><imageobject><imagedata fileref="Knights-engines.png" /></imageobject></mediaobject>
-                        <para>
-                                The <guimenu>Computer Engines</guimenu> section allows you to configure
-                                your computer opponents. For each engine specify the program name, the command used
-                                to launch it, and the protocol it uses. &knights; supports two protocols for 
-                                chess engines: XBoard and UCI. 
-                        </para>
-                        <para>
-                                A new engine configuration can be added by clicking <guibutton>Add</guibutton> and
-                                entering the three options mentioned above. A symbol in the last columns tells you whether
-                                the specified program is installed on your computer or not. 
-                        </para>
-                </sect1>
+		<sect1 id="configuration-engines">
+			<title>Computer Engines</title>
+			<mediaobject><imageobject><imagedata fileref="Knights-engines.png" /></imageobject></mediaobject>
+			<para>
+				The <guimenu>Computer Engines</guimenu> section allows you to configure
+				your computer opponents. For each engine specify the program name, the command used
+				to launch it, and the protocol it uses. &knights; supports two protocols for 
+				chess engines: XBoard and UCI. 
+			</para>
+			<para>
+				A new engine configuration can be added by clicking <guibutton>Add</guibutton> and
+				entering the three options mentioned above. A symbol in the last columns tells you whether
+				the specified program is installed on your computer or not. 
+			</para>
+		</sect1>
 		
 		<sect1 id="configuration-accessibility">
 			<title>Accessibility</title>
@@ -679,11 +681,6 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 				The <guimenu>Accessibility</guimenu> section has some options
 				regarding the board display and usage of external programs to
 				make it easier for people with impairments to play the game.
-			</para>
-			<para>
-				The feature of turning around the board when the local player changes 
-				is now optional, making it possible to use &knights; on a tablet as a 
-				chess board replacement. 
 			</para>
 			<para>
 				&jovie; the &kde; Text To Speech Service can be used to speak the opponents’ moves. 
