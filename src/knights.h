@@ -66,6 +66,7 @@ namespace Knights
             void setShowHistorySetting( bool value );
             void setShowConsoleSetting();
             void setShowChatSetting( bool value );
+            void updateCaption();
 
             void exitKnights();
 

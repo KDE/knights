@@ -103,11 +103,11 @@ bool XBoardProtocol::parseStub(const QString& line)
     return true;
 }
 
-void XBoardProtocol::parseLine(const QString& line)
+bool XBoardProtocol::parseLine(const QString& line)
 {
         if ( line.isEmpty() )
         {
-            return;
+            return true;
         }
         bool display = true;
         ChatWidget::MessageType type = ChatWidget::GeneralMessage;
@@ -123,7 +123,7 @@ void XBoardProtocol::parseLine(const QString& line)
             QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
             if ( moveString == lastMoveString )
             {
-                return;
+                return true;
             }
             lastMoveString = moveString;
             Move m;
@@ -167,7 +167,7 @@ void XBoardProtocol::parseLine(const QString& line)
                 winner = Black;
             }
             emit gameOver ( winner );
-            return;
+            return true;
         }
         else if ( line.contains ( QLatin1String("offer") ) && line.contains ( QLatin1String("draw") ) )
         {
@@ -194,6 +194,7 @@ void XBoardProtocol::parseLine(const QString& line)
         {
             writeToConsole ( line, type );
         }
+        return true;
     }
 
 void XBoardProtocol::readError()

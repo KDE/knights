@@ -45,7 +45,7 @@ protected:
     
     void writeToConsole(const QString& text, ChatWidget::MessageType type);
 
-    virtual void parseLine(const QString& line) = 0;
+    virtual bool parseLine(const QString& line) = 0;
     virtual bool parseStub(const QString& line) = 0;
 
 protected Q_SLOTS:
@@ -59,6 +59,7 @@ private:
     QTextStream stream;
     QPointer < ChatWidget > m_console;
     QList < ChatWidget::Message > messages;
+    QString line;
 };
 
 }

@@ -56,11 +56,11 @@ bool UciProtocol::parseStub(const QString& line)
   return false;
 }
 
-void UciProtocol::parseLine(const QString& line)
+bool UciProtocol::parseLine(const QString& line)
 {
   if ( line.isEmpty() )
   {
-    return;
+    return true;
   }
   ChatWidget::MessageType type = ChatWidget::GeneralMessage;
   kDebug() << line;
@@ -90,27 +90,32 @@ void UciProtocol::parseLine(const QString& line)
       mMoveHistory << m;
       emit pieceMoved ( m );
     }
+    else 
+    {
+        return false;
+    }
     if ( lst.size() > 3 && lst[2] == QLatin1String("ponder") )
     {
       mPonderMove.setString ( lst[3] );      
     }
   }
   writeToConsole ( line, type );
+  return true;
 }
 
 void UciProtocol::declineOffer(const Knights::Offer& offer)
 {
-
+    Q_UNUSED(offer);
 }
 
 void UciProtocol::acceptOffer(const Knights::Offer& offer)
 {
-
+    Q_UNUSED(offer);
 }
 
 void UciProtocol::makeOffer(const Knights::Offer& offer)
 {
-
+    Q_UNUSED(offer);
 }
 
 void UciProtocol::startGame()
@@ -148,6 +153,7 @@ void UciProtocol::requestNextMove()
       {
         moveString += Piece::charFromType ( move.promotedType() ).toLower();
       }
+      str += moveString;
     }
   }
   write ( str );
@@ -200,6 +206,8 @@ void UciProtocol::changeCurrentTime(Color color, const QTime& time)
       break;
       
     default:
+      mBlackTime = msecs;
+      mWhiteTime = msecs;
       break;
   }
 }

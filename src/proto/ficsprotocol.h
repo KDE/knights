@@ -105,7 +105,7 @@ namespace Knights
             bool drawPending;
 
             Color parseColor( QString str );
-            virtual void parseLine(const QString& line);
+            virtual bool parseLine(const QString& line);
             virtual bool parseStub(const QString& line);
 
         public Q_SLOTS:
