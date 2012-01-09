@@ -36,6 +36,12 @@
   <ToolBar name="mainToolBar" >
     <text>Main Toolbar</text>
     <Action name="game_new" />
+    <Action name="game_load" />
+    <Action name="game_save" />
+  </ToolBar>
+  
+  <ToolBar name="actionsToolbar" >
+    <text>Game Actions Toolbar</text>
     <Action name="game_pause" />
     <Action name="move_undo" />
     <Action name="move_redo" />
@@ -44,7 +50,6 @@
     <Action name="adjourn" />
     <Action name="abort" />
   </ToolBar>
-  
   
   <ToolBar name="dockToolBar" >
     <text>Dockable Windows Toolbar</text>
