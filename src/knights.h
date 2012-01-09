@@ -51,9 +51,14 @@ namespace Knights
         public:
             MainWindow();
             virtual ~MainWindow();
+            virtual bool queryClose();
+            bool maybeSave();
 
         private Q_SLOTS:
             void fileNew();
+            void fileLoad();
+            void fileSave();
+            void fileSaveAs();
             void pauseGame ( bool pause );
             void undo();
             void redo();
@@ -93,6 +98,9 @@ namespace Knights
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
             QMap<QByteArray, Protocol::Feature> protocolFeatures;
+            
+            QString m_loadFileName;
+    QString m_fileName;
     };
 }
 

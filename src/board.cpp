@@ -101,6 +101,7 @@ void Board::addPiece ( PieceType type, Color color, const Pos& pos )
 
 void Board::movePiece ( const Move& move )
 {
+    kDebug() << move;
     Move m = move;
     if ( ( m.flag ( Move::Illegal ) && !m.flag ( Move::Forced ) ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {

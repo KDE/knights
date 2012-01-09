@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>353</width>
-    <height>432</height>
+    <width>624</width>
+    <height>501</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -55,22 +55,6 @@
        <widget class="QCheckBox" name="kcfg_animateBoard">
         <property name="text">
          <string>Animate the board as well</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="display_box">
-     <property name="title">
-      <string>Board Display</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QCheckBox" name="kcfg_flipBoard">
-        <property name="text">
-         <string>Flip the board in local matches between humans</string>
         </property>
        </widget>
       </item>
@@ -153,6 +137,29 @@
           <string>Borders and notation</string>
          </property>
         </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Behavior</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="kcfg_flipBoard">
+        <property name="text">
+         <string>Flip the board in local matches between humans</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_askDiscard">
+        <property name="text">
+         <string>Show confirmation dialog before closing</string>
+        </property>
        </widget>
       </item>
      </layout>

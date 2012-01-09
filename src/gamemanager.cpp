@@ -36,6 +36,9 @@
 #include <KFileDialog>
 #include <KLocale>
 #include <KSaveFile>
+#include <KMessageBox>
+#include <KStandardGuiItem>
+#include <KApplication>
 
 #include <QStack>
 #include <QTimer>
@@ -671,7 +674,7 @@ bool Manager::canRedo() const
 
 void Manager::sendPendingMove()
 {
-  if ( pendingMove.isValid() )
+  if ( pendingMove.isValid() && isGameActive() )
   {
     Q_D(GameManager);
     Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
@@ -918,11 +921,6 @@ bool Manager::getCustomDifficulty(int* depth, int* size)
   return accepted;
 }
 
-void Manager::loadGameHistory()
-{
-  loadGameHistoryFrom ( KFileDialog::getOpenFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) ) );
-}
-
 void Manager::loadGameHistoryFrom(const QString& filename)
 {
   kDebug() << filename;
@@ -988,26 +986,11 @@ void Manager::loadGameHistoryFrom(const QString& filename)
   emit playerNameChanged();
 }
 
-void Manager::saveGameHistory()
-{
-  Q_D(GameManager);
-  saveGameHistoryAs( d->filename );
-}
-
 void Manager::saveGameHistoryAs(const QString& filename)
 {
   Q_D(GameManager);
   
-  if ( filename.isEmpty() )
-  {
-    d->filename = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
-  }
-  else
-  {
-    d->filename = filename;
-  }
-  
-  kDebug() << filename;
+  d->filename = filename;
   
   QFile file ( d->filename );
   file.open(QIODevice::WriteOnly);
@@ -1127,5 +1110,4 @@ QStack< Move > Manager::moveHistory() const
   Q_D(const GameManager);
   return d->moveHistory;
 }
-
 

@@ -11,6 +11,16 @@
 	    <default>themes/default.desktop</default>
 	</entry>
   </group>
+  <group name="Notification Messages">
+      <entry name="askDiscard" type="Bool">
+          <label>whether to show a confirmation dialog before discarding game history</label>
+          <default>true</default>
+      </entry>
+      <entry name="dontAskInternal" type="String">
+          <label>internal variable controlling the confirm dialog</label>
+          <default>""</default>
+      </entry>
+  </group>
   <group name="Preferences">
     <entry name="animationSpeed" type="Enum">
       <choices>

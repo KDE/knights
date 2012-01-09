@@ -115,7 +115,7 @@ public:
 	
 	void startGame();
         QStack<Move> moveHistory() const;
-    
+            
 private:
     void addMoveToHistory ( const Move& move );
     Move nextUndoMove();
@@ -172,9 +172,7 @@ public slots:
     void levelChanged ( KGameDifficulty::standardLevel level );
     void setDifficulty ( int searchDepth, int memorySize );
 
-    void saveGameHistory();
     void saveGameHistoryAs(const QString& filename);
-    void loadGameHistory();
     void loadGameHistoryFrom(const QString& filename);
 
 private:

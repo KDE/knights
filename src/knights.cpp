@@ -39,8 +39,7 @@
 #include <KStandardGameAction>
 #include <KLocale>
 #include <KMessageBox>
-#include <KMenuBar>
-#include <KMenu>
+#include <KFileDialog>
 
 #include <QtGui/QDropEvent>
 #include <QtCore/QTimer>
@@ -54,6 +53,8 @@
 #include <QStringListModel>
 #include "historywidget.h"
 #include "enginesettings.h"
+
+const char* DontAskDiscard = "dontAskInternal";
 
 namespace Knights
 {
@@ -126,9 +127,9 @@ namespace Knights
         KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
         KStandardAction::preferences ( this, SLOT (optionsPreferences()), actionCollection() );
         
-        KStandardGameAction::save ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
-        KStandardGameAction::saveAs ( Manager::self(), SLOT (saveGameHistory()), actionCollection() );
-        KStandardGameAction::load ( Manager::self(), SLOT (loadGameHistory()), actionCollection() );
+        KStandardGameAction::save ( this, SLOT (fileSave()), actionCollection() );
+        KStandardGameAction::saveAs ( this, SLOT (fileSaveAs()), actionCollection() );
+        KStandardGameAction::load ( this, SLOT (fileLoad()), actionCollection() );
         
         KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
         resignAction->setText ( i18n ( "Resign" ) );
@@ -203,6 +204,10 @@ namespace Knights
 
     void MainWindow::fileNew()
     {
+        if (!maybeSave())
+        {
+            return;
+        }
         KDialog gameNewDialog;
         GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
         gameNewDialog.setMainWidget ( dialogWidget );
@@ -219,7 +224,34 @@ namespace Knights
             Manager::self()->initialize();
         }
     }
+    
+void MainWindow::fileLoad()
+{
+    if (!maybeSave())
+    {
+        return;
+    }
+    
+    QString fileName = KFileDialog::getOpenFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+    if ( fileName.isEmpty() )
+    {
+        return;
+    }
+    
+    Manager::self()->reset();
+    m_view->clearBoard();
+    
+    Protocol::setWhiteProtocol ( new LocalProtocol() );
+    Protocol::setBlackProtocol ( new LocalProtocol() );
+    
+    connect ( Protocol::white(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
+    connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
+    
+    m_loadFileName = fileName;
+    Manager::self()->initialize();
+}
 
+    
 void MainWindow::showFicsDialog(Color color, bool computer)
 {
     if ( computer || true) // TODO: Implement, and remove this check
@@ -373,7 +405,23 @@ void MainWindow::showFicsSpectateDialog()
         
         Manager::self()->setRules ( new ChessRules );
         Manager::self()->startGame();
-        m_view->setupBoard();
+        
+        if (m_loadFileName.isEmpty())
+        {
+            m_view->setupBoard();
+        } 
+        else 
+        {
+            int speed = Settings::animationSpeed();
+            Settings::setAnimationSpeed ( Settings::EnumAnimationSpeed::Instant );
+            m_view->setupBoard();
+            
+            Manager::self()->loadGameHistoryFrom ( m_loadFileName );
+            setCaption ( m_loadFileName );
+            
+            m_loadFileName.clear();
+            Settings::setAnimationSpeed ( speed );
+        }
     }
     
     void MainWindow::setupClockDock()
@@ -544,6 +592,76 @@ void MainWindow::showFicsSpectateDialog()
             setCaption( i18n ( "%1 vs. %2", Protocol::white()->playerName(), Protocol::black()->playerName() ) );
         }
     }
+
+    bool MainWindow::queryClose()
+    {
+        return maybeSave();
+    }
+    
+    
+bool MainWindow::maybeSave()
+{
+    if (!Manager::self()->isGameActive())
+    {
+        return true;
+    }
+    
+    bool ask = Settings::askDiscard();
+    if (!ask)
+    {
+        return true;
+    }
+    
+    Settings::setDontAskInternal( QString() );
+
+    QString msg = i18n("This will end your game.\n"
+                    "Would you like to save the move history?" );
+    int result = KMessageBox::warningYesNoCancel( QApplication::activeWindow(), msg, QString(),
+                                                  KStandardGuiItem::save(), 
+                                                  KStandardGuiItem::discard(), 
+                                                  KStandardGuiItem::cancel(),
+                                                  QLatin1String(DontAskDiscard) );
+    
+    KMessageBox::ButtonCode res;
+    Settings::setAskDiscard ( KMessageBox::shouldBeShownYesNo ( QLatin1String(DontAskDiscard), res ) );
+    
+    if (result == KMessageBox::Yes)
+    {
+        fileSave();
+    }
+    
+    return result != KMessageBox::Cancel;
+}
+    
+void MainWindow::fileSave()
+{
+    if ( m_fileName.isEmpty() )
+    {
+        m_fileName = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+    }
+    
+    if ( m_fileName.isEmpty() )
+    {
+        return;
+    }
+    
+    Manager::self()->saveGameHistoryAs( m_fileName );
+    
+    setCaption ( m_fileName );
+}
+
+void MainWindow::fileSaveAs()
+{
+    QString fileName = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+    if ( fileName.isEmpty() )
+    {
+        return;
+    }
+    
+    m_fileName = fileName;
+    Manager::self()->saveGameHistoryAs( m_fileName );    
+    setCaption ( m_fileName );
+}
 
 
 }
