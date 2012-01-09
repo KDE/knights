@@ -16,14 +16,6 @@
       <Action name="abort" />
       <Action name="quit" />
     </Menu>
-    
-    <Menu name="pgn">
-        <text>PGN</text>
-        <Action name="game_load" />
-        <Separator />
-        <Action name="game_save" />
-        <Action name="game_save_as" />
-    </Menu>
         
     <Menu name="move">
       <text>Move</text>
