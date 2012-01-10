@@ -54,7 +54,7 @@ namespace Knights
             virtual bool queryClose();
             bool maybeSave();
 
-        private Q_SLOTS:
+        public Q_SLOTS:
             void fileNew();
             void fileLoad();
             void fileSave();
@@ -63,6 +63,8 @@ namespace Knights
             void undo();
             void redo();
             void optionsPreferences();
+            
+        private Q_SLOTS:
 
             void protocolInitSuccesful();
             void protocolError ( Protocol::ErrorCode errorCode, const QString& errorString );

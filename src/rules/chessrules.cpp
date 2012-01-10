@@ -440,8 +440,8 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         {
             side = Move::QueenSide;
         }
-        *move = Move::castling(side, color)
-        Q_ASSERT(move->additionalMoves().size() == 1);
+        *move = Move::castling(side, color);
+        Q_ASSERT ( move->additionalMoves().size() == 1 );
     }
     if (!move->flag ( Move::Castle ))
     {

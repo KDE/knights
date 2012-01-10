@@ -103,7 +103,7 @@ void HistoryWidget::updateModelStandardNotation ( Move::Notation notation )
 void HistoryWidget::saveHistory()
 {
   MainWindow* mw = qobject_cast<MainWindow*>(window());
-  mw->actionCollection()->action( QLatin1String(KStandardGameAction::name(KStandardGameAction::Save)) )->trigger();
+  mw->fileSave();
 }
 
 

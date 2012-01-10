@@ -524,7 +524,11 @@ void Manager::reset()
   d->winner = NoColor;
   d->winnerNotified = false;
   
-  delete d->extControl;
+  if ( d->extControl )
+  {
+    delete d->extControl;
+    d->extControl = 0;
+  }
 }
 
 Rules* Manager::rules() const

@@ -110,7 +110,7 @@ void KnightsView::gameOver ( Color winner )
     QMap<KDialog::ButtonCode, QByteArray> buttonsMap;
     
     buttonsMap[KDialog::Yes] = KStandardGameAction::name ( KStandardGameAction::New );
-    buttonsMap[KDialog::User2] = KStandardGameAction::name ( KStandardGameAction::SaveAs );
+    buttonsMap[KDialog::User2] = KStandardGameAction::name ( KStandardGameAction::Save );
     
     for ( QMap<KDialog::ButtonCode, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it )
     {
@@ -122,7 +122,7 @@ void KnightsView::gameOver ( Color winner )
         dlg->button ( it.key() )->setToolTip ( a->toolTip() );
     }
         
-    connect ( dlg->button ( KDialog::User2 ), SIGNAL(clicked(bool)), Manager::self(), SLOT(saveGameHistory()) );
+    connect ( dlg->button ( KDialog::User2 ), SIGNAL(clicked(bool)), window(), SLOT(fileSave()) );
     
     QLabel* label = new QLabel ( this );
     dlg->setMainWidget ( label );
@@ -166,6 +166,7 @@ void KnightsView::gameOver ( Color winner )
     
     if ( dlg->exec() == KDialog::Yes )
     {
+        Manager::self()->reset();
         emit gameNew();
     }
     
