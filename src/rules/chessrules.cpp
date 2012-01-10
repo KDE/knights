@@ -696,12 +696,21 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         bool fileSet = false;
         bool typeSet = false;
         bool rankSet = false;
-        QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') );
+        PieceType promoteType = NoType;
+        
+        QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') ).remove( QLatin1Char('=') );
         if  ( s.size() < 2 )
         {
                 kWarning() << "Unknown move notation" << move->string();
                 move->setFlag ( Move::Illegal, true );
                 return;
+        }
+        
+        if ( QByteArray("KQBNRPkqbnrp").contains ( s.right(1).toLatin1() ) )
+        {
+            promoteType = Piece::typeFromChar ( s.right(1).at(0) );
+            s.chop ( 1 );
+            move->setPromotedType ( promoteType );
         }
         
         if ( !QByteArray("KQBNRP").contains ( s[0].toLatin1() ) )

@@ -84,6 +84,7 @@ namespace Knights
         Move rookMove;
         rookMove.setFrom ( rookFile, rank );
         rookMove.setTo ( rookDestinationFile, rank );
+        rookMove.setFlag ( Forced, true );
         m.setAdditionalMoves ( QList<Move>() << rookMove );
         
         QLatin1String str((side == QueenSide) ? "O-O-O" : "O-O");
@@ -183,6 +184,7 @@ namespace Knights
         
         string.remove(QLatin1Char('-'));
         string.remove(QLatin1Char(' '));
+        string.remove(QLatin1Char('='));
         
         QRegExp longMoveTest = QRegExp(QLatin1String("^[a-h][1-8][a-h][1-8]"));
         if (longMoveTest.indexIn(string) > -1 )
@@ -191,7 +193,7 @@ namespace Knights
             d->notationType = Coordinate;
             setFrom ( string.left ( 2 ) );
             setTo ( string.mid ( 2, 2 ) );
-            if ( string.size() > 5 )
+            if ( string.size() > 4 )
             {
                 setFlag ( Promote, true );
                 setPromotedType ( Piece::typeFromChar ( string[5] ) );
