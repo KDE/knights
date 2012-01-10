@@ -85,6 +85,11 @@ namespace Knights
         rookMove.setFrom ( rookFile, rank );
         rookMove.setTo ( rookDestinationFile, rank );
         m.setAdditionalMoves ( QList<Move>() << rookMove );
+        
+        QLatin1String str((side == QueenSide) ? "O-O-O" : "O-O");
+        m.setStringForNotation ( Coordinate, str );
+        m.setStringForNotation ( Algebraic, str );
+        m.setStringForNotation ( LongAlgebraic, str );
 
         return m;
     }

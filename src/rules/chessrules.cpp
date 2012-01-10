@@ -365,22 +365,25 @@ QList<Move> ChessRules::movesInDirection ( const Pos& dir, const Pos& pos, int l
 void ChessRules::checkSpecialFlags ( Move* move, Color color )
 {
     kDebug() << move->string() << colorName ( color );
-    if ( move->notation() == Move::Coordinate )
+    if ( !move->flag ( Move::Castle ) )
     {
-        QString str = move->string();
-        move->setStringForNotation ( Move::Coordinate, str );
-        changeNotation ( move, Move::Algebraic, color );
-        move->setStringForNotation ( Move::Algebraic, move->string() );
-        move->setString ( str );
-    }
-    else
-    {
-        move->setStringForNotation ( Move::Algebraic, move->string() );
-        changeNotation ( move, Move::Coordinate, color );
-        move->setStringForNotation ( Move::Coordinate, move->string() );
+        if ( move->notation() == Move::Coordinate )
+        {
+            QString str = move->string();
+            move->setStringForNotation ( Move::Coordinate, str );
+            changeNotation ( move, Move::Algebraic, color );
+            move->setStringForNotation ( Move::Algebraic, move->string() );
+            move->setString ( str );
+        }
+        else
+        {
+            move->setStringForNotation ( Move::Algebraic, move->string() );
+            changeNotation ( move, Move::Coordinate, color );
+            move->setStringForNotation ( Move::Coordinate, move->string() );
+        }
     }
     
-    Q_ASSERT ( move->notation() == Move::Coordinate || !move->isValid()  );
+    Q_ASSERT ( move->notation() == Move::Coordinate || !move->isValid() || move->flag ( Move::Castle ) );
     
     Piece* p = m_grid->value ( move->from() );
     if ( !p )
@@ -397,23 +400,26 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
     }
     move->setPieceData ( qMakePair( p->color(), p->pieceType() ) );
     
-    // The long algebraic notation can be constructed from the two above
-    QString lan;
-    if ( move->pieceData().second != Pawn )
+    if (!move->flag ( Move::Castle ))
     {
-        lan += Piece::charFromType ( move->pieceData().second );
+        // The long algebraic notation can be constructed from the two above
+        QString lan;
+        if ( move->pieceData().second != Pawn )
+        {
+            lan += Piece::charFromType ( move->pieceData().second );
+        }
+        lan += move->from().string();
+        if ( move->flag ( Move::Take ) )
+        {
+            lan += QLatin1Char('x');
+        }
+        else
+        {
+            lan += QLatin1Char('-');
+        }
+        lan += move->to().string();
+        move->setStringForNotation ( Move::LongAlgebraic, lan );
     }
-    lan += move->from().string();
-    if ( move->flag ( Move::Take ) )
-    {
-        lan += QLatin1Char('x');
-    }
-    else
-    {
-        lan += QLatin1Char('-');
-    }
-    lan += move->to().string();
-    move->setStringForNotation ( Move::LongAlgebraic, lan );
 
     move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
     if ( m_grid->contains ( move->to() ) )
@@ -423,26 +429,21 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         move->setFlag ( Move::Take, true );
     }
     if ( p->pieceType() == King && length ( *move ) == 2 )
-    {
+    {        
         kDebug() << "Castling";
-        // It's castling
-        move->setFlag ( Move::Castle, true );
-        int line = move->to().second;
-        Move rookMove;
-        rookMove.setFlag ( Move::Forced, true );
-        rookMove.setTo ( ( move->from() + move->to() ) / 2 );
+        Move::CastlingSide side;
         if ( move->to().first > move->from().first )
         {
-            rookMove.setFrom ( 8, line );
+            side = Move::KingSide;
         }
         else
         {
-            rookMove.setFrom ( 1, line );
+            side = Move::QueenSide;
         }
-        move->setAdditionalMoves ( QList<Move>() << rookMove );
+        *move = Move::castling(side, color)
         Q_ASSERT(move->additionalMoves().size() == 1);
     }
-    else
+    if (!move->flag ( Move::Castle ))
     {
         if ( p->pieceType() == Pawn )
         {
