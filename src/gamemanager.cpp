@@ -473,6 +473,7 @@ void Manager::startGame()
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
+    emit historyChanged();
 }
 
 
