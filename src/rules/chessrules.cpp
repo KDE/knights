@@ -599,6 +599,8 @@ void ChessRules::moveMade ( const Move& m )
 
 QList< Move > ChessRules::castlingMoves ( const Pos& pos )
 {
+    // TODO: move from a model which permanently stores king's and rooks' move history
+    // to account for undone moves. 
     QList<Move> moves;
     Color color = m_grid->value ( pos )->color();
     if ( kingMoved[color] )
