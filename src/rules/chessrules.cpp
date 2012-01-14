@@ -24,6 +24,7 @@
 #include "core/move.h"
 #include <KDebug>
 #include <QtCore/QMap>
+#include <gamemanager.h>
 
 using namespace Knights;
 
@@ -51,16 +52,10 @@ ChessRules::ChessRules()
     knightDirs << Pos ( -2, -1 );
 
     queenRookStartPos[White] = Pos ( 1, 1 );
-    queenRookMoved[White] = false;
-    kingRookStartPos[White] = Pos ( 8, 1 );
-    kingRookMoved[Black] = false;
     queenRookStartPos[Black] = Pos ( 1, 8 );
-    queenRookMoved[Black] = false;
+    
+    kingRookStartPos[White] = Pos ( 8, 1 );
     kingRookStartPos[Black] = Pos ( 8, 8 );
-    kingRookMoved[Black] = false;
-
-    kingMoved[White] = false;
-    kingMoved[Black] = false;
 
     kingPos[White] = Pos ( 5, 1 );
     kingPos[Black] = Pos ( 5, 8 );
@@ -603,15 +598,15 @@ QList< Move > ChessRules::castlingMoves ( const Pos& pos )
     // to account for undone moves. 
     QList<Move> moves;
     Color color = m_grid->value ( pos )->color();
-    if ( kingMoved[color] )
+    if ( hasKingMoved ( color ) )
     {
         return QList<Move>();
     }
-    if ( !queenRookMoved[color] && isPathClearForCastling ( pos, queenRookStartPos[color] ) )
+    if ( !hasRookMoved ( color, Move::QueenSide ) && isPathClearForCastling ( pos, queenRookStartPos[color] ) )
     {
         moves << Move::castling ( Move::QueenSide, color );
     }
-    if ( !kingRookMoved[color] && isPathClearForCastling ( pos, kingRookStartPos[color] ) )
+    if ( !hasRookMoved ( color, Move::KingSide ) && isPathClearForCastling ( pos, kingRookStartPos[color] ) )
     {
         moves << Move::castling ( Move::KingSide, color );
     }
@@ -821,6 +816,33 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
     kDebug() << move->string();
     
     Q_ASSERT ( move->notation() == notation );
+}
+
+bool ChessRules::hasKingMoved(Color color)
+{
+    PieceData data = qMakePair ( color, King );
+    foreach ( const Move& move, Manager::self()->moveHistory() )
+    {
+        if ( move.pieceData() == data )
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ChessRules::hasRookMoved(Color color, Move::CastlingSide side)
+{
+    PieceData data = qMakePair ( color, Rook );
+    Pos rookPos = ( side == Move::KingSide ) ? kingRookStartPos[color] : queenRookStartPos[color];
+    foreach ( const Move& move, Manager::self()->moveHistory() )
+    {
+        if ( move.pieceData() == data && move.from() == rookPos )
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 

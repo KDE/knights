@@ -123,7 +123,7 @@ namespace Knights
             QTime time();
             
             void setPieceData ( const PieceData& data );
-            PieceData pieceData();
+            PieceData pieceData() const;
 
             bool isValid() const;
             

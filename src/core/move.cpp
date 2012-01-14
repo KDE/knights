@@ -390,7 +390,7 @@ void Move::setPieceData(const PieceData& data)
     d->pieceData = data;
 }
 
-PieceData Move::pieceData()
+PieceData Move::pieceData() const
 {
     return d->pieceData;
 }

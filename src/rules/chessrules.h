@@ -75,6 +75,10 @@ namespace Knights
             bool isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos );
             QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
             bool isKingAttacked ( Color color , Grid* grid = 0 );
+            
+            bool hasKingMoved ( Color color );
+            bool hasRookMoved ( Color color, Move::CastlingSide side );
+            
             QMap<Color, bool> kingMoved;
             QMap<Color, bool> kingRookMoved;
             QMap<Color, bool> queenRookMoved;
