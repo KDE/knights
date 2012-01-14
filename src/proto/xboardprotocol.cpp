@@ -224,16 +224,15 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             {
                 write ( "force" );
                 write ( "undo" );
-            }
-            // This function is called before changeActivePlayer, so we must take into accont 
-            // the number of moves being undone. 
-            if ( ( Manager::self()->activePlayer() == color() ) == ( ( offer.numberOfMoves % 2 ) == 0 ) )
-            {
-                write ( "go" );
-            }
-            else
-            {
-                resumePending = true;
+                
+                if ( Manager::self()->activePlayer() != color() )
+                {
+                    write ( "go" );
+                }
+                else
+                {
+                    resumePending = true;
+                }
             }
             break;
             
@@ -304,16 +303,15 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             {
                 write ( "force" );
                 write ( "undo" );
-            }
-            // This function is called before changeActivePlayer, so we must take into accont 
-            // the number of moves being undone. 
-            if ( ( Manager::self()->activePlayer() == color() ) == ( ( offer.numberOfMoves % 2 ) == 0 ) )
-            {
-                write ( "go" );
-            }
-            else
-            {
-                resumePending = true;
+                
+                if ( Manager::self()->activePlayer() != color() )
+                {
+                    write ( "go" );
+                }
+                else
+                {
+                    resumePending = true;
+                }
             }
             offer.accept();
             break;
