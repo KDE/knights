@@ -607,21 +607,11 @@ QList< Move > ChessRules::castlingMoves ( const Pos& pos )
     }
     if ( !queenRookMoved[color] && isPathClearForCastling ( pos, queenRookStartPos[color] ) )
     {
-        Move m;
-        m.setFlag ( Move::Castle, true );
-        m.setAdditionalMoves ( QList<Move>() << Move ( queenRookStartPos[color], pos + directions[W] ) );
-        m.setFrom ( pos );
-        m.setTo ( pos + 2*directions[W] );
-        moves << m;
+        moves << Move::castling ( Move::QueenSide, color );
     }
     if ( !kingRookMoved[color] && isPathClearForCastling ( pos, kingRookStartPos[color] ) )
     {
-        Move m;
-        m.setFlag ( Move::Castle, true );
-        m.setAdditionalMoves ( QList<Move>() << Move ( kingRookStartPos[color], pos + directions[E] ) );
-        m.setFrom ( pos );
-        m.setTo ( pos + 2*directions[E] );
-        moves << m;
+        moves << Move::castling ( Move::KingSide, color );
     }
     return moves;
 }
