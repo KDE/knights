@@ -391,7 +391,7 @@ void Manager::undo()
   o.action = ActionUndo;
   
   // We always undo moves until it's local player's turn again. 
-  if ( Protocol::byColor(d->activePlayer)->isLocal() )
+  if ( Protocol::byColor(d->activePlayer)->isLocal() && !Protocol::byColor(oppositeColor(d->activePlayer))->isLocal() )
   {
     o.numberOfMoves = 2;
   }
