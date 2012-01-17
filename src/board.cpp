@@ -444,7 +444,7 @@ void Board::setCurrentColor ( Color color )
 {
     m_currentPlayer = color;
     Color nextPlayer = m_displayedPlayer;
-    if ( m_playerColors & (Black|White) && !Settings::flipBoard() )
+    if ( ( ( m_playerColors & (Black|White) ) == (Black|White) ) && !Settings::flipBoard() )
     {
         nextPlayer = White;
     }
