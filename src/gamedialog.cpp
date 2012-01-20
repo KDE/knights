@@ -246,7 +246,7 @@ void GameDialog::updateTimeEdits()
 void GameDialog::changeNetworkStatus(Solid::Networking::Status status)
 {
     kDebug() << status;
-    bool enableFics = status == Solid::Networking::Connected || status == Solid::Networking::Unknown;
+    bool enableFics = ( status == Solid::Networking::Connected || status == Solid::Networking::Unknown );
     if (!enableFics && ui->player2Fics->isChecked())
     {
         ui->player2Comp->setChecked ( true );
