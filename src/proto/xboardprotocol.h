@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef KNIGHTS_XBOARDPROTO_H
-#define KNIGHTS_XBOARDPROTO_H
+#ifndef KNIGHTS_XBOARDPROTOCOL_H
+#define KNIGHTS_XBOARDPROTOCOL_H
 
 #include "proto/computerprotocol.h"
 
@@ -68,6 +68,6 @@ namespace Knights
     };
 }
 
-#endif // KNIGHTS_XBOARDPROTO_H
+#endif // KNIGHTS_XBOARDPROTOCOL_H
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

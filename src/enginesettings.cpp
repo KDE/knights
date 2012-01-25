@@ -98,7 +98,7 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(pare
   connect ( ui->removeButton, SIGNAL(clicked(bool)), SLOT(removeClicked()) );
   
   int row = 0;
-  foreach ( const QString s, Settings::engineConfigurations() )
+  foreach ( const QString& s, Settings::engineConfigurations() )
   {
     addClicked();
     EngineConfiguration c = EngineConfiguration ( s );

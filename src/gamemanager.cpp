@@ -30,7 +30,6 @@
 #include "ui_customdifficultydialog.h"
 
 #include <KDebug>
-#include <KLocale>
 #include <KSpeech>
 #include "kspeechinterface.h"
 #include <KFileDialog>
@@ -1015,7 +1014,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   QByteArray result;
   if ( d->running )
   {
-    result = "*";
+    result += '*';
   }
   else
   {

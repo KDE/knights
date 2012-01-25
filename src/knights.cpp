@@ -81,7 +81,7 @@ namespace Knights
         // add a status bar
         statusBar()->show();
         
-        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel) ) );
+        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel)) );
         KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryEasy );
         KGameDifficulty::addStandardLevel ( KGameDifficulty::Easy );
         KGameDifficulty::addStandardLevel ( KGameDifficulty::Medium );
