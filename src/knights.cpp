@@ -475,7 +475,7 @@ void MainWindow::showFicsSpectateDialog()
         }
         Protocol::white()->deleteLater();
         Protocol::black()->deleteLater();
-        fileNew();
+        //fileNew();
     }
 
     void MainWindow::optionsPreferences()
