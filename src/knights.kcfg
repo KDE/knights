@@ -173,7 +173,7 @@
     </entry>
     <entry name="engineConfigurations" type="StringList">
       <label>stored configurations of engine-specific settings</label>
-      <default>GNU Chess:gnuchess:xboard,Crafty:crafty:xboard,Stockfish:stockfish:uci</default>
+      <default>GNU Chess:gnuchess:xboard,Crafty:crafty:xboard,Stockfish:stockfish:uci,Sjeng:sjeng:xboard</default>
     </entry>
   </group>
   <group name="Accessibility">
