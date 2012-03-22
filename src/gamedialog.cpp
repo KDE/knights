@@ -82,6 +82,10 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     }
 
     loadEngines();
+
+    ui->player2Server->setHistoryItems ( Settings::servers() );
+    ui->player2Server->setEditText ( Settings::currentServer() ); 
+
     connect ( ui->player1Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
     connect ( ui->player2Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
     
