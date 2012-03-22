@@ -84,6 +84,7 @@ void FicsDialog::slotSessionStarted()
     }
     ui->tabWidget->setCurrentIndex ( 1 );
     emit acceptButtonNeeded ( true );
+    saveFicsSettings();
 }
 
 void FicsDialog::slotLogin()
@@ -239,7 +240,7 @@ bool FicsDialog::remember()
     return ui->rememberCheckBox->isChecked();
 }
 
-void FicsDialog::slotDialogAccepted()
+void FicsDialog::saveFicsSettings()
 {
     Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
 

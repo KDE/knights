@@ -56,7 +56,6 @@ namespace Knights
 
         public Q_SLOTS:
             void slotSessionStarted();
-            void slotDialogAccepted();
             void addGameOffer ( const FicsGameOffer& offer );
             void removeGameOffer ( int id );
             void addChallenge ( const FicsChallenge& challenge );
@@ -90,6 +89,7 @@ namespace Knights
             void rememberCheckBoxChanged( int state );
 
         private:
+            void saveFicsSettings();
             Ui::FicsDialog* ui;
             QList<int> m_gameId;
             QList<int> m_challengeId;
