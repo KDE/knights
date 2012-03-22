@@ -124,7 +124,8 @@ namespace Knights
     {
         KStandardGameAction::gameNew ( this, SLOT (fileNew()), actionCollection() );
         KStandardGameAction::quit ( qApp, SLOT (closeAllWindows()), actionCollection() );
-        KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
+        pause = KStandardGameAction::pause ( this, SLOT (pauseGame(bool)), actionCollection() );
+        pause->setEnabled ( false );
         KStandardAction::preferences ( this, SLOT (optionsPreferences()), actionCollection() );
         
         KStandardGameAction::save ( this, SLOT (fileSave()), actionCollection() );
@@ -135,6 +136,7 @@ namespace Knights
         resignAction->setText ( i18n ( "Resign" ) );
         resignAction->setHelpText(i18n("Admit your inevitable defeat"));
         resignAction->setIcon(KIcon(QLatin1String("flag-red")));
+        resignAction->setEnabled( false );
 
         KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), this, SLOT(undo()) );
         undoAction->setText ( i18n("Undo") );
@@ -154,16 +156,19 @@ namespace Knights
         drawAction->setText ( i18n ( "Offer &Draw" ) );
         drawAction->setHelpText(i18n("Offer a draw to your opponent"));
         drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
+        drawAction->setEnabled( false );
         
         KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT (adjourn()) );
         adjournAction->setText ( i18n ( "Adjourn" ) );
         adjournAction->setHelpText(i18n("Continue this game at a later time"));
         adjournAction->setIcon(KIcon(QLatin1String("document-save")));
+        adjournAction->setEnabled( false );
         
         KAction* abortAction = actionCollection()->addAction ( QLatin1String("abort"), Manager::self(), SLOT (abort()) );
         abortAction->setText ( i18n ( "Abort" ) );
         abortAction->setHelpText(i18n("End the game immediately"));
         abortAction->setIcon(KIcon(QLatin1String("dialog-cancel")));
+        abortAction->setEnabled( false );
         
         KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
@@ -196,6 +201,7 @@ namespace Knights
         connect ( chatAction, SIGNAL (triggered(bool)), this, SLOT (setShowChatSetting(bool)) );
         chatAction->setVisible (false); 
         
+        protocolFeatures [ KStandardGameAction::name(KStandardGameAction::Pause) ] = Protocol::Pause;
         protocolFeatures [ "propose_draw" ] = Protocol::Draw;
         protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
         protocolFeatures [ "resign" ] = Protocol::Resign;

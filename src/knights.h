@@ -97,6 +97,8 @@ namespace Knights
             QPointer<QDockWidget> m_chatDock;
             QPointer<QDockWidget> m_historyDock;
 
+            KToggleAction * pause;
+
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
             QMap<QByteArray, Protocol::Feature> protocolFeatures;
