@@ -50,7 +50,7 @@ void TextProtocol::readFromDevice()
 	{
 	    foreach ( const QString& newLine, stream.readAll().split( QLatin1Char('\n') ) )
 	    {
-                const QString text = line + newLine;
+                const QString text = line + newLine.trimmed();
                 if ( !parseStub(text) && !parseLine(text) )
                 {
                     line = text;
