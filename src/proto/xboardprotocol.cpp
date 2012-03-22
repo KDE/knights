@@ -212,7 +212,7 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             break;
             
         case ActionAdjourn:
-            write( QLatin1String("save") + KFileDialog::getSaveFileName() );
+            write( QLatin1String("save ") + KFileDialog::getSaveFileName() );
             break;
             
         case ActionUndo:
@@ -290,7 +290,7 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             break;
             
         case ActionAdjourn:
-            write( QLatin1String("save") + KFileDialog::getSaveFileName() );
+            write( QLatin1String("save ") + KFileDialog::getSaveFileName() );
             offer.accept();
             break;
             
