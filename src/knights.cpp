@@ -321,6 +321,13 @@ void MainWindow::showFicsSpectateDialog()
         {
             f = Protocol::white()->supportedFeatures();
         }
+        else if ( !(Protocol::black()->isLocal()) && !(Protocol::white()->isLocal()) )
+        {
+            // These protocol features make sense when neither player is local
+            f = Protocol::Pause | Protocol::Adjourn | Protocol::Abort;
+            f &= Protocol::white()->supportedFeatures();
+            f &= Protocol::black()->supportedFeatures();
+        }
                 
         QMap<QByteArray, Protocol::Feature>::ConstIterator it;
         for ( it = protocolFeatures.constBegin(); it != protocolFeatures.constEnd(); ++it )
