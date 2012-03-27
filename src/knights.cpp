@@ -593,8 +593,7 @@ void MainWindow::showFicsSpectateDialog()
     void MainWindow::exitKnights()
     {
         //This will close the gnuchess/crafty/whatever process if it's running.
-        delete Protocol::white();
-        delete Protocol::black();
+        Manager::self()->reset();
         Settings::self()->writeConfig();
     }
     
