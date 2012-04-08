@@ -3,7 +3,7 @@
   <!ENTITY knights "<application>Knights</application>">
   <!ENTITY kappname "&knights;">
   <!ENTITY package "extragear/games">
-  <!ENTITY kappversion "2.4.1"><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY kappversion "2.4.2"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
