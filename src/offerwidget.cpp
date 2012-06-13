@@ -22,11 +22,8 @@
 #include "offerwidget.h"
 #include "gamemanager.h"
 #include "ui_popup.h"
-#include <KStandardAction>
 
 using namespace Knights;
-
-#if defined WITH_KMW
 
 OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::WindowFlags f): KMessageWidget(offer.text, parent)
 {
@@ -49,39 +46,6 @@ OfferWidget::~OfferWidget()
 {
 
 }
-
-#else
-
-OfferWidget::OfferWidget(const Offer& offer, QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
-{
-  offerId = offer.id;
-  ui = new Ui::Popup;
-  ui->setupUi(this);
-
-  ui->closeButton->setIcon ( KIcon(QLatin1String( "dialog-close" )) );
-  connect ( ui->acceptButton, SIGNAL(clicked(bool)), SLOT(acceptClicked()) );
-
-  if ( offer.action == ActionNone )
-  {
-    ui->acceptButton->hide();
-    ui->declineButton->hide();
-  }
-  else
-  {
-    ui->acceptButton->setIcon ( KIcon(QLatin1String( "dialog-ok" )) );
-    ui->declineButton->setIcon ( KIcon(QLatin1String( "edit-delete" )) );
-    connect ( ui->declineButton, SIGNAL(clicked(bool)), SLOT(declineClicked()) );
-    connect ( ui->closeButton, SIGNAL(clicked(bool)), SLOT(closeClicked()) );
-  }
-  ui->label->setText ( offer.text );
-}
-
-OfferWidget::~OfferWidget()
-{
-  delete ui;
-}
-
-#endif
 
 int OfferWidget::id() const
 {

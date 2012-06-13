@@ -22,13 +22,7 @@
 #ifndef KNIGHTS_OFFERWIDGET_H
 #define KNIGHTS_OFFERWIDGET_H
 
-#if defined WITH_KMW
-#  include <KMessageWidget>
-#  define OfferWidgetBase KMessageWidget
-#else
-#  include <QWidget>
-#  define OfferWidgetBase QWidget
-#endif
+#include <KMessageWidget>
 
 namespace Ui
 {
@@ -47,7 +41,7 @@ namespace Knights {
   };
     
 
-class OfferWidget : public OfferWidgetBase
+class OfferWidget : public KMessageWidget
 {
   Q_OBJECT
 
