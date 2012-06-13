@@ -34,7 +34,6 @@ static const int fastAnimationDuration = 150;
 static const int normalAnimationDuration = 250;
 static const int slowAnimationDuration = 400;
 
-#if defined WITH_KGR
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
 {
     setBoardPos ( boardPos );
@@ -43,49 +42,6 @@ Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos 
         scene->addItem ( this );
     }
 }
-
-#else // WITH_KGR
-
-#include <QtSvg/QSvgRenderer>
-
-Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem )
-        : QGraphicsSvgItem ( parentItem )
-{
-    setSharedRenderer ( renderer );
-    setSpriteKey ( key );
-    setBoardPos ( boardPos );
-    setCacheMode ( DeviceCoordinateCache );
-    if ( scene )
-    {
-        scene->addItem ( this );
-    }
-}
-
-void Item::setRenderSize ( const QSize& size )
-{
-    resetTransform();
-    QRectF normalSize = renderer()->boundsOnElement ( spriteKey() );
-    qreal xScale = size.width() / normalSize.width();
-    qreal yScale = size.height() / normalSize.height();
-    prepareGeometryChange();
-    setTransform ( QTransform().scale ( xScale, yScale ) );
-}
-
-QSize Item::renderSize() const
-{
-    return transform().mapRect ( boundingRect() ).size().toSize();
-}
-
-void Item::setSpriteKey ( const QString& key )
-{
-    setElementId ( key );
-}
-
-QString Item::spriteKey() const
-{
-    return elementId();
-}
-#endif // WITH_KGR
 
 Item::~Item()
 {

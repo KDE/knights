@@ -496,21 +496,6 @@ void Board::addMarker ( const Pos& pos, const QString& spriteKey )
 void Board::updateTheme()
 {
     renderer->setTheme ( Settings::theme() );
-#if not defined WITH_KGR
-    // Using QGraphicsSvgItems, loading a new file and then resizing does not work
-    // instead, we have to delete every item and re-create it
-    foreach ( Piece* p, m_grid )
-    {
-        addPiece ( p->pieceType(), p->color(), m_grid.key ( p ) );
-        delete p;
-    }
-    // If the user is changing the theme, he/she probably already saw any current markers
-    qDeleteAll ( markers );
-    markers.clear();
-
-    qDeleteAll ( m_tiles );
-    m_tiles.clear();
-#endif
     delete m_background;
     if ( renderer->spriteExists ( backgroundKey ) )
     {

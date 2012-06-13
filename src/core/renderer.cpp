@@ -23,49 +23,14 @@
 
 using namespace Knights;
 
-#if defined WITH_KGR 
-
 Renderer::Renderer ( const QString& defaultTheme ) : KGameRenderer ( QLatin1String("themes/default.desktop") )
 {
     setTheme ( defaultTheme );
 }
+
 Renderer::~Renderer () 
 {
 
 }
 
-#else
-#include <KGameTheme>
-
-Renderer::Renderer ( const QString& defaultTheme )
-{
-    m_theme = new KGameTheme;
-    setTheme ( defaultTheme );
-}
-
-Renderer::~Renderer()
-{
-    delete m_theme;
-}
-
-bool Renderer::spriteExists ( const QString& key )
-{
-    return elementExists ( key );
-}
-
-QRectF Renderer::boundsOnSprite ( const QString& key )
-{
-    return boundsOnElement ( key );
-}
-
-void Renderer::setTheme ( const QString& theme )
-{
-    if ( !m_theme->load ( theme ) )
-    {
-        m_theme->loadDefault();
-    }
-    load ( m_theme->graphics() );
-}
-
-#endif // WITH_KGR
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;

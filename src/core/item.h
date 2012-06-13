@@ -25,18 +25,13 @@
 #include "renderer.h"
 #include "pos.h"
 
-#ifdef WITH_KGR
-#define ItemBaseType KGameRenderedObjectItem
 #include <KGameRenderedObjectItem>
-#else
-#define ItemBaseType QGraphicsSvgItem
-#include <QtSvg/QGraphicsSvgItem>
-#endif
+
 
 namespace Knights
 {
 
-    class Item : public ItemBaseType
+    class Item : public KGameRenderedObjectItem
     {
             Q_OBJECT
             Q_PROPERTY ( Pos boardPos READ boardPos WRITE setBoardPos )
@@ -45,20 +40,6 @@ namespace Knights
         public:
             Item ( Renderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
             virtual ~Item();
-
-#if not defined WITH_KGR
-            // Duplicating the KGameRenderedObjectItem API to minimize #ifdef's in Board
-            void setRenderSize ( const QSize& size );
-            QSize renderSize() const;
-            void setSpriteKey ( const QString& key );
-            QString spriteKey() const;
-
-#  ifndef WITH_QT_46
-            void setRotation ( qreal angle );
-            qreal rotation();
-#  endif
-
-#endif // WITH_KGR
 
             void setBoardPos ( const Pos& pos );
             Pos boardPos() const;
@@ -70,9 +51,6 @@ namespace Knights
         private:
             Pos m_pos;
 
-#ifndef WITH_QT_46
-            qreal m_rotation;
-#endif
     };
 }
 #endif // KNIGHTS_ITEM_H
