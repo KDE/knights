@@ -35,18 +35,10 @@ int main ( int argc, char **argv )
 {
     KAboutData about ( "knights", 0, ki18n ( "Knights" ), version, ki18n ( description ),
                        KAboutData::License_GPL, ki18n ( "(C) 2009-2011 Miha Čančula" ), KLocalizedString(), "miha@noughmad.eu" );
-#if defined WITH_OCS
     about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha@noughmad.eu", "http://noughmad.eu", "noughmad" );
-#else
-    about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha@noughmad.eu", "http://noughmad.eu" );
-#endif
     about.addCredit ( ki18n ( "Troy Corbin" ), ki18n ( "Original Knights for KDE3 and theme author" ), "troy@pedanticwebspaces.com" );
     about.addCredit ( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
-#if defined WITH_OCS
     about.addCredit ( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ), QByteArray(), QByteArray(), "cpttom" );
-#else
-    about.addCredit ( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ) );
-#endif
     KCmdLineArgs::init ( argc, argv, &about );
 
     KCmdLineOptions options;

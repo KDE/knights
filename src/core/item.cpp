@@ -24,11 +24,9 @@
 #include "settings.h"
 #include <KDebug>
 
-#ifdef WITH_ANIMATIONS
-#  include <QtCore/QPropertyAnimation>
-#  include <QtCore/QParallelAnimationGroup>
-#  include <qmath.h>
-#endif
+#include <QtCore/QPropertyAnimation>
+#include <QtCore/QParallelAnimationGroup>
+#include <qmath.h>
 
 using namespace Knights;
 
@@ -52,9 +50,6 @@ Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos 
 
 Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem )
         : QGraphicsSvgItem ( parentItem )
-#if not defined WITH_QT_46 
-        , m_rotation(0.0)
-#endif
 {
     setSharedRenderer ( renderer );
     setSpriteKey ( key );
@@ -74,9 +69,6 @@ void Item::setRenderSize ( const QSize& size )
     qreal yScale = size.height() / normalSize.height();
     prepareGeometryChange();
     setTransform ( QTransform().scale ( xScale, yScale ) );
-#if not defined WITH_QT_46
-    rotate(m_rotation);
-#endif
 }
 
 QSize Item::renderSize() const
@@ -115,7 +107,6 @@ void Item::setBoardPos ( const Pos& pos )
 
 void Item::move ( const QPointF& pos, qreal tileSize, bool animated )
 {
-#if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         setPos ( pos );
@@ -144,16 +135,10 @@ void Item::move ( const QPointF& pos, qreal tileSize, bool animated )
         anim->setEndValue ( pos );
         anim->start ( QAbstractAnimation::DeleteWhenStopped );
     }
-#else
-    Q_UNUSED ( animated );
-    Q_UNUSED ( tileSize );
-    setPos ( pos );
-#endif
 }
 
 void Item::resize ( const QSize& size, bool animated )
 {
-#if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         setRenderSize ( size );
@@ -181,15 +166,10 @@ void Item::resize ( const QSize& size, bool animated )
         anim->setEndValue ( size );
         anim->start ( QAbstractAnimation::DeleteWhenStopped );
     }
-#else
-    Q_UNUSED ( animated );
-    setRenderSize ( size );
-#endif
 }
 
 void Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated )
 {
-#if defined WITH_ANIMATIONS
     if ( !animated || Settings::animationSpeed() == Settings::EnumAnimationSpeed::Instant )
     {
         setPos ( pos );
@@ -226,29 +206,6 @@ void Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size
         group->addAnimation ( sizeAnimation );
         group->start ( QAbstractAnimation::DeleteWhenStopped );
     }
-#else
-    Q_UNUSED ( animated );
-    Q_UNUSED ( tileSize );
-    setPos ( pos );
-    setRenderSize ( size );
-#endif
 }
-
-#if not defined WITH_QT_46
-
-void Item::setRotation ( qreal angle )
-{
-    kDebug() << angle;
-    m_rotation = angle;
-}
-
-qreal Item::rotation()
-{
-    return m_rotation;
-}
-
-#endif
-
-
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
