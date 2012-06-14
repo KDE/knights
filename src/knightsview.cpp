@@ -67,9 +67,9 @@ KnightsView::~KnightsView()
     delete ui;
 }
 
-void KnightsView::setupBoard()
+void KnightsView::setupBoard(KgThemeProvider* provider)
 {
-    m_board = new Board ( this );
+    m_board = new Board ( provider, this );
     ui->canvas->setScene ( m_board );
     resizeScene();
     kDebug() << Manager::self();

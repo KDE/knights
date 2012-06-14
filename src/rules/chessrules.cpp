@@ -323,6 +323,8 @@ bool ChessRules::isAttacked ( const Pos& pos, Color color, Grid* grid )
 
 bool ChessRules::isAttacking ( const Pos& attackingPos )
 {
+    Q_ASSERT(m_grid->contains(attackingPos));
+    Q_ASSERT(m_grid->value(attackingPos));
     const Color pieceColor = m_grid->value ( attackingPos )->color();
     const Color kingColor = oppositeColor ( pieceColor );
     return legalAttackMoves ( attackingPos, m_grid ).contains ( Move ( attackingPos, kingPos[kingColor] ) );

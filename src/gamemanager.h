@@ -24,16 +24,16 @@
 
 #include <core/piece.h>
 #include <core/move.h>
-
-#include <QtCore/QObject>
-#include <QtCore/QTime>
+#include "offerwidget.h"
 
 #include <KGlobal>
-#include "offerwidget.h"
-#include <KGameDifficulty>
+
+#include <QObject>
+#include <QTime>
 #include <QStack>
 
 class QAbstractListModel;
+class KgDifficultyLevel;
 
 namespace Knights {
 
@@ -169,7 +169,7 @@ public slots:
     
     void setTimeRunning(bool running); 
     
-    void levelChanged ( KGameDifficulty::standardLevel level );
+    void levelChanged ( const KgDifficultyLevel* level );
     void setDifficulty ( int searchDepth, int memorySize );
 
     void saveGameHistoryAs(const QString& filename);

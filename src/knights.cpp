@@ -24,10 +24,15 @@
 #include "core/piece.h"
 #include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
+#include "proto/localprotocol.h"
+#include "rules/chessrules.h"
+#include "gamemanager.h"
 #include "knightsview.h"
 #include "settings.h"
 #include "gamedialog.h"
 #include "clockwidget.h"
+#include "historywidget.h"
+#include "enginesettings.h"
 
 #include <KConfigDialog>
 #include <KStatusBar>
@@ -35,24 +40,19 @@
 #include <KActionCollection>
 #include <KStandardAction>
 #include <KToggleAction>
-#include <KGameThemeSelector>
-#include <KStandardGameAction>
 #include <KLocale>
 #include <KMessageBox>
 #include <KFileDialog>
-
-#include <QtGui/QDropEvent>
-#include <QtCore/QTimer>
-#include <QtGui/QDockWidget>
-#include "proto/localprotocol.h"
 #include <KUser>
-#include "gamemanager.h"
-#include "rules/chessrules.h"
-#include <KGameDifficulty>
+#include <KgDifficulty>
+#include <KgThemeSelector>
+#include <KStandardGameAction>
+
+#include <QDropEvent>
+#include <QTimer>
+#include <QDockWidget>
 #include <QListView>
 #include <QStringListModel>
-#include "historywidget.h"
-#include "enginesettings.h"
 
 const char* DontAskDiscard = "dontAskInternal";
 
@@ -61,7 +61,8 @@ namespace Knights
     MainWindow::MainWindow()
             : KXmlGuiWindow(),
             m_view ( new KnightsView ( this ) ),
-            m_clockDock ( 0 )
+            m_clockDock ( 0 ),
+            m_themeProvider ( new KgThemeProvider ( "Theme", this ) )
     {
         // accept dnd
         setAcceptDrops ( true );
@@ -81,17 +82,10 @@ namespace Knights
         // add a status bar
         statusBar()->show();
         
-        KGameDifficulty::init( this, Manager::self(), SLOT (levelChanged(KGameDifficulty::standardLevel)) );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryEasy );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Easy );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Medium );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Hard );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::VeryHard );
-        KGameDifficulty::addStandardLevel ( KGameDifficulty::Configurable );
-        KGameDifficulty::setRestartOnChange ( KGameDifficulty::NoRestartOnChange );
+        connect (Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), Manager::self(), SLOT(levelChanged(const KgDifficultyLevel*)));
         
-        KGameDifficulty::standardLevel level = (KGameDifficulty::standardLevel)Settings::computerDifficulty();
-        KGameDifficulty::setLevel ( level );
+        Kg::difficulty()->addStandardLevelRange ( KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard );
+        Kg::difficulty()->addLevel ( new KgDifficultyLevel ( 0, "custom", i18n("Custom"), false ) );
 
         // a call to KXmlGuiWindow::setupGUI() populates the GUI
         // with actions, using KXMLGUI.
@@ -99,6 +93,7 @@ namespace Knights
         // mainwindow to automatically save settings if changed: window size,
         // toolbar position, icon size, etc.
         setupGUI();
+        KgDifficultyGUI::init( this );
         
         // make all the docks invisible.
         // Show required docks after the game protocols are selected
@@ -117,7 +112,6 @@ namespace Knights
 
     MainWindow::~MainWindow()
     {
-        Settings::setComputerDifficulty ( (int)KGameDifficulty::level() );
     }
 
     void MainWindow::setupActions()
@@ -419,15 +413,17 @@ void MainWindow::showFicsSpectateDialog()
         Manager::self()->setRules ( new ChessRules );
         Manager::self()->startGame();
         
+        m_themeProvider->discoverThemes ( "appdata", QLatin1String ( "themes" ) );
+        
         if (m_loadFileName.isEmpty())
         {
-            m_view->setupBoard();
+            m_view->setupBoard(m_themeProvider);
         } 
         else 
         {
             int speed = Settings::animationSpeed();
             Settings::setAnimationSpeed ( Settings::EnumAnimationSpeed::Instant );
-            m_view->setupBoard();
+            m_view->setupBoard(m_themeProvider);
             
             Manager::self()->loadGameHistoryFrom ( m_loadFileName );
             setCaption ( m_loadFileName );
@@ -512,7 +508,7 @@ void MainWindow::showFicsSpectateDialog()
         ui_prefs_access.setupUi ( accessDlg );
         dialog->addPage ( accessDlg, i18n( "Accessibility"), QLatin1String("preferences-desktop-accessibility") );
         
-        QWidget* themeDlg = new KGameThemeSelector ( dialog, Settings::self(), KGameThemeSelector::NewStuffEnableDownload );
+        QWidget* themeDlg = new KgThemeSelector ( m_themeProvider, KgThemeSelector::EnableNewStuffDownload, dialog );
         dialog->addPage ( themeDlg, i18n ( "Theme" ), QLatin1String ( "games-config-theme" ) );
         dialog->setAttribute ( Qt::WA_DeleteOnClose );
                 

@@ -22,11 +22,9 @@
 #ifndef KNIGHTS_ITEM_H
 #define KNIGHTS_ITEM_H
 
-#include "renderer.h"
 #include "pos.h"
 
 #include <KGameRenderedObjectItem>
-
 
 namespace Knights
 {
@@ -38,7 +36,7 @@ namespace Knights
             Q_PROPERTY ( QSize renderSize READ renderSize WRITE setRenderSize )
 
         public:
-            Item ( Renderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
+            Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
             virtual ~Item();
 
             void setBoardPos ( const Pos& pos );

@@ -24,6 +24,7 @@
 
 #include <KGameRenderer>
 
+class KgThemeProvider;
 class KGameTheme;
 
 namespace Knights
@@ -32,7 +33,7 @@ namespace Knights
     {
             Q_OBJECT
         public:
-            Renderer ( const QString& defaultTheme );
+            Renderer ( KgThemeProvider* provider );
             virtual ~Renderer();
     };
 }

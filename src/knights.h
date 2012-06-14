@@ -25,11 +25,13 @@
 #include "ui_prefs_base.h"
 #include "ui_prefs_access.h"
 #include "proto/protocol.h"
+#include <KgDifficulty>
 
 #include <KXmlGuiWindow>
 
 class QStringListModel;
 class KToggleAction;
+class KgThemeProvider;
 
 namespace Knights
 {
@@ -102,6 +104,7 @@ namespace Knights
             KToggleAction *m_toolbarAction;
             KToggleAction *m_statusbarAction;
             QMap<QByteArray, Protocol::Feature> protocolFeatures;
+            KgThemeProvider* m_themeProvider;
             
             QString m_loadFileName;
     QString m_fileName;

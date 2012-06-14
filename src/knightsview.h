@@ -26,6 +26,7 @@
 #include "core/piece.h"
 #include <QtGui/QWidget>
 
+class KgThemeProvider;
 namespace Ui
 {
     class KnightsView;
@@ -33,6 +34,7 @@ namespace Ui
 
 namespace Knights
 {
+
 
 struct Offer;
 
@@ -97,7 +99,7 @@ struct Offer;
             void showAllOffersToggled();
 
     public slots:
-            void setupBoard();
+            void setupBoard(KgThemeProvider* provider);
             void clearBoard();
             void gameOver ( Color winner );
             void showPopup ( const Offer& offer );

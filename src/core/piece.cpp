@@ -23,10 +23,6 @@
 
 #include <KLocale>
 
-#include <QtGui/QPainter>
-#include <QtGui/QStyleOption>
-#include <QtSvg/QSvgRenderer>
-
 namespace Knights
 {
 
@@ -119,7 +115,7 @@ namespace Knights
     }
 
 
-    Piece::Piece ( Renderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent ) :
+    Piece::Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent ) :
             Item ( renderer, spriteKey ( type, color ), scene, boardPos, parent )
     {
         m_color = color;

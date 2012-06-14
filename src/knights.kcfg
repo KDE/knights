@@ -4,7 +4,6 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile />
-  <include>KGameDifficulty</include>
   <group name="KGameTheme">
         <entry name="Theme" type="String">
 	    <label>Theme file for the board</label>
@@ -134,10 +133,6 @@
     <entry name="player2Program" type="String">
       <label>the last selected program for player 2</label>
       <default>gnuchess</default>
-    </entry>
-    <entry name="computerDifficulty" type="Int">
-      <label>the skill of computer players</label>
-      <default code="true">KGameDifficulty::Medium</default>
     </entry>
     <entry name="computerSearchDepth" type="Int">
       <label>the search depth of computer engines, when the difficulty is set to Configurable</label>

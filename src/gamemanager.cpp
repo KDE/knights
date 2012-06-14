@@ -38,6 +38,7 @@
 #include <KMessageBox>
 #include <KStandardGuiItem>
 #include <KApplication>
+#include <KgDifficulty>
 
 #include <QStack>
 #include <QTimer>
@@ -471,7 +472,7 @@ void Manager::protocolInitSuccesful()
 void Manager::startGame()
 {
     Q_D(GameManager);
-    levelChanged ( KGameDifficulty::level() );
+    levelChanged ( Kg::difficulty()->currentLevel() );
     Protocol::white()->startGame();
     Protocol::black()->startGame();
     d->gameStarted = true;
@@ -852,33 +853,33 @@ bool Manager::canLocalMove() const
   return false;
 }
 
-void Manager::levelChanged ( KGameDifficulty::standardLevel level )
+void Manager::levelChanged ( const KgDifficultyLevel* level )
 {
   int depth = 0;
   int size = 32;
-  switch ( level )
+  switch ( level->standardLevel() )
   {
-    case KGameDifficulty::VeryEasy:
+    case KgDifficultyLevel::VeryEasy:
       depth = 1;
       break;
       
-    case KGameDifficulty::Easy:
+    case KgDifficultyLevel::Easy:
       depth = 3;
       break;
       
-    case KGameDifficulty::Medium:
+    case KgDifficultyLevel::Medium:
       depth = 8;
       break;
       
-    case KGameDifficulty::Hard:
+    case KgDifficultyLevel::Hard:
       depth = 16;
       break;
       
-    case KGameDifficulty::VeryHard:
+    case KgDifficultyLevel::VeryHard:
       depth = 32;
       break;
       
-    case KGameDifficulty::Configurable:
+    case KgDifficultyLevel::Custom:
       // Open the dialog for the user to specify custom difficulty parameters
       if ( !getCustomDifficulty(&depth, &size) )
       {

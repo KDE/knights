@@ -1,7 +1,6 @@
 set(knights_SRCS
     core/pos.cpp
     core/move.cpp
-    core/renderer.cpp
     core/item.cpp
     core/piece.cpp
 
@@ -35,26 +34,6 @@ set(knights_SRCS
     main.cpp
  )
 
-if (KGR)
-    add_definitions(-DWITH_KGR)
-endif (KGR)
-
-if (OCS_ABOUT)
-    add_definitions(-DWITH_OCS)
-endif (OCS_ABOUT)
-
-if (${QT_VERSION} VERSION_GREATER "4.6.0")
-    add_definitions(-DWITH_QT_46)
-endif()
-
-if (ANIMATIONS)
-    add_definitions(-DWITH_ANIMATIONS)
-endif()
-
-if (MESSAGE_WIDGET)
-    add_definitions(-DWITH_KMW)
-endif()
-
 kde4_add_ui_files(knights_SRCS
     knightsview_base.ui
     prefs_base.ui
@@ -75,8 +54,6 @@ qt4_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights:
 kde4_add_executable(knights ${knights_SRCS})
 
 target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDE4_SOLID_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
-
-#add_subdirectory(qml)
 
 install(TARGETS knights ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

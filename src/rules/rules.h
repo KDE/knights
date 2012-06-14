@@ -58,7 +58,7 @@ namespace Knights
             {
             }
 
-            virtual void setGrid ( QMap<Pos, Piece*>* grid )
+            virtual void setGrid ( Grid* grid )
             {
                 kDebug() << "Setting Grid";
                 m_grid = grid;

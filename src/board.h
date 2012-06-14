@@ -25,6 +25,8 @@
 #include "core/piece.h"
 #include "core/move.h"
 
+#include <KgThemeProvider>
+
 #include <QtGui/QGraphicsScene>
 #include <QtCore/QMap>
 #include <QtCore/QSet>
@@ -55,14 +57,14 @@ namespace Knights
                 Motion
             };
 
-            Board ( QObject* parent = 0 );
+            Board ( KgThemeProvider* provider, QObject* parent = 0 );
             virtual ~Board();
 
             void populate();
 
             static bool isInBoard ( const Pos& pos );
             Colors playerColors() const;
-
+            
         private:
             Rules *m_rules;
             Grid m_grid;
@@ -72,7 +74,8 @@ namespace Knights
             Item* m_background;
             bool m_displayBorders;
             bool m_displayNotations;
-            Renderer* renderer;
+            KGameRenderer* renderer;
+            KgThemeProvider* m_themeProvider;
 
             void addPiece ( PieceType type, Color color, const Pos& pos );
             void addMarker ( const Pos& pos, MarkerType type );

@@ -22,6 +22,7 @@
 #include "item.h"
 #include "board.h"
 #include "settings.h"
+
 #include <KDebug>
 
 #include <QtCore/QPropertyAnimation>
@@ -34,7 +35,7 @@ static const int fastAnimationDuration = 150;
 static const int normalAnimationDuration = 250;
 static const int slowAnimationDuration = 400;
 
-Item::Item ( Renderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
+Item::Item ( KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem )
 {
     setBoardPos ( boardPos );
     if ( scene )

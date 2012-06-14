@@ -55,7 +55,7 @@ namespace Knights
     {
             Q_OBJECT
         public:
-            Piece ( Renderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
+            Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
             virtual ~Piece();
 
             PieceType pieceType();
