@@ -86,6 +86,7 @@ public:
   QString filename;
    Color winner;
    bool winnerNotified;
+   bool initComplete;
   
   int nextOfferId();
 };
@@ -309,6 +310,7 @@ void Manager::initialize()
 {
   Q_D(GameManager);
   d->gameStarted = false;
+  d->initComplete = false;
   d->winnerNotified = false;
   d->running = false;
   d->activePlayer = White;
@@ -464,7 +466,11 @@ void Manager::protocolInitSuccesful()
         Protocol::white()->setPlayerName ( i18nc ( "The player of this color", "White" ) );
         Protocol::black()->setPlayerName ( i18nc ( "The player of this color", "Black" ) );
       }
-      emit initComplete();
+      if (!d->initComplete)
+      {
+        d->initComplete = true;
+        emit initComplete();
+      }
     }
   }
 }
@@ -472,6 +478,8 @@ void Manager::protocolInitSuccesful()
 void Manager::startGame()
 {
     Q_D(GameManager);
+    kDebug() << d->gameStarted << QThread::currentThread();
+    Q_ASSERT(!d->gameStarted);
     levelChanged ( Kg::difficulty()->currentLevel() );
     Protocol::white()->startGame();
     Protocol::black()->startGame();
@@ -855,6 +863,7 @@ bool Manager::canLocalMove() const
 
 void Manager::levelChanged ( const KgDifficultyLevel* level )
 {
+  kDebug();
   int depth = 0;
   int size = 32;
   switch ( level->standardLevel() )
