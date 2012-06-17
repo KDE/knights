@@ -478,7 +478,6 @@ void Manager::protocolInitSuccesful()
 void Manager::startGame()
 {
     Q_D(GameManager);
-    kDebug() << d->gameStarted << QThread::currentThread();
     Q_ASSERT(!d->gameStarted);
     levelChanged ( Kg::difficulty()->currentLevel() );
     Protocol::white()->startGame();
