@@ -84,8 +84,8 @@ namespace Knights
         
         connect (Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), Manager::self(), SLOT(levelChanged(const KgDifficultyLevel*)));
         
-        Kg::difficulty()->addStandardLevelRange ( KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard );
         Kg::difficulty()->addLevel ( new KgDifficultyLevel ( 0, "custom", i18n("Custom"), false ) );
+        Kg::difficulty()->addStandardLevelRange ( KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard, KgDifficultyLevel::Medium );
 
         // a call to KXmlGuiWindow::setupGUI() populates the GUI
         // with actions, using KXMLGUI.
