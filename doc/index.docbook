@@ -32,8 +32,8 @@
 		<legalnotice>&FDLNotice;
 		</legalnotice>
 
-		<date>2011-12-18</date><!-- Date of (re)writing, or update.-->
-		<releaseinfo>&kappversion; (&kde; 4.7)
+		<date>2012-08-08</date><!-- Date of (re)writing, or update.-->
+		<releaseinfo>&kappversion; (&kde; 4.9)
 		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 		<abstract>
