@@ -76,12 +76,12 @@
          <string>Show &amp;markers for:</string>
         </property>
         <property name="buddy">
-         <cstring>showMarkersForCheckBox</cstring>
+         <cstring>kcfg_showMarker</cstring>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QCheckBox" name="showMarkersForCheckBox">
+       <widget class="QCheckBox" name="kcfg_showMarker">
         <property name="text">
          <string comment="Option to show markers for">Legal moves</string>
         </property>
