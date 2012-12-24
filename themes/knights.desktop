@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Knights
 Name[bg]=Рицари
+Name[bs]=Knights
 Name[ca]=Knights
 Name[ca@valencia]=Knights
 Name[cs]=Knights
@@ -43,6 +44,7 @@ Name[zh_CN]=Knights
 Name[zh_TW]=Knights
 Description=Original Knights theme.
 Description[bg]=Оригинален изгред на "Рицари"
+Description[bs]=Izvorna tema za Knights.
 Description[ca]=Tema original del Knights.
 Description[ca@valencia]=Tema original del Knights.
 Description[cs]=Původní motiv Knights.
