@@ -44,6 +44,7 @@ Name[x-test]=xxXBoard Twoxx
 Name[zh_CN]=XBoard Two
 Name[zh_TW]=XBoard Two
 Description=Theme variation of XBoard chess program.
+Description[ar]=تنويعات السمات في برنامج الشطرنج XBoard.
 Description[bg]=Вариация на шахматната програма XBoard
 Description[bs]=Varijacija teme šahovskog programa XBoard.
 Description[ca]=Una variació del tema del programa d'escacs XBoard.
