@@ -22,11 +22,7 @@
 #include "proto/chatwidget.h"
 #include "ui_chatwidget.h"
 
-#include <KDebug>
-
-#include <QtGui/QScrollBar>
-
-#include <KTextBrowser>
+#include <QScrollBar>
 
 using namespace Knights;
 
@@ -50,7 +46,7 @@ class ScrollBarPin
 void Terminal::resizeEvent ( QResizeEvent * event )
 {
   ScrollBarPin b(verticalScrollBar());
-  KTextBrowser::resizeEvent(event);
+  QTextBrowser::resizeEvent(event);
 }
 
 ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
@@ -58,8 +54,8 @@ ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
   ui = new Ui::ChatWidget;
   ui->setupUi(this);
 
-  connect ( ui->sendButton, SIGNAL(clicked(bool)), this, SLOT(sendButtonClicked()) );
-  ui->sendButton->setIcon( KIcon(QLatin1String("mail-send")) );
+  connect ( ui->sendButton, &QPushButton::clicked, this, &ChatWidget::sendButtonClicked );
+  ui->sendButton->setIcon( QIcon::fromTheme(QLatin1String("mail-send")) );
 
   m_terminal = new Terminal;
   ui->consoleLayout->addWidget(m_terminal);
@@ -130,7 +126,7 @@ void ChatWidget::sendButtonClicked()
 
 void ChatWidget::addExtraButton ( const QString& text, const QString& title, const QString& icon )
 {
-    KPushButton* button = new KPushButton ( this );
+    QPushButton* button = new QPushButton ( this );
     if ( !title.isEmpty() )
     {
 	button->setText ( title );
@@ -141,11 +137,11 @@ void ChatWidget::addExtraButton ( const QString& text, const QString& title, con
     }
     if ( !icon.isEmpty() )
     {
-	button->setIcon ( KIcon(icon) );
+	button->setIcon ( QIcon::fromTheme(icon) );
     }
     ui->extraButtonsLayout->addWidget ( button );
     m_extraButtons.insert ( button, text );
-    connect ( button, SIGNAL(clicked(bool)), SLOT(buttonClicked()) );
+    connect ( button, &QPushButton::clicked, this, &ChatWidget::buttonClicked );
 }
 
 void ChatWidget::buttonClicked()

@@ -19,18 +19,22 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <gamemanager.h>
 #include "proto/ficsprotocol.h"
 #include "proto/ficsdialog.h"
 #include "proto/chatwidget.h"
 #include "settings.h"
+#include "knightsdebug.h"
 
-#include <KDialog>
-#include <KLocale>
-#include <KPushButton>
+#include <KLocalizedString>
 
-#include <QtNetwork/QTcpSocket>
-#include <QtGui/QApplication>
-#include <gamemanager.h>
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QAbstractSocket>
+#include <QTcpSocket>
+#include <QApplication>
 
 using namespace Knights;
 
@@ -131,7 +135,7 @@ void FicsProtocol::init (  )
     console->addExtraButton ( QLatin1String("unseek"), i18nc("Stop searching for opponents", "Unseek"), QLatin1String("edit-clear") );
     console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
     console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
-    connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)) );
+    connect ( console, &ChatWidget::sendText, this, &FicsProtocol::writeCheckMoves );
     setConsole ( console );
 
     QTcpSocket* socket = new QTcpSocket ( this );
@@ -142,7 +146,8 @@ void FicsProtocol::init (  )
     {
         port = 5000;
     }
-    connect ( socket, SIGNAL(error(QAbstractSocket::SocketError)), SLOT(socketError()) );
+    connect ( socket, static_cast<void (QTcpSocket::*)(QAbstractSocket::SocketError)> (&QTcpSocket::error),
+              this, &FicsProtocol::socketError );
     socket->connectToHost ( address, port );
 }
 
@@ -158,7 +163,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets()
     if ( !m_chat )
     {
         m_chat = createChatWidget();
-        connect ( m_chat, SIGNAL(sendText(QString)), SLOT(sendChat(QString)));
+        connect ( m_chat, &ChatWidget::sendText, this, &FicsProtocol::sendChat );
     }
 
     ToolWidgetData chatData;
@@ -201,46 +206,50 @@ void FicsProtocol::openGameDialog()
         m_widget->setLoginEnabled(true);
         return;
     }
-    KDialog* dialog = new KDialog ( qApp->activeWindow() );
-    dialog->setCaption(i18n("Chess server"));
-    dialog->setButtons ( KDialog::User1 | KDialog::User2 | KDialog::Cancel );
+    QDialog* dialog = new QDialog ( qApp->activeWindow() );
+    dialog->setWindowTitle(i18n("Chess server"));
+    auto mainLayout = new QVBoxLayout(dialog);
+    dialog->setLayout(mainLayout);
+    auto bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
 
-    dialog->setButtonText(KDialog::User2, i18n("Decline"));
-    dialog->setButtonIcon(KDialog::User2, KIcon(QLatin1String("dialog-close")));
-    dialog->button(KDialog::User2)->setVisible(false);
-    
-    dialog->setButtonText(KDialog::User1, i18n("Accept"));
-    dialog->button(KDialog::User1)->setVisible(false);
-    dialog->setButtonIcon(KDialog::User1, KIcon(QLatin1String("dialog-ok-accept")));
+    bBox->button(QDialogButtonBox::Ok)->setText(i18n("Accept"));
+    bBox->button(QDialogButtonBox::Ok)->setVisible(false);
+    bBox->button(QDialogButtonBox::Ok)->setIcon(QIcon::fromTheme(QLatin1String("dialog-ok-accept")));
 
-    m_widget = new FicsDialog ( dialog );
+    bBox->button(QDialogButtonBox::Cancel)->setText(i18n("Decline"));
+    bBox->button(QDialogButtonBox::Cancel)->setVisible(false);
+    bBox->button(QDialogButtonBox::Cancel)->setIcon(QIcon::fromTheme(QLatin1String("dialog-close")));
+
+    m_widget = new FicsDialog ();
     m_widget->setServerName ( attribute( "server" ).toString());
     m_widget->setConsoleWidget ( console() );
-    dialog->setMainWidget ( m_widget );
+    mainLayout->addWidget(m_widget);
+    mainLayout->addWidget(bBox);
 
-    connect ( dialog, SIGNAL (user2Clicked()), m_widget, SLOT(decline()) );
-    connect ( dialog, SIGNAL (user1Clicked()), m_widget, SLOT(accept()) );
-    connect ( m_widget, SIGNAL (acceptButtonNeeded(bool)), dialog->button ( KDialog::User1 ), SLOT (setVisible(bool)) );
-    connect ( m_widget, SIGNAL (declineButtonNeeded(bool)), dialog->button ( KDialog::User2 ), SLOT (setVisible(bool)) );
+    connect ( bBox, &QDialogButtonBox::rejected, m_widget, &FicsDialog::decline );
+    connect ( bBox, &QDialogButtonBox::accepted, m_widget, &FicsDialog::accept );
+    connect ( m_widget, &FicsDialog::acceptButtonNeeded, bBox->button(QDialogButtonBox::Ok), &QPushButton::setVisible );
+    connect ( m_widget, &FicsDialog::declineButtonNeeded, bBox->button(QDialogButtonBox::Cancel), &QPushButton::setVisible );
 
-    connect ( m_widget, SIGNAL(login(QString,QString)), this, SLOT(login(QString,QString)));
-    connect ( m_widget, SIGNAL(acceptSeek(int)), SLOT(acceptSeek(int)) );
-    connect ( m_widget, SIGNAL(acceptChallenge(int)), SLOT(acceptChallenge(int)) );
-    connect ( m_widget, SIGNAL(declineChallenge(int)), SLOT(declineChallenge(int)) );
+    connect ( m_widget, &FicsDialog::login, this, &FicsProtocol::login );
+    connect ( m_widget, &FicsDialog::acceptSeek, this, &FicsProtocol::acceptSeek );
+    connect ( m_widget, &FicsDialog::acceptChallenge, this, &FicsProtocol::acceptChallenge );
+    connect ( m_widget, &FicsDialog::declineChallenge, this, &FicsProtocol::declineChallenge );
     
-    connect ( this, SIGNAL(sessionStarted()), m_widget, SLOT(slotSessionStarted()) );
-    connect ( this, SIGNAL (gameOfferReceived(FicsGameOffer)), m_widget, SLOT (addGameOffer(FicsGameOffer)) );
-    connect ( this, SIGNAL (gameOfferRemoved(int)), m_widget, SLOT (removeGameOffer(int)) );
-    connect ( this, SIGNAL (challengeReceived(FicsChallenge)), m_widget, SLOT (addChallenge(FicsChallenge)) );
-    connect ( this, SIGNAL(gameOfferRemoved(int)), m_widget, SLOT(removeChallenge(int)) );
-    connect ( m_widget, SIGNAL (seekingChanged(bool)), SLOT (setSeeking(bool)) );
+    connect ( this, &FicsProtocol::sessionStarted, m_widget, &FicsDialog::slotSessionStarted );
+    connect ( this, &FicsProtocol::gameOfferReceived, m_widget, &FicsDialog::addGameOffer );
+    connect ( this, &FicsProtocol::gameOfferRemoved, m_widget, &FicsDialog::removeGameOffer );
+    connect ( this, &FicsProtocol::challengeReceived, m_widget, &FicsDialog::addChallenge );
+    connect ( this, &FicsProtocol::gameOfferRemoved, m_widget, &FicsDialog::removeChallenge );
+    connect ( m_widget, &FicsDialog::seekingChanged, this, &FicsProtocol::setSeeking );
 
-    // connect ( dialog, SIGNAL(accepted()), SLOT(dialogAccepted()));
-    connect ( dialog, SIGNAL (rejected()), SLOT (dialogRejected()) );
+    // connect ( dialog, &QDialog::accepted, this, &FicsProtocol::dialogAccepted );
+    connect ( dialog, &QDialog::rejected, this, &FicsProtocol::dialogRejected );
 
-    connect ( this, SIGNAL (initSuccesful()), dialog, SLOT (accept()) );
-    connect ( this, SIGNAL(initSuccesful()), m_widget, SLOT(slotDialogAccepted()) );
-    connect ( this, SIGNAL (error(Protocol::ErrorCode,QString)), dialog, SLOT (deleteLater()) );
+    connect ( this, &FicsProtocol::initSuccesful, dialog, &QDialog::accept );
+    /* TODO: The SLOT slotDialogAccepted() is not implemented. Need to recheck the intention */
+    //connect ( this, &FicsProtocol::initSuccesful, m_widget, &FicsDialog::slotDialogAccepted );
+    connect ( this, &FicsProtocol::error, dialog, &QDialog::deleteLater );
     if ( Settings::autoLogin() )
     {
         m_widget->slotLogin();
@@ -304,7 +313,7 @@ bool FicsProtocol::parseLine(const QString& line)
                 {
                     name.truncate ( name.indexOf ( QLatin1Char ( ' ' ) ) );
                 }
-                kDebug() << QLatin1String("Your name is") << name;
+                qCDebug(LOG_KNIGHTS) << QLatin1String("Your name is") << name;
                 otherPlayerName = name;
                 emit sessionStarted();
             }
@@ -379,7 +388,7 @@ bool FicsProtocol::parseLine(const QString& line)
             }
             else if ( gameStartedExp.indexIn ( line ) > -1 )
             {
-                kDebug() << "Game Started" << line;
+                qCDebug(LOG_KNIGHTS) << "Game Started" << line;
                 type = ChatWidget::StatusMessage;
                 QString player1 = gameStartedExp.cap ( 1 );
                 QString player2 = gameStartedExp.cap ( 3 );
@@ -396,7 +405,7 @@ bool FicsProtocol::parseLine(const QString& line)
                 }
                 if ( byColor(color) != this )
                 {
-                    kDebug() << "Switching protocols";
+                    qCDebug(LOG_KNIGHTS) << "Switching protocols";
                     // The color is different than was assigned at first
                     // We have to switch the protocols
                     Protocol* t = white();
@@ -417,7 +426,7 @@ bool FicsProtocol::parseLine(const QString& line)
             if ( moveRegExp.indexIn ( line ) > -1 )
             {
                 display = false;
-                kDebug() << moveRegExp.cap(1) << colorName(color());
+                qCDebug(LOG_KNIGHTS) << moveRegExp.cap(1) << colorName(color());
                 bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("W") && color() == White )
                         && !( moveRegExp.cap ( 1 ) == QLatin1String("B") && color() == Black );
 
@@ -425,7 +434,7 @@ bool FicsProtocol::parseLine(const QString& line)
                 const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
                 const QString  moveString = moveRegExp.cap ( 6 );
 
-                kDebug() << "Move:" << moveString;
+                qCDebug(LOG_KNIGHTS) << "Move:" << moveString;
 
                 if ( moveString == QLatin1String("none") )
                 {
@@ -461,7 +470,7 @@ bool FicsProtocol::parseLine(const QString& line)
                             m.setPromotedType ( Piece::typeFromChar ( typeChar ) );
                         }
                     }
-                    kDebug() << "Valid move" << m;
+                    qCDebug(LOG_KNIGHTS) << "Valid move" << m;
                     emit pieceMoved ( m );
                 }
                 Manager::self()->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
@@ -584,9 +593,9 @@ void FicsProtocol::setSeeking ( bool seek )
         
         TimeControl tc = Manager::self()->timeControl(color());
         seekText += ' ';
-        seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toAscii();
+        seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toLatin1();
         seekText += ' ';
-        seekText += QString::number ( tc.increment ).toAscii();
+        seekText += QString::number ( tc.increment ).toLatin1();
 
         seekText += m_widget->rated() ? " rated" : " unrated";
         /*
@@ -604,7 +613,7 @@ void FicsProtocol::setSeeking ( bool seek )
         }
         */
         seekText += m_widget->autoAcceptChallenge() ? " auto" : " manual";
-        kDebug() << seekText;
+        qCDebug(LOG_KNIGHTS) << seekText;
         write(QLatin1String(seekText));
     }
     else

@@ -22,8 +22,9 @@
 #ifndef KNIGHTS_HISTORYWIDGET_H
 #define KNIGHTS_HISTORYWIDGET_H
 
-#include <QWidget>
 #include "core/move.h"
+
+#include <QWidget>
 
 class QStringListModel;
 

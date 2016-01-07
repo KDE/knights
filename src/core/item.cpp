@@ -23,11 +23,10 @@
 #include "board.h"
 #include "settings.h"
 
-#include <KDebug>
-
-#include <QtCore/QPropertyAnimation>
-#include <QtCore/QParallelAnimationGroup>
-#include <qmath.h>
+#include <QLoggingCategory>
+#include <QPropertyAnimation>
+#include <QParallelAnimationGroup>
+#include <QtMath>
 
 using namespace Knights;
 

@@ -23,10 +23,10 @@
 #define KNIGHTS_FICSPROTOCOL_H
 
 #include "proto/textprotocol.h"
-
-#include <QtCore/QTextStream>
-#include <QtCore/QTime>
 #include <gamemanager.h>
+
+#include <QTextStream>
+#include <QTime>
 
 class QTcpSocket;
 

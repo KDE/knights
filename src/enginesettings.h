@@ -77,7 +77,7 @@ public slots:
     void removeClicked();
     void checkInstalled();
     
-    void writeConfig();
+    void save();
 };
 
 }

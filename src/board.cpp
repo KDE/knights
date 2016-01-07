@@ -29,20 +29,21 @@
 
 #include "ui_promotiondialog.h"
 #include "gamemanager.h"
+#include "knightsdebug.h"
 
 #include <KgTheme>
 #include <KGameRenderer>
-#include <KDebug>
-#include <KDialog>
 
-#include <QtCore/QMap>
-#include <QtGui/QDropEvent>
-#include <QtSvg/QGraphicsSvgItem>
-#include <QtGui/QGraphicsSceneMouseEvent>
-#include <QtGui/QGraphicsSceneDragDropEvent>
-#include <QtGui/QGraphicsView>
-#include <QtCore/qmath.h>
-
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QDrag>
+#include <QDropEvent>
+#include <QGraphicsSvgItem>
+#include <QGraphicsSceneMouseEvent>
+#include <QGraphicsSceneDragDropEvent>
+#include <QGraphicsView>
+#include <QPushButton>
+#include <QtMath>
 
 using namespace Knights;
 
@@ -81,7 +82,7 @@ m_themeProvider(provider)
     updateTheme();
     m_dragActive = false;
     
-    connect (provider, SIGNAL(currentThemeChanged(const KgTheme*)), SLOT(updateTheme()));
+    connect (provider, &KgThemeProvider::currentThemeChanged, this, &Board::updateTheme);
 }
 
 Board::~Board()
@@ -105,17 +106,17 @@ void Board::addPiece ( PieceType type, Color color, const Pos& pos )
 
 void Board::movePiece ( const Move& move )
 {
-    kDebug() << move;
+    qCDebug(LOG_KNIGHTS) << move;
     Move m = move;
     if ( ( m.flag ( Move::Illegal ) && !m.flag ( Move::Forced ) ) ||  m.to() == m.from() || !m_grid.contains ( m.from() ) )
     {
-        kWarning() << "Invalid move:" << m;
+        qCWarning(LOG_KNIGHTS) << "Invalid move:" << m;
         return;
     }
     if ( !m.flag ( Move::Forced ) &&
         ( m_grid[m.from()]->color() != m_currentPlayer || !Manager::self()->rules()->legalMoves(m.from()).contains(m) ) )
     {
-        kWarning() << "Move not allowed:" << m;
+        qCWarning(LOG_KNIGHTS) << "Move not allowed:" << m;
         return;
     }
     qDeleteAll ( markers );
@@ -201,7 +202,7 @@ void Board::addTiles()
 {
     if ( !m_tiles.isEmpty() )
     {
-        kWarning() << "Tiles are already present, delete them first";
+        qCWarning(LOG_KNIGHTS) << "Tiles are already present, delete them first";
         return;
     }
     for ( int i = 1; i < 9; ++i )
@@ -689,35 +690,42 @@ void Board::changeDisplayedPlayer()
 
 PieceType Board::getPromotedType()
 {
-    KDialog dialog;
-    dialog.setButtons ( KDialog::Ok );
-    dialog.setButtonText ( KDialog::Ok, i18n ( "Promote" ) );
-    dialog.setCaption ( i18n ( "Promotion" ) );
-    QWidget promotionWidget ( &dialog );
+    PieceType piece = Queen;
+    QDialog *dialog = new QDialog();
+    dialog->setWindowTitle(i18n("Promotion"));
+    QWidget *widget = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout();
+    QDialogButtonBox *bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    bBox->button(QDialogButtonBox::Ok)->setText(i18n("Promote"));
+    bBox->button(QDialogButtonBox::Ok)->setDefault(true);
+
     Ui::PromotionWidget ui;
-    ui.setupUi ( &promotionWidget );
-    dialog.setMainWidget ( &promotionWidget );
-    if ( dialog.exec() == KDialog::Accepted )
+    ui.setupUi ( widget );
+
+    layout->addWidget ( widget );
+    layout->addWidget ( bBox );
+    dialog->setLayout ( layout );
+
+    connect (bBox, &QDialogButtonBox::accepted, dialog, &QDialog::accept);
+    connect (bBox, &QDialogButtonBox::rejected, dialog, &QDialog::reject);
+
+    if ( dialog->exec() == QDialog::Accepted )
     {
-        if ( ui.radioButtonQueen->isChecked() )
+        if ( ui.radioButtonKnight->isChecked() )
         {
-            return Queen;
-        }
-        else if ( ui.radioButtonKnight->isChecked() )
-        {
-            return Knight;
+            piece = Knight;
         }
         else if ( ui.radioButtonBishop->isChecked() )
         {
-            return Bishop;
+            piece = Bishop;
         }
         else if ( ui.radioButtonRook->isChecked() )
         {
-            return Rook;
+            piece = Rook;
         }
     }
-    return Queen;
+    delete dialog;
+    return piece;
 }
 
-#include "board.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

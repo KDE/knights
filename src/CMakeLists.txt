@@ -1,3 +1,8 @@
+include_directories(
+    ${CMAKE_SOURCE_DIR}
+    ${CMAKE_BINARY_DIR}
+)
+
 set(knights_SRCS
     core/pos.cpp
     core/move.cpp
@@ -34,7 +39,7 @@ set(knights_SRCS
     main.cpp
  )
 
-kde4_add_ui_files(knights_SRCS
+ki18n_wrap_ui(knights_SRCS
     knightsview_base.ui
     prefs_base.ui
     prefs_access.ui
@@ -48,21 +53,41 @@ kde4_add_ui_files(knights_SRCS
     enginesettings.ui
     customdifficultydialog.ui
 )
-kde4_add_kcfg_files(knights_SRCS settings.kcfgc )
-qt4_add_dbus_interfaces(knights_SRCS ${KDE4_DBUS_INTERFACES_DIR}/org.kde.KSpeech.xml)
-qt4_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
-kde4_add_executable(knights ${knights_SRCS})
 
-target_link_libraries(knights ${KDE4_KDEUI_LIBS} ${KDE4_KPARTS_LIBS} ${KDE4_PLASMA_LIBS} ${KDE4_SOLID_LIBS} ${KDEGAMES_LIBRARY} ${QT_QTNETWORK_LIBRARY})
+kconfig_add_kcfg_files(knights_SRCS settings.kcfgc )
+qt5_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
+ecm_qt_declare_logging_category(knights_SRCS HEADER knightsdebug.h IDENTIFIER LOG_KNIGHTS CATEGORY_NAME log_knights)
+add_executable(knights ${knights_SRCS})
 
-install(TARGETS knights ${INSTALL_TARGETS_DEFAULT_ARGS} )
+if (Qt5TextToSpeech_FOUND)
+  target_link_libraries(knights
+        Qt5::TextToSpeech)
+endif()
+
+target_link_libraries(knights
+     Qt5::Network
+     Qt5::Svg
+     Qt5::Gui
+     Qt5::Concurrent
+     KF5::Solid
+     KF5::WidgetsAddons
+     KF5::DBusAddons
+     KF5::XmlGui
+     KF5KDEGames
+     KF5::Plotting
+     KF5::Plasma
+     KF5::Completion
+     KF5::TextWidgets
+     KF5::Wallet)
+
+install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( PROGRAMS knights.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.knights.desktop  DESTINATION ${KDE_INSTALL_APPDIR} )
 install( FILES knights.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
-install( FILES knightsui.rc  DESTINATION  ${DATA_INSTALL_DIR}/knights )
-install( FILES knights.knsrc  DESTINATION  ${CONFIG_INSTALL_DIR} )
+install( FILES knightsui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/knights )
+install( FILES knights.knsrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 install( FILES org.kde.Knights.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} )
 
 

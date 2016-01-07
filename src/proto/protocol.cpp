@@ -22,13 +22,12 @@
 #include "proto/protocol.h"
 #include "proto/chatwidget.h"
 #include "core/move.h"
-
-#include <KLocale>
-
-#include <QtCore/QStack>
-#include <QtCore/QTime>
-#include <KDebug>
 #include <gamemanager.h>
+
+#include <KLocalizedString>
+
+#include <QStack>
+#include <QTime>
 
 namespace Knights
 {

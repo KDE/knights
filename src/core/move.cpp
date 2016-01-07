@@ -20,12 +20,12 @@
 */
 
 #include "move.h"
+#include "knightsdebug.h"
 
-#include <KDebug>
-
-#include <QtCore/QPair>
-#include <QtCore/QSharedData>
-#include <QtCore/QTime>
+#include <QPair>
+#include <QSharedData>
+#include <QTime>
+#include <QDebug>
 
 namespace Knights
 {
@@ -336,7 +336,7 @@ namespace Knights
         {
             // We can't reverse the move from the algebraic notation alone
             // Please don't call this with a short notation move
-            kError() << "Can't reverse the move from short algebraic notation";
+            qCCritical(LOG_KNIGHTS) << "Can't reverse the move from short algebraic notation";
             return rev;
         }
         rev.setTo(d->from);

@@ -22,8 +22,8 @@
 #ifndef KNIGHTS_EXTERNALCONTROL_H
 #define KNIGHTS_EXTERNALCONTROL_H
 
-#include <QtCore/QObject>
-#include <QtCore/QPair>
+#include <QObject>
+#include <QPair>
 
 namespace Knights {
   

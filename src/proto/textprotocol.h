@@ -22,10 +22,11 @@
 #ifndef KNIGHTS_TEXTPROTOCOL_H
 #define KNIGHTS_TEXTPROTOCOL_H
 
-#include <proto/protocol.h>
 #include <QTextStream>
-#include "chatwidget.h"
 #include <QList>
+
+#include <proto/protocol.h>
+#include "chatwidget.h"
 
 namespace Knights {
 

@@ -22,11 +22,11 @@
 #include "pos.h"
 #include "board.h"
 
-#include <QtCore/QDebug>
+#include <QDebug>
 
 namespace Knights
 {
-    const QString Pos::rowNames = QString::fromAscii ( "abcdefgh" );
+    const QString Pos::rowNames = QString::fromLatin1 ( "abcdefgh" );
 
 
     QChar Pos::row ( int num )

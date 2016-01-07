@@ -23,10 +23,10 @@
 #include "ui_enginesettings.h"
 #include "settings.h"
 
-#include <KStandardDirs>
 #include <KComboBox>
 
 #include <QLabel>
+#include <QStandardPaths>
 
 using namespace Knights;
 
@@ -91,11 +91,11 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(pare
   ui = new Ui::EngineSettings;
   ui->setupUi ( this );
   
-  ui->addButton->setIcon ( KIcon(QLatin1String("list-add")) );
-  connect ( ui->addButton, SIGNAL(clicked(bool)), SLOT(addClicked()) );
+  ui->addButton->setIcon ( QIcon::fromTheme(QLatin1String("list-add")) );
+  connect ( ui->addButton, &QPushButton::clicked, this, &EngineSettings::addClicked );
   
-  ui->removeButton->setIcon ( KIcon(QLatin1String("list-remove")) );
-  connect ( ui->removeButton, SIGNAL(clicked(bool)), SLOT(removeClicked()) );
+  ui->removeButton->setIcon ( QIcon::fromTheme(QLatin1String("list-remove")) );
+  connect ( ui->removeButton, &QPushButton::clicked, this, &EngineSettings::removeClicked );
   
   int row = 0;
   foreach ( const QString& s, Settings::engineConfigurations() )
@@ -109,7 +109,7 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(pare
   }
   
   checkInstalled();
-  connect ( ui->tableWidget, SIGNAL(itemChanged(QTableWidgetItem*)), SLOT(checkInstalled()) );
+  connect ( ui->tableWidget, &QTableWidget::itemChanged, this, &EngineSettings::checkInstalled );
 }
 
 EngineSettings::~EngineSettings()
@@ -124,10 +124,10 @@ void EngineSettings::checkInstalled()
   {
     QTableWidgetItem* item = ui->tableWidget->item ( i, CommandColumn );
     QLatin1Char s ( ' ' );
-    bool ok = item && !item->text().isEmpty() && !KStandardDirs::findExe ( item->text().split ( s ).first() ).isEmpty();
+    bool ok = item && !item->text().isEmpty() && !QStandardPaths::findExecutable ( item->text().split ( s ).first() ).isEmpty();
     const char* iconName = ok ? "dialog-ok" : "dialog-error"; 
     QLabel* label = new QLabel ( this );
-    label->setPixmap ( KIcon(QLatin1String(iconName)).pixmap(32, 32) );
+    label->setPixmap ( QIcon::fromTheme(QLatin1String(iconName)).pixmap(32, 32) );
     ui->tableWidget->setCellWidget ( i, InstalledColumn, label );
   }
 }
@@ -158,7 +158,7 @@ void EngineSettings::removeClicked()
   ui->tableWidget->removeRow ( i );
 }
 
-void EngineSettings::writeConfig()
+void EngineSettings::save()
 {
   QStringList out;
   for ( int i = 0; i < ui->tableWidget->rowCount(); ++i )

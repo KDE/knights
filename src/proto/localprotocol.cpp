@@ -20,10 +20,9 @@
 */
 
 #include "localprotocol.h"
-
-#include <KDE/KLocale>
 #include "gamemanager.h"
-#include <KDebug>
+
+#include <KLocalizedString>
 #include <KUser>
 
 using namespace Knights;
@@ -33,7 +32,8 @@ void LocalProtocol::init (  )
     KUser user;
     if ( user.isValid() )
     {
-      setPlayerName ( user.fullName().isEmpty() ? user.loginName() : user.fullName() );
+      QVariant fullName = user.property(KUser::FullName);
+      setPlayerName ( ( QVariant() == fullName ) ? user.loginName() : fullName.toString() );
     }
     else
     {

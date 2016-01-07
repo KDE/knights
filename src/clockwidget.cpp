@@ -20,12 +20,11 @@
 */
 
 #include "clockwidget.h"
-
+#include "knightsdebug.h"
 #include "ui_clockwidget.h"
 
-#include <KDebug>
-#include <QtCore/QTimer>
-#include <QtCore/QTime>
+#include <QTimer>
+#include <QTime>
 
 using namespace Knights;
 
@@ -83,7 +82,7 @@ void ClockWidget::setCurrentTime ( Color color, const QTime& time )
 
 void ClockWidget::setTimeLimit ( Color color, const QTime& time )
 {
-    kDebug() << color << time;
+    qCDebug(LOG_KNIGHTS) << color << time;
     m_timeLimit[color] = time;
     int seconds = time.hour() * 3600 + time.minute() * 60 + time.second();
     switch ( color )

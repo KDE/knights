@@ -32,11 +32,11 @@ OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::Windo
   if ( offer.action != ActionNone )
   {
     QAction* action;
-    action = new QAction( KIcon(QLatin1String("dialog-ok")), i18n("Accept"), this );
-    connect ( action, SIGNAL(triggered(bool)), SLOT(acceptClicked()) );
+    action = new QAction( QIcon::fromTheme(QLatin1String("dialog-ok")), i18n("Accept"), this );
+    connect ( action, &QAction::triggered, this, &OfferWidget::acceptClicked );
     addAction(action);
-    action = new QAction( KIcon(QLatin1String("edit-delete")), i18n("Decline"), this );
-    connect ( action, SIGNAL(triggered(bool)), SLOT(declineClicked()) );
+    action = new QAction( QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Decline"), this );
+    connect ( action, &QAction::triggered, this, &OfferWidget::declineClicked );
     addAction ( action );
   }
   setCloseButtonVisible(true);

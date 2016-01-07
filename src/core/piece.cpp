@@ -21,7 +21,7 @@
 
 #include "piece.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 namespace Knights
 {

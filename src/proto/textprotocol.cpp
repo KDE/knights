@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "knightsdebug.h"
 #include "textprotocol.h"
-#include <KDebug>
 
 using namespace Knights;
 
@@ -63,7 +63,7 @@ void TextProtocol::readFromDevice()
 void TextProtocol::setDevice(QIODevice* device)
 {
     stream.setDevice(device);
-    connect ( device, SIGNAL(readyRead()), SLOT(readFromDevice()) );
+    connect ( device, &QIODevice::readyRead, this, &TextProtocol::readFromDevice );
 }
 
 QIODevice* TextProtocol::device() const
@@ -83,13 +83,13 @@ void TextProtocol::writeCheckMoves(const QString& text)
 
 void TextProtocol::write(const QString& text)
 {
-    kDebug() << text;
+    qCDebug(LOG_KNIGHTS) << text;
     stream << text << endl;
 }
 
 void TextProtocol::write(const char* text)
 {
-    kDebug() << text;
+    qCDebug(LOG_KNIGHTS) << text;
     stream << text << endl;
 }
 

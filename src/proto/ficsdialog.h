@@ -24,8 +24,8 @@
 
 #include "proto/ficsprotocol.h"
 
-#include <QtGui/QWidget>
-#include <QtGui/QStringListModel>
+#include <QWidget>
+#include <QStringListModel>
 
 class KPlotObject;
 namespace Ui

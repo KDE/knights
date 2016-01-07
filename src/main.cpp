@@ -21,32 +21,43 @@
 
 #include "knights.h"
 
-#include <KApplication>
 #include <KAboutData>
-#include <KCmdLineArgs>
-#include <KLocale>
+#include <KLocalizedString>
 
-static const char description[] =
-    I18N_NOOP ( "Chess board based on KDE Development Platform 4" );
+#include <QApplication>
+#include <QCommandLineParser>
 
-static const char version[] = "2.5.0";
+static QString description = QStringLiteral ( "Chess board based on KF5" );
+static QString version = QStringLiteral ("2.5.0");
 
 int main ( int argc, char **argv )
 {
-    KAboutData about ( "knights", 0, ki18n ( "Knights" ), version, ki18n ( description ),
-                       KAboutData::License_GPL, ki18n ( "(C) 2009-2011 Miha Čančula" ), KLocalizedString(), "miha@noughmad.eu" );
-    about.addAuthor ( ki18n ( "Miha Čančula" ), KLocalizedString(), "miha@noughmad.eu", "http://noughmad.eu", "noughmad" );
-    about.addCredit ( ki18n ( "Troy Corbin" ), ki18n ( "Original Knights for KDE3 and theme author" ), "troy@pedanticwebspaces.com" );
-    about.addCredit ( ki18n ( "Dave Kaye" ), ki18n ( "Help with new theme features and rendering without KGameRenderer" ) );
-    about.addCredit ( ki18n ( "Thomas Kamps" ), ki18n ( "Clock displaying the remaining time" ), QByteArray(), QByteArray(), "cpttom" );
-    KCmdLineArgs::init ( argc, argv, &about );
+    QApplication app(argc, argv);
 
-    KCmdLineOptions options;
-    options.add ( "+[URL]", ki18n ( "Document to open" ) );
-    KCmdLineArgs::addCmdLineOptions ( options );
-    KApplication app;
-    KGlobal::locale()->insertCatalog ( QLatin1String ( "libkdegames" ) );
-    
+    KLocalizedString::setApplicationDomain("knights");
+
+    KAboutData about ( QStringLiteral("knights"), i18n ( "KNights" ), version, description,
+                       KAboutLicense::GPL, i18n ( "(C) 2009-2011 Miha Čančula" ),
+                       QString(), QString(), QStringLiteral("miha@noughmad.eu") );
+    about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
+                      QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
+    about.addCredit ( i18n ( "Troy Corbin" ), i18n ( "Original Knights for KDE3 and theme author" ),
+                      QStringLiteral ("troy@pedanticwebspaces.com") );
+    about.addCredit ( i18n ( "Dave Kaye" ), i18n ( "Help with new theme features and rendering without KGameRenderer" ) );
+    about.addCredit ( i18n ( "Thomas Kamps" ), i18n ( "Clock displaying the remaining time" ),
+                      QString(), QString(), QStringLiteral("cpttom") );
+
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knights")));
+    KAboutData::setApplicationData(about);
+
+    QCommandLineParser parser;
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.addOption(QCommandLineOption( QStringLiteral ("+[URL]"), i18n ( "Document to open" ) ));
+    about.setupCommandLine(&parser);
+    parser.process(app);
+    about.processCommandLine(&parser);
+
     // register types for connecting with Qt::QueuedConnection
     qRegisterMetaType<Knights::Color>("Color");
 
@@ -58,8 +69,7 @@ int main ( int argc, char **argv )
     else
     {
         // no session.. just start up normally
-        KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-        if ( args->count() == 0 )
+        if ( parser.positionalArguments().isEmpty() )
         {
             Knights::MainWindow *widget = new Knights::MainWindow;
             widget->show();
@@ -67,13 +77,12 @@ int main ( int argc, char **argv )
         else
         {
             int i = 0;
-            for ( ; i < args->count(); i++ )
+            for ( ; i < parser.positionalArguments().count(); i++ )
             {
                 Knights::MainWindow *widget = new Knights::MainWindow;
                 widget->show();
             }
         }
-        args->clear();
     }
 
     return app.exec();

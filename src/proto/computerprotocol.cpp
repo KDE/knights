@@ -20,10 +20,10 @@
 */
 
 #include "computerprotocol.h"
+#include "knightsdebug.h"
 
 #include <KProcess>
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
 using namespace Knights;
 
@@ -47,9 +47,9 @@ void ComputerProtocol::startProgram()
     mProcess->setNextOpenMode ( QIODevice::ReadWrite | QIODevice::Unbuffered | QIODevice::Text );
     mProcess->setOutputChannelMode ( KProcess::SeparateChannels );
     mProcess->setReadChannel ( KProcess::StandardOutput );
-    connect ( mProcess, SIGNAL (readyReadStandardError()), SLOT (readError()) );
+    connect ( mProcess, &KProcess::readyReadStandardError, this, &ComputerProtocol::readError );
     setDevice(mProcess);
-    kDebug() << "Starting program" << program << "with args" << args;
+    qCDebug(LOG_KNIGHTS) << "Starting program" << program << "with args" << args;
     mProcess->start();
     if ( !mProcess->waitForStarted ( 1000 ) )
     {
@@ -66,7 +66,7 @@ bool ComputerProtocol::isComputer()
 QList< Protocol::ToolWidgetData > ComputerProtocol::toolWidgets()
 {
     ChatWidget* console = createConsoleWidget();
-    connect ( console, SIGNAL(sendText(QString)), SLOT(writeCheckMoves(QString)));
+    connect ( console, &ChatWidget::sendText, this, &ComputerProtocol::writeCheckMoves );
     setConsole ( console );
     ToolWidgetData data;
     data.widget = console;
@@ -77,5 +77,10 @@ QList< Protocol::ToolWidgetData > ComputerProtocol::toolWidgets()
     return QList< Protocol::ToolWidgetData >() << data;
 }
 
+
+void ComputerProtocol::readError()
+{
+    qCCritical(LOG_KNIGHTS) << mProcess->readAllStandardError();
+}
 
 

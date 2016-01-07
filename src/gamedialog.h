@@ -22,12 +22,12 @@
 #ifndef KNIGHTS_GAMEDIALOG_H
 #define KNIGHTS_GAMEDIALOG_H
 
+#include <QWidget>
+#include <QNetworkConfigurationManager>
+
 #include "core/piece.h"
 #include "proto/protocol.h"
 #include "settings.h"
-
-#include <QtGui/QWidget>
-#include <Solid/Networking>
 
 namespace Ui
 {
@@ -53,14 +53,15 @@ namespace Knights
             virtual ~GameDialog();
 
             void setupProtocols();
-            void writeConfig();
+            void save();
 
         private:
             Ui::GameDialog* ui;            
+            QNetworkConfigurationManager *m_networkManager;
     
         private slots:
             void updateTimeEdits();
-            void changeNetworkStatus(Solid::Networking::Status status);
+            void networkStatusChanged(bool isOnline);
             void loadEngines();
             void showEngineConfigDialog();
     };

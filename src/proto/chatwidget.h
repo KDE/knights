@@ -22,10 +22,9 @@
 #ifndef KNIGHTS_CHATWIDGET_H
 #define KNIGHTS_CHATWIDGET_H
 
-#include <QtGui/QWidget>
-#include <QtCore/QMap>
-
-#include <KTextBrowser>
+#include <QWidget>
+#include <QMap>
+#include <QTextBrowser>
 
 namespace Ui
 {
@@ -35,7 +34,7 @@ namespace Ui
 namespace Knights
 {
 
-    class Terminal: public KTextBrowser {
+    class Terminal: public QTextBrowser {
       protected:
         virtual void resizeEvent ( QResizeEvent * event );
     };

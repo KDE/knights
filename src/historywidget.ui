@@ -30,7 +30,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KComboBox" name="notationComboBox">
+      <widget class="QComboBox" name="notationComboBox">
        <item>
         <property name="text">
          <string>Short Algebraic</string>
@@ -51,7 +51,7 @@
     </layout>
    </item>
    <item>
-    <widget class="KPushButton" name="saveButton">
+    <widget class="QPushButton" name="saveButton">
      <property name="text">
       <string>&amp;Save History</string>
      </property>
@@ -59,18 +59,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

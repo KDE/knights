@@ -23,8 +23,8 @@
 #define KNIGHTS_SEEKGRAPH_H
 
 #include <KPlotWidget>
-#include <QtCore/QMap>
 
+#include <QMap>
 
 namespace Knights
 {

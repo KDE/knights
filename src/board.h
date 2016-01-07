@@ -27,10 +27,10 @@
 
 #include <KgThemeProvider>
 
-#include <QtGui/QGraphicsScene>
-#include <QtCore/QMap>
-#include <QtCore/QSet>
-#include <QtCore/QPointer>
+#include <QGraphicsScene>
+#include <QMap>
+#include <QSet>
+#include <QPointer>
 
 class QDrag;
 

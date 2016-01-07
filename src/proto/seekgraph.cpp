@@ -25,11 +25,10 @@
 #include <KPlotObject>
 #include <KPlotPoint>
 #include <KPlotAxis>
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 
-#include <QtGui/QPainter>
-#include <QtGui/QMouseEvent>
+#include <QPainter>
+#include <QMouseEvent>
 
 using namespace Knights;
 

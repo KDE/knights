@@ -22,7 +22,7 @@
 #include "externalcontrol.h"
 #include "gamemanager.h"
 #include "knightsadaptor.h"
-#include <KDebug>
+#include "knightsdebug.h"
 
 #define FORWARD_FUNCTION(name, action) void ExternalControl::name() { Manager::self()->sendOffer(Action##action, NoColor, qrand()); }
 
@@ -30,10 +30,10 @@ using namespace Knights;
 
 ExternalControl::ExternalControl(QObject* parent) : QObject(parent)
 {
-    connect(Manager::self(), SIGNAL(pieceMoved(Move)), SLOT(slotMoveMade(Move)));
+    connect(Manager::self(), &Manager::pieceMoved, this, &ExternalControl::slotMoveMade);
     new KnightsAdaptor(this);
-    kDebug() << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
-    kDebug() << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
+    qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
+    qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
 }
 
 ExternalControl::~ExternalControl()

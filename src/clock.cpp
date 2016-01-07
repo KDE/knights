@@ -26,9 +26,11 @@
 #include "clock.h"
 
 #include <math.h>
+
+#include <Plasma/Svg>
+
 #include <QPainter>
 #include <QPaintEvent>
-#include <Plasma/Svg>
 
 using namespace Knights;
 

@@ -65,7 +65,7 @@
          </spacer>
         </item>
         <item row="1" column="1">
-         <widget class="KPushButton" name="player1Engines">
+         <widget class="QPushButton" name="player1Engines">
           <property name="text">
            <string>Configure Engines</string>
           </property>
@@ -233,7 +233,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KIntSpinBox" name="numberOfMoves">
+       <widget class="QSpinBox" name="numberOfMoves">
         <property name="minimumSize">
          <size>
           <width>120</width>
@@ -262,7 +262,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KIntSpinBox" name="timeLimit">
+       <widget class="QSpinBox" name="timeLimit">
         <property name="minimumSize">
          <size>
           <width>120</width>
@@ -285,7 +285,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="KIntSpinBox" name="timeIncrement">
+       <widget class="QSpinBox" name="timeIncrement">
         <property name="minimumSize">
          <size>
           <width>120</width>
@@ -307,16 +307,6 @@
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KIntSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>knuminput.h</header>
   </customwidget>
   <customwidget>
    <class>KHistoryComboBox</class>

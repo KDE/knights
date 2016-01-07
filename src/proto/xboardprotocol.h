@@ -61,10 +61,6 @@ namespace Knights
     virtual void declineOffer(const Offer& offer);
     
     virtual void setDifficulty(int depth, int memory);
-            
-
-    private Q_SLOTS:
-        void readError();
     };
 }
 

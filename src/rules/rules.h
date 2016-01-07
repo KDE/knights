@@ -22,10 +22,11 @@
 #ifndef KCHESS_RULES_H
 #define KCHESS_RULES_H
 
-#include "core/piece.h"
-
 #include "board.h"
-#include <KDebug>
+#include "core/piece.h"
+#include "knightsdebug.h"
+
+#include <QDebug>
 
 template<class Key, class T > class QMap;
 namespace Knights
@@ -60,7 +61,7 @@ namespace Knights
 
             virtual void setGrid ( Grid* grid )
             {
-                kDebug() << "Setting Grid";
+                qCDebug(LOG_KNIGHTS) << "Setting Grid";
                 m_grid = grid;
             }
 

@@ -19,12 +19,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "rules/chessrules.h"
-
-#include "core/move.h"
-#include <KDebug>
-#include <QtCore/QMap>
 #include <gamemanager.h>
+#include "rules/chessrules.h"
+#include "core/move.h"
+#include "knightsdebug.h"
+
+#include <QMap>
 
 using namespace Knights;
 
@@ -361,7 +361,7 @@ QList<Move> ChessRules::movesInDirection ( const Pos& dir, const Pos& pos, int l
 
 void ChessRules::checkSpecialFlags ( Move* move, Color color )
 {
-    kDebug() << move->string() << colorName ( color );
+    qCDebug(LOG_KNIGHTS) << move->string() << colorName ( color );
     if ( !move->flag ( Move::Castle ) )
     {
         if ( move->notation() == Move::Coordinate )
@@ -385,13 +385,13 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
     Piece* p = m_grid->value ( move->from() );
     if ( !p )
     {
-        kWarning() << "No piece at position" << move->from();
+        qCWarning(LOG_KNIGHTS) << "No piece at position" << move->from();
         move->setFlag(Move::Illegal, true);
         return;
     }
     if ( !legalMoves ( move->from() ).contains(*move) )
     {
-        kWarning() << "Illegal move" << move;
+        qCWarning(LOG_KNIGHTS) << "Illegal move" << move;
         move->setFlag(Move::Illegal, true);
         return;
     }
@@ -427,7 +427,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
     }
     if ( p->pieceType() == King && length ( *move ) == 2 )
     {        
-        kDebug() << "Castling";
+        qCDebug(LOG_KNIGHTS) << "Castling";
         Move::CastlingSide side;
         if ( move->to().first > move->from().first )
         {
@@ -538,17 +538,17 @@ QList< Move > ChessRules::pawnMoves ( const Pos& pos )
 
 void ChessRules::moveMade ( const Move& m )
 {
-    kDebug() << m.string();
+    qCDebug(LOG_KNIGHTS) << m.string();
     if ( !m_grid->contains(m.to()) )
     {
-        kDebug() << *m_grid;
+        qCDebug(LOG_KNIGHTS) << *m_grid;
     }
     m_enPassantMoves.clear();
     switch ( m_grid->value ( m.to() )->pieceType() )
     {
             // For Kings and Rook, we track their movement for Castling
         case King:
-            kDebug() << "King moved to" << m.to();
+            qCDebug(LOG_KNIGHTS) << "King moved to" << m.to();
             kingMoved[m_grid->value ( m.to() )->color() ] = true;
             kingPos[m_grid->value ( m.to() )->color() ] = m.to();
             break;
@@ -659,13 +659,13 @@ bool ChessRules::isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos
 
 void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color color )
 {
-    kDebug() << *move << color;
+    qCDebug(LOG_KNIGHTS) << *move << color;
     if ( !move->isValid() ||  move->notation() == notation || move->flag ( Move::Castle ) )
     {
         return;
     }
     
-    kDebug() << move->string();
+    qCDebug(LOG_KNIGHTS) << move->string();
     
     if ( notation == Move::Coordinate )
     {
@@ -690,7 +690,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') ).remove( QLatin1Char('=') );
         if  ( s.size() < 2 )
         {
-                kWarning() << "Unknown move notation" << move->string();
+                qCWarning(LOG_KNIGHTS) << "Unknown move notation" << move->string();
                 move->setFlag ( Move::Illegal, true );
                 return;
         }
@@ -741,10 +741,10 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         }
         move->setTo ( s.right(2) );
         
-        kDebug() << "Conditions:";
-        if ( typeSet ) kDebug() << "Type == " << Piece::charFromType(type);
-        if ( fileSet ) kDebug() << "File == " << file;
-        if ( rankSet ) kDebug() << "Rank == " << rank;
+        qCDebug(LOG_KNIGHTS) << "Conditions:";
+        if ( typeSet ) qCDebug(LOG_KNIGHTS) << "Type == " << Piece::charFromType(type);
+        if ( fileSet ) qCDebug(LOG_KNIGHTS) << "File == " << file;
+        if ( rankSet ) qCDebug(LOG_KNIGHTS) << "Rank == " << rank;
 
         for ( Grid::const_iterator it = m_grid->constBegin(); it != m_grid->constEnd(); ++it )
         {
@@ -756,7 +756,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
             {
                 if ( found )
                 {
-                    kWarning() << "Found more than one possible move";
+                    qCWarning(LOG_KNIGHTS) << "Found more than one possible move";
                     move->setFlag ( Move::Illegal, true );
                     return;
                 }
@@ -766,7 +766,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         }
         if ( !found )
         {
-            kWarning() << "No possible moves found" << move->string();
+            qCWarning(LOG_KNIGHTS) << "No possible moves found" << move->string();
             move->setFlag ( Move::Illegal, true );
             return;
         }
@@ -800,7 +800,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         possibilities << typeLetter + QString::number ( move->from().second ) + end;
         possibilities << typeLetter + move->from().string() + end;
                 
-        kDebug() << possibilities;
+        qCDebug(LOG_KNIGHTS) << possibilities;
         
         foreach ( const QString& text, possibilities )
         {
@@ -815,7 +815,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         
     }
     
-    kDebug() << move->string();
+    qCDebug(LOG_KNIGHTS) << move->string();
     
     Q_ASSERT ( move->notation() == notation );
 }

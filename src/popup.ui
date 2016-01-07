@@ -32,21 +32,21 @@
     </spacer>
    </item>
    <item>
-    <widget class="KPushButton" name="acceptButton">
+    <widget class="QPushButton" name="acceptButton">
      <property name="text">
       <string>Accept</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="KPushButton" name="declineButton">
+    <widget class="QPushButton" name="declineButton">
      <property name="text">
       <string>Decline</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="KPushButton" name="closeButton">
+    <widget class="QPushButton" name="closeButton">
      <property name="text">
       <string>Close</string>
      </property>
@@ -54,13 +54,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

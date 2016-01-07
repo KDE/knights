@@ -19,15 +19,16 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <settings.h>
 #include "proto/xboardprotocol.h"
 #include "proto/chatwidget.h"
 #include "gamemanager.h"
+#include "knightsdebug.h"
 
 #include <KProcess>
-#include <KDebug>
-#include <KLocale>
-#include <KFileDialog>
-#include <settings.h>
+#include <KLocalizedString>
+
+#include <QFileDialog>
 
 using namespace Knights;
 
@@ -66,7 +67,7 @@ XBoardProtocol::~XBoardProtocol()
 
 void XBoardProtocol::startGame()
 {
-    kDebug() << colorName(color());
+    qCDebug(LOG_KNIGHTS) << colorName(color());
     TimeControl c = Manager::self()->timeControl ( White );
     if ( c.baseTime != QTime() )
     {
@@ -81,7 +82,7 @@ void XBoardProtocol::startGame()
 
 void XBoardProtocol::move ( const Move& m )
 {
-    kDebug() << "Player's move:" << m.string(false);
+    qCDebug(LOG_KNIGHTS) << "Player's move:" << m.string(false);
     write ( m.string(false) );
     lastMoveString.clear();
     emit undoPossible ( false );
@@ -156,7 +157,7 @@ bool XBoardProtocol::parseLine(const QString& line)
             }
             if ( m.isValid() )
             {
-                kDebug() << "Move by" << attribute("program").toString() << ":" << moveString << "=>" << m;
+                qCDebug(LOG_KNIGHTS) << "Move by" << attribute("program").toString() << ":" << moveString << "=>" << m;
                 emit pieceMoved ( m );
                 emit undoPossible ( true );
             }
@@ -204,14 +205,9 @@ bool XBoardProtocol::parseLine(const QString& line)
         return true;
     }
 
-void XBoardProtocol::readError()
-{
-    kError() << mProcess->readAllStandardError();
-}
-
 void XBoardProtocol::acceptOffer(const Offer& offer)
 {
-    kDebug() << "Accepting offer" << offer.text;
+    qCDebug(LOG_KNIGHTS) << "Accepting offer" << offer.text;
     switch ( offer.action )
     {
         case ActionDraw:
@@ -219,7 +215,7 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             break;
             
         case ActionAdjourn:
-            write( QLatin1String("save ") + KFileDialog::getSaveFileName() );
+            write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
             break;
             
         case ActionUndo:
@@ -259,7 +255,7 @@ void XBoardProtocol::acceptOffer(const Offer& offer)
             break;
             
         default:
-            kError() << "XBoard should not send this kind offers";
+            qCCritical(LOG_KNIGHTS) << "XBoard should not send this kind offers";
             break;
     }
 }
@@ -297,7 +293,7 @@ void XBoardProtocol::makeOffer(const Offer& offer)
             break;
             
         case ActionAdjourn:
-            write( QLatin1String("save ") + KFileDialog::getSaveFileName() );
+            write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
             offer.accept();
             break;
             

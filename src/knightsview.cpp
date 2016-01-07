@@ -21,25 +21,29 @@
 
 #include "knightsview.h"
 #include "ui_popup.h"
-
 #include "core/pos.h"
 #include "proto/protocol.h"
 #include "knights.h"
 #include "settings.h"
 #include "board.h"
-
-#include <KMessageBox>
-#include <KLocale>
-
-#include <QtGui/QLabel>
-#include <QtCore/QtConcurrentRun>
-#include <QtCore/QEvent>
 #include "gamemanager.h"
 #include "offerwidget.h"
+#include "knightsdebug.h"
 #include "ui_knightsview_base.h"
+
 #include <KActionCollection>
-#include <KAction>
 #include <KStandardGameAction>
+#include <KMessageBox>
+#include <KLocalizedString>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+
+#include <QLabel>
+#include <QtConcurrentRun>
+#include <QEvent>
+#include <QAction>
 
 using namespace Knights;
 
@@ -53,10 +57,10 @@ KnightsView::KnightsView ( QWidget *parent )
     m_showAllOffers = false;
     updateOffers();
     
-    connect ( ui->showAllOffers, SIGNAL(clicked(bool)), SLOT(showAllOffersToggled()) );
-    connect ( Manager::self(), SIGNAL(notification(Offer)), SLOT(showPopup(Offer)) );
-    connect ( Manager::self(), SIGNAL(winnerNotify(Color)), SLOT (gameOver(Color)), Qt::QueuedConnection );
-    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), SIGNAL(activePlayerChanged(Color)) );
+    connect ( ui->showAllOffers, &QPushButton::clicked, this, &KnightsView::showAllOffersToggled );
+    connect ( Manager::self(), &Manager::notification, this, &KnightsView::showPopup );
+    connect ( Manager::self(), &Manager::winnerNotify, this, &KnightsView::gameOver, Qt::QueuedConnection );
+    connect ( Manager::self(), &Manager::activePlayerChanged, this, &KnightsView::activePlayerChanged );
     
     m_board = 0;
     settingsChanged();
@@ -72,11 +76,11 @@ void KnightsView::setupBoard(KgThemeProvider* provider)
     m_board = new Board ( provider, this );
     ui->canvas->setScene ( m_board );
     resizeScene();
-    kDebug() << Manager::self();
-    connect ( Manager::self(), SIGNAL(pieceMoved(Move)), m_board, SLOT(movePiece(Move)) );
-    connect ( Manager::self(), SIGNAL(activePlayerChanged(Color)), m_board, SLOT(setCurrentColor(Color)) );
-    connect ( m_board, SIGNAL(displayedPlayerChanged(Color)), SIGNAL(displayedPlayerChanged(Color)) );
-    connect ( m_board, SIGNAL(pieceMoved(Move)), Manager::self(), SLOT(moveByBoard(Move)) );
+    qCDebug(LOG_KNIGHTS) << Manager::self();
+    connect ( Manager::self(), &Manager::pieceMoved, m_board, &Board::movePiece );
+    connect ( Manager::self(), &Manager::activePlayerChanged, m_board, &Board::setCurrentColor );
+    connect ( m_board, &Board::displayedPlayerChanged, this, &KnightsView::displayedPlayerChanged );
+    connect ( m_board, &Board::pieceMoved, Manager::self(), &Manager::moveByBoard );
 
     Colors playerColors;
     if ( Protocol::white()->isLocal() )
@@ -92,43 +96,46 @@ void KnightsView::setupBoard(KgThemeProvider* provider)
 
 void KnightsView::clearBoard()
 {
-    kDebug();
+    qCDebug(LOG_KNIGHTS);
     delete m_board;
     m_board = 0;
 }
 
 void KnightsView::gameOver ( Color winner )
 {
-    kDebug() << sender() << colorName ( winner );
+    qCDebug(LOG_KNIGHTS) << sender() << colorName ( winner );
     
-    QPointer<KDialog> dlg = new KDialog ( this );
-    dlg->setButtons ( KDialog::Yes | KDialog::User2 | KDialog::Cancel );
-    
+    QPointer<QDialog> dlg = new QDialog ( this );
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QWidget *mainWidget = new QWidget(this);
+    dlg->setLayout(mainLayout);
+    dlg->setWindowTitle ( i18n("Game over") );
+    mainLayout->addWidget(mainWidget);
+
+    QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
     KActionCollection* c = qobject_cast<KXmlGuiWindow*>( parentWidget() )->actionCollection();
     Q_ASSERT(c);
-    
-    QMap<KDialog::ButtonCode, QByteArray> buttonsMap;
-    
-    buttonsMap[KDialog::Yes] = KStandardGameAction::name ( KStandardGameAction::New );
-    buttonsMap[KDialog::User2] = KStandardGameAction::name ( KStandardGameAction::Save );
-    
-    for ( QMap<KDialog::ButtonCode, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it )
+
+    QMap<QDialogButtonBox::StandardButton, QByteArray> buttonsMap;
+    buttonsMap[QDialogButtonBox::Ok] = KStandardGameAction::name ( KStandardGameAction::New );
+    buttonsMap[QDialogButtonBox::Apply] = KStandardGameAction::name ( KStandardGameAction::Save );
+
+    for ( QMap<QDialogButtonBox::StandardButton, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it )
     {
         QAction* a = c->action ( QLatin1String ( it.value() ) );
         Q_ASSERT(a);
 
-        dlg->button ( it.key() )->setText ( a->text() );
-        dlg->button ( it.key() )->setIcon ( KIcon ( a->icon() ) );
-        dlg->button ( it.key() )->setToolTip ( a->toolTip() );
+        bBox->button ( it.key() )->setText ( a->text() );
+        bBox->button ( it.key() )->setIcon ( QIcon ( a->icon() ) );
+        bBox->button ( it.key() )->setToolTip ( a->toolTip() );
     }
-        
-    connect ( dlg->button ( KDialog::User2 ), SIGNAL(clicked(bool)), window(), SLOT(fileSave()) );
-    
-    QLabel* label = new QLabel ( this );
-    dlg->setMainWidget ( label );
-    dlg->setCaption ( i18n("Game over") );
-    
 
+    connect( bBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept );
+    connect( bBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject );
+    connect( bBox->button (QDialogButtonBox::Apply), &QPushButton::clicked,
+             static_cast<MainWindow *> (window()), &MainWindow::fileSave );
+
+    QLabel* label = new QLabel ( this );
     if ( winner == NoColor )
     {
         label->setText ( i18n ( "The game ended in a draw" ) );
@@ -141,12 +148,12 @@ void KnightsView::gameOver ( Color winner )
             if ( winner == White )
             {
                 label->setText ( i18nc("White as in the player with white pieces", 
-                                       "The game ended with a victory for <emphasis>White</emphasis>") );
+                                       "The game ended with a victory for <em>White</em>") );
             }
             else
             {                
                 label->setText ( i18nc("Black as in the player with black pieces", 
-                                       "The game ended with a victory for <emphasis>Black</emphasis>") );
+                                       "The game ended with a victory for <em>Black</em>") );
             }
         }
         else
@@ -154,24 +161,26 @@ void KnightsView::gameOver ( Color winner )
             if ( winner == White )
             {
                 label->setText ( i18nc("Player name, then <White as in the player with white pieces", 
-                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing White", winnerName) );
+                                       "The game ended with a victory for <em>%1</em>, playing White", winnerName) );
             }
             else
             {                
                 label->setText ( i18nc("Player name, then Black as in the player with black pieces", 
-                                       "The game ended with a victory for <emphasis>%1</emphasis>, playing Black", winnerName) );
+                                       "The game ended with a victory for <em>%1</em>, playing Black", winnerName) );
             }
         }
     }
-    
-    if ( dlg->exec() == KDialog::Yes )
+    mainLayout->addWidget(label);
+    mainLayout->addWidget(bBox);
+
+    if ( dlg->exec() == QDialog::Accepted )
     {
         Manager::self()->reset();
         emit gameNew();
     }
-    
-    kDebug() << Protocol::white();
-    kDebug() << Protocol::black();
+
+    qCDebug(LOG_KNIGHTS) << Protocol::white();
+    qCDebug(LOG_KNIGHTS) << Protocol::black();
     delete dlg;
 }
 
@@ -211,8 +220,8 @@ void KnightsView::centerView ( const QPointF& center )
 void KnightsView::showPopup(const Offer& offer)
 {
     OfferWidget* widget = new OfferWidget(offer, ui->notificationWidget);
-    connect ( widget, SIGNAL(close(int,OfferAction)), Manager::self(), SLOT(setOfferResult(int,OfferAction)) );
-    connect ( widget, SIGNAL(close(int,OfferAction)), SLOT(popupHidden(int)));
+    connect ( widget, &OfferWidget::close, Manager::self(), &Manager::setOfferResult );
+    connect ( widget, &OfferWidget::close, this, &KnightsView::popupHidden );
     m_offerWidgets << widget;
     updateOffers();
 }
@@ -225,7 +234,7 @@ void KnightsView::showAllOffersToggled()
 
 void KnightsView::popupHidden(int id)
 {
-    kDebug() << m_offerWidgets << id << m_showAllOffers;
+    qCDebug(LOG_KNIGHTS) << m_offerWidgets << id << m_showAllOffers;
     foreach ( OfferWidget* widget, m_offerWidgets )
     {
         if ( widget->id() == id )
@@ -248,7 +257,7 @@ void KnightsView::updateOffers()
     {
         return;
     }
-    ui->showAllOffers->setIcon ( KIcon(QLatin1String( m_showAllOffers ? "arrow-up-double" : "arrow-down-double" )) );
+    ui->showAllOffers->setIcon ( QIcon::fromTheme(QLatin1String( m_showAllOffers ? "arrow-up-double" : "arrow-down-double" )) );
     ui->showAllOffers->setVisible ( m_offerWidgets.size() > 1 );
     foreach ( OfferWidget* widget, m_offerWidgets )
     {
@@ -271,9 +280,4 @@ void KnightsView::updateOffers()
     ui->notificationWidget->show();
 }
 
-
-
-
-
-#include "knightsview.moc"
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;

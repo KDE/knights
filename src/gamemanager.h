@@ -26,8 +26,6 @@
 #include <core/move.h>
 #include "offerwidget.h"
 
-#include <KGlobal>
-
 #include <QObject>
 #include <QTime>
 #include <QStack>

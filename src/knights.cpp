@@ -20,7 +20,6 @@
 */
 
 #include "knights.h"
-
 #include "core/piece.h"
 #include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
@@ -33,16 +32,14 @@
 #include "clockwidget.h"
 #include "historywidget.h"
 #include "enginesettings.h"
+#include "knightsdebug.h"
 
 #include <KConfigDialog>
-#include <KStatusBar>
-#include <KAction>
 #include <KActionCollection>
 #include <KStandardAction>
 #include <KToggleAction>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <KFileDialog>
 #include <KUser>
 #include <KgDifficulty>
 #include <KgThemeSelector>
@@ -53,6 +50,9 @@
 #include <QDockWidget>
 #include <QListView>
 #include <QStringListModel>
+#include <QStatusBar>
+#include <QAction>
+#include <QFileDialog>
 
 const char* DontAskDiscard = "dontAskInternal";
 
@@ -82,7 +82,7 @@ namespace Knights
         // add a status bar
         statusBar()->show();
         
-        connect (Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), Manager::self(), SLOT(levelChanged(const KgDifficultyLevel*)));
+        connect (Kg::difficulty(), &KgDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
         
         Kg::difficulty()->addLevel ( new KgDifficultyLevel ( 0, "custom", i18n("Custom"), false ) );
         Kg::difficulty()->addStandardLevelRange ( KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard, KgDifficultyLevel::Medium );
@@ -102,10 +102,10 @@ namespace Knights
         m_wconsoleDock->hide();
         m_chatDock->hide();
         
-        connect ( m_view, SIGNAL (gameNew()), this, SLOT (fileNew()), Qt::QueuedConnection );
-        connect ( Manager::self(), SIGNAL (initComplete()), SLOT (protocolInitSuccesful()) );
-        connect ( Manager::self(), SIGNAL (playerNameChanged()), SLOT (updateCaption()) );
-        connect( qApp, SIGNAL (lastWindowClosed()), this, SLOT (exitKnights()) );
+        connect ( m_view, &KnightsView::gameNew, this, &MainWindow::fileNew, Qt::QueuedConnection );
+        connect ( Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful );
+        connect ( Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption );
+        connect( qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights );
                 
         QTimer::singleShot ( 0, this, SLOT (fileNew()) );
     }
@@ -126,73 +126,73 @@ namespace Knights
         KStandardGameAction::saveAs ( this, SLOT (fileSaveAs()), actionCollection() );
         KStandardGameAction::load ( this, SLOT (fileLoad()), actionCollection() );
         
-        KAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
+        QAction* resignAction = actionCollection()->addAction ( QLatin1String("resign"), Manager::self(), SLOT (resign()) );
         resignAction->setText ( i18n ( "Resign" ) );
-        resignAction->setHelpText(i18n("Admit your inevitable defeat"));
-        resignAction->setIcon(KIcon(QLatin1String("flag-red")));
+        resignAction->setToolTip(i18n("Admit your inevitable defeat"));
+        resignAction->setIcon(QIcon::fromTheme(QLatin1String("flag-red")));
         resignAction->setEnabled( false );
 
-        KAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), this, SLOT(undo()) );
+        QAction* undoAction = actionCollection()->addAction ( QLatin1String("move_undo"), this, SLOT(undo()) );
         undoAction->setText ( i18n("Undo") );
-        undoAction->setHelpText ( i18n("Take back your last move") );
-        undoAction->setIcon ( KIcon(QLatin1String("edit-undo")) );;
-        connect ( Manager::self(), SIGNAL (undoPossible(bool)), undoAction, SLOT (setEnabled(bool)) );
+        undoAction->setToolTip ( i18n("Take back your last move") );
+        undoAction->setIcon ( QIcon::fromTheme(QLatin1String("edit-undo")) );
+        connect ( Manager::self(), &Manager::undoPossible, undoAction, &QAction::setEnabled );
         undoAction->setEnabled( false );
 
-        KAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), this, SLOT(redo()) );
+        QAction* redoAction = actionCollection()->addAction ( QLatin1String("move_redo"), this, SLOT(redo()) );
         redoAction->setText ( i18n("Redo") );
-        redoAction->setHelpText ( i18n("Repeat your last move") );
-        redoAction->setIcon ( KIcon(QLatin1String("edit-redo")) );;
-        connect ( Manager::self(), SIGNAL (redoPossible(bool)), redoAction, SLOT (setEnabled(bool)) );
+        redoAction->setToolTip ( i18n("Repeat your last move") );
+        redoAction->setIcon ( QIcon::fromTheme(QLatin1String("edit-redo")) );
+        connect ( Manager::self(), &Manager::redoPossible, redoAction, &QAction::setEnabled );
         redoAction->setEnabled( false );
         
-        KAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT (offerDraw()) );
+        QAction* drawAction = actionCollection()->addAction ( QLatin1String ( "propose_draw" ), Manager::self(), SLOT (offerDraw()) );
         drawAction->setText ( i18n ( "Offer &Draw" ) );
-        drawAction->setHelpText(i18n("Offer a draw to your opponent"));
-        drawAction->setIcon(KIcon(QLatin1String("flag-blue")));
+        drawAction->setToolTip(i18n("Offer a draw to your opponent"));
+        drawAction->setIcon(QIcon::fromTheme(QLatin1String("flag-blue")));
         drawAction->setEnabled( false );
         
-        KAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT (adjourn()) );
+        QAction* adjournAction = actionCollection()->addAction ( QLatin1String ( "adjourn" ), Manager::self(), SLOT (adjourn()) );
         adjournAction->setText ( i18n ( "Adjourn" ) );
-        adjournAction->setHelpText(i18n("Continue this game at a later time"));
-        adjournAction->setIcon(KIcon(QLatin1String("document-save")));
+        adjournAction->setToolTip(i18n("Continue this game at a later time"));
+        adjournAction->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
         adjournAction->setEnabled( false );
         
-        KAction* abortAction = actionCollection()->addAction ( QLatin1String("abort"), Manager::self(), SLOT (abort()) );
+        QAction* abortAction = actionCollection()->addAction ( QLatin1String("abort"), Manager::self(), SLOT (abort()) );
         abortAction->setText ( i18n ( "Abort" ) );
-        abortAction->setHelpText(i18n("End the game immediately"));
-        abortAction->setIcon(KIcon(QLatin1String("dialog-cancel")));
+        abortAction->setToolTip(i18n("End the game immediately"));
+        abortAction->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
         abortAction->setEnabled( false );
         
-        KToggleAction* clockAction = new KToggleAction ( KIcon(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
+        KToggleAction* clockAction = new KToggleAction ( QIcon::fromTheme(QLatin1String("clock")), i18n("Show Clock"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_clock"), clockAction );
-        connect ( clockAction, SIGNAL (triggered(bool)), m_clockDock, SLOT (setVisible(bool)) );
-        connect ( clockAction, SIGNAL (triggered(bool)), this, SLOT (setShowClockSetting(bool)) );
+        connect ( clockAction, &KToggleAction::triggered, m_clockDock, &QDockWidget::setVisible );
+        connect ( clockAction, &KToggleAction::triggered, this, &MainWindow::setShowClockSetting );
         clockAction->setVisible (false);
         
-        KToggleAction* historyAction = new KToggleAction ( KIcon(QLatin1String("view-history")), i18n("Show History"), actionCollection() );
+        KToggleAction* historyAction = new KToggleAction ( QIcon::fromTheme(QLatin1String("view-history")), i18n("Show History"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_history"), historyAction );
-        connect ( historyAction, SIGNAL (triggered(bool)), m_historyDock, SLOT (setVisible(bool)) );
-        connect ( historyAction, SIGNAL (triggered(bool)), this, SLOT (setShowHistorySetting(bool)) );
+        connect ( historyAction, &KToggleAction::triggered, m_historyDock, &QDockWidget::setVisible );
+        connect ( historyAction, &KToggleAction::triggered, this, &MainWindow::setShowHistorySetting );
         historyAction->setVisible (true);
         historyAction->setChecked ( Settings::showHistory() );
       
-        KToggleAction* wconsoleAction = new KToggleAction ( KIcon(QLatin1String("utilities-terminal")), i18n("Show White Console"), actionCollection() );
+        KToggleAction* wconsoleAction = new KToggleAction ( QIcon::fromTheme(QLatin1String("utilities-terminal")), i18n("Show White Console"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_console_white"), wconsoleAction );
-        connect ( wconsoleAction, SIGNAL (triggered(bool)), m_wconsoleDock, SLOT (setVisible(bool)) );
-        connect ( wconsoleAction, SIGNAL (triggered(bool)), this, SLOT (setShowConsoleSetting()) );
+        connect ( wconsoleAction, &KToggleAction::triggered, m_wconsoleDock, &QDockWidget::setVisible );
+        connect ( wconsoleAction, &KToggleAction::triggered, this, &MainWindow::setShowConsoleSetting );
         wconsoleAction->setVisible (false);
         
-        KToggleAction* bconsoleAction = new KToggleAction ( KIcon(QLatin1String("utilities-terminal")), i18n("Show Black Console"), actionCollection() );
+        KToggleAction* bconsoleAction = new KToggleAction ( QIcon::fromTheme(QLatin1String("utilities-terminal")), i18n("Show Black Console"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_console_black"), bconsoleAction );
-        connect ( bconsoleAction, SIGNAL (triggered(bool)), m_bconsoleDock, SLOT (setVisible(bool)) );
-        connect ( bconsoleAction, SIGNAL (triggered(bool)), this, SLOT (setShowConsoleSetting()) );
+        connect ( bconsoleAction, &KToggleAction::triggered, m_bconsoleDock, &QDockWidget::setVisible );
+        connect ( bconsoleAction, &KToggleAction::triggered, this, &MainWindow::setShowConsoleSetting );
         bconsoleAction->setVisible (false);        
         
-        KToggleAction* chatAction = new KToggleAction ( KIcon(QLatin1String("meeting-attending")), i18n("Show Chat"), actionCollection() );
+        KToggleAction* chatAction = new KToggleAction ( QIcon::fromTheme(QLatin1String("meeting-attending")), i18n("Show Chat"), actionCollection() );
         actionCollection()->addAction ( QLatin1String("show_chat"), chatAction );
-        connect ( chatAction, SIGNAL (triggered(bool)), m_chatDock, SLOT (setVisible(bool)) );
-        connect ( chatAction, SIGNAL (triggered(bool)), this, SLOT (setShowChatSetting(bool)) );
+        connect ( chatAction, &KToggleAction::triggered, m_chatDock, &QDockWidget::setVisible );
+        connect ( chatAction, &KToggleAction::triggered, this, &MainWindow::setShowChatSetting );
         chatAction->setVisible (false); 
         
         protocolFeatures [ KStandardGameAction::name(KStandardGameAction::Pause) ] = Protocol::Pause;
@@ -208,21 +208,32 @@ namespace Knights
         {
             return;
         }
-        KDialog gameNewDialog;
-        GameDialog* dialogWidget = new GameDialog ( &gameNewDialog );
-        gameNewDialog.setMainWidget ( dialogWidget );
-        gameNewDialog.setCaption ( i18n ( "New Game" ) );
-        if ( gameNewDialog.exec() == KDialog::Accepted )
+        QDialog *gameNewDialog = new QDialog (this);
+        QVBoxLayout *layout = new QVBoxLayout;
+        QDialogButtonBox *bBox = new QDialogButtonBox (QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+        GameDialog* dialogWidget = new GameDialog ( );
+
+        layout->addWidget ( dialogWidget );
+        layout->addWidget ( bBox );
+
+        gameNewDialog->setLayout ( layout );
+        gameNewDialog->setWindowTitle ( i18n ( "New Game" ) );
+
+        connect (bBox, &QDialogButtonBox::accepted, gameNewDialog, &QDialog::accept);
+        connect (bBox, &QDialogButtonBox::rejected, gameNewDialog, &QDialog::reject);
+
+        if ( gameNewDialog->exec() == QDialog::Accepted )
         {
             Manager::self()->reset();
             m_view->clearBoard();
             dialogWidget->setupProtocols();
-            connect ( Protocol::white(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
-            connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
-            dialogWidget->writeConfig();
+            connect ( Protocol::white(), &Protocol::error, this, &MainWindow::protocolError );
+            connect ( Protocol::black(), &Protocol::error, this, &MainWindow::protocolError );
+            dialogWidget->save();
             
             Manager::self()->initialize();
         }
+        delete gameNewDialog;
     }
     
 void MainWindow::fileLoad()
@@ -232,7 +243,9 @@ void MainWindow::fileLoad()
         return;
     }
     
-    QString fileName = KFileDialog::getOpenFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+    QString fileName = QFileDialog::getOpenFileName ( this, i18n ("Open File"),
+                                                      QStandardPaths::displayName (QStandardPaths::DocumentsLocation),
+                                                      i18n("Portable game notation (*.pgn)" ) );
     if ( fileName.isEmpty() )
     {
         return;
@@ -243,9 +256,9 @@ void MainWindow::fileLoad()
     
     Protocol::setWhiteProtocol ( new LocalProtocol() );
     Protocol::setBlackProtocol ( new LocalProtocol() );
-    
-    connect ( Protocol::white(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
-    connect ( Protocol::black(), SIGNAL(error(Protocol::ErrorCode,QString)), SLOT(protocolError(Protocol::ErrorCode,QString)) );
+
+    connect ( Protocol::white(), &Protocol::error, this, &MainWindow::protocolError );
+    connect ( Protocol::black(), &Protocol::error, this, &MainWindow::protocolError );
     
     m_loadFileName = fileName;
     Manager::self()->initialize();
@@ -275,7 +288,7 @@ void MainWindow::showFicsSpectateDialog()
 
     void MainWindow::protocolInitSuccesful()
     {
-        kDebug() << Settings::showClock() << Settings::showConsole();
+        qCDebug(LOG_KNIGHTS) << "Show Clock:" << Settings::showClock() << "Show Console:" << Settings::showConsole();
         QString whiteName = Protocol::white()->playerName();
         QString blackName = Protocol::black()->playerName();
         updateCaption();
@@ -322,7 +335,7 @@ void MainWindow::showFicsSpectateDialog()
             f &= Protocol::white()->supportedFeatures();
             f &= Protocol::black()->supportedFeatures();
         }
-                
+
         QMap<QByteArray, Protocol::Feature>::ConstIterator it;
         for ( it = protocolFeatures.constBegin(); it != protocolFeatures.constEnd(); ++it )
         {
@@ -440,8 +453,8 @@ void MainWindow::showFicsSpectateDialog()
         playerClock = new ClockWidget ( this );  
         m_clockDock->setWidget ( playerClock );
         m_clockDock->setFeatures ( QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable );
-        connect ( m_view, SIGNAL (displayedPlayerChanged(Color)), playerClock, SLOT (setDisplayedPlayer(Color)) );
-        connect ( Manager::self(), SIGNAL (timeChanged(Color,QTime)), playerClock, SLOT (setCurrentTime(Color,QTime)) );
+        connect ( m_view, &KnightsView::displayedPlayerChanged, playerClock, &ClockWidget::setDisplayedPlayer );
+        connect ( Manager::self(), &Manager::timeChanged, playerClock, &ClockWidget::setCurrentTime );
         addDockWidget ( Qt::RightDockWidgetArea, m_clockDock );
     }
     
@@ -498,11 +511,11 @@ void MainWindow::showFicsSpectateDialog()
         ui_prefs_base.setupUi ( generalSettingsDlg );
         
         dialog->addPage ( generalSettingsDlg, i18n ( "General" ), QLatin1String ( "games-config-options" ) );
-        connect ( dialog, SIGNAL (settingsChanged(QString)), m_view, SLOT (settingsChanged()) );
+        connect ( dialog, &KConfigDialog::settingsChanged, m_view, &KnightsView::settingsChanged );
         
         EngineSettings* engineSettings = new EngineSettings ( this );
         dialog->addPage ( engineSettings, i18n("Computer Engines"), QLatin1String("computer") );
-        connect ( dialog, SIGNAL(accepted()), engineSettings, SLOT(writeConfig()) );
+        connect ( dialog, &KConfigDialog::accepted, engineSettings, &EngineSettings::save );
         
         QWidget* accessDlg = new QWidget;
         ui_prefs_access.setupUi ( accessDlg );
@@ -588,7 +601,7 @@ void MainWindow::showFicsSpectateDialog()
     {
         //This will close the gnuchess/crafty/whatever process if it's running.
         Manager::self()->reset();
-        Settings::self()->writeConfig();
+        Settings::self()->save();
     }
     
     void MainWindow::updateCaption()
@@ -643,7 +656,8 @@ void MainWindow::fileSave()
 {
     if ( m_fileName.isEmpty() )
     {
-        m_fileName = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+        m_fileName = QFileDialog::getSaveFileName ( this, i18n ("Save"), QStandardPaths::displayName (QStandardPaths::DocumentsLocation),
+                                                    i18n("Portable game notation (*.pgn)" ) );
     }
     
     if ( m_fileName.isEmpty() )
@@ -658,7 +672,8 @@ void MainWindow::fileSave()
 
 void MainWindow::fileSaveAs()
 {
-    QString fileName = KFileDialog::getSaveFileName ( KUrl("kfiledialog://knights"), i18n("*.pgn | Portable game notation" ) );
+    QString fileName = QFileDialog::getSaveFileName ( this, i18n ("Save As"), QStandardPaths::displayName (QStandardPaths::DocumentsLocation),
+                                                      i18n("Portable game notation (*.pgn)" ) );
     if ( fileName.isEmpty() )
     {
         return;
@@ -671,7 +686,5 @@ void MainWindow::fileSaveAs()
 
 
 }
-
-#include "knights.moc"
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

@@ -26,8 +26,8 @@
 #ifndef KNIGHTS_CLOCK_H
 #define KNIGHTS_CLOCK_H
 
-#include <QtGui/QWidget>
-#include <QtCore/QTime>
+#include <QWidget>
+#include <QTime>
 
 namespace Plasma
 {

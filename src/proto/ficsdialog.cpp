@@ -22,13 +22,14 @@
 #include "proto/ficsdialog.h"
 #include "ui_ficsdialog.h"
 #include "settings.h"
+#include "knightsdebug.h"
 
-#include <KDebug>
 #include <KToolInvocation>
-#include <KWallet/Wallet>
+#include <KWallet>
 
-#include <QtGui/QCheckBox>
-#include <QtGui/QTimeEdit>
+#include <QCheckBox>
+#include <QTimeEdit>
+#include <QDesktopServices>
 
 using namespace Knights;
 using KWallet::Wallet;
@@ -44,24 +45,24 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     }
     ui->tabWidget->setCurrentIndex ( 0 );
     
-    connect ( ui->tabWidget, SIGNAL (currentChanged(int)), SLOT (currentTabChanged(int)) );
-    connect ( ui->seekButton, SIGNAL (toggled(bool)), SIGNAL (seekingChanged(bool)) );
-    ui->seekButton->setIcon( KIcon ( QLatin1String("edit-find") ) );
-    connect ( ui->logInButton, SIGNAL (clicked(bool)), SLOT (slotLogin()) );
-    ui->logInButton->setIcon ( KIcon ( QLatin1String ( "network-connect" ) ) );
+    connect ( ui->tabWidget, &QTabWidget::currentChanged, this, &FicsDialog::currentTabChanged );
+    connect ( ui->seekButton, &QPushButton::toggled, this, &FicsDialog::seekingChanged );
+    ui->seekButton->setIcon( QIcon::fromTheme ( QLatin1String("edit-find") ) );
+    connect ( ui->logInButton, &QPushButton::clicked, this, &FicsDialog::slotLogin );
+    ui->logInButton->setIcon ( QIcon::fromTheme ( QLatin1String ( "network-connect" ) ) );
 
-    connect ( ui->registerButton, SIGNAL (clicked(bool)), SLOT (slotCreateAccount()) );
-    ui->registerButton->setIcon ( KIcon ( QLatin1String ( "list-add" ) ) );
+    connect ( ui->registerButton, &QPushButton::clicked, this, &FicsDialog::slotCreateAccount );
+    ui->registerButton->setIcon ( QIcon::fromTheme ( QLatin1String ( "list-add" ) ) );
 
     ui->usernameLineEdit->setText ( Settings::ficsUsername() );
 
     ui->challengeListView->setModel ( &m_challengeModel );
 
-    connect ( ui->graphView, SIGNAL(seekClicked(int)), SIGNAL(acceptSeek(int)) );
+    connect ( ui->graphView, &SeekGraph::seekClicked, this, &FicsDialog::acceptSeek );
 
     ui->rememberCheckBox->setChecked(Settings::autoLogin());
 
-    connect ( ui->rememberCheckBox, SIGNAL(stateChanged(int)), this, SLOT(rememberCheckBoxChanged(int)) );
+    connect ( ui->rememberCheckBox, &QCheckBox::stateChanged, this, &FicsDialog::rememberCheckBoxChanged );
 }
 
 FicsDialog::~FicsDialog()
@@ -103,7 +104,7 @@ void FicsDialog::slotCreateAccount()
     {
         url.setPath ( QLatin1String ( "/Register/index.html" ) );
     }
-    KToolInvocation::invokeBrowser ( url.toString() );
+    QDesktopServices::openUrl(url);
 }
 
 
@@ -186,7 +187,7 @@ void FicsDialog::currentTabChanged ( int tab )
 
 void FicsDialog::setServerName ( const QString& name )
 {
-    kDebug() << name;
+    qCDebug(LOG_KNIGHTS) << name;
     WId id = 0;
     if ( qApp->activeWindow() )
     {
@@ -207,7 +208,7 @@ void FicsDialog::setServerName ( const QString& name )
     }
     else
     {
-        kDebug() << "KWallet not available";
+        qCDebug(LOG_KNIGHTS) << "KWallet not available";
     }
     ui->passwordLineEdit->setText ( password );
     serverName = name;
@@ -264,7 +265,7 @@ void FicsDialog::saveFicsSettings()
             QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + serverName;
             wallet->writePassword ( key, ui->passwordLineEdit->text() );
         }
-        Settings::self()->writeConfig();
+        Settings::self()->save();
 }
 
 void FicsDialog::removeGameOffer ( int id )
@@ -303,7 +304,7 @@ void FicsDialog::rememberCheckBoxChanged( int state )
 {
     Q_UNUSED(state)
     Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
-    Settings::self()->writeConfig();
+    Settings::self()->save();
 }
 
 // kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

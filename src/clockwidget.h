@@ -24,7 +24,7 @@
 
 #include "core/piece.h"
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class QGroupBox;
 class QTimer;

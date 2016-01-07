@@ -23,12 +23,12 @@
 #define KNIGHTS_MOVE_H
 
 #include "pos.h"
-
-#include <QtCore/QFlags>
-#include <QtCore/QPair>
-#include <QtCore/QMetaType>
-#include <QtCore/QSharedDataPointer>
 #include "piece.h"
+
+#include <QFlags>
+#include <QPair>
+#include <QMetaType>
+#include <QSharedDataPointer>
 
 namespace Knights
 {

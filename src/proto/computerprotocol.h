@@ -40,6 +40,9 @@ public:
     
 protected:
     KProcess* mProcess;
+
+private Q_SLOTS:
+    void readError();
 };
 
 }

@@ -20,7 +20,6 @@
 */
 
 #include "gamemanager.h"
-
 #include "core/move.h"
 #include "proto/protocol.h"
 #include "rules/rules.h"
@@ -28,22 +27,23 @@
 #include "externalcontrol.h"
 #include "settings.h"
 #include "ui_customdifficultydialog.h"
+#include "knightsdebug.h"
 
-#include <KDebug>
-#include <KSpeech>
-#include "kspeechinterface.h"
-#include <KFileDialog>
-#include <KLocale>
-#include <KSaveFile>
+#include <KLocalizedString>
 #include <KMessageBox>
 #include <KStandardGuiItem>
-#include <KApplication>
 #include <KgDifficulty>
+#include <KConfigGroup>
 
 #include <QStack>
 #include <QTimer>
 #include <QTextStream>
 #include <QStringListModel>
+#include <QVBoxLayout>
+#ifdef HAVE_SPEECH
+#include <QtTextToSpeech>
+#endif /* HAVE_SPEECH */
+#include <QGlobalStatic>
 
 using namespace Knights;
 
@@ -80,7 +80,9 @@ public:
   QMap<int, Offer> offers;
   QSet<int> usedOfferIds;
   
-  org::kde::KSpeech* speech;
+#ifdef HAVE_SPEECH
+  QTextToSpeech* speech;
+#endif /* HAVE_SPEECH */
   ExternalControl* extControl;
   
   QString filename;
@@ -97,7 +99,9 @@ GameManagerPrivate::GameManagerPrivate()
     gameStarted(false),
     timer(0),
     rules(0),
+#ifdef HAVE_SPEECH
     speech(0),
+#endif /* HAVE_SPEECH */
     extControl(0)
 {
 
@@ -113,7 +117,7 @@ int GameManagerPrivate::nextOfferId()
   return i;
 }
 
-K_GLOBAL_STATIC(Manager, instance)
+Q_GLOBAL_STATIC(Manager, instance)
 
 Manager* Manager::self()
 {
@@ -123,21 +127,20 @@ Manager* Manager::self()
 Manager::Manager(QObject* parent) : QObject(parent),
 d_ptr(new GameManagerPrivate)
 {
-  kDebug() << "creating a GameManager";
+  qCDebug(LOG_KNIGHTS) << "creating a GameManager";
   Q_D(GameManager);
-  d->speech = new org::kde::KSpeech(
-      QLatin1String("org.kde.kttsd"), 
-                    QLatin1String("/KSpeech"),
-                    QDBusConnection::sessionBus()
-      );
-  d->speech->setApplicationName(qAppName());
+#ifdef HAVE_SPEECH
+  d->speech = new QTextToSpeech();
+#endif /* HAVE_SPEECH */
 }
 
 Manager::~Manager()
 {
-  kDebug() << " !!! ----- Destroying a Game Manager ----- !!!";
+  qCDebug(LOG_KNIGHTS) << " !!! ----- Destroying a Game Manager ----- !!!";
   Q_D(GameManager);
+#ifdef HAVE_SPEECH
   delete d->speech;
+#endif /* HAVE_SPEECH */
   delete d_ptr;
 }
 
@@ -199,18 +202,18 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         switch ( d->activePlayer )
         {
             case White:
-		if ( QTime().msecsTo(d->whiteTimeControl.currentTime) < TimerInterval )
-		{
-		  gameOver(Black);
-		}
+                if ( d->whiteTimeControl.currentTime < QTime(0, 0, 0, TimerInterval) )
+                {
+                    gameOver(Black);
+                }
                 d->whiteTimeControl.currentTime = d->whiteTimeControl.currentTime.addMSecs ( -TimerInterval );
                 time = d->whiteTimeControl.currentTime;
                 break;
             case Black:
-		if ( QTime().msecsTo(d->blackTimeControl.currentTime) < TimerInterval )
-		{
-		  gameOver(White);
-		}
+                if ( d->blackTimeControl.currentTime < QTime(0, 0, 0, TimerInterval) )
+                {
+                    gameOver(White);
+                }
                 d->blackTimeControl.currentTime = d->blackTimeControl.currentTime.addMSecs ( -TimerInterval );
                 time = d->blackTimeControl.currentTime;
                 break;
@@ -263,7 +266,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         emit historyChanged();
         
         Move ret = m.reverse();
-	kDebug() << m << ret;
+        qCDebug(LOG_KNIGHTS) << m << ret;
         ret.setFlag ( Move::Forced, true );
         return ret;
     }
@@ -319,12 +322,12 @@ void Manager::initialize()
   QList<Protocol*> protocols;
   Protocol::white()->setTimeControl(d->whiteTimeControl);
   Protocol::black()->setTimeControl(d->blackTimeControl);
-  connect ( Protocol::white(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
-  connect ( Protocol::white(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
-  connect ( Protocol::white(), SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
-  connect ( Protocol::black(), SIGNAL(pieceMoved(Move)), SLOT(moveByProtocol(Move)) );
-  connect ( Protocol::black(), SIGNAL(initSuccesful()), SLOT(protocolInitSuccesful()), Qt::QueuedConnection );
-  connect ( Protocol::black(), SIGNAL(gameOver(Color)), SLOT(gameOver(Color)) );
+  connect ( Protocol::white(), &Protocol::pieceMoved, this, &Manager::moveByProtocol );
+  connect ( Protocol::white(), &Protocol::initSuccesful, this, &Manager::protocolInitSuccesful, Qt::QueuedConnection );
+  connect ( Protocol::white(), &Protocol::gameOver, this, &Manager::gameOver );
+  connect ( Protocol::black(), &Protocol::pieceMoved, this, &Manager::moveByProtocol );
+  connect ( Protocol::black(), &Protocol::initSuccesful, this, &Manager::protocolInitSuccesful, Qt::QueuedConnection );
+  connect ( Protocol::black(), &Protocol::gameOver, this, &Manager::gameOver );
   Protocol::white()->init();
   Protocol::black()->init();
   d->extControl = new ExternalControl(this);
@@ -343,7 +346,7 @@ void Manager::setTimeControl(Color color, const TimeControl& control)
   }
   else
   {
-    kDebug() << "Setting time control for both colors";
+    qCDebug(LOG_KNIGHTS) << "Setting time control for both colors";
     d->blackTimeControl = control;
     d->whiteTimeControl = control;
   }
@@ -378,7 +381,7 @@ bool Manager::timeControlEnabled(Color color) const
   TimeControl tc = timeControl(color);
   
   // For a time to be valid, either the base time or increment must be greater than 0
-  if ( QTime().secsTo(tc.baseTime) > 0 || tc.increment > 0 )
+  if ( tc.baseTime.isValid() || tc.increment > 0 )
   {
     return true;
   }
@@ -447,7 +450,7 @@ void Manager::moveByProtocol(const Move& move)
   Q_D(GameManager);
   if ( sender() != Protocol::byColor ( d->activePlayer ) || !d->gameStarted )
   {
-    kDebug() << "Move by the non-active player" << move;
+    qCDebug(LOG_KNIGHTS) << "Move by the non-active player" << move;
     // Ignore duplicates and/or moves by the inactive player
     return;
   }
@@ -668,7 +671,7 @@ Protocol* Manager::local()
   {
     return Protocol::byColor(oppositeColor(d->activePlayer));
   }
-  kWarning() << "No local protocols, trying a computer";
+  qCWarning(LOG_KNIGHTS) << "No local protocols, trying a computer";
   if ( Protocol::byColor(d->activePlayer)->isComputer() )
   {
     return Protocol::byColor(d->activePlayer);
@@ -677,7 +680,7 @@ Protocol* Manager::local()
   {
     return Protocol::byColor(oppositeColor(d->activePlayer));
   }
-  kWarning() << "No local or computer protocols, returning 0";
+  qCWarning(LOG_KNIGHTS) << "No local or computer protocols, returning 0";
   return 0;
 }
 
@@ -723,20 +726,22 @@ void Manager::sendPendingMove()
                             pendingMove.to().string()
             );
         }
-        kDebug() << toSpeak;
-        d->speech->say(toSpeak, KSpeech::soPlainText);
+#ifdef HAVE_SPEECH
+        qCDebug(LOG_KNIGHTS) << toSpeak;
+        d->speech->say(toSpeak);
         
         if ( pendingMove.flag(Move::Check) )
         {
             if ( d->rules->hasLegalMoves ( oppositeColor( d->activePlayer ) ) )
             {
-                d->speech->say ( i18nc( "Your king is under attack", "Check" ), KSpeech::soPlainText );
+                d->speech->say ( i18nc( "Your king is under attack", "Check" ) );
             }
             else
             {
-                d->speech->say ( i18nc( "Your king is dead", "Checkmate" ), KSpeech::soPlainText );
+                d->speech->say ( i18nc( "Your king is dead", "Checkmate" ) );
             }
         }
+#endif /* HAVE_SPEECH */
     }
     
     pendingMove = Move();
@@ -744,7 +749,7 @@ void Manager::sendPendingMove()
     Color winner = rules()->winner();
     if ( winner != NoColor || !rules()->hasLegalMoves ( oppositeColor( d->activePlayer ) ) )
     {
-        kDebug() << "Winner: " << winner;
+        qCDebug(LOG_KNIGHTS) << "Winner: " << winner;
         gameOver ( winner );
     }
     
@@ -862,7 +867,7 @@ bool Manager::canLocalMove() const
 
 void Manager::levelChanged ( const KgDifficultyLevel* level )
 {
-  kDebug();
+  qCDebug(LOG_KNIGHTS);
   int depth = 0;
   int size = 32;
   switch ( level->standardLevel() )
@@ -916,15 +921,19 @@ void Manager::setDifficulty(int searchDepth, int memorySize)
 bool Manager::getCustomDifficulty(int* depth, int* size)
 {
   bool accepted = false;
-  QPointer<KDialog> dialog = new KDialog();
+  QPointer<QDialog> dialog = new QDialog();
+  QVBoxLayout *layout = new QVBoxLayout();
   QWidget* widget = new QWidget ( dialog );
+
   Ui::CustomDifficultyDialog* ui = new Ui::CustomDifficultyDialog;
   ui->setupUi ( widget );
-  ui->searchDepthIntSpinBox->setSuffix ( ki18np(" move", " moves") );
+  ui->searchDepthIntSpinBox->setSuffix ( ki18ncp("Search depth suffix", " move", " moves") );
   ui->memorySizeIntSpinBox->setValue ( Settings::computerMemorySize() );
   ui->searchDepthIntSpinBox->setValue ( Settings::computerSearchDepth() );
-  dialog->setMainWidget ( widget );
-  if ( dialog->exec() == KDialog::Accepted )
+
+  layout->addWidget ( widget );
+  dialog->setLayout ( layout );
+  if ( dialog->exec() == QDialog::Accepted )
   {
     accepted = true;
     *depth = ui->searchDepthIntSpinBox->value();
@@ -939,7 +948,7 @@ bool Manager::getCustomDifficulty(int* depth, int* size)
 
 void Manager::loadGameHistoryFrom(const QString& filename)
 {
-  kDebug() << filename;
+  qCDebug(LOG_KNIGHTS) << filename;
   QFile file(filename);
   if ( !file.open(QIODevice::ReadOnly) )
   {
@@ -978,7 +987,7 @@ void Manager::loadGameHistoryFrom(const QString& filename)
 	{
 	  // Only move numbers contain dots, not move data itself
 	  // We also exclude the game termination markers (results)
-	  kDebug() << "Read move" << str;
+	  qCDebug(LOG_KNIGHTS) << "Read move" << str;
 	  Move m;
           if (str.contains("O-O-O") || str.contains("o-o-o") || str.contains("0-0-0"))
           {
@@ -1075,7 +1084,7 @@ void Manager::saveGameHistoryAs(const QString& filename)
   // A single newline separates the tag pairs from the movetext section
   stream << endl;
   
-  kDebug() << "Starting to write movetext";
+  qCDebug(LOG_KNIGHTS) << "Starting to write movetext";
   
   int characters = 0;
   int n = d->moveHistory.size();
@@ -1111,14 +1120,14 @@ void Manager::saveGameHistoryAs(const QString& filename)
     characters += output.size();
   }
   
-  kDebug();
+  qCDebug(LOG_KNIGHTS);
   
   stream << ' ' << result;
   
   stream << endl;
   stream.flush();
   
-  kDebug() << "Saved";
+  qCDebug(LOG_KNIGHTS) << "Saved";
 }
 
 QStack< Move > Manager::moveHistory() const

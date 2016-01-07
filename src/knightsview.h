@@ -24,7 +24,8 @@
 
 #include "offerwidget.h"
 #include "core/piece.h"
-#include <QtGui/QWidget>
+
+#include <QWidget>
 
 class KgThemeProvider;
 namespace Ui
@@ -93,18 +94,18 @@ struct Offer;
             void popupRejected();
 
         private slots:
-            void settingsChanged();
             void resizeScene();
             void centerView ( const QPointF& center );
             void showAllOffersToggled();
 
-    public slots:
+        public slots:
+            void settingsChanged();
             void setupBoard(KgThemeProvider* provider);
             void clearBoard();
             void gameOver ( Color winner );
             void showPopup ( const Offer& offer );
-    void popupHidden(int id);
-    void updateOffers();
+            void popupHidden(int id);
+            void updateOffers();
 
         protected:
             virtual void resizeEvent ( QResizeEvent* e );

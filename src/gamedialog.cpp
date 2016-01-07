@@ -26,14 +26,20 @@
 #include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
 #include "gamemanager.h"
+#include "knightsdebug.h"
 
-#include <Solid/Networking>
 #include "enginesettings.h"
 #include "proto/uciprotocol.h"
 
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+
 using namespace Knights;
 
-GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f )
+GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f )
+        : QWidget ( parent, f ),
+          m_networkManager(new QNetworkConfigurationManager(this))
 {
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
@@ -86,15 +92,16 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
     ui->player2Server->setHistoryItems ( Settings::servers() );
     ui->player2Server->setEditText ( Settings::currentServer() ); 
 
-    connect ( ui->player1Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
-    connect ( ui->player2Engines, SIGNAL(clicked(bool)), SLOT(showEngineConfigDialog()) );
+    connect ( ui->player1Engines, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog );
+    connect ( ui->player2Engines, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog );
     
-    connect ( ui->timeLimit, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
-    connect ( ui->timeIncrement, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
-    connect ( ui->numberOfMoves, SIGNAL(valueChanged(int)), SLOT(updateTimeEdits()) );
-    connect ( Solid::Networking::notifier(), SIGNAL(statusChanged(Solid::Networking::Status)), SLOT(changeNetworkStatus(Solid::Networking::Status)) );
+    connect ( ui->timeLimit, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
+    connect ( ui->timeIncrement, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
+    connect ( ui->numberOfMoves, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
+    connect ( m_networkManager, &QNetworkConfigurationManager::onlineStateChanged,
+              this, &GameDialog::networkStatusChanged );
     
-    changeNetworkStatus(Solid::Networking::status());
+    networkStatusChanged(m_networkManager->isOnline());
     updateTimeEdits();
 }
 
@@ -106,7 +113,7 @@ GameDialog::~GameDialog()
 void GameDialog::setupProtocols()
 {
     TimeControl tc;
-    tc.baseTime = ui->timeGroup->isChecked() ? QTime().addSecs( 60 * ui->timeLimit->value() ) : QTime();
+    tc.baseTime = ui->timeGroup->isChecked() ? QTime(0, ui->timeLimit->value(), 0, 0) : QTime();
     tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
     tc.increment = ui->timeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
@@ -208,7 +215,7 @@ void GameDialog::setupProtocols()
 }
 
 
-void GameDialog::writeConfig()
+void GameDialog::save()
 {
     Settings::EnumPlayer1Protocol::type p1;
     if ( ui->player1Human->isChecked() )
@@ -263,7 +270,7 @@ void GameDialog::writeConfig()
         }
     }
     
-    Settings::self()->writeConfig();
+    Settings::self()->save();
 }
 
 void GameDialog::updateTimeEdits()
@@ -273,24 +280,27 @@ void GameDialog::updateTimeEdits()
     ui->numberOfMoves->setSuffix ( i18np ( " move", " moves", ui->numberOfMoves->value() ) );
 }
 
-void GameDialog::changeNetworkStatus(Solid::Networking::Status status)
+void GameDialog::networkStatusChanged(bool isOnline)
 {
-    kDebug() << status;
-    bool enableFics = ( status == Solid::Networking::Connected || status == Solid::Networking::Unknown );
-    if (!enableFics && ui->player2Fics->isChecked())
+    qCDebug(LOG_KNIGHTS) << isOnline;
+    if (!isOnline && ui->player2Fics->isChecked())
     {
         ui->player2Comp->setChecked ( true );
     }
-    ui->player2Fics->setEnabled ( enableFics );
+    ui->player2Fics->setEnabled ( isOnline );
 }
 
 void GameDialog::showEngineConfigDialog()
 {
-    KDialog* dlg = new KDialog ( this );
+    QDialog* dlg = new QDialog ( this );
+    auto bBox = new QDialogButtonBox ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
+    QVBoxLayout *layout = new QVBoxLayout;
     EngineSettings* ecd = new EngineSettings ( dlg );
-    dlg->setMainWidget ( ecd );
-    connect ( dlg, SIGNAL(accepted()), ecd, SLOT(writeConfig()) );
-    connect ( dlg, SIGNAL(accepted()), this, SLOT(loadEngines()) );
+    layout->addWidget ( ecd );
+    layout->addWidget ( bBox );
+    dlg->setLayout ( layout  );
+    connect ( bBox, &QDialogButtonBox::accepted, ecd, &EngineSettings::save );
+    connect ( bBox, &QDialogButtonBox::accepted, this, &GameDialog::loadEngines );
     dlg->show();
 }
 

@@ -19,12 +19,12 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "gamemanager.h"
 #include "uciprotocol.h"
+#include "knightsdebug.h"
 
 #include <KProcess>
-#include <KDebug>
-#include <KLocale>
-#include "gamemanager.h"
+#include <KLocalizedString>
 
 using namespace Knights;
 
@@ -63,7 +63,7 @@ bool UciProtocol::parseLine(const QString& line)
     return true;
   }
   ChatWidget::MessageType type = ChatWidget::GeneralMessage;
-  kDebug() << line;
+  qCDebug(LOG_KNIGHTS) << line;
   if ( line.startsWith ( QLatin1String("uciok") ) )
   {
     type = ChatWidget::AccountMessage;

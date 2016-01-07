@@ -20,16 +20,17 @@
 */
 
 #include "historywidget.h"
-
 #include "ui_historywidget.h"
 #include "core/move.h"
 #include "gamemanager.h"
-#include <QStringListModel>
-#include <KDebug>
-#include <QScrollBar>
+#include "knights.h"
+#include "knightsdebug.h"
+
 #include <KStandardGameAction>
 #include <KActionCollection>
-#include "knights.h"
+
+#include <QStringListModel>
+#include <QScrollBar>
 
 using namespace Knights;
 
@@ -41,13 +42,14 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
   ui->setupUi ( this );
   ui->listView->setModel ( model );
   
-  connect ( ui->notationComboBox, SIGNAL(currentIndexChanged(int)), SLOT(updateModel()));
-  connect ( Manager::self(), SIGNAL(historyChanged()), SLOT(updateModel()) );
+  connect ( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
+            this, &HistoryWidget::updateModel );
+  connect ( Manager::self(), &Manager::historyChanged, this, &HistoryWidget::updateModel );
   
-  ui->saveButton->setIcon ( KIcon(QLatin1String("document-save")) );
-  connect ( ui->saveButton, SIGNAL(clicked(bool)), SLOT(saveHistory()));
+  ui->saveButton->setIcon ( QIcon::fromTheme(QLatin1String("document-save")) );
+  connect ( ui->saveButton, &QPushButton::clicked, this, &HistoryWidget::saveHistory );
   
-  kDebug();
+  qCDebug(LOG_KNIGHTS);
 }
 
 HistoryWidget::~HistoryWidget()

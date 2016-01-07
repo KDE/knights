@@ -22,8 +22,8 @@
 #ifndef KNIGHTS_POS_H
 #define KNIGHTS_POS_H
 
-#include <QtCore/QPair>
-#include <QtCore/QDataStream>
+#include <QPair>
+#include <QDataStream>
 
 namespace Knights
 {
