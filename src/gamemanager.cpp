@@ -202,7 +202,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
         switch ( d->activePlayer )
         {
             case White:
-                if ( d->whiteTimeControl.currentTime < QTime(0, 0, 0, TimerInterval) )
+                if ( d->whiteTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
                 {
                     gameOver(Black);
                 }
@@ -210,7 +210,7 @@ void Manager::setCurrentTime(Color color, const QTime& time)
                 time = d->whiteTimeControl.currentTime;
                 break;
             case Black:
-                if ( d->blackTimeControl.currentTime < QTime(0, 0, 0, TimerInterval) )
+                if ( d->blackTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
                 {
                     gameOver(White);
                 }
