@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -26,30 +27,25 @@
 
 #include <QWidget>
 
-class QStringListModel;
-
 namespace Ui {
-  class HistoryWidget;
+    class HistoryWidget;
 }
 
 namespace Knights {
 
 class HistoryWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
-public:
-    explicit HistoryWidget(QWidget* parent = 0, Qt::WindowFlags f = 0);
-    virtual ~HistoryWidget();
-    
-private:
-    Ui::HistoryWidget* ui;
-    QStringListModel* model;
-    
-private slots:
-    void updateModel();
-    void updateModelStandardNotation ( Move::Notation notation );
-    void saveHistory();
+    public:
+        explicit HistoryWidget(QWidget* parent = 0, Qt::WindowFlags f = 0);
+        virtual ~HistoryWidget();
+
+    private:
+        Ui::HistoryWidget* ui;
+
+    private slots:
+        void updateHistory();
 };
 
 }

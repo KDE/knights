@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -23,11 +24,7 @@
 #include "ui_historywidget.h"
 #include "core/move.h"
 #include "gamemanager.h"
-#include "knights.h"
 #include "knightsdebug.h"
-
-#include <KStandardGameAction>
-#include <KActionCollection>
 
 #include <QStringListModel>
 #include <QScrollBar>
@@ -36,80 +33,56 @@ using namespace Knights;
 
 HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
 {
-  model = new QStringListModel(this);
-  
-  ui = new Ui::HistoryWidget;
-  ui->setupUi ( this );
-  ui->listView->setModel ( model );
-  
-  connect ( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
-            this, &HistoryWidget::updateModel );
-  connect ( Manager::self(), &Manager::historyChanged, this, &HistoryWidget::updateModel );
-  
-  ui->saveButton->setIcon ( QIcon::fromTheme(QLatin1String("document-save")) );
-  connect ( ui->saveButton, &QPushButton::clicked, this, &HistoryWidget::saveHistory );
-  
-  qCDebug(LOG_KNIGHTS);
+    ui = new Ui::HistoryWidget;
+    ui->setupUi(this);
+
+    connect( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
+              this, &HistoryWidget::updateHistory );
+    connect( Manager::self(), &Manager::historyChanged, this, &HistoryWidget::updateHistory );
+
+    qCDebug(LOG_KNIGHTS);
 }
 
 HistoryWidget::~HistoryWidget()
 {
-  delete ui;
+    delete ui;
 }
 
-void HistoryWidget::updateModel()
+void HistoryWidget::updateHistory()
 {
-  switch ( ui->notationComboBox->currentIndex() )
-  {
-    case 0:
-      updateModelStandardNotation ( Move::Algebraic );
-      break;
-      
-    case 1:
-      updateModelStandardNotation ( Move::LongAlgebraic );
-      break;
-      
-    case 2:
-      updateModelStandardNotation ( Move::Coordinate );
-      break;
-      
-    default:
-      updateModelStandardNotation ( Move::Algebraic );
-      break;
-  }
-}
-
-void HistoryWidget::updateModelStandardNotation ( Move::Notation notation )
-{
-  bool bottom = ui->listView->verticalScrollBar()->value() == ui->listView->verticalScrollBar()->maximum();
-  QStringList list;
-  int i = 0;
-  foreach ( const Move& move, Manager::self()->moveHistory() )
-  {
-    QString string = QString::number ( i/2 + 1 ) + QLatin1String(". ");
-    if ( i % 2 )
+    Move::Notation notation;
+    switch ( ui->notationComboBox->currentIndex() )
     {
-      string += QLatin1String("... ");
+    case 0:
+        notation = Move::Algebraic;
+        break;
+    case 1:
+        notation = Move::LongAlgebraic;
+        break;
+    case 2:
+        notation = Move::Coordinate;
+        break;
+    default:
+        notation = Move::Algebraic;
+        break;
     }
-    list << string + move.stringForNotation ( notation );
-    ++i;
-  }
-  model->setStringList ( list );
-  
-  if ( bottom )
-  {
-    ui->listView->scrollToBottom();
-  }
+
+    bool bottom = ui->listWidget->verticalScrollBar()->value() == ui->listWidget->verticalScrollBar()->maximum();
+	ui->listWidget->clear();
+    int i = 0;
+    foreach ( const Move& move, Manager::self()->moveHistory() )
+    {
+        QString string = QString::number(i/2 + 1) + QLatin1String(". ");
+        if ( i % 2 )
+        {
+            string += QLatin1String("... ");
+        }
+        ui->listWidget->addItem(string + move.stringForNotation(notation));
+        ++i;
+    }
+
+    if (bottom)
+    {
+        ui->listWidget->scrollToBottom();
+    }
 }
-
-void HistoryWidget::saveHistory()
-{
-  MainWindow* mw = qobject_cast<MainWindow*>(window());
-  mw->fileSave();
-}
-
-
-
-
-
-

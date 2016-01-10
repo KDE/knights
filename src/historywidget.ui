@@ -12,7 +12,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListView" name="listView"/>
+    <widget class="QListWidget" name="listWidget"/>
    </item>
    <item>
     <layout class="QFormLayout" name="formLayout">
@@ -49,13 +49,6 @@
       </widget>
      </item>
     </layout>
-   </item>
-   <item>
-    <widget class="QPushButton" name="saveButton">
-     <property name="text">
-      <string>&amp;Save History</string>
-     </property>
-    </widget>
    </item>
   </layout>
  </widget>
