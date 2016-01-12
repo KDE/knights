@@ -36,7 +36,7 @@ int main ( int argc, char **argv )
 
     KLocalizedString::setApplicationDomain("knights");
 
-    KAboutData about ( QStringLiteral("knights"), i18n ( "KNights" ), version, description,
+    KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, description,
                        KAboutLicense::GPL, i18n ( "(C) 2009-2011 Miha Čančula" ),
                        QString(), QString(), QStringLiteral("miha@noughmad.eu") );
     about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
