@@ -26,7 +26,7 @@
 #include "gamemanager.h"
 #include "knightsdebug.h"
 
-#include <QStringListModel>
+#include <QHeaderView>
 #include <QScrollBar>
 
 using namespace Knights;
@@ -36,16 +36,16 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
     ui = new Ui::HistoryWidget;
     ui->setupUi(this);
 
+    ui->twMoves->setSelectionBehavior(QAbstractItemView::SelectItems);
+    ui->twMoves->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->twMoves->horizontalHeaderItem(0)->setText(i18n("white"));
+    ui->twMoves->horizontalHeaderItem(1)->setText(i18n("black"));
+
     connect( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
-              this, &HistoryWidget::updateHistory );
+             this, &HistoryWidget::updateHistory );
     connect( Manager::self(), &Manager::historyChanged, this, &HistoryWidget::updateHistory );
 
     qCDebug(LOG_KNIGHTS);
-}
-
-HistoryWidget::~HistoryWidget()
-{
-    delete ui;
 }
 
 void HistoryWidget::updateHistory()
@@ -67,22 +67,19 @@ void HistoryWidget::updateHistory()
         break;
     }
 
-    bool bottom = ui->listWidget->verticalScrollBar()->value() == ui->listWidget->verticalScrollBar()->maximum();
-	ui->listWidget->clear();
-    int i = 0;
-    foreach ( const Move& move, Manager::self()->moveHistory() )
-    {
-        QString string = QString::number(i/2 + 1) + QLatin1String(". ");
-        if ( i % 2 )
-        {
-            string += QLatin1String("... ");
-        }
-        ui->listWidget->addItem(string + move.stringForNotation(notation));
-        ++i;
+    bool bottom = ui->twMoves->verticalScrollBar()->value() == ui->twMoves->verticalScrollBar()->maximum();
+
+    ui->twMoves->clearContents();
+
+    ui->twMoves->setRowCount(ceil(double(Manager::self()->moveHistory().size())/2));
+    for (int i=1; i<=Manager::self()->moveHistory().size(); ++i) {
+        const Move& move = Manager::self()->moveHistory().at(i-1);
+        QTableWidgetItem* item = new QTableWidgetItem(move.stringForNotation(notation));
+        const int row = ceil(double(i)/2)-1;
+        const int column = i%2 ? 0 : 1;
+        ui->twMoves->setItem(row, column, item);
     }
 
     if (bottom)
-    {
-        ui->listWidget->scrollToBottom();
-    }
+        ui->twMoves->scrollToBottom();
 }
