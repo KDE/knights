@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -25,15 +26,17 @@
 #include "proto/localprotocol.h"
 #include "proto/xboardprotocol.h"
 #include "proto/ficsprotocol.h"
+#include "proto/uciprotocol.h"
 #include "gamemanager.h"
 #include "knightsdebug.h"
 
+#include "settings.h"
 #include "enginesettings.h"
-#include "proto/uciprotocol.h"
+
+#include <QNetworkConfigurationManager>
 
 #include <QDialog>
 #include <QDialogButtonBox>
-#include <QVBoxLayout>
 
 using namespace Knights;
 
@@ -43,21 +46,20 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f )
 {
     ui = new Ui::GameDialog();
     ui->setupUi ( this );
-    setObjectName ( QLatin1String ( "GameDialogWidget" ) );
-
-    ui->timeGroup->setChecked ( Settings::timeEnabled() );
-
-    ui->timeLimit->setValue ( Settings::timeLimit() );
-    ui->timeIncrement->setValue ( Settings::timeIncrement() );
-    ui->numberOfMoves->setValue ( Settings::numberOfMoves() );
+    ui->pbPlayer1Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
+    ui->pbPlayer2Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
+    ui->gbTimeControl->setChecked ( Settings::timeEnabled() );
+    ui->sbTimeLimit->setValue ( Settings::timeLimit() );
+    ui->sbTimeIncrement->setValue ( Settings::timeIncrement() );
+    ui->sbNumberOfMoves->setValue ( Settings::numberOfMoves() );
 
     switch ( Settings::player1Protocol() )
     {
         case Settings::EnumPlayer1Protocol::Local:
-            ui->player1Human->setChecked ( true );
+            ui->rbPlayer1Human->setChecked ( true );
             break;
         case Settings::EnumPlayer1Protocol::XBoard:
-            ui->player1Comp->setChecked ( true );
+            ui->rbPlayer1Engine->setChecked ( true );
             break;
     }
 
@@ -77,45 +79,54 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f )
     switch ( Settings::player2Protocol() )
     {
         case Settings::EnumPlayer2Protocol::Local:
-            ui->player2Human->setChecked ( true );
+            ui->rbPlayer2Human->setChecked ( true );
             break;
         case Settings::EnumPlayer2Protocol::XBoard:
-            ui->player2Comp->setChecked ( true );
+            ui->rbPlayer2Engine->setChecked ( true );
             break;
         case Settings::EnumPlayer2Protocol::Fics:
-            ui->player2Fics->setChecked ( true );
+            ui->rbPlayer2Server->setChecked ( true );
             break;
     }
 
     loadEngines();
 
-    ui->player2Server->setHistoryItems ( Settings::servers() );
-    ui->player2Server->setEditText ( Settings::currentServer() ); 
+    ui->cbPlayer2Server->setHistoryItems(Settings::servers());
+    ui->cbPlayer2Server->setEditText(Settings::currentServer());
 
-    connect ( ui->player1Engines, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog );
-    connect ( ui->player2Engines, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog );
+    //SIGNALs/SLOTs
+    //player 1
+    connect(ui->rbPlayer1Human, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
+    connect(ui->rbPlayer1Engine, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
+    connect(ui->pbPlayer1Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+
+    //player 2
+    connect(ui->rbPlayer2Human, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
+    connect(ui->rbPlayer2Engine, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
+    connect(ui->rbPlayer2Server, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
+    connect(ui->pbPlayer2Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+
+    //time control
+    connect(ui->cbTimeControl, &QCheckBox::toggled, this, &GameDialog::timeControlChanged);
+    connect(ui->sbTimeLimit, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits);
+    connect(ui->sbTimeIncrement, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits);
+    connect(ui->sbNumberOfMoves, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits);
     
-    connect ( ui->timeLimit, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
-    connect ( ui->timeIncrement, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
-    connect ( ui->numberOfMoves, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits );
-    connect ( m_networkManager, &QNetworkConfigurationManager::onlineStateChanged,
-              this, &GameDialog::networkStatusChanged );
+    connect(m_networkManager, &QNetworkConfigurationManager::onlineStateChanged, this, &GameDialog::networkStatusChanged);
     
     networkStatusChanged(m_networkManager->isOnline());
     updateTimeEdits();
-}
-
-GameDialog::~GameDialog()
-{
-    delete ui;
+    player1SettingsChanged();
+    player2SettingsChanged();
+    timeControlChanged();
 }
 
 void GameDialog::setupProtocols()
 {
     TimeControl tc;
-    tc.baseTime = ui->timeGroup->isChecked() ? QTime(0, ui->timeLimit->value(), 0, 0) : QTime();
-    tc.moves = ui->player2Fics->isChecked() ? 0 : ui->numberOfMoves->value();
-    tc.increment = ui->timeIncrement->value();
+    tc.baseTime = ui->gbTimeControl->isChecked() ? QTime(0, ui->sbTimeLimit->value(), 0, 0) : QTime();
+    tc.moves = ui->rbPlayer2Server->isChecked() ? 0 : ui->sbNumberOfMoves->value();
+    tc.increment = ui->sbTimeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
     
     QList<EngineConfiguration> configs;
@@ -127,15 +138,15 @@ void GameDialog::setupProtocols()
     Protocol* p1 = 0;
     Protocol* p2 = 0;
     Color c1 = NoColor;
-    if ( ui->player1Human->isChecked() )
+    if ( ui->rbPlayer1Human->isChecked() )
     {
         p1 = new LocalProtocol;
     }
     else
     {
-        if ( ui->player2Program->currentIndex() != -1 )
+        if ( ui->cbPlayer2Engine->currentIndex() != -1 )
         {
-            EngineConfiguration c = configs [ ui->player1Program->currentIndex() ];
+            EngineConfiguration c = configs [ ui->cbPlayer1Engine->currentIndex() ];
             if ( c.iface == EngineConfiguration::XBoard )
             {
                 p1 = new XBoardProtocol;
@@ -168,15 +179,15 @@ void GameDialog::setupProtocols()
         c1 = Black;
     }
     
-    if ( ui->player2Human->isChecked() )
+    if ( ui->rbPlayer2Human->isChecked() )
     {
         p2 = new LocalProtocol;
     }
-    else if ( ui->player2Comp->isChecked() )
+    else if ( ui->rbPlayer2Engine->isChecked() )
     {
-        if ( ui->player2Program->currentIndex() != -1 )
+        if ( ui->cbPlayer2Engine->currentIndex() != -1 )
         {
-            EngineConfiguration c = configs [ ui->player2Program->currentIndex() ];
+            EngineConfiguration c = configs [ ui->cbPlayer2Engine->currentIndex() ];
             if ( c.iface == EngineConfiguration::XBoard )
             {
                 p2 = new XBoardProtocol;
@@ -202,7 +213,7 @@ void GameDialog::setupProtocols()
     else
     {
         p2 = new FicsProtocol;
-        p2->setAttribute ( "server", ui->player2Server->currentText() );
+        p2->setAttribute ( "server", ui->cbPlayer2Server->currentText() );
     }
     if ( c1 == NoColor )
     {
@@ -218,32 +229,32 @@ void GameDialog::setupProtocols()
 void GameDialog::save()
 {
     Settings::EnumPlayer1Protocol::type p1;
-    if ( ui->player1Human->isChecked() )
+    if ( ui->rbPlayer1Human->isChecked() )
     {
         p1 = Settings::EnumPlayer1Protocol::Local;
     }
     else
     {
         p1 = Settings::EnumPlayer1Protocol::XBoard;
-        Settings::setPlayer1Program ( ui->player1Program->currentText() );
+        Settings::setPlayer1Program ( ui->cbPlayer1Engine->currentText() );
     }
     Settings::setPlayer1Protocol ( p1 );
     
     Settings::EnumPlayer2Protocol::type p2;
-    if ( ui->player2Human->isChecked() )
+    if ( ui->rbPlayer2Human->isChecked() )
     {
         p2 = Settings::EnumPlayer2Protocol::Local;
     }
-    else if ( ui->player2Comp->isChecked() )
+    else if ( ui->rbPlayer2Engine->isChecked() )
     {
         p2 = Settings::EnumPlayer2Protocol::XBoard;
-        Settings::setPlayer2Program ( ui->player2Program->currentText() );
+        Settings::setPlayer2Program ( ui->cbPlayer2Engine->currentText() );
     }
     else
     {
         p2 = Settings::EnumPlayer2Protocol::Fics;
-        Settings::setServers ( ui->player2Server->historyItems() );
-        Settings::setCurrentServer ( ui->player2Server->currentText() );
+        Settings::setServers ( ui->cbPlayer2Server->historyItems() );
+        Settings::setCurrentServer ( ui->cbPlayer2Server->currentText() );
     }   
     Settings::setPlayer2Protocol ( p2 );
     
@@ -258,15 +269,15 @@ void GameDialog::save()
     }
     Settings::setColor ( selectedColor );
     
-    bool timeLimitEnabled = ui->timeGroup->isChecked();
+    bool timeLimitEnabled = ui->gbTimeControl->isChecked();
     Settings::setTimeEnabled ( timeLimitEnabled );
     if ( timeLimitEnabled )
     {
-        Settings::setTimeLimit ( ui->timeLimit->value() );
-        Settings::setTimeIncrement( ui->timeIncrement->value() );
+        Settings::setTimeLimit ( ui->sbTimeLimit->value() );
+        Settings::setTimeIncrement( ui->sbTimeIncrement->value() );
         if ( p2 != Settings::EnumPlayer2Protocol::Fics )
         {
-            Settings::setNumberOfMoves ( ui->numberOfMoves->value() );
+            Settings::setNumberOfMoves ( ui->sbNumberOfMoves->value() );
         }
     }
     
@@ -275,19 +286,47 @@ void GameDialog::save()
 
 void GameDialog::updateTimeEdits()
 {
-    ui->timeLimit->setSuffix ( i18np ( " minute", " minutes", ui->timeLimit->value() ) );
-    ui->timeIncrement->setSuffix ( i18np ( " second", " seconds", ui->timeIncrement->value() ) );
-    ui->numberOfMoves->setSuffix ( i18np ( " move", " moves", ui->numberOfMoves->value() ) );
+    ui->sbTimeLimit->setSuffix ( i18np ( " minute", " minutes", ui->sbTimeLimit->value() ) );
+    ui->sbTimeIncrement->setSuffix ( i18np ( " second", " seconds", ui->sbTimeIncrement->value() ) );
+    ui->sbNumberOfMoves->setSuffix ( i18np ( " move", " moves", ui->sbNumberOfMoves->value() ) );
+}
+
+
+void GameDialog::player1SettingsChanged()
+{
+    ui->cbPlayer1Engine->setEnabled(ui->rbPlayer1Engine->isChecked());
+    ui->pbPlayer1Engine->setEnabled(ui->rbPlayer1Engine->isChecked());
+}
+
+void GameDialog::player2SettingsChanged()
+{
+    ui->cbPlayer2Engine->setEnabled(ui->rbPlayer2Engine->isChecked());
+    ui->pbPlayer2Engine->setEnabled(ui->rbPlayer2Engine->isChecked());
+    ui->cbPlayer2Server->setEnabled(ui->rbPlayer2Server->isChecked());
+
+    bool server = ui->rbPlayer2Server->isChecked();
+    if (server)
+        ui->cbTimeControl->setChecked(true);
+    ui->cbTimeControl->setEnabled(!server);
+    ui->lNumberOfMoves->setVisible(!server);
+    ui->sbNumberOfMoves->setVisible(!server);
+}
+
+void GameDialog::timeControlChanged() {
+    bool b = ui->cbTimeControl->isChecked();
+    ui->sbNumberOfMoves->setEnabled(b);
+    ui->sbTimeLimit->setEnabled(b);
+    ui->sbTimeIncrement->setEnabled(b);
 }
 
 void GameDialog::networkStatusChanged(bool isOnline)
 {
     qCDebug(LOG_KNIGHTS) << isOnline;
-    if (!isOnline && ui->player2Fics->isChecked())
+    if (!isOnline && ui->rbPlayer2Server->isChecked())
     {
-        ui->player2Comp->setChecked ( true );
+        ui->rbPlayer2Engine->setChecked ( true );
     }
-    ui->player2Fics->setEnabled ( isOnline );
+    ui->rbPlayer2Server->setEnabled ( isOnline );
 }
 
 void GameDialog::showEngineConfigDialog()
@@ -310,7 +349,7 @@ void GameDialog::loadEngines()
     QList<EngineConfiguration> configs;
     foreach ( const QString& s, Settings::engineConfigurations() )
     {
-        QStringList l = s.split ( QLatin1Char(':'), QString::SkipEmptyParts );
+        const  QStringList l = s.split ( QLatin1Char(':'), QString::SkipEmptyParts );
         EngineConfiguration e = EngineConfiguration ( s );
         if ( !e.name.isEmpty() )
         {
@@ -319,17 +358,18 @@ void GameDialog::loadEngines()
         }
     }
        
-    ui->player1Program->clear();
-    ui->player2Program->clear();
     
-    ui->player1Program->addItems ( programs );
-    ui->player1Program->setCurrentItem ( Settings::player1Program(), false );
+    ui->cbPlayer1Engine->clear();
+    ui->cbPlayer1Engine->addItems(programs);
+    if (!Settings::player1Program().isEmpty())
+        ui->cbPlayer1Engine->setCurrentItem(Settings::player1Program(), false);
+    else
+        ui->cbPlayer1Engine->setCurrentIndex(0);
     
-    ui->player2Program->addItems ( programs );
-    ui->player2Program->setCurrentItem ( Settings::player2Program(), false );
+    ui->cbPlayer2Engine->clear();
+    ui->cbPlayer2Engine->addItems (programs);
+    if (!Settings::player2Program().isEmpty())
+        ui->cbPlayer2Engine->setCurrentItem(Settings::player2Program(), false);
+    else
+        ui->cbPlayer1Engine->setCurrentIndex(0);
 }
-
-
-
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;

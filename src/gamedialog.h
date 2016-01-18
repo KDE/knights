@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -23,11 +24,8 @@
 #define KNIGHTS_GAMEDIALOG_H
 
 #include <QWidget>
-#include <QNetworkConfigurationManager>
 
-#include "core/piece.h"
-#include "proto/protocol.h"
-#include "settings.h"
+class QNetworkConfigurationManager;
 
 namespace Ui
 {
@@ -50,16 +48,18 @@ namespace Knights
             };
             
             explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-            virtual ~GameDialog();
 
             void setupProtocols();
             void save();
 
         private:
             Ui::GameDialog* ui;            
-            QNetworkConfigurationManager *m_networkManager;
+            QNetworkConfigurationManager* m_networkManager;
     
         private slots:
+            void player1SettingsChanged();
+            void player2SettingsChanged();
+            void timeControlChanged();
             void updateTimeEdits();
             void networkStatusChanged(bool isOnline);
             void loadEngines();
@@ -69,4 +69,3 @@ namespace Knights
 }
 
 #endif // KNIGHTS_GAMEDIALOG_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
