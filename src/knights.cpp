@@ -230,7 +230,8 @@ namespace Knights
             connect ( Protocol::white(), &Protocol::error, this, &MainWindow::protocolError );
             connect ( Protocol::black(), &Protocol::error, this, &MainWindow::protocolError );
             dialogWidget->save();
-            
+
+            pause->setChecked(false);
             Manager::self()->initialize();
         }
         delete gameNewDialog;
