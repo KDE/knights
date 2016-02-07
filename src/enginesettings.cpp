@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -32,7 +33,6 @@ using namespace Knights;
 
 EngineConfiguration::EngineConfiguration(const QString& string)
 {
-  QString s = string;
   QStringList list = string.split(QLatin1Char(':'));
   if ( list.size() > 2 )
   {
@@ -53,12 +53,7 @@ EngineConfiguration::EngineConfiguration(const QString& string)
   }
 }
 
-EngineConfiguration::~EngineConfiguration()
-{
-
-}
-
-QString EngineConfiguration::toString() const
+const QString EngineConfiguration::toString() const
 {
   if ( iface == Invalid || commandLine.isEmpty() || name.isEmpty() )
   {
@@ -68,22 +63,6 @@ QString EngineConfiguration::toString() const
   QLatin1Char sep(':');
   QString str = name + sep + commandLine + sep + ( iface == XBoard ? QLatin1String("xboard") : QLatin1String("uci") );
   return str;
-}
-
-QString EngineConfiguration::interfaceName() const
-{
-  switch ( iface )
-  {
-    case Invalid:
-      return i18n("Invalid interface");
-      
-    case XBoard:
-      return i18nc("Protocol name", "XBoard");
-      
-    case Uci:
-      return i18nc("Protocol name", "UCI");
-  }
-  return QString();
 }
 
 EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
@@ -110,11 +89,6 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(pare
   
   checkInstalled();
   connect ( ui->tableWidget, &QTableWidget::itemChanged, this, &EngineSettings::checkInstalled );
-}
-
-EngineSettings::~EngineSettings()
-{
-
 }
 
 void EngineSettings::checkInstalled()
@@ -151,11 +125,8 @@ void EngineSettings::removeClicked()
   }
   
   int i = ui->tableWidget->selectionModel()->selectedRows().first().row();
-  if ( i == -1)
-  {
-    return;
-  }
-  ui->tableWidget->removeRow ( i );
+  if (i != -1)
+      ui->tableWidget->removeRow(i);
 }
 
 void EngineSettings::save()
@@ -164,11 +135,24 @@ void EngineSettings::save()
   for ( int i = 0; i < ui->tableWidget->rowCount(); ++i )
   {
     EngineConfiguration c = EngineConfiguration ( QString() );
-    c.name = ui->tableWidget->item ( i, NameColumn )->text();
-    c.commandLine = ui->tableWidget->item ( i, CommandColumn )->text();
-    c.iface = (EngineConfiguration::Interface)qobject_cast<KComboBox*>(ui->tableWidget->cellWidget ( i, ProtocolColumn ))->currentIndex();    
-    out << c.toString();
-  }
-  Settings::setEngineConfigurations ( out );
-}
 
+    //name
+    QTableWidgetItem* item = ui->tableWidget->item (i, NameColumn);
+    if (!item) continue;
+    c.name = item->text();
+
+    //command
+    item = ui->tableWidget->item (i, CommandColumn);
+    if (!item) continue;
+    c.commandLine = item->text();
+
+    //interface
+    c.iface = (EngineConfiguration::Interface)qobject_cast<KComboBox*>(ui->tableWidget->cellWidget ( i, ProtocolColumn ))->currentIndex();    
+
+    const QString str = c.toString();
+    if(!str.isEmpty())
+        out << c.toString();
+  }
+
+  Settings::setEngineConfigurations(out);
+}

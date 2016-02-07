@@ -332,6 +332,7 @@ void GameDialog::networkStatusChanged(bool isOnline)
 void GameDialog::showEngineConfigDialog()
 {
     QDialog* dlg = new QDialog ( this );
+	dlg->setWindowTitle(i18n("Chess Engines"));
     auto bBox = new QDialogButtonBox ( QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
     QVBoxLayout *layout = new QVBoxLayout;
     EngineSettings* ecd = new EngineSettings ( dlg );

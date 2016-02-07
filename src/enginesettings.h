@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -41,11 +42,9 @@ class EngineConfiguration
     };
     
     EngineConfiguration(const QString& string);
-    virtual ~EngineConfiguration();
     
-    QString toString() const;
-    QString interfaceName() const;
-    
+    const QString toString() const;
+
     QString name;
     QString commandLine;
     Interface iface;
@@ -66,18 +65,18 @@ class EngineSettings : public QWidget
 
 public:
     explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
-    virtual ~EngineSettings();
         
 private:
     Ui::EngineSettings* ui;
     QList<EngineConfiguration> configurations;
     
-public slots:    
+public slots:
+    void save();
+
+private slots:
     void addClicked();
     void removeClicked();
     void checkInstalled();
-    
-    void save();
 };
 
 }
