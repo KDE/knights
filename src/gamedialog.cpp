@@ -48,7 +48,7 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f )
     ui->setupUi ( this );
     ui->pbPlayer1Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
     ui->pbPlayer2Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
-    ui->gbTimeControl->setChecked ( Settings::timeEnabled() );
+    ui->cbTimeControl->setChecked ( Settings::timeEnabled() );
     ui->sbTimeLimit->setValue ( Settings::timeLimit() );
     ui->sbTimeIncrement->setValue ( Settings::timeIncrement() );
     ui->sbNumberOfMoves->setValue ( Settings::numberOfMoves() );
@@ -124,7 +124,7 @@ GameDialog::GameDialog ( QWidget* parent, Qt::WindowFlags f )
 void GameDialog::setupProtocols()
 {
     TimeControl tc;
-    tc.baseTime = ui->gbTimeControl->isChecked() ? QTime(0, ui->sbTimeLimit->value(), 0, 0) : QTime();
+    tc.baseTime = ui->cbTimeControl->isChecked() ? QTime(0, ui->sbTimeLimit->value(), 0, 0) : QTime();
     tc.moves = ui->rbPlayer2Server->isChecked() ? 0 : ui->sbNumberOfMoves->value();
     tc.increment = ui->sbTimeIncrement->value();
     Manager::self()->setTimeControl(NoColor, tc);
@@ -269,7 +269,7 @@ void GameDialog::save()
     }
     Settings::setColor ( selectedColor );
     
-    bool timeLimitEnabled = ui->gbTimeControl->isChecked();
+	bool timeLimitEnabled = ui->cbTimeControl->isChecked();
     Settings::setTimeEnabled ( timeLimitEnabled );
     if ( timeLimitEnabled )
     {
