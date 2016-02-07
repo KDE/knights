@@ -1,6 +1,7 @@
 /*
     This file is part of Knights, a chess board for KDE SC 4.
     Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+    Copyright 2016 Alexander Semke <alexander.semke@web.de>
 
     This program is free software; you can redistribute it and/or
     modify it under the terms of the GNU General Public License as
@@ -120,23 +121,13 @@ void FicsDialog::addGameOffer ( const FicsGameOffer& offer )
         ui->offerTable->setItem ( row, 1, new QTableWidgetItem ( QString::number ( offer.player.second ) ) );
     }
 
-    QTimeEdit* baseTimeEdit = new QTimeEdit ( this );
-    baseTimeEdit->setReadOnly ( true );
-    baseTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
-    baseTimeEdit->setButtonSymbols ( QAbstractSpinBox::NoButtons );
     QTime baseTime = QTime();
     baseTime.setHMS ( 0, offer.baseTime, 0 );
-    baseTimeEdit->setTime ( baseTime );
-    ui->offerTable->setCellWidget ( row, 2, baseTimeEdit );
+    ui->offerTable->setItem ( row, 2, new QTableWidgetItem (baseTime.toString()) );
 
-    QTimeEdit* incTimeEdit = new QTimeEdit ( this );
-    incTimeEdit->setReadOnly ( true );
-    incTimeEdit->setDisplayFormat ( i18n ( "H:mm:ss" ) );
-    incTimeEdit->setButtonSymbols ( QAbstractSpinBox::NoButtons );
     QTime incTime = QTime();
     incTime.setHMS ( 0, 0, offer.timeIncrement );
-    incTimeEdit->setTime ( incTime );
-    ui->offerTable->setCellWidget ( row, 3, incTimeEdit );
+    ui->offerTable->setItem ( row, 3, new QTableWidgetItem ( incTime.toString()) );
 
     QCheckBox* rated = new QCheckBox ( this );
     rated->setEnabled ( false );
@@ -306,5 +297,3 @@ void FicsDialog::rememberCheckBoxChanged( int state )
     Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
     Settings::self()->save();
 }
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
