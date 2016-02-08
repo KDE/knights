@@ -23,48 +23,49 @@
 #ifndef KNIGHTS_GAMEDIALOG_H
 #define KNIGHTS_GAMEDIALOG_H
 
-#include <QWidget>
+#include <QDialog>
 
 class QNetworkConfigurationManager;
 
 namespace Ui
 {
-    class GameDialog;
+class GameDialog;
 }
 
 namespace Knights
 {
-    class GameDialog : public QWidget
+
+class GameDialog : public QDialog
+{
+    Q_OBJECT
+public:
+
+    enum FicsMode
     {
-            Q_OBJECT
-        public:
-
-            enum FicsMode
-            {
-                NoFics,
-                PlayerVsFics,
-                ComputerVsFics,
-                BothPlayersFics
-            };
-            
-            explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-
-            void setupProtocols();
-            void save();
-
-        private:
-            Ui::GameDialog* ui;            
-            QNetworkConfigurationManager* m_networkManager;
-    
-        private slots:
-            void player1SettingsChanged();
-            void player2SettingsChanged();
-            void timeControlChanged();
-            void updateTimeEdits();
-            void networkStatusChanged(bool isOnline);
-            void loadEngines();
-            void showEngineConfigDialog();
+        NoFics,
+        PlayerVsFics,
+        ComputerVsFics,
+        BothPlayersFics
     };
+
+    explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+
+    void setupProtocols();
+    void save();
+
+private:
+    Ui::GameDialog* ui;
+    QNetworkConfigurationManager* m_networkManager;
+
+private slots:
+    void player1SettingsChanged();
+    void player2SettingsChanged();
+    void timeControlChanged();
+    void updateTimeEdits();
+    void networkStatusChanged(bool isOnline);
+    void loadEngines();
+    void showEngineConfigDialog();
+};
 
 }
 

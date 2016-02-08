@@ -233,28 +233,16 @@ void MainWindow::fileNew()
     {
         return;
     }
-    QDialog *gameNewDialog = new QDialog(this);
-    QVBoxLayout *layout = new QVBoxLayout;
-    QDialogButtonBox *bBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    GameDialog* dialogWidget = new GameDialog();
 
-    layout->addWidget(dialogWidget);
-    layout->addWidget(bBox);
-
-    gameNewDialog->setLayout(layout);
-    gameNewDialog->setWindowTitle(i18n("New Game"));
-
-    connect(bBox, &QDialogButtonBox::accepted, gameNewDialog, &QDialog::accept);
-    connect(bBox, &QDialogButtonBox::rejected, gameNewDialog, &QDialog::reject);
-
+    GameDialog* gameNewDialog = new GameDialog(this);
     if(gameNewDialog->exec() == QDialog::Accepted)
     {
         Manager::self()->reset();
         m_view->clearBoard();
-        dialogWidget->setupProtocols();
+        gameNewDialog->setupProtocols();
         connect(Protocol::white(), &Protocol::error, this, &MainWindow::protocolError);
         connect(Protocol::black(), &Protocol::error, this, &MainWindow::protocolError);
-        dialogWidget->save();
+        gameNewDialog->save();
 
         m_pauseAction->setChecked(false);
         Manager::self()->initialize();
