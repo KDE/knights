@@ -71,9 +71,6 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     // initial creation/setup of the docks
     setDockNestingEnabled(true);
     setupDocks();
-//     setupClockDock();
-//     setupConsoleDocks();
-//     setupHistoryDock();
 
     // setup actions and GUI
     setupActions();
@@ -91,13 +88,12 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     m_bconsoleDock->hide();
     m_wconsoleDock->hide();
     m_chatDock->hide();
+    statusBar()->hide();
 
     connect(m_view, &KnightsView::gameNew, this, &MainWindow::fileNew, Qt::QueuedConnection);
     connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
     connect(Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption);
     connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
-
-    QTimer::singleShot(0, this, SLOT(fileNew()));
 }
 
 void MainWindow::setupDocks()
@@ -246,6 +242,12 @@ void MainWindow::fileNew()
 
         m_pauseAction->setChecked(false);
         Manager::self()->initialize();
+
+        if ( (Protocol::white() && Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty)
+                || (Protocol::white() && Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty) )
+            statusBar()->show();
+        else
+            statusBar()->hide();
     }
     delete gameNewDialog;
 }

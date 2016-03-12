@@ -23,6 +23,7 @@ set(knights_SRCS
     
     rules/chessrules.cpp
 
+    difficultydialog.cpp
     gamedialog.cpp
     offerwidget.cpp
     clock.cpp
