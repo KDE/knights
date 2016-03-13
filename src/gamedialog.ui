@@ -255,6 +255,9 @@
           <height>0</height>
          </size>
         </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
         <property name="maximum">
          <number>300</number>
         </property>
@@ -290,14 +293,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KHistoryComboBox</class>
-   <extends>KComboBox</extends>
-   <header>khistorycombobox.h</header>
-  </customwidget>
-  <customwidget>
    <class>KComboBox</class>
    <extends>QComboBox</extends>
    <header>kcombobox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KHistoryComboBox</class>
+   <extends>KComboBox</extends>
+   <header>khistorycombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

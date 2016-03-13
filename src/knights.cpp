@@ -88,6 +88,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     m_bconsoleDock->hide();
     m_wconsoleDock->hide();
     m_chatDock->hide();
+	m_historyDock->hide();
     statusBar()->hide();
 
     connect(m_view, &KnightsView::gameNew, this, &MainWindow::fileNew, Qt::QueuedConnection);
