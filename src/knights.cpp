@@ -94,6 +94,10 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
     connect(Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption);
     connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
+
+	Manager::self()->setRules(new ChessRules);
+	m_themeProvider->discoverThemes("appdata", QLatin1String("themes"));
+	m_view->drawBoard(m_themeProvider);
 }
 
 void MainWindow::setupDocks()
@@ -234,7 +238,6 @@ void MainWindow::fileNew()
     if(gameNewDialog->exec() == QDialog::Accepted)
     {
         Manager::self()->reset();
-        m_view->clearBoard();
         gameNewDialog->setupProtocols();
         connect(Protocol::white(), &Protocol::error, this, &MainWindow::protocolError);
         connect(Protocol::black(), &Protocol::error, this, &MainWindow::protocolError);
@@ -268,8 +271,6 @@ void MainWindow::fileLoad()
     }
 
     Manager::self()->reset();
-    m_view->clearBoard();
-
     Protocol::setWhiteProtocol(new LocalProtocol());
     Protocol::setBlackProtocol(new LocalProtocol());
 
