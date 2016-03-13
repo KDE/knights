@@ -1,140 +1,137 @@
-/*
-    This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2009,2010,2011  Miha Čančula <miha@noughmad.eu>
+/***************************************************************************
+    File                 : board.h
+    Project              : Knights
+    Description          : Game board (scene)
+    --------------------------------------------------------------------
+    Copyright            : (C) 2016 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License as
-    published by the Free Software Foundation; either version 2 of
-    the License or (at your option) version 3 or any later version
-    accepted by the membership of KDE e.V. (or its successor approved
-    by the membership of KDE e.V.), which shall act as a proxy
-    defined in Section 14 of version 3 of the license.
+ ***************************************************************************/
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+/***************************************************************************
+ *                                                                         *
+ *  This program is free software; you can redistribute it and/or modify   *
+ *  it under the terms of the GNU General Public License as published by   *
+ *  the Free Software Foundation; either version 2 of the License, or      *
+ *  (at your option) any later version.                                    *
+ *                                                                         *
+ *  This program is distributed in the hope that it will be useful,        *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+ *  GNU General Public License for more details.                           *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the Free Software           *
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor,                    *
+ *   Boston, MA  02110-1301  USA                                           *
+ *                                                                         *
+ ***************************************************************************/
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-#ifndef KNIGHTS_BOARD_H
-#define KNIGHTS_BOARD_H
+#ifndef KNIGHTSBOARD_H
+#define KNIGHTSBOARD_H
 
 #include "core/piece.h"
-#include "core/move.h"
-
 #include <KgThemeProvider>
 
 #include <QGraphicsScene>
 #include <QMap>
-#include <QSet>
 #include <QPointer>
 
 class QDrag;
 
+namespace Knights {
 
-namespace Knights
-{
+class Move;
+class Item;
+class Renderer;
+class Pos;
+class Rules;
 
-    class Item;
-    class Renderer;
-    class Pos;
-    class Rules;
+class Board : public QGraphicsScene {
+	Q_OBJECT
+	Q_ENUMS(MarkerType)
 
-    class Board : public QGraphicsScene
-    {
-            Q_OBJECT
-            Q_ENUMS ( MarkerType )
+public:
+	enum MarkerType {
+		LegalMove,
+		Danger,
+		Motion
+	};
 
-        public:
+	Board(KgThemeProvider*, QObject* parent = 0);
+	virtual ~Board();
 
-            enum MarkerType
-            {
-                LegalMove,
-                Danger,
-                Motion
-            };
+	void populate();
+	static bool isInBoard(const Pos&);
 
-            Board ( KgThemeProvider* provider, QObject* parent = 0 );
-            virtual ~Board();
+private:
+	Rules* m_rules;
+	Grid m_grid;
+	QMap<Pos, Item*> m_tiles;
+	QList<Item*> m_borders;
+	QList<Item*> m_notations;
+	Item* m_background;
+	bool m_displayBorders;
+	bool m_displayNotations;
+	KGameRenderer* renderer;
+	KgThemeProvider* m_themeProvider;
 
-            void populate();
+	QPointer<QDrag> drag;
+	bool m_dragActive;
+	Piece* draggedPiece;
+	Piece* selectedPiece;
+	QPoint dragStartPoint;
 
-            static bool isInBoard ( const Pos& pos );
-            Colors playerColors() const;
-            
-        private:
-            Rules *m_rules;
-            Grid m_grid;
-            QMap<Pos, Item*> m_tiles;
-            QList<Item*> m_borders;
-            QList<Item*> m_notations;
-            Item* m_background;
-            bool m_displayBorders;
-            bool m_displayNotations;
-            KGameRenderer* renderer;
-            KgThemeProvider* m_themeProvider;
+	bool m_paused;
+	int m_tileSize;
+	QRectF m_boardRect;
+	bool m_animated;
+	QPointF m_draggedPos;
+	QPointF m_dragStartPos;
+	Color m_currentPlayer;
+	Color m_displayedPlayer;
+	Colors m_playerColors;
+	QMap<Pos, Item*> markers;
+	bool m_drawFrame;
 
-            void addPiece ( PieceType type, Color color, const Pos& pos );
-            void addMarker ( const Pos& pos, MarkerType type );
-            void addMarker ( const Pos& pos, const QString& spriteKey );
-            void addTiles();
+	void addPiece(PieceType type, Color color, const Pos& pos);
+	void addMarker(const Pos& pos, MarkerType type );
+	void addMarker(const Pos& pos, const QString& spriteKey);
+	void addTiles();
 
-            Piece* pieceAt ( const QPointF& point );
-            Pos mapFromScene ( const QPointF& point );
-            QPointF mapToScene ( Pos pos );
-            void centerOnPos ( Item* item, const Pos& pos, bool animated = true );
-            void centerOnPos ( Item* item, bool animated = true );
-            void removeFrame();
-            void centerAndResize ( Item* item, QSize size, bool animated = true );
-            PieceType getPromotedType();
-            
-            QPointer<QDrag> drag;
-            bool m_dragActive;
-            Piece* draggedPiece;
-            Piece* selectedPiece;
-            QPoint dragStartPoint;
-            
-            bool m_paused;
-            int m_tileSize;
-            QRectF m_boardRect;
-            bool m_animated;
-            QPointF m_draggedPos;
-            QPointF m_dragStartPos;
-            Color m_currentPlayer;
-            Color m_displayedPlayer;
-            Colors m_playerColors;
-            QMap<Pos, Item*> markers;
-            bool m_drawFrame;
+	Piece* pieceAt(const QPointF&);
+	Pos mapFromScene(const QPointF&);
+	QPointF mapToScene(Pos);
+	void centerOnPos(Item* item, const Pos& pos, bool animated = true);
+	void centerOnPos(Item* item, bool animated = true);
+	void removeFrame();
+	void centerAndResize(Item* item, QSize size, bool animated = true);
+	PieceType getPromotedType();
 
-        protected:
-            virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
-            virtual void mouseMoveEvent( QGraphicsSceneMouseEvent* e );
-            virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* e);
-            virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
-            virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
-            virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
-            virtual void dragLeaveEvent ( QGraphicsSceneDragDropEvent* e );
+protected:
+	virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
+	virtual void mouseMoveEvent( QGraphicsSceneMouseEvent* e );
+	virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* e);
+	virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
+	virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
+	virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
+	virtual void dragLeaveEvent ( QGraphicsSceneDragDropEvent* e );
 
-        public slots:
-            void movePiece ( const Move& move );
-            void updateTheme();
-            void updateGraphics();
-            void changeDisplayedPlayer();
-            void setCurrentColor ( Color color );
-            void setPlayerColors ( Colors colors );
+public slots:
+	void movePiece ( const Move& move );
+	void updateTheme();
+	void updateGraphics();
+	void changeDisplayedPlayer();
+	void setCurrentColor ( Color color );
+	void setPlayerColors ( Colors colors );
 
-        signals:
-            void pieceMoved ( const Move& m );
-            void activePlayerChanged ( Color activePlayer );
-            void displayedPlayerChanged ( Color displayedPlayer );
-
-            void centerChanged ( const QPointF& center );
-    };
+signals:
+	void pieceMoved(const Move&);
+	void activePlayerChanged(Color);
+	void displayedPlayerChanged(Color);
+	void centerChanged(const QPointF&);
+};
 
 }
 
-#endif // KNIGHTS_BOARD_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 
+#endif // KNIGHTSBOARD_H
