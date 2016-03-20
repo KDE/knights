@@ -84,7 +84,7 @@ public:
 	virtual ~Manager();
 
 	void setCurrentTime(Color, const QTime&);
-	void setTimeControl(Color, const TimeControl& control);
+	void setTimeControl(Color, const TimeControl&);
 	TimeControl timeControl(Color) const;
 	bool timeControlEnabled(Color) const;
 	QTime timeLimit(Color);
@@ -134,9 +134,9 @@ public slots:
 	void saveGameHistoryAs(const QString& filename);
 
 private slots:
-	void moveByProtocol( const Move&);
+	void moveByProtocol(const Move&);
 	void protocolInitSuccesful();
-	void gameOver(Color);
+	void gameOver(const Color);
 	void resign();
 	void offerDraw();
 	void adjourn();
@@ -150,7 +150,7 @@ private:
 	Q_DECLARE_PRIVATE(GameManager)
 
 protected:
-	virtual void timerEvent(QTimerEvent* );
+	virtual void timerEvent(QTimerEvent*);
 
 signals:
 	void timeChanged(Color, const QTime&);

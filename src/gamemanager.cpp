@@ -82,7 +82,6 @@ public:
 
 	QString filename;
 	Color winner;
-	bool winnerNotified;
 	bool initComplete;
 
 	int nextOfferId();
@@ -262,7 +261,6 @@ void Manager::initialize() {
 	Q_D(GameManager);
 	d->gameStarted = false;
 	d->initComplete = false;
-	d->winnerNotified = false;
 	d->running = false;
 	d->activePlayer = White;
 	d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
@@ -413,34 +411,36 @@ void Manager::startGame() {
 	emit historyChanged();
 }
 
-
-void Manager::gameOver(Color winner) {
-	sendPendingMove();
+void Manager::gameOver(const Color winner) {
 	Q_D(GameManager);
-	if ( d->gameStarted ) {
+	if (d->gameStarted) {
+		sendPendingMove();
 		stopTime();
-		if ( !d->winnerNotified ) {
-			d->winner = winner;
-			Protocol::white()->setWinner(winner);
-			Protocol::black()->setWinner(winner);
-			emit winnerNotify(winner);
 
-			d->winnerNotified = true;
-		}
+		Protocol::white()->setWinner(winner);
+		Protocol::black()->setWinner(winner);
+		Protocol::white()->deleteLater();
+		Protocol::black()->deleteLater();
+
+		delete d->rules;
+		d->winner = winner;
+		d->gameStarted = false;
+
+		emit winnerNotify(winner);
 	}
 }
 
 void Manager::reset() {
 	Q_D(GameManager);
-	sendPendingMove();
-	stopTime();
-	if ( d->gameStarted ) {
-		if ( Protocol::white() )
-			Protocol::white()->deleteLater();
-		if ( Protocol::black() )
-			Protocol::black()->deleteLater();
+	if (d->gameStarted) {
+		sendPendingMove();
+		stopTime();
+		Protocol::white()->deleteLater();
+		Protocol::black()->deleteLater();
 		delete d->rules;
+		d->gameStarted = false;
 	}
+
 	d->moveHistory.clear();
 	d->moveUndoStack.clear();
 	emit undoPossible( false );
@@ -448,10 +448,7 @@ void Manager::reset() {
 
 	d->offers.clear();
 	d->usedOfferIds.clear();
-
-	d->gameStarted = false;
 	d->winner = NoColor;
-	d->winnerNotified = false;
 
 	if ( d->extControl ) {
 		delete d->extControl;
@@ -476,7 +473,6 @@ void Manager::sendOffer(GameAction action, Color player, int id) {
 	o.id = id;
 	sendOffer(o);
 }
-
 
 void Manager::sendOffer(const Offer& offer) {
 	Q_D(GameManager);
