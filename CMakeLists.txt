@@ -7,6 +7,8 @@ find_package(ECM 1.7.0 REQUIRED CONFIG)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wundef -Wpointer-arith -Wcast-align -Wunreachable-code -fno-omit-frame-pointer -fstack-protector -fno-exceptions")
+
 #set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
 
 include(FeatureSummary)
@@ -26,21 +28,15 @@ if (Qt5TextToSpeech_FOUND)
 endif ()
 
 find_package(KF5 REQUIRED COMPONENTS
-  CoreAddons
-  Config
-  WidgetsAddons
   DBusAddons
-  I18n
   ConfigWidgets
   TextWidgets
   XmlGui
   KIO
   Plotting
-  NotifyConfig
   DocTools
   Wallet
   Plasma
-  Completion
 )
 
 find_package(KF5KDEGames 4.9.0 REQUIRED)

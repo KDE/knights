@@ -25,11 +25,8 @@
 #include "settings.h"
 #include "knightsdebug.h"
 
-#include <KToolInvocation>
 #include <KWallet>
 
-#include <QCheckBox>
-#include <QTimeEdit>
 #include <QDesktopServices>
 
 using namespace Knights;
