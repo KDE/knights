@@ -420,6 +420,8 @@ void Board::updateTheme() {
 	if ( renderer->spriteExists ( backgroundKey ) ) {
 		m_background = new Item ( renderer, backgroundKey, this, Pos() );
 		m_background->setZValue ( backgroundZValue );
+	} else {
+		m_background = 0;
 	}
 
 	qDeleteAll ( m_borders );
