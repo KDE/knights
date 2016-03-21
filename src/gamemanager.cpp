@@ -38,10 +38,9 @@
 #include <KgDifficulty>
 #include <klocale.h>
 
-#include <QDialog>
 #ifdef HAVE_SPEECH
 #include <QtTextToSpeech>
-#endif /* HAVE_SPEECH */
+#endif
 
 using namespace Knights;
 
@@ -77,7 +76,7 @@ public:
 
 #ifdef HAVE_SPEECH
 	QTextToSpeech* speech;
-#endif /* HAVE_SPEECH */
+#endif
 	ExternalControl* extControl;
 
 	QString filename;
@@ -95,7 +94,7 @@ GameManagerPrivate::GameManagerPrivate()
 	  rules(0),
 #ifdef HAVE_SPEECH
 	  speech(0),
-#endif /* HAVE_SPEECH */
+#endif
 	  extControl(0) {
 
 }
@@ -115,22 +114,19 @@ Manager* Manager::self() {
 
 Manager::Manager(QObject* parent) : QObject(parent),
 	d_ptr(new GameManagerPrivate) {
-	qCDebug(LOG_KNIGHTS) << "creating a GameManager";
-	Q_D(GameManager);
 #ifdef HAVE_SPEECH
+	Q_D(GameManager);
 	d->speech = new QTextToSpeech();
-#endif /* HAVE_SPEECH */
+#endif
 }
 
 Manager::~Manager() {
-	qCDebug(LOG_KNIGHTS) << " !!! ----- Destroying a Game Manager ----- !!!";
-	Q_D(GameManager);
 #ifdef HAVE_SPEECH
+	Q_D(GameManager);
 	delete d->speech;
-#endif /* HAVE_SPEECH */
+#endif
 	delete d_ptr;
 }
-
 
 void Manager::startTime() {
 	Q_D(GameManager);
@@ -411,7 +407,7 @@ void Manager::startGame() {
 	emit historyChanged();
 }
 
-void Manager::gameOver(const Color winner) {
+void Manager::gameOver(Color winner) {
 	Q_D(GameManager);
 	if (d->gameStarted) {
 		sendPendingMove();

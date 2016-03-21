@@ -136,7 +136,7 @@ public slots:
 private slots:
 	void moveByProtocol(const Move&);
 	void protocolInitSuccesful();
-	void gameOver(const Color);
+	void gameOver(Color);
 	void resign();
 	void offerDraw();
 	void adjourn();
