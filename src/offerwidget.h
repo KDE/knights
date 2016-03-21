@@ -31,7 +31,7 @@ namespace Ui
 
 namespace Knights {
 
-  struct Offer;
+  class Offer;
 
   enum OfferAction
   {

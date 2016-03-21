@@ -42,7 +42,7 @@ class KnightsView;
 namespace Knights {
 
 class Board;
-struct Offer;
+class Offer;
 
 class KnightsView : public QWidget {
 	Q_OBJECT
