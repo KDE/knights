@@ -109,21 +109,21 @@ private:
 	PieceType getPromotedType();
 
 protected:
-	virtual void mousePressEvent ( QGraphicsSceneMouseEvent* e );
-	virtual void mouseMoveEvent( QGraphicsSceneMouseEvent* e );
-	virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent* e);
-	virtual void dropEvent ( QGraphicsSceneDragDropEvent* e );
-	virtual void dragEnterEvent ( QGraphicsSceneDragDropEvent* e );
-	virtual void dragMoveEvent ( QGraphicsSceneDragDropEvent* e );
-	virtual void dragLeaveEvent ( QGraphicsSceneDragDropEvent* e );
+	virtual void mousePressEvent(QGraphicsSceneMouseEvent*);
+	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent*);
+	virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent*);
+	virtual void dropEvent(QGraphicsSceneDragDropEvent*);
+	virtual void dragEnterEvent(QGraphicsSceneDragDropEvent*);
+	virtual void dragMoveEvent(QGraphicsSceneDragDropEvent*);
+	virtual void dragLeaveEvent(QGraphicsSceneDragDropEvent*);
 
 public slots:
-	void movePiece ( const Move& move );
+	void movePiece(const Move&);
 	void updateTheme();
 	void updateGraphics();
 	void changeDisplayedPlayer();
-	void setCurrentColor ( Color color );
-	void setPlayerColors ( Colors colors );
+	void setCurrentColor(Color);
+	void setPlayerColors(Colors);
 
 signals:
 	void pieceMoved(const Move&);

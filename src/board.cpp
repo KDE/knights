@@ -71,12 +71,20 @@ const QString whiteNumbersKey = QLatin1String ( "WhiteNumbers" );
 const QString blackNumbersKey = QLatin1String ( "BlackNumbers" );
 
 Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent),
+	m_rules(0),
 	m_background(0),
+	m_displayBorders(true),
+	m_displayNotations(true),
+	renderer(0),
 	m_themeProvider(provider),
 	m_dragActive(false),
 	draggedPiece(0),
 	selectedPiece(0),
-	m_currentPlayer(White) {
+	m_paused(false),
+	m_animated(true),
+	m_currentPlayer(White),
+	m_displayedPlayer(NoColor),
+	m_drawFrame(true) {
 
 	renderer = new KGameRenderer(m_themeProvider);
 	Manager::self()->rules()->setGrid(&m_grid);
