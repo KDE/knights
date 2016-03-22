@@ -36,7 +36,7 @@
 #include "knightsdebug.h"
 
 #include <KgDifficulty>
-#include <klocale.h>
+#include <KLocalizedString>
 
 #ifdef HAVE_SPEECH
 #include <QtTextToSpeech>

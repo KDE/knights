@@ -46,10 +46,12 @@ class MainWindow : public KXmlGuiWindow
 public:
     MainWindow();
 
+public Q_SLOTS:
+    void fileSave();
+
 private Q_SLOTS:
     void fileNew();
     void fileLoad();
-    void fileSave();
     void fileSaveAs();
     void pauseGame(bool);
     void undo();
