@@ -182,6 +182,12 @@ namespace Knights
             string.remove(QLatin1Char('+'));
         }
 
+        // In case of double check symbol ++, remove the last +
+        if ( string.contains(QLatin1Char('+')) )
+        {
+            string.remove(QLatin1Char('+'));
+        }
+
         if ( string.contains(QLatin1Char('#')) )
         {
             setFlag ( CheckMate, true );
