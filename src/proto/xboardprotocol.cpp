@@ -158,9 +158,9 @@ bool XBoardProtocol::parseLine(const QString& line) {
 	} else if ( line.startsWith ( QLatin1String("1-0") ) )
 		emit gameOver ( White );
 	else if ( line.startsWith ( QLatin1String("0-1") ) )
-		emit gameOver ( NoColor );
-	else if ( line.startsWith ( QLatin1String("1/2-1/2") ) )
 		emit gameOver ( Black );
+	else if ( line.startsWith ( QLatin1String("1/2-1/2") ) )
+		emit gameOver ( NoColor );
 	if ( display )
 		writeToConsole ( line, type );
 	return true;
