@@ -181,7 +181,13 @@ namespace Knights
             setFlag ( Check, true );
             string.remove(QLatin1Char('+'));
         }
-        
+
+        if ( string.contains(QLatin1Char('#')) )
+        {
+            setFlag ( CheckMate, true );
+            string.remove(QLatin1Char('#'));
+        }
+
         string.remove(QLatin1Char('-'));
         string.remove(QLatin1Char(' '));
         string.remove(QLatin1Char('='));
@@ -419,7 +425,3 @@ QDebug operator<<(QDebug debug, const Knights::Move& move)
     debug << move.string(true);
     return debug;
 }
-
-
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;  replace-tabs on;
