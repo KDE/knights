@@ -156,10 +156,8 @@ void KnightsView::gameOver ( Color winner ) {
 	mainLayout->addWidget(label);
 	mainLayout->addWidget(bBox);
 
-	if ( dlg->exec() == QDialog::Accepted ) {
-		Manager::self()->reset();
+	if ( dlg->exec() == QDialog::Accepted )
 		emit gameNew();
-	}
 
 	qCDebug(LOG_KNIGHTS) << Protocol::white();
 	qCDebug(LOG_KNIGHTS) << Protocol::black();

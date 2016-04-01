@@ -62,6 +62,7 @@ public:
 	Color activePlayer;
 	bool running;
 	bool gameStarted;
+	bool gameOverInProcess;
 	int timer;
 
 	TimeControl whiteTimeControl;
@@ -90,6 +91,7 @@ GameManagerPrivate::GameManagerPrivate()
 	: activePlayer(NoColor),
 	  running(false),
 	  gameStarted(false),
+	  gameOverInProcess(false),
 	  timer(0),
 	  rules(0),
 #ifdef HAVE_SPEECH
@@ -409,31 +411,37 @@ void Manager::startGame() {
 
 void Manager::gameOver(Color winner) {
 	Q_D(GameManager);
-	if (d->gameStarted) {
+	if (!d->gameStarted)
+		return;
+
+	if (!d->gameOverInProcess) {
+		d->gameOverInProcess = true;
 		sendPendingMove();
-		stopTime();
-
-		Protocol::white()->setWinner(winner);
-		Protocol::black()->setWinner(winner);
-		Protocol::white()->deleteLater();
-		Protocol::black()->deleteLater();
-
-		delete d->rules;
-		d->winner = winner;
-		d->gameStarted = false;
-
-		emit winnerNotify(winner);
 	}
+
+	stopTime();
+	Protocol::white()->setWinner(winner);
+	Protocol::black()->setWinner(winner);
+	emit winnerNotify(winner);
+
+	reset();
+	d->gameOverInProcess = false;
+
 }
 
 void Manager::reset() {
 	Q_D(GameManager);
 	if (d->gameStarted) {
-		sendPendingMove();
-		stopTime();
+		if (!d->gameOverInProcess) {
+			sendPendingMove();
+			stopTime();
+		}
 		Protocol::white()->deleteLater();
 		Protocol::black()->deleteLater();
-		delete d->rules;
+		if (d->rules) {
+			delete d->rules;
+			d->rules = 0;
+		}
 		d->gameStarted = false;
 	}
 
@@ -610,7 +618,10 @@ void Manager::sendPendingMove() {
 		Color winner = rules()->winner();
 		if ( winner != NoColor || !rules()->hasLegalMoves ( oppositeColor( d->activePlayer ) ) ) {
 			qCDebug(LOG_KNIGHTS) << "Winner: " << winner;
-			gameOver ( winner );
+			if (!d->gameOverInProcess) {
+				d->gameOverInProcess = true;
+				gameOver(winner);
+			}
 		}
 
 		int moveNumber;
