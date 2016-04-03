@@ -355,6 +355,10 @@ namespace Knights
         }
         rev.setTo(d->from);
         rev.setFrom(d->to);
+        if ( flags() & Promote )
+        {
+            rev.setPromotedType(Pawn);
+        }
         
         QList<Move> additionalMoves;
         foreach ( const Move& m, d->extraMoves )
