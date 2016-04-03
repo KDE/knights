@@ -205,10 +205,12 @@ namespace Knights
             d->notationType = Coordinate;
             setFrom ( string.left ( 2 ) );
             setTo ( string.mid ( 2, 2 ) );
+
+            //check whether we need to promote a pawn (string looks like a7a8R for promotion to rook, etc.)
             if ( string.size() > 4 )
             {
                 setFlag ( Promote, true );
-                setPromotedType ( Piece::typeFromChar ( string[5] ) );
+                setPromotedType ( Piece::typeFromChar ( string[4] ) );
             }
         }
         else
