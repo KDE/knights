@@ -36,7 +36,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
-static QString description = QStringLiteral ( "Chess board based on KF5" );
+static const char description[] = I18N_NOOP ( "Chess board based on KF5" );
 static QString version = QStringLiteral ("2.5.0");
 
 int main ( int argc, char **argv )
@@ -45,7 +45,7 @@ int main ( int argc, char **argv )
 
     KLocalizedString::setApplicationDomain("knights");
 
-    KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, description,
+    KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
                        KAboutLicense::GPL, i18n ( "(C) 2009-2011 Miha Čančula" ));
     about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
                       QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
