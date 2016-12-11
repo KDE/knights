@@ -260,6 +260,7 @@ void Manager::initialize() {
 	d->gameStarted = false;
 	d->initComplete = false;
 	d->running = false;
+	d->moveHistory.clear();
 	d->activePlayer = White;
 	d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
 	d->blackTimeControl.currentTime = d->blackTimeControl.baseTime;
@@ -362,7 +363,7 @@ void Manager::offerDraw() {
 }
 
 void Manager::resign() {
-	//TODO:
+	sendOffer(ActionResign);
 }
 
 bool Manager::isRunning() {
@@ -445,7 +446,9 @@ void Manager::reset() {
 		d->gameStarted = false;
 	}
 
-	d->moveHistory.clear();
+	//don't clear the move history here,
+	//it should be possible to study the history after the game ended.
+
 	d->moveUndoStack.clear();
 	emit undoPossible( false );
 	emit redoPossible( false );

@@ -61,6 +61,7 @@ enum GameAction {
 	ActionAbort,
 	ActionPause,
 	ActionResume,
+	ActionResign,
 	ActionOther
 };
 
