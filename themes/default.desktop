@@ -1,7 +1,6 @@
 [KGameTheme]
 Name=Grayscale
 Name[ar]=تدرج رمادي
-Name[ast]=Escala de buxos
 Name[bg]=Сиво
 Name[bs]=Crno‑bijela
 Name[ca]=Escala de grisos
@@ -48,7 +47,6 @@ Name[zh_CN]=灰度
 Name[zh_TW]=灰階
 Description=A grayscale theme using the Oxygen palette
 Description[ar]=سمة رمادية باستخدام لوحة ألوان أوكسجين
-Description[ast]=Un tema d'escala de buxos de la paleta d'Oxygen
 Description[bg]=Изглед в сиво с палитра от Oxygen
 Description[bs]=Crno‑bijela tema na osnovu Kiseonikove palete
 Description[ca]=Un tema en escala de grisos utilitzant la paleta Oxygen

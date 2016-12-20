@@ -1,7 +1,6 @@
 [KGameTheme]
 Name=East and West
 Name[ar]=الشرق والغرب
-Name[ast]=Este y Oeste
 Name[bg]=Изток и запад
 Name[bs]=Istok i zapad
 Name[ca]=Est i oest
@@ -48,7 +47,6 @@ Name[zh_CN]=东征西讨
 Name[zh_TW]=東與西
 Description=A middle ages styled chess set
 Description[ar]=رقعة شطرنج بنمط العصور الوسطى
-Description[ast]=Tema d'axedrez col estilu de la edá media
 Description[bg]=Средновековен изглед на шахматната дъска
 Description[bs]=Tema u stilu srednjeg vijeka.
 Description[ca]=Un conjunt d'escacs d'estil medieval
