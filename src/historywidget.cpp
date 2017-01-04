@@ -29,6 +29,8 @@
 #include <QHeaderView>
 #include <QScrollBar>
 
+#include <math.h>
+
 using namespace Knights;
 
 HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f)
