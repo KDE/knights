@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>org.kde.knights.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>KNights</name>
+  <summary>Chess game</summary>
+  <description>
+    <p>
+      KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Local play between two players on the same computer</li>
+      <li>Play against any computer program that supports the XBoard protocol</li>
+      <li>Play on the Free Internet Chess Server (FICS)</li>
+      <li>Watching two computer engines play against each other</li>
+      <li>Support for legal move checking</li>
+      <li>Markers for possible moves, opponent’s last move and sources of check</li>
+      <li>Board borders and site notations</li>
+      <li>Complete time control, with Plasma-styled clocks</li>
+      <li>Several themes, with the possibility of downloading new ones from within the program</li>
+      <li>Animated moves (configurable)</li>
+      <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
+      <li>Option to undo and redo moves</li>
+      <li>Graphic interface for making and receiving offers from remote players</li>
+      <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
+      <li>Support for saving and loading Portable game notation (PGN) files</li>
+      <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
+      <li>Ability to control the program via a D-Bus interface</li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://kde.org/images/screenshots/knights.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://www.kde.org/applications/games/knights/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=knights</url>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>knights</binary>
+  </provides>
+</component>

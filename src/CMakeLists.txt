@@ -90,5 +90,4 @@ install( FILES knights.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
 install( FILES knightsui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/knights )
 install( FILES knights.knsrc  DESTINATION  ${KDE_INSTALL_CONFDIR} )
 install( FILES org.kde.Knights.xml DESTINATION ${DBUS_INTERFACES_INSTALL_DIR} )
-
-
+install( FILES org.kde.knights.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
