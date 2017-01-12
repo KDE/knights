@@ -9,6 +9,7 @@
   <name xml:lang="gl">KNights</name>
   <name xml:lang="nl">KNights</name>
   <name xml:lang="pt">KNights</name>
+  <name xml:lang="sk">KNights</name>
   <name xml:lang="sv">Knights</name>
   <name xml:lang="uk">KNights</name>
   <name xml:lang="x-test">xxKNightsxx</name>
@@ -18,6 +19,7 @@
   <summary xml:lang="gl">Xogo de xadrez</summary>
   <summary xml:lang="nl">Schaakspel</summary>
   <summary xml:lang="pt">Jogo de xadrez</summary>
+  <summary xml:lang="sk">Šach</summary>
   <summary xml:lang="sv">Schackspel</summary>
   <summary xml:lang="uk">Гра у шахи</summary>
   <summary xml:lang="x-test">xxChess gamexx</summary>
@@ -39,6 +41,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pt">Funcionalidades:</p>
+    <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
