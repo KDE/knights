@@ -20,6 +20,7 @@
   <name xml:lang="sv">Knights</name>
   <name xml:lang="uk">KNights</name>
   <name xml:lang="x-test">xxKNightsxx</name>
+  <name xml:lang="zh-TW">KNights</name>
   <summary>Chess game</summary>
   <summary xml:lang="ca">Joc d'escacs</summary>
   <summary xml:lang="ca-valencia">Joc d'escacs</summary>
@@ -37,6 +38,7 @@
   <summary xml:lang="sv">Schackspel</summary>
   <summary xml:lang="uk">Гра у шахи</summary>
   <summary xml:lang="x-test">xxChess gamexx</summary>
+  <summary xml:lang="zh-TW">西洋棋遊戲</summary>
   <description>
     <p>
       KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.
@@ -56,6 +58,7 @@
     <p xml:lang="sv">Knights är ett schackspel. Som spelare är ditt mål att besegra motspelaren genom att göra dennes kung schack matt.</p>
     <p xml:lang="uk">KNights — гра у шахи. Вашою метою у грі є поставити мат королю суперника.</p>
     <p xml:lang="x-test">xxKNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.xx</p>
+    <p xml:lang="zh-TW">KNights 是一套西洋棋遊戲。</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -73,6 +76,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Local play between two players on the same computer</li>
       <li xml:lang="ca">Joc local entre dos jugadors al mateix ordinador</li>
@@ -329,6 +333,7 @@
       <li xml:lang="sv">Möjlighet att styra programmet via ett D-Bus gränssnitt</li>
       <li xml:lang="uk">Можливіть керування програмою за допомогою інтерфейсу D-Bus.</li>
       <li xml:lang="x-test">xxAbility to control the program via a D-Bus interfacexx</li>
+      <li xml:lang="zh-TW">透過 D-Bus 介面控制程式的能力</li>
     </ul>
   </description>
   <screenshots>
