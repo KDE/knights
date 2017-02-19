@@ -12,6 +12,7 @@
   <name xml:lang="es">KNights</name>
   <name xml:lang="gl">KNights</name>
   <name xml:lang="nl">KNights</name>
+  <name xml:lang="pl">KSkoczki</name>
   <name xml:lang="pt">KNights</name>
   <name xml:lang="sk">KNights</name>
   <name xml:lang="sr">Коњи</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="es">Juego de ajedrez</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
   <summary xml:lang="nl">Schaakspel</summary>
+  <summary xml:lang="pl">Gra w szachy</summary>
   <summary xml:lang="pt">Jogo de xadrez</summary>
   <summary xml:lang="sk">Šach</summary>
   <summary xml:lang="sr">Шаховска игра</summary>
@@ -54,6 +56,7 @@
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, su objetivo consiste en vencer a su oponente haciendo jaque mate a su rey.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
     <p xml:lang="nl">KNights is een schaakspel.Het doel is uw tegenspeler te verslaan door zijn/haar koning schaakmat te zetten.</p>
+    <p xml:lang="pl">KSkoczki jest grą w szachy. Jako gracz, twoim celem jest pokonanie przeciwnika poprzez zaszachowanie jego króla.</p>
     <p xml:lang="pt">O KNights é um jogo de xadrez. Como jogador, o seu objectivo é derrotar o seu adversário através de um xeque-mate ao seu rei.</p>
     <p xml:lang="sr">Коњи је шаховска игра. Циљ играча је да порази противника матирањем његовог краља.</p>
     <p xml:lang="sr-Latn">Konji je šahovska igra. Cilj igrača je da porazi protivnika matiranjem njegovog kralja.</p>
@@ -72,6 +75,7 @@
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sr">Могућности:</p>
@@ -91,6 +95,7 @@
       <li xml:lang="es">Partida local entre dos jugadores en el mismo equipo</li>
       <li xml:lang="gl">Partidas entre dous xogadores no mesmo computador.</li>
       <li xml:lang="nl">Lokaal spel tussen twee spelers op dezelfde computer</li>
+      <li xml:lang="pl">Lokalna gra pomiędzy dwoma graczami na tym samym komputerze</li>
       <li xml:lang="pt">Jogo local entre dois jogadores no mesmo computador</li>
       <li xml:lang="sr">Локална партија између два играча на истом рачунару.</li>
       <li xml:lang="sr-Latn">Lokalna partija između dva igrača na istom računaru.</li>
@@ -106,6 +111,7 @@
       <li xml:lang="es">Jugar contra cualquier programa de computadora que use el protocolo XBoard</li>
       <li xml:lang="gl">Partidas contra calquera programa de xadrez compatíbel co protocolo XBoard.</li>
       <li xml:lang="nl">Tegen een elk computerprogramma spelen dat het XBoard-protocol ondersteunt</li>
+      <li xml:lang="pl">Gra przeciwko programowi komputerowemu, który obsługuje protokół XBoard</li>
       <li xml:lang="pt">Jogo contra qualquer programa de computador que suporte o protocolo do XBoard</li>
       <li xml:lang="sr">Играње против било ког рачунарског програма који подржава протокол Икс‑табла.</li>
       <li xml:lang="sr-Latn">Igranje protiv bilo kog računarskog programa koji podržava protokol X‑tabla.</li>
@@ -121,6 +127,7 @@
       <li xml:lang="es">Jugar en el servidor de ajedrez libre de Internet (FICS)</li>
       <li xml:lang="gl">Partidas no Servidor Gratuíto de Xadrez por Internet (FICS).</li>
       <li xml:lang="nl">Spelen op de Free Internet Chess Server (FICS)</li>
+      <li xml:lang="pl">Gra na serwerze Free Internet Chess Server (FICS)</li>
       <li xml:lang="pt">Jogo no FICS (Free Internet Chess Server - Servidor Livre de Xadrez na Internet)</li>
       <li xml:lang="sr">Играње на ФИЦС‑у, Слободном шаховском серверу на Интернету.</li>
       <li xml:lang="sr-Latn">Igranje na FICS‑u, Slobodnom šahovskom serveru na Internetu.</li>
@@ -136,6 +143,7 @@
       <li xml:lang="es">Observar cómo juegan dos programas de ajedrez entre sí</li>
       <li xml:lang="gl">Visualización de partidas dun programa contra otro.</li>
       <li xml:lang="nl">Bekijken hoe twee computers tegen elkaar spelen</li>
+      <li xml:lang="pl">Oglądania gry dwóch silników komputerowych przeciwko sobie</li>
       <li xml:lang="pt">Observação de dois motores por computador a jogarem entre si</li>
       <li xml:lang="sr">Гледајте како два рачунарска мотора играју један против другог.</li>
       <li xml:lang="sr-Latn">Gledajte kako dva računarska motora igraju jedan protiv drugog.</li>
@@ -151,6 +159,7 @@
       <li xml:lang="es">Permite comprobar los movimientos legales</li>
       <li xml:lang="gl">Opción de comprobar se un movemento está permitido.</li>
       <li xml:lang="nl">Ondersteuning voor controle op legale zetten</li>
+      <li xml:lang="pl">Obsługa dozwolonych ruchów szachowych</li>
       <li xml:lang="pt">Suporte para a verificação de jogadas legais</li>
       <li xml:lang="sr">Подршка за проверу ваљаности потеза.</li>
       <li xml:lang="sr-Latn">Podrška za proveru valjanosti poteza.</li>
@@ -166,6 +175,7 @@
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de comprobaciones</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
       <li xml:lang="nl">Markeringen voor mogelijke zetten, de laatste zet van de tegenstander en bronnen voor controle</li>
+      <li xml:lang="pl">Znaczniki możliwych ruchów, ostatni ruch przeciwnika i powody szachu</li>
       <li xml:lang="pt">Marcações para as jogadas possíveis, última jogada do adversário e origens do xeque</li>
       <li xml:lang="sr">Маркери за могуће потезе, противников последњи потезе и извори провера.</li>
       <li xml:lang="sr-Latn">Markeri za moguće poteze, protivnikov poslednji poteze i izvori provera.</li>
@@ -181,6 +191,7 @@
       <li xml:lang="es">Bordes del tablero y notaciones del sitio</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
       <li xml:lang="nl">Bordranden en notities ter plekke</li>
+      <li xml:lang="pl">Obramowanie szachowicy i oznaczenia boczne</li>
       <li xml:lang="pt">Contornos do tabuleiro e notações locais</li>
       <li xml:lang="sr">Ивице табле и месне белешке.</li>
       <li xml:lang="sr-Latn">Ivice table i mesne beleške.</li>
@@ -196,6 +207,7 @@
       <li xml:lang="es">Completo control del tiempo, con paneles al estilo de Plasma</li>
       <li xml:lang="gl">Control completo do tempo con reloxos co estilo de Plasma.</li>
       <li xml:lang="nl">Volledige tijdcontrole, met klokken in Plasma-stijl</li>
+      <li xml:lang="pl">Całkowita kontrola czasu przy użyciu zegarów Plazmy</li>
       <li xml:lang="pt">Controlo total do tempo, com relógios baseados no estilo do Plasma</li>
       <li xml:lang="sr">Потпуно управљање временом, сатови у стилу Плазме.</li>
       <li xml:lang="sr-Latn">Potpuno upravljanje vremenom, satovi u stilu Plasme.</li>
@@ -211,6 +223,7 @@
       <li xml:lang="es">Diversos temas, con la posibilidad de descargar otros nuevos desde el programa</li>
       <li xml:lang="gl">Varios temas, coa posibilidade de descargar temas novos desde o propio programa.</li>
       <li xml:lang="nl">Een aantal thema's, met de mogelijkheid nieuwe te downloaden vanuit het programma</li>
+      <li xml:lang="pl">Kilka wystrojów, z możliwością pobrania nowych z poziomu programu</li>
       <li xml:lang="pt">Diversos temas, com a possibilidade de transferir novos dentro do programa</li>
       <li xml:lang="sr">Неколико тема, са могућношћу преузимања нових из самог програма.</li>
       <li xml:lang="sr-Latn">Nekoliko tema, sa mogućnošću preuzimanja novih iz samog programa.</li>
@@ -226,6 +239,7 @@
       <li xml:lang="es">Movimientos animados (configurables)</li>
       <li xml:lang="gl">Movementos animados configurábeis.</li>
       <li xml:lang="nl">Geanimeerde zetten (instelbaar)</li>
+      <li xml:lang="pl">Animowane ruchy (do ustawienia)</li>
       <li xml:lang="pt">Jogadas animadas (configurável)</li>
       <li xml:lang="sr">Анимирани потези (подесиво).</li>
       <li xml:lang="sr-Latn">Animirani potezi (podesivo).</li>
@@ -241,6 +255,7 @@
       <li xml:lang="es">Visores para jugar en un servidor de ajedrez, incluido un gráfico de búsqueda, una consola de texto y una ventana de charla</li>
       <li xml:lang="gl">Vistas para xogar en servidores de xadrez, entre elas un grafo de busca, unha consola de texto, e un trebello de conversa.</li>
       <li xml:lang="nl">Weergaven voor spelen op een schaakserver, inclusief een zoekgrafiek, tekstconsole en chat-widget</li>
+      <li xml:lang="pl">Oglądanie gier na serwerze szachowym, z uwzgldnieniem tabeli wyszukiwania, konsoli tekstowej i okna rozmowy</li>
       <li xml:lang="pt">Vistas para os jogos num servidor de xadrez, incluindo um grafo de pesquisa, consola de texto e área de conversação</li>
       <li xml:lang="sr">Прикази за играње на шаховском серверу, укључујући граф претраге, текстуалну конзолу и виџет за ћаскање.</li>
       <li xml:lang="sr-Latn">Prikazi za igranje na šahovskom serveru, uključujući graf pretrage, tekstualnu konzolu i vidžet za ćaskanje.</li>
@@ -256,6 +271,7 @@
       <li xml:lang="es">Opción para deshacer y rehacer movimientos</li>
       <li xml:lang="gl">Opción de desfacer e repetir movementos.</li>
       <li xml:lang="nl">Optie om zetten terug te draaien en weer opnieuw te doen</li>
+      <li xml:lang="pl">Możliwość cofnięcia i ponowienia ruchów</li>
       <li xml:lang="pt">Opção para desfazer e refazer jogadas</li>
       <li xml:lang="sr">Опције за опозивање и понављање потеза.</li>
       <li xml:lang="sr-Latn">Opcije za opozivanje i ponavljanje poteza.</li>
@@ -271,6 +287,7 @@
       <li xml:lang="es">Interfaz gráfica para hacer y recibir ofertas de jugadores remotos</li>
       <li xml:lang="gl">Interface gráfica para realizar e recibir ofertas de xogadores remotos.</li>
       <li xml:lang="nl">Grafisch interface voor het doen en ontvangen van zetten van spelers op afstand</li>
+      <li xml:lang="pl">Interfejs graficzny do przyjmowania i odrzucania ofert graczy zdalnych</li>
       <li xml:lang="pt">Interface gráfica para fazer e receber ofertas de jogadores remotos</li>
       <li xml:lang="sr">Графичко сучеље за давање и примање понуда од удаљених играча.</li>
       <li xml:lang="sr-Latn">Grafičko sučelje za davanje i primanje ponuda od udaljenih igrača.</li>
@@ -286,6 +303,7 @@
       <li xml:lang="es">Permite usar el protocolo UCI (usado por Stockfish, Chessbase y otros)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
       <li xml:lang="nl">Ondersteuning voor het UCI-protocol (gebruikt door Stockfish, Chessbase en vele anderen)</li>
+      <li xml:lang="pl">Obsługa protokołu UCI (używanego przez Stockfish, Chessbase i wielu innych)</li>
       <li xml:lang="pt">Suporte para o protocolo UCI (usado pelo Stockfish, Chessbase, entre muitos outros)</li>
       <li xml:lang="sr">Подршка за протокол УЦИ (користе га Стокфиш, Чесбејс и многи други).</li>
       <li xml:lang="sr-Latn">Podrška za protokol UCI (koriste ga Stockfish, ChessBase i mnogi drugi).</li>
@@ -301,6 +319,7 @@
       <li xml:lang="es">Permite guardar y cargar archivos de notación portable de juego (PGN)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida interoperable (PGN).</li>
       <li xml:lang="nl">Ondersteuning voor opslaan en laden van Portable game notation (PGN) bestanden</li>
+      <li xml:lang="pl">Obsługa zapisu i wczytywania przenośnych plików ruchów PGN</li>
       <li xml:lang="pt">Suporte para a gravação e carregamento de ficheiros no formato PGN (Portable Game Notation - Notação Portável de Jogo)</li>
       <li xml:lang="sr">Подршка за уписивање и учитавање ПГН фајлова (преносива нотација партија).</li>
       <li xml:lang="sr-Latn">Podrška za upisivanje i učitavanje PGN fajlova (prenosiva notacija partija).</li>
@@ -316,6 +335,7 @@
       <li xml:lang="es">Uso de Jovie, el programa de síntesis de voz de KDE, para leer los movimientos del oponente</li>
       <li xml:lang="gl">Uso de Jovie, o programa de texto-para-fala de KDE para narrar os movementos do contrincante.</li>
       <li xml:lang="nl">Gebruik van Jovie, het tekst-naar-spraak programma van KDE, om zetten van de tegenstander uit te spreken</li>
+      <li xml:lang="pl">Współpraca z Jovie, programem tekstu-na-mowę dla KDE, do wymawiania ruchów gracza</li>
       <li xml:lang="pt">Uso do Jovie, o programa de texto-para-fala do KDE, para dizer as jogadas do adversário</li>
       <li xml:lang="sr">Изговарање противничких потеза помоћу Џови, КДЕ‑овог програма за текст‑у‑говор.</li>
       <li xml:lang="sr-Latn">Izgovaranje protivničkih poteza pomoću Džovi, KDE‑ovog programa za tekst‑u‑govor.</li>
@@ -331,6 +351,7 @@
       <li xml:lang="es">Posibilidad de controlar el programa a través de la interfaz D-Bus</li>
       <li xml:lang="gl">Posibilidade de controlar o programa mediante unha interface D-Bus.</li>
       <li xml:lang="nl">Mogelijkheid om het programma via een D-Bus interface te besturen</li>
+      <li xml:lang="pl">Możliwość obsługi programu poprzez interfejs D-Bus</li>
       <li xml:lang="pt">Capacidade de controlo do programa através de uma interface em D-Bus</li>
       <li xml:lang="sr">Управљање програмом преко д‑бус сучеља.</li>
       <li xml:lang="sr-Latn">Upravljanje programom preko D‑Bus sučelja.</li>
