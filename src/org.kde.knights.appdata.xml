@@ -15,6 +15,7 @@
   <name xml:lang="nl">KNights</name>
   <name xml:lang="pl">KSkoczki</name>
   <name xml:lang="pt">KNights</name>
+  <name xml:lang="pt-BR">KNights</name>
   <name xml:lang="sk">KNights</name>
   <name xml:lang="sr">Коњи</name>
   <name xml:lang="sr-Latn">Konji</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="nl">Schaakspel</summary>
   <summary xml:lang="pl">Gra w szachy</summary>
   <summary xml:lang="pt">Jogo de xadrez</summary>
+  <summary xml:lang="pt-BR">Jogo de xadrez</summary>
   <summary xml:lang="sk">Šach</summary>
   <summary xml:lang="sr">Шаховска игра</summary>
   <summary xml:lang="sr-Latn">Šahovska igra</summary>
@@ -81,6 +83,7 @@
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
+    <p xml:lang="pt-BR">Recursos:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sr">Могућности:</p>
     <p xml:lang="sr-Latn">Mogućnosti:</p>
