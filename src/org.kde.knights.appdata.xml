@@ -32,6 +32,7 @@
   <name xml:lang="zh-CN">KNights</name>
   <name xml:lang="zh-TW">KNights</name>
   <summary>Chess game</summary>
+  <summary xml:lang="ast">Xuegu d'axedrez</summary>
   <summary xml:lang="ca">Joc d'escacs</summary>
   <summary xml:lang="ca-valencia">Joc d'escacs</summary>
   <summary xml:lang="cs">Šachy</summary>
@@ -62,6 +63,7 @@
     <p>
       KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.
     </p>
+    <p xml:lang="ast">KNights ye un xuegu d'axedrez. Como xugador, la to meta ye vencer al oponente faciéndo-y un xaque mate al so rei.</p>
     <p xml:lang="ca">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="ca-valencia">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="de">KNights ist ein Schachspiel, bei dem der Gegner durch matt setzen des Königs besiegt wird.</p>
@@ -86,6 +88,7 @@
     <p xml:lang="x-test">xxKNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.xx</p>
     <p xml:lang="zh-TW">KNights 是一套西洋棋遊戲。</p>
     <p>Features:</p>
+    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -115,6 +118,7 @@
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Local play between two players on the same computer</li>
+      <li xml:lang="ast">Xuegu llocal ente dos xugadores nel mesmu ordenador</li>
       <li xml:lang="ca">Joc local entre dos jugadors al mateix ordinador</li>
       <li xml:lang="ca-valencia">Joc local entre dos jugadors al mateix ordinador</li>
       <li xml:lang="de">Lokale Spiele zwischen zwei Spielern auf demselben Rechner</li>
@@ -138,6 +142,7 @@
       <li xml:lang="uk">Можливість гри між двома гравцями за одним комп’ютером.</li>
       <li xml:lang="x-test">xxLocal play between two players on the same computerxx</li>
       <li>Play against any computer program that supports the XBoard protocol</li>
+      <li xml:lang="ast">Xuega escontra cualesquier programa que sofite'l protocolu XBoard</li>
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="el">Παίξε εναντίον οποιουδήποτε προγράμματος που υποστηρίζει το πρωτόκολλο XBoard</li>
@@ -160,6 +165,7 @@
       <li xml:lang="uk">Можливість гри з будь-якою комп’ютерною програмою, у якій передбачено роботу за протоколом XBoard.</li>
       <li xml:lang="x-test">xxPlay against any computer program that supports the XBoard protocolxx</li>
       <li>Play on the Free Internet Chess Server (FICS)</li>
+      <li xml:lang="ast">Xuega en Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca-valencia">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="el">Παίξε στον Ελεύθερο Διαδικτυακό Εξυπηρετητή Σκακιού (Free Internet Chess Server, FICS)</li>
@@ -182,6 +188,7 @@
       <li xml:lang="uk">Можливість гри на Free Internet Chess Server (FICS)</li>
       <li xml:lang="x-test">xxPlay on the Free Internet Chess Server (FICS)xx</li>
       <li>Watching two computer engines play against each other</li>
+      <li xml:lang="ast">Mira'l xuegu ente dos motores d'ordenador</li>
       <li xml:lang="ca">Mirar dos motors d'ordinador jugar entre si</li>
       <li xml:lang="ca-valencia">Mirar dos motors d'ordinador jugar entre si</li>
       <li xml:lang="el">Παρακολουθήστε δύο μηχανές να παίζουν η μία εναντίον της άλλης</li>
@@ -204,6 +211,7 @@
       <li xml:lang="uk">Можливість спостереження за грою двох комп’ютерних гравців між собою.</li>
       <li xml:lang="x-test">xxWatching two computer engines play against each otherxx</li>
       <li>Support for legal move checking</li>
+      <li xml:lang="ast">Sofitu pa comprobación llegal de movimientu</li>
       <li xml:lang="ca">Permet la comprovació de moviments legals</li>
       <li xml:lang="ca-valencia">Permet la comprovació de moviments legals</li>
       <li xml:lang="el">Υποστήριξη για έλεγχο εγκυρότητας κίνησης</li>
