@@ -141,6 +141,7 @@
       <li xml:lang="tr">Aynı bilgisayar üstünde iki oyuncu arasında yerel oyun</li>
       <li xml:lang="uk">Можливість гри між двома гравцями за одним комп’ютером.</li>
       <li xml:lang="x-test">xxLocal play between two players on the same computerxx</li>
+      <li xml:lang="zh-TW">在相同電腦上的兩個玩家間的本機遊戲</li>
       <li>Play against any computer program that supports the XBoard protocol</li>
       <li xml:lang="ast">Xuega escontra cualesquier programa que sofite'l protocolu XBoard</li>
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
@@ -164,6 +165,7 @@
       <li xml:lang="tr">XBoard protokolünü destekleyen bir bilgisayar programına karşı oyna</li>
       <li xml:lang="uk">Можливість гри з будь-якою комп’ютерною програмою, у якій передбачено роботу за протоколом XBoard.</li>
       <li xml:lang="x-test">xxPlay against any computer program that supports the XBoard protocolxx</li>
+      <li xml:lang="zh-TW">與任何支援 XBoard 協定的電腦程式一同遊玩</li>
       <li>Play on the Free Internet Chess Server (FICS)</li>
       <li xml:lang="ast">Xuega en Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca">Jugar al Free Internet Chess Server (FICS)</li>
@@ -187,6 +189,7 @@
       <li xml:lang="tr">Özgür İnternet Satranç Sunucusu (FICS) üzerinden Oyna</li>
       <li xml:lang="uk">Можливість гри на Free Internet Chess Server (FICS)</li>
       <li xml:lang="x-test">xxPlay on the Free Internet Chess Server (FICS)xx</li>
+      <li xml:lang="zh-TW">在免費線上西洋棋伺服器 (FICS) 遊玩</li>
       <li>Watching two computer engines play against each other</li>
       <li xml:lang="ast">Mira'l xuegu ente dos motores d'ordenador</li>
       <li xml:lang="ca">Mirar dos motors d'ordinador jugar entre si</li>
@@ -210,6 +213,7 @@
       <li xml:lang="tr">İki bilgisayar motorunun birbiriyle oynamsını izle</li>
       <li xml:lang="uk">Можливість спостереження за грою двох комп’ютерних гравців між собою.</li>
       <li xml:lang="x-test">xxWatching two computer engines play against each otherxx</li>
+      <li xml:lang="zh-TW">觀看兩個電腦引擎相互對抗遊玩</li>
       <li>Support for legal move checking</li>
       <li xml:lang="ast">Sofitu pa comprobación llegal de movimientu</li>
       <li xml:lang="ca">Permet la comprovació de moviments legals</li>
@@ -233,6 +237,7 @@
       <li xml:lang="tr">Uygun haraket kontrolü desteği</li>
       <li xml:lang="uk">Перевірка ходів на коректність.</li>
       <li xml:lang="x-test">xxSupport for legal move checkingxx</li>
+      <li xml:lang="zh-TW">支援檢查合法移動</li>
       <li>Markers for possible moves, opponent’s last move and sources of check</li>
       <li xml:lang="ca">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="ca-valencia">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
@@ -255,6 +260,7 @@
       <li xml:lang="tr">Mümkün olabilecek hamleler için işaretleyici, rakibin son hamlesi ve kontrol kaynakları</li>
       <li xml:lang="uk">Позначки для можливих ходів, останнього ходу суперника та загроз під час шаху.</li>
       <li xml:lang="x-test">xxMarkers for possible moves, opponent’s last move and sources of checkxx</li>
+      <li xml:lang="zh-TW">可能移動的標記，對手的最後一次移動與檢查來源</li>
       <li>Board borders and site notations</li>
       <li xml:lang="ca">Vores del taules i notacions de lloc</li>
       <li xml:lang="ca-valencia">Vores del taules i notacions de lloc</li>
@@ -277,6 +283,7 @@
       <li xml:lang="tr">Tahta çizgileri ve saha gösterimi</li>
       <li xml:lang="uk">Показ полів із записами ходів.</li>
       <li xml:lang="x-test">xxBoard borders and site notationsxx</li>
+      <li xml:lang="zh-TW">棋盤邊界與網點符號</li>
       <li>Complete time control, with Plasma-styled clocks</li>
       <li xml:lang="ca">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="ca-valencia">Control complet del temps, amb rellotges a l'estil del Plasma</li>
@@ -299,6 +306,7 @@
       <li xml:lang="tr">Tamamlama süresi kontrolü, Plasma biçimi saat ile</li>
       <li xml:lang="uk">Повний контроль за часом із годинниками у стилі Плазми.</li>
       <li xml:lang="x-test">xxComplete time control, with Plasma-styled clocksxx</li>
+      <li xml:lang="zh-TW">完整時間控制，帶有 Plasma 風格的時鐘</li>
       <li>Several themes, with the possibility of downloading new ones from within the program</li>
       <li xml:lang="ca">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="ca-valencia">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
@@ -321,6 +329,7 @@
       <li xml:lang="tr">Birkaç tema, program üstünden de yenileri indirilebilir</li>
       <li xml:lang="uk">Декілька тем оформлення з можливістю отримання нових тем за допомогою вікна самої програми.</li>
       <li xml:lang="x-test">xxSeveral themes, with the possibility of downloading new ones from within the programxx</li>
+      <li xml:lang="zh-TW">多種主題，當然也在程式內下載新的</li>
       <li>Animated moves (configurable)</li>
       <li xml:lang="ca">Animació dels moviments (configurable)</li>
       <li xml:lang="ca-valencia">Animació dels moviments (configurable)</li>
@@ -343,6 +352,7 @@
       <li xml:lang="tr">Canlandırılmış hamleler (yapılandırılabilir)</li>
       <li xml:lang="uk">Анімація ходів (можна налаштувати).</li>
       <li xml:lang="x-test">xxAnimated moves (configurable)xx</li>
+      <li xml:lang="zh-TW">動畫式移動（可設定）</li>
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="ca">Vistes per jugar en un servidor d'escacs, incloent un gràfic de cerca, una consola de text, i un estri de xat</li>
       <li xml:lang="ca-valencia">Vistes per jugar en un servidor d'escacs, incloent un gràfic de busca, una consola de text, i un estri de xat</li>
@@ -365,6 +375,7 @@
       <li xml:lang="tr">Satranç sunucusu üzerindeki oyunlar için görünüm, grafik arama, metin konsolu ve sohbet programcığı da içerir</li>
       <li xml:lang="uk">Перегляд гри на шаховому сервері із графом пошуку, текстовою консоллю та віджетом спілкування.</li>
       <li xml:lang="x-test">xxViews for playing on a chess server, including a seek graph, text console, and chat widgetxx</li>
+      <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
       <li xml:lang="ca">Opcions per fer i desfer moviments</li>
       <li xml:lang="ca-valencia">Opcions per fer i desfer moviments</li>
@@ -387,6 +398,7 @@
       <li xml:lang="tr">Hareketleri geri ve ileri alma seçeneği</li>
       <li xml:lang="uk">Можливість скасовувати і повторювати ходи.</li>
       <li xml:lang="x-test">xxOption to undo and redo movesxx</li>
+      <li xml:lang="zh-TW">復原與重做移動的選項</li>
       <li>Graphic interface for making and receiving offers from remote players</li>
       <li xml:lang="ca">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="ca-valencia">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
@@ -409,6 +421,7 @@
       <li xml:lang="tr">Uzak oyuncuların önerilerini almak ve yapmak için grafik arayüzü</li>
       <li xml:lang="uk">Графічний інтерфейс для створення і отримання пропозицій щодо гри з віддаленими гравцями.</li>
       <li xml:lang="x-test">xxGraphic interface for making and receiving offers from remote playersxx</li>
+      <li xml:lang="zh-TW">從遠端玩家做出與接收提議的圖形化介面</li>
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
       <li xml:lang="ca-valencia">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
@@ -431,6 +444,7 @@
       <li xml:lang="tr">UCI protokolü desteği (Stockfish, Chessbase ve diğerleri tarafından kullanılır)</li>
       <li xml:lang="uk">Підтримка протоколу UCI (використовується Stockfish, Chessbase та багатьма іншими рушіями).</li>
       <li xml:lang="x-test">xxSupport for the UCI protocol (used by Stockfish, Chessbase, and many others)xx</li>
+      <li xml:lang="zh-TW">支援 UCI 協定（由 Stockfish、Chessbase 與其他許多應用程式所使用）</li>
       <li>Support for saving and loading Portable game notation (PGN) files</li>
       <li xml:lang="ca">Admets els fitxers «Portable game notation» (PGN) per desar i carregar</li>
       <li xml:lang="ca-valencia">Admets els fitxers «Portable game notation» (PGN) per guardar i carregar</li>
@@ -453,6 +467,7 @@
       <li xml:lang="tr">Taşınabilir oyun gösterimi (PGN) dosyalarının kaydedilmesi ve yüklenmesi için destek</li>
       <li xml:lang="uk">Підтримка збереження і завантаження файлів гри у форматі Portable game notation (PGN).</li>
       <li xml:lang="x-test">xxSupport for saving and loading Portable game notation (PGN) filesxx</li>
+      <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
       <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
@@ -475,6 +490,7 @@
       <li xml:lang="tr">Rakibin hareketlerini konuşmak için KDE sesli yanıt programı olan Jovie'nin kullanımı</li>
       <li xml:lang="uk">Використання Jovie, програми для синтезу мовлення KDE, для оголошення ходів суперника.</li>
       <li xml:lang="x-test">xxUse of Jovie, the KDE text-to-speak program, to speak opponent’s movesxx</li>
+      <li xml:lang="zh-TW">使用 Jovie，KDE 的文字轉語音程式，來念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
       <li xml:lang="ca">Permet controlar el programa via una interfície del D-Bus</li>
       <li xml:lang="ca-valencia">Permet controlar el programa via una interfície del D-Bus</li>
