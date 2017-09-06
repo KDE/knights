@@ -293,6 +293,7 @@
       <li xml:lang="x-test">xxBoard borders and site notationsxx</li>
       <li xml:lang="zh-TW">棋盤邊界與網點符號</li>
       <li>Complete time control, with Plasma-styled clocks</li>
+      <li xml:lang="ast">Control completu del tiempu con reló con estilu Plasma</li>
       <li xml:lang="ca">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="ca-valencia">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="el">Πλήρης έλεγχος χρόνου, με Plasma-styled χρονόμετρα</li>
@@ -317,6 +318,7 @@
       <li xml:lang="x-test">xxComplete time control, with Plasma-styled clocksxx</li>
       <li xml:lang="zh-TW">完整時間控制，帶有 Plasma 風格的時鐘</li>
       <li>Several themes, with the possibility of downloading new ones from within the program</li>
+      <li xml:lang="ast">Dellos temes y cola posibilidá de baxar más dientro'l programa.</li>
       <li xml:lang="ca">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="ca-valencia">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="el">Πολλά θέματα, με δυνατότητα λήψης νέων μέσα από το πρόγραμμα</li>
@@ -341,6 +343,7 @@
       <li xml:lang="x-test">xxSeveral themes, with the possibility of downloading new ones from within the programxx</li>
       <li xml:lang="zh-TW">多種主題，當然也在程式內下載新的</li>
       <li>Animated moves (configurable)</li>
+      <li xml:lang="ast">Movimientos animaos (configurable)</li>
       <li xml:lang="ca">Animació dels moviments (configurable)</li>
       <li xml:lang="ca-valencia">Animació dels moviments (configurable)</li>
       <li xml:lang="el">ζωντάνεμα κινήσεων (διαμορφώσιμο)</li>
@@ -389,6 +392,7 @@
       <li xml:lang="x-test">xxViews for playing on a chess server, including a seek graph, text console, and chat widgetxx</li>
       <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
+      <li xml:lang="ast">Opción pa desfacer y refacer movimientos</li>
       <li xml:lang="ca">Opcions per fer i desfer moviments</li>
       <li xml:lang="ca-valencia">Opcions per fer i desfer moviments</li>
       <li xml:lang="el">Επιλογή για αναίρεση και επαναφορά κινήσεων</li>
@@ -413,6 +417,7 @@
       <li xml:lang="x-test">xxOption to undo and redo movesxx</li>
       <li xml:lang="zh-TW">復原與重做移動的選項</li>
       <li>Graphic interface for making and receiving offers from remote players</li>
+      <li xml:lang="ast">Interfaz gráfica pa facer o recibir ufiertes de xugadores remotos</li>
       <li xml:lang="ca">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="ca-valencia">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="el">Γραφικό περιβάλλον για προσφορές από απομακρυσμένους παίκτες</li>
