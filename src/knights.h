@@ -33,68 +33,66 @@
 class KToggleAction;
 class KgThemeProvider;
 
-namespace Knights
-{
+namespace Knights {
 class Protocol;
 class KnightsView;
 class ClockWidget;
 
-class MainWindow : public KXmlGuiWindow
-{
-    Q_OBJECT
+class MainWindow : public KXmlGuiWindow {
+	Q_OBJECT
 
 public:
-    MainWindow();
+	MainWindow();
 
 public Q_SLOTS:
-    void fileSave();
+	void fileSave();
 
 private Q_SLOTS:
-    void fileNew();
-    void fileLoad();
-    void fileSaveAs();
-    void pauseGame(bool);
-    void undo();
-    void redo();
+	void fileNew();
+	void fileLoad();
+	void fileSaveAs();
+	void pauseGame(bool);
+	void undo();
+	void redo();
 	void gameChanged();
-    void optionsPreferences();
+	void optionsPreferences();
 
-    void protocolInitSuccesful();
-    void protocolError(Protocol::ErrorCode errorCode, const QString& errorString);
+	void protocolInitSuccesful();
+	void protocolError(Protocol::ErrorCode errorCode, const QString& errorString);
 
-    void setShowClockSetting(bool);
-    void setShowHistorySetting(bool value);
-    void setShowConsoleSetting();
-    void setShowChatSetting(bool);
-    void updateCaption();
+	void setShowClockSetting(bool);
+	void setShowHistorySetting(bool value);
+	void setShowConsoleSetting();
+	void setShowChatSetting(bool);
+	void updateCaption();
 
-    void exitKnights();
+	void exitKnights();
 
 private:
-    void setupDocks();
-    void setupActions();
-    bool maybeSave();
+	void setupDocks();
+	void setupActions();
+	bool maybeSave();
 
-    Ui::prefs_base ui_prefs_base;
-    Ui::prefs_access ui_prefs_access;
-    KnightsView* m_view;
-    QDockWidget* m_clockDock;
-    ClockWidget* m_playerClock;
-    QDockWidget* m_wconsoleDock;
-    QDockWidget* m_bconsoleDock;
-    QDockWidget* m_chatDock;
-    QDockWidget* m_historyDock;
+	Ui::prefs_base ui_prefs_base;
+	Ui::prefs_access ui_prefs_access;
+	KnightsView* m_view;
+	QDockWidget* m_clockDock;
+	ClockWidget* m_playerClock;
+	QDockWidget* m_wconsoleDock;
+	QDockWidget* m_bconsoleDock;
+	QDockWidget* m_chatDock;
+	QDockWidget* m_historyDock;
 
 	QAction* m_saveAction;
 	QAction* m_saveAsAction;
-    KToggleAction* m_pauseAction;
-    KToggleAction* m_toolbarAction;
-    KToggleAction* m_statusbarAction;
-    QMap<QByteArray, Protocol::Feature> m_protocolFeatures;
-    KgThemeProvider* m_themeProvider;
+	KToggleAction* m_pauseAction;
+	KToggleAction* m_toolbarAction;
+	KToggleAction* m_statusbarAction;
+	QMap<QByteArray, Protocol::Feature> m_protocolFeatures;
+	KgThemeProvider* m_themeProvider;
 
-    QString m_loadFileName;
-    QString m_fileName;
+	QString m_loadFileName;
+	QString m_fileName;
 };
 }
 
