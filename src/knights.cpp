@@ -270,8 +270,9 @@ void MainWindow::fileLoad()
         return;
     }
 
-    QString fileName = QFileDialog::getOpenFileName(this, i18n("Open File"),
-                       QStandardPaths::displayName(QStandardPaths::DocumentsLocation),
+	KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+	QString dir = conf.readEntry("LastOpenDir", "");
+    const QString&  fileName = QFileDialog::getOpenFileName(this, i18n("Open File"), dir,
                        i18n("Portable game notation (*.pgn)"));
     if(fileName.isEmpty())
     {
@@ -630,29 +631,48 @@ void MainWindow::fileSave()
 {
     if(m_fileName.isEmpty())
     {
-        m_fileName = QFileDialog::getSaveFileName(this, i18n("Save"), QStandardPaths::displayName(QStandardPaths::DocumentsLocation),
+		KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+		QString dir = conf.readEntry("LastOpenDir", "");
+        m_fileName = QFileDialog::getSaveFileName(this, i18n("Save"), dir,
                      i18n("Portable game notation (*.pgn)"));
-    }
 
-    if(m_fileName.isEmpty())
-    {
-        return;
+		if (m_fileName.isEmpty())// "Cancel" was clicked
+			return;
+
+		//save new "last open directory"
+		int pos = m_fileName.lastIndexOf(QDir::separator());
+		if (pos != -1) {
+			const QString& newDir = m_fileName.left(pos);
+			if (newDir != dir)
+				conf.writeEntry("LastOpenDir", newDir);
+		}
     }
 
     Manager::self()->saveGameHistoryAs(m_fileName);
-
     setCaption(m_fileName);
 	m_saveAction->setEnabled(false);
 }
 
 void MainWindow::fileSaveAs()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save As"), QStandardPaths::displayName(QStandardPaths::DocumentsLocation),
+	KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+	QString dir = conf.readEntry("LastOpenDir", "");
+    QString fileName = QFileDialog::getSaveFileName(this, i18n("Save As"), dir,
                        i18n("Portable game notation (*.pgn)"));
-    if(fileName.isEmpty())
-    {
-        return;
-    }
+
+	if (fileName.isEmpty())// "Cancel" was clicked
+		return;
+
+	if (fileName.contains(QLatin1String(".lml"), Qt::CaseInsensitive) == false)
+		fileName.append(QLatin1String(".lml"));
+
+	//save new "last open directory"
+	int pos = fileName.lastIndexOf(QDir::separator());
+	if (pos != -1) {
+		const QString& newDir = fileName.left(pos);
+		if (newDir != dir)
+			conf.writeEntry("LastOpenDir", newDir);
+	}
 
     m_fileName = fileName;
     Manager::self()->saveGameHistoryAs(m_fileName);
