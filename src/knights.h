@@ -56,6 +56,7 @@ private Q_SLOTS:
     void pauseGame(bool);
     void undo();
     void redo();
+	void gameChanged();
     void optionsPreferences();
 
     void protocolInitSuccesful();
@@ -84,6 +85,8 @@ private:
     QDockWidget* m_chatDock;
     QDockWidget* m_historyDock;
 
+	QAction* m_saveAction;
+	QAction* m_saveAsAction;
     KToggleAction* m_pauseAction;
     KToggleAction* m_toolbarAction;
     KToggleAction* m_statusbarAction;

@@ -76,6 +76,13 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     setupActions();
     setupGUI();
 
+	//protocol features
+	m_protocolFeatures [ KStandardGameAction::name(KStandardGameAction::Pause) ] = Protocol::Pause;
+    m_protocolFeatures [ "propose_draw" ] = Protocol::Draw;
+    m_protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
+    m_protocolFeatures [ "resign" ] = Protocol::Resign;
+    m_protocolFeatures [ "abort" ] = Protocol::Abort;
+
     // setup difficulty management
     connect(Kg::difficulty(), &KgDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
     Kg::difficulty()->addLevel(new KgDifficultyLevel(0, "custom", i18n("Custom"), false));
@@ -94,6 +101,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
     connect(m_view, &KnightsView::gameNew, this, &MainWindow::fileNew, Qt::QueuedConnection);
     connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
     connect(Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption);
+	connect(Manager::self(), &Manager::pieceMoved, this, &MainWindow::gameChanged);
     connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
 	Manager::self()->setRules(new ChessRules);
@@ -148,8 +156,10 @@ void MainWindow::setupActions()
     m_pauseAction->setEnabled(false);
     KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
-    KStandardGameAction::save(this, SLOT(fileSave()), actionCollection());
-    KStandardGameAction::saveAs(this, SLOT(fileSaveAs()), actionCollection());
+    m_saveAction = KStandardGameAction::save(this, SLOT(fileSave()), actionCollection());
+	m_saveAction->setEnabled(false);
+    m_saveAsAction = KStandardGameAction::saveAs(this, SLOT(fileSaveAs()), actionCollection());
+	m_saveAsAction->setEnabled(false);
     KStandardGameAction::load(this, SLOT(fileLoad()), actionCollection());
 
     QAction* resignAction = actionCollection()->addAction(QLatin1String("resign"), Manager::self(), SLOT(resign()));
@@ -220,12 +230,6 @@ void MainWindow::setupActions()
     connect(chatAction, &KToggleAction::triggered, m_chatDock, &QDockWidget::setVisible);
     connect(chatAction, &KToggleAction::triggered, this, &MainWindow::setShowChatSetting);
     chatAction->setVisible(false);
-
-    m_protocolFeatures [ KStandardGameAction::name(KStandardGameAction::Pause) ] = Protocol::Pause;
-    m_protocolFeatures [ "propose_draw" ] = Protocol::Draw;
-    m_protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
-    m_protocolFeatures [ "resign" ] = Protocol::Resign;
-    m_protocolFeatures [ "abort" ] = Protocol::Abort;
 }
 
 void MainWindow::fileNew()
@@ -254,6 +258,9 @@ void MainWindow::fileNew()
             statusBar()->hide();
     }
     delete gameNewDialog;
+
+	m_saveAction->setEnabled(false);
+	m_saveAsAction->setEnabled(false);
 }
 
 void MainWindow::fileLoad()
@@ -280,6 +287,7 @@ void MainWindow::fileLoad()
 
     m_loadFileName = fileName;
     Manager::self()->initialize();
+	m_saveAction->setEnabled(false);
 }
 
 //TODO
@@ -533,6 +541,11 @@ void MainWindow::redo()
     }
 }
 
+void MainWindow::gameChanged() {
+	m_saveAction->setEnabled(true);
+	m_saveAsAction->setEnabled(true);
+}
+
 void MainWindow::setShowClockSetting(bool value)
 {
     Settings::setShowClock(value);
@@ -631,6 +644,7 @@ void MainWindow::fileSave()
     Manager::self()->saveGameHistoryAs(m_fileName);
 
     setCaption(m_fileName);
+	m_saveAction->setEnabled(false);
 }
 
 void MainWindow::fileSaveAs()
