@@ -39,60 +39,52 @@
 static const char description[] = I18N_NOOP ( "KDE Chess Board" );
 static QString version = QStringLiteral ("2.6.0");
 
-int main ( int argc, char **argv )
-{
-    QApplication app(argc, argv);
+int main ( int argc, char **argv ) {
+	QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("knights");
+	KLocalizedString::setApplicationDomain("knights");
 
-    KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
-                       KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));
+	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
+	                   KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));
 	about.addAuthor(i18n("Alexander Semke"), QString(), QStringLiteral("alexander.semke@web.de"));
-    about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
-                      QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
-    about.addCredit ( i18n ( "Troy Corbin" ), i18n ( "Original Knights for KDE3 and theme author" ),
-                      QStringLiteral ("troy@pedanticwebspaces.com") );
-    about.addCredit ( i18n ( "Dave Kaye" ), i18n ( "Help with new theme features and rendering without KGameRenderer" ) );
-    about.addCredit ( i18n ( "Thomas Kamps" ), i18n ( "Clock displaying the remaining time" ),
-                      QString(), QString(), QStringLiteral("cpttom") );
+	about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
+	                  QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
+	about.addCredit ( i18n ( "Troy Corbin" ), i18n ( "Original Knights for KDE3 and theme author" ),
+	                  QStringLiteral ("troy@pedanticwebspaces.com") );
+	about.addCredit ( i18n ( "Dave Kaye" ), i18n ( "Help with new theme features and rendering without KGameRenderer" ) );
+	about.addCredit ( i18n ( "Thomas Kamps" ), i18n ( "Clock displaying the remaining time" ),
+	                  QString(), QString(), QStringLiteral("cpttom") );
 
-    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knights")));
-    KAboutData::setApplicationData(about);
+	app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knights")));
+	KAboutData::setApplicationData(about);
 
-    QCommandLineParser parser;
-    parser.addVersionOption();
-    parser.addHelpOption();
-    parser.addOption(QCommandLineOption( QStringLiteral ("+[URL]"), i18n ( "Document to open" ) ));
-    about.setupCommandLine(&parser);
-    parser.process(app);
-    about.processCommandLine(&parser);
+	QCommandLineParser parser;
+	parser.addVersionOption();
+	parser.addHelpOption();
+	parser.addOption(QCommandLineOption( QStringLiteral ("+[URL]"), i18n ( "Document to open" ) ));
+	about.setupCommandLine(&parser);
+	parser.process(app);
+	about.processCommandLine(&parser);
 
-    // register types for connecting with Qt::QueuedConnection
-    qRegisterMetaType<Knights::Color>("Color");
+	// register types for connecting with Qt::QueuedConnection
+	qRegisterMetaType<Knights::Color>("Color");
 
-    // see if we are starting with session management
-    if ( app.isSessionRestored() )
-    {
-        RESTORE ( Knights::MainWindow );
-    }
-    else
-    {
-        // no session.. just start up normally
-        if ( parser.positionalArguments().isEmpty() )
-        {
-            Knights::MainWindow *widget = new Knights::MainWindow;
-            widget->show();
-        }
-        else
-        {
-            int i = 0;
-            for ( ; i < parser.positionalArguments().count(); i++ )
-            {
-                Knights::MainWindow *widget = new Knights::MainWindow;
-                widget->show();
-            }
-        }
-    }
+	// see if we are starting with session management
+	if ( app.isSessionRestored() )
+		RESTORE ( Knights::MainWindow );
+	else {
+		// no session.. just start up normally
+		if ( parser.positionalArguments().isEmpty() ) {
+			Knights::MainWindow *widget = new Knights::MainWindow;
+			widget->show();
+		} else {
+			int i = 0;
+			for ( ; i < parser.positionalArguments().count(); i++ ) {
+				Knights::MainWindow *widget = new Knights::MainWindow;
+				widget->show();
+			}
+		}
+	}
 
-    return app.exec();
+	return app.exec();
 }
