@@ -445,8 +445,6 @@ void MainWindow::protocolInitSuccesful()
     Manager::self()->setRules(new ChessRules);
     Manager::self()->startGame();
 
-    m_themeProvider->discoverThemes("appdata", QLatin1String("themes"));
-
     if(m_loadFileName.isEmpty())
     {
         m_view->setupBoard(m_themeProvider);
