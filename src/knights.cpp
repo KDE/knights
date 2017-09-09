@@ -154,7 +154,7 @@ void MainWindow::setupDocks() {
 void MainWindow::setupActions() {
 	KStandardGameAction::gameNew(this, SLOT(fileNew()), actionCollection());
 	KStandardGameAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
-	m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)), actionCollection());
+	m_pauseAction = KStandardGameAction::pause(Manager::self(), SLOT(pause(bool)), actionCollection());
 	m_pauseAction->setEnabled(false);
 	KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
 
@@ -433,14 +433,6 @@ void MainWindow::optionsPreferences() {
 	dialog->setAttribute(Qt::WA_DeleteOnClose);
 
 	dialog->show();
-}
-
-void MainWindow::pauseGame(bool pause) {
-	Offer o;
-	o.action = pause ? ActionPause : ActionResume;
-	o.id = qrand();
-	o.player = NoColor;
-	Manager::self()->sendOffer(o);
 }
 
 void MainWindow::undo() {

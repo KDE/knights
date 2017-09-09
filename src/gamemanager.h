@@ -128,6 +128,7 @@ public slots:
 	void setOfferResult(int id, OfferAction result);
 
 	void initialize();
+	void pause(bool);
 	void undo();
 	void redo();
 

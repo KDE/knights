@@ -278,6 +278,14 @@ void Manager::initialize() {
 	d->extControl = new ExternalControl(this);
 }
 
+void Manager::pause(bool pause) {
+	Offer o;
+	o.action = pause ? ActionPause : ActionResume;
+	o.id = qrand();
+	o.player = NoColor;
+	sendOffer(o);
+}
+
 /**
 	* Sets the time control parameters in the same format as XBoard's @c level command works
 	* @param color specifis to which player this setting will apply. If @p color is NoColor then both player use this setting.
