@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : main function
     --------------------------------------------------------------------
-    Copyright            : (C) 2016 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-2017 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
@@ -36,8 +36,8 @@
 #include <QApplication>
 #include <QCommandLineParser>
 
-static const char description[] = I18N_NOOP ( "Chess board based on KF5" );
-static QString version = QStringLiteral ("2.5.0");
+static const char description[] = I18N_NOOP ( "KDE Chess Board" );
+static QString version = QStringLiteral ("2.6.0");
 
 int main ( int argc, char **argv )
 {
@@ -46,7 +46,8 @@ int main ( int argc, char **argv )
     KLocalizedString::setApplicationDomain("knights");
 
     KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
-                       KAboutLicense::GPL, i18n ( "(C) 2009-2011 Miha Čančula" ));
+                       KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));
+	about.addAuthor(i18n("Alexander Semke"), QString(), QStringLiteral("alexander.semke@web.de"));
     about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
                       QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
     about.addCredit ( i18n ( "Troy Corbin" ), i18n ( "Original Knights for KDE3 and theme author" ),
