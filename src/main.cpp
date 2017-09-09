@@ -70,9 +70,9 @@ int main ( int argc, char **argv ) {
 	qRegisterMetaType<Knights::Color>("Color");
 
 	// see if we are starting with session management
-	if ( app.isSessionRestored() )
+	if ( app.isSessionRestored() ) {
 		RESTORE ( Knights::MainWindow );
-	else {
+	} else {
 		// no session.. just start up normally
 		if ( parser.positionalArguments().isEmpty() ) {
 			Knights::MainWindow *widget = new Knights::MainWindow;

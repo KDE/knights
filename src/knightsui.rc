@@ -5,7 +5,7 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
-  
+
   <MenuBar>
     <Menu name="game">
       <Action name="game_new" />
@@ -14,15 +14,16 @@
       <Action name="resign" />
       <Action name="adjourn" />
       <Action name="abort" />
+	  <Separator/>
       <Action name="quit" />
     </Menu>
-        
+
     <Menu name="move">
       <text>Move</text>
       <Action name="move_undo" />
       <Action name="move_redo" />
     </Menu>
-    
+
     <Menu name="settings">
       <Action name="show_history" />
       <Action name="show_clock" />
@@ -30,27 +31,29 @@
       <Action name="show_console_black" />
       <Action name="show_console_white" />
     </Menu>
-    
+
   </MenuBar>
-  
+
   <ToolBar name="mainToolBar" >
     <text>Main Toolbar</text>
     <Action name="game_new" />
     <Action name="game_load" />
     <Action name="game_save" />
   </ToolBar>
-  
+
   <ToolBar name="actionsToolbar" >
     <text>Game Actions Toolbar</text>
-    <Action name="game_pause" />
     <Action name="move_undo" />
     <Action name="move_redo" />
+	<Separator/>
+    <Action name="game_pause" />
     <Action name="propose_draw" />
     <Action name="resign" />
     <Action name="adjourn" />
+	<Separator/>
     <Action name="abort" />
   </ToolBar>
-  
+
   <ToolBar name="dockToolBar" >
     <text>Dockable Windows Toolbar</text>
     <Action name="show_history" />
@@ -59,5 +62,5 @@
     <Action name="show_console_black" />
     <Action name="show_console_white" />
   </ToolBar>
- 
-</gui> 
+
+</gui>

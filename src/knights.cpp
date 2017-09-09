@@ -1,7 +1,7 @@
 /***************************************************************************
     File                 : knights.cpp
     Project              : Knights
-    Description          : Main window of the applicatin
+    Description          : Main window of the application
     --------------------------------------------------------------------
     Copyright            : (C) 2016-1017 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2010-2012 by Miha Čančula (miha@noughmad.eu)
@@ -37,7 +37,6 @@
 #include "clockwidget.h"
 #include "historywidget.h"
 #include "enginesettings.h"
-#include "knightsdebug.h"
 
 #include <KConfigDialog>
 #include <KActionCollection>
@@ -94,6 +93,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	Kg::difficulty()->addLevel(new KgDifficultyLevel(0, "custom", i18n("Custom"), false));
 	Kg::difficulty()->addStandardLevelRange(KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard, KgDifficultyLevel::Medium);
 	KgDifficultyGUI::init(this);
+	Kg::difficulty()->setEditable(false);
 
 	// make all the docks invisible.
 	// Show required docks after the game protocols are selected
@@ -102,7 +102,6 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	m_wconsoleDock->hide();
 	m_chatDock->hide();
 	m_historyDock->hide();
-	statusBar()->hide();
 
 	connect(m_view, &KnightsView::gameNew, this, &MainWindow::fileNew, Qt::QueuedConnection);
 	connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
@@ -251,11 +250,9 @@ void MainWindow::fileNew() {
 		m_pauseAction->setChecked(false);
 		Manager::self()->initialize();
 
-		if ( (Protocol::white() && Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty)
-		        || (Protocol::white() && Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty) )
-			statusBar()->show();
-		else
-			statusBar()->hide();
+		bool difficulty = (Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty)
+							|| (Protocol::black()->supportedFeatures()& Protocol::AdjustDifficulty);
+		Kg::difficulty()->setEditable(difficulty);
 	}
 	delete gameNewDialog;
 
@@ -509,19 +506,18 @@ bool MainWindow::maybeSave() {
 	if(!Manager::self()->isGameActive())
 		return true;
 
-	bool ask = Settings::askDiscard();
-	if(!ask)
+	if(!Settings::askDiscard())
 		return true;
 
 	Settings::setDontAskInternal(QString());
 
-	QString msg = i18n("This will end your game.\n"
-	                   "Would you like to save the move history?");
-	int result = KMessageBox::warningYesNoCancel(QApplication::activeWindow(), msg, QString(),
-	             KStandardGuiItem::save(),
-	             KStandardGuiItem::discard(),
-	             KStandardGuiItem::cancel(),
-	             QLatin1String(DontAskDiscard));
+	int result = KMessageBox::warningYesNoCancel(QApplication::activeWindow(),
+				i18n("This will end your game.\nWould you like to save the move history?"),
+				QString(),
+				KStandardGuiItem::save(),
+				KStandardGuiItem::discard(),
+				KStandardGuiItem::cancel(),
+				QLatin1String(DontAskDiscard));
 
 	KMessageBox::ButtonCode res;
 	Settings::setAskDiscard(KMessageBox::shouldBeShownYesNo(QLatin1String(DontAskDiscard), res));
