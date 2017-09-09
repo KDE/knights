@@ -29,12 +29,11 @@
 
 #include "board.h"
 #include "gamemanager.h"
-#include "knightsdebug.h"
 #include "settings.h"
 #include "core/pos.h"
 #include "core/move.h"
 #include "core/item.h"
-#include "rules/rules.h"
+#include "rules/chessrules.h"
 #include "ui_promotiondialog.h"
 
 #include <KGameRenderer>
@@ -87,6 +86,8 @@ Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent
 	m_drawFrame(true) {
 
 	renderer = new KGameRenderer(m_themeProvider);
+	if (!Manager::self()->rules())
+		Manager::self()->setRules(new ChessRules);
 	Manager::self()->rules()->setGrid(&m_grid);
 	updateTheme();
 

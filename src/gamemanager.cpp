@@ -29,7 +29,7 @@
 
 #include "gamemanager.h"
 #include "proto/protocol.h"
-#include "rules/rules.h"
+#include "rules/chessrules.h"
 #include "externalcontrol.h"
 #include "settings.h"
 #include "difficultydialog.h"
@@ -400,6 +400,7 @@ void Manager::protocolInitSuccesful() {
 void Manager::startGame() {
 	Q_D(GameManager);
 	Q_ASSERT(!d->gameStarted);
+	setRules(new ChessRules);
 	if ( Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty
 	        || Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty)
 		levelChanged(Kg::difficulty()->currentLevel());
@@ -470,6 +471,9 @@ Rules* Manager::rules() const {
 
 void Manager::setRules(Rules* rules) {
 	Q_D(GameManager);
+	if (d->rules)
+		delete d->rules;
+
 	d->rules = rules;
 }
 

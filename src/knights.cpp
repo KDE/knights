@@ -29,9 +29,9 @@
 
 #include "knights.h"
 #include "proto/localprotocol.h"
-#include "rules/chessrules.h"
 #include "gamemanager.h"
 #include "knightsview.h"
+#include "knightsdebug.h"
 #include "settings.h"
 #include "gamedialog.h"
 #include "clockwidget.h"
@@ -109,7 +109,6 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	connect(Manager::self(), &Manager::pieceMoved, this, &MainWindow::gameChanged);
 	connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
-	Manager::self()->setRules(new ChessRules);
 	m_themeProvider->discoverThemes("appdata", QLatin1String("themes"));
 	m_view->drawBoard(m_themeProvider);
 }
@@ -386,7 +385,6 @@ void MainWindow::protocolInitSuccesful() {
 	if(!actionCollection()->action(QLatin1String("show_chat"))->isVisible())
 		m_chatDock->hide();
 
-	Manager::self()->setRules(new ChessRules);
 	Manager::self()->startGame();
 
 	if(m_loadFileName.isEmpty())
