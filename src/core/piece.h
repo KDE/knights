@@ -84,4 +84,4 @@ Q_DECLARE_METATYPE ( Knights::PieceData )
 Q_DECLARE_METATYPE ( Knights::PieceDataMap )
 
 #endif // KNIGHTS_PIECE_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;  replace-tabs on;
+// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
