@@ -50,6 +50,11 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
     qCDebug(LOG_KNIGHTS);
 }
 
+HistoryWidget::~HistoryWidget()
+{
+    delete ui;
+}
+
 void HistoryWidget::updateHistory()
 {
     Move::Notation notation;
