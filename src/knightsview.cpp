@@ -125,8 +125,8 @@ void KnightsView::gameOver ( Color winner ) {
 		bBox->button ( it.key() )->setToolTip ( a->toolTip() );
 	}
 
-	connect( bBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept );
-	connect( bBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject );
+	connect( bBox, &QDialogButtonBox::accepted, dlg.data(), &QDialog::accept );
+	connect( bBox, &QDialogButtonBox::rejected, dlg.data(), &QDialog::reject );
 	connect( bBox->button (QDialogButtonBox::Apply), &QPushButton::clicked,
 	         static_cast<MainWindow *> (window()), &MainWindow::fileSave );
 
