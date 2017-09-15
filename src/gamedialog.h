@@ -49,6 +49,7 @@ public:
     };
 
     explicit GameDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+    ~GameDialog() override;
 
     void setupProtocols();
     void save();

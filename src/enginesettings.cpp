@@ -91,6 +91,11 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(pare
   connect ( ui->tableWidget, &QTableWidget::itemChanged, this, &EngineSettings::checkInstalled );
 }
 
+EngineSettings::~EngineSettings()
+{
+    delete ui;
+}
+
 void EngineSettings::checkInstalled()
 {
   int n = ui->tableWidget->rowCount();

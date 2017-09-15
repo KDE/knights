@@ -44,7 +44,7 @@ OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::Windo
 
 OfferWidget::~OfferWidget()
 {
-
+    delete ui;
 }
 
 int OfferWidget::id() const

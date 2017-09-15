@@ -65,7 +65,8 @@ class EngineSettings : public QWidget
 
 public:
     explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
-        
+    ~EngineSettings() override;
+
 private:
     Ui::EngineSettings* ui;
     QList<EngineConfiguration> configurations;

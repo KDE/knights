@@ -130,6 +130,11 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
     timeControlChanged();
 }
 
+GameDialog::~GameDialog()
+{
+    delete ui;
+}
+
 void GameDialog::setupProtocols()
 {
     TimeControl tc;
