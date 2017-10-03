@@ -62,7 +62,7 @@ private Q_SLOTS:
 	void undo();
 	void redo();
 	void gameChanged();
-	void gameOver();
+	void gameOver(Knights::Color);
 	void optionsPreferences();
 
 	void protocolInitSuccesful();

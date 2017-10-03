@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : Main view of Knights
     --------------------------------------------------------------------
-    Copyright            : (C) 2016 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-2017 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
@@ -30,7 +30,6 @@
 #define KNIGHTSVIEW_H
 
 #include "core/piece.h"
-#include "offerwidget.h"
 #include <QWidget>
 
 class KgThemeProvider;
@@ -43,6 +42,7 @@ namespace Knights {
 
 class Board;
 class Offer;
+class OfferWidget;
 
 class KnightsView : public QWidget {
 	Q_OBJECT
@@ -57,7 +57,6 @@ private:
 	Ui::KnightsView* ui;
 	Board* m_board;
 	bool m_showAllOffers;
-	bool m_allOffers;
 	QList<OfferWidget*> m_offerWidgets;
 
 protected:
@@ -70,14 +69,12 @@ private slots:
 	void resizeScene();
 	void showAllOffersToggled();
 
-	void gameOver(Color);
 	void showPopup(const Offer&);
 	void popupHidden(int id);
 	void updateOffers();
 
 signals:
 	void signalChangeStatusbar(const QString&);
-	void gameNew();
 
 	void activePlayerChanged(Color);
 	void displayedPlayerChanged(Color);

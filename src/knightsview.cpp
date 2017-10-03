@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : Main view of Knights
     --------------------------------------------------------------------
-    Copyright            : (C) 2016 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-2017 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
@@ -32,23 +32,17 @@
 #include "board.h"
 #include "gamemanager.h"
 #include "knightsdebug.h"
-#include "knights.h"
+#include "offerwidget.h"
+
 #include "ui_knightsview_base.h"
 #include "ui_popup.h"
-
-#include <KActionCollection>
-#include <KXmlGuiWindow>
-#include <KStandardGameAction>
-#include <QDialogButtonBox>
-#include <QDialog>
 
 using namespace Knights;
 
 KnightsView::KnightsView(QWidget* parent) : QWidget(parent),
 	ui(new Ui::KnightsView),
 	m_board(0),
-	m_showAllOffers(false),
-	m_allOffers(false) {
+	m_showAllOffers(false) {
 
 	ui->setupUi ( this );
 
@@ -58,7 +52,6 @@ KnightsView::KnightsView(QWidget* parent) : QWidget(parent),
 
 	connect ( ui->showAllOffers, &QPushButton::clicked, this, &KnightsView::showAllOffersToggled );
 	connect ( Manager::self(), &Manager::notification, this, &KnightsView::showPopup );
-	connect ( Manager::self(), &Manager::winnerNotify, this, &KnightsView::gameOver, Qt::QueuedConnection );
 	connect ( Manager::self(), &Manager::activePlayerChanged, this, &KnightsView::activePlayerChanged );
 }
 
@@ -96,72 +89,6 @@ void KnightsView::setupBoard(KgThemeProvider* provider) {
 	if ( Protocol::black()->isLocal() )
 		playerColors |= Black;
 	m_board->setPlayerColors(playerColors);
-}
-
-void KnightsView::gameOver ( Color winner ) {
-	qCDebug(LOG_KNIGHTS) << sender() << colorName ( winner );
-
-	QPointer<QDialog> dlg = new QDialog ( this );
-	QVBoxLayout *mainLayout = new QVBoxLayout;
-	QWidget *mainWidget = new QWidget(this);
-	dlg->setLayout(mainLayout);
-	dlg->setWindowTitle ( i18n("Game over") );
-	mainLayout->addWidget(mainWidget);
-
-	QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
-	KActionCollection* c = qobject_cast<KXmlGuiWindow*>( parentWidget() )->actionCollection();
-	Q_ASSERT(c);
-
-	QMap<QDialogButtonBox::StandardButton, QByteArray> buttonsMap;
-	buttonsMap[QDialogButtonBox::Ok] = KStandardGameAction::name ( KStandardGameAction::New );
-	buttonsMap[QDialogButtonBox::Apply] = KStandardGameAction::name ( KStandardGameAction::Save );
-
-	for ( QMap<QDialogButtonBox::StandardButton, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it ) {
-		QAction* a = c->action ( QLatin1String ( it.value() ) );
-		Q_ASSERT(a);
-
-		bBox->button ( it.key() )->setText ( a->text() );
-		bBox->button ( it.key() )->setIcon ( QIcon ( a->icon() ) );
-		bBox->button ( it.key() )->setToolTip ( a->toolTip() );
-	}
-
-	connect( bBox, &QDialogButtonBox::accepted, dlg.data(), &QDialog::accept );
-	connect( bBox, &QDialogButtonBox::rejected, dlg.data(), &QDialog::reject );
-	connect( bBox->button (QDialogButtonBox::Apply), &QPushButton::clicked,
-	         static_cast<MainWindow *> (window()), &MainWindow::fileSave );
-
-	QLabel* label = new QLabel(this);
-	if ( winner == NoColor )
-		label->setText ( i18n ( "The game ended in a draw" ) );
-	else {
-		QString winnerName = Protocol::byColor ( winner )->playerName();
-		if ( winnerName == colorName(winner) ) {
-			if ( winner == White ) {
-				label->setText ( i18nc("White as in the player with white pieces",
-				                       "The game ended with a victory for <em>White</em>") );
-			} else {
-				label->setText ( i18nc("Black as in the player with black pieces",
-				                       "The game ended with a victory for <em>Black</em>") );
-			}
-		} else {
-			if ( winner == White ) {
-				label->setText ( i18nc("Player name, then <White as in the player with white pieces",
-				                       "The game ended with a victory for <em>%1</em>, playing White", winnerName) );
-			} else {
-				label->setText ( i18nc("Player name, then Black as in the player with black pieces",
-				                       "The game ended with a victory for <em>%1</em>, playing Black", winnerName) );
-			}
-		}
-	}
-	mainLayout->addWidget(label);
-	mainLayout->addWidget(bBox);
-
-	if ( dlg->exec() == QDialog::Accepted )
-		emit gameNew();
-
-	qCDebug(LOG_KNIGHTS) << Protocol::white();
-	qCDebug(LOG_KNIGHTS) << Protocol::black();
-	delete dlg;
 }
 
 void KnightsView::settingsChanged() {
