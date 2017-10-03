@@ -109,6 +109,12 @@ bool XBoardProtocol::parseStub(const QString& line) {
 bool XBoardProtocol::parseLine(const QString& line) {
 	if ( line.isEmpty() )
 		return true;
+
+	//suppress "Invalid move" replies coming from GNU Chess.
+	//TODO: why do we have them?
+	if (line.contains(QLatin1String("Invalid move")))
+		return true;
+
 	bool display = true;
 	ChatWidget::MessageType type = ChatWidget::GeneralMessage;
 	if ( line.contains ( QLatin1String ( "Illegal move" ) ) ) {
