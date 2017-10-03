@@ -62,6 +62,7 @@ private Q_SLOTS:
 	void undo();
 	void redo();
 	void gameChanged();
+	void gameOver();
 	void optionsPreferences();
 
 	void protocolInitSuccesful();
@@ -93,6 +94,9 @@ private:
 	QAction* m_saveAction;
 	QAction* m_saveAsAction;
 	KToggleAction* m_pauseAction;
+	QAction* m_resignAction;
+	QAction* m_drawAction;
+	QAction* m_adjournAction;
 	KToggleAction* m_toolbarAction;
 	KToggleAction* m_statusbarAction;
 	QMap<QByteArray, Protocol::Feature> m_protocolFeatures;

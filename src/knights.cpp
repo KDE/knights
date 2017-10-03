@@ -107,6 +107,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
 	connect(Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption);
 	connect(Manager::self(), &Manager::pieceMoved, this, &MainWindow::gameChanged);
+	connect(Manager::self(), &Manager::winnerNotify, this, &MainWindow::gameOver);
 	connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
 	m_themeProvider->discoverThemes("appdata", QLatin1String("themes"));
@@ -164,11 +165,11 @@ void MainWindow::setupActions() {
 	m_saveAsAction->setEnabled(false);
 	KStandardGameAction::load(this, SLOT(fileLoad()), actionCollection());
 
-	QAction* resignAction = actionCollection()->addAction(QLatin1String("resign"), this, SLOT(resign()));
-	resignAction->setText(i18n("Resign"));
-	resignAction->setToolTip(i18n("Admit your inevitable defeat"));
-	resignAction->setIcon(QIcon::fromTheme(QLatin1String("flag-red")));
-	resignAction->setEnabled(false);
+	m_resignAction = actionCollection()->addAction(QLatin1String("resign"), this, SLOT(resign()));
+	m_resignAction->setText(i18n("Resign"));
+	m_resignAction->setToolTip(i18n("Admit your inevitable defeat"));
+	m_resignAction->setIcon(QIcon::fromTheme(QLatin1String("flag-red")));
+	m_resignAction->setEnabled(false);
 
 	QAction* undoAction = actionCollection()->addAction(QLatin1String("move_undo"), this, SLOT(undo()));
 	undoAction->setText(i18n("Undo"));
@@ -184,17 +185,17 @@ void MainWindow::setupActions() {
 	connect(Manager::self(), &Manager::redoPossible, redoAction, &QAction::setEnabled);
 	redoAction->setEnabled(false);
 
-	QAction* drawAction = actionCollection()->addAction(QLatin1String("propose_draw"), Manager::self(), SLOT(offerDraw()));
-	drawAction->setText(i18n("Offer &Draw"));
-	drawAction->setToolTip(i18n("Offer a draw to your opponent"));
-	drawAction->setIcon(QIcon::fromTheme(QLatin1String("flag-blue")));
-	drawAction->setEnabled(false);
+	m_drawAction = actionCollection()->addAction(QLatin1String("propose_draw"), Manager::self(), SLOT(offerDraw()));
+	m_drawAction->setText(i18n("Offer &Draw"));
+	m_drawAction->setToolTip(i18n("Offer a draw to your opponent"));
+	m_drawAction->setIcon(QIcon::fromTheme(QLatin1String("flag-blue")));
+	m_drawAction->setEnabled(false);
 
-	QAction* adjournAction = actionCollection()->addAction(QLatin1String("adjourn"), Manager::self(), SLOT(adjourn()));
-	adjournAction->setText(i18n("Adjourn"));
-	adjournAction->setToolTip(i18n("Continue this game at a later time"));
-	adjournAction->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
-	adjournAction->setEnabled(false);
+	m_adjournAction = actionCollection()->addAction(QLatin1String("adjourn"), Manager::self(), SLOT(adjourn()));
+	m_adjournAction->setText(i18n("Adjourn"));
+	m_adjournAction->setToolTip(i18n("Continue this game at a later time"));
+	m_adjournAction->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
+	m_adjournAction->setEnabled(false);
 
 	QAction* abortAction = actionCollection()->addAction(QLatin1String("abort"), Manager::self(), SLOT(abort()));
 	abortAction->setText(i18n("Abort"));
@@ -464,6 +465,13 @@ void MainWindow::redo() {
 void MainWindow::gameChanged() {
 	m_saveAction->setEnabled(true);
 	m_saveAsAction->setEnabled(true);
+}
+
+void MainWindow::gameOver() {
+	m_pauseAction->setEnabled(false);
+	m_drawAction->setEnabled(false);
+	m_resignAction->setEnabled(false);
+	m_adjournAction->setEnabled(false);
 }
 
 void MainWindow::setShowClockSetting(bool value) {
