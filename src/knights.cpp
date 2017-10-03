@@ -164,7 +164,7 @@ void MainWindow::setupActions() {
 	m_saveAsAction->setEnabled(false);
 	KStandardGameAction::load(this, SLOT(fileLoad()), actionCollection());
 
-	QAction* resignAction = actionCollection()->addAction(QLatin1String("resign"), Manager::self(), SLOT(resign()));
+	QAction* resignAction = actionCollection()->addAction(QLatin1String("resign"), this, SLOT(resign()));
 	resignAction->setText(i18n("Resign"));
 	resignAction->setToolTip(i18n("Admit your inevitable defeat"));
 	resignAction->setIcon(QIcon::fromTheme(QLatin1String("flag-red")));
@@ -433,6 +433,12 @@ void MainWindow::optionsPreferences() {
 	dialog->setAttribute(Qt::WA_DeleteOnClose);
 
 	dialog->show();
+}
+
+void MainWindow::resign() {
+	int rc = KMessageBox::questionYesNo(this, i18n("Do you really want to resign?"), i18n("Resign"));
+	if (rc == KMessageBox::Yes)
+		Manager::self()->resign();
 }
 
 void MainWindow::undo() {

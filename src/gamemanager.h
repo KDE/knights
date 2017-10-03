@@ -104,6 +104,7 @@ public:
 	void reset();
 
 	void startGame();
+	void resign();
 	QStack<Move> moveHistory() const;
 
 private:
@@ -139,7 +140,6 @@ private slots:
 	void moveByProtocol(const Move&);
 	void protocolInitSuccesful();
 	void gameOver(Color);
-	void resign();
 	void offerDraw();
 	void adjourn();
 	void abort();

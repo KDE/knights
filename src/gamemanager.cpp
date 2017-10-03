@@ -371,7 +371,11 @@ void Manager::offerDraw() {
 }
 
 void Manager::resign() {
-	sendOffer(ActionResign);
+	Q_D(const GameManager);
+	if (d->activePlayer == Knights::White)
+		gameOver(Knights::Black);
+	else
+		gameOver(Knights::White);
 }
 
 bool Manager::isRunning() {
@@ -436,7 +440,6 @@ void Manager::gameOver(Color winner) {
 
 	reset();
 	d->gameOverInProcess = false;
-
 }
 
 void Manager::reset() {

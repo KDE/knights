@@ -58,6 +58,7 @@ private Q_SLOTS:
 	void fileNew();
 	void fileLoad();
 	void fileSaveAs();
+	void resign();
 	void undo();
 	void redo();
 	void gameChanged();
