@@ -19,6 +19,7 @@
   <name xml:lang="pl">KSkoczki</name>
   <name xml:lang="pt">KNights</name>
   <name xml:lang="pt-BR">KNights</name>
+  <name xml:lang="ru">KNights</name>
   <name xml:lang="sk">KNights</name>
   <name xml:lang="sl">KNights</name>
   <name xml:lang="sr">Коњи</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="pl">Gra w szachy</summary>
   <summary xml:lang="pt">Jogo de xadrez</summary>
   <summary xml:lang="pt-BR">Jogo de xadrez</summary>
+  <summary xml:lang="ru">Игра в шахматы</summary>
   <summary xml:lang="sk">Šach</summary>
   <summary xml:lang="sl">Igra šaha</summary>
   <summary xml:lang="sr">Шаховска игра</summary>
@@ -77,6 +79,7 @@
     <p xml:lang="pl">KSkoczki jest grą w szachy. Jako gracz, twoim celem jest pokonanie przeciwnika poprzez zaszachowanie jego króla.</p>
     <p xml:lang="pt">O KNights é um jogo de xadrez. Como jogador, o seu objectivo é derrotar o seu adversário através de um xeque-mate ao seu rei.</p>
     <p xml:lang="pt-BR">KNights é um jogo de xadrez. Como jogador, seu objetivo é derrotar seu oponente por checkmate.</p>
+    <p xml:lang="ru">KNights — игра в шахматы. Целью является поставить мат противнику.</p>
     <p xml:lang="sk">KNights je šachová hra. Vašim cieľom ako hráča je poraziť vášho protivníka tak, že mu dáte šach mat.</p>
     <p xml:lang="sl">KNights je igra šaha. Vaš cilj je, da nasprotnikovega kralja spravite v šah-mat.</p>
     <p xml:lang="sr">Коњи је шаховска игра. Циљ играча је да порази противника матирањем његовог краља.</p>
@@ -105,6 +108,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Recursos:</p>
+    <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sr">Могућности:</p>
