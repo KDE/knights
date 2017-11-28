@@ -184,6 +184,7 @@
       <li xml:lang="ca">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca-valencia">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="da">Spil på Free Internet Chess Server (FICS)</li>
+      <li xml:lang="de">Spielen auf dem Free Internet Chess Server (FICS)</li>
       <li xml:lang="el">Παίξε στον Ελεύθερο Διαδικτυακό Εξυπηρετητή Σκακιού (Free Internet Chess Server, FICS)</li>
       <li xml:lang="en-GB">Play on the Free Internet Chess Server (FICS)</li>
       <li xml:lang="es">Jugar en el servidor de ajedrez libre de Internet (FICS)</li>
@@ -364,6 +365,7 @@
       <li xml:lang="ca">Animació dels moviments (configurable)</li>
       <li xml:lang="ca-valencia">Animació dels moviments (configurable)</li>
       <li xml:lang="da">Animerede træk (kan konfigureres)</li>
+      <li xml:lang="de">Animierte Züge, einstellbar</li>
       <li xml:lang="el">ζωντάνεμα κινήσεων (διαμορφώσιμο)</li>
       <li xml:lang="en-GB">Animated moves (configurable)</li>
       <li xml:lang="es">Movimientos animados (configurables)</li>
@@ -415,6 +417,7 @@
       <li xml:lang="ca">Opcions per fer i desfer moviments</li>
       <li xml:lang="ca-valencia">Opcions per fer i desfer moviments</li>
       <li xml:lang="da">Mulighed for at fortryde og gendanne træk</li>
+      <li xml:lang="de">Option zum Zug zurücknehmen und wiederherstellen</li>
       <li xml:lang="el">Επιλογή για αναίρεση και επαναφορά κινήσεων</li>
       <li xml:lang="en-GB">Option to undo and redo moves</li>
       <li xml:lang="es">Opción para deshacer y rehacer movimientos</li>
@@ -541,6 +544,7 @@
       <li xml:lang="ca">Permet controlar el programa via una interfície del D-Bus</li>
       <li xml:lang="ca-valencia">Permet controlar el programa via una interfície del D-Bus</li>
       <li xml:lang="da">Mulighed for at styre programmet via en D-Bus-grænseflade</li>
+      <li xml:lang="de">Das Programm kann über eine D-Bus-Schnittstelle gesteuert werden</li>
       <li xml:lang="el">Δυνατότητα ελέγχου του προγράμματος μέσω διεπαφής D-Bus</li>
       <li xml:lang="en-GB">Ability to control the program via a D-Bus interface</li>
       <li xml:lang="es">Posibilidad de controlar el programa a través de la interfaz D-Bus</li>
