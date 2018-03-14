@@ -469,6 +469,7 @@
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
       <li xml:lang="ca-valencia">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
+      <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
       <li xml:lang="en-GB">Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="es">Permite usar el protocolo UCI (usado por Stockfish, Chessbase y otros)</li>
@@ -494,6 +495,7 @@
       <li xml:lang="ca">Admets els fitxers «Portable game notation» (PGN) per desar i carregar</li>
       <li xml:lang="ca-valencia">Admets els fitxers «Portable game notation» (PGN) per guardar i carregar</li>
       <li xml:lang="da">Understøttelse af gem og indlæsning af Portable game notation-filer (PGN)</li>
+      <li xml:lang="de">Laden und speichern von Dateien im Format Portable Spielnotation (*.pgn)</li>
       <li xml:lang="el">Υποστήριξη για αποθήκευση και φόρτωση αρχείων συμβολισμών PGN (Portable game notation)</li>
       <li xml:lang="en-GB">Support for saving and loading Portable game notation (PGN) files</li>
       <li xml:lang="es">Permite guardar y cargar archivos de notación portable de juego (PGN)</li>
@@ -519,6 +521,7 @@
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
       <li xml:lang="da">Brug af Jovie, KDEs tekst-til-tale-program, til at sige modstanderens træk</li>
+      <li xml:lang="de">Verwendet den KDE-Sprachausgabedienst Jovie, um die Züge des Gegners vorzulegen</li>
       <li xml:lang="el">Χρήση του Jovie, του προγράμματος μετατροπής κειμένου σε ομιλία του KDE, για την προφορική διατύπωση των κινήσεων του αντιπάλου</li>
       <li xml:lang="en-GB">Use of Jovie, the KDE text-to-speak program, to speak opponent's moves</li>
       <li xml:lang="es">Uso de Jovie, el programa de síntesis de voz de KDE, para leer los movimientos del oponente</li>
