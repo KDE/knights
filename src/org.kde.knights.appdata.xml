@@ -158,6 +158,7 @@
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="da">Spil mod computerprogram der understøtter XBoard-protokollen</li>
+      <li xml:lang="de">Spiele gegen jedes Rechnerprogramm, das das XBoard-Protokoll unterstützt</li>
       <li xml:lang="el">Παίξε εναντίον οποιουδήποτε προγράμματος που υποστηρίζει το πρωτόκολλο XBoard</li>
       <li xml:lang="en-GB">Play against any computer program that supports the XBoard protocol</li>
       <li xml:lang="es">Jugar contra cualquier programa de computadora que use el protocolo XBoard</li>
@@ -237,6 +238,7 @@
       <li xml:lang="ca">Permet la comprovació de moviments legals</li>
       <li xml:lang="ca-valencia">Permet la comprovació de moviments legals</li>
       <li xml:lang="da">Undersøttelse for tjek af lovlige træk</li>
+      <li xml:lang="de">Überprüfung auf gültige Spielzüge</li>
       <li xml:lang="el">Υποστήριξη για έλεγχο εγκυρότητας κίνησης</li>
       <li xml:lang="en-GB">Support for legal move checking</li>
       <li xml:lang="es">Permite comprobar los movimientos legales</li>
