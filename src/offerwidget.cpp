@@ -23,6 +23,8 @@
 #include "gamemanager.h"
 #include "ui_popup.h"
 
+#include <QAction>
+
 using namespace Knights;
 
 OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::WindowFlags f): KMessageWidget(offer.text, parent)
