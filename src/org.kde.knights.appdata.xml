@@ -13,6 +13,7 @@
   <name xml:lang="el">KNights</name>
   <name xml:lang="en-GB">KNights</name>
   <name xml:lang="es">KNights</name>
+  <name xml:lang="fr">KNights</name>
   <name xml:lang="gl">KNights</name>
   <name xml:lang="it">KNights</name>
   <name xml:lang="nl">KNights</name>
@@ -43,6 +44,7 @@
   <summary xml:lang="el">Σκάκι</summary>
   <summary xml:lang="en-GB">Chess game</summary>
   <summary xml:lang="es">Juego de ajedrez</summary>
+  <summary xml:lang="fr">Jeu d'échecs</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
   <summary xml:lang="it">Gioco di scacchi</summary>
   <summary xml:lang="nl">Schaakspel</summary>
@@ -75,6 +77,7 @@
     <p xml:lang="el">Το KNights είναι ένα σκάκι. Ως παίκτης, ο στόχος σου είναι να νικήσεις τον αντίπαλο κάνοντας ματ στον βασιλιά.</p>
     <p xml:lang="en-GB">KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.</p>
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, su objetivo consiste en vencer a su oponente haciendo jaque mate a su rey.</p>
+    <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
     <p xml:lang="it">KNights è un gioco di scacchi. Come giocatore, il tuo obbiettivo è sconfiggere il tuo avversario facendo scacco matto al suo re.</p>
     <p xml:lang="nl">KNights is een schaakspel.Het doel is uw tegenspeler te verslaan door zijn/haar koning schaakmat te zetten.</p>
