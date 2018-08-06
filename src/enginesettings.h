@@ -1,24 +1,31 @@
-/*
-    This file is part of Knights, a chess board for KDE SC 4.
-    Copyright 2011  Miha Čančula <miha@noughmad.eu>
-    Copyright 2016 Alexander Semke <alexander.semke@web.de>
+/***************************************************************************
+    File                 : enginesettings.h
+    Project              : Knights
+    Description          : Engine Settings
+    --------------------------------------------------------------------
+    Copyright            : (C) 2018 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License as
-    published by the Free Software Foundation; either version 2 of
-    the License or (at your option) version 3 or any later version
-    accepted by the membership of KDE e.V. (or its successor approved
-    by the membership of KDE e.V.), which shall act as a proxy
-    defined in Section 14 of version 3 of the license.
+ ***************************************************************************/
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+/***************************************************************************
+ *                                                                         *
+ *  This program is free software; you can redistribute it and/or modify   *
+ *  it under the terms of the GNU General Public License as published by   *
+ *  the Free Software Foundation; either version 2 of the License, or      *
+ *  (at your option) any later version.                                    *
+ *                                                                         *
+ *  This program is distributed in the hope that it will be useful,        *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+ *  GNU General Public License for more details.                           *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the Free Software           *
+ *   Foundation, Inc., 51 Franklin Street, Fifth Floor,                    *
+ *   Boston, MA  02110-1301  USA                                           *
+ *                                                                         *
+ ***************************************************************************/
 
 #ifndef KNIGHTS_ENGINESETTINGS_H
 #define KNIGHTS_ENGINESETTINGS_H
@@ -26,58 +33,54 @@
 #include <QWidget>
 
 namespace Ui {
-  class EngineSettings;
+class EngineSettings;
 }
 
 namespace Knights {
-  
-class EngineConfiguration
-{
-  public:
-    enum Interface
-    {
-      XBoard = 0,
-      Uci = 1,
-      Invalid = 0x10
-    };
-    
-    EngineConfiguration(const QString& string);
-    
-    const QString toString() const;
 
-    QString name;
-    QString commandLine;
-    Interface iface;
+class EngineConfiguration {
+public:
+	enum Interface {
+		XBoard = 0,
+		Uci = 1,
+		Invalid = 0x10
+	};
+
+	EngineConfiguration(const QString& string);
+
+	const QString toString() const;
+
+	QString name;
+	QString commandLine;
+	Interface iface;
 };
 
-class EngineSettings : public QWidget
-{
-  Q_OBJECT
-  
-  enum Column
-  {
-    NameColumn = 0,
-    CommandColumn = 1,
-    ProtocolColumn = 2,
-    InstalledColumn = 3,
-    ColumnCount = 4
-  };
+class EngineSettings : public QWidget {
+	Q_OBJECT
+
+	enum Column {
+		NameColumn = 0,
+		CommandColumn = 1,
+		ProtocolColumn = 2,
+		InstalledColumn = 3,
+		ColumnCount = 4
+	};
 
 public:
-    explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
-    ~EngineSettings() override;
+	explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
+	~EngineSettings() override;
 
 private:
-    Ui::EngineSettings* ui;
-    QList<EngineConfiguration> configurations;
-    
+	Ui::EngineSettings* ui;
+	QList<EngineConfiguration> configurations;
+
 public slots:
-    void save();
+	void save();
 
 private slots:
-    void addClicked();
-    void removeClicked();
-    void checkInstalled();
+	void addClicked();
+	void removeClicked();
+	void checkInstalled();
 };
 
 }
