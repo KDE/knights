@@ -14,16 +14,9 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="addButton">
+      <widget class="QPushButton" name="autoDetectButton">
        <property name="text">
-        <string>Add</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="removeButton">
-       <property name="text">
-        <string>Remove</string>
+        <string>Auto detect</string>
        </property>
       </widget>
      </item>
@@ -39,6 +32,20 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="addButton">
+       <property name="text">
+        <string>Add</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="removeButton">
+       <property name="text">
+        <string>Remove</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -56,6 +63,9 @@
      <property name="columnCount">
       <number>4</number>
      </property>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
      <column>
       <property name="text">
        <string>Name</string>

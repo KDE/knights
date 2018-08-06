@@ -1,13 +1,14 @@
 -----2.6.0-----
+	* Auto detect installed open-source chess engines
 
 Bug fixes:
 	BUG 315091 - Enable column sorting for rating, time, etc. in the FICS dialog
 	BUG 315912 - Don't allow to store engine settings with incomplete information
-	BUG 330398 - Clock shows 59:59 upon time running out 
+	BUG 330398 - Clock shows 59:59 upon time running out
 	BUG 330399 - Set the pause action unchecked upon a new game request
 	BUG 331885 - Stop chess engines after time has expired
 	BUG 333256 - Fixed incorrect pawn promotion in the Xboard protocol
-    
+
 -----2.5.0-----
 	* Port to new KDEGames library, compatible with KDE 4.9
 

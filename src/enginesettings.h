@@ -80,6 +80,7 @@ public slots:
 	void save();
 
 private slots:
+	void autoDetectEngines();
 	void addClicked();
 	void removeClicked();
 	void checkInstalled(int row, const QString& name);
