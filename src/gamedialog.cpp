@@ -346,15 +346,22 @@ void GameDialog::showEngineConfigDialog()
 {
     QDialog* dlg = new QDialog(this);
     dlg->setWindowTitle(i18n("Chess Engines"));
+
     auto bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	connect( bBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept );
+	connect( bBox, &QDialogButtonBox::rejected, dlg, &QDialog::reject );
+
     QVBoxLayout *layout = new QVBoxLayout;
     EngineSettings* ecd = new EngineSettings(dlg);
     layout->addWidget(ecd);
     layout->addWidget(bBox);
     dlg->setLayout(layout);
-    connect(bBox, &QDialogButtonBox::accepted, ecd, &EngineSettings::save);
-    connect(bBox, &QDialogButtonBox::accepted, this, &GameDialog::loadEngines);
-    dlg->show();
+	dlg->setFocus();
+
+    if (dlg->exec() == QDialog::Accepted) {
+		ecd->save();
+		loadEngines();
+	}
 }
 
 void GameDialog::loadEngines()
