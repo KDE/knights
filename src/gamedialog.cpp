@@ -46,7 +46,8 @@ using namespace Knights;
 
 GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	ui(new Ui::GameDialog()),
-	m_networkManager(new QNetworkConfigurationManager(this)) {
+	m_networkManager(new QNetworkConfigurationManager(this)),
+	okButton(nullptr) {
 
 	QFrame* mainFrame = new QFrame(this);
 	ui->setupUi(mainFrame);
@@ -57,9 +58,10 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	ui->sbTimeIncrement->setValue(Settings::timeIncrement());
 	ui->sbNumberOfMoves->setValue(Settings::numberOfMoves());
 
-	QDialogButtonBox *bBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+	QDialogButtonBox* bBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+	okButton = bBox->button(QDialogButtonBox::Ok);
 
-	QVBoxLayout *layout = new QVBoxLayout(this);
+	QVBoxLayout* layout = new QVBoxLayout(this);
 	layout->addWidget(mainFrame);
 	layout->addWidget(bBox);
 
@@ -112,12 +114,14 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	connect(ui->rbPlayer1Human, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
 	connect(ui->rbPlayer1Engine, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
 	connect(ui->pbPlayer1Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+	connect(ui->cbPlayer1Engine, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
 
 	//player 2
 	connect(ui->rbPlayer2Human, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->rbPlayer2Engine, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->rbPlayer2Server, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->pbPlayer2Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+	connect(ui->cbPlayer1Engine, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
 
 	//time control
 	connect(ui->cbTimeControl, &QCheckBox::toggled, this, &GameDialog::timeControlChanged);
@@ -212,7 +216,6 @@ void GameDialog::setupProtocols() {
 	Protocol::setBlackProtocol(c1 == White ? p2 : p1);
 }
 
-
 void GameDialog::save() {
 	Settings::EnumPlayer1Protocol::type p1;
 	if(ui->rbPlayer1Human->isChecked())
@@ -264,6 +267,7 @@ void GameDialog::updateTimeEdits() {
 void GameDialog::player1SettingsChanged() {
 	ui->cbPlayer1Engine->setEnabled(ui->rbPlayer1Engine->isChecked());
 	ui->pbPlayer1Engine->setEnabled(ui->rbPlayer1Engine->isChecked());
+	checkOkButton();
 }
 
 void GameDialog::player2SettingsChanged() {
@@ -277,6 +281,7 @@ void GameDialog::player2SettingsChanged() {
 	ui->cbTimeControl->setEnabled(!server);
 	ui->lNumberOfMoves->setVisible(!server);
 	ui->sbNumberOfMoves->setVisible(!server);
+	checkOkButton();
 }
 
 void GameDialog::timeControlChanged() {
@@ -339,4 +344,24 @@ void GameDialog::loadEngines() {
 		ui->cbPlayer2Engine->setCurrentItem(Settings::player2Program(), false);
 	else
 		ui->cbPlayer1Engine->setCurrentIndex(0);
+
+	checkOkButton();
 }
+
+void GameDialog::checkOkButton() {
+	if (ui->rbPlayer1Engine->isChecked() && ui->cbPlayer1Engine->currentIndex() == -1) {
+		okButton->setEnabled(false);
+		okButton->setToolTip(i18n("Select a chess engine for the first player."));
+		return;
+	}
+
+	if (ui->rbPlayer2Engine->isChecked() && ui->cbPlayer2Engine->currentIndex() == -1) {
+		okButton->setEnabled(false);
+		okButton->setToolTip(i18n("Select a chess engine for the second player."));
+		return;
+	}
+
+	okButton->setEnabled(true);
+	okButton->setToolTip(i18n("Start the game."));
+}
+

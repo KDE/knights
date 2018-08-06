@@ -59,6 +59,7 @@ public:
 private:
 	Ui::GameDialog* ui;
 	QNetworkConfigurationManager* m_networkManager;
+	QPushButton* okButton;
 
 private slots:
 	void player1SettingsChanged();
@@ -68,6 +69,7 @@ private slots:
 	void networkStatusChanged(bool isOnline);
 	void loadEngines();
 	void showEngineConfigDialog();
+	void checkOkButton();
 };
 
 }
