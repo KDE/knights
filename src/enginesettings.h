@@ -32,6 +32,8 @@
 
 #include <QWidget>
 
+class QTableWidgetItem;
+
 namespace Ui {
 class EngineSettings;
 }
@@ -80,7 +82,8 @@ public slots:
 private slots:
 	void addClicked();
 	void removeClicked();
-	void checkInstalled();
+	void checkInstalled(int row, const QString& name);
+	void tableItemChanged(QTableWidgetItem*);
 };
 
 }

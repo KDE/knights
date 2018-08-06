@@ -61,45 +61,47 @@ const QString EngineConfiguration::toString() const {
 	return str;
 }
 
-EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f): QWidget(parent, f) {
-	ui = new Ui::EngineSettings;
-	ui->setupUi ( this );
-
+EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f), ui(new Ui::EngineSettings) {
+	ui->setupUi(this);
 	ui->addButton->setIcon ( QIcon::fromTheme(QLatin1String("list-add")) );
-	connect ( ui->addButton, &QPushButton::clicked, this, &EngineSettings::addClicked );
-
 	ui->removeButton->setIcon ( QIcon::fromTheme(QLatin1String("list-remove")) );
-	connect ( ui->removeButton, &QPushButton::clicked, this, &EngineSettings::removeClicked );
 
+	//add saved engines
 	int row = 0;
-	foreach ( const QString& s, Settings::engineConfigurations() ) {
+	for ( const QString& s : Settings::engineConfigurations() ) {
 		addClicked();
 		EngineConfiguration c = EngineConfiguration ( s );
 		ui->tableWidget->setItem ( row, NameColumn, new QTableWidgetItem ( c.name ) );
 		ui->tableWidget->setItem ( row, CommandColumn, new QTableWidgetItem ( c.commandLine ) );
 		qobject_cast<KComboBox*> ( ui->tableWidget->cellWidget ( row, ProtocolColumn ) )->setCurrentIndex ( (int)c.iface );
+		checkInstalled(row, c.commandLine);
 		++row;
 	}
 
-	checkInstalled();
-	connect ( ui->tableWidget, &QTableWidget::itemChanged, this, &EngineSettings::checkInstalled );
+	ui->tableWidget->resizeColumnsToContents();
+
+	//connects
+	connect(ui->addButton, &QPushButton::clicked, this, &EngineSettings::addClicked);
+	connect(ui->removeButton, &QPushButton::clicked, this, &EngineSettings::removeClicked);
+	connect(ui->tableWidget, &QTableWidget::itemChanged, this, &EngineSettings::tableItemChanged);
 }
 
 EngineSettings::~EngineSettings() {
 	delete ui;
 }
 
-void EngineSettings::checkInstalled() {
-	int n = ui->tableWidget->rowCount();
-	for ( int i = 0; i < n; ++i ) {
-		QTableWidgetItem* item = ui->tableWidget->item ( i, CommandColumn );
-		QLatin1Char s ( ' ' );
-		bool ok = item && !item->text().isEmpty() && !QStandardPaths::findExecutable ( item->text().split ( s ).first() ).isEmpty();
-		const char* iconName = ok ? "dialog-ok" : "dialog-error";
-		QLabel* label = new QLabel ( this );
-		label->setPixmap ( QIcon::fromTheme(QLatin1String(iconName)).pixmap(32, 32) );
-		ui->tableWidget->setCellWidget ( i, InstalledColumn, label );
-	}
+void EngineSettings::checkInstalled(int row, const QString& name) {
+	const bool exists = !QStandardPaths::findExecutable(name).isEmpty();
+	const char* iconName = exists ? "dialog-ok" : "dialog-error";
+	QLabel* label = new QLabel(this);
+	label->setPixmap ( QIcon::fromTheme(QLatin1String(iconName)).pixmap(32, 32) );
+	ui->tableWidget->setCellWidget(row, InstalledColumn, label );
+}
+
+void EngineSettings::tableItemChanged(QTableWidgetItem* item) {
+	//if the name of the executable was changed, check whether it's available
+	if (item->column() == CommandColumn)
+		checkInstalled(item->row(), item->text());
 }
 
 void EngineSettings::addClicked() {
@@ -108,7 +110,6 @@ void EngineSettings::addClicked() {
 	KComboBox* box = new KComboBox ( this );
 	box->insertItems ( 0, QStringList() << i18nc("Protocol name", "XBoard") << i18nc("Protocol name", "UCI") );
 	ui->tableWidget->setCellWidget ( n, ProtocolColumn, box );
-	checkInstalled();
 	ui->tableWidget->edit ( ui->tableWidget->model()->index ( n, NameColumn ) );
 }
 
