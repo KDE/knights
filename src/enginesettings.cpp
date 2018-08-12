@@ -142,6 +142,8 @@ void EngineSettings::autoDetectEngines() {
 	names << QLatin1String("Sjeng");
 	names << QLatin1String("Phalanx");
 	names << QLatin1String("Fruit v2.1");
+	names << QLatin1String("TogaII");
+	names << QLatin1String("TogaII v.1.4.2");
 
 	QStringList commands;
 	commands << QLatin1String("gnuchess");
@@ -156,6 +158,8 @@ void EngineSettings::autoDetectEngines() {
 	commands << QLatin1String("sjeng");
 	commands << QLatin1String("phalanx");
 	commands << QLatin1String("fruit21");
+	commands << QLatin1String("toga2");
+	commands << QLatin1String("togaII-142"); //openSUSE naming convention
 
 	QVector<EngineConfiguration::Interface> interfaces;
 	interfaces << EngineConfiguration::XBoard; //gnuchess
@@ -170,6 +174,8 @@ void EngineSettings::autoDetectEngines() {
 	interfaces << EngineConfiguration::XBoard; //sjeng
 	interfaces << EngineConfiguration::XBoard; //phalanx //TODO: check this
 	interfaces << EngineConfiguration::Uci; //fruit21
+	interfaces << EngineConfiguration::Uci; //toga2
+	interfaces << EngineConfiguration::Uci; //togaII-142
 
 	//remove all available engines first
 	ui->tableWidget->setRowCount(0);
