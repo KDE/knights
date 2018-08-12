@@ -290,23 +290,22 @@ void MainWindow::protocolInitSuccesful() {
 
 	// show clock action button if timer active
 	// show clock dock widget if timer active and configuration file entry has visible = true
+	bool showClock = false;
 	if(Manager::self()->timeControlEnabled(White) || Manager::self()->timeControlEnabled(Black)) {
 		actionCollection()->action(QLatin1String("show_clock"))->setVisible(true);
 		m_playerClock->setPlayerName(White, Protocol::white()->playerName());
 		m_playerClock->setPlayerName(Black, Protocol::black()->playerName());
 		m_playerClock->setTimeLimit(White, Manager::self()->timeLimit(White));
 		m_playerClock->setTimeLimit(Black, Manager::self()->timeLimit(Black));
-		if(Settings::showClock()) {
-			m_clockDock->setVisible(true);
-			actionCollection()->action(QLatin1String("show_clock"))->setChecked(true);
-		} else {
-			m_clockDock->setVisible(false);
-			actionCollection()->action(QLatin1String("show_clock"))->setChecked(false);
-		}
-	} else {
-		m_clockDock->setVisible(false);
-		actionCollection()->action(QLatin1String("show_clock"))->setVisible(false);
+		showClock = Settings::showClock();
 	}
+	m_clockDock->setVisible(showClock);
+	actionCollection()->action(QLatin1String("show_clock"))->setChecked(showClock);
+
+	//history dock
+	bool showHistory = Settings::showHistory();
+	m_historyDock->setVisible(showHistory);
+	actionCollection()->action(QLatin1String("show_history"))->setChecked(showHistory);
 
 	Protocol::Features f = Protocol::NoFeatures;
 	if(Protocol::white()->isLocal() && !(Protocol::black()->isLocal()))
@@ -407,7 +406,6 @@ void MainWindow::protocolError(Protocol::ErrorCode errorCode, const QString& err
 		KMessageBox::error(this, errorString, Protocol::stringFromErrorCode(errorCode));
 	Protocol::white()->deleteLater();
 	Protocol::black()->deleteLater();
-	//fileNew();
 }
 
 void MainWindow::optionsPreferences() {
