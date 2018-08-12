@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : Main window of the application
     --------------------------------------------------------------------
-    Copyright            : (C) 2016-1017 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-1018 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2010-2012 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
@@ -281,6 +281,14 @@ void MainWindow::fileLoad() {
 	m_loadFileName = fileName;
 	Manager::self()->initialize();
 	m_saveAction->setEnabled(false);
+
+	//save new "last open directory"
+	int pos = fileName.lastIndexOf(QDir::separator());
+	if (pos != -1) {
+		const QString& newDir = fileName.left(pos);
+		if (newDir != dir)
+			conf.writeEntry("LastOpenDir", newDir);
+	}
 }
 
 void MainWindow::protocolInitSuccesful() {

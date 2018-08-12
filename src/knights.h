@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : Main window of the application
     --------------------------------------------------------------------
-    Copyright            : (C) 2016-1017 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-1018 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2010-2012 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
