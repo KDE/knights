@@ -76,6 +76,9 @@ private Q_SLOTS:
 
 	void exitKnights();
 
+protected:
+	void closeEvent(QCloseEvent*);
+
 private:
 	void setupDocks();
 	void setupActions();

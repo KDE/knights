@@ -47,10 +47,11 @@
 #include <KgThemeSelector>
 #include <KStandardGameAction>
 
-#include <QTimer>
+#include <QCloseEvent>
 #include <QDockWidget>
-#include <QStatusBar>
 #include <QFileDialog>
+#include <QStatusBar>
+#include <QTimer>
 
 const char* DontAskDiscard = "dontAskInternal";
 
@@ -642,4 +643,9 @@ void MainWindow::fileSaveAs() {
 	m_fileName = fileName;
 	Manager::self()->saveGameHistoryAs(m_fileName);
 	setCaption(m_fileName);
+}
+
+void MainWindow::closeEvent(QCloseEvent* event) {
+	if (!maybeSave())
+		event->ignore();
 }
