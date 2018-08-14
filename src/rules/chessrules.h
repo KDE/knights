@@ -24,8 +24,8 @@
 
 #include <rules/rules.h>
 
-#include <QtCore/QMap>
-#include <QtCore/QStack>
+#include <QMap>
+#include <QStack>
 
 namespace Knights
 {

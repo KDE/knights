@@ -180,7 +180,7 @@ void EngineSettings::autoDetectEngines() {
 	//remove all available engines first
 	ui->tableWidget->setRowCount(0);
 
-	//check the presense of the known engines defined above and add the corresponding entries in the table widget
+	//check the presence of the known engines defined above and add the corresponding entries in the table widget
 	for (int i = 0; i < commands.size(); ++i) {
 		const QString& command = commands.at(i);
 		const bool exists = !QStandardPaths::findExecutable(command).isEmpty();

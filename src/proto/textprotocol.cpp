@@ -26,8 +26,8 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "knightsdebug.h"
 #include "textprotocol.h"
+#include "knightsdebug.h"
 
 using namespace Knights;
 

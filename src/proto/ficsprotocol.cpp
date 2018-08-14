@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <gamemanager.h>
 #include "proto/ficsprotocol.h"
+#include <gamemanager.h>
 #include "proto/ficsdialog.h"
 #include "proto/chatwidget.h"
 #include "settings.h"

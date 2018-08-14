@@ -25,9 +25,9 @@
 #include <core/move.h>
 #include <core/piece.h>
 
-#include <QtCore/QObject>
-#include <QtCore/QTime>
-#include <QtCore/QPointer>
+#include <QObject>
+#include <QTime>
+#include <QPointer>
 
 namespace Knights
 {

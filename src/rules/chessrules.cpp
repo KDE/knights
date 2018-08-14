@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <gamemanager.h>
 #include "rules/chessrules.h"
+#include <gamemanager.h>
 #include "core/move.h"
 #include "knightsdebug.h"
 

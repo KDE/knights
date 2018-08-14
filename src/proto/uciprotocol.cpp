@@ -19,8 +19,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "gamemanager.h"
 #include "uciprotocol.h"
+#include "gamemanager.h"
 #include "knightsdebug.h"
 
 #include <KProcess>
