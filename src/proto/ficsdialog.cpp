@@ -131,7 +131,7 @@ void FicsDialog::addGameOffer ( const FicsGameOffer& offer )
     rated->setChecked ( offer.rated );
     ui->offerTable->setCellWidget ( row, 4, rated );
     ui->offerTable->setItem ( row, 5, new QTableWidgetItem ( offer.variant ) );
-
+    ui->offerTable->resizeColumnToContents(0);
     ui->graphView->addSeek( offer );
 }
 

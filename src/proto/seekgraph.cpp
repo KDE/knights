@@ -54,7 +54,7 @@ void SeekGraph::paintEvent ( QPaintEvent* event )
     QPainter p;
 
      p.begin( this );
-     p.setRenderHint( QPainter::Antialiasing, antialiasing() );
+     p.setRenderHint( QPainter::Antialiasing, true );
      p.fillRect( rect(), backgroundColor() );
      p.translate( leftPadding() + 0.5, topPadding() + 0.5 );
 
@@ -133,7 +133,7 @@ void SeekGraph::addSeek ( const FicsGameOffer& offer )
     labelPen.setColor(Qt::black);
     object->setLabelPen(labelPen);
     QPointF point = QPointF( offer.baseTime, offer.player.second );
-    object->addPoint( point, QLatin1Char(' ') + offer.player.first + QLatin1Char(' ') );
+    object->addPoint( point, QLatin1Char(' ') + offer.player.first + QLatin1String(" (") + QString::number(offer.player.second) +  QLatin1String(") ") );
     object->setBrush( QBrush(Qt::blue) );
     object->setSize(8.0);
     addPlotObject(object);
@@ -157,5 +157,3 @@ void SeekGraph::setRect ( const QRectF rect )
     m_dataRect = rect;
     setLimits ( rect.left(), rect.right(), rect.top(), rect.bottom() );
 }
-
-
