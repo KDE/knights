@@ -3,7 +3,7 @@
     Project              : Knights
     Description          : Game manager
     --------------------------------------------------------------------
-    Copyright            : (C) 2016 by Alexander Semke (alexander.semke@web.de)
+    Copyright            : (C) 2016-2018 by Alexander Semke (alexander.semke@web.de)
     Copyright            : (C) 2009-2011 by Miha Čančula (miha@noughmad.eu)
 
  ***************************************************************************/
@@ -93,11 +93,11 @@ GameManagerPrivate::GameManagerPrivate()
 	  gameStarted(false),
 	  gameOverInProcess(false),
 	  timer(0),
-	  rules(0),
+	  rules(nullptr),
 #ifdef HAVE_SPEECH
-	  speech(0),
+	  speech(nullptr),
 #endif
-	  extControl(0) {
+	  extControl(nullptr) {
 
 }
 
@@ -471,7 +471,7 @@ void Manager::reset() {
 
 	if ( d->extControl ) {
 		delete d->extControl;
-		d->extControl = 0;
+		d->extControl = nullptr;
 	}
 }
 
@@ -573,6 +573,13 @@ void Manager::setOfferResult(int id, OfferAction result) {
 
 Protocol* Manager::local() {
 	Q_D(const GameManager);
+
+	//Protocol::byColor() can return nulltpr for NoColor,
+	//add a sanity check here eventhough the case NoColor shouldn't actually happen, but see BUG:336412...
+	//TODO: debug more later and find out why NoColor can happen here.
+	if (d->activePlayer == NoColor)
+		return nullptr;
+
 	if ( Protocol::byColor(d->activePlayer)->isLocal() )
 		return Protocol::byColor(d->activePlayer);
 	if ( Protocol::byColor(oppositeColor(d->activePlayer))->isLocal() )
@@ -583,7 +590,7 @@ Protocol* Manager::local() {
 	if ( Protocol::byColor(oppositeColor(d->activePlayer))->isComputer() )
 		return Protocol::byColor(oppositeColor(d->activePlayer));
 	qCWarning(LOG_KNIGHTS) << "No local or computer protocols, returning 0";
-	return 0;
+	return nullptr;
 }
 
 bool Manager::canRedo() const {
