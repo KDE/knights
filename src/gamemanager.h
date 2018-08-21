@@ -67,6 +67,7 @@ enum GameAction {
 
 class Offer {
 public:
+	Offer() {id = 0;};
 	GameAction action;
 	int id;
 	QString text;

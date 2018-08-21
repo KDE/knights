@@ -97,7 +97,8 @@ GameManagerPrivate::GameManagerPrivate()
 #ifdef HAVE_SPEECH
 	  speech(nullptr),
 #endif
-	  extControl(nullptr) {
+	  extControl(nullptr),
+	  initComplete(false) {
 
 }
 
