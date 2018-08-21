@@ -69,7 +69,7 @@ namespace Knights
     {
             Q_OBJECT
         public:
-            FicsProtocol ( QObject* parent = 0 );
+            explicit FicsProtocol(QObject* parent = nullptr);
             virtual ~FicsProtocol();
 
             virtual Features supportedFeatures();
@@ -77,7 +77,7 @@ namespace Knights
             virtual void startGame();
             virtual void move ( const Move& m );
             virtual QList<ToolWidgetData> toolWidgets();
-            
+
     virtual void makeOffer(const Offer& offer);
     virtual void acceptOffer(const Offer& offer);
     virtual void declineOffer(const Offer& offer);
@@ -100,7 +100,7 @@ namespace Knights
             ChatWidget* m_chat;
             QMap<int, Offer> m_offers;
             QString otherPlayerName;
-            
+
             bool undoPending;
             bool drawPending;
 
@@ -135,4 +135,3 @@ namespace Knights
 }
 
 #endif // KNIGHTS_FICSPROTOCOL_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

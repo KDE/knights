@@ -72,7 +72,7 @@ public:
 	static Move castling(CastlingSide, Color);
 
 	Move(Pos from, Pos to, Flags flags = None);
-	Move(QString string);
+	explicit Move(QString);
 	Move();
 	Move(const Move& other);
 	virtual ~Move();

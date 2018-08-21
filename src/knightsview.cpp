@@ -41,7 +41,7 @@ using namespace Knights;
 
 KnightsView::KnightsView(QWidget* parent) : QWidget(parent),
 	ui(new Ui::KnightsView),
-	m_board(0),
+	m_board(nullptr),
 	m_showAllOffers(false) {
 
 	ui->setupUi ( this );

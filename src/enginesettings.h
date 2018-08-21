@@ -48,7 +48,7 @@ public:
 		Invalid = 0x10
 	};
 
-	EngineConfiguration(const QString& string);
+	explicit EngineConfiguration(const QString&);
 
 	const QString toString() const;
 
@@ -69,7 +69,7 @@ class EngineSettings : public QWidget {
 	};
 
 public:
-	explicit EngineSettings(QWidget* parent = 0, Qt::WindowFlags f = 0);
+	explicit EngineSettings(QWidget* parent = nullptr, Qt::WindowFlags f = 0);
 	~EngineSettings() override;
 
 private:

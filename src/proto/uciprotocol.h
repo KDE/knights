@@ -31,9 +31,9 @@ namespace Knights {
 
 class UciProtocol : public ComputerProtocol
 {
-  
+
 public:
-    UciProtocol(QObject* parent = 0);
+    explicit UciProtocol(QObject* parent = nullptr);
     virtual ~UciProtocol();
 
 protected:
@@ -49,11 +49,11 @@ public:
     virtual void init();
     virtual void move(const Knights::Move& m);
     virtual void setDifficulty(int depth, int memory);
-    
+
 private slots:
     void changeCurrentTime(Knights::Color color, const QTime& time);
     void requestNextMove();
-    
+
 private:
     QStack<Move> mMoveHistory;
     int mWhiteTime;

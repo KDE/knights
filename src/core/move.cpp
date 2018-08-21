@@ -171,8 +171,8 @@ void Move::setString(QString string) {
 	if (longMoveTest.indexIn(string) > -1) {
 		// Long move notation, can be directly converted to From and To
 		d->notationType = Coordinate;
-		setFrom(string.left(2 ));
-		setTo(string.mid(2, 2 ));
+		setFrom( Pos(string.left(2)) );
+		setTo( Pos(string.mid(2, 2)) );
 
 		//check whether we need to promote a pawn (string looks like a7a8R for promotion to rook, etc.)
 		if(string.size() > 4) {

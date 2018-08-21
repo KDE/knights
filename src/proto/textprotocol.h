@@ -41,7 +41,7 @@ namespace Knights {
 class TextProtocol : public Protocol {
 	Q_OBJECT
 public:
-	TextProtocol(QObject* parent = 0);
+	explicit TextProtocol(QObject* parent = nullptr);
 	virtual ~TextProtocol();
 
 protected:

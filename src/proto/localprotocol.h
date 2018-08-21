@@ -32,16 +32,16 @@ class LocalProtocol : public Protocol
   Q_OBJECT
 
 public:
-    LocalProtocol(QObject* parent = 0);
+    explicit LocalProtocol(QObject* parent = nullptr);
     virtual ~LocalProtocol();
-    
+
     virtual Features supportedFeatures();
     virtual bool isLocal();
-    
+
     virtual void init();
     virtual void startGame();
     virtual void move(const Move& m);
-    
+
     virtual void makeOffer(const Offer& offer);
     virtual void acceptOffer(const Offer& offer);
     virtual void declineOffer(const Offer& offer);

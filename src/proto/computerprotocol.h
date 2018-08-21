@@ -31,13 +31,13 @@ namespace Knights {
 class ComputerProtocol : public TextProtocol
 {
 public:
-    ComputerProtocol(QObject* parent = 0);
+    explicit ComputerProtocol(QObject* parent = nullptr);
     virtual ~ComputerProtocol();
 
     virtual void startProgram();
     virtual bool isComputer();
     virtual QList< ToolWidgetData > toolWidgets();
-    
+
 protected:
     KProcess* mProcess;
 

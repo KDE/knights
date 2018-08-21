@@ -53,7 +53,7 @@ ChessRules::ChessRules()
 
     queenRookStartPos[White] = Pos ( 1, 1 );
     queenRookStartPos[Black] = Pos ( 1, 8 );
-    
+
     kingRookStartPos[White] = Pos ( 8, 1 );
     kingRookStartPos[Black] = Pos ( 8, 8 );
 
@@ -379,9 +379,9 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
             move->setStringForNotation ( Move::Coordinate, move->string() );
         }
     }
-    
+
     Q_ASSERT ( move->notation() == Move::Coordinate || !move->isValid() || move->flag ( Move::Castle ) );
-    
+
     Piece* p = m_grid->value ( move->from() );
     if ( !p )
     {
@@ -396,7 +396,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         return;
     }
     move->setPieceData ( qMakePair( p->color(), p->pieceType() ) );
-    
+
     if (!move->flag ( Move::Castle ))
     {
         // The long algebraic notation can be constructed from the two above
@@ -426,7 +426,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
         move->setFlag ( Move::Take, true );
     }
     if ( p->pieceType() == King && length ( *move ) == 2 )
-    {        
+    {
         qCDebug(LOG_KNIGHTS) << "Castling";
         Move::CastlingSide side;
         if ( move->to().first > move->from().first )
@@ -460,22 +460,22 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color )
             }
         }
     }
-    
+
     /**
      * Check for check after the move has been made
      */
     Grid afterMoveGrid = *m_grid;
     afterMoveGrid.insert(move->to(), afterMoveGrid.take(move->from()));
-    
+
     Grid::ConstIterator it = afterMoveGrid.constBegin();
     Grid::ConstIterator end = afterMoveGrid.constEnd();
-    
+
     const Color kingColor = oppositeColor ( color );
-    
+
     for ( ; it != end; ++it )
     {
-        
-        if ( it.value()->color() == color && 
+
+        if ( it.value()->color() == color &&
             legalAttackMoves ( it.key(), &afterMoveGrid ).contains ( Move ( it.key(), kingPos[kingColor] ) ) )
         {
             move->setFlag ( Move::Check, true );
@@ -597,7 +597,7 @@ void ChessRules::moveMade ( const Move& m )
 QList< Move > ChessRules::castlingMoves ( const Pos& pos )
 {
     // TODO: move from a model which permanently stores king's and rooks' move history
-    // to account for undone moves. 
+    // to account for undone moves.
     QList<Move> moves;
     Color color = m_grid->value ( pos )->color();
     if ( hasKingMoved ( color ) )
@@ -664,9 +664,9 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
     {
         return;
     }
-    
+
     qCDebug(LOG_KNIGHTS) << move->string();
-    
+
     if ( notation == Move::Coordinate )
     {
         // Converting from Algebraic to Coordinate
@@ -686,7 +686,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         bool typeSet = false;
         bool rankSet = false;
         PieceType promoteType = NoType;
-        
+
         QString s = move->string().remove( QLatin1Char('x') ).remove( QLatin1Char(':') ).remove( QLatin1Char('=') );
         if  ( s.size() < 2 )
         {
@@ -694,29 +694,29 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
                 move->setFlag ( Move::Illegal, true );
                 return;
         }
-        
+
         if ( QByteArray("KQBNRPkqbnrp").contains ( s.right(1).toLatin1() ) )
         {
             promoteType = Piece::typeFromChar ( s.right(1).at(0) );
             s.chop ( 1 );
             move->setPromotedType ( promoteType );
         }
-        
+
         if ( !QByteArray("KQBNRP").contains ( s[0].toLatin1() ) )
         {
             s = QLatin1Char('P') + s;
         }
-        
+
         type = Piece::typeFromChar ( s[0] );
         typeSet = true;
         s.remove ( 0, 1 );
-        
+
         switch ( s.size() )
         {
             case 2:
                 // Only destination square
                 break;
-                
+
             case 3:
                 // Either starting file or rank
                 if ( QByteArray("abcdefgh").contains( s[0].toLatin1() ) )
@@ -730,7 +730,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
                     rankSet = true;
                 }
                 break;
-                
+
             case 4:
                 // Both starting file and rank
                 file = Pos::numFromRow ( s[0] );
@@ -739,8 +739,8 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
                 rankSet = true;
                 break;
         }
-        move->setTo ( s.right(2) );
-        
+        move->setTo( Pos(s.right(2)) );
+
         qCDebug(LOG_KNIGHTS) << "Conditions:";
         if ( typeSet ) qCDebug(LOG_KNIGHTS) << "Type == " << Piece::charFromType(type);
         if ( fileSet ) qCDebug(LOG_KNIGHTS) << "File == " << file;
@@ -771,12 +771,12 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
             return;
         }
     }
-    else 
+    else
     {
         // Converting from Coordinate to Algebraic
-        
+
         QStringList possibilities;
-        
+
         /*
          * We try (in this order):
          * Ne6, Nde6, N5e6, Nd5e6
@@ -784,24 +784,24 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
         const PieceType type = m_grid->value ( move->from() )->pieceType();
         const QString typeLetter = (type != Pawn) ? Piece::charFromType ( type ) : QString();
         QString end = move->to().string();
-        
+
         if ( move->flag ( Move::Take ) )
         {
             end = QLatin1Char('x') + end;
         }
-        
+
         if ( move->flag ( Move::Promote ) )
         {
             end += QLatin1Char('=') + Piece::charFromType( move->promotedType() );
         }
-        
+
         possibilities << typeLetter + end;
         possibilities << typeLetter + Pos::row ( move->from().first ) + end;
         possibilities << typeLetter + QString::number ( move->from().second ) + end;
         possibilities << typeLetter + move->from().string() + end;
-                
+
         qCDebug(LOG_KNIGHTS) << possibilities;
-        
+
         foreach ( const QString& text, possibilities )
         {
             Move m ( text );
@@ -812,11 +812,11 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
                 break;
             }
         }
-        
+
     }
-    
+
     qCDebug(LOG_KNIGHTS) << move->string();
-    
+
     Q_ASSERT ( move->notation() == notation );
 }
 

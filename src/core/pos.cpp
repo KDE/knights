@@ -81,7 +81,7 @@ namespace Knights
             return QString();
         }
     }
-    
+
     bool Pos::isValid() const
     {
         return first > 0 && first < 9 && second > 0 && second < 9;
@@ -120,5 +120,3 @@ namespace Knights
         debug.nospace() << Knights::Pos::row ( pos.first ) << pos.second;
         return debug;
     }
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

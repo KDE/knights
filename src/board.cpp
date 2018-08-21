@@ -221,7 +221,7 @@ void Board::mousePressEvent(QGraphicsSceneMouseEvent* e) {
 				move.setPromotedType ( getPromotedType() );
 			}
 			emit pieceMoved(move);
-			selectedPiece = 0;
+			selectedPiece = nullptr;
 		}
 	} else {
 		// The active player clicked on his/her own piece
@@ -249,9 +249,8 @@ void Board::mousePressEvent(QGraphicsSceneMouseEvent* e) {
 
 void Board::mouseReleaseEvent(QGraphicsSceneMouseEvent* e) {
 	Q_UNUSED(e);
-	draggedPiece = 0;
+	draggedPiece = nullptr;
 }
-
 
 void Board::mouseMoveEvent(QGraphicsSceneMouseEvent* e) {
 	if (!(e->buttons() & Qt::LeftButton) || m_dragActive)
@@ -261,7 +260,7 @@ void Board::mouseMoveEvent(QGraphicsSceneMouseEvent* e) {
 		drag = new QDrag ( e->widget() );
 		drag->setMimeData ( new QMimeData() );
 		m_dragActive = true;
-		selectedPiece = 0;
+		selectedPiece = nullptr;
 		drag->exec();
 	}
 }
@@ -275,7 +274,7 @@ void Board::dragLeaveEvent(QGraphicsSceneDragDropEvent* e) {
 	markers.clear();
 	centerOnPos(draggedPiece);
 	draggedPiece->setZValue(pieceZValue);
-	draggedPiece = 0;
+	draggedPiece = nullptr;
 	m_dragActive = false;
 }
 
@@ -298,7 +297,7 @@ void Board::dropEvent(QGraphicsSceneDragDropEvent* e) {
 			emit pieceMoved(move);
 		}
 		draggedPiece->setZValue(pieceZValue);
-		draggedPiece = 0;
+		draggedPiece = nullptr;
 	}
 }
 
@@ -422,7 +421,7 @@ void Board::updateTheme() {
 		m_background = new Item ( renderer, backgroundKey, this, Pos() );
 		m_background->setZValue ( backgroundZValue );
 	} else {
-		m_background = 0;
+		m_background = nullptr;
 	}
 
 	qDeleteAll ( m_borders );

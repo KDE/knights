@@ -33,7 +33,7 @@ namespace Knights
         public:
             Pos();
             Pos ( const int& t1, const int& t2 );
-            Pos ( const QString string );
+            explicit Pos (const QString);
             ~Pos();
 
             static QChar row ( int num );
@@ -54,6 +54,5 @@ namespace Knights
     Pos operator/ ( const Pos& other, int m );
 }
     QDebug operator<< ( QDebug debug, const Knights::Pos &pos );
-    
+
 #endif // KNIGHTS_POS_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

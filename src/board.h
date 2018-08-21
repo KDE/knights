@@ -58,7 +58,7 @@ public:
 		Motion
 	};
 
-	Board(KgThemeProvider*, QObject* parent = 0);
+	explicit Board(KgThemeProvider*, QObject* parent = nullptr);
 	virtual ~Board();
 
 	void populate();

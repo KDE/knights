@@ -50,7 +50,7 @@ class ChatWidget;
             Q_FLAGS ( Features )
             Q_PROPERTY ( Color color READ color WRITE setColor )
             Q_PROPERTY ( QString playerName READ playerName WRITE setPlayerName )
-            
+
         public:
             enum Feature
             {
@@ -79,7 +79,7 @@ class ChatWidget;
                 InstallationError,
                 UnknownError
             };
-            
+
             enum ToolWidgetType
             {
                 ConsoleToolWidget,
@@ -95,7 +95,7 @@ class ChatWidget;
                 ToolWidgetType type;
                 Color owner;
             };
-            
+
             static QString stringFromErrorCode ( ErrorCode code );
             static Protocol* white();
             static void setWhiteProtocol ( Protocol* p );
@@ -103,7 +103,7 @@ class ChatWidget;
             static void setBlackProtocol ( Protocol* p );
             static Protocol* byColor ( Color color );
 
-            Protocol ( QObject* parent = 0 );
+            explicit Protocol(QObject* parent = nullptr);
             virtual ~Protocol();
 
             // Needed functions
@@ -137,7 +137,7 @@ class ChatWidget;
 
             // Optional features
             virtual void setWinner ( Color winner );
-            
+
         public:
             virtual Features supportedFeatures();
             virtual int timeRemaining();
@@ -145,7 +145,7 @@ class ChatWidget;
             virtual void setTimeControl ( const TimeControl& c );
             virtual bool isReady();
             virtual void setDifficulty ( int depth, int memory );
-            
+
         Q_SIGNALS:
             void pieceMoved ( const Move& m );
             void illegalMove();
@@ -173,4 +173,3 @@ class ChatWidget;
 }
 
 #endif // KNIGHTS_PROTOCOL_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

@@ -235,7 +235,7 @@ void FicsProtocol::openGameDialog()
     connect ( m_widget, &FicsDialog::acceptSeek, this, &FicsProtocol::acceptSeek );
     connect ( m_widget, &FicsDialog::acceptChallenge, this, &FicsProtocol::acceptChallenge );
     connect ( m_widget, &FicsDialog::declineChallenge, this, &FicsProtocol::declineChallenge );
-    
+
     connect ( this, &FicsProtocol::sessionStarted, m_widget, &FicsDialog::slotSessionStarted );
     connect ( this, &FicsProtocol::gameOfferReceived, m_widget, &FicsDialog::addGameOffer );
     connect ( this, &FicsProtocol::gameOfferRemoved, m_widget, &FicsDialog::removeGameOffer );
@@ -417,7 +417,7 @@ bool FicsProtocol::parseLine(const QString& line)
                 {
                     opp->setPlayerName ( otherPlayerName );
                 }
-                
+
                 m_stage = PlayStage;
                 initComplete();
             }
@@ -461,8 +461,8 @@ bool FicsProtocol::parseLine(const QString& line)
                     }
                     else if ( moveStringExp.indexIn ( moveString ) > -1 )
                     {
-                        m.setFrom ( moveStringExp.cap ( 1 ) );
-                        m.setTo ( moveStringExp.cap ( 2 ) );
+                        m.setFrom( Pos(moveStringExp.cap(1)) );
+                        m.setTo( Pos(moveStringExp.cap(2)) );
                         if ( !moveStringExp.cap(3).isEmpty() )
                         {
                             m.setFlag ( Move::Promote, true );
@@ -590,7 +590,7 @@ void FicsProtocol::setSeeking ( bool seek )
     if ( seek )
     {
         QByteArray seekText = "seek";
-        
+
         TimeControl tc = Manager::self()->timeControl(color());
         seekText += ' ';
         seekText += QString::number ( 60 * tc.baseTime.hour() + tc.baseTime.minute() ).toLatin1();
@@ -599,7 +599,7 @@ void FicsProtocol::setSeeking ( bool seek )
 
         seekText += m_widget->rated() ? " rated" : " unrated";
         /*
-         * Commented out until I figure out a simple way to determine if a color should be forced. 
+         * Commented out until I figure out a simple way to determine if a color should be forced.
         switch ( color() )
         {
             case White:
@@ -649,27 +649,27 @@ void FicsProtocol::makeOffer(const Offer& offer)
         case ActionDraw:
             write ( "draw" );
             break;
-            
+
         case ActionPause:
             write ( "pause" );
             break;
-            
+
         case ActionUndo:
             write ( QLatin1String("takeback ") + QString::number ( offer.numberOfMoves ) );
             break;
-            
+
         case ActionResume:
             write ( "unpause" );
             break;
-            
+
         case ActionAdjourn:
             write ( "adjourn" );
             break;
-            
+
         case ActionAbort:
             write ( "abort" );
             break;
-            
+
         default:
             break;
     }

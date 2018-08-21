@@ -48,7 +48,7 @@ class Clock : public QWidget
     Q_OBJECT
 
 public:
-    Clock( QWidget *parent=0 );
+    explicit Clock( QWidget* parent = nullptr);
     ~Clock();
 
     void setTime(const QTime&);
@@ -83,4 +83,3 @@ private:
 }
 
 #endif // KNIGHTS_CLOCK_H
-// kate: indent-mode cstyle; space-indent on; indent-width 0;  replace-tabs on;

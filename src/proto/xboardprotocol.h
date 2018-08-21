@@ -38,7 +38,7 @@ class XBoardProtocol : public ComputerProtocol {
 	Q_OBJECT
 
 public:
-	XBoardProtocol(QObject* parent = 0);
+	explicit XBoardProtocol(QObject* parent = nullptr);
 	~XBoardProtocol();
 
 	virtual void move(const Move&);
