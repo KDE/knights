@@ -781,7 +781,11 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
          * We try (in this order):
          * Ne6, Nde6, N5e6, Nd5e6
          */
-        const PieceType type = m_grid->value ( move->from() )->pieceType();
+        Piece* piece = m_grid->value(move->from());
+        if (!piece)
+            return; //piece not found in the grid. invalid move?
+
+        const PieceType type = piece->pieceType();
         const QString typeLetter = (type != Pawn) ? Piece::charFromType ( type ) : QString();
         QString end = move->to().string();
 
@@ -846,6 +850,3 @@ bool ChessRules::hasRookMoved(Color color, Move::CastlingSide side)
     }
     return false;
 }
-
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
