@@ -431,9 +431,11 @@ void MainWindow::optionsPreferences() {
 	dialog->addPage(engineSettings, i18n("Computer Engines"), QLatin1String("computer"));
 	connect(dialog, &KConfigDialog::accepted, engineSettings, &EngineSettings::save);
 
-	QWidget* accessDlg = new QWidget;
-	ui_prefs_access.setupUi(accessDlg);
-	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));
+	//FIXME: the accessibility page doesn't seem to be used at the moment.
+	//Furthermore, the option "Speak opponent's moves" has to be behing HAVE_SPEECH
+// 	QWidget* accessDlg = new QWidget;
+// 	ui_prefs_access.setupUi(accessDlg);
+// 	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));
 
 	QWidget* themeDlg = new KgThemeSelector(m_themeProvider, KgThemeSelector::EnableNewStuffDownload, dialog);
 	dialog->addPage(themeDlg, i18n("Theme"), QLatin1String("games-config-theme"));
