@@ -28,16 +28,14 @@
 
 using namespace Knights;
 
-ExternalControl::ExternalControl(QObject* parent) : QObject(parent)
-{
-    connect(Manager::self(), &Manager::pieceMoved, this, &ExternalControl::slotMoveMade);
-    new KnightsAdaptor(this);
-    qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
-    qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
+ExternalControl::ExternalControl(QObject* parent) : QObject(parent) {
+	connect(Manager::self(), &Manager::pieceMoved, this, &ExternalControl::slotMoveMade);
+	new KnightsAdaptor(this);
+	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
+	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
 }
 
-ExternalControl::~ExternalControl()
-{
+ExternalControl::~ExternalControl() {
 
 }
 
@@ -48,14 +46,12 @@ FORWARD_FUNCTION(resumeGame,Resume)
 FORWARD_FUNCTION(undo,Undo)
 FORWARD_FUNCTION(offerDraw,Draw)
 
-void ExternalControl::movePiece(const QString& move)
-{
-    Manager::self()->moveByExternalControl(Move(move));
+void ExternalControl::movePiece(const QString& move) {
+	Manager::self()->moveByExternalControl(Move(move));
 }
 
-void ExternalControl::slotMoveMade(const Knights::Move& move)
-{
-    emit moveMade(move.string());
+void ExternalControl::slotMoveMade(const Knights::Move& move) {
+	emit moveMade(move.string());
 }
 
 

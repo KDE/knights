@@ -29,37 +29,36 @@ class KProcess;
 
 namespace Knights {
 
-class UciProtocol : public ComputerProtocol
-{
+class UciProtocol : public ComputerProtocol {
 
 public:
-    explicit UciProtocol(QObject* parent = nullptr);
-    virtual ~UciProtocol();
+	explicit UciProtocol(QObject* parent = nullptr);
+	virtual ~UciProtocol();
 
 protected:
-    virtual bool parseStub(const QString& line);
-    virtual bool parseLine(const QString& line);
+	virtual bool parseStub(const QString& line);
+	virtual bool parseLine(const QString& line);
 
 public:
-    virtual Features supportedFeatures();
-    virtual void declineOffer(const Knights::Offer& offer);
-    virtual void acceptOffer(const Knights::Offer& offer);
-    virtual void makeOffer(const Knights::Offer& offer);
-    virtual void startGame();
-    virtual void init();
-    virtual void move(const Knights::Move& m);
-    virtual void setDifficulty(int depth, int memory);
+	virtual Features supportedFeatures();
+	virtual void declineOffer(const Knights::Offer& offer);
+	virtual void acceptOffer(const Knights::Offer& offer);
+	virtual void makeOffer(const Knights::Offer& offer);
+	virtual void startGame();
+	virtual void init();
+	virtual void move(const Knights::Move& m);
+	virtual void setDifficulty(int depth, int memory);
 
 private slots:
-    void changeCurrentTime(Knights::Color color, const QTime& time);
-    void requestNextMove();
+	void changeCurrentTime(Knights::Color color, const QTime& time);
+	void requestNextMove();
 
 private:
-    QStack<Move> mMoveHistory;
-    int mWhiteTime;
-    int mBlackTime;
-    Move mPonderMove;
-    int mDifficulty;
+	QStack<Move> mMoveHistory;
+	int mWhiteTime;
+	int mBlackTime;
+	Move mPonderMove;
+	int mDifficulty;
 };
 
 }

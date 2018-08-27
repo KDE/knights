@@ -29,13 +29,11 @@
 #include <QWidget>
 #include <QTime>
 
-namespace Plasma
-{
+namespace Plasma {
 class Svg;
 }
 
-namespace Knights
-{
+namespace Knights {
 /**
  * This class is copied from the Date and Time KCM.
  * See http://websvn.kde.org/trunk/KDE/kdebase/workspace/kcontrol/dateandtime/dtime.h?&view=markup
@@ -43,40 +41,39 @@ namespace Knights
  * Note that this is a chess clock, which is set to negative time before a match, so all angles are reversed.
  * See paintInterface for details.
  */
-class Clock : public QWidget
-{
-    Q_OBJECT
+class Clock : public QWidget {
+	Q_OBJECT
 
 public:
-    explicit Clock( QWidget* parent = nullptr);
-    ~Clock();
+	explicit Clock( QWidget* parent = nullptr);
+	~Clock();
 
-    void setTime(const QTime&);
-    void setTime(int miliSeconds);
+	void setTime(const QTime&);
+	void setTime(int miliSeconds);
 
 protected:
-    virtual void paintEvent( QPaintEvent *event );
-    virtual void showEvent( QShowEvent *event );
-    virtual void resizeEvent( QResizeEvent *event );
+	virtual void paintEvent( QPaintEvent *event );
+	virtual void showEvent( QShowEvent *event );
+	virtual void resizeEvent( QResizeEvent *event );
 
 private:
-    void setClockSize(const QSize &size);
-    void drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName);
-    void paintInterface(QPainter *p, const QRect &rect);
+	void setClockSize(const QSize &size);
+	void drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName);
+	void paintInterface(QPainter *p, const QRect &rect);
 
 private:
-    QTime time;
-    Plasma::Svg *m_theme;
-    enum RepaintCache {
-        RepaintNone,
-        RepaintAll,
-        RepaintHands
-    };
-    RepaintCache m_repaintCache;
-    QPixmap m_faceCache;
-    QPixmap m_handsCache;
-    QPixmap m_glassCache;
-    qreal m_verticalTranslation;
+	QTime time;
+	Plasma::Svg *m_theme;
+	enum RepaintCache {
+		RepaintNone,
+		RepaintAll,
+		RepaintHands
+	};
+	RepaintCache m_repaintCache;
+	QPixmap m_faceCache;
+	QPixmap m_handsCache;
+	QPixmap m_glassCache;
+	qreal m_verticalTranslation;
 };
 
 

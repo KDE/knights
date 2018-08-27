@@ -27,63 +27,49 @@
 
 using namespace Knights;
 
-void LocalProtocol::init (  )
-{
-    KUser user;
-    if ( user.isValid() )
-    {
-      QVariant fullName = user.property(KUser::FullName);
-      setPlayerName ( ( QVariant() == fullName ) ? user.loginName() : fullName.toString() );
-    }
-    else
-    {
-      setPlayerName ( colorName ( color() ) );
-    }
-    initComplete();
+void LocalProtocol::init (  ) {
+	KUser user;
+	if ( user.isValid() ) {
+		QVariant fullName = user.property(KUser::FullName);
+		setPlayerName ( ( QVariant() == fullName ) ? user.loginName() : fullName.toString() );
+	} else
+		setPlayerName ( colorName ( color() ) );
+	initComplete();
 }
 
-void LocalProtocol::startGame()
-{
+void LocalProtocol::startGame() {
 
 }
 
-void LocalProtocol::move ( const Move& m )
-{
-  Q_UNUSED(m)
+void LocalProtocol::move ( const Move& m ) {
+	Q_UNUSED(m)
 }
 
-LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent )
-{
+LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ) {
 }
 
-LocalProtocol::~LocalProtocol()
-{
+LocalProtocol::~LocalProtocol() {
 
 }
 
-bool LocalProtocol::isLocal()
-{
-  return true;
+bool LocalProtocol::isLocal() {
+	return true;
 }
 
-Protocol::Features LocalProtocol::supportedFeatures()
-{
-    return Pause | Undo | TimeLimit;
+Protocol::Features LocalProtocol::supportedFeatures() {
+	return Pause | Undo | TimeLimit;
 }
 
-void LocalProtocol::makeOffer(const Offer& offer)
-{
-  offer.accept();
+void LocalProtocol::makeOffer(const Offer& offer) {
+	offer.accept();
 }
 
-void LocalProtocol::acceptOffer(const Offer& offer)
-{
-  Q_UNUSED(offer);
+void LocalProtocol::acceptOffer(const Offer& offer) {
+	Q_UNUSED(offer);
 }
 
-void LocalProtocol::declineOffer(const Offer& offer)
-{
-  Q_UNUSED(offer);
+void LocalProtocol::declineOffer(const Offer& offer) {
+	Q_UNUSED(offer);
 }
 
 

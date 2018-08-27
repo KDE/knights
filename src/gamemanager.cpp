@@ -158,14 +158,14 @@ void Manager::setTimeRunning(bool running) {
 void Manager::setCurrentTime(Color color, const QTime& time) {
 	Q_D(GameManager);
 	switch ( color ) {
-		case White:
-			d->whiteTimeControl.currentTime = time;
-			break;
-		case Black:
-			d->blackTimeControl.currentTime = time;
-			break;
-		default:
-			return;
+	case White:
+		d->whiteTimeControl.currentTime = time;
+		break;
+	case Black:
+		d->blackTimeControl.currentTime = time;
+		break;
+	default:
+		return;
 	}
 	emit timeChanged ( color, time );
 }
@@ -174,21 +174,21 @@ void Manager::timerEvent(QTimerEvent* ) {
 	Q_D(GameManager);
 	QTime time;
 	switch ( d->activePlayer ) {
-		case White:
-			if ( d->whiteTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
-				gameOver(Black);
-			d->whiteTimeControl.currentTime = d->whiteTimeControl.currentTime.addMSecs ( -TimerInterval );
-			time = d->whiteTimeControl.currentTime;
-			break;
-		case Black:
-			if ( d->blackTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
-				gameOver(White);
-			d->blackTimeControl.currentTime = d->blackTimeControl.currentTime.addMSecs ( -TimerInterval );
-			time = d->blackTimeControl.currentTime;
-			break;
-		default:
-			time = QTime();
-			break;
+	case White:
+		if ( d->whiteTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
+			gameOver(Black);
+		d->whiteTimeControl.currentTime = d->whiteTimeControl.currentTime.addMSecs ( -TimerInterval );
+		time = d->whiteTimeControl.currentTime;
+		break;
+	case Black:
+		if ( d->blackTimeControl.currentTime == QTime(0, 0, 0, TimerInterval) )
+			gameOver(White);
+		d->blackTimeControl.currentTime = d->blackTimeControl.currentTime.addMSecs ( -TimerInterval );
+		time = d->blackTimeControl.currentTime;
+		break;
+	default:
+		time = QTime();
+		break;
 	}
 	emit timeChanged(d->activePlayer, time);
 }
@@ -509,20 +509,20 @@ void Manager::sendOffer(const Offer& offer) {
 	QString name = Protocol::byColor(o.player)->playerName();
 	if ( o.text.isEmpty() ) {
 		switch ( offer.action ) {
-			case ActionDraw:
-				o.text = i18n("%1 offers you a draw", name);
-				break;
-			case ActionUndo:
-				o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
-				break;
-			case ActionAdjourn:
-				o.text = i18n("%1 would like to adjourn the game", name);
-				break;
-			case ActionAbort:
-				o.text = i18n("%1 would like to abort the game", name);
-				break;
-			default:
-				break;
+		case ActionDraw:
+			o.text = i18n("%1 offers you a draw", name);
+			break;
+		case ActionUndo:
+			o.text = i18np("%2 would like to take back a half move", "%2 would like to take back %1 half moves", o.numberOfMoves, name);
+			break;
+		case ActionAdjourn:
+			o.text = i18n("%1 would like to adjourn the game", name);
+			break;
+		case ActionAbort:
+			o.text = i18n("%1 would like to abort the game", name);
+			break;
+		default:
+			break;
 		}
 	}
 	d->offers.insert ( o.id, o );
@@ -540,32 +540,32 @@ void Manager::setOfferResult(int id, OfferAction result) {
 	if ( result == AcceptOffer ) {
 		Protocol::byColor(d->offers[id].player)->acceptOffer(d->offers[id]);
 		switch ( d->offers[id].action ) {
-			case ActionUndo:
-				for ( int i = 0; i < d->offers[id].numberOfMoves; ++i ) {
-					emit pieceMoved ( nextUndoMove() );
-					changeActivePlayer();
-				}
-				break;
+		case ActionUndo:
+			for ( int i = 0; i < d->offers[id].numberOfMoves; ++i ) {
+				emit pieceMoved ( nextUndoMove() );
+				changeActivePlayer();
+			}
+			break;
 
-			case ActionDraw:
-				Protocol::white()->setWinner(NoColor);
-				Protocol::black()->setWinner(NoColor);
-				break;
+		case ActionDraw:
+			Protocol::white()->setWinner(NoColor);
+			Protocol::black()->setWinner(NoColor);
+			break;
 
-			case ActionAbort:
-				gameOver(NoColor);
-				break;
+		case ActionAbort:
+			gameOver(NoColor);
+			break;
 
-			case ActionPause:
-				stopTime();
-				break;
+		case ActionPause:
+			stopTime();
+			break;
 
-			case ActionResume:
-				startTime();
-				break;
+		case ActionResume:
+			startTime();
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 	} else if ( result == DeclineOffer )
 		Protocol::byColor(d->offers[id].player)->declineOffer(d->offers[id]);
@@ -653,28 +653,28 @@ void Manager::sendPendingMove() {
 		int moveNumber;
 		int secondsAdded = 0;
 		switch ( d->activePlayer ) {
-			case White:
-				moveNumber = ( d->moveHistory.size() + 1 ) / 2;
-				if ( moveNumber > 1 )
-					secondsAdded += d->whiteTimeControl.increment;
-				if ( d->whiteTimeControl.moves > 0 && ( moveNumber % d->whiteTimeControl.moves ) == 0 )
-					secondsAdded += QTime().secsTo( d->whiteTimeControl.baseTime );
-				if ( secondsAdded != 0 )
-					setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( secondsAdded ) );
-				break;
+		case White:
+			moveNumber = ( d->moveHistory.size() + 1 ) / 2;
+			if ( moveNumber > 1 )
+				secondsAdded += d->whiteTimeControl.increment;
+			if ( d->whiteTimeControl.moves > 0 && ( moveNumber % d->whiteTimeControl.moves ) == 0 )
+				secondsAdded += QTime().secsTo( d->whiteTimeControl.baseTime );
+			if ( secondsAdded != 0 )
+				setCurrentTime ( White, d->whiteTimeControl.currentTime.addSecs ( secondsAdded ) );
+			break;
 
-			case Black:
-				moveNumber = d->moveHistory.size() / 2;
-				if ( moveNumber > 1 )
-					secondsAdded += d->blackTimeControl.increment;
-				if ( d->blackTimeControl.moves > 0 && ( moveNumber % d->blackTimeControl.moves ) == 0 )
-					secondsAdded += QTime().secsTo ( d->blackTimeControl.baseTime );
-				if ( secondsAdded != 0 )
-					setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( secondsAdded ) );
-				break;
+		case Black:
+			moveNumber = d->moveHistory.size() / 2;
+			if ( moveNumber > 1 )
+				secondsAdded += d->blackTimeControl.increment;
+			if ( d->blackTimeControl.moves > 0 && ( moveNumber % d->blackTimeControl.moves ) == 0 )
+				secondsAdded += QTime().secsTo ( d->blackTimeControl.baseTime );
+			if ( secondsAdded != 0 )
+				setCurrentTime ( Black, d->blackTimeControl.currentTime.addSecs ( secondsAdded ) );
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
 		changeActivePlayer();
 	}
@@ -731,27 +731,27 @@ void Manager::levelChanged ( const KgDifficultyLevel* level ) {
 	int depth = 0;
 	int size = 32;
 	switch ( level->standardLevel() ) {
-		case KgDifficultyLevel::VeryEasy:
-			depth = 1;
-			break;
+	case KgDifficultyLevel::VeryEasy:
+		depth = 1;
+		break;
 
-		case KgDifficultyLevel::Easy:
-			depth = 3;
-			break;
+	case KgDifficultyLevel::Easy:
+		depth = 3;
+		break;
 
-		case KgDifficultyLevel::Medium:
-			depth = 8;
-			break;
+	case KgDifficultyLevel::Medium:
+		depth = 8;
+		break;
 
-		case KgDifficultyLevel::Hard:
-			depth = 16;
-			break;
+	case KgDifficultyLevel::Hard:
+		depth = 16;
+		break;
 
-		case KgDifficultyLevel::VeryHard:
-			depth = 32;
-			break;
+	case KgDifficultyLevel::VeryHard:
+		depth = 32;
+		break;
 
-		case KgDifficultyLevel::Custom: {
+	case KgDifficultyLevel::Custom: {
 			QPointer<DifficultyDialog> dlg = new DifficultyDialog();
 			if ( dlg->exec() == QDialog::Accepted ) {
 				depth = dlg->searchDepth();
@@ -761,8 +761,8 @@ void Manager::levelChanged ( const KgDifficultyLevel* level ) {
 		}
 		break;
 
-		default:
-			break;
+	default:
+		break;
 	}
 
 	Protocol* p = Protocol::white();
@@ -845,15 +845,15 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 		result += '*';
 	else {
 		switch ( d->winner ) {
-			case White:
-				result = "1-0";
-				break;
-			case Black:
-				result = "0-1";
-				break;
-			default:
-				result = "1/2-1/2";
-				break;
+		case White:
+			result = "1-0";
+			break;
+		case Black:
+			result = "0-1";
+			break;
+		default:
+			result = "1/2-1/2";
+			break;
 		}
 	}
 	stream << "[Result \"" << result << "\"]" << endl;

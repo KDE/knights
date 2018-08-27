@@ -175,42 +175,42 @@ bool XBoardProtocol::parseLine(const QString& line) {
 void XBoardProtocol::acceptOffer(const Offer& offer) {
 	qCDebug(LOG_KNIGHTS) << "Accepting offer" << offer.text;
 	switch ( offer.action ) {
-		case ActionDraw:
-			setWinner(NoColor);
-			break;
+	case ActionDraw:
+		setWinner(NoColor);
+		break;
 
-		case ActionAdjourn:
-			write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
-			break;
+	case ActionAdjourn:
+		write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
+		break;
 
-		case ActionUndo:
-			for ( int i = 0; i < offer.numberOfMoves/2; ++i )
-				write ( "remove" );
-			if (offer.numberOfMoves % 2) {
-				write ( "force" );
-				write ( "undo" );
-
-				if ( Manager::self()->activePlayer() != color() )
-					write ( "go" );
-				else
-					m_resumePending = true;
-			}
-			break;
-
-		case ActionPause:
+	case ActionUndo:
+		for ( int i = 0; i < offer.numberOfMoves/2; ++i )
+			write ( "remove" );
+		if (offer.numberOfMoves % 2) {
 			write ( "force" );
-			break;
+			write ( "undo" );
 
-		case ActionResume:
-			if ( Manager::self()->activePlayer() == color() )
+			if ( Manager::self()->activePlayer() != color() )
 				write ( "go" );
 			else
 				m_resumePending = true;
-			break;
+		}
+		break;
 
-		default:
-			qCCritical(LOG_KNIGHTS) << "XBoard should not send this kind offers";
-			break;
+	case ActionPause:
+		write ( "force" );
+		break;
+
+	case ActionResume:
+		if ( Manager::self()->activePlayer() == color() )
+			write ( "go" );
+		else
+			m_resumePending = true;
+		break;
+
+	default:
+		qCCritical(LOG_KNIGHTS) << "XBoard should not send this kind offers";
+		break;
 	}
 }
 
@@ -222,60 +222,60 @@ void XBoardProtocol::declineOffer(const Offer& offer) {
 void XBoardProtocol::setWinner(Color winner) {
 	QByteArray result = "result ";
 	switch ( winner ) {
-		case White:
-			result += "1-0";
-			break;
-		case Black:
-			result += "0-1";
-			break;
-		case NoColor:
-			result += "1/2-1/2";
-			break;
+	case White:
+		result += "1-0";
+		break;
+	case Black:
+		result += "0-1";
+		break;
+	case NoColor:
+		result += "1/2-1/2";
+		break;
 	}
 	write(QLatin1String(result));
 }
 
 void XBoardProtocol::makeOffer(const Offer& offer) {
 	switch ( offer.action ) {
-		case ActionDraw:
-			write("draw");
-			break;
+	case ActionDraw:
+		write("draw");
+		break;
 
-		case ActionAdjourn:
-			write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
-			offer.accept();
-			break;
+	case ActionAdjourn:
+		write( QLatin1String("save ") + QFileDialog::getSaveFileName() );
+		offer.accept();
+		break;
 
-		case ActionUndo:
-			for ( int i = 0; i < offer.numberOfMoves/2; ++i )
-				write ( "remove" );
-			if (offer.numberOfMoves % 2) {
-				write ( "force" );
-				write ( "undo" );
-
-				if ( Manager::self()->activePlayer() != color() )
-					write ( "go" );
-				else
-					m_resumePending = true;
-			}
-			offer.accept();
-			break;
-
-		case ActionPause:
+	case ActionUndo:
+		for ( int i = 0; i < offer.numberOfMoves/2; ++i )
+			write ( "remove" );
+		if (offer.numberOfMoves % 2) {
 			write ( "force" );
-			offer.accept();
-			break;
+			write ( "undo" );
 
-		case ActionResume:
-			if ( Manager::self()->activePlayer() == color() )
+			if ( Manager::self()->activePlayer() != color() )
 				write ( "go" );
 			else
 				m_resumePending = true;
-			offer.accept();
-			break;
+		}
+		offer.accept();
+		break;
 
-		default:
-			break;
+	case ActionPause:
+		write ( "force" );
+		offer.accept();
+		break;
+
+	case ActionResume:
+		if ( Manager::self()->activePlayer() == color() )
+			write ( "go" );
+		else
+			m_resumePending = true;
+		offer.accept();
+		break;
+
+	default:
+		break;
 	}
 }
 

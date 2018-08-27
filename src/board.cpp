@@ -389,15 +389,15 @@ void Board::setCurrentColor(Color color) {
 void Board::addMarker(const Pos& pos, MarkerType type) {
 	QString key;
 	switch ( type ) {
-		case LegalMove:
-			key = legalMarkerKey;
-			break;
-		case Danger:
-			key = dangerMarkerKey;
-			break;
-		case Motion:
-			key = motionMarkerKey;
-			break;
+	case LegalMove:
+		key = legalMarkerKey;
+		break;
+	case Danger:
+		key = dangerMarkerKey;
+		break;
+	case Motion:
+		key = motionMarkerKey;
+		break;
 	}
 	addMarker ( pos, key );
 }
@@ -420,9 +420,8 @@ void Board::updateTheme() {
 	if ( renderer->spriteExists ( backgroundKey ) ) {
 		m_background = new Item ( renderer, backgroundKey, this, Pos() );
 		m_background->setZValue ( backgroundZValue );
-	} else {
+	} else
 		m_background = nullptr;
-	}
 
 	qDeleteAll ( m_borders );
 	m_borders.clear();
@@ -473,9 +472,8 @@ void Board::updateTheme() {
 }
 
 void Board::updateGraphics() {
-	if ( m_background ) {
+	if ( m_background )
 		m_background->setRenderSize ( sceneRect().size().toSize() );
-	}
 	QSizeF tileSize = renderer->boundsOnSprite ( whiteTileKey ).size();
 	QSizeF boardSize = 8 * tileSize;
 	qreal sideMargin;

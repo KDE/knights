@@ -28,24 +28,23 @@
 #include <QWidget>
 
 namespace Ui {
-    class HistoryWidget;
+class HistoryWidget;
 }
 
 namespace Knights {
 
-class HistoryWidget : public QWidget
-{
-    Q_OBJECT
+class HistoryWidget : public QWidget {
+	Q_OBJECT
 
-    public:
-        explicit HistoryWidget(QWidget* parent = 0, Qt::WindowFlags f = 0);
-        ~HistoryWidget() override;
+public:
+	explicit HistoryWidget(QWidget* parent = 0, Qt::WindowFlags f = 0);
+	~HistoryWidget() override;
 
-    private:
-        Ui::HistoryWidget* ui;
+private:
+	Ui::HistoryWidget* ui;
 
-    private slots:
-        void updateHistory();
+private slots:
+	void updateHistory();
 };
 
 }

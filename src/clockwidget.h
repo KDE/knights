@@ -30,35 +30,32 @@ class QGroupBox;
 class QTimer;
 class QTime;
 
-namespace Ui
-{
-    class ClockWidget;
+namespace Ui {
+class ClockWidget;
 }
 
-namespace Knights
-{
-    class ClockWidget : public QWidget
-    {
-            Q_OBJECT
-        public:
-            explicit ClockWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-            ~ClockWidget ();
+namespace Knights {
+class ClockWidget : public QWidget {
+	Q_OBJECT
+public:
+	explicit ClockWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+	~ClockWidget ();
 
-        public Q_SLOTS:
-            void setTimeLimit ( Color color, const QTime& time );
-            void setDisplayedPlayer ( Color color );
-            void setPlayerName ( Color color, const QString& name );
-            void setCurrentTime ( Color color, const QTime& time );
+public Q_SLOTS:
+	void setTimeLimit ( Color color, const QTime& time );
+	void setDisplayedPlayer ( Color color );
+	void setPlayerName ( Color color, const QString& name );
+	void setCurrentTime ( Color color, const QTime& time );
 
-        private:
-            Ui::ClockWidget* ui;
-            Color m_activePlayer;
-            QMap<Color, QTime> m_timeLimit;
-            QMap<Color, QTime> m_currentTime;
+private:
+	Ui::ClockWidget* ui;
+	Color m_activePlayer;
+	QMap<Color, QTime> m_timeLimit;
+	QMap<Color, QTime> m_currentTime;
 
-            void updateTimeFormat();
-            QString m_timeFormat;
-    };
+	void updateTimeFormat();
+	QString m_timeFormat;
+};
 }
 
 #endif // KNIGHTS_CLOCKWIDGET_H

@@ -30,108 +30,103 @@
 
 class QTcpSocket;
 
-namespace Knights
-{
-    class FicsDialog;
-    class ChatWidget;
+namespace Knights {
+class FicsDialog;
+class ChatWidget;
 
-    typedef QPair<QString, int> FicsPlayer;
+typedef QPair<QString, int> FicsPlayer;
 
-    struct FicsGameOffer
-    {
-        FicsPlayer player;
-        int baseTime;
-        int timeIncrement;
-        bool rated;
-        QString variant;
-        Color color;
-        bool manual;
-        bool formula;
-        int gameId;
-        QPair< int, int > ratingRange;
-        bool automatic;
-    };
+struct FicsGameOffer {
+	FicsPlayer player;
+	int baseTime;
+	int timeIncrement;
+	bool rated;
+	QString variant;
+	Color color;
+	bool manual;
+	bool formula;
+	int gameId;
+	QPair< int, int > ratingRange;
+	bool automatic;
+};
 
-    struct FicsChallenge
-    {
-        FicsPlayer player;
-        int gameId;
-    };
+struct FicsChallenge {
+	FicsPlayer player;
+	int gameId;
+};
 
-    enum Stage
-    {
-        ConnectStage,
-        SeekStage,
-        PlayStage
-    };
+enum Stage {
+	ConnectStage,
+	SeekStage,
+	PlayStage
+};
 
-    class FicsProtocol : public TextProtocol
-    {
-            Q_OBJECT
-        public:
-            explicit FicsProtocol(QObject* parent = nullptr);
-            virtual ~FicsProtocol();
+class FicsProtocol : public TextProtocol {
+	Q_OBJECT
+public:
+	explicit FicsProtocol(QObject* parent = nullptr);
+	virtual ~FicsProtocol();
 
-            virtual Features supportedFeatures();
+	virtual Features supportedFeatures();
 
-            virtual void startGame();
-            virtual void move ( const Move& m );
-            virtual QList<ToolWidgetData> toolWidgets();
+	virtual void startGame();
+	virtual void move ( const Move& m );
+	virtual QList<ToolWidgetData> toolWidgets();
 
-    virtual void makeOffer(const Offer& offer);
-    virtual void acceptOffer(const Offer& offer);
-    virtual void declineOffer(const Offer& offer);
+	virtual void makeOffer(const Offer& offer);
+	virtual void acceptOffer(const Offer& offer);
+	virtual void declineOffer(const Offer& offer);
 
-        private:
-            const QString movePattern;
-            const QRegExp seekExp;
-            const QRegExp challengeExp;
-            const QRegExp moveStringExp;
-            const QRegExp moveRegExp;
-            const QRegExp gameStartedExp;
-            const QRegExp offerExp;
+private:
+	const QString movePattern;
+	const QRegExp seekExp;
+	const QRegExp challengeExp;
+	const QRegExp moveStringExp;
+	const QRegExp moveRegExp;
+	const QRegExp gameStartedExp;
+	const QRegExp offerExp;
 
-            Stage m_stage;
-            QString password;
-            bool sendPassword;
-            FicsDialog* m_widget;
-            bool forcePrompt;
-            bool m_seeking;
-            ChatWidget* m_chat;
-            QMap<int, Offer> m_offers;
-            QString otherPlayerName;
+	Stage m_stage;
+	QString password;
+	bool sendPassword;
+	FicsDialog* m_widget;
+	bool forcePrompt;
+	bool m_seeking;
+	ChatWidget* m_chat;
+	QMap<int, Offer> m_offers;
+	QString otherPlayerName;
 
-            bool undoPending;
-            bool drawPending;
+	bool undoPending;
+	bool drawPending;
 
-            Color parseColor( QString str );
-            virtual bool parseLine(const QString& line);
-            virtual bool parseStub(const QString& line);
+	Color parseColor( QString str );
+	virtual bool parseLine(const QString& line);
+	virtual bool parseStub(const QString& line);
 
-        public Q_SLOTS:
-            virtual void init ();
-            virtual void resign();
+public Q_SLOTS:
+	virtual void init ();
+	virtual void resign();
 
-            void socketError();
-            void dialogRejected();
-            void acceptSeek ( int id );
-            void acceptChallenge ( int id );
-            void declineChallenge ( int id );
-            void login(const QString& username, const QString& password);
-            void sendChat ( QString text );
+	void socketError();
+	void dialogRejected();
+	void acceptSeek ( int id );
+	void acceptChallenge ( int id );
+	void declineChallenge ( int id );
+	void login(const QString& username, const QString& password);
+	void sendChat ( QString text );
 
-            void openGameDialog();
-            void setSeeking ( bool seek );
-            void setupOptions();
+	void openGameDialog();
+	void setSeeking ( bool seek );
+	void setupOptions();
 
-        Q_SIGNALS:
-            void sessionStarted();
-            void clearSeeks();
-            void gameOfferRemoved ( int id );
-            void gameOfferReceived ( const FicsGameOffer& offer );
-            void challengeReceived ( const FicsChallenge& challenge );
-            void challengeRemoved ( int id );
-    };
+Q_SIGNALS:
+	void sessionStarted();
+	void clearSeeks();
+	void gameOfferRemoved ( int id );
+	void gameOfferReceived ( const FicsGameOffer& offer );
+	void challengeReceived ( const FicsChallenge& challenge );
+	void challengeRemoved ( int id );
+};
 }
 
 #endif // KNIGHTS_FICSPROTOCOL_H

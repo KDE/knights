@@ -251,7 +251,7 @@ void MainWindow::fileNew() {
 		Manager::self()->initialize();
 
 		bool difficulty = (Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty)
-							|| (Protocol::black()->supportedFeatures()& Protocol::AdjustDifficulty);
+		                  || (Protocol::black()->supportedFeatures()& Protocol::AdjustDifficulty);
 		Kg::difficulty()->setEditable(difficulty);
 	}
 	delete gameNewDialog;
@@ -590,12 +590,12 @@ bool MainWindow::maybeSave() {
 	Settings::setDontAskInternal(QString());
 
 	int result = KMessageBox::warningYesNoCancel(QApplication::activeWindow(),
-				i18n("This will end your game.\nWould you like to save the move history?"),
-				QString(),
-				KStandardGuiItem::save(),
-				KStandardGuiItem::discard(),
-				KStandardGuiItem::cancel(),
-				QLatin1String(DontAskDiscard));
+	             i18n("This will end your game.\nWould you like to save the move history?"),
+	             QString(),
+	             KStandardGuiItem::save(),
+	             KStandardGuiItem::discard(),
+	             KStandardGuiItem::cancel(),
+	             QLatin1String(DontAskDiscard));
 
 	KMessageBox::ButtonCode res;
 	Settings::setAskDiscard(KMessageBox::shouldBeShownYesNo(QLatin1String(DontAskDiscard), res));

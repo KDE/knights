@@ -25,34 +25,32 @@
 #include <QPair>
 #include <QDataStream>
 
-namespace Knights
-{
+namespace Knights {
 
-    class Pos : public QPair<int, int>
-    {
-        public:
-            Pos();
-            Pos ( const int& t1, const int& t2 );
-            explicit Pos (const QString);
-            ~Pos();
+class Pos : public QPair<int, int> {
+public:
+	Pos();
+	Pos ( const int& t1, const int& t2 );
+	explicit Pos (const QString);
+	~Pos();
 
-            static QChar row ( int num );
-            static int numFromRow ( const QChar& row );
+	static QChar row ( int num );
+	static int numFromRow ( const QChar& row );
 
-            QString string() const;
-            bool isValid() const;
+	QString string() const;
+	bool isValid() const;
 
-            const Pos& operator+= ( const Pos& other );
+	const Pos& operator+= ( const Pos& other );
 
-        private:
-            static const QString rowNames;
-    };
+private:
+	static const QString rowNames;
+};
 
-    Pos operator+ ( const Pos& one, const Pos& other );
-    Pos operator- ( const Pos& one, const Pos& other );
-    Pos operator* ( int m, const Pos& other );
-    Pos operator/ ( const Pos& other, int m );
+Pos operator+ ( const Pos& one, const Pos& other );
+Pos operator- ( const Pos& one, const Pos& other );
+Pos operator* ( int m, const Pos& other );
+Pos operator/ ( const Pos& other, int m );
 }
-    QDebug operator<< ( QDebug debug, const Knights::Pos &pos );
+QDebug operator<< ( QDebug debug, const Knights::Pos &pos );
 
 #endif // KNIGHTS_POS_H

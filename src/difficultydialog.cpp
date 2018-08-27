@@ -31,8 +31,7 @@
 
 #include <QDialogButtonBox>
 
-DifficultyDialog::DifficultyDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f)
-{
+DifficultyDialog::DifficultyDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f) {
 	QFrame* mainFrame = new QFrame(this);
 	ui = new Ui::CustomDifficultyDialog();
 	ui->setupUi(mainFrame);
@@ -53,17 +52,14 @@ DifficultyDialog::DifficultyDialog(QWidget* parent, Qt::WindowFlags f) : QDialog
 	connect(bBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
-DifficultyDialog::~DifficultyDialog()
-{
-    delete ui;
+DifficultyDialog::~DifficultyDialog() {
+	delete ui;
 }
 
-int DifficultyDialog::memorySize() const
-{
+int DifficultyDialog::memorySize() const {
 	return ui->sbMemorySize->value();
 }
 
-int DifficultyDialog::searchDepth() const
-{
+int DifficultyDialog::searchDepth() const {
 	return ui->sbSearchDepth->value();
 }

@@ -26,30 +26,26 @@
 
 #include <KGameRenderedObjectItem>
 
-namespace Knights
-{
+namespace Knights {
 
-    class Item : public KGameRenderedObjectItem
-    {
-            Q_OBJECT
-            Q_PROPERTY ( Pos boardPos READ boardPos WRITE setBoardPos )
-            Q_PROPERTY ( QSize renderSize READ renderSize WRITE setRenderSize )
+class Item : public KGameRenderedObjectItem {
+	Q_OBJECT
+	Q_PROPERTY ( Pos boardPos READ boardPos WRITE setBoardPos )
+	Q_PROPERTY ( QSize renderSize READ renderSize WRITE setRenderSize )
 
-        public:
-            Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
-            virtual ~Item();
+public:
+	Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
+	virtual ~Item();
 
-            void setBoardPos ( const Pos& pos );
-            Pos boardPos() const;
+	void setBoardPos ( const Pos& pos );
+	Pos boardPos() const;
 
-            void move ( const QPointF& pos, qreal tileSize, bool animated = true );
-            void resize ( const QSize& size, bool animated = true );
-            void moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated = true );
+	void move ( const QPointF& pos, qreal tileSize, bool animated = true );
+	void resize ( const QSize& size, bool animated = true );
+	void moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size, bool animated = true );
 
-        private:
-            Pos m_pos;
-
-    };
+private:
+	Pos m_pos;
+};
 }
 #endif // KNIGHTS_ITEM_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on; 

@@ -26,70 +26,66 @@
 #include <QMap>
 #include <QTextBrowser>
 
-namespace Ui
-{
-  class ChatWidget;
+namespace Ui {
+class ChatWidget;
 }
 
-namespace Knights
-{
+namespace Knights {
 
-    class Terminal: public QTextBrowser {
-      protected:
-        virtual void resizeEvent ( QResizeEvent * event );
-    };
+class Terminal: public QTextBrowser {
+protected:
+	virtual void resizeEvent ( QResizeEvent * event );
+};
 
-    class ChatWidget : public QWidget
-    {
-      Q_OBJECT
-      Q_ENUMS(MessageType)
-      
-    public:
-    enum MessageType
-      {
-	  AccountMessage,
-	  SeekMessage,
-	  ChallengeMessage,
-	  ChatMessage,
-	  GreetMessage,
-	  StatusMessage,
-	  GeneralMessage,
-	  ErrorMessage,
-	  MoveMessage
-      };
+class ChatWidget : public QWidget {
+	Q_OBJECT
+	Q_ENUMS(MessageType)
 
-      typedef QPair<QString,MessageType> Message;
+public:
+	enum MessageType {
+		AccountMessage,
+		SeekMessage,
+		ChallengeMessage,
+		ChatMessage,
+		GreetMessage,
+		StatusMessage,
+		GeneralMessage,
+		ErrorMessage,
+		MoveMessage
+	};
 
-      explicit ChatWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-            virtual ~ChatWidget();
+	typedef QPair<QString,MessageType> Message;
 
-	    void addExtraButton ( const QString& text, const QString& title = QString(), const QString& icon = QString() );
+	explicit ChatWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
+	virtual ~ChatWidget();
 
-	    QColor messageColor ( MessageType type ) const;
-	    void setMessageColor ( MessageType type, const QColor& color );
+	void addExtraButton ( const QString& text, const QString& title = QString(), const QString& icon = QString() );
 
-	    void setConsoleMode ( bool console );
-	    bool consoleMode() const;
+	QColor messageColor ( MessageType type ) const;
+	void setMessageColor ( MessageType type, const QColor& color );
 
-    public slots:
-	    void addText ( const QString& text, MessageType type );
-	    void addText ( const QByteArray& text, MessageType type );
-	    void addText ( const Message& message );
-            void setPasswordMode ( bool pwMode );
+	void setConsoleMode ( bool console );
+	bool consoleMode() const;
 
-    private slots:
-            void sendButtonClicked ( );
-            void buttonClicked ( );
-    signals:
-	    void sendText ( const QString& text );
+public slots:
+	void addText ( const QString& text, MessageType type );
+	void addText ( const QByteArray& text, MessageType type );
+	void addText ( const Message& message );
+	void setPasswordMode ( bool pwMode );
 
-    private:
-      Ui::ChatWidget* ui;
-      Terminal * m_terminal;
-      QMap<QObject*, QString> m_extraButtons;
-      QMap<MessageType, QColor> m_colors;
-      bool m_consoleMode;
-    };
+private slots:
+	void sendButtonClicked ( );
+	void buttonClicked ( );
+signals:
+	void sendText ( const QString& text );
+
+private:
+	Ui::ChatWidget* ui;
+	Terminal * m_terminal;
+	QMap<QObject*, QString> m_extraButtons;
+	QMap<MessageType, QColor> m_colors;
+	bool m_consoleMode;
+};
 
 }
 

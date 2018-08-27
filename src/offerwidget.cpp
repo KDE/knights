@@ -27,49 +27,42 @@
 
 using namespace Knights;
 
-OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::WindowFlags f): KMessageWidget(offer.text, parent)
-{
-  Q_UNUSED(f)
-  offerId = offer.id;
-  if ( offer.action != ActionNone )
-  {
-    QAction* action;
-    action = new QAction( QIcon::fromTheme(QLatin1String("dialog-ok")), i18n("Accept"), this );
-    connect ( action, &QAction::triggered, this, &OfferWidget::acceptClicked );
-    addAction(action);
-    action = new QAction( QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Decline"), this );
-    connect ( action, &QAction::triggered, this, &OfferWidget::declineClicked );
-    addAction ( action );
-  }
-  setCloseButtonVisible(true);
+OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::WindowFlags f): KMessageWidget(offer.text, parent) {
+	Q_UNUSED(f)
+	offerId = offer.id;
+	if ( offer.action != ActionNone ) {
+		QAction* action;
+		action = new QAction( QIcon::fromTheme(QLatin1String("dialog-ok")), i18n("Accept"), this );
+		connect ( action, &QAction::triggered, this, &OfferWidget::acceptClicked );
+		addAction(action);
+		action = new QAction( QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Decline"), this );
+		connect ( action, &QAction::triggered, this, &OfferWidget::declineClicked );
+		addAction ( action );
+	}
+	setCloseButtonVisible(true);
 }
 
-OfferWidget::~OfferWidget()
-{
-    delete ui;
+OfferWidget::~OfferWidget() {
+	delete ui;
 }
 
-int OfferWidget::id() const
-{
-  return offerId;
+int OfferWidget::id() const {
+	return offerId;
 }
 
-void OfferWidget::acceptClicked()
-{
-  emit close(offerId, AcceptOffer);
-  deleteLater();
+void OfferWidget::acceptClicked() {
+	emit close(offerId, AcceptOffer);
+	deleteLater();
 }
 
-void OfferWidget::declineClicked()
-{
-  emit close(offerId, DeclineOffer);
-  deleteLater();
+void OfferWidget::declineClicked() {
+	emit close(offerId, DeclineOffer);
+	deleteLater();
 }
 
-void OfferWidget::closeClicked()
-{
-  emit close(offerId, IgnoreOffer);
-  deleteLater();
+void OfferWidget::closeClicked() {
+	emit close(offerId, IgnoreOffer);
+	deleteLater();
 }
 
 

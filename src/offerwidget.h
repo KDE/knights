@@ -24,44 +24,41 @@
 
 #include <KMessageWidget>
 
-namespace Ui
-{
-  class Popup;
+namespace Ui {
+class Popup;
 }
 
 namespace Knights {
 
-  class Offer;
+class Offer;
 
-  enum OfferAction
-  {
-    AcceptOffer,
-    DeclineOffer,
-    IgnoreOffer
-  };
-    
+enum OfferAction {
+	AcceptOffer,
+	DeclineOffer,
+	IgnoreOffer
+};
 
-class OfferWidget : public KMessageWidget
-{
-  Q_OBJECT
+
+class OfferWidget : public KMessageWidget {
+	Q_OBJECT
 
 public:
-    explicit OfferWidget(const Offer& offer, QWidget* parent = 0, Qt::WindowFlags f = 0);
-    virtual ~OfferWidget();
+	explicit OfferWidget(const Offer& offer, QWidget* parent = 0, Qt::WindowFlags f = 0);
+	virtual ~OfferWidget();
 
-    int id() const;
+	int id() const;
 
 private:
-  Ui::Popup* ui;
-  int offerId;
+	Ui::Popup* ui;
+	int offerId;
 
 private slots:
-  void acceptClicked();
-  void declineClicked();
-  void closeClicked();
-  
+	void acceptClicked();
+	void declineClicked();
+	void closeClicked();
+
 signals:
-  void close(int id, OfferAction action);
+	void close(int id, OfferAction action);
 };
 
 }

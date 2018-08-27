@@ -29,231 +29,195 @@
 #include <QStack>
 #include <QTime>
 
-namespace Knights
-{
-    const int TimerInterval = 100; // milliseconds
-    int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
+namespace Knights {
+const int TimerInterval = 100; // milliseconds
+int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
 
-    QPointer<Protocol> Protocol::m_white = 0;
-    QPointer<Protocol> Protocol::m_black = 0;
+QPointer<Protocol> Protocol::m_white = 0;
+QPointer<Protocol> Protocol::m_black = 0;
 
-    class ProtocolPrivate
-    {
-        public:
+class ProtocolPrivate {
+public:
 
-            ProtocolPrivate();
-            
-            QVariantMap attributes;
-            Protocol* white;
-            Protocol* black;
-            Color color;
-    bool ready;
-    int nextId;
-    };
+	ProtocolPrivate();
 
-    ProtocolPrivate::ProtocolPrivate()
-    : white(0)
-    , black(0)
-    , ready(false)
-    , nextId(0)
-    {
+	QVariantMap attributes;
+	Protocol* white;
+	Protocol* black;
+	Color color;
+	bool ready;
+	int nextId;
+};
 
-    }
+ProtocolPrivate::ProtocolPrivate()
+	: white(0)
+	, black(0)
+	, ready(false)
+	, nextId(0) {
 
-
-    Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate )
-    {
-    }
-
-    Protocol::~Protocol()
-    {
-         delete d_ptr;
-    }
-
-    QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code )
-    {
-        switch ( code )
-        {
-            case NoError:
-                return i18n ( "No Error" );
-
-            case UserCancelled:
-                return i18n ( "User Canceled" );
-
-            case NetworkError:
-                return i18n ( "Network Error" );
-
-            case UnknownError:
-                return i18n ( "Unknown Error" );
-
-            case InstallationError:
-                return i18n ( "Program Error" );
-
-            default:
-                return QString();
-        }
-    }
-
-void Protocol::setWhiteProtocol(Protocol* p)
-{
-    p->setColor(White);
-    m_white = p;
 }
 
-void Protocol::setBlackProtocol(Protocol* p)
-{
-    p->setColor(Black);
-    m_black = p;
+
+Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate ) {
 }
 
-Protocol* Protocol::white()
-{
-    return m_white;
+Protocol::~Protocol() {
+	delete d_ptr;
 }
 
-Protocol* Protocol::black()
-{
-    return m_black;
+QString Protocol::stringFromErrorCode ( Protocol::ErrorCode code ) {
+	switch ( code ) {
+	case NoError:
+		return i18n ( "No Error" );
+
+	case UserCancelled:
+		return i18n ( "User Canceled" );
+
+	case NetworkError:
+		return i18n ( "Network Error" );
+
+	case UnknownError:
+		return i18n ( "Unknown Error" );
+
+	case InstallationError:
+		return i18n ( "Program Error" );
+
+	default:
+		return QString();
+	}
 }
 
-Protocol* Protocol::byColor(Color color)
-{
-    switch ( color )
-    {
-        case White:
-            return white();
-        case Black:
-            return black();
-        case NoColor:
-            return 0;
-    }
-    return 0;
-}
-    void Protocol::setColor ( Color color )
-    {
-        Q_D(Protocol);
-        d->color = color;
-    }
-
-    Color Protocol::color() const
-    {
-        Q_D(const Protocol);
-        return d->color;
-    }
-
-    void Protocol::setPlayerName ( const QString& name )
-    {
-        setAttribute ( QLatin1String ( "PlayerName" ), name );
-    }
-
-    QString Protocol::playerName() const
-    {
-        return attribute ( QLatin1String ( "PlayerName" ) ).toString();
-    }
-
-    void Protocol::setAttribute ( const QString& attribute, QVariant value )
-    {
-        Q_D ( Protocol );
-        d->attributes.insert ( attribute,  value );
-    }
-
-    void Protocol::setAttribute ( const char* attribute, QVariant value )
-    {
-        setAttribute( QLatin1String ( attribute ), value );
-    }
-
-    void Protocol::setAttributes ( QVariantMap attributes )
-    {
-        Q_D ( Protocol );
-        d->attributes.unite ( attributes );
-    }
-
-    QVariant Protocol::attribute ( const QString& attribute ) const
-    {
-        Q_D ( const Protocol );
-        return d->attributes.value ( attribute );
-    }
-
-    QVariant Protocol::attribute ( const char* attribute ) const
-    {
-        return this->attribute ( QLatin1String ( attribute ) );
-    }
-
-
-    Protocol::Features Protocol::supportedFeatures()
-    {
-        return NoFeatures;
-    }
-
-    int Protocol::timeRemaining()
-    {
-        return -1;
-    }
-
-    QList< Protocol::ToolWidgetData > Protocol::toolWidgets()
-    {
-        return QList< Protocol::ToolWidgetData >();
-    }
-    
-void Protocol::setWinner(Color winner)
-{
-    Q_UNUSED(winner);
+void Protocol::setWhiteProtocol(Protocol* p) {
+	p->setColor(White);
+	m_white = p;
 }
 
-void Protocol::setTimeControl(const TimeControl& c)
-{
-    Q_UNUSED(c);
+void Protocol::setBlackProtocol(Protocol* p) {
+	p->setColor(Black);
+	m_black = p;
 }
 
-void Protocol::acceptOffer(const Offer& offer)
-{
-    Q_UNUSED(offer);
+Protocol* Protocol::white() {
+	return m_white;
 }
 
-void Protocol::declineOffer(const Offer& offer)
-{
-    Q_UNUSED(offer);
+Protocol* Protocol::black() {
+	return m_black;
 }
 
-ChatWidget* Protocol::createChatWidget()
-{
-    return new ChatWidget;
+Protocol* Protocol::byColor(Color color) {
+	switch ( color ) {
+	case White:
+		return white();
+	case Black:
+		return black();
+	case NoColor:
+		return 0;
+	}
+	return 0;
+}
+void Protocol::setColor ( Color color ) {
+	Q_D(Protocol);
+	d->color = color;
 }
 
-ChatWidget* Protocol::createConsoleWidget()
-{
-    ChatWidget* console = new ChatWidget;
-    console->setConsoleMode(true);
-    return console;
+Color Protocol::color() const {
+	Q_D(const Protocol);
+	return d->color;
 }
 
-void Protocol::initComplete()
-{
-    Q_D(Protocol);
-    d->ready = true;
-    emit initSuccesful();
+void Protocol::setPlayerName ( const QString& name ) {
+	setAttribute ( QLatin1String ( "PlayerName" ), name );
 }
 
-bool Protocol::isReady()
-{
-    Q_D(const Protocol);
-    return d->ready;
+QString Protocol::playerName() const {
+	return attribute ( QLatin1String ( "PlayerName" ) ).toString();
 }
 
-bool Protocol::isLocal()
-{
-    return false;
+void Protocol::setAttribute ( const QString& attribute, QVariant value ) {
+	Q_D ( Protocol );
+	d->attributes.insert ( attribute,  value );
 }
 
-bool Protocol::isComputer()
-{
-    return false;
+void Protocol::setAttribute ( const char* attribute, QVariant value ) {
+	setAttribute( QLatin1String ( attribute ), value );
 }
 
-void Protocol::setDifficulty(int depth, int memory)
-{
-    Q_UNUSED(depth);
-    Q_UNUSED(memory);
+void Protocol::setAttributes ( QVariantMap attributes ) {
+	Q_D ( Protocol );
+	d->attributes.unite ( attributes );
+}
+
+QVariant Protocol::attribute ( const QString& attribute ) const {
+	Q_D ( const Protocol );
+	return d->attributes.value ( attribute );
+}
+
+QVariant Protocol::attribute ( const char* attribute ) const {
+	return this->attribute ( QLatin1String ( attribute ) );
+}
+
+
+Protocol::Features Protocol::supportedFeatures() {
+	return NoFeatures;
+}
+
+int Protocol::timeRemaining() {
+	return -1;
+}
+
+QList< Protocol::ToolWidgetData > Protocol::toolWidgets() {
+	return QList< Protocol::ToolWidgetData >();
+}
+
+void Protocol::setWinner(Color winner) {
+	Q_UNUSED(winner);
+}
+
+void Protocol::setTimeControl(const TimeControl& c) {
+	Q_UNUSED(c);
+}
+
+void Protocol::acceptOffer(const Offer& offer) {
+	Q_UNUSED(offer);
+}
+
+void Protocol::declineOffer(const Offer& offer) {
+	Q_UNUSED(offer);
+}
+
+ChatWidget* Protocol::createChatWidget() {
+	return new ChatWidget;
+}
+
+ChatWidget* Protocol::createConsoleWidget() {
+	ChatWidget* console = new ChatWidget;
+	console->setConsoleMode(true);
+	return console;
+}
+
+void Protocol::initComplete() {
+	Q_D(Protocol);
+	d->ready = true;
+	emit initSuccesful();
+}
+
+bool Protocol::isReady() {
+	Q_D(const Protocol);
+	return d->ready;
+}
+
+bool Protocol::isLocal() {
+	return false;
+}
+
+bool Protocol::isComputer() {
+	return false;
+}
+
+void Protocol::setDifficulty(int depth, int memory) {
+	Q_UNUSED(depth);
+	Q_UNUSED(memory);
 }
 
 }

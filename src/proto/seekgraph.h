@@ -26,35 +26,33 @@
 
 #include <QMap>
 
-namespace Knights
-{
-  struct FicsGameOffer;
+namespace Knights {
+struct FicsGameOffer;
 
-    class SeekGraph : public KPlotWidget
-    {
+class SeekGraph : public KPlotWidget {
 	Q_OBJECT
-        public:
-            explicit SeekGraph ( QWidget* parent = 0 );
-            virtual ~SeekGraph();
+public:
+	explicit SeekGraph ( QWidget* parent = 0 );
+	virtual ~SeekGraph();
 
-	    void addSeek ( const FicsGameOffer& offer );
-	    void removeSeek ( int id );
-            void clearOffers();
-	    void setRect ( const QRectF rect );
+	void addSeek ( const FicsGameOffer& offer );
+	void removeSeek ( int id );
+	void clearOffers();
+	void setRect ( const QRectF rect );
 
-        protected:
-            virtual void paintEvent ( QPaintEvent* event );
-            virtual void mouseMoveEvent ( QMouseEvent* event );
-            virtual void mouseReleaseEvent ( QMouseEvent* event );
+protected:
+	virtual void paintEvent ( QPaintEvent* event );
+	virtual void mouseMoveEvent ( QMouseEvent* event );
+	virtual void mouseReleaseEvent ( QMouseEvent* event );
 
-	signals:
-	    void seekClicked( int id );
+signals:
+	void seekClicked( int id );
 
-    private:
-      QMap<KPlotPoint*, int> m_pointIds;
-      QMap<int, KPlotObject*> m_objects;
-      QRectF m_dataRect;
-    };
+private:
+	QMap<KPlotPoint*, int> m_pointIds;
+	QMap<int, KPlotObject*> m_objects;
+	QRectF m_dataRect;
+};
 
 }
 

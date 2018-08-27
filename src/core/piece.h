@@ -25,56 +25,52 @@
 #include "pos.h"
 #include "item.h"
 
-namespace Knights
-{
-    enum PieceType
-    {
-        NoType = 0,
-        King,
-        Queen,
-        Bishop,
-        Knight,
-        Rook,
-        Pawn,
-        PieceTypeCount
-    };
-    enum Color
-    {
-        NoColor = 0x00,
-        White = 0x01,
-        Black = 0x02
-    };
+namespace Knights {
+enum PieceType {
+	NoType = 0,
+	King,
+	Queen,
+	Bishop,
+	Knight,
+	Rook,
+	Pawn,
+	PieceTypeCount
+};
+enum Color {
+	NoColor = 0x00,
+	White = 0x01,
+	Black = 0x02
+};
 
-    Q_DECLARE_FLAGS(Colors, Color)
-    Q_DECLARE_OPERATORS_FOR_FLAGS(Colors)
-    Color oppositeColor ( Color color );
-    QString colorName ( Color color );
-    QString pieceTypeName ( PieceType type );
+Q_DECLARE_FLAGS(Colors, Color)
+Q_DECLARE_OPERATORS_FOR_FLAGS(Colors)
+Color oppositeColor ( Color color );
+QString colorName ( Color color );
+QString pieceTypeName ( PieceType type );
 
-    class Piece : public Item
-    {
-            Q_OBJECT
-        public:
-            Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
-            virtual ~Piece();
+class Piece : public Item {
+	Q_OBJECT
+public:
+	Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
+	virtual ~Piece();
 
-            PieceType pieceType();
-            void setPieceType ( PieceType type );
-            Color color();
+	PieceType pieceType();
+	void setPieceType ( PieceType type );
+	Color color();
 
-            static QString spriteKey ( PieceType type, Color color );
-            static PieceType typeFromChar ( QChar typeChar );
-            static QChar charFromType ( PieceType t );
+	static QString spriteKey ( PieceType type, Color color );
+	static PieceType typeFromChar ( QChar typeChar );
+	static QChar charFromType ( PieceType t );
 
-        private:
-            Color m_color;
-            PieceType m_type;
-            void updateSpriteKey();
-    };
+private:
+	Color m_color;
+	PieceType m_type;
+	void updateSpriteKey();
+};
 
-    typedef QMap<Pos, Piece*> Grid;
-    typedef QPair<Color, PieceType> PieceData;
-    typedef QMap<Pos, PieceData> PieceDataMap;
+typedef QMap<Pos, Piece*> Grid;
+typedef QPair<Color, PieceType> PieceData;
+typedef QMap<Pos, PieceData> PieceDataMap;
 }
 
 Q_DECLARE_METATYPE ( Knights::Color )

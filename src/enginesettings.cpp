@@ -233,11 +233,10 @@ void EngineSettings::save() {
 		const KComboBox* box = dynamic_cast<const KComboBox*>(w);
 		if (box)
 			c.iface = (EngineConfiguration::Interface)box->currentIndex();
+		else if (ui->tableWidget->item(i, ProtocolColumn)->text() == QLatin1String("XBoard"))
+			c.iface = EngineConfiguration::XBoard;
 		else
-			if (ui->tableWidget->item(i, ProtocolColumn)->text() == QLatin1String("XBoard"))
-				c.iface = EngineConfiguration::XBoard;
-			else
-				c.iface = EngineConfiguration::Uci;
+			c.iface = EngineConfiguration::Uci;
 
 		const QString str = c.toString();
 		if(!str.isEmpty())

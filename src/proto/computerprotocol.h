@@ -28,21 +28,20 @@ class KProcess;
 
 namespace Knights {
 
-class ComputerProtocol : public TextProtocol
-{
+class ComputerProtocol : public TextProtocol {
 public:
-    explicit ComputerProtocol(QObject* parent = nullptr);
-    virtual ~ComputerProtocol();
+	explicit ComputerProtocol(QObject* parent = nullptr);
+	virtual ~ComputerProtocol();
 
-    virtual void startProgram();
-    virtual bool isComputer();
-    virtual QList< ToolWidgetData > toolWidgets();
+	virtual void startProgram();
+	virtual bool isComputer();
+	virtual QList< ToolWidgetData > toolWidgets();
 
 protected:
-    KProcess* mProcess;
+	KProcess* mProcess;
 
 private Q_SLOTS:
-    void readError();
+	void readError();
 };
 
 }
