@@ -47,7 +47,7 @@ void TextProtocol::readFromDevice() {
 				line = text;
 		} else {
 			const QString all = stream.readAll();
-			foreach ( const QString& newLine, all.split( QLatin1Char('\n') ) ) {
+			for ( const QString& newLine : all.split( QLatin1Char('\n') ) ) {
 				const QString text = line + newLine.trimmed();
 				if ( !parseStub(text) && !parseLine(text) )
 					line = text;
@@ -84,7 +84,7 @@ void TextProtocol::write(const char* text) {
 
 void TextProtocol::setConsole(ChatWidget* widget) {
 	m_console = widget;
-	foreach ( const ChatWidget::Message& message, messages )
+	for ( const ChatWidget::Message& message : messages )
 		m_console->addText ( message );
 	messages.clear();
 }

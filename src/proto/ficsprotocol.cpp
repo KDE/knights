@@ -333,7 +333,7 @@ bool FicsProtocol::parseLine(const QString& line)
             else if ( line.startsWith( QLatin1String("<sr>") ) )
             {
                 display = false;
-                foreach ( const QString& str, line.split(QLatin1Char(' ') ) )
+                for ( const QString& str : line.split(QLatin1Char(' ') ) )
                 {
                     bool ok;
                     int id = str.toInt(&ok);
@@ -376,7 +376,7 @@ bool FicsProtocol::parseLine(const QString& line)
             else if ( line.startsWith( QLatin1String("<pr>") ) )
             {
                 display = false;
-                foreach ( const QString& str, line.split( QLatin1Char(' ') ) )
+                for ( const QString& str : line.split( QLatin1Char(' ') ) )
                 {
                     bool ok;
                     int id = str.toInt(&ok);

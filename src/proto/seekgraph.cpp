@@ -67,7 +67,7 @@ void SeekGraph::paintEvent ( QPaintEvent* event )
 
      resetPlotMask();
 
-     foreach( KPlotObject *po, plotObjects() )
+     for (KPlotObject *po : plotObjects())
      {
        po->draw( &p, this );
      }
@@ -78,7 +78,7 @@ void SeekGraph::paintEvent ( QPaintEvent* event )
 void SeekGraph::mouseMoveEvent ( QMouseEvent* event )
 {
     bool isOverPoint = false;
-    foreach ( KPlotObject* o, plotObjects() )
+    for (KPlotObject* o : plotObjects())
     {
       if ( o->points().isEmpty() )
       {
@@ -105,7 +105,7 @@ void SeekGraph::mouseMoveEvent ( QMouseEvent* event )
 
 void SeekGraph::mouseReleaseEvent ( QMouseEvent* event )
 {
-    foreach ( KPlotObject* o, plotObjects() )
+    for (KPlotObject* o : plotObjects())
     {
       if ( o->points().isEmpty() )
       {

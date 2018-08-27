@@ -150,7 +150,7 @@ void GameDialog::setupProtocols() {
 	Manager::self()->setTimeControl(NoColor, tc);
 
 	QList<EngineConfiguration> configs;
-	foreach(const QString& s, Settings::engineConfigurations())
+	for (const QString& s : Settings::engineConfigurations())
 		configs << EngineConfiguration(s);
 
 	Protocol* p1 = 0;
@@ -322,7 +322,7 @@ void GameDialog::showEngineConfigDialog() {
 void GameDialog::loadEngines() {
 	QStringList programs;
 	QList<EngineConfiguration> configs;
-	foreach(const QString& s, Settings::engineConfigurations()) {
+	for (const QString& s : Settings::engineConfigurations()) {
 		const  QStringList l = s.split(QLatin1Char(':'), QString::SkipEmptyParts);
 		EngineConfiguration e = EngineConfiguration(s);
 		if(!e.name.isEmpty()) {

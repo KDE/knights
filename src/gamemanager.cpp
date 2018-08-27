@@ -798,7 +798,7 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 			}
 		} else {
 			// Parse a line of moves
-			foreach ( const QByteArray& str, line.trimmed().split(' ') ) {
+			for ( const QByteArray& str : line.trimmed().split(' ') ) {
 				if ( !str.trimmed().isEmpty() && !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') ) {
 					// Only move numbers contain dots, not move data itself
 					// We also exclude the game termination markers (results)

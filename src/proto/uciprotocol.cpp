@@ -90,13 +90,13 @@ bool UciProtocol::parseLine(const QString& line)
       mMoveHistory << m;
       emit pieceMoved ( m );
     }
-    else 
+    else
     {
         return false;
     }
     if ( lst.size() > 3 && lst[2] == QLatin1String("ponder") )
     {
-      mPonderMove.setString ( lst[3] );      
+      mPonderMove.setString ( lst[3] );
     }
   }
   writeToConsole ( line, type );
@@ -142,11 +142,11 @@ void UciProtocol::move(const Knights::Move& m)
 void UciProtocol::requestNextMove()
 {
   QString str = QLatin1String("position startpos");
-  
+
   if ( !mMoveHistory.isEmpty() )
   {
     str += QLatin1String(" moves");
-    foreach ( const Move& move, mMoveHistory )
+    for ( const Move& move : mMoveHistory )
     {
       QString moveString = QLatin1Char(' ') + move.from().string() + move.to().string();
       if ( move.promotedType() )
@@ -157,9 +157,9 @@ void UciProtocol::requestNextMove()
     }
   }
   write ( str );
-  
+
   QString goString = QLatin1String("go");
-  
+
   if ( mDifficulty )
   {
     goString += QLatin1String(" depth ") + QString::number ( mDifficulty );
@@ -169,7 +169,7 @@ void UciProtocol::requestNextMove()
   {
     goString += QLatin1String(" wtime ") + QString::number ( mWhiteTime );
     goString += QLatin1String(" btime ") + QString::number ( mBlackTime );
-    
+
     int winc = Manager::self()->timeControl ( White ).increment;
     if ( winc )
     {
@@ -180,7 +180,7 @@ void UciProtocol::requestNextMove()
     {
       goString += QLatin1String(" binc ") + QString::number ( binc * 1000 );
     }
-    
+
     int moves = Manager::self()->timeControl ( NoColor ).moves;
     int movesToGo = mMoveHistory.size() % moves;
     if ( movesToGo > 0 )
@@ -188,7 +188,7 @@ void UciProtocol::requestNextMove()
       goString += QLatin1String(" movestogo ") + QString::number ( movesToGo );
     }
   }
-  
+
   write ( goString );
 }
 
@@ -200,11 +200,11 @@ void UciProtocol::changeCurrentTime(Color color, const QTime& time)
     case White:
       mWhiteTime = msecs;
       break;
-      
+
     case Black:
       mBlackTime = msecs;
       break;
-      
+
     default:
       mBlackTime = msecs;
       mWhiteTime = msecs;
@@ -217,5 +217,4 @@ void UciProtocol::setDifficulty(int depth, int memory)
     mDifficulty = depth;
     write ( QLatin1String("setoption name Hash value ") + QString::number ( memory ) );
 }
-
 

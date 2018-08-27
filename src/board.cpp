@@ -151,14 +151,14 @@ void Board::movePiece(const Move& move) {
 		}
 		if ( Settings::showDanger() ) {
 			bool check = false;
-			foreach ( Piece* piece, m_grid ) {
+			for ( Piece* piece : m_grid ) {
 				if ( piece->color() == m_currentPlayer && Manager::self()->rules()->isAttacking ( piece->boardPos() ) ) {
 					check = true;
 					addMarker ( piece->boardPos(), Danger );
 				}
 			}
 			if ( check ) {
-				foreach ( Piece* piece, m_grid ) {
+				for ( Piece* piece : m_grid ) {
 					if ( piece->color() != m_currentPlayer && piece->pieceType() == King )
 						addMarker ( piece->boardPos(), Danger );
 				}
@@ -166,7 +166,7 @@ void Board::movePiece(const Move& move) {
 		}
 	}
 
-	foreach ( const Move& additionalMove, m.additionalMoves() )
+	for ( const Move& additionalMove : m.additionalMoves() )
 		movePiece ( additionalMove );
 
 	updateGraphics();
@@ -238,7 +238,7 @@ void Board::mousePressEvent(QGraphicsSceneMouseEvent* e) {
 		}
 		d_piece->setZValue ( dragZValue );
 		if ( Settings::showMarker() ) {
-			foreach ( const Move& t_move, t_legalMoves )
+			for ( const Move& t_move : t_legalMoves )
 				addMarker ( t_move.to(), LegalMove );
 		}
 		draggedPiece = d_piece;
@@ -448,7 +448,7 @@ void Board::updateTheme() {
 		m_borders << tItem;
 
 		m_borders << new Item ( renderer, lrBorderKey, this, Pos() );
-		foreach ( Item* item, m_borders )
+		for ( Item* item : m_borders )
 			item->setZValue ( borderZValue );
 	}
 	if ( m_displayNotations ) {
@@ -465,7 +465,7 @@ void Board::updateTheme() {
 		m_notations << new Item ( renderer, numbersKey, this, Pos() );
 		m_notations << new Item ( renderer, lettersKey, this, Pos() );
 		m_notations << new Item ( renderer, numbersKey, this, Pos() );
-		foreach ( Item* item, m_notations )
+		for ( Item* item : m_notations )
 			item->setZValue ( notationZValue );
 	}
 	addTiles();
@@ -526,11 +526,11 @@ void Board::updateGraphics() {
 	QPointF bottomBorderPoint = m_boardRect.bottomLeft() - QPoint ( vBorderMargin, 0 );
 	QPointF leftBorderPoint = m_boardRect.topLeft() - QPoint ( vBorderMargin, 0 );
 
-	foreach ( Piece* p, m_grid )
+	for ( Piece* p : m_grid )
 		centerAndResize ( p, tSize );
-	foreach ( Item* t, m_tiles )
+	for ( Item* t : m_tiles )
 		centerAndResize ( t, tSize, Settings::animateBoard() );
-	foreach ( Item* t, markers )
+	for ( Item* t : markers )
 		centerAndResize ( t, tSize );
 	if ( m_displayBorders ) {
 		m_borders[0]->moveAndResize ( bottomBorderPoint, m_tileSize, hBorderSize, Settings::animateBoard() );
@@ -547,12 +547,12 @@ void Board::updateGraphics() {
 }
 
 void Board::changeDisplayedPlayer() {
-	foreach ( Piece* p, m_grid )
+	for ( Piece* p : m_grid )
 		centerOnPos ( p );
-	foreach ( Item* i, markers )
+	for ( Item* i : markers )
 		centerOnPos ( i );
 	if ( Settings::animateBoard() ) {
-		foreach ( Item* i, m_tiles )
+		for ( Item* i : m_tiles )
 			centerOnPos ( i );
 	}
 	if ( m_displayNotations ) {

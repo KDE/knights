@@ -235,7 +235,7 @@ const QList< Move >& Move::additionalMoves() const {
 
 void Move::setAdditionalMoves(const QList< Move >& list) {
 	d->extraMoves.clear();
-	foreach(const Move& move, list) {
+	for (const Move& move : list) {
 		Move m = move;
 		m.setFlag(Move::Additional, true);
 		d->extraMoves << m;
@@ -298,7 +298,7 @@ Move Move::reverse() const {
 		rev.setPromotedType(Pawn);
 
 	QList<Move> additionalMoves;
-	foreach(const Move& m, d->extraMoves )
+	for (const Move& m : d->extraMoves)
 		additionalMoves << m.reverse();
 	rev.setAdditionalMoves(additionalMoves);
 
