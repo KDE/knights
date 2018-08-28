@@ -65,17 +65,17 @@ class FicsProtocol : public TextProtocol {
 	Q_OBJECT
 public:
 	explicit FicsProtocol(QObject* parent = nullptr);
-	virtual ~FicsProtocol();
+	~FicsProtocol() override;
 
-	virtual Features supportedFeatures();
+	Features supportedFeatures() override;
 
-	virtual void startGame();
-	virtual void move ( const Move& m );
-	virtual QList<ToolWidgetData> toolWidgets();
+	void startGame() override;
+	void move ( const Move& m ) override;
+	QList<ToolWidgetData> toolWidgets() override;
 
-	virtual void makeOffer(const Offer& offer);
-	virtual void acceptOffer(const Offer& offer);
-	virtual void declineOffer(const Offer& offer);
+	void makeOffer(const Offer& offer) override;
+	void acceptOffer(const Offer& offer) override;
+	void declineOffer(const Offer& offer) override;
 
 private:
 	const QString movePattern;
@@ -100,11 +100,11 @@ private:
 	bool drawPending;
 
 	Color parseColor( QString str );
-	virtual bool parseLine(const QString& line);
-	virtual bool parseStub(const QString& line);
+	bool parseLine(const QString& line) override;
+	bool parseStub(const QString& line) override;
 
 public Q_SLOTS:
-	virtual void init ();
+	void init () override;
 	virtual void resign();
 
 	void socketError();

@@ -35,7 +35,7 @@ class Item : public KGameRenderedObjectItem {
 
 public:
 	Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
-	virtual ~Item();
+	~Item() override;
 
 	void setBoardPos ( const Pos& pos );
 	Pos boardPos() const;

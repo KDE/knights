@@ -48,7 +48,7 @@ class KnightsView : public QWidget {
 	Q_OBJECT
 public:
 	explicit KnightsView(QWidget*);
-	virtual ~KnightsView();
+	~KnightsView() override;
 
 	void setupBoard(KgThemeProvider*);
 	void drawBoard(KgThemeProvider*);
@@ -60,7 +60,7 @@ private:
 	QList<OfferWidget*> m_offerWidgets;
 
 protected:
-	virtual void resizeEvent(QResizeEvent*);
+	void resizeEvent(QResizeEvent*) override;
 
 public slots:
 	void settingsChanged();

@@ -98,7 +98,7 @@ public:
 	static Protocol* byColor ( Color color );
 
 	explicit Protocol(QObject* parent = nullptr);
-	virtual ~Protocol();
+	~Protocol() override;
 
 	// Needed functions
 	virtual bool isLocal();

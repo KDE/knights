@@ -32,18 +32,18 @@ class LocalProtocol : public Protocol {
 
 public:
 	explicit LocalProtocol(QObject* parent = nullptr);
-	virtual ~LocalProtocol();
+	~LocalProtocol() override;
 
-	virtual Features supportedFeatures();
-	virtual bool isLocal();
+	Features supportedFeatures() override;
+	bool isLocal() override;
 
-	virtual void init();
-	virtual void startGame();
-	virtual void move(const Move& m);
+	void init() override;
+	void startGame() override;
+	void move(const Move& m) override;
 
-	virtual void makeOffer(const Offer& offer);
-	virtual void acceptOffer(const Offer& offer);
-	virtual void declineOffer(const Offer& offer);
+	void makeOffer(const Offer& offer) override;
+	void acceptOffer(const Offer& offer) override;
+	void declineOffer(const Offer& offer) override;
 };
 
 }

@@ -44,7 +44,7 @@ class OfferWidget : public KMessageWidget {
 
 public:
 	explicit OfferWidget(const Offer& offer, QWidget* parent = 0, Qt::WindowFlags f = 0);
-	virtual ~OfferWidget();
+	~OfferWidget() override;
 
 	int id() const;
 

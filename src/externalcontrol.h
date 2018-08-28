@@ -35,7 +35,7 @@ class ExternalControl : public QObject {
 
 public:
 	explicit ExternalControl(QObject* parent = 0);
-	virtual ~ExternalControl();
+	~ExternalControl() override;
 
 public Q_SLOTS:
 	void movePiece(const QString& move);

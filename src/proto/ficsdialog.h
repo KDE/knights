@@ -37,7 +37,7 @@ class FicsDialog : public QWidget {
 	Q_OBJECT
 public:
 	explicit FicsDialog ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-	virtual ~FicsDialog();
+	~FicsDialog() override;
 
 	int acceptedGameId();
 	QString userName();
@@ -46,7 +46,7 @@ public:
 
 	void setServerName(const QString& name);
 
-	virtual QSize sizeHint() const;
+	QSize sizeHint() const override;
 
 	bool autoAcceptChallenge();
 	bool rated();

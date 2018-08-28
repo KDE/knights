@@ -34,7 +34,7 @@ namespace Knights {
 
 class Terminal: public QTextBrowser {
 protected:
-	virtual void resizeEvent ( QResizeEvent * event );
+	void resizeEvent ( QResizeEvent * event ) override;
 };
 
 class ChatWidget : public QWidget {
@@ -57,7 +57,7 @@ public:
 	typedef QPair<QString,MessageType> Message;
 
 	explicit ChatWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-	virtual ~ChatWidget();
+	~ChatWidget() override;
 
 	void addExtraButton ( const QString& text, const QString& title = QString(), const QString& icon = QString() );
 

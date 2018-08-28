@@ -31,11 +31,11 @@ namespace Knights {
 class ComputerProtocol : public TextProtocol {
 public:
 	explicit ComputerProtocol(QObject* parent = nullptr);
-	virtual ~ComputerProtocol();
+	~ComputerProtocol() override;
 
 	virtual void startProgram();
-	virtual bool isComputer();
-	virtual QList< ToolWidgetData > toolWidgets();
+	bool isComputer() override;
+	QList< ToolWidgetData > toolWidgets() override;
 
 protected:
 	KProcess* mProcess;

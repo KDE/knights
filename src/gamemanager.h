@@ -85,7 +85,7 @@ class Manager : public QObject {
 public:
 	static Manager* self();
 	explicit Manager(QObject* parent = 0);
-	virtual ~Manager();
+	~Manager() override;
 
 	void setCurrentTime(Color, const QTime&);
 	void setTimeControl(Color, const TimeControl&);
@@ -155,7 +155,7 @@ private:
 	Q_DECLARE_PRIVATE(GameManager)
 
 protected:
-	virtual void timerEvent(QTimerEvent*);
+	void timerEvent(QTimerEvent*) override;
 
 signals:
 	void timeChanged(Color, const QTime&);

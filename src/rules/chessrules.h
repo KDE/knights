@@ -37,18 +37,18 @@ public:
 
 	ChessRules();
 
-	virtual Color winner();
-	virtual bool hasLegalMoves ( Color color );
-	virtual PieceDataMap startingPieces ();
-	virtual QList<Move> legalMoves ( const Pos& pos );
-	virtual void moveMade ( const Move& m );
-	virtual Directions legalDirections ( PieceType type );
-	virtual ~ChessRules();
+	Color winner() override;
+	bool hasLegalMoves ( Color color ) override;
+	PieceDataMap startingPieces () override;
+	QList<Move> legalMoves ( const Pos& pos ) override;
+	void moveMade ( const Move& m ) override;
+	Directions legalDirections ( PieceType type ) override;
+	~ChessRules() override;
 
 	bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
-	virtual bool isAttacking ( const Pos& attackingPos );
+	bool isAttacking ( const Pos& attackingPos ) override;
 
-	virtual void checkSpecialFlags ( Move* move, Color color );
+	void checkSpecialFlags ( Move* move, Color color ) override;
 	virtual void changeNotation ( Knights::Move* move, Move::Notation notation, Color color );
 
 private:

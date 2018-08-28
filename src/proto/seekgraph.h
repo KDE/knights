@@ -33,7 +33,7 @@ class SeekGraph : public KPlotWidget {
 	Q_OBJECT
 public:
 	explicit SeekGraph ( QWidget* parent = 0 );
-	virtual ~SeekGraph();
+	~SeekGraph() override;
 
 	void addSeek ( const FicsGameOffer& offer );
 	void removeSeek ( int id );
@@ -41,9 +41,9 @@ public:
 	void setRect ( const QRectF rect );
 
 protected:
-	virtual void paintEvent ( QPaintEvent* event );
-	virtual void mouseMoveEvent ( QMouseEvent* event );
-	virtual void mouseReleaseEvent ( QMouseEvent* event );
+	void paintEvent ( QPaintEvent* event ) override;
+	void mouseMoveEvent ( QMouseEvent* event ) override;
+	void mouseReleaseEvent ( QMouseEvent* event ) override;
 
 signals:
 	void seekClicked( int id );

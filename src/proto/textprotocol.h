@@ -42,7 +42,7 @@ class TextProtocol : public Protocol {
 	Q_OBJECT
 public:
 	explicit TextProtocol(QObject* parent = nullptr);
-	virtual ~TextProtocol();
+	~TextProtocol() override;
 
 protected:
 	void setDevice(QIODevice*);

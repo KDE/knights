@@ -59,7 +59,7 @@ public:
 	};
 
 	explicit Board(KgThemeProvider*, QObject* parent = nullptr);
-	virtual ~Board();
+	~Board() override;
 
 	void populate();
 	static bool isInBoard(const Pos&);
@@ -109,13 +109,13 @@ private:
 	PieceType getPromotedType();
 
 protected:
-	virtual void mousePressEvent(QGraphicsSceneMouseEvent*);
-	virtual void mouseMoveEvent(QGraphicsSceneMouseEvent*);
-	virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent*);
-	virtual void dropEvent(QGraphicsSceneDragDropEvent*);
-	virtual void dragEnterEvent(QGraphicsSceneDragDropEvent*);
-	virtual void dragMoveEvent(QGraphicsSceneDragDropEvent*);
-	virtual void dragLeaveEvent(QGraphicsSceneDragDropEvent*);
+	void mousePressEvent(QGraphicsSceneMouseEvent*) override;
+	void mouseMoveEvent(QGraphicsSceneMouseEvent*) override;
+	void mouseReleaseEvent(QGraphicsSceneMouseEvent*) override;
+	void dropEvent(QGraphicsSceneDragDropEvent*) override;
+	void dragEnterEvent(QGraphicsSceneDragDropEvent*) override;
+	void dragMoveEvent(QGraphicsSceneDragDropEvent*) override;
+	void dragLeaveEvent(QGraphicsSceneDragDropEvent*) override;
 
 public slots:
 	void movePiece(const Move&);

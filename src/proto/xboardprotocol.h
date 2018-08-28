@@ -39,15 +39,15 @@ class XBoardProtocol : public ComputerProtocol {
 
 public:
 	explicit XBoardProtocol(QObject* parent = nullptr);
-	~XBoardProtocol();
+	~XBoardProtocol() override;
 
-	virtual void move(const Move&);
-	virtual Features supportedFeatures();
+	void move(const Move&) override;
+	Features supportedFeatures() override;
 
-	virtual QList<ToolWidgetData> toolWidgets();
+	QList<ToolWidgetData> toolWidgets() override;
 
-	virtual bool parseLine(const QString& line);
-	virtual bool parseStub(const QString& line);
+	bool parseLine(const QString& line) override;
+	bool parseStub(const QString& line) override;
 
 private:
 	QString lastMoveString;
@@ -58,15 +58,15 @@ private:
 	bool m_timeLimit;
 
 public Q_SLOTS:
-	virtual void init ();
-	virtual void startGame();
-	virtual void setWinner(Color);
+	void init () override;
+	void startGame() override;
+	void setWinner(Color) override;
 
-	virtual void makeOffer(const Offer&);
-	virtual void acceptOffer(const Offer&);
-	virtual void declineOffer(const Offer&);
+	void makeOffer(const Offer&) override;
+	void acceptOffer(const Offer&) override;
+	void declineOffer(const Offer&) override;
 
-	virtual void setDifficulty(int depth, int memory);
+	void setDifficulty(int depth, int memory) override;
 };
 }
 

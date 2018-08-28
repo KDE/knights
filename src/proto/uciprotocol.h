@@ -33,21 +33,21 @@ class UciProtocol : public ComputerProtocol {
 
 public:
 	explicit UciProtocol(QObject* parent = nullptr);
-	virtual ~UciProtocol();
+	~UciProtocol() override;
 
 protected:
-	virtual bool parseStub(const QString& line);
-	virtual bool parseLine(const QString& line);
+	bool parseStub(const QString& line) override;
+	bool parseLine(const QString& line) override;
 
 public:
-	virtual Features supportedFeatures();
-	virtual void declineOffer(const Knights::Offer& offer);
-	virtual void acceptOffer(const Knights::Offer& offer);
-	virtual void makeOffer(const Knights::Offer& offer);
-	virtual void startGame();
-	virtual void init();
-	virtual void move(const Knights::Move& m);
-	virtual void setDifficulty(int depth, int memory);
+	Features supportedFeatures() override;
+	void declineOffer(const Knights::Offer& offer) override;
+	void acceptOffer(const Knights::Offer& offer) override;
+	void makeOffer(const Knights::Offer& offer) override;
+	void startGame() override;
+	void init() override;
+	void move(const Knights::Move& m) override;
+	void setDifficulty(int depth, int memory) override;
 
 private slots:
 	void changeCurrentTime(Knights::Color color, const QTime& time);

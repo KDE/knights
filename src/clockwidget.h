@@ -39,7 +39,7 @@ class ClockWidget : public QWidget {
 	Q_OBJECT
 public:
 	explicit ClockWidget ( QWidget* parent = 0, Qt::WindowFlags f = 0 );
-	~ClockWidget ();
+	~ClockWidget () override;
 
 public Q_SLOTS:
 	void setTimeLimit ( Color color, const QTime& time );

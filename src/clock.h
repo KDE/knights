@@ -46,15 +46,15 @@ class Clock : public QWidget {
 
 public:
 	explicit Clock( QWidget* parent = nullptr);
-	~Clock();
+	~Clock() override;
 
 	void setTime(const QTime&);
 	void setTime(int miliSeconds);
 
 protected:
-	virtual void paintEvent( QPaintEvent *event );
-	virtual void showEvent( QShowEvent *event );
-	virtual void resizeEvent( QResizeEvent *event );
+	void paintEvent( QPaintEvent *event ) override;
+	void showEvent( QShowEvent *event ) override;
+	void resizeEvent( QResizeEvent *event ) override;
 
 private:
 	void setClockSize(const QSize &size);

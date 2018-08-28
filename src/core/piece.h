@@ -52,7 +52,7 @@ class Piece : public Item {
 	Q_OBJECT
 public:
 	Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = 0 );
-	virtual ~Piece();
+	~Piece() override;
 
 	PieceType pieceType();
 	void setPieceType ( PieceType type );
