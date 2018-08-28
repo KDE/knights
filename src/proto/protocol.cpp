@@ -30,7 +30,6 @@
 #include <QTime>
 
 namespace Knights {
-const int TimerInterval = 100; // milliseconds
 int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
 
 QPointer<Protocol> Protocol::m_white = nullptr;

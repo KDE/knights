@@ -51,7 +51,6 @@ const qreal borderZValue = -2.0;
 const qreal notationZValue = -1.0;
 const qreal tileZValue = 0.0;
 const qreal pieceZValue = 1.0;
-const qreal motionMarkerZValue = 2.0;
 const qreal legalMarkerZValue = 3.0;
 const qreal dragZValue = 4.0;
 

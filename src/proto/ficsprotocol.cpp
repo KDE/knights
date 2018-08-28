@@ -38,7 +38,6 @@
 
 using namespace Knights;
 
-const int Timeout = 1000; // One second ought to be enough for everybody
 // TODO: Include optional [white]/[black], m, f in RegEx check
 
 const char* boolPattern = "([tf])";
