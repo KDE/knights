@@ -39,7 +39,7 @@ class DifficultyDialog : public QDialog {
 	Q_OBJECT
 
 public:
-	explicit DifficultyDialog (QWidget* parent = 0, Qt::WindowFlags f = 0);
+	explicit DifficultyDialog (QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
 	~DifficultyDialog() override;
 
 	int searchDepth() const;

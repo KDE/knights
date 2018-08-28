@@ -34,7 +34,7 @@ class ExternalControl : public QObject {
 	Q_CLASSINFO("D-Bus Interface", "org.kde.Knights")
 
 public:
-	explicit ExternalControl(QObject* parent = 0);
+	explicit ExternalControl(QObject* parent = nullptr);
 	~ExternalControl() override;
 
 public Q_SLOTS:

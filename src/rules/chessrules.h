@@ -45,7 +45,7 @@ public:
 	Directions legalDirections ( PieceType type ) override;
 	~ChessRules() override;
 
-	bool isAttacked ( const Pos& pos, Color color, Grid * grid = 0 );
+	bool isAttacked ( const Pos& pos, Color color, Grid * grid = nullptr );
 	bool isAttacking ( const Pos& attackingPos ) override;
 
 	void checkSpecialFlags ( Move* move, Color color ) override;
@@ -66,13 +66,13 @@ private:
 	QStack<MoveData> moveHistory;
 
 private:
-	QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = 0 );
+	QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = nullptr );
 	QList<Move> pawnMoves ( const Pos& pos );
 	QList<Move> castlingMoves ( const Pos& pos );
 	int length ( const Move& move );
 	bool isPathClearForCastling ( const Pos& kingPos, const Pos& rookPos );
-	QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = 0 );
-	bool isKingAttacked ( Color color, Grid* grid = 0 );
+	QList<Move> legalAttackMoves ( const Pos& pos, Grid* grid = nullptr );
+	bool isKingAttacked ( Color color, Grid* grid = nullptr );
 
 	bool hasKingMoved ( Color color );
 	bool hasRookMoved ( Color color, Move::CastlingSide side );

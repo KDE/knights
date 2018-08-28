@@ -92,8 +92,8 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
 	                 .arg ( QLatin1String( timePattern ) ) ),
 	offerExp ( QLatin1String( offerPattern ) ),
 	sendPassword(false),
-	m_widget(0),
-	m_chat(0) {
+	m_widget(nullptr),
+	m_chat(nullptr) {
 	// FICS games are always time-limited
 	setAttribute ( QLatin1String("TimeLimitEnabled"), true );
 	if ( !Manager::self()->timeControlEnabled(color()) ) {

@@ -153,8 +153,8 @@ void GameDialog::setupProtocols() {
 	for (const QString& s : Settings::engineConfigurations())
 		configs << EngineConfiguration(s);
 
-	Protocol* p1 = 0;
-	Protocol* p2 = 0;
+	Protocol* p1 = nullptr;
+	Protocol* p2 = nullptr;
 	Color c1 = NoColor;
 	if(ui->rbPlayer1Human->isChecked())
 		p1 = new LocalProtocol;

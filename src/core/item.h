@@ -34,7 +34,7 @@ class Item : public KGameRenderedObjectItem {
 	Q_PROPERTY ( QSize renderSize READ renderSize WRITE setRenderSize )
 
 public:
-	Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = 0 );
+	Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = nullptr );
 	~Item() override;
 
 	void setBoardPos ( const Pos& pos );

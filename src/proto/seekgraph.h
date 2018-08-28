@@ -32,7 +32,7 @@ struct FicsGameOffer;
 class SeekGraph : public KPlotWidget {
 	Q_OBJECT
 public:
-	explicit SeekGraph ( QWidget* parent = 0 );
+	explicit SeekGraph ( QWidget* parent = nullptr );
 	~SeekGraph() override;
 
 	void addSeek ( const FicsGameOffer& offer );

@@ -454,7 +454,7 @@ void Manager::reset() {
 		Protocol::black()->deleteLater();
 		if (d->rules) {
 			delete d->rules;
-			d->rules = 0;
+			d->rules = nullptr;
 		}
 		d->gameStarted = false;
 	}

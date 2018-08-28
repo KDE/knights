@@ -70,15 +70,15 @@ const QString whiteNumbersKey = QLatin1String ( "WhiteNumbers" );
 const QString blackNumbersKey = QLatin1String ( "BlackNumbers" );
 
 Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent),
-	m_rules(0),
-	m_background(0),
+	m_rules(nullptr),
+	m_background(nullptr),
 	m_displayBorders(true),
 	m_displayNotations(true),
-	renderer(0),
+	renderer(nullptr),
 	m_themeProvider(provider),
 	m_dragActive(false),
-	draggedPiece(0),
-	selectedPiece(0),
+	draggedPiece(nullptr),
+	selectedPiece(nullptr),
 	m_paused(false),
 	m_animated(true),
 	m_currentPlayer(White),
@@ -130,7 +130,7 @@ void Board::movePiece(const Move& move) {
 	PieceDataMap::const_iterator it = map.constBegin();
 	PieceDataMap::const_iterator end = map.constEnd();
 	for ( ; it != end; ++it ) {
-		delete m_grid.value ( it.key(), 0 );
+		delete m_grid.value ( it.key(), nullptr );
 		m_grid.remove ( it.key() );
 	}
 
@@ -319,7 +319,7 @@ void Board::dragMoveEvent(QGraphicsSceneDragDropEvent* e) {
 }
 
 Piece* Board::pieceAt(const QPointF& point) {
-	return m_grid.value(mapFromScene(point), 0);
+	return m_grid.value(mapFromScene(point), nullptr);
 }
 
 Pos Board::mapFromScene(const QPointF& point) {

@@ -31,7 +31,7 @@
 
 using namespace Knights;
 
-TextProtocol::TextProtocol(QObject* parent): Protocol(parent), m_console(0) {
+TextProtocol::TextProtocol(QObject* parent): Protocol(parent), m_console(nullptr) {
 
 }
 

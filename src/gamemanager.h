@@ -84,7 +84,7 @@ class Manager : public QObject {
 	Q_OBJECT
 public:
 	static Manager* self();
-	explicit Manager(QObject* parent = 0);
+	explicit Manager(QObject* parent = nullptr);
 	~Manager() override;
 
 	void setCurrentTime(Color, const QTime&);

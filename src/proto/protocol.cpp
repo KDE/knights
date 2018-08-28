@@ -33,8 +33,8 @@ namespace Knights {
 const int TimerInterval = 100; // milliseconds
 int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );
 
-QPointer<Protocol> Protocol::m_white = 0;
-QPointer<Protocol> Protocol::m_black = 0;
+QPointer<Protocol> Protocol::m_white = nullptr;
+QPointer<Protocol> Protocol::m_black = nullptr;
 
 class ProtocolPrivate {
 public:
@@ -50,8 +50,8 @@ public:
 };
 
 ProtocolPrivate::ProtocolPrivate()
-	: white(0)
-	, black(0)
+	: white(nullptr)
+	, black(nullptr)
 	, ready(false)
 	, nextId(0) {
 
@@ -112,9 +112,9 @@ Protocol* Protocol::byColor(Color color) {
 	case Black:
 		return black();
 	case NoColor:
-		return 0;
+		return nullptr;
 	}
-	return 0;
+	return nullptr;
 }
 void Protocol::setColor ( Color color ) {
 	Q_D(Protocol);

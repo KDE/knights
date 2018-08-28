@@ -69,7 +69,7 @@ class EngineSettings : public QWidget {
 	};
 
 public:
-	explicit EngineSettings(QWidget* parent = nullptr, Qt::WindowFlags f = 0);
+	explicit EngineSettings(QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
 	~EngineSettings() override;
 
 private:
