@@ -116,13 +116,13 @@ bool XBoardProtocol::parseLine(const QString& line) {
 		return true;
 
 	bool display = true;
-	ChatWidget::MessageType type = ChatWidget::GeneralMessage;
+	const QRegExp position(QLatin1String("[a-h][1-8]"));
+	ChatWidget::MessageType type = ChatWidget::GreetMessage;
 	if ( line.contains ( QLatin1String ( "Illegal move" ) ) ) {
 		type = ChatWidget::ErrorMessage;
 		emit illegalMove();
-	} else if ( line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) ) {
+	} else if ( position.indexIn(line) > -1 || line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) ) {
 		type = ChatWidget::MoveMessage;
-		const QRegExp position(QLatin1String("[a-h][1-8]"));
 		QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
 		if ( moveString == lastMoveString )
 			return true;

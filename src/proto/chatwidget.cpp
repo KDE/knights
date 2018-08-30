@@ -77,6 +77,11 @@ void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type ) {
 		format.setForeground( QBrush( messageColor ( ChatMessage ) ) );
 		cursor.setCharFormat( format );
 		cursor.insertText ( text.mid ( text.indexOf(QLatin1String(" says: ")) + 7 ) );
+	} else if (type == GreetMessage) {
+		format.setFontItalic(true);
+		format.setForeground( QBrush( messageColor ( type ) ) );
+		cursor.setCharFormat( format );
+		cursor.insertText( text );
 	} else {
 		format.setForeground( QBrush( messageColor ( type ) ) );
 		cursor.setCharFormat( format );

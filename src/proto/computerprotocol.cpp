@@ -75,5 +75,3 @@ QList< Protocol::ToolWidgetData > ComputerProtocol::toolWidgets() {
 void ComputerProtocol::readError() {
 	qCCritical(LOG_KNIGHTS) << mProcess->readAllStandardError();
 }
-
-
