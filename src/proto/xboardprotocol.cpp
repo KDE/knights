@@ -115,9 +115,15 @@ bool XBoardProtocol::parseLine(const QString& line) {
 	if (line.contains(QLatin1String("Invalid move")))
 		return true;
 
+	//we start with GreetMessage and set the type to a different value depending on the content of the line to be parsed.
+	//with this easiy identify the actual greet message and to highlight it accordingly in the chat widget.
+	//However, output like "TimeControl[]" is also recognized as greet message. This is not a problem from the point of view
+	//of the different highlighting in the chat widget, but maybe we want to set such messages to StatusMessage and to
+	//highlight differently in future.
+	ChatWidget::MessageType type = ChatWidget::GreetMessage;
+
 	bool display = true;
 	const QRegExp position(QLatin1String("[a-h][1-8]"));
-	ChatWidget::MessageType type = ChatWidget::GreetMessage;
 	if ( line.contains ( QLatin1String ( "Illegal move" ) ) ) {
 		type = ChatWidget::ErrorMessage;
 		emit illegalMove();
@@ -167,8 +173,10 @@ bool XBoardProtocol::parseLine(const QString& line) {
 		emit gameOver ( Black );
 	else if ( line.startsWith ( QLatin1String("1/2-1/2") ) )
 		emit gameOver ( NoColor );
+
 	if ( display )
 		writeToConsole ( line, type );
+
 	return true;
 }
 
