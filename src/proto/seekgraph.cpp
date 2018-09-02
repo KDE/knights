@@ -42,9 +42,7 @@ SeekGraph::SeekGraph ( QWidget* parent ) : KPlotWidget ( parent ) {
 	setMouseTracking(true);
 }
 
-SeekGraph::~SeekGraph() {
-
-}
+SeekGraph::~SeekGraph() = default;
 
 void SeekGraph::paintEvent ( QPaintEvent* event ) {
 	QFrame::paintEvent( event );

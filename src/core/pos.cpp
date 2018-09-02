@@ -54,9 +54,7 @@ Pos::Pos ( const QString string ) {
 	}
 }
 
-Pos::~Pos() {
-
-}
+Pos::~Pos() = default;
 
 QString Pos::string() const {
 	if ( isValid() )

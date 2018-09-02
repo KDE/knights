@@ -104,13 +104,9 @@ Move::Move(QString string) : d(new MovePrivate) {
 	setString(string);
 }
 
-Move::Move(const Move& other) : d(other.d) {
+Move::Move(const Move& other) = default;
 
-}
-
-Move::~Move() {
-
-}
+Move::~Move() = default;
 
 void Move::operator=(const Move& other) {
 	d = other.d;

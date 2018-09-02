@@ -52,8 +52,7 @@ public:
 
 	typedef QFlags<Direction> Directions;
 
-	virtual ~Rules() {
-	}
+	virtual ~Rules() = default;
 
 	virtual void setGrid ( Grid* grid ) {
 		qCDebug(LOG_KNIGHTS) << "Setting Grid";

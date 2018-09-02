@@ -105,9 +105,7 @@ Piece::Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsSc
 }
 
 
-Piece::~Piece() {
-
-}
+Piece::~Piece() = default;
 
 Color oppositeColor ( Color color ) {
 	switch ( color ) {

@@ -35,9 +35,7 @@ ExternalControl::ExternalControl(QObject* parent) : QObject(parent) {
 	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
 }
 
-ExternalControl::~ExternalControl() {
-
-}
+ExternalControl::~ExternalControl() = default;
 
 FORWARD_FUNCTION(adjourn,Adjourn)
 FORWARD_FUNCTION(abort,Abort)

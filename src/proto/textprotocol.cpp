@@ -35,9 +35,7 @@ TextProtocol::TextProtocol(QObject* parent): Protocol(parent), m_console(nullptr
 
 }
 
-TextProtocol::~TextProtocol() {
-
-}
+TextProtocol::~TextProtocol() = default;
 
 void TextProtocol::readFromDevice() {
 	while ( !stream.atEnd() ) {

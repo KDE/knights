@@ -48,9 +48,7 @@ void LocalProtocol::move ( const Move& m ) {
 LocalProtocol::LocalProtocol ( QObject* parent ) : Protocol ( parent ) {
 }
 
-LocalProtocol::~LocalProtocol() {
-
-}
+LocalProtocol::~LocalProtocol() = default;
 
 bool LocalProtocol::isLocal() {
 	return true;

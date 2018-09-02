@@ -103,9 +103,7 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
 	}
 }
 
-FicsProtocol::~FicsProtocol() {
-
-}
+FicsProtocol::~FicsProtocol() = default;
 
 Protocol::Features FicsProtocol::supportedFeatures() {
 	return TimeLimit | SetTimeLimit | UpdateTime | Pause | Adjourn | Resign | Abort;

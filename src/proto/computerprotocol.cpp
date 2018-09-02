@@ -31,9 +31,7 @@ ComputerProtocol::ComputerProtocol(QObject* parent): TextProtocol(parent) {
 
 }
 
-ComputerProtocol::~ComputerProtocol() {
-
-}
+ComputerProtocol::~ComputerProtocol() = default;
 
 void ComputerProtocol::startProgram() {
 	QStringList args = attribute("program").toString().split ( QLatin1Char ( ' ' ) );

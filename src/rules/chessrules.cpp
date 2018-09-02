@@ -215,9 +215,7 @@ QList<Move> ChessRules::legalAttackMoves ( const Pos& pos, Grid* grid ) {
 	return moves;
 }
 
-ChessRules::~ChessRules() {
-
-}
+ChessRules::~ChessRules() = default;
 
 Rules::Directions ChessRules::legalDirections ( PieceType type ) {
 	switch ( type ) {
