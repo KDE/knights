@@ -52,7 +52,7 @@ bool UciProtocol::parseStub(const QString& line) {
 bool UciProtocol::parseLine(const QString& line) {
 	if ( line.isEmpty() )
 		return true;
-	ChatWidget::MessageType type = ChatWidget::GeneralMessage;
+	ChatWidget::MessageType type = ChatWidget::GreetMessage;
 	qCDebug(LOG_KNIGHTS) << line;
 	if ( line.startsWith ( QLatin1String("uciok") ) ) {
 		type = ChatWidget::AccountMessage;
