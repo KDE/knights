@@ -713,16 +713,20 @@ void Manager::processMove(const Move& move) {
 	Move m = move;
 	if ( activePlayer() == White ) {
 		m.setTime ( d->whiteTimeControl.currentTime );
-		if (!m.flag(Move::Take))
-			d->moveWhiteSound->start();
-		else
-			d->captureWhiteSound->start();
+		if (Settings::playSounds()) {
+			if (!m.flag(Move::Take))
+				d->moveWhiteSound->start();
+			else
+				d->captureWhiteSound->start();
+		}
 	} else {
 		m.setTime ( d->blackTimeControl.currentTime );
-		if (!m.flag(Move::Take))
-			d->moveBlackSound->start();
-		else
-			d->captureBlackSound->start();
+		if (Settings::playSounds()) {
+			if (!m.flag(Move::Take))
+				d->moveBlackSound->start();
+			else
+				d->captureBlackSound->start();
+		}
 	}
 	d->rules->checkSpecialFlags ( &m, d->activePlayer );
 	if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )

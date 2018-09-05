@@ -39,6 +39,10 @@
       <label>whether to rotate the board when in local two-player mode</label>
       <default>true</default>
     </entry>
+	<entry name="playSounds" type="Bool">
+      <label>whether to play move sounds</label>
+      <default>true</default>
+    </entry>
     <entry name="borderDisplayType" type="Enum">
       <choices>
         <choice name="None" />
