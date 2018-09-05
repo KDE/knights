@@ -35,12 +35,18 @@
 #include "difficultydialog.h"
 #include "knightsdebug.h"
 
-#include <KgDifficulty>
 #include <KLocalizedString>
+#include <KgDifficulty>
+#include <KgSound>
 
 #ifdef HAVE_SPEECH
 #include <QtTextToSpeech>
 #endif
+
+#include <QDir>
+#include <QStandardPaths>
+
+#include <memory>
 
 using namespace Knights;
 
@@ -75,6 +81,11 @@ public:
 	QMap<int, Offer> offers;
 	QSet<int> usedOfferIds;
 
+	std::unique_ptr<KgSound> captureWhiteSound;
+	std::unique_ptr<KgSound> captureBlackSound;
+	std::unique_ptr<KgSound> moveWhiteSound;
+	std::unique_ptr<KgSound> moveBlackSound;
+
 #ifdef HAVE_SPEECH
 	QTextToSpeech* speech;
 #endif
@@ -100,6 +111,11 @@ GameManagerPrivate::GameManagerPrivate()
 	  extControl(nullptr),
 	  initComplete(false) {
 
+	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("sounds"), QStandardPaths::LocateDirectory);
+	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("capture_white.ogg"))) );
+	captureBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("capture_black.ogg"))) );
+	moveWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("move_white.ogg"))) ) ;
+	moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("move_black.ogg"))) );
 }
 
 int GameManagerPrivate::nextOfferId() {
@@ -695,10 +711,19 @@ void Manager::processMove(const Move& move) {
 	sendPendingMove();
 	Q_D(const GameManager);
 	Move m = move;
-	if ( activePlayer() == White )
+	if ( activePlayer() == White ) {
 		m.setTime ( d->whiteTimeControl.currentTime );
-	else
+		if (!m.flag(Move::Take))
+			d->moveWhiteSound->start();
+		else
+			d->captureWhiteSound->start();
+	} else {
 		m.setTime ( d->blackTimeControl.currentTime );
+		if (!m.flag(Move::Take))
+			d->moveBlackSound->start();
+		else
+			d->captureBlackSound->start();
+	}
 	d->rules->checkSpecialFlags ( &m, d->activePlayer );
 	if ( m.flag(Move::Illegal) && !m.flag(Move::Forced) )
 		return;
