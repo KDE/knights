@@ -224,23 +224,25 @@ void Board::mousePressEvent(QGraphicsSceneMouseEvent* e) {
 		}
 	} else {
 		// The active player clicked on his/her own piece
-		qDeleteAll ( markers );
-		markers.clear();
+		if (d_piece != selectedPiece) {
+			qDeleteAll ( markers );
+			markers.clear();
 
-		selectedPiece = d_piece;
+			selectedPiece = d_piece;
 
-		Pos t_pos = mapFromScene ( e->scenePos() );
-		QList<Move> t_legalMoves = Manager::self()->rules()->legalMoves ( t_pos );
-		if ( t_legalMoves.isEmpty() ) {
-			e->ignore();
-			return;
+			Pos t_pos = mapFromScene ( e->scenePos() );
+			QList<Move> t_legalMoves = Manager::self()->rules()->legalMoves ( t_pos );
+			if ( t_legalMoves.isEmpty() ) {
+				e->ignore();
+				return;
+			}
+			d_piece->setZValue ( dragZValue );
+			if ( Settings::showMarker() ) {
+				for ( const Move& t_move : t_legalMoves )
+					addMarker ( t_move.to(), LegalMove );
+			}
+			draggedPiece = d_piece;
 		}
-		d_piece->setZValue ( dragZValue );
-		if ( Settings::showMarker() ) {
-			for ( const Move& t_move : t_legalMoves )
-				addMarker ( t_move.to(), LegalMove );
-		}
-		draggedPiece = d_piece;
 		m_draggedPos = e->scenePos();
 		dragStartPoint = e->screenPos();
 	}
