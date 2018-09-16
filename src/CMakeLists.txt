@@ -70,6 +70,7 @@ target_link_libraries(knights
      Qt5::Svg
      Qt5::Gui
      Qt5::Concurrent
+     KF5::Crash
      KF5::Solid
      KF5::WidgetsAddons
      KF5::DBusAddons

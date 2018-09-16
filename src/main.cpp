@@ -31,6 +31,7 @@
 #include "knights.h"
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 
 #include <QApplication>
@@ -45,6 +46,7 @@ int main ( int argc, char **argv ) {
 	QApplication app(argc, argv);
 
 	KLocalizedString::setApplicationDomain("knights");
+	KCrash::initialize();
 
 	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
 	                   KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));

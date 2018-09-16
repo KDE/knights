@@ -30,6 +30,7 @@ endif ()
 find_package(KF5 REQUIRED COMPONENTS
   DBusAddons
   ConfigWidgets
+  Crash
   TextWidgets
   XmlGui
   KIO
