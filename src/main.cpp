@@ -40,6 +40,8 @@ static const char description[] = I18N_NOOP ( "KDE Chess Board" );
 static QString version = QStringLiteral ("2.6.0");
 
 int main ( int argc, char **argv ) {
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+	QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 	QApplication app(argc, argv);
 
 	KLocalizedString::setApplicationDomain("knights");

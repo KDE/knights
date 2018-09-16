@@ -1,7 +1,7 @@
 project(Knights)
 
 cmake_minimum_required(VERSION 2.8.12)
-set (QT_MIN_VERSION "5.5.0")
+set (QT_MIN_VERSION "5.6.0")
 
 find_package(ECM 1.7.0 REQUIRED CONFIG)
 

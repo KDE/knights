@@ -1,11 +1,19 @@
-Needed Packages
--=-=-=-=-=-=-=-=-=-=-=-=-=
+Knights is KDE's chess frontend. It supports playing local games against human players or against chess engines (XBoard und UIC) as well as playing online games on FICS server.
+Furthermore, is is possible to watch two different chess engines playing againts each other.
 
-You will need KDE and libkdegames libraries and headers. 
-They will probably be installed by the libkdegames-dev or libkdegames-devel packages in your distribution.
+
+Required Packages
+===============================================================================
+
+* CMake version 2.8.12 or higher
+* ECM (extra cmake modules)
+* KDE Frameworks (including the devel-package)
+* KDE Games libraries (including the devel-package)
+* Qt version 5.6 or higher (including the devel-package, libqt5-devel or similar)
+
 
 How To Build Knights
--=-=-=-=-=-=-=-=-=-=-=-=-=
+===============================================================================
 
 cd <project_name_path>
 mkdir build
@@ -17,14 +25,7 @@ make install or sudo make install or su -c 'make install'
 to uninstall the project:
 make uninstall or sudo make uninstall or su -c 'make uninstall'
 
-Note: you can use another build path. Then cd in your build dir and:
-export KDE_SRC=path_to_your_src
-cmake $KDE_SRC -DCMAKE_INSTALL_PREFIX=$KDEDIR
 
-
-----------------------------
-Please send all comments to:
-Miha Čančula
-miha.cancula@gmail.com
-
-Last update: March 2010
+Bug Reports and Wishes:
+===============================================================================
+Use https://bugs.kde.org/ to report any kind of issues with Knights.
