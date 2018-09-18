@@ -171,19 +171,20 @@ void MainWindow::setupActions() {
 	m_resignAction->setIcon(QIcon::fromTheme(QLatin1String("flag-red")));
 	m_resignAction->setEnabled(false);
 
-	QAction* undoAction = actionCollection()->addAction(QLatin1String("move_undo"), this, SLOT(undo()));
-	undoAction->setText(i18n("Undo"));
-	undoAction->setToolTip(i18n("Take back your last move"));
-	undoAction->setIcon(QIcon::fromTheme(QLatin1String("edit-undo")));
-	connect(Manager::self(), &Manager::undoPossible, undoAction, &QAction::setEnabled);
-	undoAction->setEnabled(false);
+	m_undoAction = actionCollection()->addAction(QLatin1String("move_undo"), this, SLOT(undo()));
+	m_undoAction->setText(i18n("Undo"));
+	m_undoAction->setToolTip(i18n("Take back your last move"));
+	m_undoAction->setIcon(QIcon::fromTheme(QLatin1String("edit-undo")));
+	connect(Manager::self(), &Manager::undoPossible, m_undoAction, &QAction::setEnabled);
+	m_undoAction->setEnabled(false);
 
-	QAction* redoAction = actionCollection()->addAction(QLatin1String("move_redo"), this, SLOT(redo()));
-	redoAction->setText(i18n("Redo"));
-	redoAction->setToolTip(i18n("Repeat your last move"));
-	redoAction->setIcon(QIcon::fromTheme(QLatin1String("edit-redo")));
-	connect(Manager::self(), &Manager::redoPossible, redoAction, &QAction::setEnabled);
-	redoAction->setEnabled(false);
+	m_redoAction = actionCollection()->addAction(QLatin1String("move_redo"), this, SLOT(redo()));
+	m_redoAction->setText(i18n("Redo"));
+	m_redoAction->setToolTip(i18n("Repeat your last move"));
+	m_redoAction->setIcon(QIcon::fromTheme(QLatin1String("edit-redo")));
+	connect(Manager::self(), &Manager::redoPossible, m_redoAction, &QAction::setEnabled);
+	m_redoAction->setEnabled(false);
+	m_redoAction->setVisible(false);
 
 	m_drawAction = actionCollection()->addAction(QLatin1String("propose_draw"), Manager::self(), SLOT(offerDraw()));
 	m_drawAction->setText(i18n("Offer &Draw"));
@@ -315,6 +316,15 @@ void MainWindow::protocolInitSuccesful() {
 	bool showHistory = Settings::showHistory();
 	m_historyDock->setVisible(showHistory);
 	actionCollection()->action(QLatin1String("show_history"))->setChecked(showHistory);
+
+	if ( !(Protocol::white()->supportedFeatures() & Protocol::Undo &&
+		Protocol::black()->supportedFeatures() & Protocol::Undo) ) {
+		m_undoAction->setVisible(false);
+		m_redoAction->setVisible(false);
+	} else {
+		m_undoAction->setVisible(true);
+		m_redoAction->setVisible(true);
+	}
 
 	Protocol::Features f = Protocol::NoFeatures;
 	if(Protocol::white()->isLocal() && !(Protocol::black()->isLocal()))

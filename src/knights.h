@@ -96,6 +96,8 @@ private:
 
 	QAction* m_saveAction;
 	QAction* m_saveAsAction;
+	QAction* m_undoAction;
+	QAction* m_redoAction;
 	KToggleAction* m_pauseAction;
 	QAction* m_resignAction;
 	QAction* m_drawAction;

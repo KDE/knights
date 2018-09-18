@@ -41,7 +41,8 @@ UciProtocol::~UciProtocol() {
 }
 
 Protocol::Features UciProtocol::supportedFeatures() {
-	return GameOver | Pause | Resign | Undo | SetDifficulty | AdjustDifficulty;
+	//TODO: UCI is stateless. Undo needs to be implemented completely in the client.
+	return GameOver | Pause | Resign | SetDifficulty | AdjustDifficulty;
 }
 
 bool UciProtocol::parseStub(const QString& line) {
