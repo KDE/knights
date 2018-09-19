@@ -3,14 +3,14 @@
 Knights is KDE's chess frontend. It supports playing local games against human players or against chess engines (XBoard and UIC)
 [![](https://cdn.kde.org/screenshots/knights/knights_main.png "Main Window - Human vs. Engine")](https://cdn.kde.org/screenshots/knights/knights_main.png)
 
-as well as playing online games on FICS server.
+as well as playing online games on FICS server:
 [![](https://cdn.kde.org/screenshots/knights/knights_seek_graph.png "Seek Graph")](https://cdn.kde.org/screenshots/knights/knights_seek_graph.png)
 
-Furthermore, it is possible to watch two different chess engines playing against each other
+Furthermore, it is possible to watch two different chess engines playing against each other:
 [![](https://cdn.kde.org/screenshots/knights/knights_main_2.png "Main Window - Engine vs. Engine")](https://cdn.kde.org/screenshots/knights/knights_main_2.png)
 
-Knights is not bound to any specific chess engine and talks to every engine supporting either the XBoard or the UIC protocols. For couple of well known open-source chess engines provided by linux distributions, knights has an auto-detection of installed engines which simplifies the initial configuration.
-[![](https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png "Auto Detection of Chess Engines)](https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png)
+Knights is not bound to any specific chess engine and talks to every engine supporting either the XBoard or the UIC protocols. For couple of well known open-source chess engines provided by linux distributions, knights has an auto-detection of installed engines which simplifies the initial configuration:
+[![](https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png "Auto Detection of Chess Engines")](https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png)
 
 
 # Required Packages
