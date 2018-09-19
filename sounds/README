@@ -1,0 +1,8 @@
+Sound files taken from pychess (http://pychess.org/).
+
+Original files were renamed as follows:
+
+move1.ogg -> move_white.ogg
+mov2.ogg  -> move_black.ogg
+capture1  -> capture_white.ogg
+capture2  -> capture_black.ogg
