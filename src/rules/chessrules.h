@@ -33,9 +33,10 @@ class Move;
 class Pos;
 
 class ChessRules : public Rules {
-public:
 
+public:
 	ChessRules();
+	~ChessRules() override;
 
 	Color winner() override;
 	bool hasLegalMoves ( Color color ) override;
@@ -43,7 +44,6 @@ public:
 	QList<Move> legalMoves ( const Pos& pos ) override;
 	void moveMade ( const Move& m ) override;
 	Directions legalDirections ( PieceType type ) override;
-	~ChessRules() override;
 
 	bool isAttacked ( const Pos& pos, Color color, Grid * grid = nullptr );
 	bool isAttacking ( const Pos& attackingPos ) override;
@@ -52,7 +52,6 @@ public:
 	virtual void changeNotation ( Knights::Move* move, Move::Notation notation, Color color );
 
 private:
-
 	struct MoveData {
 		Move m;
 		PieceType pieceType;
@@ -65,7 +64,6 @@ private:
 	QList<Pos> knightDirs;
 	QStack<MoveData> moveHistory;
 
-private:
 	QList<Move> movesInDirection ( const Pos& dir, const Pos& pos, int length = 8, bool attackYours = false, Grid* grid = nullptr );
 	QList<Move> pawnMoves ( const Pos& pos );
 	QList<Move> castlingMoves ( const Pos& pos );
@@ -88,4 +86,3 @@ private:
 }
 
 #endif // KCHESS_CHESSRULES_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

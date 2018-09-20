@@ -97,6 +97,3 @@ void ClockWidget::updateTimeFormat() {
 	else
 		m_timeFormat = QLatin1String("mm:ss");
 }
-
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

@@ -97,13 +97,11 @@ PieceType Piece::typeFromChar ( QChar typeChar ) {
 	return pType;
 }
 
-
 Piece::Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent ) :
 	Item ( renderer, spriteKey ( type, color ), scene, boardPos, parent ) {
 	m_color = color;
 	m_type = type;
 }
-
 
 Piece::~Piece() = default;
 
@@ -117,7 +115,6 @@ Color oppositeColor ( Color color ) {
 		return color;
 	}
 }
-
 
 QString colorName ( Color color ) {
 	switch ( color ) {
@@ -149,7 +146,6 @@ QString pieceTypeName ( PieceType type ) {
 	}
 }
 
-
 Color Piece::color() {
 	return m_color;
 }
@@ -168,8 +164,4 @@ void Piece::updateSpriteKey() {
 	update();
 }
 
-
-
 }
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

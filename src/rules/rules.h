@@ -26,8 +26,6 @@
 #include "core/piece.h"
 #include "knightsdebug.h"
 
-#include <QDebug>
-
 template<class Key, class T > class QMap;
 namespace Knights {
 class Pos;
@@ -115,4 +113,3 @@ protected:
 }
 
 #endif // KCHESS_RULES_H
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

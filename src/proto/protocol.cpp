@@ -56,7 +56,6 @@ ProtocolPrivate::ProtocolPrivate()
 
 }
 
-
 Protocol::Protocol ( QObject* parent ) : QObject ( parent ), d_ptr ( new ProtocolPrivate ) {
 }
 
@@ -156,7 +155,6 @@ QVariant Protocol::attribute ( const char* attribute ) const {
 	return this->attribute ( QLatin1String ( attribute ) );
 }
 
-
 Protocol::Features Protocol::supportedFeatures() {
 	return NoFeatures;
 }
@@ -220,5 +218,3 @@ void Protocol::setDifficulty(int depth, int memory) {
 }
 
 }
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;

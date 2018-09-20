@@ -140,5 +140,3 @@ void Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size
 		group->start ( QAbstractAnimation::DeleteWhenStopped );
 	}
 }
-
-// kate: indent-mode cstyle; space-indent on; indent-width 4; replace-tabs on;
