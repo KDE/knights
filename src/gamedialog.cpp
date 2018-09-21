@@ -343,7 +343,7 @@ void GameDialog::loadEngines() {
 	if(!Settings::player2Program().isEmpty())
 		ui->cbPlayer2Engine->setCurrentItem(Settings::player2Program(), false);
 	else
-		ui->cbPlayer1Engine->setCurrentIndex(0);
+		ui->cbPlayer2Engine->setCurrentIndex(0);
 
 	checkOkButton();
 }
