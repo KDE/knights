@@ -127,6 +127,7 @@ void EngineSettings::autoDetectEngines() {
 	//descriptions for couple of known/popular open-source chess engines:
 	//provide the name/Description of the engine, the name of the executable and the protocol,
 	//keep the order within the three string lists in sync
+
 	QStringList names;
 	names << QLatin1String("GNU Chess");
 	names << QLatin1String("Crafty");
@@ -139,9 +140,12 @@ void EngineSettings::autoDetectEngines() {
 	names << QLatin1String("Stockfish v2.0");
 	names << QLatin1String("Sjeng");
 	names << QLatin1String("Phalanx");
+	names << QLatin1String("Fruit");
 	names << QLatin1String("Fruit v2.1");
 	names << QLatin1String("TogaII");
 	names << QLatin1String("TogaII v.1.4.2");
+	names << QLatin1String("Glaurung");
+	names << QLatin1String("HoiChess");
 
 	QStringList commands;
 	commands << QLatin1String("gnuchess");
@@ -155,9 +159,12 @@ void EngineSettings::autoDetectEngines() {
 	commands << QLatin1String("stockfish20");
 	commands << QLatin1String("sjeng");
 	commands << QLatin1String("phalanx");
+	commands << QLatin1String("fruit");
 	commands << QLatin1String("fruit21");
 	commands << QLatin1String("toga2");
 	commands << QLatin1String("togaII-142"); //openSUSE naming convention
+	commands << QLatin1String("glaurung");
+	commands << QLatin1String("hoichess");
 
 	QVector<EngineConfiguration::Interface> interfaces;
 	interfaces << EngineConfiguration::XBoard; //gnuchess
@@ -171,9 +178,12 @@ void EngineSettings::autoDetectEngines() {
 	interfaces << EngineConfiguration::Uci; //stockfish20
 	interfaces << EngineConfiguration::XBoard; //sjeng
 	interfaces << EngineConfiguration::XBoard; //phalanx //TODO: check this
+	interfaces << EngineConfiguration::Uci; //fruit
 	interfaces << EngineConfiguration::Uci; //fruit21
 	interfaces << EngineConfiguration::Uci; //toga2
 	interfaces << EngineConfiguration::Uci; //togaII-142
+	interfaces << EngineConfiguration::Uci; //glaurung
+	interfaces << EngineConfiguration::XBoard; //hoichess
 
 	//remove all available engines first
 	ui->tableWidget->setRowCount(0);
