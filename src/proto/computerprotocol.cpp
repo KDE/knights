@@ -27,7 +27,7 @@
 
 using namespace Knights;
 
-ComputerProtocol::ComputerProtocol(QObject* parent): TextProtocol(parent) {
+ComputerProtocol::ComputerProtocol(QObject* parent): TextProtocol(parent), mProcess(nullptr) {
 
 }
 

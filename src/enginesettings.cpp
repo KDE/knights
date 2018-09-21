@@ -38,7 +38,7 @@
 
 using namespace Knights;
 
-EngineConfiguration::EngineConfiguration(const QString& string) {
+EngineConfiguration::EngineConfiguration(const QString& string) : iface(Invalid) {
 	QStringList list = string.split(QLatin1Char(':'));
 	if ( list.size() > 2 ) {
 		name = list[0];
@@ -47,8 +47,6 @@ EngineConfiguration::EngineConfiguration(const QString& string) {
 			iface = XBoard;
 		else if ( list[2] == QLatin1String("uci") )
 			iface = Uci;
-		else
-			iface = Invalid;
 	}
 }
 

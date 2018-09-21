@@ -28,7 +28,10 @@
 
 using namespace Knights;
 
-UciProtocol::UciProtocol(QObject* parent): ComputerProtocol(parent) {
+UciProtocol::UciProtocol(QObject* parent): ComputerProtocol(parent),
+	mWhiteTime(0),
+	mBlackTime(0),
+	mDifficulty(0) {
 
 }
 
@@ -125,6 +128,7 @@ void UciProtocol::requestNextMove() {
 
 	QString goString = QLatin1String("go");
 
+	//TODO: mDifficulty doesn't seem to be properly set nowhere
 	if ( mDifficulty )
 		goString += QLatin1String(" depth ") + QString::number ( mDifficulty );
 

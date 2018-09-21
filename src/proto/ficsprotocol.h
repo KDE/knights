@@ -90,14 +90,10 @@ private:
 	QString password;
 	bool sendPassword;
 	FicsDialog* m_widget;
-	bool forcePrompt;
 	bool m_seeking;
 	ChatWidget* m_chat;
 	QMap<int, Offer> m_offers;
 	QString otherPlayerName;
-
-	bool undoPending;
-	bool drawPending;
 
 	Color parseColor( QString str );
 	bool parseLine(const QString& line) override;

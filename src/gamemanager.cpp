@@ -109,6 +109,7 @@ GameManagerPrivate::GameManagerPrivate()
 	  speech(nullptr),
 #endif
 	  extControl(nullptr),
+	  winner(NoColor),
 	  initComplete(false) {
 
 	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("sounds"), QStandardPaths::LocateDirectory);

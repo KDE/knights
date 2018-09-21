@@ -68,7 +68,10 @@ enum GameAction {
 class Offer {
 public:
 	Offer() {
+		action = ActionNone;
 		id = 0;
+		player = NoColor;
+		numberOfMoves = 0;
 	};
 	GameAction action;
 	int id;

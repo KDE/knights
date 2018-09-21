@@ -90,13 +90,20 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
 	                 .arg ( QLatin1String( variantPattern ) )
 	                 .arg ( QLatin1String( timePattern ) ) ),
 	offerExp ( QLatin1String( offerPattern ) ),
+    m_stage(ConnectStage),
 	sendPassword(false),
 	m_widget(nullptr),
-	m_chat(nullptr) {
+	m_seeking(false),
+	m_chat(nullptr)
+    {
 	// FICS games are always time-limited
 	setAttribute ( QLatin1String("TimeLimitEnabled"), true );
+
+    //TODO: this initialization is obsolete since the time control _should_ be set
+    //when a new game is started and the values provided in the game dialog are used.
 	if ( !Manager::self()->timeControlEnabled(color()) ) {
 		TimeControl tc;
+		tc.moves = 100;
 		tc.baseTime = QTime().addSecs( 10 * 60 ); // A default time of 10 minutes with no increment
 		tc.increment = 0;
 		Manager::self()->setTimeControl(color(), tc);

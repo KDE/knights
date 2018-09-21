@@ -35,11 +35,6 @@ public:
 	explicit UciProtocol(QObject* parent = nullptr);
 	~UciProtocol() override;
 
-protected:
-	bool parseStub(const QString& line) override;
-	bool parseLine(const QString& line) override;
-
-public:
 	Features supportedFeatures() override;
 	void declineOffer(const Knights::Offer& offer) override;
 	void acceptOffer(const Knights::Offer& offer) override;
@@ -52,6 +47,10 @@ public:
 private slots:
 	void changeCurrentTime(Knights::Color color, const QTime& time);
 	void requestNextMove();
+
+protected:
+	bool parseStub(const QString& line) override;
+	bool parseLine(const QString& line) override;
 
 private:
 	QStack<Move> mMoveHistory;

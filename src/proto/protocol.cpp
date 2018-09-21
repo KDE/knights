@@ -49,10 +49,11 @@ public:
 };
 
 ProtocolPrivate::ProtocolPrivate()
-	: white(nullptr)
-	, black(nullptr)
-	, ready(false)
-	, nextId(0) {
+	: white(nullptr),
+	black(nullptr),
+	color(NoColor),
+	ready(false),
+	nextId(0) {
 
 }
 

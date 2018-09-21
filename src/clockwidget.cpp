@@ -28,8 +28,10 @@
 
 using namespace Knights;
 
-ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f ) {
-	ui = new Ui::ClockWidget;
+ClockWidget::ClockWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f ),
+	ui(new Ui::ClockWidget),
+	m_activePlayer(NoColor) {
+
 	ui->setupUi ( this );
 }
 
