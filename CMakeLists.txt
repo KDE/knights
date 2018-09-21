@@ -1,6 +1,10 @@
 project(Knights)
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required (VERSION 3.2.0 FATAL_ERROR)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 set (QT_MIN_VERSION "5.6.0")
 
 find_package(ECM 1.7.0 REQUIRED CONFIG)
