@@ -61,7 +61,6 @@ private:
 	void drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName);
 	void paintInterface(QPainter *p, const QRect &rect);
 
-private:
 	QTime time;
 	Plasma::Svg *m_theme;
 	enum RepaintCache {
@@ -75,7 +74,6 @@ private:
 	QPixmap m_glassCache;
 	qreal m_verticalTranslation;
 };
-
 
 }
 

@@ -34,9 +34,11 @@
 
 using namespace Knights;
 
-Clock::Clock(QWidget *parent)
-	: QWidget(parent) {
-	m_theme = new Plasma::Svg(this);
+Clock::Clock(QWidget* parent) : QWidget(parent),
+	m_theme(new Plasma::Svg(this)),
+	m_repaintCache(RepaintNone),
+	m_verticalTranslation(0.) {
+
 	m_theme->setImagePath(QLatin1String("widgets/clock") );
 	m_theme->setContainsMultipleImages(true);
 }
@@ -78,7 +80,6 @@ void Clock::setTime(const QTime &time) {
 void Clock::setTime(int miliSeconds) {
 	setTime(QTime().addMSecs(miliSeconds));
 }
-
 
 void Clock::drawHand(QPainter *p, const QRect &rect, const qreal verticalTranslation, const qreal rotation, const QString &handName) {
 	// this code assumes the following conventions in the svg file:
