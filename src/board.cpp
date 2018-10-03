@@ -42,7 +42,9 @@
 #include <QDialogButtonBox>
 #include <QDrag>
 #include <QGraphicsSceneMouseEvent>
+#include <QMimeData>
 #include <QPushButton>
+#include <QtMath>
 
 using namespace Knights;
 
