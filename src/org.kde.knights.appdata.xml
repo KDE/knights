@@ -595,7 +595,28 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>https://kde.org/images/screenshots/knights.png</image>
+      <caption>Main Window - Human vs. Chess Engine</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_main.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Main Window - Chess Engine vs. Chess Engine</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_main_2.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>"New Game" Dialog</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_new_game.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Auto-Detection of Chess Engines</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Playing online - FICS Console</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_fics_console.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Playing online - graphical Seek-Graph</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights_seek_graph.png</image>
     </screenshot>
   </screenshots>
   <url type="homepage">https://www.kde.org/applications/games/knights/</url>
