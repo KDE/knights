@@ -73,7 +73,7 @@
     <p xml:lang="ca">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="ca-valencia">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="da">KNights er et skakspil. Som spiller er dit mål at sejre over din modstander ved deres konge skakmat.</p>
-    <p xml:lang="de">KNights ist ein Schachspiel, bei dem der Gegner durch matt setzen des Königs besiegt wird.</p>
+    <p xml:lang="de">KNights ist ein Schachspiel, bei dem der Gegner durch Matt setzen des Königs besiegt wird.</p>
     <p xml:lang="el">Το KNights είναι ένα σκάκι. Ως παίκτης, ο στόχος σου είναι να νικήσεις τον αντίπαλο κάνοντας ματ στον βασιλιά.</p>
     <p xml:lang="en-GB">KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.</p>
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, su objetivo consiste en vencer a su oponente haciendo jaque mate a su rey.</p>
@@ -218,6 +218,7 @@
       <li xml:lang="ca">Mirar dos motors d'ordinador jugar entre si</li>
       <li xml:lang="ca-valencia">Mirar dos motors d'ordinador jugar entre si</li>
       <li xml:lang="da">Se to computermotorer spille mod hinanden</li>
+      <li xml:lang="de">Anzeige eines Spiels zweier Schach-Module gegeneinander</li>
       <li xml:lang="el">Παρακολουθήστε δύο μηχανές να παίζουν η μία εναντίον της άλλης</li>
       <li xml:lang="en-GB">Watching two computer engines play against each other</li>
       <li xml:lang="es">Observar cómo juegan dos programas de ajedrez entre sí</li>
@@ -272,6 +273,7 @@
       <li xml:lang="ca">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="ca-valencia">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="da">Markører til mulige træk, modstanderens sidste træk og tjekkilder</li>
+      <li xml:lang="de">Markierungen für mögliche Züge, den letzten Zug des Gegners und Spielzüge für Schachmatt</li>
       <li xml:lang="el">Δείκτες για πιθανές κινήσεις, για την τελευταία κίνηση του αντιπάλου και πηγές σαχ</li>
       <li xml:lang="en-GB">Markers for possible moves, opponent's last move and sources of check</li>
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de comprobaciones</li>
@@ -298,6 +300,7 @@
       <li xml:lang="ca">Vores del tauler i notacions de lloc</li>
       <li xml:lang="ca-valencia">Vores del tauler i notacions de lloc</li>
       <li xml:lang="da">Brættets kanter og stednotifikationer</li>
+      <li xml:lang="de">Verschiedene Ränder des Schachbretts und Notationen der Schachseiten</li>
       <li xml:lang="el">Άκρα σκακιέρας και πλαϊνοί συμβολισμοί</li>
       <li xml:lang="en-GB">Board borders and site notations</li>
       <li xml:lang="es">Bordes del tablero y notaciones del sitio</li>
@@ -325,6 +328,7 @@
       <li xml:lang="ca">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="ca-valencia">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="da">Fuld tidskontrol, med ure i Plasma-stil</li>
+      <li xml:lang="de">Vollständige Zeitüberwachung mit Uhren im Plasma-Design</li>
       <li xml:lang="el">Πλήρης έλεγχος χρόνου, με Plasma-styled χρονόμετρα</li>
       <li xml:lang="en-GB">Complete time control, with Plasma-styled clocks</li>
       <li xml:lang="es">Completo control del tiempo, con paneles al estilo de Plasma</li>
@@ -352,6 +356,7 @@
       <li xml:lang="ca">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="ca-valencia">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="da">Adskillige temaer, med mulighed for at downloade nye i programmet</li>
+      <li xml:lang="de">Verschiedene Designs sind in KNights bereits enthalten, weitere Designs können aus dem Programm heraus heruntergeladen werden</li>
       <li xml:lang="el">Πολλά θέματα, με δυνατότητα λήψης νέων μέσα από το πρόγραμμα</li>
       <li xml:lang="en-GB">Several themes, with the possibility of downloading new ones from within the program</li>
       <li xml:lang="es">Diversos temas, con la posibilidad de descargar otros nuevos desde el programa</li>
@@ -406,6 +411,7 @@
       <li xml:lang="ca">Vistes per jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text, i un estri de xat</li>
       <li xml:lang="ca-valencia">Vistes per jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text, i un estri de xat</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
+      <li xml:lang="de">Ansichten zum Spielen auf einem Schachserver, inklusive Suchgraphen,  Textkonsole und Chatmöglichkeit</li>
       <li xml:lang="el">Προβολές παιχνιδιού σε εξυπηρετητή σκακιού, με γράφο αναζήτησης, κονσόλα κειμένου και γραφικό συστατικό συνοιμλίας</li>
       <li xml:lang="en-GB">Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="es">Visores para jugar en un servidor de ajedrez, incluido un gráfico de búsqueda, una consola de texto y una ventana de charla</li>
@@ -461,6 +467,7 @@
       <li xml:lang="ca">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="ca-valencia">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="da">Grafisk grænseflade til at foretage og modtage tilbud fra fjernspillere</li>
+      <li xml:lang="de">Grafische Schnittstelle um Angebote von entfernten Spielen zu senden und zu erhalten</li>
       <li xml:lang="el">Γραφικό περιβάλλον για προσφορές από απομακρυσμένους παίκτες</li>
       <li xml:lang="en-GB">Graphic interface for making and receiving offers from remote players</li>
       <li xml:lang="es">Interfaz gráfica para hacer y recibir ofertas de jugadores remotos</li>
