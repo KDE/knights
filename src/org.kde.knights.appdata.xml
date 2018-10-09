@@ -603,26 +603,56 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main Window - Human vs. Chess Engine</caption>
+      <caption xml:lang="ca">Finestra principal: humà vs. motor d'escacs</caption>
+      <caption xml:lang="pt">Janela Principal - Humano vs. Motor de Xadrez</caption>
+      <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
+      <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
+      <caption xml:lang="x-test">xxMain Window - Human vs. Chess Enginexx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Main Window - Chess Engine vs. Chess Engine</caption>
+      <caption xml:lang="ca">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
+      <caption xml:lang="pt">Janela Principal - Motor de Xadrez vs. Motor de Xadrez</caption>
+      <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
+      <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
+      <caption xml:lang="x-test">xxMain Window - Chess Engine vs. Chess Enginexx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main_2.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>"New Game" Dialog</caption>
+      <caption xml:lang="ca">Diàleg «Joc nou»</caption>
+      <caption xml:lang="pt">Janela de "Novo Jogo"</caption>
+      <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
+      <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
+      <caption xml:lang="x-test">xx"New Game" Dialogxx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_new_game.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Auto-Detection of Chess Engines</caption>
+      <caption xml:lang="ca">Detecció automàtica dels motors d'escacs</caption>
+      <caption xml:lang="pt">Detecção Automática dos Motores de Xadrez</caption>
+      <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
+      <caption xml:lang="uk">Автоматичне виявлення шахових рушіїв</caption>
+      <caption xml:lang="x-test">xxAuto-Detection of Chess Enginesxx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Playing online - FICS Console</caption>
+      <caption xml:lang="ca">Jugant en línia: consola FICS</caption>
+      <caption xml:lang="pt">Jogo 'online' - Consola do FICS</caption>
+      <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
+      <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
+      <caption xml:lang="x-test">xxPlaying online - FICS Consolexx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_fics_console.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Playing online - graphical Seek-Graph</caption>
+      <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
+      <caption xml:lang="pt">Jogo 'online' - Grafo de pesquisa gráfico</caption>
+      <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
+      <caption xml:lang="uk">Гра у мережі — граф пошуку гравців</caption>
+      <caption xml:lang="x-test">xxPlaying online - graphical Seek-Graphxx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_seek_graph.png</image>
     </screenshot>
   </screenshots>
