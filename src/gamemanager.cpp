@@ -94,6 +94,7 @@ public:
 	QString filename;
 	Color winner;
 	bool initComplete;
+	bool loading;
 
 	int nextOfferId();
 };
@@ -110,7 +111,8 @@ GameManagerPrivate::GameManagerPrivate()
 #endif
 	  extControl(nullptr),
 	  winner(NoColor),
-	  initComplete(false) {
+	  initComplete(false),
+	  loading(false) {
 
 	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("sounds"), QStandardPaths::LocateDirectory);
 	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("capture_white.ogg"))) );
@@ -714,7 +716,7 @@ void Manager::processMove(const Move& move) {
 	Move m = move;
 	if ( activePlayer() == White ) {
 		m.setTime ( d->whiteTimeControl.currentTime );
-		if (Settings::playSounds()) {
+		if (Settings::playSounds() && !d->loading) {
 			if (!m.flag(Move::Take))
 				d->moveWhiteSound->start();
 			else
@@ -722,7 +724,7 @@ void Manager::processMove(const Move& move) {
 		}
 	} else {
 		m.setTime ( d->blackTimeControl.currentTime );
-		if (Settings::playSounds()) {
+		if (Settings::playSounds() && !d->loading) {
 			if (!m.flag(Move::Take))
 				d->moveBlackSound->start();
 			else
@@ -806,6 +808,7 @@ void Manager::levelChanged ( const KgDifficultyLevel* level ) {
 
 
 void Manager::loadGameHistoryFrom(const QString& filename) {
+	Q_D(GameManager);
 	qCDebug(LOG_KNIGHTS) << filename;
 	QFile file(filename);
 	if ( !file.open(QIODevice::ReadOnly) )
@@ -828,6 +831,7 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 			}
 		} else {
 			// Parse a line of moves
+			d->loading = true;
 			for ( const QByteArray& str : line.trimmed().split(' ') ) {
 				if ( !str.trimmed().isEmpty() && !str.contains('.') && !str.contains("1-0") && !str.contains("0-1") && !str.contains("1/2-1/2") && !str.contains('*') ) {
 					// Only move numbers contain dots, not move data itself
@@ -844,6 +848,7 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 					processMove ( m );
 				}
 			}
+			d->loading = false;
 		}
 	}
 

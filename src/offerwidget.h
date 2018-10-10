@@ -38,7 +38,6 @@ enum OfferAction {
 	IgnoreOffer
 };
 
-
 class OfferWidget : public KMessageWidget {
 	Q_OBJECT
 

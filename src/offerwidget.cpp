@@ -64,7 +64,3 @@ void OfferWidget::closeClicked() {
 	emit close(offerId, IgnoreOffer);
 	deleteLater();
 }
-
-
-
-
