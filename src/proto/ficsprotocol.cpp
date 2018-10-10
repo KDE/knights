@@ -143,7 +143,11 @@ void FicsProtocol::init (  ) {
 		port = 5000;
 	connect ( socket, static_cast<void (QTcpSocket::*)(QAbstractSocket::SocketError)> (&QTcpSocket::error),
 	          this, &FicsProtocol::socketError );
-	socket->connectToHost ( address, port );
+
+	QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+	socket->connectToHost(address, port);
+	if (socket->waitForConnected(5000))
+		QApplication::restoreOverrideCursor();
 }
 
 QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
@@ -169,6 +173,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
 }
 
 void FicsProtocol::socketError() {
+	QApplication::restoreOverrideCursor();
 	emit error( NetworkError, device()->errorString() );
 }
 
