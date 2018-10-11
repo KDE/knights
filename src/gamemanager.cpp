@@ -173,7 +173,6 @@ void Manager::setTimeRunning(bool running) {
 		stopTime();
 }
 
-
 void Manager::setCurrentTime(Color color, const QTime& time) {
 	Q_D(GameManager);
 	switch ( color ) {
@@ -709,10 +708,15 @@ void Manager::moveByExternalControl(const Knights::Move& move) {
 		processMove(move);
 }
 
-
 void Manager::processMove(const Move& move) {
-	sendPendingMove();
 	Q_D(const GameManager);
+
+	//no need to process the last move coming from the engine if the game is already
+	//over and we're closing the game
+	if (d->gameOverInProcess)
+		return;
+
+	sendPendingMove();
 	Move m = move;
 	if ( activePlayer() == White ) {
 		m.setTime ( d->whiteTimeControl.currentTime );
