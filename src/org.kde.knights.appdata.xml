@@ -590,6 +590,7 @@
     <screenshot type="default">
       <caption>Main Window - Human vs. Chess Engine</caption>
       <caption xml:lang="ca">Finestra principal: humà vs. motor d'escacs</caption>
+      <caption xml:lang="ca-valencia">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="de">Hauptfenster - Mensch gegen Schachmodul</caption>
       <caption xml:lang="es">Ventana principal - Humano contra motor de ajedrez</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
@@ -603,6 +604,7 @@
     <screenshot type="default">
       <caption>Main Window - Chess Engine vs. Chess Engine</caption>
       <caption xml:lang="ca">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
+      <caption xml:lang="ca-valencia">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="de">Hauptfenster - Schachmodul gegen Schachmodul</caption>
       <caption xml:lang="es">Ventana principal - Motor de ajedrez contra motor de ajedrez</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
@@ -616,6 +618,7 @@
     <screenshot type="default">
       <caption>"New Game" Dialog</caption>
       <caption xml:lang="ca">Diàleg «Joc nou»</caption>
+      <caption xml:lang="ca-valencia">Diàleg «Joc nou»</caption>
       <caption xml:lang="de">"Dialog Neues Spiel</caption>
       <caption xml:lang="es">Diálogo «Nueva partida»</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
@@ -629,6 +632,7 @@
     <screenshot type="default">
       <caption>Auto-Detection of Chess Engines</caption>
       <caption xml:lang="ca">Detecció automàtica dels motors d'escacs</caption>
+      <caption xml:lang="ca-valencia">Detecció automàtica dels motors d'escacs</caption>
       <caption xml:lang="de">Automatische Erkennung von Schachmodulen</caption>
       <caption xml:lang="es">Detección automática de motores de ajedrez</caption>
       <caption xml:lang="nl">Autodetectie schaakprogramma's</caption>
@@ -642,6 +646,7 @@
     <screenshot type="default">
       <caption>Playing online - FICS Console</caption>
       <caption xml:lang="ca">Jugant en línia: consola FICS</caption>
+      <caption xml:lang="ca-valencia">Jugant en línia: consola FICS</caption>
       <caption xml:lang="de">Online spielen - FICS-Konsole</caption>
       <caption xml:lang="es">Juego en línea - Consola FICS</caption>
       <caption xml:lang="nl">Online spelen - FICS-console</caption>
@@ -655,6 +660,7 @@
     <screenshot type="default">
       <caption>Playing online - graphical Seek-Graph</caption>
       <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
+      <caption xml:lang="ca-valencia">Jugant en línia: gràfic de cerca</caption>
       <caption xml:lang="de">Online spielen - Such-Graph</caption>
       <caption xml:lang="es">Juego en línea - Gráfico de búsqueda</caption>
       <caption xml:lang="nl">Online spelen - grafische "Seek-Graph"</caption>
