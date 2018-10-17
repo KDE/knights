@@ -593,6 +593,7 @@
       <caption xml:lang="ca-valencia">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="de">Hauptfenster - Mensch gegen Schachmodul</caption>
       <caption xml:lang="es">Ventana principal - Humano contra motor de ajedrez</caption>
+      <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – menneske mot datamaskin</caption>
       <caption xml:lang="pt">Janela Principal - Humano vs. Motor de Xadrez</caption>
@@ -607,6 +608,7 @@
       <caption xml:lang="ca-valencia">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="de">Hauptfenster - Schachmodul gegen Schachmodul</caption>
       <caption xml:lang="es">Ventana principal - Motor de ajedrez contra motor de ajedrez</caption>
+      <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – datamaskin mot datamaskin</caption>
       <caption xml:lang="pt">Janela Principal - Motor de Xadrez vs. Motor de Xadrez</caption>
@@ -621,6 +623,7 @@
       <caption xml:lang="ca-valencia">Diàleg «Joc nou»</caption>
       <caption xml:lang="de">"Dialog Neues Spiel</caption>
       <caption xml:lang="es">Diálogo «Nueva partida»</caption>
+      <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
       <caption xml:lang="nn">«Nytt parti»-dialog</caption>
       <caption xml:lang="pt">Janela de "Novo Jogo"</caption>
@@ -635,6 +638,7 @@
       <caption xml:lang="ca-valencia">Detecció automàtica dels motors d'escacs</caption>
       <caption xml:lang="de">Automatische Erkennung von Schachmodulen</caption>
       <caption xml:lang="es">Detección automática de motores de ajedrez</caption>
+      <caption xml:lang="fr">Auto-détection des moteurs d'échecs</caption>
       <caption xml:lang="nl">Autodetectie schaakprogramma's</caption>
       <caption xml:lang="nn">Oppdag sjakkmotor automatisk</caption>
       <caption xml:lang="pt">Detecção Automática dos Motores de Xadrez</caption>
@@ -649,6 +653,7 @@
       <caption xml:lang="ca-valencia">Jugant en línia: consola FICS</caption>
       <caption xml:lang="de">Online spielen - FICS-Konsole</caption>
       <caption xml:lang="es">Juego en línea - Consola FICS</caption>
+      <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
       <caption xml:lang="nl">Online spelen - FICS-console</caption>
       <caption xml:lang="nn">Spelar via nettet – FICS-konsoll</caption>
       <caption xml:lang="pt">Jogo 'online' - Consola do FICS</caption>
@@ -663,6 +668,7 @@
       <caption xml:lang="ca-valencia">Jugant en línia: gràfic de cerca</caption>
       <caption xml:lang="de">Online spielen - Such-Graph</caption>
       <caption xml:lang="es">Juego en línea - Gráfico de búsqueda</caption>
+      <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
       <caption xml:lang="nl">Online spelen - grafische "Seek-Graph"</caption>
       <caption xml:lang="nn">Spelar via nettet – grafisk søkjegraf</caption>
       <caption xml:lang="pt">Jogo 'online' - Grafo de pesquisa gráfico</caption>
