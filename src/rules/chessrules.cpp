@@ -410,7 +410,7 @@ QList< Move > ChessRules::pawnMoves ( const Pos& pos ) {
 		if ( pos.second == baseLine && !m_grid->contains ( pos + 2*forwardDirection ) )
 			list << Move ( pos, pos + 2*forwardDirection );
 	}
-	// Normal copturing
+	// Normal capturing
 	for ( const Pos& captureDir : captureDirections ) {
 		if ( m_grid->contains ( pos + captureDir ) && m_grid->value ( pos + captureDir )->color() != m_grid->value ( pos )->color() )
 			list << Move ( pos, pos + captureDir, Move::Take );

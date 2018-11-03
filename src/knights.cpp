@@ -442,7 +442,7 @@ void MainWindow::optionsPreferences() {
 	connect(dialog, &KConfigDialog::accepted, engineSettings, &EngineSettings::save);
 
 	//FIXME: the accessibility page doesn't seem to be used at the moment.
-	//Furthermore, the option "Speak opponent's moves" has to be behing HAVE_SPEECH
+	//Furthermore, the option "Speak opponent's moves" has to be behind HAVE_SPEECH
 // 	QWidget* accessDlg = new QWidget;
 // 	ui_prefs_access.setupUi(accessDlg);
 // 	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));

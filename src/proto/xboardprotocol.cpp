@@ -116,7 +116,7 @@ bool XBoardProtocol::parseLine(const QString& line) {
 		return true;
 
 	//we start with GreetMessage and set the type to a different value depending on the content of the line to be parsed.
-	//with this easiy identify the actual greet message and to highlight it accordingly in the chat widget.
+	//with this easily identify the actual greet message and to highlight it accordingly in the chat widget.
 	//However, output like "TimeControl[]" is also recognized as greet message. This is not a problem from the point of view
 	//of the different highlighting in the chat widget, but maybe we want to set such messages to StatusMessage and to
 	//highlight differently in future.

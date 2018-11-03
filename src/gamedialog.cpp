@@ -171,7 +171,7 @@ void GameDialog::setupProtocols() {
 			//This happens when the user didn't select any game engine, so we are
 			//creating below a dummy XBoardProtocol object with an invalid command
 			//path (i.e. an empty QString), thus this object will send a signal
-			//error which will end up in a notificaction of the error to the user,
+			//error which will end up in a notification of the error to the user,
 			//raising a KMessageBox error or so.
 			p1 = new XBoardProtocol;
 			p1->setAttribute("program", QString());
@@ -198,7 +198,7 @@ void GameDialog::setupProtocols() {
 			//This happens when the user didn't select any game engine, so we are
 			//creating below a dummy XBoardProtocol object with an invalid command
 			//path (i.e. an empty QString), thus this object will send a signal
-			//error which will end up in a notificaction of the error to the user,
+			//error which will end up in a notification of the error to the user,
 			//raising a KMessageBox error or so.
 			p2 = new XBoardProtocol;
 			p2->setAttribute("program", QString());

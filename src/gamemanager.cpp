@@ -897,7 +897,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 	}
 	stream << "[Result \"" << result << "\"]" << endl;
 
-	// Supplemental tags, ordered alphabetacally.
+	// Supplemental tags, ordered alphabetically.
 	// Currently, only TimeControl is added
 
 	stream << "[TimeControl \"";
