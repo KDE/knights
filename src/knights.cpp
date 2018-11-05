@@ -240,7 +240,7 @@ void MainWindow::fileNew() {
 	if(!maybeSave())
 		return;
 
-	GameDialog* gameNewDialog = new GameDialog(this);
+	QPointer<GameDialog> gameNewDialog = new GameDialog(this);
 	if(gameNewDialog->exec() == QDialog::Accepted) {
 		Manager::self()->reset();
 		gameNewDialog->setupProtocols();
