@@ -63,3 +63,10 @@ add_subdirectory(icons)
 add_subdirectory(sounds)
 add_subdirectory(src)
 add_subdirectory(themes)
+
+install( FILES knights.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+
+feature_summary(WHAT ALL
+                INCLUDE_QUIET_PACKAGES
+                FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
