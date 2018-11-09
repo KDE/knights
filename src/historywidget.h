@@ -43,7 +43,7 @@ public:
 private:
 	Ui::HistoryWidget* ui;
 
-private slots:
+private Q_SLOTS:
 	void updateHistory();
 };
 

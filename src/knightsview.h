@@ -62,10 +62,10 @@ private:
 protected:
 	void resizeEvent(QResizeEvent*) override;
 
-public slots:
+public Q_SLOTS:
 	void settingsChanged();
 
-private slots:
+private Q_SLOTS:
 	void resizeScene();
 	void showAllOffersToggled();
 
@@ -73,7 +73,7 @@ private slots:
 	void popupHidden(int id);
 	void updateOffers();
 
-signals:
+Q_SIGNALS:
 	void signalChangeStatusbar(const QString&);
 
 	void activePlayerChanged(Color);

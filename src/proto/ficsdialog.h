@@ -71,7 +71,7 @@ public Q_SLOTS:
 	void setLoginEnabled ( bool enable );
 
 Q_SIGNALS:
-	void login ( QString username, QString password );
+    void login ( const QString &username, const QString &password );
 	void createAccount();
 
 	void seekingChanged ( bool seek );

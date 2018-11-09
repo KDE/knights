@@ -31,7 +31,7 @@ class Pos : public QPair<int, int> {
 public:
 	Pos();
 	Pos ( const int& t1, const int& t2 );
-	explicit Pos (const QString);
+    explicit Pos (const QString &);
 	~Pos();
 
 	static QChar row ( int num );

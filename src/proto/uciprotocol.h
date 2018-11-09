@@ -44,7 +44,7 @@ public:
 	void move(const Knights::Move& m) override;
 	void setDifficulty(int depth, int memory) override;
 
-private slots:
+private Q_SLOTS:
 	void changeCurrentTime(Knights::Color color, const QTime& time);
 	void requestNextMove();
 

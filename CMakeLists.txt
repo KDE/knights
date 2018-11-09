@@ -6,8 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set (QT_MIN_VERSION "5.6.0")
+set (KF5_MIN_VERSION "5.30.0")
 
-find_package(ECM 1.7.0 REQUIRED CONFIG)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
@@ -31,7 +32,7 @@ if (Qt5TextToSpeech_FOUND)
    add_definitions(-DHAVE_SPEECH)
 endif ()
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
   DBusAddons
   ConfigWidgets
   Crash
@@ -51,7 +52,7 @@ include(ECMAddAppIcon)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)

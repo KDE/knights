@@ -61,7 +61,7 @@ private:
 	QNetworkConfigurationManager* m_networkManager;
 	QPushButton* okButton;
 
-private slots:
+private Q_SLOTS:
 	void player1SettingsChanged();
 	void player2SettingsChanged();
 	void timeControlChanged();

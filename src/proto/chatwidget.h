@@ -67,16 +67,16 @@ public:
 	void setConsoleMode ( bool console );
 	bool consoleMode() const;
 
-public slots:
+public Q_SLOTS:
 	void addText ( const QString& text, MessageType type );
 	void addText ( const QByteArray& text, MessageType type );
 	void addText ( const Message& message );
 	void setPasswordMode ( bool pwMode );
 
-private slots:
+private Q_SLOTS:
 	void sendButtonClicked ( );
 	void buttonClicked ( );
-signals:
+Q_SIGNALS:
 	void sendText ( const QString& text );
 
 private:

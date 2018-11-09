@@ -51,12 +51,12 @@ private:
 	Ui::Popup* ui;
 	int offerId;
 
-private slots:
+private Q_SLOTS:
 	void acceptClicked();
 	void declineClicked();
 	void closeClicked();
 
-signals:
+Q_SIGNALS:
 	void close(int id, OfferAction action);
 };
 

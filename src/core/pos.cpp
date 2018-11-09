@@ -47,7 +47,7 @@ Pos::Pos ( const int& t1, const int& t2 ) : QPair< int, int > ( t1, t2 ) {
 
 }
 
-Pos::Pos ( const QString string ) {
+Pos::Pos ( const QString &string ) {
 	if ( string.size() == 2 ) {
 		first = numFromRow ( string.at ( 0 ) );
 		second = string.right ( 1 ).toInt();

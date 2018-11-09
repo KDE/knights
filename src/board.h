@@ -117,7 +117,7 @@ protected:
 	void dragMoveEvent(QGraphicsSceneDragDropEvent*) override;
 	void dragLeaveEvent(QGraphicsSceneDragDropEvent*) override;
 
-public slots:
+public Q_SLOTS:
 	void movePiece(const Move&);
 	void updateTheme();
 	void updateGraphics();
@@ -125,7 +125,7 @@ public slots:
 	void setCurrentColor(Color);
 	void setPlayerColors(Colors);
 
-signals:
+Q_SIGNALS:
 	void pieceMoved(const Move&);
 	void activePlayerChanged(Color);
 	void displayedPlayerChanged(Color);

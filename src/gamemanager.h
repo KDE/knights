@@ -124,7 +124,7 @@ private:
 	void processMove(const Move&);
 	Protocol* local();
 
-public slots:
+public Q_SLOTS:
 	void levelChanged(const KgDifficultyLevel*);
 
 	void moveByExternalControl(const Move&);
@@ -142,7 +142,7 @@ public slots:
 	void loadGameHistoryFrom(const QString& filename);
 	void saveGameHistoryAs(const QString& filename);
 
-private slots:
+private Q_SLOTS:
 	void moveByProtocol(const Move&);
 	void protocolInitSuccesful();
 	void gameOver(Color);
@@ -160,7 +160,7 @@ private:
 protected:
 	void timerEvent(QTimerEvent*) override;
 
-signals:
+Q_SIGNALS:
 	void timeChanged(Color, const QTime&);
 	void undoPossible(bool);
 	void redoPossible(bool);

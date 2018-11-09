@@ -76,10 +76,10 @@ private:
 	Ui::EngineSettings* ui;
 	QList<EngineConfiguration> configurations;
 
-public slots:
+public Q_SLOTS:
 	void save();
 
-private slots:
+private Q_SLOTS:
 	void autoDetectEngines();
 	void addClicked();
 	void removeClicked();

@@ -45,7 +45,7 @@ protected:
 	void mouseMoveEvent ( QMouseEvent* event ) override;
 	void mouseReleaseEvent ( QMouseEvent* event ) override;
 
-signals:
+Q_SIGNALS:
 	void seekClicked( int id );
 
 private:
