@@ -44,6 +44,7 @@
 #endif
 
 #include <QDir>
+#include <QTimer>
 #include <QStandardPaths>
 
 #include <memory>
