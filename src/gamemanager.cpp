@@ -489,10 +489,8 @@ void Manager::reset() {
 	d->usedOfferIds.clear();
 	d->winner = NoColor;
 
-	if ( d->extControl ) {
-		delete d->extControl;
-		d->extControl = nullptr;
-	}
+	delete d->extControl;
+	d->extControl = nullptr;
 }
 
 Rules* Manager::rules() const {
@@ -502,8 +500,7 @@ Rules* Manager::rules() const {
 
 void Manager::setRules(Rules* rules) {
 	Q_D(GameManager);
-	if (d->rules)
-		delete d->rules;
+	delete d->rules;
 
 	d->rules = rules;
 }
