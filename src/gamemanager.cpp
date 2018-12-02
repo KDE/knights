@@ -137,17 +137,9 @@ Manager* Manager::self() {
 
 Manager::Manager(QObject* parent) : QObject(parent),
 	d_ptr(new GameManagerPrivate) {
-#ifdef HAVE_SPEECH
-	Q_D(GameManager);
-	d->speech = new QTextToSpeech();
-#endif
 }
 
 Manager::~Manager() {
-#ifdef HAVE_SPEECH
-	Q_D(GameManager);
-	delete d->speech;
-#endif
 	delete d_ptr;
 }
 
@@ -647,6 +639,8 @@ void Manager::sendPendingMove() {
 			}
 #ifdef HAVE_SPEECH
 			qCDebug(LOG_KNIGHTS) << toSpeak;
+			if (!d->speech)
+				d->speech = new QTextToSpeech(this);
 			d->speech->say(toSpeak);
 
 			if ( pendingMove.flag(Move::Check) ) {
