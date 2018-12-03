@@ -604,6 +604,7 @@
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
       <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Human vs. Chess Enginexx</caption>
+      <caption xml:lang="zh-TW">主視窗 - 人類 vs. 引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main.png</image>
     </screenshot>
     <screenshot type="default">
@@ -623,6 +624,7 @@
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
       <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Chess Engine vs. Chess Enginexx</caption>
+      <caption xml:lang="zh-TW">主視窗 - 引擎 vs. 引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main_2.png</image>
     </screenshot>
     <screenshot type="default">
@@ -643,6 +645,7 @@
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
       <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
       <caption xml:lang="x-test">xx"New Game" Dialogxx</caption>
+      <caption xml:lang="zh-TW">「新遊戲」對話框</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_new_game.png</image>
     </screenshot>
     <screenshot type="default">
@@ -662,6 +665,7 @@
       <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
       <caption xml:lang="uk">Автоматичне виявлення шахових рушіїв</caption>
       <caption xml:lang="x-test">xxAuto-Detection of Chess Enginesxx</caption>
+      <caption xml:lang="zh-TW">自動偵測西洋棋引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png</image>
     </screenshot>
     <screenshot type="default">
@@ -681,6 +685,7 @@
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
       <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
       <caption xml:lang="x-test">xxPlaying online - FICS Consolexx</caption>
+      <caption xml:lang="zh-TW">線上遊玩 - FICS 控制台</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_fics_console.png</image>
     </screenshot>
     <screenshot type="default">
@@ -700,6 +705,7 @@
       <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
       <caption xml:lang="uk">Гра у мережі — граф пошуку гравців</caption>
       <caption xml:lang="x-test">xxPlaying online - graphical Seek-Graphxx</caption>
+      <caption xml:lang="zh-TW">線上遊玩 - 圖形化 Seek-Graph</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_seek_graph.png</image>
     </screenshot>
   </screenshots>
