@@ -99,6 +99,7 @@ Board::~Board() {
 	qDeleteAll(m_grid);
 	qDeleteAll(m_tiles);
 	qDeleteAll(markers);
+	delete Manager::self()->rules();
 	delete renderer;
 }
 
