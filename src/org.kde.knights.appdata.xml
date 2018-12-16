@@ -596,6 +596,7 @@
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – menneske mot datamaskin</caption>
+      <caption xml:lang="pl">Okno główne - Człowiek przeciwko silnikowi szachowemu</caption>
       <caption xml:lang="pt">Janela Principal - Humano vs. Motor de Xadrez</caption>
       <caption xml:lang="pt-BR">Janela principal - Humano vs. Mecanismo de Xadrez</caption>
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
@@ -616,6 +617,7 @@
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – datamaskin mot datamaskin</caption>
+      <caption xml:lang="pl">Okno główne - Silnik szachowy przeciwko silnikowi szachowemu</caption>
       <caption xml:lang="pt">Janela Principal - Motor de Xadrez vs. Motor de Xadrez</caption>
       <caption xml:lang="pt-BR">Janela principal - Mecanismo de Xadrez vs. Mecanismo de Xadrez</caption>
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
@@ -637,6 +639,7 @@
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
       <caption xml:lang="nn">«Nytt parti»-dialog</caption>
+      <caption xml:lang="pl">Okno dialogowe "Nowa Gra"</caption>
       <caption xml:lang="pt">Janela de "Novo Jogo"</caption>
       <caption xml:lang="pt-BR">Caixa de diálogo "Novo jogo"</caption>
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
@@ -657,6 +660,7 @@
       <caption xml:lang="it">Rilevamento automatico dei motori scacchi</caption>
       <caption xml:lang="nl">Autodetectie schaakprogramma's</caption>
       <caption xml:lang="nn">Oppdag sjakkmotor automatisk</caption>
+      <caption xml:lang="pl">Samowykrywanie silników szachowych</caption>
       <caption xml:lang="pt">Detecção Automática dos Motores de Xadrez</caption>
       <caption xml:lang="pt-BR">Detecção automática dos mecanismos de xadrez</caption>
       <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
@@ -677,6 +681,7 @@
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
       <caption xml:lang="nl">Online spelen - FICS-console</caption>
       <caption xml:lang="nn">Spelar via nettet – FICS-konsoll</caption>
+      <caption xml:lang="pl">Granie przez sieć - Konsola FICS</caption>
       <caption xml:lang="pt">Jogo 'online' - Consola do FICS</caption>
       <caption xml:lang="pt-BR">Jogo online - Console do FICS</caption>
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
@@ -697,6 +702,7 @@
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
       <caption xml:lang="nl">Online spelen - grafische "Seek-Graph"</caption>
       <caption xml:lang="nn">Spelar via nettet – grafisk søkjegraf</caption>
+      <caption xml:lang="pl">Granie przez sieć - graficzny Seek-Graph</caption>
       <caption xml:lang="pt">Jogo 'online' - Grafo de pesquisa gráfico</caption>
       <caption xml:lang="pt-BR">Jogo online - Grafo de pesquisa gráfico</caption>
       <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
