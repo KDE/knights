@@ -32,6 +32,7 @@
   <name xml:lang="tr">KNights</name>
   <name xml:lang="uk">KNights</name>
   <name xml:lang="x-test">xxKNightsxx</name>
+  <name xml:lang="zh-CN">KNights</name>
   <name xml:lang="zh-TW">KNights</name>
   <summary>Chess game</summary>
   <summary xml:lang="ca">Joc d'escacs</summary>
@@ -62,6 +63,7 @@
   <summary xml:lang="tr">Satranç oyunu</summary>
   <summary xml:lang="uk">Гра у шахи</summary>
   <summary xml:lang="x-test">xxChess gamexx</summary>
+  <summary xml:lang="zh-CN">国际象棋游戏</summary>
   <summary xml:lang="zh-TW">西洋棋遊戲</summary>
   <description>
     <p>
@@ -124,6 +126,7 @@
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Local play between two players on the same computer</li>
