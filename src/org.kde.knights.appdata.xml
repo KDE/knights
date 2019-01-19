@@ -14,6 +14,7 @@
   <name xml:lang="es">KNights</name>
   <name xml:lang="fr">KNights</name>
   <name xml:lang="gl">KNights</name>
+  <name xml:lang="id">KNights</name>
   <name xml:lang="it">KNights</name>
   <name xml:lang="nl">KNights</name>
   <name xml:lang="nn">Knights</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="es">Juego de ajedrez</summary>
   <summary xml:lang="fr">Jeu d'échecs</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
+  <summary xml:lang="id">Permainan catur</summary>
   <summary xml:lang="it">Gioco di scacchi</summary>
   <summary xml:lang="nl">Schaakspel</summary>
   <summary xml:lang="nn">Sjakkspel</summary>
@@ -76,6 +78,7 @@
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, su objetivo consiste en vencer a su oponente haciendo jaque mate a su rey.</p>
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
+    <p xml:lang="id">KNights adalah sebuah permainan catur. Sebagai pemain, tujuanmu adalah mengalahkan lawanmu dengan menyekak rajanya.</p>
     <p xml:lang="it">KNights è un gioco di scacchi. Come giocatore, il tuo obbiettivo è sconfiggere il tuo avversario facendo scacco matto al suo re.</p>
     <p xml:lang="nl">KNights is een schaakspel.Het doel is uw tegenspeler te verslaan door zijn/haar koning schaakmat te zetten.</p>
     <p xml:lang="nn">Knights er eit sjakkspel. Som spelar er målet ditt å slå motspelaren ved å setja kongen i sjakkmatt.</p>
@@ -105,6 +108,7 @@
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Caratteristiche:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -135,6 +139,7 @@
       <li xml:lang="es">Partida local entre dos jugadores en el mismo equipo</li>
       <li xml:lang="fr">Jouez en local entre deux joueurs sur le même ordinateur</li>
       <li xml:lang="gl">Partidas entre dous xogadores no mesmo computador.</li>
+      <li xml:lang="id">Main lokal antara dua pemain pada komputer yang sama</li>
       <li xml:lang="it">Sfida locale tra due giocatori sullo stesso computer</li>
       <li xml:lang="nl">Lokaal spel tussen twee spelers op dezelfde computer</li>
       <li xml:lang="nn">Lokalt spel mellom to spelarar på same datamaskin</li>
@@ -162,6 +167,7 @@
       <li xml:lang="es">Jugar contra cualquier programa de computadora que use el protocolo XBoard</li>
       <li xml:lang="fr">Jouez contre un programme informatique prenant en charge le protocole XBoard</li>
       <li xml:lang="gl">Partidas contra calquera programa de computador compatíbel co protocolo XBoard.</li>
+      <li xml:lang="id">Bermain melawan program komputer apa pun yang mendukung protokol XBoard</li>
       <li xml:lang="it">Gioca contro qualsiasi programma di computer che supporti il protocollo XBoard</li>
       <li xml:lang="nl">Tegen een elk computerprogramma spelen dat het XBoard-protocol ondersteunt</li>
       <li xml:lang="nn">Spel mot alle dataprogram som støttar XBoard-protokollen</li>
@@ -189,6 +195,7 @@
       <li xml:lang="es">Jugar en el servidor de ajedrez libre de Internet (FICS)</li>
       <li xml:lang="fr">Jouez sur le Free Internet Chess Server (FICS)</li>
       <li xml:lang="gl">Xogar no servidor libre de xadrez por internet (FICS).</li>
+      <li xml:lang="id">Bermain pada server catur bebas internet  Free Internet Chess Server (FICS)</li>
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
       <li xml:lang="nl">Spelen op de Free Internet Chess Server (FICS)</li>
       <li xml:lang="nn">Spel via FICS (Free Internet Chess Server)</li>
@@ -216,6 +223,7 @@
       <li xml:lang="es">Observar cómo juegan dos programas de ajedrez entre sí</li>
       <li xml:lang="fr">Regardez deux moteurs de jeu s'affronter</li>
       <li xml:lang="gl">Visualización de partidas dun motor informático contra outro.</li>
+      <li xml:lang="id">Menonton dua mesin komputer yang saling bertanding</li>
       <li xml:lang="it">Guarda due motori di computer sfidarsi l'un l'altro</li>
       <li xml:lang="nl">Bekijken hoe twee computers tegen elkaar spelen</li>
       <li xml:lang="nn">Kan sjå to sjakkmotorar spela mot kvarandre</li>
@@ -243,6 +251,7 @@
       <li xml:lang="es">Permite comprobar los movimientos legales</li>
       <li xml:lang="fr">Prise en charge de la vérification de la légalité des déplacements</li>
       <li xml:lang="gl">Opción de comprobar se un movemento está permitido.</li>
+      <li xml:lang="id">Mendukung pemeriksaan langkah yang sah</li>
       <li xml:lang="it">Supporto per il controllo delle mosse legali</li>
       <li xml:lang="nl">Ondersteuning voor controle op legale zetten</li>
       <li xml:lang="nn">Støtte for kontroll av lovlege trekk</li>
@@ -270,6 +279,7 @@
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de comprobaciones</li>
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
+      <li xml:lang="id">Menandai langkah-langkah yang memungkinkan, langkah terakhir lawan dan sumber-sember pemeriksaan</li>
       <li xml:lang="it">Contrassegni per mosse possibili, ultima mossa dell'avversario e fonti di controllo</li>
       <li xml:lang="nl">Markeringen voor mogelijke zetten, de laatste zet van de tegenstander en bronnen voor controle</li>
       <li xml:lang="nn">Markering av moglege trekk, det siste siste trekket til motspelaren og av kjelder til sjakk</li>
@@ -297,6 +307,7 @@
       <li xml:lang="es">Bordes del tablero y notaciones del sitio</li>
       <li xml:lang="fr">Bordures du plateau et notations des sites</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
+      <li xml:lang="id">Notasi situs dan tepi papan</li>
       <li xml:lang="it">Bordi scacchiera e annotazioni siti</li>
       <li xml:lang="nl">Bordranden en notities ter plekke</li>
       <li xml:lang="nn">Sjakkbrettrammer og sjakknotasjon</li>
@@ -324,6 +335,7 @@
       <li xml:lang="es">Completo control del tiempo, con paneles al estilo de Plasma</li>
       <li xml:lang="fr">Contrôle du temps intégral, avec des horloges de style Plasma</li>
       <li xml:lang="gl">Control completo do tempo con reloxos co estilo de Plasma.</li>
+      <li xml:lang="id">Kendali waktu yang lengkap, dengan jam gaya Plasma</li>
       <li xml:lang="it">Controllo totale del tempo, con orologi in stile Plasma</li>
       <li xml:lang="nl">Volledige tijdcontrole, met klokken in Plasma-stijl</li>
       <li xml:lang="nn">Fullstendig tidskontroll, med klokker i Plasma-stil</li>
@@ -351,6 +363,7 @@
       <li xml:lang="es">Diversos temas, con la posibilidad de descargar otros nuevos desde el programa</li>
       <li xml:lang="fr">Plusieurs thèmes et la possibilité d'en télécharger de nouveaux au sein du programme</li>
       <li xml:lang="gl">Varios temas, coa posibilidade de descargar temas novos desde o propio programa.</li>
+      <li xml:lang="id">Bebrapa tema, dengan secara mungkin dapat mendownloadnya yang baru dari program</li>
       <li xml:lang="it">Temi diversi, con la possibilità di scaricarne nuovi all'interno del programma</li>
       <li xml:lang="nl">Een aantal thema's, met de mogelijkheid nieuwe te downloaden vanuit het programma</li>
       <li xml:lang="nn">Fleire grafiske tema, og du kan òg lasta ned nye gjennom programmet</li>
@@ -378,6 +391,7 @@
       <li xml:lang="es">Movimientos animados (configurables)</li>
       <li xml:lang="fr">Déplacements animés (configurable)</li>
       <li xml:lang="gl">Movementos animados configurábeis.</li>
+      <li xml:lang="id">Langkah teranimasi (dapat dikonfigurasi)</li>
       <li xml:lang="it">Mosse animate (configurabile)</li>
       <li xml:lang="nl">Geanimeerde zetten (instelbaar)</li>
       <li xml:lang="nn">Animerte trekk (kan veljast vekk)</li>
@@ -405,6 +419,7 @@
       <li xml:lang="es">Visores para jugar en un servidor de ajedrez, incluido un gráfico de búsqueda, una consola de texto y una ventana de charla</li>
       <li xml:lang="fr">Fonctionnalités pour jouer sur un serveur d'échecs, notamment un graphique de recherche, une console texte et un composant graphique de discussion</li>
       <li xml:lang="gl">Vistas para xogar en servidores de xadrez, entre elas un grafo de busca, unha consola de texto, e un trebello de conversa.</li>
+      <li xml:lang="id">Menampilkan pemainan pada server catur, termasuk grafik jangka, konsol teks, dan widget chat</li>
       <li xml:lang="it">Viste per il gioco in un server di scacchi, incluso un grafico per la ricerca, una consolle testuale e un'estensione per la chat</li>
       <li xml:lang="nl">Weergaven voor spelen op een schaakserver, inclusief een zoekgrafiek, tekstconsole en chat-widget</li>
       <li xml:lang="nn">Visingar for speling via sjakktenarar, med støtte for søkjegraf, tekstkonsoll og pratevindauge</li>
@@ -432,6 +447,7 @@
       <li xml:lang="es">Opción para deshacer y rehacer movimientos</li>
       <li xml:lang="fr">Options pour annuler et refaire des mouvements</li>
       <li xml:lang="gl">Opción de desfacer e refacer movementos.</li>
+      <li xml:lang="id">Opsi untuk takjadi dan jadilagi langkah</li>
       <li xml:lang="it">Opzione per annullare e rifare le mosse</li>
       <li xml:lang="nl">Optie om zetten terug te draaien en weer opnieuw te doen</li>
       <li xml:lang="nn">Mogleg å angra og gjer om att trekk</li>
@@ -459,6 +475,7 @@
       <li xml:lang="es">Interfaz gráfica para hacer y recibir ofertas de jugadores remotos</li>
       <li xml:lang="fr">Interface graphique pour envoyer et recevoir des offres avec des joueurs à distance</li>
       <li xml:lang="gl">Interface gráfica para realizar e recibir ofertas de xogadores remotos.</li>
+      <li xml:lang="id">Antarmuka grafik untuk membuat dan menerima penawaran pemain jarak jauh</li>
       <li xml:lang="it">Interfaccia grafica per formulare e ricevere sfide dai giocatori remoti</li>
       <li xml:lang="nl">Grafisch interface voor het doen en ontvangen van zetten van spelers op afstand</li>
       <li xml:lang="nn">Grafisk grensesnitt for å få eller gje tilbod til/frå spelarar over nettet</li>
@@ -486,6 +503,7 @@
       <li xml:lang="es">Permite usar el protocolo UCI (usado por Stockfish, Chessbase y otros)</li>
       <li xml:lang="fr">Prise en charge du protocole UCI (utilisé par Stockfish, Chessbase et bien d'autres)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
+      <li xml:lang="id">Dukungan untuk protokol UCI (digunakan oleh Stockfish, Chessbase, dan banyak lainnya)</li>
       <li xml:lang="it">Supporto per il protocollo UCI (usato da Stockfish, Chessbase e molti altri)</li>
       <li xml:lang="nl">Ondersteuning voor het UCI-protocol (gebruikt door Stockfish, Chessbase en vele anderen)</li>
       <li xml:lang="nn">Støtte for UCI-protokollen (bruk av Stockfish, ChessBase og mange andre)</li>
@@ -513,6 +531,7 @@
       <li xml:lang="es">Permite guardar y cargar archivos de notación portable de juego (PGN)</li>
       <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers PGN (Notation portable de jeu)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida interoperábel (PGN).</li>
+      <li xml:lang="id">Dukungan untuk menyimpan dan memuat file-file (PGN) notasi permainan Portable</li>
       <li xml:lang="it">Supporto per il salvataggio e il caricamento dei file Portable game notation (PGN)</li>
       <li xml:lang="nl">Ondersteuning voor opslaan en laden van Portable game notation (PGN) bestanden</li>
       <li xml:lang="nn">Støtte for lagring og lesing av filer i PGN-formatet (Portable Game Notation)</li>
@@ -540,6 +559,7 @@
       <li xml:lang="es">Uso de Jovie, el programa de síntesis de voz de KDE, para leer los movimientos del oponente</li>
       <li xml:lang="fr">Utilisation de Jovie, le programme de synthèse vocale de KDE, pour annoncer les mouvements de l'adversaire</li>
       <li xml:lang="gl">Uso de Jovie, o programa de texto-para-fala de KDE para narrar os movementos do contrincante.</li>
+      <li xml:lang="id">Gunakan Jovie, program KDE text-to-speech untuk berbicara saat lawan bergerak</li>
       <li xml:lang="it">Uso di Jovie, il programma di lettura vocale KDE, per dire le mosse dell'avversario</li>
       <li xml:lang="nl">Gebruik van Jovie, het tekst-naar-spraak programma van KDE, om zetten van de tegenstander uit te spreken</li>
       <li xml:lang="nn">Bruk av tekst-til-tale-systemet Jovie for uttale av trekka til motspelaren</li>
@@ -567,6 +587,7 @@
       <li xml:lang="es">Posibilidad de controlar el programa a través de la interfaz D-Bus</li>
       <li xml:lang="fr">Possibilité de contrôler le programme grâce à une interface D-Bus</li>
       <li xml:lang="gl">Posibilidade de controlar o programa mediante unha interface D-Bus.</li>
+      <li xml:lang="id">Mampu untuk mengendalikan program via antarmuka D-Bus</li>
       <li xml:lang="it">Capacità di controllare il programma tramite interfaccia D-Bus</li>
       <li xml:lang="nl">Mogelijkheid om het programma via een D-Bus interface te besturen</li>
       <li xml:lang="nn">Mogleg å kontrollera programmet via D-Bus-grensesnitt</li>
@@ -596,6 +617,7 @@
       <caption xml:lang="es">Ventana principal - Humano contra motor de ajedrez</caption>
       <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
+      <caption xml:lang="id">Window Utama - Manusia vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – menneske mot datamaskin</caption>
@@ -617,6 +639,7 @@
       <caption xml:lang="es">Ventana principal - Motor de ajedrez contra motor de ajedrez</caption>
       <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
+      <caption xml:lang="id">Window Utama - Mesin Catur vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – datamaskin mot datamaskin</caption>
@@ -639,6 +662,7 @@
       <caption xml:lang="es">Diálogo «Nueva partida»</caption>
       <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
+      <caption xml:lang="id">Dialog "New Game"</caption>
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
       <caption xml:lang="nn">«Nytt parti»-dialog</caption>
@@ -660,6 +684,7 @@
       <caption xml:lang="es">Detección automática de motores de ajedrez</caption>
       <caption xml:lang="fr">Auto-détection des moteurs d'échecs</caption>
       <caption xml:lang="gl">Detección automática de motores de xadrez</caption>
+      <caption xml:lang="id">AutoDeteksi pada Mesin Catur</caption>
       <caption xml:lang="it">Rilevamento automatico dei motori scacchi</caption>
       <caption xml:lang="nl">Autodetectie schaakprogramma's</caption>
       <caption xml:lang="nn">Oppdag sjakkmotor automatisk</caption>
@@ -681,6 +706,7 @@
       <caption xml:lang="es">Juego en línea - Consola FICS</caption>
       <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
       <caption xml:lang="gl">Xogar por internet — Consola de FICS</caption>
+      <caption xml:lang="id">Bermain online - FICS Console</caption>
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
       <caption xml:lang="nl">Online spelen - FICS-console</caption>
       <caption xml:lang="nn">Spelar via nettet – FICS-konsoll</caption>
@@ -702,6 +728,7 @@
       <caption xml:lang="es">Juego en línea - Gráfico de búsqueda</caption>
       <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
       <caption xml:lang="gl">Xogar por internet — Grafo de busca gráfico</caption>
+      <caption xml:lang="id">Bermain online - grafik Seek-Graph</caption>
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
       <caption xml:lang="nl">Online spelen - grafische "Seek-Graph"</caption>
       <caption xml:lang="nn">Spelar via nettet – grafisk søkjegraf</caption>
