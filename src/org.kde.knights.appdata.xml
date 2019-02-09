@@ -84,7 +84,7 @@
     <p xml:lang="nn">Knights er eit sjakkspel. Som spelar er målet ditt å slå motspelaren ved å setja kongen i sjakkmatt.</p>
     <p xml:lang="pl">KSkoczki jest grą w szachy. Jako gracz, twoim celem jest pokonanie przeciwnika poprzez zaszachowanie jego króla.</p>
     <p xml:lang="pt">O KNights é um jogo de xadrez. Como jogador, o seu objectivo é derrotar o seu adversário através de um xeque-mate ao seu rei.</p>
-    <p xml:lang="pt-BR">KNights é um jogo de xadrez. Como jogador, seu objetivo é derrotar seu oponente por checkmate.</p>
+    <p xml:lang="pt-BR">KNights é um jogo de xadrez. Como jogador, seu objetivo é derrotar seu oponente por xeque-mate.</p>
     <p xml:lang="ru">KNights — игра в шахматы. Целью является поставить мат противнику.</p>
     <p xml:lang="sk">KNights je šachová hra. Vašim cieľom ako hráča je poraziť vášho protivníka tak, že mu dáte šach mat.</p>
     <p xml:lang="sl">KNights je igra šaha. Vaš cilj je, da nasprotnikovega kralja spravite v šah-mat.</p>
@@ -229,7 +229,7 @@
       <li xml:lang="nn">Kan sjå to sjakkmotorar spela mot kvarandre</li>
       <li xml:lang="pl">Oglądania gry dwóch silników komputerowych przeciwko sobie</li>
       <li xml:lang="pt">Observação de dois motores por computador a jogarem entre si</li>
-      <li xml:lang="pt-BR">Assitindo dois computadores jogando um contra o outro</li>
+      <li xml:lang="pt-BR">Assistindo dois computadores jogando um contra o outro</li>
       <li xml:lang="sk">Sledovanie dvoch počítačových hráčov, ako hrajú proti sebe</li>
       <li xml:lang="sl">Oglejte si dvoboj dveh računalniških pogonov</li>
       <li xml:lang="sr">Гледајте како два рачунарска мотора играју један против другог.</li>
@@ -285,7 +285,7 @@
       <li xml:lang="nn">Markering av moglege trekk, det siste siste trekket til motspelaren og av kjelder til sjakk</li>
       <li xml:lang="pl">Znaczniki możliwych ruchów, ostatni ruch przeciwnika i powody szachu</li>
       <li xml:lang="pt">Marcações para as jogadas possíveis, última jogada do adversário e origens do xeque</li>
-      <li xml:lang="pt-BR">Marcadores para possíveis movimentos, último movimento do adversário e fontes de checagem</li>
+      <li xml:lang="pt-BR">Marcadores para possíveis movimentos, último movimento do adversário e fontes de xeque</li>
       <li xml:lang="sk">Označovanie možných ťahov, posledného ťahu protivníka a zdrojov šachu</li>
       <li xml:lang="sl">Oznake za mogoče poteze, zadnjo potezo nasprotnika in vire šaha</li>
       <li xml:lang="sr">Маркери за могуће потезе, противников последњи потезе и извори провера.</li>
