@@ -99,8 +99,9 @@ Board::~Board() {
 	qDeleteAll(m_grid);
 	qDeleteAll(m_tiles);
 	qDeleteAll(markers);
-	delete Manager::self()->rules();
 	delete renderer;
+	//TODO: this crashes the application, s.a. BUG 405763
+	//delete Manager::self()->rules();
 }
 
 void Board::addPiece(PieceType type, Color color, const Pos& pos) {
