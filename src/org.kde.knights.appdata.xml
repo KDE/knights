@@ -629,6 +629,10 @@
   </description>
   <screenshots>
     <screenshot type="default">
+      <caption>Knights, chess game</caption>
+      <image>https://cdn.kde.org/screenshots/knights/knights.png</image>
+    </screenshot>
+    <screenshot type="default">
       <caption>Main Window - Human vs. Chess Engine</caption>
       <caption xml:lang="ca">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: humà vs. motor d'escacs</caption>
@@ -651,7 +655,7 @@
       <caption xml:lang="zh-TW">主視窗 - 人類 vs. 引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main.png</image>
     </screenshot>
-    <screenshot type="default">
+    <screenshot>
       <caption>Main Window - Chess Engine vs. Chess Engine</caption>
       <caption xml:lang="ca">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
