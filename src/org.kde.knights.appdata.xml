@@ -630,6 +630,13 @@
   <screenshots>
     <screenshot type="default">
       <caption>Knights, chess game</caption>
+      <caption xml:lang="ca">Knights, un joc d'escacs</caption>
+      <caption xml:lang="ca-valencia">Knights, un joc d'escacs</caption>
+      <caption xml:lang="pl">Skoczki, gra w szachy</caption>
+      <caption xml:lang="pt">Knights, um jogo de xadrez</caption>
+      <caption xml:lang="sv">Knights, schackspel</caption>
+      <caption xml:lang="uk">Knights, гра у шахи</caption>
+      <caption xml:lang="x-test">xxKnights, chess gamexx</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights.png</image>
     </screenshot>
     <screenshot>
