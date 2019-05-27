@@ -1,6 +1,6 @@
 project(Knights)
 
-cmake_minimum_required (VERSION 3.2.0 FATAL_ERROR)
+cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -55,10 +55,11 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
-add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-add_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII)
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x50600)
-
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+if (${KF5Config_VERSION} STRGREATER "5.56.0")
+        add_definitions(-DQT_NO_FOREACH)
+        MESSAGE(STATUS "compile without foreach")
+endif()
 add_subdirectory(doc)
 add_subdirectory(icons)
 add_subdirectory(sounds)
