@@ -655,6 +655,7 @@
       <caption xml:lang="ca-valencia">Knights, un joc d'escacs</caption>
       <caption xml:lang="en-GB">Knights, chess game</caption>
       <caption xml:lang="es">Knights, juego de ajedrez</caption>
+      <caption xml:lang="id">Knights, permainan catur</caption>
       <caption xml:lang="ko">Knights, 체스 게임</caption>
       <caption xml:lang="nl">Knights, schaakspel</caption>
       <caption xml:lang="pl">Skoczki, gra w szachy</caption>
@@ -725,7 +726,7 @@
       <caption xml:lang="fi">”Uusi peli” -ikkuna</caption>
       <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
-      <caption xml:lang="id">Dialog "New Game"</caption>
+      <caption xml:lang="id">Dialog "Permainan Baru"</caption>
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
       <caption xml:lang="ko">"새 게임" 대화 상자</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
