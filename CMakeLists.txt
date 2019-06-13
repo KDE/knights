@@ -66,7 +66,11 @@ add_subdirectory(sounds)
 add_subdirectory(src)
 add_subdirectory(themes)
 
-install( FILES knights.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+if (${ECM_VERSION} STRGREATER "5.58.0")
+    install(FILES knights.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+else()
+    install(FILES knights.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
+endif()
 
 feature_summary(WHAT ALL
                 INCLUDE_QUIET_PACKAGES
