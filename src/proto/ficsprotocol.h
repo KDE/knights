@@ -25,8 +25,6 @@
 #include "proto/textprotocol.h"
 #include <gamemanager.h>
 
-#include <QTextStream>
-#include <QTime>
 
 class QTcpSocket;
 

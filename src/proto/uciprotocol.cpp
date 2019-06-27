@@ -24,8 +24,6 @@
 #include "knightsdebug.h"
 
 #include <KProcess>
-#include <KLocalizedString>
-
 using namespace Knights;
 
 UciProtocol::UciProtocol(QObject* parent): ComputerProtocol(parent),

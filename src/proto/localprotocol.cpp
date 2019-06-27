@@ -22,7 +22,6 @@
 #include "localprotocol.h"
 #include "gamemanager.h"
 
-#include <KLocalizedString>
 #include <KUser>
 
 using namespace Knights;

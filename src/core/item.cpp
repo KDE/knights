@@ -23,7 +23,6 @@
 #include "board.h"
 #include "settings.h"
 
-#include <QLoggingCategory>
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 #include <QtMath>

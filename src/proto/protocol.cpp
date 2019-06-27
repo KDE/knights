@@ -26,8 +26,6 @@
 
 #include <KLocalizedString>
 
-#include <QStack>
-#include <QTime>
 
 namespace Knights {
 int id = qRegisterMetaType<Protocol::ErrorCode> ( "Protocol::ErrorCode" );

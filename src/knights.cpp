@@ -50,8 +50,6 @@
 #include <QCloseEvent>
 #include <QDockWidget>
 #include <QFileDialog>
-#include <QStatusBar>
-#include <QTimer>
 
 const char* DontAskDiscard = "dontAskInternal";
 

@@ -23,7 +23,6 @@
 #define KNIGHTS_EXTERNALCONTROL_H
 
 #include <QObject>
-#include <QPair>
 
 namespace Knights {
 

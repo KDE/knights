@@ -26,7 +26,6 @@
 #include "gamemanager.h"
 #include "knightsdebug.h"
 
-#include <QHeaderView>
 #include <QScrollBar>
 
 #include <math.h>

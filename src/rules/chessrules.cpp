@@ -24,7 +24,6 @@
 #include "core/move.h"
 #include "knightsdebug.h"
 
-#include <QMap>
 
 using namespace Knights;
 

@@ -23,7 +23,6 @@
 #include "knightsdebug.h"
 #include "ui_clockwidget.h"
 
-#include <QTimer>
 #include <QTime>
 
 using namespace Knights;

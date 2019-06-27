@@ -23,8 +23,7 @@
 #define KNIGHTS_POS_H
 
 #include <QPair>
-#include <QDataStream>
-
+#include <QChar>
 namespace Knights {
 
 class Pos : public QPair<int, int> {

@@ -32,7 +32,6 @@
 
 #include "piece.h"
 
-#include <QFlags>
 #include <QSharedDataPointer>
 
 namespace Knights {
