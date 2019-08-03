@@ -665,6 +665,7 @@
       <caption xml:lang="pl">Skoczki, gra w szachy</caption>
       <caption xml:lang="pt">Knights, um jogo de xadrez</caption>
       <caption xml:lang="pt-BR">Knights, um jogo de xadrez</caption>
+      <caption xml:lang="sk">Rytieri, šachová hra</caption>
       <caption xml:lang="sv">Knights, schackspel</caption>
       <caption xml:lang="uk">Knights, гра у шахи</caption>
       <caption xml:lang="x-test">xxKnights, chess gamexx</caption>
@@ -689,6 +690,7 @@
       <caption xml:lang="pl">Okno główne - Człowiek przeciwko silnikowi szachowemu</caption>
       <caption xml:lang="pt">Janela Principal - Humano vs. Motor de Xadrez</caption>
       <caption xml:lang="pt-BR">Janela principal - Humano vs. Mecanismo de Xadrez</caption>
+      <caption xml:lang="sk">Hlavné okno - Človek vs. Počítač</caption>
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
       <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Human vs. Chess Enginexx</caption>
@@ -713,6 +715,7 @@
       <caption xml:lang="pl">Okno główne - Silnik szachowy przeciwko silnikowi szachowemu</caption>
       <caption xml:lang="pt">Janela Principal - Motor de Xadrez vs. Motor de Xadrez</caption>
       <caption xml:lang="pt-BR">Janela principal - Mecanismo de Xadrez vs. Mecanismo de Xadrez</caption>
+      <caption xml:lang="sk">Hlavné okno - Počítač vs. Počítač</caption>
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
       <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Chess Engine vs. Chess Enginexx</caption>
@@ -738,6 +741,7 @@
       <caption xml:lang="pl">Okno dialogowe "Nowa Gra"</caption>
       <caption xml:lang="pt">Janela de "Novo Jogo"</caption>
       <caption xml:lang="pt-BR">Caixa de diálogo "Novo jogo"</caption>
+      <caption xml:lang="sk">Dialógové okno "Nová Hra"</caption>
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
       <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
       <caption xml:lang="x-test">xx"New Game" Dialogxx</caption>
@@ -762,6 +766,7 @@
       <caption xml:lang="pl">Samowykrywanie silników szachowych</caption>
       <caption xml:lang="pt">Detecção Automática dos Motores de Xadrez</caption>
       <caption xml:lang="pt-BR">Detecção automática dos mecanismos de xadrez</caption>
+      <caption xml:lang="sk">Automatická detekcia šachových enginov</caption>
       <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
       <caption xml:lang="uk">Автоматичне виявлення шахових рушіїв</caption>
       <caption xml:lang="x-test">xxAuto-Detection of Chess Enginesxx</caption>
@@ -786,6 +791,7 @@
       <caption xml:lang="pl">Granie przez sieć - Konsola FICS</caption>
       <caption xml:lang="pt">Jogo 'online' - Consola do FICS</caption>
       <caption xml:lang="pt-BR">Jogo online - Console do FICS</caption>
+      <caption xml:lang="sk">Hranie online - konzola FICS</caption>
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
       <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
       <caption xml:lang="x-test">xxPlaying online - FICS Consolexx</caption>
