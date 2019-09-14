@@ -373,8 +373,8 @@ bool FicsProtocol::parseLine(const QString& line) {
 		if ( moveRegExp.indexIn ( line ) > -1 ) {
 			display = false;
 			qCDebug(LOG_KNIGHTS) << moveRegExp.cap(1) << colorName(color());
-			bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1String("W") && color() == White )
-			                 && !( moveRegExp.cap ( 1 ) == QLatin1String("B") && color() == Black );
+			bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1Char('W') && color() == White )
+			                 && !( moveRegExp.cap ( 1 ) == QLatin1Char('B') && color() == Black );
 
 			const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
 			const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
