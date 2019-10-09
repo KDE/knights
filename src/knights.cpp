@@ -50,6 +50,8 @@
 #include <QCloseEvent>
 #include <QDockWidget>
 #include <QFileDialog>
+#include <QTimer>
+#include <QStatusBar>
 
 const char* DontAskDiscard = "dontAskInternal";
 
@@ -104,12 +106,34 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 
 	connect(Manager::self(), &Manager::initComplete, this, &MainWindow::protocolInitSuccesful);
 	connect(Manager::self(), &Manager::playerNameChanged, this, &MainWindow::updateCaption);
+	connect(Manager::self(), &Manager::activePlayerChanged, this, &MainWindow::activePlayerChanged);
 	connect(Manager::self(), &Manager::pieceMoved, this, &MainWindow::gameChanged);
 	connect(Manager::self(), &Manager::winnerNotify, this, &MainWindow::gameOver);
 	connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
 	m_themeProvider->discoverThemes("appdata", QLatin1String("themes"));
 	m_view->drawBoard(m_themeProvider);
+}
+
+void MainWindow::activePlayerChanged() {
+	statusBar()->clearMessage();
+	Knights::Color color = Manager::self()->activePlayer();
+
+	//show the notification in the status bar, delay it by one second
+	QTimer::singleShot(1000, this, [=] () {
+		//the current player has changed within one second,
+		//don't need to show the notification
+		if (Manager::self()->activePlayer() != color)
+			return;
+
+		QString name;
+		if (color == White)
+			name = Protocol::white()->playerName();
+		else
+			name = Protocol::black()->playerName();
+		statusBar()->showMessage(i18n("%1 is thinking...", name));
+	});
+
 }
 
 void MainWindow::setupDocks() {
@@ -486,12 +510,13 @@ void MainWindow::gameChanged() {
 void MainWindow::gameOver(Color winner) {
 	qCDebug(LOG_KNIGHTS) << colorName (winner);
 
+	statusBar()->clearMessage();
+
 	//game is over -> disable game actions
 	m_pauseAction->setEnabled(false);
 	m_drawAction->setEnabled(false);
 	m_resignAction->setEnabled(false);
 	m_adjournAction->setEnabled(false);
-
 
 	//show the dialog to ask to save the current game or to start a new one
 	QPointer<QDialog> dlg = new QDialog ( this );

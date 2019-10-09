@@ -52,7 +52,6 @@ KnightsView::KnightsView(QWidget* parent) : QWidget(parent),
 
 	connect ( ui->showAllOffers, &QPushButton::clicked, this, &KnightsView::showAllOffersToggled );
 	connect ( Manager::self(), &Manager::notification, this, &KnightsView::showPopup );
-	connect ( Manager::self(), &Manager::activePlayerChanged, this, &KnightsView::activePlayerChanged );
 }
 
 KnightsView::~KnightsView() {

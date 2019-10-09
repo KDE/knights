@@ -76,7 +76,6 @@ private Q_SLOTS:
 Q_SIGNALS:
 	void signalChangeStatusbar(const QString&);
 
-	void activePlayerChanged(Color);
 	void displayedPlayerChanged(Color);
 
 	void popupAccepted();

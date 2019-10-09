@@ -64,6 +64,7 @@ private Q_SLOTS:
 	void gameChanged();
 	void gameOver(Knights::Color);
 	void optionsPreferences();
+	void activePlayerChanged();
 
 	void protocolInitSuccesful();
 	void protocolError(Protocol::ErrorCode errorCode, const QString& errorString);
