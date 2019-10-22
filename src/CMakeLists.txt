@@ -58,6 +58,9 @@ ki18n_wrap_ui(knights_SRCS
 kconfig_add_kcfg_files(knights_SRCS settings.kcfgc )
 qt5_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
 ecm_qt_declare_logging_category(knights_SRCS HEADER knightsdebug.h IDENTIFIER LOG_KNIGHTS CATEGORY_NAME log_knights)
+
+file(GLOB ICON_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-knights.png")
+ecm_add_app_icon(knights_SRCS ICONS ${ICON_SRCS})
 add_executable(knights ${knights_SRCS})
 
 if (Qt5TextToSpeech_FOUND)
