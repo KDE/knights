@@ -207,7 +207,7 @@
       <li xml:lang="es">Jugar en el servidor de ajedrez libre de Internet (FICS)</li>
       <li xml:lang="fi">Pelaa FICSissä (vapaa internetšakkipalvelin)</li>
       <li xml:lang="fr">Jouez sur le Free Internet Chess Server (FICS)</li>
-      <li xml:lang="gl">Xogar no servidor libre de xadrez por internet (FICS).</li>
+      <li xml:lang="gl">Xogar no servidor libre de xadrez por Internet (FICS).</li>
       <li xml:lang="id">Bermain pada server catur bebas internet  Free Internet Chess Server (FICS)</li>
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
       <li xml:lang="ko">FICS(Free Internet Chess Server)에서 대결</li>
@@ -784,7 +784,7 @@
       <caption xml:lang="es">Juego en línea - Consola FICS</caption>
       <caption xml:lang="fi">Verkkopelaaminen – FICS-konsoli</caption>
       <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
-      <caption xml:lang="gl">Xogar por internet — Consola de FICS</caption>
+      <caption xml:lang="gl">Xogar por Internet — Consola de FICS</caption>
       <caption xml:lang="id">Bermain online - FICS Console</caption>
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
       <caption xml:lang="ko">온라인 플레이 - FICS 콘솔</caption>
@@ -809,7 +809,7 @@
       <caption xml:lang="es">Juego en línea - Gráfico de búsqueda</caption>
       <caption xml:lang="fi">Verkkopelaaminen – graafinen hakukaavio</caption>
       <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
-      <caption xml:lang="gl">Xogar por internet — Grafo de busca gráfico</caption>
+      <caption xml:lang="gl">Xogar por Internet — Grafo de busca gráfico</caption>
       <caption xml:lang="id">Bermain online - grafik Seek-Graph</caption>
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
       <caption xml:lang="ko">온라인 플레이 - 탐색 그래프</caption>
