@@ -36,7 +36,7 @@ class Svg;
 namespace Knights {
 /**
  * This class is copied from the Date and Time KCM.
- * See http://websvn.kde.org/trunk/KDE/kdebase/workspace/kcontrol/dateandtime/dtime.h?&view=markup
+ * See https://cgit.kde.org/plasma-desktop.git/tree/kcms/dateandtime/dtime.h
  *
  * Note that this is a chess clock, which is set to negative time before a match, so all angles are reversed.
  * See paintInterface for details.

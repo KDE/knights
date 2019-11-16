@@ -49,7 +49,7 @@ Protocol::Features XBoardProtocol::supportedFeatures() {
 	// supports the XBoard protocol may or may not support the pause action; we
 	// should find this out using the 'protover' command which will reply with
 	// the 'feature' command. See the XBoard protocol specification:
-	// http://home.hccnet.nl/h.g.muller/engine-intf.html
+	// https://home.hccnet.nl/h.g.muller/engine-intf.html
 
 	//return GameOver | Pause | Draw | Adjourn | Resign | Undo | SetDifficulty | AdjustDifficulty;
 	return GameOver | Pause | Draw | Resign | Undo | SetDifficulty | AdjustDifficulty;

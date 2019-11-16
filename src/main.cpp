@@ -52,7 +52,7 @@ int main ( int argc, char **argv ) {
 	                   KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));
 	about.addAuthor(i18n("Alexander Semke"), QString(), QStringLiteral("alexander.semke@web.de"));
 	about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),
-	                  QStringLiteral ("http://noughmad.eu"), QStringLiteral ("noughmad") );
+	                  QStringLiteral ("https://noughmad.eu/"), QStringLiteral ("noughmad") );
 	about.addCredit ( i18n ( "Troy Corbin" ), i18n ( "Original Knights for KDE3 and theme author" ),
 	                  QStringLiteral ("troy@pedanticwebspaces.com") );
 	about.addCredit ( i18n ( "Dave Kaye" ), i18n ( "Help with new theme features and rendering without KGameRenderer" ) );
