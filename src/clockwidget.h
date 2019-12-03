@@ -38,7 +38,7 @@ namespace Knights {
 class ClockWidget : public QWidget {
 	Q_OBJECT
 public:
-	explicit ClockWidget ( QWidget* parent = nullptr, Qt::WindowFlags f = nullptr );
+    explicit ClockWidget ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~ClockWidget () override;
 
 public Q_SLOTS:

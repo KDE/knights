@@ -37,7 +37,7 @@ class HistoryWidget : public QWidget {
 	Q_OBJECT
 
 public:
-	explicit HistoryWidget(QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
+    explicit HistoryWidget(QWidget* parent = nullptr, Qt::WindowFlags f = {});
 	~HistoryWidget() override;
 
 private:

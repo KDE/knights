@@ -36,7 +36,7 @@ namespace Knights {
 class FicsDialog : public QWidget {
 	Q_OBJECT
 public:
-	explicit FicsDialog ( QWidget* parent = nullptr, Qt::WindowFlags f = nullptr );
+    explicit FicsDialog ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~FicsDialog() override;
 
 	int acceptedGameId();

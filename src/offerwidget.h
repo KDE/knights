@@ -42,7 +42,7 @@ class OfferWidget : public KMessageWidget {
 	Q_OBJECT
 
 public:
-	explicit OfferWidget(const Offer& offer, QWidget* parent = nullptr, Qt::WindowFlags f = nullptr);
+    explicit OfferWidget(const Offer& offer, QWidget* parent = nullptr, Qt::WindowFlags f = {});
 	~OfferWidget() override;
 
 	int id() const;

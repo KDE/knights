@@ -56,7 +56,7 @@ public:
 
 	typedef QPair<QString,MessageType> Message;
 
-	explicit ChatWidget ( QWidget* parent = nullptr, Qt::WindowFlags f = nullptr );
+    explicit ChatWidget ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~ChatWidget() override;
 
 	void addExtraButton ( const QString& text, const QString& title = QString(), const QString& icon = QString() );

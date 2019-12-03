@@ -50,7 +50,7 @@ public:
 		BothPlayersFics
 	};
 
-	explicit GameDialog ( QWidget* parent = nullptr, Qt::WindowFlags f = nullptr );
+    explicit GameDialog ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~GameDialog() override;
 
 	void setupProtocols();
