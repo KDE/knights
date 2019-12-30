@@ -864,12 +864,12 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 
 	// Standard Tag Roster: Event, Site, Date, Round, White, Black, Result
 
-	stream << "[Event \"Casual Game\"]" << endl;
-	stream << "[Site \"?\"]" << endl;
-	stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << endl;
-	stream << "[Round \"-\"]" << endl;
-	stream << "[White \"" << Protocol::white()->playerName() << "\"]" << endl;
-	stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << endl;
+        stream << "[Event \"Casual Game\"]" << "\n";
+        stream << "[Site \"?\"]" << "\n";
+        stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << "\n";
+        stream << "[Round \"-\"]" << "\n";
+        stream << "[White \"" << Protocol::white()->playerName() << "\"]" << "\n";
+        stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << "\n";
 
 	QByteArray result;
 	if ( d->running )
@@ -887,7 +887,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 			break;
 		}
 	}
-	stream << "[Result \"" << result << "\"]" << endl;
+        stream << "[Result \"" << result << "\"]" << "\n";
 
 	// Supplemental tags, ordered alphabetically.
 	// Currently, only TimeControl is added
@@ -909,7 +909,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 	stream << "\"]";
 
 	// A single newline separates the tag pairs from the movetext section
-	stream << endl;
+        stream << "\n";
 
 	qCDebug(LOG_KNIGHTS) << "Starting to write movetext";
 
@@ -929,7 +929,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 		}
 
 		if ( characters + output.size() > LineLimit ) {
-			stream << endl;
+                        stream << "\n";
 			characters = 0;
 		}
 
@@ -944,7 +944,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 
 	stream << ' ' << result;
 
-	stream << endl;
+        stream << "\n";
 	stream.flush();
 
 	qCDebug(LOG_KNIGHTS) << "Saved";

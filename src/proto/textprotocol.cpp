@@ -72,12 +72,24 @@ void TextProtocol::writeCheckMoves(const QString& text) {
 
 void TextProtocol::write(const QString& text) {
 	qCDebug(LOG_KNIGHTS) << text;
-	stream << text << endl;
+        stream << text
+          #if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+               << endl
+          #else
+               << Qt::endl
+          #endif
+               ;
 }
 
 void TextProtocol::write(const char* text) {
 	qCDebug(LOG_KNIGHTS) << text;
-	stream << text << endl;
+        stream << text
+          #if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
+               << endl
+          #else
+               << Qt::endl
+          #endif
+               ;
 }
 
 void TextProtocol::setConsole(ChatWidget* widget) {
