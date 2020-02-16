@@ -41,7 +41,11 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
 	ui->twMoves->horizontalHeaderItem(0)->setText(i18n("white"));
 	ui->twMoves->horizontalHeaderItem(1)->setText(i18n("black"));
 
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
 	connect( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
+#else
+	connect( ui->notationComboBox, static_cast<void (QComboBox::*)(int, const QString &)>(&QComboBox::currentIndexChanged) ,
+#endif
 	         this, &HistoryWidget::updateHistory );
 	connect( Manager::self(), &Manager::historyChanged, this, &HistoryWidget::updateHistory );
 

@@ -114,14 +114,22 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	connect(ui->rbPlayer1Human, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
 	connect(ui->rbPlayer1Engine, &QRadioButton::clicked, this, &GameDialog::player1SettingsChanged);
 	connect(ui->pbPlayer1Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
 	connect(ui->cbPlayer1Engine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
+#else
+	connect(ui->cbPlayer1Engine, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
+#endif
 
 	//player 2
 	connect(ui->rbPlayer2Human, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->rbPlayer2Engine, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->rbPlayer2Server, &QRadioButton::clicked, this, &GameDialog::player2SettingsChanged);
 	connect(ui->pbPlayer2Engine, &QPushButton::clicked, this, &GameDialog::showEngineConfigDialog);
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
 	connect(ui->cbPlayer2Engine, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
+#else
+	connect(ui->cbPlayer2Engine, QOverload<int, const QString &>::of(&QComboBox::currentIndexChanged), this, &GameDialog::checkOkButton);
+#endif
 
 	//time control
 	connect(ui->cbTimeControl, &QCheckBox::toggled, this, &GameDialog::timeControlChanged);
