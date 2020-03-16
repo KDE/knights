@@ -13,6 +13,7 @@
   <name xml:lang="en-GB">KNights</name>
   <name xml:lang="es">KNights</name>
   <name xml:lang="et">KNights</name>
+  <name xml:lang="eu">Knights</name>
   <name xml:lang="fi">Knights</name>
   <name xml:lang="fr">KNights</name>
   <name xml:lang="gl">KNights</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="en-GB">Chess game</summary>
   <summary xml:lang="es">Juego de ajedrez</summary>
   <summary xml:lang="et">Malemäng</summary>
+  <summary xml:lang="eu">Xake-jolasa</summary>
   <summary xml:lang="fi">Šakkipeli</summary>
   <summary xml:lang="fr">Jeu d'échecs</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
@@ -83,6 +85,7 @@
     <p xml:lang="en-GB">KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.</p>
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, su objetivo consiste en vencer a su oponente haciendo jaque mate a su rey.</p>
     <p xml:lang="et">KNights on malemäng. Mängija siht on vastasest jagu saada tema kuningale matti kuulutades.</p>
+    <p xml:lang="eu">Knights Xake jokoa da. Jokalari bezala, zure helburua arerioaren erregeari xake-mate eginez irabaztea da.</p>
     <p xml:lang="fi">Knights on šakkipeli. Tavoitteesi pelajaana on voittaa vastustaja matittamalla hänen kuninkaansa.</p>
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
@@ -116,6 +119,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Eginbideak:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -150,6 +154,7 @@
       <li xml:lang="en-GB">Local play between two players on the same computer</li>
       <li xml:lang="es">Partida local entre dos jugadores en el mismo equipo</li>
       <li xml:lang="et">Kohalik mäng kahe mängija vahel sama arvuti taga</li>
+      <li xml:lang="eu">Bertako jokoa bi jokalarien artean ordenagailu berdinean</li>
       <li xml:lang="fi">Paikallinen peli kahden samalla koneella olevan pelaajan kesken</li>
       <li xml:lang="fr">Jouez en local entre deux joueurs sur le même ordinateur</li>
       <li xml:lang="gl">Partidas entre dous xogadores no mesmo computador.</li>
@@ -181,6 +186,7 @@
       <li xml:lang="en-GB">Play against any computer program that supports the XBoard protocol</li>
       <li xml:lang="es">Jugar contra cualquier programa de computadora que use el protocolo XBoard</li>
       <li xml:lang="et">Mäng mis tahes arvutiprogrammi vastu, mis toetab XBoardi protokolli</li>
+      <li xml:lang="eu">XBoard protokoloa onartzen duen edozein ordenagailuren aurka jokatzea</li>
       <li xml:lang="fi">Pelaa toista XBoard-yhteyskäytäntöistä tietokoneohjelmaa vastaan</li>
       <li xml:lang="fr">Jouez contre un programme informatique prenant en charge le protocole XBoard</li>
       <li xml:lang="gl">Partidas contra calquera programa de computador compatíbel co protocolo XBoard.</li>
@@ -212,6 +218,7 @@
       <li xml:lang="en-GB">Play on the Free Internet Chess Server (FICS)</li>
       <li xml:lang="es">Jugar en el servidor de ajedrez libre de Internet (FICS)</li>
       <li xml:lang="et">Mäng vabas interneti maleserveris (FICS)</li>
+      <li xml:lang="eu">Interneteko xake zerbitzari dohainekoan (FICS) jolastu</li>
       <li xml:lang="fi">Pelaa FICSissä (vapaa internetšakkipalvelin)</li>
       <li xml:lang="fr">Jouez sur le Free Internet Chess Server (FICS)</li>
       <li xml:lang="gl">Xogar no servidor libre de xadrez por Internet (FICS).</li>
@@ -243,6 +250,7 @@
       <li xml:lang="en-GB">Watching two computer engines play against each other</li>
       <li xml:lang="es">Observar cómo juegan dos programas de ajedrez entre sí</li>
       <li xml:lang="et">Jälgimine, kuidas mängivad omavahel kaks arvutisse paigaldatud malemootorit</li>
+      <li xml:lang="eu">Bi ordenagailu motor bata bestearen aurkako lehia ikusi</li>
       <li xml:lang="fi">Kahden tietokoneen keskinäisen pelin seuraaminen</li>
       <li xml:lang="fr">Regardez deux moteurs de jeu s'affronter</li>
       <li xml:lang="gl">Visualización de partidas dun motor informático contra outro.</li>
@@ -274,6 +282,7 @@
       <li xml:lang="en-GB">Support for legal move checking</li>
       <li xml:lang="es">Permite comprobar los movimientos legales</li>
       <li xml:lang="et">Käikude õigsuse kontrollimise toetus</li>
+      <li xml:lang="eu">Legezko mugimenduen egiaztatzea</li>
       <li xml:lang="fi">Siirtojen laillisuuden tarkistuksen tuki</li>
       <li xml:lang="fr">Prise en charge de la vérification de la légalité des déplacements</li>
       <li xml:lang="gl">Opción de comprobar se un movemento está permitido.</li>
@@ -305,6 +314,7 @@
       <li xml:lang="en-GB">Markers for possible moves, opponent's last move and sources of check</li>
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de comprobaciones</li>
       <li xml:lang="et">Võimalike käikude, vastase viimase käigu ja tule andmise allika märgised</li>
+      <li xml:lang="eu">Markagailuak aukerako mugimenduentzat, arerioaren azken mugimenduarena eta xake aukerena</li>
       <li xml:lang="fi">Mahdollisten siirtojen, vastustajan viimeisimmän siirron ja šakkiasemien merkintä</li>
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
@@ -336,6 +346,7 @@
       <li xml:lang="en-GB">Board borders and site notations</li>
       <li xml:lang="es">Bordes del tablero y notaciones del sitio</li>
       <li xml:lang="et">Mänguvälja piirded ja notatsioonid</li>
+      <li xml:lang="eu">taula ertzak eta gune notazioak</li>
       <li xml:lang="fr">Bordures du plateau et notations des sites</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
       <li xml:lang="id">Notasi situs dan bingkai papan</li>
@@ -366,6 +377,7 @@
       <li xml:lang="en-GB">Complete time control, with Plasma-styled clocks</li>
       <li xml:lang="es">Completo control del tiempo, con paneles al estilo de Plasma</li>
       <li xml:lang="et">Ajakontroll Plasma stiilis kelladega</li>
+      <li xml:lang="eu">Denboraren kontrol erabatekoa, Plasma estiloko erlojuekin</li>
       <li xml:lang="fi">Täydellinen ajanhallinta Plasma-tyylin kelloin</li>
       <li xml:lang="fr">Contrôle du temps intégral, avec des horloges de style Plasma</li>
       <li xml:lang="gl">Control completo do tempo con reloxos co estilo de Plasma.</li>
@@ -397,6 +409,7 @@
       <li xml:lang="en-GB">Several themes, with the possibility of downloading new ones from within the program</li>
       <li xml:lang="es">Diversos temas, con la posibilidad de descargar otros nuevos desde el programa</li>
       <li xml:lang="et">Mitu teemat ühes võimalusega otse rakendusest neid veel alla laadida</li>
+      <li xml:lang="eu">Hainbat gai, programatik beste hainbat jaisteko aukeraz</li>
       <li xml:lang="fi">Useita teemoja ja mahdollisuus ladata niitä lisää ohjelman sisältä</li>
       <li xml:lang="fr">Plusieurs thèmes et la possibilité d'en télécharger de nouveaux au sein du programme</li>
       <li xml:lang="gl">Varios temas, coa posibilidade de descargar temas novos desde o propio programa.</li>
@@ -428,6 +441,7 @@
       <li xml:lang="en-GB">Animated moves (configurable)</li>
       <li xml:lang="es">Movimientos animados (configurables)</li>
       <li xml:lang="et">Animeeritud käigud (seadistatav)</li>
+      <li xml:lang="eu">Mugimendu animazioak (konfiguragarria)</li>
       <li xml:lang="fi">Animoidut siirrot (mukautettavissa)</li>
       <li xml:lang="fr">Déplacements animés (configurable)</li>
       <li xml:lang="gl">Movementos animados configurábeis.</li>
@@ -459,6 +473,7 @@
       <li xml:lang="en-GB">Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="es">Visores para jugar en un servidor de ajedrez, incluido un gráfico de búsqueda, una consola de texto y una ventana de charla</li>
       <li xml:lang="et">Eri vaated maleserveris mängimise korral, kaasa arvatud tekstikonsool ja vestlusvidin</li>
+      <li xml:lang="eu">Xake zerbitzarian jokatzeko ikuspegiak, grafiko bilaketa, testu kontsola eta txat trepeta barne</li>
       <li xml:lang="fi">Šakkipalvelinpelinäkymät hakukaavioineen, tekstikonsoleineen ja keskustelupaneeleineen</li>
       <li xml:lang="fr">Fonctionnalités pour jouer sur un serveur d'échecs, notamment un graphique de recherche, une console texte et un composant graphique de discussion</li>
       <li xml:lang="gl">Vistas para xogar en servidores de xadrez, entre elas un grafo de busca, unha consola de texto, e un trebello de conversa.</li>
@@ -490,6 +505,7 @@
       <li xml:lang="en-GB">Option to undo and redo moves</li>
       <li xml:lang="es">Opción para deshacer y rehacer movimientos</li>
       <li xml:lang="et">Võimalus käike tagasi võtta ja uuesti teha</li>
+      <li xml:lang="eu">Mugimenduak desegin eta berregiteko aukeraz</li>
       <li xml:lang="fi">Siirtojen perumis- ja uudelleentekemismahdollisuus</li>
       <li xml:lang="fr">Options pour annuler et refaire des mouvements</li>
       <li xml:lang="gl">Opción de desfacer e refacer movementos.</li>
@@ -521,6 +537,7 @@
       <li xml:lang="en-GB">Graphic interface for making and receiving offers from remote players</li>
       <li xml:lang="es">Interfaz gráfica para hacer y recibir ofertas de jugadores remotos</li>
       <li xml:lang="et">Graafiline liides võrgumängijatelt pakkumiste saamiseks ja neile pakkumiste tegemiseks</li>
+      <li xml:lang="eu">Interfaze grafikoa urruneko jokalariei eskaintzak egin eta haienak jasotzeko</li>
       <li xml:lang="fi">Graafinen käyttöliittymä etäpelitarjousten tekemiseksi ja vastaanottamiseksi</li>
       <li xml:lang="fr">Interface graphique pour envoyer et recevoir des offres avec des joueurs à distance</li>
       <li xml:lang="gl">Interface gráfica para realizar e recibir ofertas de xogadores remotos.</li>
@@ -552,6 +569,7 @@
       <li xml:lang="en-GB">Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="es">Permite usar el protocolo UCI (usado por Stockfish, Chessbase y otros)</li>
       <li xml:lang="et">UCI protokolli (seda kasutavad Stockfish, Chessbase ja veel paljud teised) toetus</li>
+      <li xml:lang="eu">UCI protokoloaren euskarria (Stockfish, Chessbase eta beste hainbatek erabilia)</li>
       <li xml:lang="fi">Tuki UCI-yhteyskäytännölle (jota käyttävät mm. Stockfish ja Chessbase)</li>
       <li xml:lang="fr">Prise en charge du protocole UCI (utilisé par Stockfish, Chessbase et bien d'autres)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
@@ -583,6 +601,7 @@
       <li xml:lang="en-GB">Support for saving and loading Portable game notation (PGN) files</li>
       <li xml:lang="es">Permite guardar y cargar archivos de notación portable de juego (PGN)</li>
       <li xml:lang="et">PGN-failide salvestamise ja laadimise toetus</li>
+      <li xml:lang="eu">Joko eramangarriaren notazio (PGN) fitxategiak gorde eta kargatzeko euskarria</li>
       <li xml:lang="fi">Siirrettävien pelinotaatiotiedostojen (PGN) tallennuksen ja latauksen tuki</li>
       <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers PGN (Notation portable de jeu)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida interoperábel (PGN).</li>
@@ -614,6 +633,7 @@
       <li xml:lang="en-GB">Use of Jovie, the KDE text-to-speak program, to speak opponent's moves</li>
       <li xml:lang="es">Uso de Jovie, el programa de síntesis de voz de KDE, para leer los movimientos del oponente</li>
       <li xml:lang="et">KDE teksti kõnelemise rakenduse Jovie kasutamine vastase käikude esitamiseks kuuldavalt</li>
+      <li xml:lang="eu">Erabili Jovie, KDEren testu ahoskatze programa arerioaren mugimenduak ahoskatzeko</li>
       <li xml:lang="fi">Vastustajan siirtojen kertominen ääneen Joviella, KDE:n puhesyntetisaattorilla</li>
       <li xml:lang="fr">Utilisation de Jovie, le programme de synthèse vocale de KDE, pour annoncer les mouvements de l'adversaire</li>
       <li xml:lang="gl">Uso de Jovie, o programa de texto-para-fala de KDE para narrar os movementos do contrincante.</li>
@@ -645,6 +665,7 @@
       <li xml:lang="en-GB">Ability to control the program via a D-Bus interface</li>
       <li xml:lang="es">Posibilidad de controlar el programa a través de la interfaz D-Bus</li>
       <li xml:lang="et">Võimalus juhtida programmi D-Busi liidese vahendusel</li>
+      <li xml:lang="eu">Programa D-Bus interfazeaz kontrolatzeko gaitasuna</li>
       <li xml:lang="fi">Mahdollisuus hallita ohjelmaa D-Bus-liitännästä</li>
       <li xml:lang="fr">Possibilité de contrôler le programme grâce à une interface D-Bus</li>
       <li xml:lang="gl">Posibilidade de controlar o programa mediante unha interface D-Bus.</li>
@@ -679,6 +700,7 @@
       <caption xml:lang="en-GB">Knights, chess game</caption>
       <caption xml:lang="es">Knights, juego de ajedrez</caption>
       <caption xml:lang="et">Malemäng Knights</caption>
+      <caption xml:lang="eu">Knights, Xake-jolasa</caption>
       <caption xml:lang="fr">Knights, jeu d'échecs</caption>
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
@@ -704,6 +726,7 @@
       <caption xml:lang="en-GB">Main Window - Human vs. Chess Engine</caption>
       <caption xml:lang="es">Ventana principal - Humano contra motor de ajedrez</caption>
       <caption xml:lang="et">Peaaken - inimene malemootori vastu</caption>
+      <caption xml:lang="eu">Leiho nagusia - Gizakia Vs. Xake motorra</caption>
       <caption xml:lang="fi">Pääikkuna – ihminen vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
@@ -730,6 +753,7 @@
       <caption xml:lang="en-GB">Main Window - Chess Engine vs. Chess Engine</caption>
       <caption xml:lang="es">Ventana principal - Motor de ajedrez contra motor de ajedrez</caption>
       <caption xml:lang="et">Peaaken - malemootor malemootori vastu</caption>
+      <caption xml:lang="eu">Leiho nagusia - Xake motorra Vs. Xake motorra</caption>
       <caption xml:lang="fi">Pääikkuna – šakkikone vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
@@ -757,6 +781,7 @@
       <caption xml:lang="en-GB">"New Game" Dialogue</caption>
       <caption xml:lang="es">Diálogo «Nueva partida»</caption>
       <caption xml:lang="et">Uue mängu dialoog</caption>
+      <caption xml:lang="eu">"Joko berri" elkarrizketa</caption>
       <caption xml:lang="fi">”Uusi peli” -ikkuna</caption>
       <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
@@ -783,6 +808,7 @@
       <caption xml:lang="en-GB">Auto-Detection of Chess Engines</caption>
       <caption xml:lang="es">Detección automática de motores de ajedrez</caption>
       <caption xml:lang="et">Malemootorite automaatne tuvastamine</caption>
+      <caption xml:lang="eu">Xake motorren antzemate automatikoa</caption>
       <caption xml:lang="fi">Šakkikoneiden automaattitunnistus</caption>
       <caption xml:lang="fr">Auto-détection des moteurs d'échecs</caption>
       <caption xml:lang="gl">Detección automática de motores de xadrez</caption>
@@ -809,6 +835,7 @@
       <caption xml:lang="en-GB">Playing online - FICS Console</caption>
       <caption xml:lang="es">Juego en línea - Consola FICS</caption>
       <caption xml:lang="et">Võrgus mängimine . FICS-i konsool</caption>
+      <caption xml:lang="eu">Lineako jolasa - FICS kontsola</caption>
       <caption xml:lang="fi">Verkkopelaaminen – FICS-konsoli</caption>
       <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
       <caption xml:lang="gl">Xogar por Internet — Consola de FICS</caption>
@@ -835,6 +862,7 @@
       <caption xml:lang="en-GB">Playing online - graphical Seek-Graph</caption>
       <caption xml:lang="es">Juego en línea - Gráfico de búsqueda</caption>
       <caption xml:lang="et">Võrgus mängimine - graafiline otsimisgraafik</caption>
+      <caption xml:lang="eu">Lineako jolasa - bilaketa grafikoak</caption>
       <caption xml:lang="fi">Verkkopelaaminen – graafinen hakukaavio</caption>
       <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
       <caption xml:lang="gl">Xogar por Internet — Grafo de busca gráfico</caption>
