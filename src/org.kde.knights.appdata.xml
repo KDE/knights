@@ -354,6 +354,7 @@
       <li xml:lang="es">Bordes del tablero y notaciones del sitio</li>
       <li xml:lang="et">Mänguvälja piirded ja notatsioonid</li>
       <li xml:lang="eu">taula ertzak eta gune notazioak</li>
+      <li xml:lang="fi">Laudan reunat ja merkinnät</li>
       <li xml:lang="fr">Bordures du plateau et notations des sites</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
       <li xml:lang="id">Notasi situs dan bingkai papan</li>
@@ -719,6 +720,7 @@
       <caption xml:lang="es">Knights, juego de ajedrez</caption>
       <caption xml:lang="et">Malemäng Knights</caption>
       <caption xml:lang="eu">Knights, Xake-jolasa</caption>
+      <caption xml:lang="fi">Knights, šakkipeli</caption>
       <caption xml:lang="fr">Knights, jeu d'échecs</caption>
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
