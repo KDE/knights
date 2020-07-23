@@ -246,8 +246,8 @@
       <li xml:lang="zh-CN">在免费的国际象棋服务器(FICS)上下棋</li>
       <li xml:lang="zh-TW">在免費線上西洋棋伺服器 (FICS) 遊玩</li>
       <li>Watching two computer engines play against each other</li>
-      <li xml:lang="ca">Mirar dos motors d'ordinador jugar entre si</li>
-      <li xml:lang="ca-valencia">Mirar dos motors d'ordinador jugar entre si</li>
+      <li xml:lang="ca">Mirar dos motors d'ordinador que juguen entre si</li>
+      <li xml:lang="ca-valencia">Mirar dos motors d'ordinador que juguen entre si</li>
       <li xml:lang="da">Se to computermotorer spille mod hinanden</li>
       <li xml:lang="de">Anzeige eines Spiels zweier Schach-Module gegeneinander</li>
       <li xml:lang="el">Παρακολουθήστε δύο μηχανές να παίζουν η μία εναντίον της άλλης</li>
@@ -477,8 +477,8 @@
       <li xml:lang="zh-CN">动画移动(可以被配置)</li>
       <li xml:lang="zh-TW">動畫式移動（可設定）</li>
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
-      <li xml:lang="ca">Vistes per jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text, i un estri de xat</li>
-      <li xml:lang="ca-valencia">Vistes per jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text, i un estri de xat</li>
+      <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un estri de xat</li>
+      <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un estri de xat</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
       <li xml:lang="de">Ansichten zum Spielen auf einem Schachserver, inklusive Suchgraphen,  Textkonsole und Chatmöglichkeit</li>
       <li xml:lang="el">Προβολές παιχνιδιού σε εξυπηρετητή σκακιού, με γράφο αναζήτησης, κονσόλα κειμένου και γραφικό συστατικό συνοιμλίας</li>
@@ -510,8 +510,8 @@
       <li xml:lang="zh-CN">在象棋服务器上播放的试图，包括寻找图形、文本控制台和聊天小部件</li>
       <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
-      <li xml:lang="ca">Opcions per fer i desfer moviments</li>
-      <li xml:lang="ca-valencia">Opcions per fer i desfer moviments</li>
+      <li xml:lang="ca">Opcions per a fer i desfer moviments</li>
+      <li xml:lang="ca-valencia">Opcions per a fer i desfer moviments</li>
       <li xml:lang="da">Mulighed for at fortryde og gendanne træk</li>
       <li xml:lang="de">Option zum Zug zurücknehmen und wiederherstellen</li>
       <li xml:lang="el">Επιλογή για αναίρεση και επαναφορά κινήσεων</li>
@@ -543,8 +543,8 @@
       <li xml:lang="zh-CN">撤销和重做移动选项</li>
       <li xml:lang="zh-TW">復原與重做移動的選項</li>
       <li>Graphic interface for making and receiving offers from remote players</li>
-      <li xml:lang="ca">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
-      <li xml:lang="ca-valencia">Interfície gràfica per fer i rebre oferiments de jugadors remots</li>
+      <li xml:lang="ca">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
+      <li xml:lang="ca-valencia">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="da">Grafisk grænseflade til at foretage og modtage tilbud fra fjernspillere</li>
       <li xml:lang="de">Grafische Schnittstelle um Angebote von entfernten Spielen zu senden und zu erhalten</li>
       <li xml:lang="el">Γραφικό περιβάλλον για προσφορές από απομακρυσμένους παίκτες</li>
@@ -576,8 +576,8 @@
       <li xml:lang="zh-CN">绘制和接收远程玩家报价的图形界面</li>
       <li xml:lang="zh-TW">從遠端玩家做出與接收提議的圖形化介面</li>
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
-      <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
-      <li xml:lang="ca-valencia">Admet el protocol UCI (usat per l'Stockfish, el Chessbase, i altres)</li>
+      <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
+      <li xml:lang="ca-valencia">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
       <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
@@ -609,8 +609,8 @@
       <li xml:lang="zh-CN">支持UCI协议(由Stockfish、Chessbase和其他许多公司使用）</li>
       <li xml:lang="zh-TW">支援 UCI 協定（由 Stockfish、Chessbase 與其他許多應用程式所使用）</li>
       <li>Support for saving and loading Portable game notation (PGN) files</li>
-      <li xml:lang="ca">Admets els fitxers «Portable game notation» (PGN) per desar i carregar</li>
-      <li xml:lang="ca-valencia">Admets els fitxers «Portable game notation» (PGN) per guardar i carregar</li>
+      <li xml:lang="ca">Admet els fitxers «Portable game notation» (PGN) per a desar i carregar</li>
+      <li xml:lang="ca-valencia">Admet els fitxers «Portable game notation» (PGN) per a guardar i carregar</li>
       <li xml:lang="da">Understøttelse af gem og indlæsning af Portable game notation-filer (PGN)</li>
       <li xml:lang="de">Laden und speichern von Dateien im Format Portable Spielnotation (*.pgn)</li>
       <li xml:lang="el">Υποστήριξη για αποθήκευση και φόρτωση αρχείων συμβολισμών PGN (Portable game notation)</li>
@@ -642,8 +642,8 @@
       <li xml:lang="zh-CN">支持保存和加载便携式游戏标记(PGN) 文件</li>
       <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
       <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
-      <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
-      <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu del KDE, per pronunciar els moviments de l'adversari</li>
+      <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>
+      <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>
       <li xml:lang="da">Brug af Jovie, KDEs tekst-til-tale-program, til at sige modstanderens træk</li>
       <li xml:lang="de">Verwendet den KDE-Sprachausgabedienst Jovie, um die Züge des Gegners vorzulegen</li>
       <li xml:lang="el">Χρήση του Jovie, του προγράμματος μετατροπής κειμένου σε ομιλία του KDE, για την προφορική διατύπωση των κινήσεων του αντιπάλου</li>
@@ -675,8 +675,8 @@
       <li xml:lang="zh-CN">使用 Jovie, KDE 文本语音程序来朗读对手的动作</li>
       <li xml:lang="zh-TW">使用 Jovie，KDE 的文字轉語音程式，來念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
-      <li xml:lang="ca">Permet controlar el programa via una interfície del D-Bus</li>
-      <li xml:lang="ca-valencia">Permet controlar el programa via una interfície del D-Bus</li>
+      <li xml:lang="ca">Permet controlar el programa via una interfície de D-Bus</li>
+      <li xml:lang="ca-valencia">Permet controlar el programa via una interfície de D-Bus</li>
       <li xml:lang="da">Mulighed for at styre programmet via en D-Bus-grænseflade</li>
       <li xml:lang="de">Das Programm kann über eine D-Bus-Schnittstelle gesteuert werden</li>
       <li xml:lang="el">Δυνατότητα ελέγχου του προγράμματος μέσω διεπαφής D-Bus</li>
