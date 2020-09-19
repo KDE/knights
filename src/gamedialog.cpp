@@ -39,6 +39,7 @@
 #include "settings.h"
 #include "enginesettings.h"
 
+#include <QRandomGenerator>
 #include <QNetworkConfigurationManager>
 #include <QDialogButtonBox>
 
@@ -208,8 +209,7 @@ void GameDialog::setupProtocols() {
 		p2->setAttribute("server", ui->cbPlayer2Server->currentText());
 	}
 	if(c1 == NoColor) {
-		qsrand(QTime::currentTime().msec());
-		c1 = (qrand() % 2) ? White : Black;
+		c1 = (QRandomGenerator::global()->bounded(2) == 1) ? White : Black;
 	}
 	// Color-changing by the FICS protocol happens later, so it doesn't matter what we do here.
 	Protocol::setWhiteProtocol(c1 == White ? p1 : p2);

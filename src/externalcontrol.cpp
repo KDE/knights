@@ -24,7 +24,9 @@
 #include "knightsadaptor.h"
 #include "knightsdebug.h"
 
-#define FORWARD_FUNCTION(name, action) void ExternalControl::name() { Manager::self()->sendOffer(Action##action, NoColor, qrand()); }
+#include <QRandomGenerator>
+
+#define FORWARD_FUNCTION(name, action) void ExternalControl::name() { Manager::self()->sendOffer(Action##action, NoColor, QRandomGenerator::global()->bounded(RAND_MAX)); }
 
 using namespace Knights;
 

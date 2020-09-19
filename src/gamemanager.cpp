@@ -46,6 +46,7 @@
 #include <QDir>
 #include <QTimer>
 #include <QStandardPaths>
+#include <QRandomGenerator>
 
 #include <memory>
 
@@ -293,7 +294,7 @@ void Manager::initialize() {
 void Manager::pause(bool pause) {
 	Offer o;
 	o.action = pause ? ActionPause : ActionResume;
-	o.id = qrand();
+	o.id = QRandomGenerator::global()->bounded(RAND_MAX);
 	o.player = NoColor;
 	sendOffer(o);
 }
