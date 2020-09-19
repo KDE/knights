@@ -1,6 +1,17 @@
-project(Knights)
-
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+
+# Release Service version, managed by release script
+set (RELEASE_SERVICE_VERSION_MAJOR "20")
+set (RELEASE_SERVICE_VERSION_MINOR "11")
+set (RELEASE_SERVICE_VERSION_MICRO "70")
+set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_SERVICE_VERSION_MINOR}${RELEASE_SERVICE_VERSION_MICRO}")
+
+# Bump KNIGHTS_BASE_VERSION once new features are added
+set(KNIGHTS_BASE_VERSION "2.6")
+set(KNIGHTS_VERSION "${KNIGHTS_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSION}")
+
+project(Knights VERSION ${KNIGHTS_VERSION})
+
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -56,6 +67,7 @@ include(ECMQtDeclareLoggingCategory)
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(ECMSetupVersion)
 
 if (${KF5Config_VERSION} STRGREATER "5.56.0")
         add_definitions(-DQT_NO_FOREACH)

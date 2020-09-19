@@ -29,6 +29,7 @@
 
 
 #include "knights.h"
+#include "knights_version.h"
 
 #include <KAboutData>
 #include <KCrash>
@@ -48,7 +49,9 @@ int main ( int argc, char **argv ) {
 	KLocalizedString::setApplicationDomain("knights");
 	KCrash::initialize();
 
-	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ), version, i18n( description ),
+	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ),
+	                   QStringLiteral(KNIGHTS_VERSION_STRING),
+	                   i18n( description ),
 	                   KAboutLicense::GPL, i18n ( "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula" ));
 	about.addAuthor(i18n("Alexander Semke"), QString(), QStringLiteral("alexander.semke@web.de"));
 	about.addAuthor ( i18n ( "Miha Čančula" ), QString(), QStringLiteral ("miha@noughmad.eu"),

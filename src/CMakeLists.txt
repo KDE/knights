@@ -3,6 +3,11 @@ include_directories(
     ${CMAKE_BINARY_DIR}
 )
 
+ecm_setup_version(${KNIGHTS_VERSION}
+    VARIABLE_PREFIX KNIGHTS
+    VERSION_HEADER knights_version.h
+)
+
 set(knights_SRCS
     core/pos.cpp
     core/move.cpp
