@@ -141,7 +141,11 @@ void FicsProtocol::init (  ) {
 	int port = attribute("port").toInt();
 	if ( port == 0 )
 		port = 5000;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
+	connect ( socket, &QTcpSocket::errorOccurred,
+#else
 	connect ( socket, static_cast<void (QTcpSocket::*)(QAbstractSocket::SocketError)> (&QTcpSocket::error),
+#endif
 	          this, &FicsProtocol::socketError );
 
 	QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
