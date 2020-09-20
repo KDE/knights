@@ -72,6 +72,8 @@ include(ECMSetupVersion)
 add_definitions(
     -DQT_NO_FOREACH
     -DQT_NO_KEYWORDS
+    -DQT_DISABLE_DEPRECATED_BEFORE=0x050A00
+    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x053900
 )
 
 add_subdirectory(doc)
