@@ -38,7 +38,12 @@ ChessRules::ChessRules() {
 	diagDirs.insert ( SW, lineDirs[S] + lineDirs[W] );
 	diagDirs.insert ( SE, lineDirs[S] + lineDirs[E] );
 
-	directions.unite ( lineDirs ).unite ( diagDirs );
+	const QMap<Direction, Pos>* const dirs[] = {&lineDirs, &diagDirs};
+	for (auto* dirs : dirs) {
+		for (auto it = dirs->begin(), end = dirs->end(); it != end; ++it) {
+			directions.insert(it.key(), it.value());
+		}
+	}
 
 	knightDirs << Pos ( 1, 2 );
 	knightDirs << Pos ( -1, 2 );

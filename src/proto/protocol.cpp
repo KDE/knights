@@ -142,7 +142,9 @@ void Protocol::setAttribute ( const char* attribute, QVariant value ) {
 
 void Protocol::setAttributes ( QVariantMap attributes ) {
 	Q_D ( Protocol );
-	d->attributes.unite ( attributes );
+	for (auto it = attributes.constBegin(), end = attributes.constEnd(); it != end; ++it) {
+		d->attributes.insert(it.key(), it.value());
+	}
 }
 
 QVariant Protocol::attribute ( const QString& attribute ) const {
