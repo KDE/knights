@@ -223,7 +223,7 @@ void Board::mousePressEvent(QGraphicsSceneMouseEvent* e) {
 				move.setFlag ( Move::Promote, true );
 				move.setPromotedType ( getPromotedType() );
 			}
-			emit pieceMoved(move);
+			Q_EMIT pieceMoved(move);
 			selectedPiece = nullptr;
 		}
 	} else {
@@ -299,7 +299,7 @@ void Board::dropEvent(QGraphicsSceneDragDropEvent* e) {
 				move.setFlag ( Move::Promote, true );
 				move.setPromotedType ( getPromotedType() );
 			}
-			emit pieceMoved(move);
+			Q_EMIT pieceMoved(move);
 		}
 		draggedPiece->setZValue(pieceZValue);
 		draggedPiece = nullptr;
@@ -387,7 +387,7 @@ void Board::setCurrentColor(Color color) {
 		m_displayedPlayer = nextPlayer;
 		changeDisplayedPlayer();
 	}
-	emit activePlayerChanged ( m_currentPlayer );
+	Q_EMIT activePlayerChanged ( m_currentPlayer );
 }
 
 
@@ -571,7 +571,7 @@ void Board::changeDisplayedPlayer() {
 			m_notations[3]->setSpriteKey ( blackNumbersKey );
 		}
 	}
-	emit displayedPlayerChanged(m_displayedPlayer);
+	Q_EMIT displayedPlayerChanged(m_displayedPlayer);
 }
 
 PieceType Board::getPromotedType() {

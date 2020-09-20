@@ -66,7 +66,7 @@ QIODevice* TextProtocol::device() const {
 void TextProtocol::writeCheckMoves(const QString& text) {
 	Move m = Move(text);
 	if ( m.isValid() )
-		emit pieceMoved(m);
+		Q_EMIT pieceMoved(m);
 	write(text);
 }
 

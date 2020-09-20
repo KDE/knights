@@ -107,7 +107,7 @@ void ChatWidget::sendButtonClicked() {
 		addText ( ui->line->text(), GeneralMessage );
 	else
 		addText ( i18n("You: ") + ui->line->text(), ChatMessage );
-	emit sendText ( ui->line->text() );
+	Q_EMIT sendText ( ui->line->text() );
 	ui->line->clear();
 }
 
@@ -127,7 +127,7 @@ void ChatWidget::addExtraButton ( const QString& text, const QString& title, con
 void ChatWidget::buttonClicked() {
 	QObject* s = sender();
 	if ( m_extraButtons.contains ( s ) )
-		emit sendText ( m_extraButtons[s] );
+		Q_EMIT sendText ( m_extraButtons[s] );
 }
 
 QColor ChatWidget::messageColor ( ChatWidget::MessageType type ) const {

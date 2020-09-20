@@ -84,7 +84,7 @@ void XBoardProtocol::move ( const Move& m ) {
 	write(str);
 
 	lastMoveString.clear();
-	emit undoPossible ( false );
+	Q_EMIT undoPossible ( false );
 	if ( m_resumePending ) {
 		write("go");
 		m_resumePending = false;
@@ -126,7 +126,7 @@ bool XBoardProtocol::parseLine(const QString& line) {
 	const QRegExp position(QLatin1String("[a-h][1-8]"));
 	if ( line.contains ( QLatin1String ( "Illegal move" ) ) ) {
 		type = ChatWidget::ErrorMessage;
-		emit illegalMove();
+		Q_EMIT illegalMove();
 	} else if ( position.indexIn(line) > -1 || line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) ) {
 		type = ChatWidget::MoveMessage;
 		QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
@@ -148,8 +148,8 @@ bool XBoardProtocol::parseLine(const QString& line) {
 			type = ChatWidget::GeneralMessage;
 		if ( m.isValid() ) {
 			qCDebug(LOG_KNIGHTS) << "Move by" << attribute("program").toString() << ":" << moveString << "=>" << m;
-			emit pieceMoved ( m );
-			emit undoPossible ( true );
+			Q_EMIT pieceMoved ( m );
+			Q_EMIT undoPossible ( true );
 		}
 	} else if ( line.contains ( QLatin1String ( "wins" ) ) ) {
 		type = ChatWidget::StatusMessage;
@@ -158,7 +158,7 @@ bool XBoardProtocol::parseLine(const QString& line) {
 			winner = White;
 		else
 			winner = Black;
-		emit gameOver ( winner );
+		Q_EMIT gameOver ( winner );
 		return true;
 	} else if ( line.contains ( QLatin1String("offer") ) && line.contains ( QLatin1String("draw") ) ) {
 		display = false;
@@ -168,11 +168,11 @@ bool XBoardProtocol::parseLine(const QString& line) {
 		o.player = color();
 		Manager::self()->sendOffer(o);
 	} else if ( line.startsWith ( QLatin1String("1-0") ) )
-		emit gameOver ( White );
+		Q_EMIT gameOver ( White );
 	else if ( line.startsWith ( QLatin1String("0-1") ) )
-		emit gameOver ( Black );
+		Q_EMIT gameOver ( Black );
 	else if ( line.startsWith ( QLatin1String("1/2-1/2") ) )
-		emit gameOver ( NoColor );
+		Q_EMIT gameOver ( NoColor );
 
 	if ( display )
 		writeToConsole ( line, type );

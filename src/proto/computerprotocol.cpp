@@ -47,7 +47,7 @@ void ComputerProtocol::startProgram() {
 	qCDebug(LOG_KNIGHTS) << "Starting program" << program << "with args" << args;
 	mProcess->start();
 	if ( !mProcess->waitForStarted ( 1000 ) ) {
-		emit error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
+		Q_EMIT error ( InstallationError, i18n ( "Program <code>%1</code> could not be started, please check that it is installed.", program ) );
 		return;
 	}
 }

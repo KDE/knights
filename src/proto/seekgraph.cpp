@@ -94,7 +94,7 @@ void SeekGraph::mouseReleaseEvent ( QMouseEvent* event ) {
 			continue;
 		QPointF d = mapToWidget ( o->points().first()->position()) - event->pos() + QPoint(leftPadding(), topPadding());
 		if ( d.x() * d.x() + d.y() * d.y() < 64.0 ) {
-			emit seekClicked ( m_objects.key(o) );
+			Q_EMIT seekClicked ( m_objects.key(o) );
 			return;
 		}
 	}

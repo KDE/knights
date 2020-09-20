@@ -178,7 +178,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
 
 void FicsProtocol::socketError() {
 	QApplication::restoreOverrideCursor();
-	emit error( NetworkError, device()->errorString() );
+	Q_EMIT error( NetworkError, device()->errorString() );
 }
 
 void FicsProtocol::login ( const QString& username, const QString& password ) {
@@ -291,7 +291,7 @@ bool FicsProtocol::parseLine(const QString& line) {
 				name.truncate ( name.indexOf ( QLatin1Char ( ' ' ) ) );
 			qCDebug(LOG_KNIGHTS) << QLatin1String("Your name is") << name;
 			otherPlayerName = name;
-			emit sessionStarted();
+			Q_EMIT sessionStarted();
 		} else if ( line.contains ( QLatin1String("Invalid password") ) ) {
 			m_widget->setLoginEnabled ( true );
 			type = ChatWidget::AccountMessage;
@@ -301,14 +301,14 @@ bool FicsProtocol::parseLine(const QString& line) {
 	case SeekStage:
 		if ( line.startsWith( QLatin1String("<sc>") ) ) {
 			display = false;
-			emit clearSeeks();
+			Q_EMIT clearSeeks();
 		} else if ( line.startsWith( QLatin1String("<sr>") ) ) {
 			display = false;
 			for ( const QString& str : line.split(QLatin1Char(' ') ) ) {
 				bool ok;
 				int id = str.toInt(&ok);
 				if ( ok )
-					emit gameOfferRemoved(id);
+					Q_EMIT gameOfferRemoved(id);
 			}
 		} else if ( line.startsWith( QLatin1String("<s>") ) && seekExp.indexIn(line) > -1 ) {
 			display = false;
@@ -327,7 +327,7 @@ bool FicsProtocol::parseLine(const QString& line) {
 			offer.ratingRange.second = seekExp.cap(n++).toInt();
 			offer.automatic = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
 			offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
-			emit gameOfferReceived ( offer );
+			Q_EMIT gameOfferReceived ( offer );
 		} else if ( line.startsWith( QLatin1String("<pf>") ) && challengeExp.indexIn ( line ) > -1 ) {
 			display = false;
 			FicsChallenge challenge;
@@ -335,14 +335,14 @@ bool FicsProtocol::parseLine(const QString& line) {
 			challenge.player.first = challengeExp.cap ( 2 );
 			int ratingPos = ( challengeExp.cap(2) == challengeExp.cap(3) ) ? 4 : 6;
 			challenge.player.second = challengeExp.cap ( ratingPos ).toInt();
-			emit challengeReceived ( challenge );
+			Q_EMIT challengeReceived ( challenge );
 		} else if ( line.startsWith( QLatin1String("<pr>") ) ) {
 			display = false;
 			for ( const QString& str : line.split( QLatin1Char(' ') ) ) {
 				bool ok;
 				int id = str.toInt(&ok);
 				if ( ok )
-					emit challengeRemoved(id);
+					Q_EMIT challengeRemoved(id);
 			}
 		} else if ( gameStartedExp.indexIn ( line ) > -1 ) {
 			qCDebug(LOG_KNIGHTS) << "Game Started" << line;
@@ -413,7 +413,7 @@ bool FicsProtocol::parseLine(const QString& line) {
 					}
 				}
 				qCDebug(LOG_KNIGHTS) << "Valid move" << m;
-				emit pieceMoved ( m );
+				Q_EMIT pieceMoved ( m );
 			}
 			Manager::self()->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
 			Manager::self()->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
@@ -446,15 +446,15 @@ bool FicsProtocol::parseLine(const QString& line) {
 		else if ( line.startsWith(QLatin1Char('{')) && line.contains(QLatin1Char('}'))) {
 			if ( line.endsWith ( QLatin1String("1-0") ) ) {
 				type = ChatWidget::AccountMessage;
-				emit gameOver ( White );
+				Q_EMIT gameOver ( White );
 			} else if ( line.endsWith ( QLatin1String("1/2-1/2") ) || line.endsWith ( QLatin1Char('*') ) ) {
 				// Knights has no way of reporting aborted or unfinished games
 				// so we report aborted games as draws
 				type = ChatWidget::AccountMessage;
-				emit gameOver ( NoColor );
+				Q_EMIT gameOver ( NoColor );
 			} else if ( line.endsWith ( QLatin1String("0-1") ) ) {
 				type = ChatWidget::AccountMessage;
-				emit gameOver ( Black );
+				Q_EMIT gameOver ( Black );
 			}
 		}
 	}
@@ -489,7 +489,7 @@ void FicsProtocol::declineChallenge ( int id ) {
 }
 
 void FicsProtocol::dialogRejected() {
-	emit error ( UserCancelled );
+	Q_EMIT error ( UserCancelled );
 }
 
 void FicsProtocol::setSeeking ( bool seek ) {

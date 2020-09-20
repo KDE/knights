@@ -197,7 +197,7 @@ ChatWidget* Protocol::createConsoleWidget() {
 void Protocol::initComplete() {
 	Q_D(Protocol);
 	d->ready = true;
-	emit initSuccesful();
+	Q_EMIT initSuccesful();
 }
 
 bool Protocol::isReady() {

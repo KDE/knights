@@ -74,14 +74,14 @@ void FicsDialog::slotSessionStarted() {
 	for ( int i = 1; i < 4; ++i )
 		ui->tabWidget->setTabEnabled ( i, true );
 	ui->tabWidget->setCurrentIndex ( 1 );
-	emit acceptButtonNeeded ( true );
+	Q_EMIT acceptButtonNeeded ( true );
 	saveFicsSettings();
 }
 
 void FicsDialog::slotLogin() {
 	setLoginEnabled ( false );
 	setStatus ( i18n("Logging in...") );
-	emit login ( ui->usernameLineEdit->text(), ui->passwordLineEdit->text() );
+	Q_EMIT login ( ui->usernameLineEdit->text(), ui->passwordLineEdit->text() );
 }
 
 void FicsDialog::slotCreateAccount() {
@@ -124,7 +124,7 @@ void FicsDialog::addChallenge ( const FicsChallenge& challenge ) {
 	QString item = i18nc ( "PlayerName (rating)", "%1 (%2)", challenge.player.first, challenge.player.second );
 	m_challengeModel.setStringList ( m_challengeModel.stringList() << item );
 	m_challengeId << challenge.gameId;
-	emit declineButtonNeeded ( true );
+	Q_EMIT declineButtonNeeded ( true );
 }
 
 void FicsDialog::clearOffers() {
@@ -135,18 +135,18 @@ void FicsDialog::clearOffers() {
 
 void FicsDialog::accept() {
 	if ( ui->seekButton->isChecked() )
-		emit acceptChallenge( m_challengeId[ui->challengeListView->currentIndex().row()] );
+		Q_EMIT acceptChallenge( m_challengeId[ui->challengeListView->currentIndex().row()] );
 	else
-		emit acceptSeek ( m_gameId[ui->offerTable->currentRow() ] );
+		Q_EMIT acceptSeek ( m_gameId[ui->offerTable->currentRow() ] );
 }
 
 void FicsDialog::decline() {
-	emit declineChallenge ( m_challengeId[ui->challengeListView->currentIndex().row()] );
+	Q_EMIT declineChallenge ( m_challengeId[ui->challengeListView->currentIndex().row()] );
 }
 
 void FicsDialog::currentTabChanged ( int tab ) {
-	emit declineButtonNeeded ( tab == 3 );
-	emit acceptButtonNeeded ( tab == 1 || tab == 2 || tab == 3 );
+	Q_EMIT declineButtonNeeded ( tab == 3 );
+	Q_EMIT acceptButtonNeeded ( tab == 1 || tab == 2 || tab == 3 );
 }
 
 void FicsDialog::setServerName ( const QString& name ) {

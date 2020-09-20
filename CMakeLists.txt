@@ -69,10 +69,11 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMSetupVersion)
 
-if (${KF5Config_VERSION} STRGREATER "5.56.0")
-        add_definitions(-DQT_NO_FOREACH)
-        MESSAGE(STATUS "compile without foreach")
-endif()
+add_definitions(
+    -DQT_NO_FOREACH
+    -DQT_NO_KEYWORDS
+)
+
 add_subdirectory(doc)
 add_subdirectory(icons)
 add_subdirectory(sounds)

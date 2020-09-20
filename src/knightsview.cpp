@@ -91,7 +91,7 @@ void KnightsView::setupBoard(KgThemeProvider* provider) {
 }
 
 void KnightsView::settingsChanged() {
-	emit signalChangeStatusbar ( i18n ( "Settings changed" ) );
+	Q_EMIT signalChangeStatusbar ( i18n ( "Settings changed" ) );
 	if (m_board)
 		m_board->updateTheme();
 }

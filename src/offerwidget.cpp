@@ -51,16 +51,16 @@ int OfferWidget::id() const {
 }
 
 void OfferWidget::acceptClicked() {
-	emit close(offerId, AcceptOffer);
+	Q_EMIT close(offerId, AcceptOffer);
 	deleteLater();
 }
 
 void OfferWidget::declineClicked() {
-	emit close(offerId, DeclineOffer);
+	Q_EMIT close(offerId, DeclineOffer);
 	deleteLater();
 }
 
 void OfferWidget::closeClicked() {
-	emit close(offerId, IgnoreOffer);
+	Q_EMIT close(offerId, IgnoreOffer);
 	deleteLater();
 }

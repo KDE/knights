@@ -51,7 +51,7 @@ void ExternalControl::movePiece(const QString& move) {
 }
 
 void ExternalControl::slotMoveMade(const Knights::Move& move) {
-	emit moveMade(move.string());
+	Q_EMIT moveMade(move.string());
 }
 
 

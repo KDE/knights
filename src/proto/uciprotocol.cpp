@@ -61,7 +61,7 @@ bool UciProtocol::parseLine(const QString& line) {
 		write ( "isready" );
 	} else if ( line.startsWith ( QLatin1String("readyok") ) ) {
 		type = ChatWidget::AccountMessage;
-		emit initComplete();
+		Q_EMIT initComplete();
 	} else if ( line.startsWith ( QLatin1String("id name ") ) ) {
 		type = ChatWidget::AccountMessage;
 		// Chop off the "id name " port, the remainder if the engine's name
@@ -72,7 +72,7 @@ bool UciProtocol::parseLine(const QString& line) {
 		if ( lst.size() > 1 ) {
 			Move m = Move ( lst[1] );
 			mMoveHistory << m;
-			emit pieceMoved ( m );
+			Q_EMIT pieceMoved ( m );
 		} else
 			return false;
 		if ( lst.size() > 3 && lst[2] == QLatin1String("ponder") )

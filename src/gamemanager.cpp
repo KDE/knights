@@ -179,7 +179,7 @@ void Manager::setCurrentTime(Color color, const QTime& time) {
 	default:
 		return;
 	}
-	emit timeChanged ( color, time );
+	Q_EMIT timeChanged ( color, time );
 }
 
 void Manager::timerEvent(QTimerEvent* ) {
@@ -202,18 +202,18 @@ void Manager::timerEvent(QTimerEvent* ) {
 		time = QTime();
 		break;
 	}
-	emit timeChanged(d->activePlayer, time);
+	Q_EMIT timeChanged(d->activePlayer, time);
 }
 
 void Manager::addMoveToHistory(const Move& move) {
 	Q_D(GameManager);
 	if ( d->moveHistory.isEmpty() )
-		emit undoPossible(true);
+		Q_EMIT undoPossible(true);
 	d->moveHistory << move;
 	if ( !d->moveUndoStack.isEmpty() )
-		emit redoPossible(false);
+		Q_EMIT redoPossible(false);
 	d->moveUndoStack.clear();
-	emit historyChanged();
+	Q_EMIT historyChanged();
 }
 
 Move Manager::nextUndoMove() {
@@ -223,14 +223,14 @@ Move Manager::nextUndoMove() {
 		d->whiteTimeControl.currentTime = m.time();
 	else
 		d->blackTimeControl.currentTime = m.time();
-	emit timeChanged ( m.pieceData().first, m.time() );
+	Q_EMIT timeChanged ( m.pieceData().first, m.time() );
 	if ( d->moveHistory.isEmpty() )
-		emit undoPossible(false);
+		Q_EMIT undoPossible(false);
 	if ( d->moveUndoStack.isEmpty() )
-		emit redoPossible(true);
+		Q_EMIT redoPossible(true);
 	d->moveUndoStack.push( m );
 
-	emit historyChanged();
+	Q_EMIT historyChanged();
 
 	Move ret = m.reverse();
 	qCDebug(LOG_KNIGHTS) << m << ret;
@@ -242,12 +242,12 @@ Move Manager::nextRedoMove() {
 	Q_D(GameManager);
 	Move m = d->moveUndoStack.pop();
 	if ( d->moveUndoStack.isEmpty() )
-		emit redoPossible(false);
+		Q_EMIT redoPossible(false);
 	if ( d->moveHistory.isEmpty() )
-		emit undoPossible(true);
+		Q_EMIT undoPossible(true);
 	d->moveHistory << m;
 	m.setFlag ( Move::Forced, true );
-	emit historyChanged();
+	Q_EMIT historyChanged();
 
 	return m;
 }
@@ -260,7 +260,7 @@ void Manager::setActivePlayer(Color player) {
 
 void Manager::changeActivePlayer() {
 	setActivePlayer ( oppositeColor ( activePlayer() ) );
-	emit activePlayerChanged ( activePlayer() );
+	Q_EMIT activePlayerChanged ( activePlayer() );
 }
 
 Color Manager::activePlayer() const {
@@ -367,7 +367,7 @@ void Manager::redo() {
 	Move m = nextRedoMove();
 	Protocol::white()->move ( m );
 	Protocol::black()->move ( m );
-	emit pieceMoved ( m );
+	Q_EMIT pieceMoved ( m );
 	changeActivePlayer();
 }
 
@@ -416,7 +416,7 @@ void Manager::protocolInitSuccesful() {
 			}
 			if (!d->initComplete) {
 				d->initComplete = true;
-				emit initComplete();
+				Q_EMIT initComplete();
 			}
 		}
 	}
@@ -433,7 +433,7 @@ void Manager::startGame() {
 	Protocol::white()->startGame();
 	Protocol::black()->startGame();
 	d->gameStarted = true;
-	emit historyChanged();
+	Q_EMIT historyChanged();
 }
 
 void Manager::gameOver(Color winner) {
@@ -449,7 +449,7 @@ void Manager::gameOver(Color winner) {
 	stopTime();
 	Protocol::white()->setWinner(winner);
 	Protocol::black()->setWinner(winner);
-	emit winnerNotify(winner);
+	Q_EMIT winnerNotify(winner);
 
 	reset();
 	d->gameOverInProcess = false;
@@ -475,8 +475,8 @@ void Manager::reset() {
 	//it should be possible to study the history after the game ended.
 
 	d->moveUndoStack.clear();
-	emit undoPossible( false );
-	emit redoPossible( false );
+	Q_EMIT undoPossible( false );
+	Q_EMIT redoPossible( false );
 
 	d->offers.clear();
 	d->usedOfferIds.clear();
@@ -539,7 +539,7 @@ void Manager::sendOffer(const Offer& offer) {
 	Protocol* opp = Protocol::byColor( oppositeColor(o.player) );
 	// Only display a notification if only one player is local.
 	if ( opp->isLocal() && !Protocol::byColor(o.player)->isLocal() )
-		emit notification(o);
+		Q_EMIT notification(o);
 	else
 		opp->makeOffer(o);
 }
@@ -551,7 +551,7 @@ void Manager::setOfferResult(int id, OfferAction result) {
 		switch ( d->offers[id].action ) {
 		case ActionUndo:
 			for ( int i = 0; i < d->offers[id].numberOfMoves; ++i ) {
-				emit pieceMoved ( nextUndoMove() );
+				Q_EMIT pieceMoved ( nextUndoMove() );
 				changeActivePlayer();
 			}
 			break;
@@ -612,7 +612,7 @@ void Manager::sendPendingMove() {
 	if ( pendingMove.isValid() && isGameActive() ) {
 		Q_D(GameManager);
 		Protocol::byColor ( oppositeColor ( d->activePlayer ) )->move ( pendingMove );
-		emit pieceMoved ( pendingMove );
+		Q_EMIT pieceMoved ( pendingMove );
 		rules()->moveMade ( pendingMove );
 
 		if ( Settings::speakOpponentsMoves()
@@ -849,7 +849,7 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 		}
 	}
 
-	emit playerNameChanged();
+	Q_EMIT playerNameChanged();
 }
 
 void Manager::saveGameHistoryAs(const QString& filename) {
