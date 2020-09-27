@@ -61,7 +61,7 @@ bool UciProtocol::parseLine(const QString& line) {
 		write ( "isready" );
 	} else if ( line.startsWith ( QLatin1String("readyok") ) ) {
 		type = ChatWidget::AccountMessage;
-		Q_EMIT initComplete();
+		initComplete();
 	} else if ( line.startsWith ( QLatin1String("id name ") ) ) {
 		type = ChatWidget::AccountMessage;
 		// Chop off the "id name " port, the remainder if the engine's name
