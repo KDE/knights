@@ -94,7 +94,7 @@ void ClockWidget::setTimeLimit ( Color color, const QTime& time ) {
 
 void ClockWidget::updateTimeFormat() {
 	if ( m_timeLimit[White] > QTime(1,0) || m_timeLimit[Black] > QTime(1,0) )
-		m_timeFormat = QLatin1String("h:mm:ss");
+		m_timeFormat = QStringLiteral("h:mm:ss");
 	else
-		m_timeFormat = QLatin1String("mm:ss");
+		m_timeFormat = QStringLiteral("mm:ss");
 }

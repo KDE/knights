@@ -116,11 +116,11 @@ GameManagerPrivate::GameManagerPrivate()
 	  initComplete(false),
 	  loading(false) {
 
-	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("sounds"), QStandardPaths::LocateDirectory);
-	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("capture_white.ogg"))) );
-	captureBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("capture_black.ogg"))) );
-	moveWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("move_white.ogg"))) ) ;
-	moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QLatin1String("move_black.ogg"))) );
+	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds"), QStandardPaths::LocateDirectory);
+	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_white.ogg"))) );
+	captureBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_black.ogg"))) );
+	moveWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_white.ogg"))) ) ;
+	moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
 }
 
 int GameManagerPrivate::nextOfferId() {
@@ -867,7 +867,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 
         stream << "[Event \"Casual Game\"]" << "\n";
         stream << "[Site \"?\"]" << "\n";
-        stream << "[Date \"" << QDate::currentDate().toString( QLatin1String("yyyy.MM.dd") ) << "\"]" << "\n";
+        stream << "[Date \"" << QDate::currentDate().toString( QStringLiteral("yyyy.MM.dd") ) << "\"]" << "\n";
         stream << "[Round \"-\"]" << "\n";
         stream << "[White \"" << Protocol::white()->playerName() << "\"]" << "\n";
         stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << "\n";

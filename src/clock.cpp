@@ -39,7 +39,7 @@ Clock::Clock(QWidget* parent) : QWidget(parent),
 	m_repaintCache(RepaintNone),
 	m_verticalTranslation(0.) {
 
-	m_theme->setImagePath(QLatin1String("widgets/clock") );
+	m_theme->setImagePath(QStringLiteral("widgets/clock") );
 	m_theme->setContainsMultipleImages(true);
 }
 
@@ -144,18 +144,18 @@ void Clock::paintInterface(QPainter *p, const QRect &rect) {
 		facePainter.setRenderHint(QPainter::SmoothPixmapTransform);
 		glassPainter.setRenderHint(QPainter::SmoothPixmapTransform);
 
-		m_theme->paint(&facePainter, m_faceCache.rect(), QLatin1String("ClockFace") );
+		m_theme->paint(&facePainter, m_faceCache.rect(), QStringLiteral("ClockFace") );
 
 		glassPainter.save();
-		QRectF elementRect = QRectF(QPointF(0, 0), m_theme->elementSize(QLatin1String("HandCenterScrew")));
+		QRectF elementRect = QRectF(QPointF(0, 0), m_theme->elementSize(QStringLiteral("HandCenterScrew")));
 		glassPainter.translate(faceRect.width() / 2 - elementRect.width() / 2, faceRect.height() / 2 - elementRect.height() / 2);
-		m_theme->paint(&glassPainter, elementRect, QLatin1String("HandCenterScrew"));
+		m_theme->paint(&glassPainter, elementRect, QStringLiteral("HandCenterScrew"));
 		glassPainter.restore();
 
-		m_theme->paint(&glassPainter, faceRect, QLatin1String("Glass"));
+		m_theme->paint(&glassPainter, faceRect, QStringLiteral("Glass"));
 
 		// get vertical translation, see drawHand() for more details
-		m_verticalTranslation = m_theme->elementRect(QLatin1String("ClockFace")).center().y();
+		m_verticalTranslation = m_theme->elementRect(QStringLiteral("ClockFace")).center().y();
 	}
 
 	// paint hour and minute hands cache
@@ -166,8 +166,8 @@ void Clock::paintInterface(QPainter *p, const QRect &rect) {
 		handsPainter.drawPixmap(faceRect, m_faceCache, faceRect);
 		handsPainter.setRenderHint(QPainter::SmoothPixmapTransform);
 
-		drawHand(&handsPainter, faceRect, m_verticalTranslation, hours, QLatin1String("Hour"));
-		drawHand(&handsPainter, faceRect, m_verticalTranslation, minutes, QLatin1String("Minute"));
+		drawHand(&handsPainter, faceRect, m_verticalTranslation, hours, QStringLiteral("Hour"));
+		drawHand(&handsPainter, faceRect, m_verticalTranslation, minutes, QStringLiteral("Minute"));
 	}
 
 	// reset repaint cache flag
@@ -183,7 +183,7 @@ void Clock::paintInterface(QPainter *p, const QRect &rect) {
 	p->drawPixmap(targetRect, m_handsCache, faceRect);
 	if (m_showSecondHand) {
 		p->setRenderHint(QPainter::SmoothPixmapTransform);
-		drawHand(p, targetRect, m_verticalTranslation, seconds, QLatin1String("Second"));
+		drawHand(p, targetRect, m_verticalTranslation, seconds, QStringLiteral("Second"));
 	}
 	p->drawPixmap(targetRect, m_glassCache, faceRect);
 }

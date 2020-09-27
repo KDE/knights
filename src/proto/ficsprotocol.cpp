@@ -55,7 +55,7 @@ const char* currentPlayerPattern = "([WB]) \\-?\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d
 const char* offerPattern = "<pf> (\\d+) w=([a-zA-Z\\(\\)]+) t=([a-z]+) p=(.+)";
 
 FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
-	movePattern(QString(QLatin1String("[%1]\\/(%2)\\-(%3)(=[%4])?"))
+	movePattern(QStringLiteral("[%1]\\/(%2)\\-(%3)(=[%4])?")
 	            .arg ( QLatin1String(pieces) )
 	            .arg ( QLatin1String(coordinate) )
 	            .arg ( QLatin1String(coordinate) )
@@ -97,7 +97,7 @@ FicsProtocol::FicsProtocol ( QObject* parent ) : TextProtocol ( parent ),
 	m_chat(nullptr)
     {
 	// FICS games are always time-limited
-	setAttribute ( QLatin1String("TimeLimitEnabled"), true );
+	setAttribute ( QStringLiteral("TimeLimitEnabled"), true );
 
     //TODO: this initialization is obsolete since the time control _should_ be set
     //when a new game is started and the values provided in the game dialog are used.
@@ -128,10 +128,10 @@ void FicsProtocol::init (  ) {
 	m_stage = ConnectStage;
 
 	ChatWidget* console = createConsoleWidget();
-	console->addExtraButton ( QLatin1String("seek"), i18nc("Start searching for opponents", "Seek"), QLatin1String("edit-find") );
-	console->addExtraButton ( QLatin1String("unseek"), i18nc("Stop searching for opponents", "Unseek"), QLatin1String("edit-clear") );
-	console->addExtraButton ( QLatin1String("accept"), i18n("Accept"), QLatin1String("dialog-ok-accept") );
-	console->addExtraButton ( QLatin1String("help"), i18n("Help"), QLatin1String("help-contents") );
+	console->addExtraButton ( QStringLiteral("seek"), i18nc("Start searching for opponents", "Seek"), QStringLiteral("edit-find") );
+	console->addExtraButton ( QStringLiteral("unseek"), i18nc("Stop searching for opponents", "Unseek"), QStringLiteral("edit-clear") );
+	console->addExtraButton ( QStringLiteral("accept"), i18n("Accept"), QStringLiteral("dialog-ok-accept") );
+	console->addExtraButton ( QStringLiteral("help"), i18n("Help"), QStringLiteral("help-contents") );
 	connect ( console, &ChatWidget::sendText, this, &FicsProtocol::writeCheckMoves );
 	setConsole ( console );
 
@@ -158,7 +158,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
 	ToolWidgetData consoleData;
 	consoleData.widget = console();
 	consoleData.title = i18n("Server Console");
-	consoleData.name = QLatin1String("console");
+	consoleData.name = QStringLiteral("console");
 	consoleData.type = ConsoleToolWidget;
 	consoleData.owner = color();
 
@@ -170,7 +170,7 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
 	ToolWidgetData chatData;
 	chatData.widget = m_chat;
 	chatData.title = i18n("Chat with %1", playerName());
-	chatData.name = QLatin1String("chat");
+	chatData.name = QStringLiteral("chat");
 	chatData.type = ChatToolWidget;
 
 	return QList<ToolWidgetData>() << consoleData << chatData;
@@ -211,11 +211,11 @@ void FicsProtocol::openGameDialog() {
 
 	bBox->button(QDialogButtonBox::Ok)->setText(i18n("Accept"));
 	bBox->button(QDialogButtonBox::Ok)->setVisible(false);
-	bBox->button(QDialogButtonBox::Ok)->setIcon(QIcon::fromTheme(QLatin1String("dialog-ok-accept")));
+	bBox->button(QDialogButtonBox::Ok)->setIcon(QIcon::fromTheme(QStringLiteral("dialog-ok-accept")));
 
 	bBox->button(QDialogButtonBox::Cancel)->setText(i18n("Decline"));
 	bBox->button(QDialogButtonBox::Cancel)->setVisible(false);
-	bBox->button(QDialogButtonBox::Cancel)->setIcon(QIcon::fromTheme(QLatin1String("dialog-close")));
+	bBox->button(QDialogButtonBox::Cancel)->setIcon(QIcon::fromTheme(QStringLiteral("dialog-close")));
 
 	m_widget = new FicsDialog ();
 	m_widget->setServerName ( attribute( "server" ).toString());

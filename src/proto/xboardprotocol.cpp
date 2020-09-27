@@ -67,7 +67,7 @@ void XBoardProtocol::startGame() {
 	qCDebug(LOG_KNIGHTS) << colorName(color());
 	TimeControl c = Manager::self()->timeControl(White);
 	if ( c.baseTime != QTime() )
-		write(QString(QLatin1String("level %1 %2 %3")).arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
+		write(QStringLiteral("level %1 %2 %3").arg(c.moves).arg(QTime().secsTo(c.baseTime)/60).arg(c.increment));
 
 	if (color() == White)
 		write("go");

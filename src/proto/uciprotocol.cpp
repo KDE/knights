@@ -111,7 +111,7 @@ void UciProtocol::move(const Knights::Move& m) {
 }
 
 void UciProtocol::requestNextMove() {
-	QString str = QLatin1String("position startpos");
+	QString str = QStringLiteral("position startpos");
 
 	if ( !mMoveHistory.isEmpty() ) {
 		str += QLatin1String(" moves");
@@ -124,7 +124,7 @@ void UciProtocol::requestNextMove() {
 	}
 	write ( str );
 
-	QString goString = QLatin1String("go");
+	QString goString = QStringLiteral("go");
 
 	//TODO: mDifficulty doesn't seem to be properly set nowhere
 	if ( mDifficulty )

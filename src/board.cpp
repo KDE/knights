@@ -56,19 +56,19 @@ const qreal pieceZValue = 1.0;
 const qreal legalMarkerZValue = 3.0;
 const qreal dragZValue = 4.0;
 
-const QString backgroundKey = QLatin1String ( "Background" );
-const QString whiteTileKey = QLatin1String ( "WhiteTile" );
-const QString blackTileKey = QLatin1String ( "BlackTile" );
-const QString legalMarkerKey = QLatin1String ( "Marker" );
-const QString motionMarkerKey = QLatin1String ( "Motion" );
-const QString dangerMarkerKey = QLatin1String ( "Danger" );
+const QString backgroundKey = QStringLiteral ( "Background" );
+const QString whiteTileKey = QStringLiteral ( "WhiteTile" );
+const QString blackTileKey = QStringLiteral ( "BlackTile" );
+const QString legalMarkerKey = QStringLiteral ( "Marker" );
+const QString motionMarkerKey = QStringLiteral ( "Motion" );
+const QString dangerMarkerKey = QStringLiteral ( "Danger" );
 
-const QString tbBorderKey = QLatin1String ( "TopBottomBorder" );
-const QString lrBorderKey = QLatin1String ( "LeftRightBorder" );
-const QString whiteLettersKey = QLatin1String ( "WhiteLetters" );
-const QString blackLettersKey = QLatin1String ( "BlackLetters" );
-const QString whiteNumbersKey = QLatin1String ( "WhiteNumbers" );
-const QString blackNumbersKey = QLatin1String ( "BlackNumbers" );
+const QString tbBorderKey = QStringLiteral ( "TopBottomBorder" );
+const QString lrBorderKey = QStringLiteral ( "LeftRightBorder" );
+const QString whiteLettersKey = QStringLiteral ( "WhiteLetters" );
+const QString blackLettersKey = QStringLiteral ( "BlackLetters" );
+const QString whiteNumbersKey = QStringLiteral ( "WhiteNumbers" );
+const QString blackNumbersKey = QStringLiteral ( "BlackNumbers" );
 
 Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent),
 	m_rules(nullptr),

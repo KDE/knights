@@ -52,8 +52,8 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 
 	QFrame* mainFrame = new QFrame(this);
 	ui->setupUi(mainFrame);
-	ui->pbPlayer1Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
-	ui->pbPlayer2Engine->setIcon(QIcon::fromTheme(QLatin1String("configure")));
+	ui->pbPlayer1Engine->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
+	ui->pbPlayer2Engine->setIcon(QIcon::fromTheme(QStringLiteral("configure")));
 	ui->cbTimeControl->setChecked(Settings::timeEnabled());
 	ui->sbTimeLimit->setValue(Settings::timeLimit());
 	ui->sbTimeIncrement->setValue(Settings::timeIncrement());

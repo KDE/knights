@@ -33,8 +33,8 @@ using namespace Knights;
 ExternalControl::ExternalControl(QObject* parent) : QObject(parent) {
 	connect(Manager::self(), &Manager::pieceMoved, this, &ExternalControl::slotMoveMade);
 	new KnightsAdaptor(this);
-	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerObject(QLatin1String("/Knights"), this);
-	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.Knights"));
+	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerObject(QStringLiteral("/Knights"), this);
+	qCDebug(LOG_KNIGHTS) << QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.Knights"));
 }
 
 ExternalControl::~ExternalControl() = default;

@@ -42,12 +42,12 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
 	connect ( ui->tabWidget, &QTabWidget::currentChanged, this, &FicsDialog::currentTabChanged );
 	connect ( ui->seekButton, &QPushButton::toggled, this, &FicsDialog::seekingChanged );
-	ui->seekButton->setIcon( QIcon::fromTheme ( QLatin1String("edit-find") ) );
+	ui->seekButton->setIcon( QIcon::fromTheme ( QStringLiteral("edit-find") ) );
 	connect ( ui->logInButton, &QPushButton::clicked, this, &FicsDialog::slotLogin );
-	ui->logInButton->setIcon ( QIcon::fromTheme ( QLatin1String ( "network-connect" ) ) );
+	ui->logInButton->setIcon ( QIcon::fromTheme ( QStringLiteral ( "network-connect" ) ) );
 
 	connect ( ui->registerButton, &QPushButton::clicked, this, &FicsDialog::slotCreateAccount );
-	ui->registerButton->setIcon ( QIcon::fromTheme ( QLatin1String ( "list-add" ) ) );
+	ui->registerButton->setIcon ( QIcon::fromTheme ( QStringLiteral ( "list-add" ) ) );
 
 	ui->usernameLineEdit->setText ( Settings::ficsUsername() );
 
@@ -86,10 +86,10 @@ void FicsDialog::slotLogin() {
 
 void FicsDialog::slotCreateAccount() {
 	QUrl url;
-	url.setScheme ( QLatin1String ( "http" ) );
+	url.setScheme ( QStringLiteral ( "http" ) );
 	url.setHost ( serverName );
 	if ( serverName == QLatin1String ( "freechess.org" ) )
-		url.setPath ( QLatin1String ( "/Register/index.html" ) );
+		url.setPath ( QStringLiteral ( "/Register/index.html" ) );
 	QDesktopServices::openUrl(url);
 }
 

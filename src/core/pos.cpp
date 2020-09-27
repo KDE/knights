@@ -25,7 +25,7 @@
 #include <QDebug>
 
 namespace Knights {
-const QString Pos::rowNames = QString::fromLatin1 ( "abcdefgh" );
+const QString Pos::rowNames = QStringLiteral ( "abcdefgh" );
 
 
 QChar Pos::row ( int num ) {

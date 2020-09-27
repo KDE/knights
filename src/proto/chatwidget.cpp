@@ -50,7 +50,7 @@ ChatWidget::ChatWidget ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 	ui->setupUi(this);
 
 	connect ( ui->sendButton, &QPushButton::clicked, this, &ChatWidget::sendButtonClicked );
-	ui->sendButton->setIcon( QIcon::fromTheme(QLatin1String("mail-send")) );
+	ui->sendButton->setIcon( QIcon::fromTheme(QStringLiteral("mail-send")) );
 
 	m_terminal = new Terminal;
 	ui->consoleLayout->addWidget(m_terminal);
@@ -87,7 +87,7 @@ void ChatWidget::addText ( const QString& text, ChatWidget::MessageType type ) {
 		cursor.setCharFormat( format );
 		cursor.insertText( text );
 	}
-	cursor.insertText(QLatin1String("\n"));
+	cursor.insertText(QStringLiteral("\n"));
 }
 
 void ChatWidget::addText ( const QByteArray& text, ChatWidget::MessageType type ) {

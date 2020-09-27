@@ -124,11 +124,11 @@ Color Protocol::color() const {
 }
 
 void Protocol::setPlayerName ( const QString& name ) {
-	setAttribute ( QLatin1String ( "PlayerName" ), name );
+	setAttribute ( QStringLiteral ( "PlayerName" ), name );
 }
 
 QString Protocol::playerName() const {
-	return attribute ( QLatin1String ( "PlayerName" ) ).toString();
+	return attribute ( QStringLiteral ( "PlayerName" ) ).toString();
 }
 
 void Protocol::setAttribute ( const QString& attribute, QVariant value ) {

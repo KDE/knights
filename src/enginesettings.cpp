@@ -62,9 +62,9 @@ const QString EngineConfiguration::toString() const {
 EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f), ui(new Ui::EngineSettings) {
 	ui->setupUi(this);
 
-	ui->autoDetectButton->setIcon( QIcon::fromTheme(QLatin1String("tools-wizard")) );
-	ui->addButton->setIcon( QIcon::fromTheme(QLatin1String("list-add")) );
-	ui->removeButton->setIcon( QIcon::fromTheme(QLatin1String("list-remove")) );
+	ui->autoDetectButton->setIcon( QIcon::fromTheme(QStringLiteral("tools-wizard")) );
+	ui->addButton->setIcon( QIcon::fromTheme(QStringLiteral("list-add")) );
+	ui->removeButton->setIcon( QIcon::fromTheme(QStringLiteral("list-remove")) );
 
 	//add saved engines
 	int row = 0;
@@ -129,42 +129,42 @@ void EngineSettings::autoDetectEngines() {
 	//keep the order within the three string lists in sync
 
 	QStringList names;
-	names << QLatin1String("GNU Chess");
-	names << QLatin1String("Crafty");
-	names << QLatin1String("Stockfish");
-	names << QLatin1String("Stockfish v1.4");
-	names << QLatin1String("Stockfish v1.6");
-	names << QLatin1String("Stockfish v1.7");
-	names << QLatin1String("Stockfish v1.8");
-	names << QLatin1String("Stockfish v1.9");
-	names << QLatin1String("Stockfish v2.0");
-	names << QLatin1String("Sjeng");
-	names << QLatin1String("Phalanx");
-	names << QLatin1String("Fruit");
-	names << QLatin1String("Fruit v2.1");
-	names << QLatin1String("TogaII");
-	names << QLatin1String("TogaII v.1.4.2");
-	names << QLatin1String("Glaurung");
-	names << QLatin1String("HoiChess");
+	names << QStringLiteral("GNU Chess");
+	names << QStringLiteral("Crafty");
+	names << QStringLiteral("Stockfish");
+	names << QStringLiteral("Stockfish v1.4");
+	names << QStringLiteral("Stockfish v1.6");
+	names << QStringLiteral("Stockfish v1.7");
+	names << QStringLiteral("Stockfish v1.8");
+	names << QStringLiteral("Stockfish v1.9");
+	names << QStringLiteral("Stockfish v2.0");
+	names << QStringLiteral("Sjeng");
+	names << QStringLiteral("Phalanx");
+	names << QStringLiteral("Fruit");
+	names << QStringLiteral("Fruit v2.1");
+	names << QStringLiteral("TogaII");
+	names << QStringLiteral("TogaII v.1.4.2");
+	names << QStringLiteral("Glaurung");
+	names << QStringLiteral("HoiChess");
 
 	QStringList commands;
-	commands << QLatin1String("gnuchess");
-	commands << QLatin1String("crafty");
-	commands << QLatin1String("stockfish");
-	commands << QLatin1String("stockfish14");
-	commands << QLatin1String("stockfish16");
-	commands << QLatin1String("stockfish17");
-	commands << QLatin1String("stockfish18");
-	commands << QLatin1String("stockfish19");
-	commands << QLatin1String("stockfish20");
-	commands << QLatin1String("sjeng");
-	commands << QLatin1String("phalanx");
-	commands << QLatin1String("fruit");
-	commands << QLatin1String("fruit21");
-	commands << QLatin1String("toga2");
-	commands << QLatin1String("togaII-142"); //openSUSE naming convention
-	commands << QLatin1String("glaurung");
-	commands << QLatin1String("hoichess");
+	commands << QStringLiteral("gnuchess");
+	commands << QStringLiteral("crafty");
+	commands << QStringLiteral("stockfish");
+	commands << QStringLiteral("stockfish14");
+	commands << QStringLiteral("stockfish16");
+	commands << QStringLiteral("stockfish17");
+	commands << QStringLiteral("stockfish18");
+	commands << QStringLiteral("stockfish19");
+	commands << QStringLiteral("stockfish20");
+	commands << QStringLiteral("sjeng");
+	commands << QStringLiteral("phalanx");
+	commands << QStringLiteral("fruit");
+	commands << QStringLiteral("fruit21");
+	commands << QStringLiteral("toga2");
+	commands << QStringLiteral("togaII-142"); //openSUSE naming convention
+	commands << QStringLiteral("glaurung");
+	commands << QStringLiteral("hoichess");
 
 	QVector<EngineConfiguration::Interface> interfaces;
 	interfaces << EngineConfiguration::XBoard; //gnuchess
@@ -209,14 +209,14 @@ void EngineSettings::autoDetectEngines() {
 		item->setFlags(item->flags() & (~Qt::ItemIsEditable));
 
 		//interface
-		const QString interface = (interfaces.at(i) == EngineConfiguration::XBoard) ? QLatin1String("XBoard") : QLatin1String("UCI");
+		const QString interface = (interfaces.at(i) == EngineConfiguration::XBoard) ? QStringLiteral("XBoard") : QStringLiteral("UCI");
 		item = new QTableWidgetItem(interface);
 		ui->tableWidget->setItem(row, ProtocolColumn, item);
 		item->setFlags(item->flags() & (~Qt::ItemIsEditable));
 
 		//icon
 		QLabel* label = new QLabel(this);
-		label->setPixmap( QIcon::fromTheme(QLatin1String("dialog-ok")).pixmap(32, 32) );
+		label->setPixmap( QIcon::fromTheme(QStringLiteral("dialog-ok")).pixmap(32, 32) );
 		ui->tableWidget->setCellWidget(row, InstalledColumn, label);
 	}
 }
