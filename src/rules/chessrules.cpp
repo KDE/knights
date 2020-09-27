@@ -524,7 +524,6 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
 		 * * Rbe1 == Rook from file b to e1
 		 * * cd4 == Pawn from file c to d4
 		 */
-		QChar c;
 		PieceType type = NoType;
 		int file = -1;
 		int rank = -1;

@@ -277,7 +277,6 @@ void Manager::initialize() {
 	d->activePlayer = White;
 	d->whiteTimeControl.currentTime = d->whiteTimeControl.baseTime;
 	d->blackTimeControl.currentTime = d->blackTimeControl.baseTime;
-	QList<Protocol*> protocols;
 	Protocol::white()->setTimeControl(d->whiteTimeControl);
 	Protocol::black()->setTimeControl(d->blackTimeControl);
 	connect ( Protocol::white(), &Protocol::pieceMoved, this, &Manager::moveByProtocol );

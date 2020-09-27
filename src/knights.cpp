@@ -316,8 +316,6 @@ void MainWindow::fileLoad() {
 
 void MainWindow::protocolInitSuccesful() {
 	qCDebug(LOG_KNIGHTS) << "Show Clock:" << Settings::showClock() << "Show Console:" << Settings::showConsole();
-	QString whiteName = Protocol::white()->playerName();
-	QString blackName = Protocol::black()->playerName();
 	updateCaption();
 
 	// show clock action button if timer active
