@@ -373,7 +373,7 @@ void MainWindow::protocolInitSuccesful() {
 	QList<Protocol::ToolWidgetData> list;
 	list << Protocol::black()->toolWidgets();
 	list << Protocol::white()->toolWidgets();
-	for (const auto& data : list) {
+	for (const auto& data : qAsConst(list)) {
 		switch(data.type) {
 		case Protocol::ConsoleToolWidget:
 			if(data.owner == White) {

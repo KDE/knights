@@ -94,7 +94,7 @@ void TextProtocol::write(const char* text) {
 
 void TextProtocol::setConsole(ChatWidget* widget) {
 	m_console = widget;
-	for ( const ChatWidget::Message& message : messages )
+	for ( const ChatWidget::Message& message : qAsConst(messages) )
 		m_console->addText ( message );
 	messages.clear();
 }

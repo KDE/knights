@@ -115,7 +115,7 @@ void UciProtocol::requestNextMove() {
 
 	if ( !mMoveHistory.isEmpty() ) {
 		str += QLatin1String(" moves");
-		for ( const Move& move : mMoveHistory ) {
+		for ( const Move& move : qAsConst(mMoveHistory) ) {
 			QString moveString = QLatin1Char(' ') + move.from().string() + move.to().string();
 			if ( move.promotedType() )
 				moveString += Piece::charFromType ( move.promotedType() ).toLower();

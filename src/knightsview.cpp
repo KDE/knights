@@ -124,7 +124,7 @@ void KnightsView::showAllOffersToggled() {
 
 void KnightsView::popupHidden(int id) {
 	qCDebug(LOG_KNIGHTS) << m_offerWidgets << id << m_showAllOffers;
-	for (OfferWidget* widget : m_offerWidgets) {
+	for (OfferWidget* widget : qAsConst(m_offerWidgets)) {
 		if ( widget->id() == id )
 			m_offerWidgets.removeAll(widget);
 	}
@@ -141,7 +141,7 @@ void KnightsView::updateOffers() {
 		return;
 	ui->showAllOffers->setIcon ( QIcon::fromTheme(QLatin1String( m_showAllOffers ? "arrow-up-double" : "arrow-down-double" )) );
 	ui->showAllOffers->setVisible ( m_offerWidgets.size() > 1 );
-	for (OfferWidget* widget : m_offerWidgets) {
+	for (OfferWidget* widget : qAsConst(m_offerWidgets)) {
 		layout->removeWidget ( widget );
 		widget->hide();
 	}

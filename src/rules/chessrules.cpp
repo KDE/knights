@@ -128,7 +128,7 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos ) {
 	Color color = m_grid->value ( pos )->color();
 	switch ( m_grid->value ( pos )->pieceType() ) {
 	case King:
-		for ( const Pos& d : directions ) {
+		for ( const Pos& d : qAsConst(directions) ) {
 			for ( const Move& m : movesInDirection ( d, pos, 1 ) )
 				moves << m;
 		}
@@ -136,19 +136,19 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos ) {
 		moves << castlingMoves ( pos );
 		break;
 	case Queen:
-		for ( const Pos& d : directions )
+		for ( const Pos& d : qAsConst(directions) )
 			moves << movesInDirection ( d, pos );
 		break;
 	case Bishop:
-		for ( const Pos& d : diagDirs )
+		for ( const Pos& d : qAsConst(diagDirs) )
 			moves << movesInDirection ( d, pos );
 		break;
 	case Rook:
-		for ( const Pos& d : lineDirs )
+		for ( const Pos& d : qAsConst(lineDirs) )
 			moves << movesInDirection ( d, pos );
 		break;
 	case Knight:
-		for ( const Pos& d : knightDirs ) {
+		for ( const Pos& d : qAsConst(knightDirs) ) {
 			if ( !Board::isInBoard ( pos + d ) )
 				continue;
 			if ( !m_grid->contains ( pos + d ) )
@@ -159,7 +159,7 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos ) {
 		break;
 	case Pawn:
 		moves << pawnMoves ( pos );
-		for ( const Move& m : m_enPassantMoves ) {
+		for ( const Move& m : qAsConst(m_enPassantMoves) ) {
 			if ( m.from() == pos )
 				moves << m;
 		}
@@ -170,7 +170,7 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos ) {
 
 	//from the list of possible moves, remove those moves where the king would be under attack
 	Pos currKingPos = kingPos[color];
-	for ( const Move& m : moves ) {
+	for ( const Move& m : qAsConst(moves) ) {
 		Grid t_grid = *m_grid;
 		t_grid.insert ( m.to(), t_grid.take ( pos ) );
 		if ( ( isKingMoving && isAttacked ( m.to(), color, &t_grid ) ) || ( !isKingMoving && isAttacked ( currKingPos, color, &t_grid ) ) ) {
@@ -187,23 +187,23 @@ QList<Move> ChessRules::legalAttackMoves ( const Pos& pos, Grid* grid ) {
 	QList<Move> moves;
 	switch ( grid->value ( pos )->pieceType() ) {
 	case King:
-		for ( const Pos& d : directions )
+		for ( const Pos& d : qAsConst(directions) )
 			moves << movesInDirection ( d, pos, 1, true, grid );
 		break;
 	case Queen:
-		for ( const Pos& d : directions )
+		for ( const Pos& d : qAsConst(directions) )
 			moves << movesInDirection ( d, pos, 8, true, grid );
 		break;
 	case Bishop:
-		for ( const Pos& d : diagDirs )
+		for ( const Pos& d : qAsConst(diagDirs) )
 			moves << movesInDirection ( d, pos, 8, true, grid );
 		break;
 	case Rook:
-		for ( const Pos& d : lineDirs )
+		for ( const Pos& d : qAsConst(lineDirs) )
 			moves << movesInDirection ( d, pos, 8, true, grid );
 		break;
 	case Knight:
-		for ( const Pos& d : knightDirs ) {
+		for ( const Pos& d : qAsConst(knightDirs) ) {
 			if ( Board::isInBoard ( pos + d ) )
 				moves << Move ( pos, pos + d );
 		}
@@ -415,7 +415,7 @@ QList< Move > ChessRules::pawnMoves ( const Pos& pos ) {
 			list << Move ( pos, pos + 2*forwardDirection );
 	}
 	// Normal capturing
-	for ( const Pos& captureDir : captureDirections ) {
+	for ( const Pos& captureDir : qAsConst(captureDirections) ) {
 		if ( m_grid->contains ( pos + captureDir ) && m_grid->value ( pos + captureDir )->color() != m_grid->value ( pos )->color() )
 			list << Move ( pos, pos + captureDir, Move::Take );
 	}
@@ -450,7 +450,7 @@ void ChessRules::moveMade ( const Move& m ) {
 		if ( length ( m ) == 2 ) {
 			Pos mid = ( m.to() + m.from() ) / 2;
 			QList<Direction> dirs = QList<Direction>() << W << E;
-			for ( Direction dir : dirs )
+			for ( Direction dir : qAsConst(dirs) )
 				if ( m_grid->contains ( m.to() + directions[dir] ) ) {
 					Move enPassantMove;
 					enPassantMove.setFrom ( m.to() + directions[dir] );
@@ -635,7 +635,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
 
 		qCDebug(LOG_KNIGHTS) << possibilities;
 
-		for ( const QString& text : possibilities ) {
+		for ( const QString& text : qAsConst(possibilities) ) {
 			Move m ( text );
 			checkSpecialFlags ( &m, color );
 			if ( m.isValid() ) {
