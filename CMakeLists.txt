@@ -89,6 +89,7 @@ else()
 endif()
 
 ki18n_install(po)
+kdoctools_install(po)
 
 feature_summary(WHAT ALL
                 INCLUDE_QUIET_PACKAGES
