@@ -281,6 +281,7 @@ void MainWindow::fileNew() {
 
 	m_saveAction->setEnabled(false);
 	m_saveAsAction->setEnabled(false);
+	m_fileName = QString();
 }
 
 void MainWindow::fileLoad() {
