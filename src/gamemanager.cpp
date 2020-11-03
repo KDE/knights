@@ -686,7 +686,10 @@ void Manager::sendPendingMove() {
 		default:
 			break;
 		}
-		changeActivePlayer();
+
+		//don't change the active player if the game is already over
+		if (d->gameStarted)
+			changeActivePlayer();
 	}
 }
 
