@@ -937,4 +937,7 @@
   <provides>
     <binary>knights</binary>
   </provides>
+  <releases>
+    <release version="2.6.20120" date="2020-12-10"/>
+  </releases>
 </component>
