@@ -29,7 +29,7 @@
         <choice name="Slow" />
       </choices>
 	  <label>Moves animation speed</label>
-	  <default>Normal</default>
+	  <default>Instant</default>
     </entry>
     <entry name="animateBoard" type="Bool">
       <label>whether the Board is animated during rotating and resizing</label>
