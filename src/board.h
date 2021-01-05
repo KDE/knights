@@ -104,7 +104,6 @@ private:
 	QPointF mapToScene(Pos);
 	void centerOnPos(Item* item, const Pos& pos, bool animated = true);
 	void centerOnPos(Item* item, bool animated = true);
-	void removeFrame();
 	void centerAndResize(Item* item, QSize size, bool animated = true);
 	PieceType getPromotedType();
 

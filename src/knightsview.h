@@ -78,8 +78,6 @@ Q_SIGNALS:
 
 	void displayedPlayerChanged(Color);
 
-	void popupAccepted();
-	void popupRejected();
 };
 }
 

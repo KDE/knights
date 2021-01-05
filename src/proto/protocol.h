@@ -145,14 +145,11 @@ Q_SIGNALS:
 	void illegalMove();
 	void gameOver ( Color winner );
 
-	void errorStringChanged ( const QString& errorString );
-	void errorCodeChanged ( const ErrorCode& error );
 
 	void initSuccesful();
 	void error ( const Protocol::ErrorCode& errorCode, const QString& errorString = QString() );
 
 	void timeChanged ( const QTime& time );
-	void timeLimitChanged ( const QTime& time );
 	void undoPossible ( bool possible );
 	void redoPossible ( bool possible );
 

@@ -111,7 +111,6 @@ public:
 	Notation notation() const;
 
 	bool operator==(Move other ) const;
-	void toCoordinateNotation(Grid);
 
 	void setTime(const QTime&);
 	QTime time();

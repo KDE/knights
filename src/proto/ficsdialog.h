@@ -39,7 +39,6 @@ public:
     explicit FicsDialog ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~FicsDialog() override;
 
-	int acceptedGameId();
 	QString userName();
 	QString password();
 	bool remember();
@@ -72,7 +71,6 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void login ( const QString &username, const QString &password );
-	void createAccount();
 
 	void seekingChanged ( bool seek );
 	void declineButtonNeeded ( bool needed );
