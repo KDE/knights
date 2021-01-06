@@ -16,8 +16,8 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set (QT_MIN_VERSION "5.10.0")
-set (KF5_MIN_VERSION "5.57.0")
+set (QT_MIN_VERSION "5.12.0")
+set (KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 
@@ -82,11 +82,7 @@ add_subdirectory(sounds)
 add_subdirectory(src)
 add_subdirectory(themes)
 
-if (${ECM_VERSION} STRGREATER "5.58.0")
-    install(FILES knights.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-    install(FILES knights.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
-endif()
+ecm_qt_install_logging_categories(EXPORT KNIGHTS FILE knights.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
 
 ki18n_install(po)
 kdoctools_install(po)
