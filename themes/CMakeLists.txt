@@ -14,4 +14,4 @@ install(FILES
     east_west.desktop
     east_west.svgz
     east_west.png
-    DESTINATION ${DATA_INSTALL_DIR}/knights/themes)
+    DESTINATION ${KDE_INSTALL_DATADIR}/knights/themes)

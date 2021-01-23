@@ -3,4 +3,4 @@ install(FILES
 	capture_black.ogg
 	move_white.ogg
 	move_black.ogg
-	DESTINATION ${DATA_INSTALL_DIR}/knights/sounds)
+	DESTINATION ${KDE_INSTALL_DATADIR}/knights/sounds)
