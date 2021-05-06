@@ -2,3 +2,9 @@ build
 .kdev4
 Knights.kdev4
 *~
+/.clang-format
+/compile_commands.json
+.clangd
+.cache
+.idea
+/cmake-build*
