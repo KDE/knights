@@ -8,3 +8,5 @@ Knights.kdev4
 .cache
 .idea
 /cmake-build*
+/CMakeLists.txt.user
+/build-*/
