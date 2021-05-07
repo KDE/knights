@@ -66,6 +66,7 @@ void Offer::decline() const {
 class Knights::GameManagerPrivate {
 public:
 	GameManagerPrivate();
+        ~GameManagerPrivate();
 
 	Color activePlayer;
 	bool running;
@@ -120,7 +121,12 @@ GameManagerPrivate::GameManagerPrivate()
 	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_white.ogg"))) );
 	captureBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_black.ogg"))) );
 	moveWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_white.ogg"))) ) ;
-	moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
+        moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
+}
+
+GameManagerPrivate::~GameManagerPrivate()
+{
+        delete rules;
 }
 
 int GameManagerPrivate::nextOfferId() {
