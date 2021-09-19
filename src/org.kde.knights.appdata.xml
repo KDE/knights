@@ -672,7 +672,7 @@
       <li xml:lang="tr">Rakibin hareketlerini konuşmak için KDE sesli yanıt programı olan Jovie'nin kullanımı</li>
       <li xml:lang="uk">Використання Jovie, програми для синтезу мовлення KDE, для оголошення ходів суперника.</li>
       <li xml:lang="x-test">xxUse of Jovie, the KDE text-to-speak program, to speak opponent’s movesxx</li>
-      <li xml:lang="zh-CN">使用 Jovie, KDE 文本语音程序来朗读对手的动作</li>
+      <li xml:lang="zh-CN">使用 Jovie -- KDE 文本语音程序来朗读对手的行动</li>
       <li xml:lang="zh-TW">使用 Jovie，KDE 的文字轉語音程式，來念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
       <li xml:lang="ca">Permet controlar el programa via una interfície de D-Bus</li>
