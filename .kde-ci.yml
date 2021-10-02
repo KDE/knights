@@ -26,3 +26,4 @@ Dependencies:
     'frameworks/kdoctools': '@stable'
     'frameworks/kwallet': '@stable'
     'frameworks/plasma-framework': '@stable'
+    'kde/kdegames/libkdegames': '@same'
