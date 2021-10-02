@@ -25,4 +25,4 @@ Dependencies:
     'frameworks/kplotting': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/kwallet': '@stable'
-    'frameworks/kplasma': '@stable'
+    'frameworks/plasma-framework': '@stable'
