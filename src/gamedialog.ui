@@ -42,7 +42,7 @@
       <item row="1" column="0">
        <widget class="QRadioButton" name="rbPlayer1Engine">
         <property name="text">
-         <string>&amp;Computer engine:</string>
+         <string>&amp;Computer engine</string>
         </property>
        </widget>
       </item>
@@ -172,7 +172,7 @@
       <item row="2" column="0">
        <widget class="QRadioButton" name="rbPlayer2Server">
         <property name="text">
-         <string>Chess server:</string>
+         <string>Chess server</string>
         </property>
        </widget>
       </item>
@@ -204,14 +204,14 @@
       <item row="0" column="0">
        <widget class="QCheckBox" name="cbTimeControl">
         <property name="text">
-         <string>&amp;Use time control</string>
+         <string>&amp;Use Time Control</string>
         </property>
        </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lNumberOfMoves">
         <property name="text">
-         <string>&amp;Time control period:</string>
+         <string>&amp;Time control period</string>
         </property>
         <property name="buddy">
          <cstring>sbNumberOfMoves</cstring>
@@ -240,7 +240,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="timeLimitLabel">
         <property name="text">
-         <string>&amp;Initial time limit:</string>
+         <string>&amp;Initial time limit</string>
         </property>
         <property name="buddy">
          <cstring>sbTimeLimit</cstring>
@@ -266,7 +266,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="timeIncrementLabel">
         <property name="text">
-         <string>I&amp;ncrement per move:</string>
+         <string>I&amp;ncrement per move</string>
         </property>
         <property name="buddy">
          <cstring>sbTimeIncrement</cstring>

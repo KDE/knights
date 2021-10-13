@@ -52,7 +52,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="usernameLabel">
             <property name="text">
-             <string>&amp;Username:</string>
+             <string>&amp;Username</string>
             </property>
             <property name="buddy">
              <cstring>usernameLineEdit</cstring>
@@ -79,7 +79,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="passwordLabel">
             <property name="text">
-             <string>&amp;Password:</string>
+             <string>&amp;Password</string>
             </property>
             <property name="buddy">
              <cstring>passwordLineEdit</cstring>
