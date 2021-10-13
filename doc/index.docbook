@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY knights "<application>Knights</application>">
-  <!ENTITY kappname "&knights;">
-  <!ENTITY kappversion "2.5.0"><!--Application version. Use this variable everywhere it's needed.-->
+<!ENTITY i18n-knights "<application>Knights</application>">
+  <!ENTITY kappversion "2.6.2"><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -32,30 +31,24 @@
 		</legalnotice>
 
 		<date>2015-01-07</date><!-- Date of (re)writing, or update.-->
-		<releaseinfo>&kappversion;
-		</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
+		<releaseinfo>&kappversion; (KDE Gear 21.08)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
 		<abstract>
 			<para>
-				This documentation describes the game of &knights; version
-				&kappversion;
+				This documentation describes the game of &i18n-knights; version &kappversion;
 			</para>
 		</abstract>
 
 		<keywordset>
 			<keyword>KDE</keyword><!-- do not change this! -->
-			<keyword>kdegames</keyword><!-- do not change this! -->
 			<keyword>game</keyword><!-- do not change this! -->
 			<keyword>board</keyword>
 			<keyword>chess</keyword>
-			<keyword>knights</keyword>
+			<keyword>Knights</keyword>
 		</keywordset>
 
 	</bookinfo>
-<!-- 
-new in >2.4.0 history, UCI, Difficulty settings, see
-http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
--->
+
 	<chapter id="introduction">
 		<title>Introduction</title>
 		<note>
@@ -68,7 +61,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		</note>
 
 		<para>
-			&knights; is a chess game. As a player, your goal is to 
+			&i18n-knights; is a chess game. As a player, your goal is to
 			defeat your opponent by checkmating their king.
 		</para>
 	</chapter>
@@ -86,86 +79,86 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<sect1 id="starting-the-game">
 			<title>Starting the Game</title>
 			<para>
-				When the program starts or the user selects 
-				<menuchoice><guimenu>Game</guimenu> <guimenuitem>New</guimenuitem></menuchoice>,
-				a dialog is shown. In this dialog, it's possible to 
-				specify who you are playing against, your color and 
+				When the program starts or the user selects the <menuchoice><shortcut>
+				<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo> </shortcut>
+				<guimenu>Game</guimenu> <guimenuitem>New</guimenuitem></menuchoice> menu item,
+				a dialog is shown. In this dialog, it's possible to
+				specify who you are playing against, your color and
 				the time limits.
 			</para>
 				<mediaobject><imageobject><imagedata fileref="Knights-newgame-dialog.png" /></imageobject></mediaobject>
 			<para>
-				If you wish to play against a friend on the same computer, select 
+				If you wish to play against a friend on the same computer, select
 				<guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel>
 				and <guilabel>Human</guilabel> for <guilabel>Player 2</guilabel>.
 			</para>
 			<para>
-				If you wish to play against the computer, select 
-				<guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and 
-				<guilabel>Computer engine</guilabel> for <guilabel>Player 2</guilabel>.
-				Choose the program you would like to play against, and
+				If you wish to play against the computer, select
+				<guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and
+				<guilabel>Computer engine:</guilabel> for <guilabel>Player 2</guilabel>.
+				From this drop down list choose the program you would like to play against, and
 				make sure that the program you specify is installed on your
-				computer and that it supports either the XBoard or UCI protocol.
+				computer and that it supports either the XBoard or <acronym>UCI</acronym> protocols.
 			</para>
 			<para>
 				If you have installed a chess engine but it does not appear in the list,
-				click the <guilabel>Configure Engines</guilabel> button and add the engine
+				click the <guibutton>Configure...</guibutton> button and add the engine
 				there. For more information on this dialog see <link linkend="configuration-engines">Computer Engines</link>.
 			</para>
-			<note><title>Note</title>
+			<note>
 			<para>
 				Even though a program is listed in the dialog, it does not mean it is installed.
-				Make sure you install whatever chess engine you wish to play against. 
+				Make sure you install whatever chess engine you wish to play against.
 				You can check whether an engine is installed on your system or not in the
-				<guilabel>Configure Engines</guilabel> dialog. 
+				<guilabel>Chess Engines</guilabel> dialog.
 			</para>
 			</note>
 			<para>
 				If you wish to play against someone over the Internet,
 				select <guilabel>Human (You)</guilabel> for <guilabel>Player 1</guilabel> and
-				<guilabel>Human at a chess server</guilabel> for <guilabel>Player 2</guilabel>.
+				<guilabel>Chess server:</guilabel> for <guilabel>Player 2</guilabel>.
 				You will have to login into the server and find
-				an opponent before you can start playing. 
+				an opponent before you can start playing.
 				The Free Internet Chess Server
-				(<ulink url="http://freechess.org">FreeChess.org</ulink>)
+				(<ulink url="https://www.freechess.org/">FreeChess.org</ulink>)
 				supports guests, but you have to register in order to
 				play games which affect your rating.
 			</para>
 			<para>
-				You can also watch two programs play against each other, by selecting 
-				<guilabel>Computer engine</guilabel> for both players. 
+				You can also watch two programs play against each other, by selecting
+				<guilabel>Computer engine:</guilabel> for both players.
 			</para>
 			<para>
 				Similarly, you can play a computer engine against an opponent at a chess server.
 				However, note that the chess server may have a policy regarding such play. For the Free
-				Internet Chess Server it is located 
-				<ulink url="http://www.freechess.org/Help/HelpFiles/computers.html">here</ulink>.
+				Internet Chess Server it is located
+				<ulink url="https://www.freechess.org/Help/HelpFiles/computers.html">here</ulink>.
 			</para>
 			<para>
-				The <guilabel>Use Time Control</guilabel> section allows you to turn on an optional
-				timer.  Knights uses the standard chess time control which has three parameters:
+				The <guilabel>Use time control</guilabel> check box allows you to turn on an optional
+				timer. &i18n-knights; uses the standard chess time control which has three parameters
+				inside spinboxes:
 			      </para>
 			      <itemizedlist>
 				<listitem>
 				  <para>
-				    <guilabel>Time control period</guilabel> specifies the number of moves after which the <guilabel>Initial time limit</guilabel> is added to the player's clock.
-				    You can disable this addition by setting the value to zero. 
+				    <guilabel>Time control period:</guilabel> specifies the number of moves after which
+				    the <guilabel>Initial time limit:</guilabel> is added to the player's clock.
+				    You can disable this addition by setting the value to zero.
 				  </para>
-				  <note><title>Note</title>
-				    <para>
-				      This option is not available when playing on a chess server. 
-				    </para>
-				  </note>
+				  <note><para>This option is not available when playing on a chess server.</para></note>
+                  <para/>
 				</listitem>
 				<listitem>
 				  <para>
-				    The <guilabel>Initial time limit</guilabel> is the amount of time the players start with. 
+				    The <guilabel>Initial time limit:</guilabel> is the amount of time the players start with.
 				  </para>
 				</listitem>
 				<listitem>
 				  <para>
-				    <guilabel>Increment per move</guilabel> specifies how much time will be added
-				    to the player's clock after every move he makes. 
-				    It can be safely set to zero to disable incrementing the clock.  
+				    <guilabel>Increment per move:</guilabel> specifies how much time will be added
+				    to the player's clock after every move he makes.
+				    It can be safely set to zero to disable incrementing the clock.
 				  </para>
 				</listitem>
 				
@@ -173,11 +166,11 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			<para>
 				After you press the <guibutton>OK</guibutton> button, the dialog will close.
 				If you selected a player at a chess server, you will have to log in and find your opponent.
-				Otherwise, the game will start immediately. 
+				Otherwise, the game will start immediately.
 			</para>
-			<note><title>Note</title>
+			<note>
 			<para>
-				&knights; will load a default theme automatically once
+				&i18n-knights; will load a default theme automatically once
 				you start the game and you can begin playing right away.
 			</para>
 			</note>
@@ -187,39 +180,39 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			<title>The Chess Server Dialog</title>
 			<mediaobject><imageobject><imagedata fileref="Knights-server-account.png" /></imageobject></mediaobject>
 			<para>
-				If you chose to play on a chess server, you must first log in to the server. 
-				If you have an account at the server, type in your username and password, and 
-				select <guilabel>This is a registered account</guilabel>. 
-				Otherwise, type in a username of your choice, and click <guibutton>Log in</guibutton>.
+				If you chose to play on a chess server, you must first log in to the server.
+				If you have an account at the server, type in your username and password, and
+				select the <guilabel>This is a registered account</guilabel> check box.
+				Otherwise, type in a username of your choice, and press the <guibutton>Log in</guibutton> button.
 			</para>
 			<para>
-				There are two ways to choose the opponent. Either you post an ad for your game 
-				(called a "seek"), or you respond to someone else's seek. 
+				There are two ways to choose the opponent. Either you post an ad for your game
+				(called a <quote>seek</quote>), or you respond to someone else's seek.
 			</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-server-challenges.png" /></imageobject></mediaobject>
 			<para>
-				To post your own, go to the <guilabel>Challenges</guilabel> tab and click
-				<guibutton>Seek</guibutton>. If you checked 
-				<guilabel>Automatically start the game</guilabel>, once a player has accepted 
-				your seek, the game will start immediately. 
-				Otherwise, you have to accept the challenge manually, 
-				by selecting it from the list and clicking <guibutton>Accept</guibutton>.
+				To post your own, go to the <guilabel>Challenges</guilabel> tab and press
+				<guibutton>Seek</guibutton> button. If you checked
+				<guilabel>Automatically start the game</guilabel>, once a player has accepted
+				your seek, the game will start immediately.
+				Otherwise, you have to accept the challenge manually,
+				by selecting it from the list and press <guibutton>Accept</guibutton> button.
 			</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-server-list.png" /></imageobject></mediaobject>
 			<para>
-				To respond to other people's seeks, use the <guilabel>Seek List</guilabel> 
-				or <guilabel>Seek Graph</guilabel> tabs. On either tab, select the seek by clicking on it 
-				and then pressing the <guibutton>Accept</guibutton>.
+				To respond to other people's seeks, use the <guilabel>Seek List</guilabel>
+				or <guilabel>Seek Graph</guilabel> tabs. On either tab, select the seek by clicking on it
+				and then pressing the <guibutton>Accept</guibutton> button.
 			</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-server-graph.png" /></imageobject></mediaobject>
 			<para>
 				The seek graph displays all currently posted seeks, arranged by opponent's rating
-				and game duration. Clicking on a point on the graph accepts the seek. 
+				and game duration. Clicking on a point on the graph accepts the seek.
 			</para>
 			<note>
 				<para>
-					For advanced usage, &knights; provides direct access to the server console.
-					Select the <guilabel>Console</guilabel> tab to use it. 
+					For advanced usage, &i18n-knights; provides direct access to the server console.
+					Select the <guilabel>Console</guilabel> tab to use it.
 				</para>
 			</note>
 		</sect1>
@@ -228,12 +221,12 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			<title>Playing the Game</title>
 			<para>
 				Pieces are moved by clicking on them and dragging them to
-				the desired spot. You can only move a piece if it's yours, 
-				it's your turn, and moving that piece does not put 
-				your king into immediate danger. 
+				the desired spot. You can only move a piece if it's yours,
+				it's your turn, and moving that piece does not put
+				your king into immediate danger.
 			</para>
 			<para>
-				&knights; follows the rules of standard chess, so you cannot make an illegal move. 
+				&i18n-knights; follows the rules of standard chess, so you cannot make an illegal move.
 			</para>
 		</sect1>
 	</chapter>
@@ -245,18 +238,18 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<title>Standard Rules</title>
 		<para>The main set of rules for chess are set by the World Chess Federation - FIDE.  Other national and local groups
 		may make slight modifications to the rules. Usually the major differences between rules are about timekeeping or types of
-		draws allowed - the basic game and piece movement are the same. &knights; supports standard chess and has some timing flexibility.</para>
+		draws allowed - the basic game and piece movement are the same. &i18n-knights; supports standard chess and has some timing flexibility.</para>
 		<para>There are many variants to standard chess. One source has found over 2000 different variants of the game.  Major
-		variants include Fischer Random, Bughouse, Crazyhouse and Suicide.  Variants have differing rules on piece capture, piece 
-		movement, ending the game and returning pieces to play.  &knights; does not support chess variants.</para>
+		variants include Fischer Random, Bughouse, Crazyhouse and Suicide.  Variants have differing rules on piece capture, piece
+		movement, ending the game and returning pieces to play.  &i18n-knights; does not support chess variants.</para>
 		<para>Complete rules of standard chess can be found at:</para>
 		<itemizedlist>
-			<listitem><para>World Chess Federation-FIDE (<ulink url="http://www.fide.com">fide.com</ulink>)</para></listitem>
-			<listitem><para>United States Chess Federation-USCF (<ulink url="http://main.uschess.org">main.uschess.org</ulink>)</para></listitem>
+			<listitem><para>World Chess Federation-FIDE (<ulink url="https://www.fide.com/">fide.com</ulink>)</para></listitem>
+			<listitem><para>United States Chess Federation-USCF (<ulink url="https://new.uschess.org/">new.uschess.org</ulink>)</para></listitem>
 		</itemizedlist>
 		<para>Rules and general chess information can be found at:
 		<itemizedlist>
-			<listitem><para><ulink url="http://en.wikipedia.org/wiki/Rules_of_chess">Wikipedia</ulink>&nbsp;</para></listitem>
+			<listitem><para><ulink url="https://en.wikipedia.org/wiki/Rules_of_chess">Wikipedia</ulink>&nbsp;</para></listitem>
 		</itemizedlist>
 		</para>
 	</sect1>
@@ -265,8 +258,8 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<title>Chessboard</title>
 		<sect2 id="board-layout">
 			<title>Board Layout</title>
-			<para>A chessboard consists of 64 equal squares arranged in eight rows and eight columns.  The squares are arranged in 
-			two alternating colors, white and black.  Many different materials are used to make chessboards, so the lighter 
+			<para>A chessboard consists of 64 equal squares arranged in eight rows and eight columns.  The squares are arranged in
+			two alternating colors, white and black.  Many different materials are used to make chessboards, so the lighter
 			colored material is known as white and the darker material is known as black.</para>
 			<para>Parts of the board are known by special names:
 			<itemizedlist>
@@ -277,12 +270,12 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 				<listitem><para>Center - the four squares found in the middle of the board are called the center.</para></listitem>
 			</itemizedlist>
 			</para>
-			<para>Each individual square has a name so records of the moves of the game can be kept.  Several naming systems exist, 
+			<para>Each individual square has a name so records of the moves of the game can be kept.  Several naming systems exist,
 			but <quote>algebraic notation</quote> is the most popular and is the official system.  In this system, each square is
 			named for the row and column in which it is found.  The ranks (rows) are numbered from 1 to 8 beginning with white's
 			side of the board and moving to black's side of the board.  The files (columns) are labeled by lower case letters from
 			a to h moving from left to right based on the white player's viewpoint.  The square is named by the letter followed by
-			the number.  Thus the lower left hand square is known as a1.  The naming structure can be seen in the following 
+			the number.  Thus the lower left hand square is known as a1.  The naming structure can be seen in the following
 			diagram:</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-board.png" /></imageobject></mediaobject>
 		</sect2>
@@ -302,20 +295,20 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<title>Piece Movement</title>
 		<sect2 id="all-movement">
 			<title>Moving and Capturing</title>
-			<para>Chess has six types of pieces: the Pawn, Rook, Knight, Bishop, Queen and King. Each piece has its own 
-			unique way to move. There are some similarities between the moves of the various pieces.  All the pieces 
+			<para>Chess has six types of pieces: the Pawn, Rook, Knight, Bishop, Queen and King. Each piece has its own
+			unique way to move. There are some similarities between the moves of the various pieces.  All the pieces
 			except the knight move in a straight line - horizontally, vertically or diagonally. They cannot move past the
-			end of the board and return on the other side. The edge of the board is a boundary which cannot be crossed.  
-			All the pieces except the knight may not jump over other pieces - all squares between the square where the piece 
-			starts its move and where it ends its move must be empty.  The move may not end on a square presently occupied 
+			end of the board and return on the other side. The edge of the board is a boundary which cannot be crossed.
+			All the pieces except the knight may not jump over other pieces - all squares between the square where the piece
+			starts its move and where it ends its move must be empty.  The move may not end on a square presently occupied
 			by a piece of the same color.</para>
 			
-			<para>If the square where a piece ends its move contains an opponent's piece, the opponent's piece is <quote>captured</quote>, 
+			<para>If the square where a piece ends its move contains an opponent's piece, the opponent's piece is <quote>captured</quote>,
 			and it is removed from play.  All the pieces may be captured except the king.  The game ends on the move before the
-			king is captured - <quote><link linkend="checkmate">checkmate</link></quote>.  Capturing always requires the attacking piece 
-			to land on the square of the opponent's piece while making a normal move.  The only exception is for capturing a pawn 
-			<link linkend="en_passant-movement">en passant</link>.  You are not required to capture a piece when there is an opportunity 
-			to do so, capturing is an option.  The only time that capture is required is if the king is under attack and capturing the 
+			king is captured - <quote><link linkend="checkmate">checkmate</link></quote>.  Capturing always requires the attacking piece
+			to land on the square of the opponent's piece while making a normal move.  The only exception is for capturing a pawn
+			<link linkend="en_passant-movement">en passant</link>.  You are not required to capture a piece when there is an opportunity
+			to do so, capturing is an option.  The only time that capture is required is if the king is under attack and capturing the
 			attacking piece is the only way to stop the attack.</para>
 			
 			<para>In the picture below, the white rook can move to the right, left, up or down (vertically or horizontally) in straight lines.
@@ -323,7 +316,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			X on them.  It can move a maximum of two squares to the left.  The remainder of the board is blocked by a piece of the same
 			color, in this case a white knight.  The rook cannot jump over the knight to reach the end of the board.  It can move only one square
 			up before being blocked by the black pawn.  It can capture the pawn by moving two squares up and landing on the pawn, since the
-			pawn is an opposing piece (piece of a different color).  This square has a red X on it.  It cannot jump over the pawn to reach 
+			pawn is an opposing piece (piece of a different color).  This square has a red X on it.  It cannot jump over the pawn to reach
 			the end of the board.  Therefore, the rook has a total of ten squares where it can go.</para>
 
 			<mediaobject><imageobject><imagedata fileref="Knights-move-limits.png" /></imageobject></mediaobject>
@@ -332,10 +325,10 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		</sect2>
 		<sect2 id="pawn-movement">
 			<title>Pawn</title>
-			<para>The pawn is the most numerous and the least powerful piece on the chessboard.  Pawns are unusual in their movement.  Generally 
-			the pawn moves forward only, one square at a time.  An exception is the first time a pawn is moved, it may move forward two squares. 
-			The pawn cannot jump over other pieces; any piece directly in front of a pawn blocks its advance to that square. The pawn is the 
-			only piece that cannot move backward.  The pawn is also the only piece that does not capture in the same way that it moves.  The 
+			<para>The pawn is the most numerous and the least powerful piece on the chessboard.  Pawns are unusual in their movement.  Generally
+			the pawn moves forward only, one square at a time.  An exception is the first time a pawn is moved, it may move forward two squares.
+			The pawn cannot jump over other pieces; any piece directly in front of a pawn blocks its advance to that square. The pawn is the
+			only piece that cannot move backward.  The pawn is also the only piece that does not capture in the same way that it moves.  The
 			pawn captures an opposing piece by moving diagonally one square - it cannot capture by moving straight ahead.</para>
 			
 			<para>In the picture below the lower pawn is still on its original square, so it may move one or two squares forward (indicated
@@ -352,18 +345,18 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<sect2 id="bishop-movement">
 			<title>Bishop</title>
 			<para>The Bishop moves in a straight line diagonally on the board.  It can move as many squares as wanted, until it meets the end of
-			the board or another piece.  The bishop cannot jump over other pieces.  The bishop captures on the same path it moves, by landing 
+			the board or another piece.  The bishop cannot jump over other pieces.  The bishop captures on the same path it moves, by landing
 			on the square of the opposing piece.  Because of the way the bishop moves, the piece always remains on the same color squares it
 			started on.  Each player begins with two bishops, one on the black-colored and one on the white-colored squares.  They are frequently
-			referred to as the <quote>dark-squared</quote> bishop and <quote>light-squared</quote> bishop.  The bishops can also be named according 
-			to the side they begin on - king's bishop and queen's bishop.</para>  
+			referred to as the <quote>dark-squared</quote> bishop and <quote>light-squared</quote> bishop.  The bishops can also be named according
+			to the side they begin on - king's bishop and queen's bishop.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-move-bishop.png" /></imageobject></mediaobject>
 		</sect2>
 		<sect2 id="rook-movement">
 			<title>Rook</title>
-			<para>The rook moves in a straight line either horizontally or vertically through any number of unoccupied squares, until it reaches 
-			the end of board or it is blocked by another piece.  It cannot jump over other pieces.  The rook captures on the same path 
-			it moves, by occupying the square on which an enemy piece stands.  The rook can land on any square on the board, therefore it 
+			<para>The rook moves in a straight line either horizontally or vertically through any number of unoccupied squares, until it reaches
+			the end of board or it is blocked by another piece.  It cannot jump over other pieces.  The rook captures on the same path
+			it moves, by occupying the square on which an enemy piece stands.  The rook can land on any square on the board, therefore it
 			is one of the more powerful pieces on the board.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-move-rook.png" /></imageobject></mediaobject>
 			<para>The rook is also involved in a special move.  It is the <link linkend="castling-movement">castling move</link>
@@ -371,34 +364,34 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		</sect2>
 		<sect2 id="knight-movement">
 			<title>Knight</title>
-			<para>The Knight is the most special piece in chess, having a flexibility that makes it a powerful piece. The knight is the 
-			only piece on the board that may jump over other pieces.  The knight moves two squares horizontally or vertically and 
-			then one more square at a right-angle.  The knight’s move is shaped as an <quote>L</quote>.  The knight always lands on a square 
-			opposite in color from its initial square.  The knight can jump over pieces of either color while going to its 
-			destination square, but it does not capture any pieces it jumps over.  The knight captures by landing on the square 
-			of the opposing piece.  The knight cannot land on a square occupied by a piece of the same color.  Since the knight's 
-			movement is not in a straight line, it can attack a queen, bishop, or rook without being reciprocally attacked by that 
+			<para>The Knight is the most special piece in chess, having a flexibility that makes it a powerful piece. The knight is the
+			only piece on the board that may jump over other pieces.  The knight moves two squares horizontally or vertically and
+			then one more square at a right-angle.  The knight’s move is shaped as an <quote>L</quote>.  The knight always lands on a square
+			opposite in color from its initial square.  The knight can jump over pieces of either color while going to its
+			destination square, but it does not capture any pieces it jumps over.  The knight captures by landing on the square
+			of the opposing piece.  The knight cannot land on a square occupied by a piece of the same color.  Since the knight's
+			movement is not in a straight line, it can attack a queen, bishop, or rook without being reciprocally attacked by that
 			piece.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-move-knight.png" /></imageobject></mediaobject>
 		</sect2>
 		<sect2 id="queen-movement">
 			<title>Queen</title>
-			<para>The Queen is considered the most powerful piece on the board.  It can move any number of squares in a straight 
+			<para>The Queen is considered the most powerful piece on the board.  It can move any number of squares in a straight
 			line - either vertically, horizontally or diagonally.  The queen moves like the rook and bishop combined.  Unless
-			capturing, the queen must move to an unoccupied square; and it cannot jump over pieces.  The queen captures on the 
+			capturing, the queen must move to an unoccupied square; and it cannot jump over pieces.  The queen captures on the
 			same path it moves, by landing on the square of the opposing piece.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-move-queen.png" /></imageobject></mediaobject>
 		</sect2>
 		<sect2 id="king-movement">
 			<title>King</title>
-			<para>The King is the most important piece in chess. If the king is trapped so that its capture is unavoidable, the game is 
-			over and that player loses.  The king has little mobility, so it is also considered one of the weakest pieces in the game.  
-			The king can move to any adjacent square.  That is, it can move one square in any direction: horizontally, vertically, or 
-			diagonally.  It cannot move onto a square occupied by a piece of the same color.  The king captures another piece in 
-			the same way it moves, by landing on the square of the opposing piece.  There is an additional limit on the movement of 
-			the king.  The king may not move to a square which would put the king under attack by an opposing piece (called in <quote>check</quote>). 
+			<para>The King is the most important piece in chess. If the king is trapped so that its capture is unavoidable, the game is
+			over and that player loses.  The king has little mobility, so it is also considered one of the weakest pieces in the game.
+			The king can move to any adjacent square.  That is, it can move one square in any direction: horizontally, vertically, or
+			diagonally.  It cannot move onto a square occupied by a piece of the same color.  The king captures another piece in
+			the same way it moves, by landing on the square of the opposing piece.  There is an additional limit on the movement of
+			the king.  The king may not move to a square which would put the king under attack by an opposing piece (called in <quote>check</quote>).
 			As a result of this limit, two kings may never stand next to each other - since moving next to the opposing king would
-			put the moving king into check.  The king can also be forced to move or capture if the king is under attack 
+			put the moving king into check.  The king can also be forced to move or capture if the king is under attack
 			(<quote>check</quote>) and the only way to stop the attack is to move the king.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-move-king.png" /></imageobject></mediaobject>
 		</sect2>
@@ -409,9 +402,9 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<sect2 id="en_passant-movement">
 			<title>En Passant</title>
 			<para>When the rule to allow a pawn to move two squares on its first move was added, a pawn could potentially evade capture by an
-			opponent's pawn by going past a square under attack.  The en passant capture (from the French for <quote>in passing</quote>) was 
-			added to prevent this.  The capture is made exactly as if the pawn had moved only one square forward.  There are 
-			special conditions for the en passant capture:   
+			opponent's pawn by going past a square under attack.  The en passant capture (from the French for <quote>in passing</quote>) was
+			added to prevent this.  The capture is made exactly as if the pawn had moved only one square forward.  There are
+			special conditions for the en passant capture:
 			<itemizedlist>
 				<listitem><para>A pawn must move two squares from its initial position in a single move.</para></listitem>
 				<listitem><para>An opposing pawn must be attacking the square the first pawn moved over.</para></listitem>
@@ -420,18 +413,18 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 				the first pawn is safe from en passant capture for the remainder of the game.</para></listitem>
 			</itemizedlist>
 			</para>
-			<para>In the diagram below, the white pawn has not moved from its initial position.  Its first move can be 
+			<para>In the diagram below, the white pawn has not moved from its initial position.  Its first move can be
 			one or two squares ahead.  The first square is under attack by the black pawn (pawns attack diagonally) as
-			indicated by the red X.  The white pawn moves ahead two squares, avoiding the attack.  On the next move, 
-			the black pawn moves into the square where the white pawn would have moved if it could only move a single 
-			square on the first move.  The black pawn successfully attacks the white pawn, and captures it 
+			indicated by the red X.  The white pawn moves ahead two squares, avoiding the attack.  On the next move,
+			the black pawn moves into the square where the white pawn would have moved if it could only move a single
+			square on the first move.  The black pawn successfully attacks the white pawn, and captures it
 			<quote>en passant</quote>.  The white pawn is removed from play.</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-enpassant.png" /></imageobject></mediaobject>
 		</sect2>
 		<sect2 id="castling-movement">
 			<title>Castling</title>
-			<para>Castling uses the king and one rook, and is the only time in a game when more than one piece may be moved 
-			during a single turn.  In castling a king is moved two squares towards the rook and the rook is then moved to 
+			<para>Castling uses the king and one rook, and is the only time in a game when more than one piece may be moved
+			during a single turn.  In castling a king is moved two squares towards the rook and the rook is then moved to
 			the square on the other side of the king.</para>
 			
 			<para>Castling has some rigid requirements:
@@ -445,8 +438,8 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			</itemizedlist>
 			</para>
 			
-			<para>There are two forms of castling.  One is called <quote>kingside castling</quote>.  It is also known as 
-			<quote>short castling</quote>, since it is performed to the short side of the board and the rook only has to 
+			<para>There are two forms of castling.  One is called <quote>kingside castling</quote>.  It is also known as
+			<quote>short castling</quote>, since it is performed to the short side of the board and the rook only has to
 			move two squares to the opposite side of the king. It is diagramed below:</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-castle-kingside.png" /></imageobject></mediaobject>
 			
@@ -455,10 +448,10 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			side of the board and the rook has to move three squares to the opposite side of the king.  It is diagramed below:</para>
 			<mediaobject><imageobject><imagedata fileref="Knights-castle-queenside.png" /></imageobject></mediaobject>
 			
-			<note><title>Note:</title>
+			<note>
 			<para>
-				In &knights; to castle you move the king two squares towards the rook.  &knights; will complete
-				the castling move.  Do not move the rook, as &knights; assumes you wish only to move the rook and 
+				In &i18n-knights; to castle you move the king two squares towards the rook.  &i18n-knights; will complete
+				the castling move.  Do not move the rook, as &i18n-knights; assumes you wish only to move the rook and
 				not to castle.
 			</para>
 			</note>
@@ -466,11 +459,11 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		</sect2>
 		<sect2 id="pawn-promotion-movement">
 			<title>Pawn Promotion</title>
-			<para>When a pawn has reached the other end of the board it cannot move further, since 
+			<para>When a pawn has reached the other end of the board it cannot move further, since
 			it always must move forward and not backwards.  The pawn is then turned
 			(<quote>promoted</quote>) into a queen, rook, bishop or knight.  This promotion
 			occurs as part of the move.  Usually the piece chosen is the queen, often called
-			<quote>queening</quote>. The other pieces are sometimes chosen when their movements 
+			<quote>queening</quote>. The other pieces are sometimes chosen when their movements
 			will aid in checkmate, often called <quote>under promoting</quote>.  The pawn can be
 			turned into a piece even if that type of piece is still on the board.  Thus you can have
 			two queens or three rooks, bishops or knights in play at once.</para>
@@ -481,7 +474,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<title>Game Endings</title>
 		<sect2 id="checkmate">
 			<title>Checkmate</title>
-			<para>When a king is under attack and threatened with capture by an opponent's piece, the king is 
+			<para>When a king is under attack and threatened with capture by an opponent's piece, the king is
 			said to be <quote>in check</quote>.  A king must get out of check immediately.  There are three possible
 			ways to get out of check.
 			<itemizedlist>
@@ -495,7 +488,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			
 			<para>
 			If the king has no way to escape from the check, the position is called <quote>checkmate</quote> and
-			the game ends.  The player who is checkmated loses the game.  The king is never actually captured 
+			the game ends.  The player who is checkmated loses the game.  The king is never actually captured
 			and removed from the board.</para>
 		</sect2>
 		<sect2 id="resign">
@@ -510,7 +503,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			<itemizedlist>
 				<listitem><para>Stalemate - (see below)</para></listitem>
 				<listitem><para>Threefold repetition - If the exact same position is repeated at least 3 times
-				(not necessarily by a repetition of moves).  It requires that the possible moves of all 
+				(not necessarily by a repetition of moves).  It requires that the possible moves of all
 				the pieces of both players are the same.  If the possibility of a pawn being captured
 				en passant has changed or the possibility to castle has changed, the position is not
 				the same - even if the pieces are in the same locations.</para></listitem>
@@ -518,7 +511,7 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 				by each player.</para></listitem>
 				<listitem><para>Impossibility of checkmate - If a position arises in which neither player could possibly
 				give checkmate by a series of legal moves. Usually this is because there is insufficient material left
-				to checkmate, but it is possible in other positions. Combinations with insufficient material to 
+				to checkmate, but it is possible in other positions. Combinations with insufficient material to
 				checkmate are:
 				<itemizedlist>
 					<listitem><para>king versus king</para></listitem>
@@ -536,18 +529,18 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		<sect2 id="stalemate">
 			<title>Stalemate</title>
 			<para>If a player has no legal move (every possible move would put their king in check) but
-			their king is not presently in check, the game ends in a <quote>stalemate</quote>.  Stalemate results in 
+			their king is not presently in check, the game ends in a <quote>stalemate</quote>.  Stalemate results in
 			the game being a draw.</para>
 		</sect2>
 		<sect2 id="time-end">
 			<title>Time</title>
-			<para>If time should run out on a player before they complete the 
+			<para>If time should run out on a player before they complete the
 			required number of moves:
 			<itemizedlist>
 				<listitem><para>The player loses the game if the opponent has mating material.</para></listitem>
 				<listitem><para>The game is a draw if the opponent does not having mating material.</para></listitem>
 			</itemizedlist>
-			Mating material is considered to be any group of pieces except just a king, a king and a bishop, 
+			Mating material is considered to be any group of pieces except just a king, a king and a bishop,
 			or a king and a knight.</para>
 		</sect2>
 	</sect1>
@@ -564,29 +557,29 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		is a fixed amount of time to complete the game, regardless of the number of moves made.</para>
 		
 		<para>Within the time control there can be a time delay to compensate for the time lost in physically
-		making a move.  In the <quote>Bronstein delay</quote> the clock does not start running at the beginning 
-		of the player's move until the delay time is over.  If the move is completed before the delay time expires, 
-		no time is subtracted from the player's clock.  In the <quote>Fischer delay</quote> the delay time is added 
-		to the player's remaining time before the move.  If the move is made before the delay time expires, 
-		the remaining delay time is kept by the player and their clock time increases.  Similarly, a fixed time can 
-		be added to the player's clock after a move is completed.  When time is added to the clock, the time amount is 
+		making a move.  In the <quote>Bronstein delay</quote> the clock does not start running at the beginning
+		of the player's move until the delay time is over.  If the move is completed before the delay time expires,
+		no time is subtracted from the player's clock.  In the <quote>Fischer delay</quote> the delay time is added
+		to the player's remaining time before the move.  If the move is made before the delay time expires,
+		the remaining delay time is kept by the player and their clock time increases.  Similarly, a fixed time can
+		be added to the player's clock after a move is completed.  When time is added to the clock, the time amount is
 		referred to as the <quote>time increment</quote>.</para>
 		
-		<para>Time controls vary widely depending upon the game, game type and any sponsor.  Also during a game there 
-		may be several types of time controls joined together, with unused time added to the next time control.  For 
-		all major World Chess Federation (FIDE) events the time control is 90 minutes for the first 40 moves followed 
-		by 30 minutes sudden death, with an additional 30 seconds per move beginning with the first move.  The defaults 
-		on FICS (Free Internet Chess Server) are 2 minutes for the game (sudden death), plus 12 seconds time increment 
-		for each move.  Many major events use 90 minutes sudden death for their time control.  The US Chess Federation 
+		<para>Time controls vary widely depending upon the game, game type and any sponsor.  Also during a game there
+		may be several types of time controls joined together, with unused time added to the next time control.  For
+		all major World Chess Federation (FIDE) events the time control is 90 minutes for the first 40 moves followed
+		by 30 minutes sudden death, with an additional 30 seconds per move beginning with the first move.  The defaults
+		on FICS (Free Internet Chess Server) are 2 minutes for the game (sudden death), plus 12 seconds time increment
+		for each move.  Many major events use 90 minutes sudden death for their time control.  The US Chess Federation
 		Blitz chess time control is 5 minutes for the game, with no time delays/increments.</para>
 	</sect1>	
 	</chapter>
 	
 	<chapter id="markers">
 		<title>Markers</title>
-		<para> 
+		<para>
 			Markers are highlights of squares on the chessboard.  They can be used to show legal moves for your
-			chess piece, the opponent's previous move, or a king in check.  Their color and shape depends on which 
+			chess piece, the opponent's previous move, or a king in check.  Their color and shape depends on which
 			theme you are using. They can be toggled on/off in the general settings section of the configuration menu.
 		</para>
 		<para>
@@ -605,50 +598,46 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 		</para>
 		<mediaobject><imageobject><imagedata fileref="Knights-danger.png" /></imageobject></mediaobject>
 		<note>
-			<title>Note:</title>
-			<para>
-				Some themes may not support all types of markers. 
-			</para>
+			<para>Some themes may not support all types of markers.</para>
 		</note>
 	</chapter>
 
 	<chapter id="configuration">
 		<title>Game Configuration</title><!-- do not change this! -->
 		<para>
-			The &knights; configuration dialog allows you to change visual
-			options, as well as select themes for &knights;.
+			The &i18n-knights; configuration dialog allows you to change visual
+			options, as well as select themes for &i18n-knights;.
 		</para>
 		<para>
 			Once you are satisfied with the changes you have selected you
-			can make the changes by either clicking the <guibutton>Apply</guibutton> 
-			or the <guibutton>OK</guibutton> button, located at the bottom part 
-			of the dialog. Clicking <guibutton>OK</guibutton> will also close the
+			can make the changes by either press the <guibutton>Apply</guibutton>
+			or the <guibutton>OK</guibutton> button, located at the bottom part
+			of the dialog. Pressing <guibutton>OK</guibutton> button will also close the
 			configuration dialog.
 		</para>
 		<para>
-			If, however, you are dissatisfied with your changes – simply click
-			<guibutton>Cancel</guibutton> to discard the changes and close
-			the configuration dialog. You must click <guibutton>Cancel</guibutton>
-			before clicking <guibutton>Apply</guibutton> or <guibutton>OK</guibutton>.
+			If, however, you are dissatisfied with your changes – simply press
+			<guibutton>Cancel</guibutton> button to discard the changes and close
+			the configuration dialog. You must press the <guibutton>Cancel</guibutton> button
+			before clicking <guibutton>Apply</guibutton> or <guibutton>OK</guibutton> button.
 		</para>
 
 		<sect1 id="configuration-general">
 			<title>General</title>
 			<para>
-				The <guimenu>General</guimenu> section contains options on the
-				general appearance of &knights;.  Animations of the pieces and
+				The <guilabel>General</guilabel> section contains options on the
+				general appearance of &i18n-knights;.  Animations of the pieces and
 				board can be enabled or modified. The animations section is visible
-				based upon system software, and is seen only if animations are 
-				available. Turning around the board is available, allowing the &knights;
-				chess board to be flipped when used on a computer screen or stationary when 
+				based upon system software, and is seen only if animations are
+				available. Turning around the board is available, allowing the &i18n-knights;
+				chess board to be flipped when used on a computer screen or stationary when
 				used on a tablet computer as a chess board replacement.
 				All three types of <link linkend="markers">markers</link>
-				can be enabled or disabled.  Borders around the chess board can be 
-				activated with or without algebraic chess notation by using a drop 
+				can be enabled or disabled.  Borders around the chess board can be
+				activated with or without algebraic chess notation by using a drop
 				down menu.
 			</para>
 			<note>
-				<title>Note:</title>
 				<para>
 					Some themes may not support markers, borders and/or notations.
 					In this case, the configuration will have no effect on them,
@@ -661,49 +650,30 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 			<title>Computer Engines</title>
 			<mediaobject><imageobject><imagedata fileref="Knights-engines.png" /></imageobject></mediaobject>
 			<para>
-				The <guimenu>Computer Engines</guimenu> section allows you to configure
+				The <guilabel>Computer Engines</guilabel> section allows you to configure
 				your computer opponents. For each engine specify the program name, the command used
-				to launch it, and the protocol it uses. &knights; supports two protocols for 
-				chess engines: XBoard and UCI. 
+				to launch it, and the protocol it uses. &i18n-knights; supports two protocols for
+				chess engines: XBoard and UCI.
 			</para>
 			<para>
-				A new engine configuration can be added by clicking <guibutton>Add</guibutton> and
+				A new engine configuration can be added by press <guibutton>Add</guibutton> button and
 				entering the three options mentioned above. A symbol in the last columns tells you whether
-				the specified program is installed on your computer or not. 
-			</para>
-		</sect1>
-		
-		<sect1 id="configuration-accessibility">
-			<title>Accessibility</title>
-			<para>
-				The <guimenu>Accessibility</guimenu> section has some options
-				regarding the board display and usage of external programs to
-				make it easier for people with impairments to play the game.
-			</para>
-			<para>
-				&jovie; the &kde; Text To Speech Service can be used to speak the opponents’ moves. 
-			</para>
-			<para>
-				It is possible to control &knights; via a &DBus; interface. 
-				It has no current uses, except with an unreleased version of 
-				<ulink url="http://simon-listens.org/">Simon</ulink>, 
-				enabling voice-only interaction.
+				the specified program is installed on your computer or not.
 			</para>
 		</sect1>
 
 		<sect1 id="configuration-themes">
 			<title>Themes</title>
 			<para>
-				The <guimenu>Theme</guimenu> section allows the selection of a
-				theme.  The theme supplies the images for the board, pieces, 
-				markers and other items.  To select a new theme, choose the 
+				The <guilabel>Theme</guilabel> section allows the selection of a
+				theme.  The theme supplies the images for the board, pieces,
+				markers and other items.  To select a new theme, choose the
 				theme's name from the selection list. You can also
-				download new themes from the same page, by clicking
-				<guibutton>Get New Themes</guibutton>.  Themes are stored
+				download new themes from the same page, by pressing the
+				<guibutton>Get New Themes...</guibutton> button.  Themes are stored
 				at kde-look.org under &knights;.
 			</para>
 			<note>
-				<title>Note:</title>
 				<para>
 					For your convenience a quick preview screenshot will be
 					displayed on the right hand side of the selection list
