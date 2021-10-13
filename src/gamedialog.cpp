@@ -67,7 +67,7 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	layout->addWidget(bBox);
 
 	setLayout(layout);
-	setWindowTitle(i18n("New Game"));
+	setWindowTitle(i18nc("@title:window", "New Game"));
 
 	connect(bBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
 	connect(bBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
@@ -300,7 +300,7 @@ void GameDialog::networkStatusChanged(bool isOnline) {
 
 void GameDialog::showEngineConfigDialog() {
 	QPointer<QDialog> dlg = new QDialog(this);
-	dlg->setWindowTitle(i18n("Chess Engines"));
+	dlg->setWindowTitle(i18nc("@title:window", "Chess Engines"));
 
 	auto bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	connect( bBox, &QDialogButtonBox::accepted, dlg, &QDialog::accept );
