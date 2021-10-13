@@ -142,7 +142,7 @@
       <item row="1" column="0">
        <widget class="QRadioButton" name="rbPlayer2Engine">
         <property name="text">
-         <string>Co&amp;mputer engine</string>
+         <string>Co&amp;mputer engine:</string>
         </property>
        </widget>
       </item>
