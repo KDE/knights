@@ -46,7 +46,7 @@ DifficultyDialog::DifficultyDialog(QWidget* parent, Qt::WindowFlags f) : QDialog
 	layout->addWidget(bBox);
 
 	setLayout(layout);
-	setWindowTitle(i18n("Difficulty Level"));
+	setWindowTitle(i18nc("@title:window", "Difficulty Level"));
 
 	connect(bBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
 	connect(bBox, &QDialogButtonBox::rejected, this, &QDialog::reject);

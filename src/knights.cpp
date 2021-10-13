@@ -169,7 +169,7 @@ void MainWindow::setupDocks() {
 	m_historyDock = new QDockWidget();
 	m_historyDock->setObjectName(QStringLiteral("HistoryDockWidget"));
 	m_historyDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
-	m_historyDock->setWindowTitle(i18n("Move History"));
+	m_historyDock->setWindowTitle(i18nc("@title:window", "Move History"));
 	m_historyDock->setWidget(new HistoryWidget);
 	addDockWidget(Qt::LeftDockWidgetArea, m_historyDock);
 }
@@ -522,7 +522,7 @@ void MainWindow::gameOver(Color winner) {
 	QVBoxLayout *mainLayout = new QVBoxLayout;
 	QWidget *mainWidget = new QWidget(this);
 	dlg->setLayout(mainLayout);
-	dlg->setWindowTitle ( i18n("Game over") );
+	dlg->setWindowTitle (i18nc("@title:window", "Game over"));
 	mainLayout->addWidget(mainWidget);
 
 	QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
@@ -665,7 +665,7 @@ void MainWindow::fileSave() {
 void MainWindow::fileSaveAs() {
 	KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
 	QString dir = conf.readEntry("LastOpenDir", "");
-	QString fileName = QFileDialog::getSaveFileName(this, i18n("Save As"), dir,
+	QString fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save As"), dir,
 	                   i18n("Portable game notation (*.pgn)"));
 
 	if (fileName.isEmpty())// "Cancel" was clicked

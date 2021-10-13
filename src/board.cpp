@@ -577,7 +577,7 @@ void Board::changeDisplayedPlayer() {
 PieceType Board::getPromotedType() {
 	PieceType piece = Queen;
 	QPointer<QDialog> dialog = new QDialog();
-	dialog->setWindowTitle(i18n("Promotion"));
+	dialog->setWindowTitle(i18nc("@title:window", "Promotion"));
 	QWidget *widget = new QWidget();
 	QVBoxLayout *layout = new QVBoxLayout();
 	QDialogButtonBox *bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);

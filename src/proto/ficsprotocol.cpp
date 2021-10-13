@@ -204,7 +204,7 @@ void FicsProtocol::openGameDialog() {
 		return;
 	}
 	QDialog* dialog = new QDialog ( qApp->activeWindow() );
-	dialog->setWindowTitle(i18n("Chess server"));
+	dialog->setWindowTitle(i18nc("@title:window", "Chess server"));
 	auto mainLayout = new QVBoxLayout(dialog);
 	dialog->setLayout(mainLayout);
 	auto bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
