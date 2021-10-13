@@ -30,7 +30,7 @@
     <legalnotice>&FDLNotice;
     </legalnotice>
 
-    <date>2015-01-07</date><!-- Date of (re)writing, or update.-->
+    <date>2021-10-13</date><!-- Date of (re)writing, or update.-->
     <releaseinfo>&kappversion; (KDE Gear 21.08)</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.-->
 
     <abstract>
