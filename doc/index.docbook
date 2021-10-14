@@ -136,7 +136,7 @@
       <itemizedlist>
         <listitem><para><guilabel>Time control period:</guilabel> specifies the number of moves
         after which the <guilabel>Initial time limit:</guilabel> is added to the player's clock.
-        you can disable this addition by setting the value to zero.</para>
+        You can disable this addition by setting the value to zero.</para>
         <note><para>This option is not available when playing on a chess server.</para></note><para/></listitem>
         <listitem><para>The <guilabel>Initial time limit:</guilabel> is the amount of time the
         players start with.</para></listitem>
