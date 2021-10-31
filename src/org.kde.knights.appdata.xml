@@ -938,9 +938,9 @@
     <binary>knights</binary>
   </provides>
   <releases>
+    <release version="2.6.21083" date="2021-11-04"/>
     <release version="2.6.21082" date="2021-10-07"/>
     <release version="2.6.21081" date="2021-09-02"/>
     <release version="2.6.21080" date="2021-08-12"/>
-    <release version="2.6.21043" date="2021-07-08"/>
   </releases>
 </component>
