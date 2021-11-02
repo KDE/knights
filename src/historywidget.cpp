@@ -22,7 +22,6 @@
 
 #include "historywidget.h"
 #include "ui_historywidget.h"
-#include "core/move.h"
 #include "gamemanager.h"
 #include "knightsdebug.h"
 

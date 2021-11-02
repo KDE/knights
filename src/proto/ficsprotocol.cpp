@@ -20,7 +20,6 @@
 */
 
 #include "proto/ficsprotocol.h"
-#include <gamemanager.h>
 #include "proto/ficsdialog.h"
 #include "proto/chatwidget.h"
 #include "settings.h"
