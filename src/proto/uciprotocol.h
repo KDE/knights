@@ -25,7 +25,6 @@
 #include "proto/computerprotocol.h"
 #include <QStack>
 
-class KProcess;
 
 namespace Knights {
 

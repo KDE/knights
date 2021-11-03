@@ -27,7 +27,6 @@
 #include <QWidget>
 #include <QStringListModel>
 
-class KPlotObject;
 namespace Ui {
 class FicsDialog;
 }

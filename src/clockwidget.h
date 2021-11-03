@@ -26,8 +26,6 @@
 
 #include <QWidget>
 
-class QGroupBox;
-class QTimer;
 class QTime;
 
 namespace Ui {

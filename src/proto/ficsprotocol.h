@@ -26,7 +26,6 @@
 #include <gamemanager.h>
 
 
-class QTcpSocket;
 
 namespace Knights {
 class FicsDialog;
