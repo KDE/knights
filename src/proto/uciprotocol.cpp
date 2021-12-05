@@ -142,9 +142,11 @@ void UciProtocol::requestNextMove() {
 			goString += QLatin1String(" binc ") + QString::number ( binc * 1000 );
 
 		int moves = Manager::self()->timeControl ( NoColor ).moves;
-		int movesToGo = mMoveHistory.size() % moves;
-		if ( movesToGo > 0 )
-			goString += QLatin1String(" movestogo ") + QString::number ( movesToGo );
+		if (moves > 0) {
+			int movesToGo = mMoveHistory.size() % moves;
+			if ( movesToGo > 0 )
+				goString += QLatin1String(" movestogo ") + QString::number ( movesToGo );
+		}
 	}
 
 	write ( goString );
