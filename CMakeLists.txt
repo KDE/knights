@@ -30,7 +30,7 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 #set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
 
 include(FeatureSummary)
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
    Concurrent
    Core
    Gui
