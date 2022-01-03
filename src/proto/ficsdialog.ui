@@ -91,8 +91,8 @@
             <property name="showClearButton" stdset="0">
              <bool>true</bool>
             </property>
-            <property name="passwordMode">
-             <bool>true</bool>
+            <property name="echoMode">
+		    <enum>QLineEdit::Password</enum>
             </property>
            </widget>
           </item>

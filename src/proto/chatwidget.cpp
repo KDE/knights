@@ -85,7 +85,7 @@ void ChatWidget::addText(const Message& message) {
 }
 
 void ChatWidget::setPasswordMode ( bool pwMode ) {
-	ui->line->setPasswordMode ( pwMode );
+    ui->line->setEchoMode(pwMode ? QLineEdit::Password : QLineEdit::Normal);
 }
 
 void ChatWidget::sendButtonClicked() {
