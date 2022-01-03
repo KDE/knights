@@ -69,10 +69,10 @@ if (Qt5TextToSpeech_FOUND)
 endif()
 
 target_link_libraries(knights
-     Qt5::Network
-     Qt5::Svg
-     Qt5::Gui
-     Qt5::Concurrent
+     Qt${QT_MAJOR_VERSION}::Network
+     Qt${QT_MAJOR_VERSION}::Svg
+     Qt${QT_MAJOR_VERSION}::Gui
+     Qt${QT_MAJOR_VERSION}::Concurrent
      KF5::Crash
      KF5::Solid
      KF5::WidgetsAddons
