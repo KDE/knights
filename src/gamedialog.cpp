@@ -321,11 +321,7 @@ void GameDialog::loadEngines() {
 	QStringList programs;
 	QList<EngineConfiguration> configs;
 	for (const QString& s : Settings::engineConfigurations()) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-		const  QStringList l = s.split(QLatin1Char(':'), QString::SkipEmptyParts);
-#else
 		const  QStringList l = s.split(QLatin1Char(':'), Qt::SkipEmptyParts);
-#endif
 		EngineConfiguration e = EngineConfiguration(s);
 		if(!e.name.isEmpty()) {
 			programs << e.name;
