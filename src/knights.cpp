@@ -465,7 +465,8 @@ void MainWindow::optionsPreferences() {
 // 	ui_prefs_access.setupUi(accessDlg);
 // 	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));
 
-	QWidget* themeDlg = new KgThemeSelector(m_themeProvider, KgThemeSelector::EnableNewStuffDownload, dialog);
+    KgThemeSelector* themeDlg = new KgThemeSelector(m_themeProvider, KgThemeSelector::EnableNewStuffDownload, dialog);
+    themeDlg->setNewStuffConfigFileName(QStringLiteral("knights.knsrc"));
 	dialog->addPage(themeDlg, i18n("Theme"), QStringLiteral("games-config-theme"));
 	dialog->setAttribute(Qt::WA_DeleteOnClose);
 
