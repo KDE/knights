@@ -493,7 +493,7 @@
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="ar">طرق عرض للعب على خادم الشطرنج ، بما في ذلك رسم بياني ووحدة تحكم نصية وأداة دردشة</li>
       <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
-      <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
+      <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de xat</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
       <li xml:lang="de">Ansichten zum Spielen auf einem Schachserver, inklusive Suchgraphen,  Textkonsole und Chatmöglichkeit</li>
       <li xml:lang="el">Προβολές παιχνιδιού σε εξυπηρετητή σκακιού, με γράφο αναζήτησης, κονσόλα κειμένου και γραφικό συστατικό συνοιμλίας</li>
@@ -663,7 +663,7 @@
       <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
       <li xml:lang="ar">استخدام Jovie ، برنامج تحويل النص إلى كلام من كدي للتحدث بحركات الخصم</li>
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>
-      <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu de KDE, per a pronunciar els moviments de l'adversari</li>
+      <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu de KDE, per a llegir els moviments de l'adversari</li>
       <li xml:lang="da">Brug af Jovie, KDEs tekst-til-tale-program, til at sige modstanderens træk</li>
       <li xml:lang="de">Verwendet den KDE-Sprachausgabedienst Jovie, um die Züge des Gegners vorzulegen</li>
       <li xml:lang="el">Χρήση του Jovie, του προγράμματος μετατροπής κειμένου σε ομιλία του KDE, για την προφορική διατύπωση των κινήσεων του αντιπάλου</li>
@@ -929,7 +929,7 @@
       <caption>Playing online - graphical Seek-Graph</caption>
       <caption xml:lang="ar">اللعب على الإنترنت - رسم بياني</caption>
       <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
-      <caption xml:lang="ca-valencia">Jugant en línia: gràfic de cerca</caption>
+      <caption xml:lang="ca-valencia">Jugant en línia: gràfic de busca</caption>
       <caption xml:lang="da">Spiller online - grafisk søgegraf</caption>
       <caption xml:lang="de">Online spielen - Such-Graph</caption>
       <caption xml:lang="el">Παίζω σε σύνδεση - γραφικό Seek-Graph</caption>
