@@ -281,7 +281,7 @@
       <li xml:lang="sr-ijekavian">Гледајте како два рачунарска мотора играју један против другог.</li>
       <li xml:lang="sr-ijekavianlatin">Gledajte kako dva računarska motora igraju jedan protiv drugog.</li>
       <li xml:lang="sv">Titta på medan två datorspelare spelar mot varandra</li>
-      <li xml:lang="tr">İki bilgisayar motorunun birbiriyle oynamsını izle</li>
+      <li xml:lang="tr">İki bilgisayar işletkesinin birbiriyle oynamasını izle</li>
       <li xml:lang="uk">Можливість спостереження за грою двох комп’ютерних гравців між собою.</li>
       <li xml:lang="x-test">xxWatching two computer engines play against each otherxx</li>
       <li xml:lang="zh-CN">看着两台电脑引擎互相竞争</li>
@@ -315,7 +315,7 @@
       <li xml:lang="sr-ijekavian">Подршка за проверу ваљаности потеза.</li>
       <li xml:lang="sr-ijekavianlatin">Podrška za proveru valjanosti poteza.</li>
       <li xml:lang="sv">Stöd för kontroll av regelrätta drag</li>
-      <li xml:lang="tr">Uygun haraket kontrolü desteği</li>
+      <li xml:lang="tr">Uygun hareket denetimi desteği</li>
       <li xml:lang="uk">Перевірка ходів на коректність.</li>
       <li xml:lang="x-test">xxSupport for legal move checkingxx</li>
       <li xml:lang="zh-CN">支持合法移动检查</li>
@@ -349,7 +349,7 @@
       <li xml:lang="sr-ijekavian">Маркери за могуће потезе, противников последњи потезе и извори провера.</li>
       <li xml:lang="sr-ijekavianlatin">Markeri za moguće poteze, protivnikov poslednji poteze i izvori provera.</li>
       <li xml:lang="sv">Markörer för möjliga drag, motspelarens senaste drag och orsaken till schack</li>
-      <li xml:lang="tr">Mümkün olabilecek hamleler için işaretleyici, rakibin son hamlesi ve kontrol kaynakları</li>
+      <li xml:lang="tr">OLası hamleler için işaretleyici, rakibin son hamlesi ve denetim kaynakları</li>
       <li xml:lang="uk">Позначки для можливих ходів, останнього ходу суперника та загроз під час шаху.</li>
       <li xml:lang="x-test">xxMarkers for possible moves, opponent’s last move and sources of checkxx</li>
       <li xml:lang="zh-CN">可能的移动标记，对手最后的移动和检查来源</li>
@@ -723,7 +723,7 @@
       <li xml:lang="sr-ijekavian">Управљање програмом преко д‑бус сучеља.</li>
       <li xml:lang="sr-ijekavianlatin">Upravljanje programom preko D‑Bus sučelja.</li>
       <li xml:lang="sv">Möjlighet att styra programmet via ett D-Bus gränssnitt</li>
-      <li xml:lang="tr">D-Bus arayüzü üzerinden program kontrol sağlar</li>
+      <li xml:lang="tr">D-Bus arayüzü üzerinden program denetimi sağlar</li>
       <li xml:lang="uk">Можливість керування програмою за допомогою інтерфейсу D-Bus.</li>
       <li xml:lang="x-test">xxAbility to control the program via a D-Bus interfacexx</li>
       <li xml:lang="zh-CN">通过 D-Bus 接口控制程序的功能</li>
@@ -758,6 +758,7 @@
       <caption xml:lang="sk">Rytieri, šachová hra</caption>
       <caption xml:lang="sl">Igra šaha Knights</caption>
       <caption xml:lang="sv">Knights, schackspel</caption>
+      <caption xml:lang="tr">Satranç oyunu</caption>
       <caption xml:lang="uk">Knights, гра у шахи</caption>
       <caption xml:lang="x-test">xxKnights, chess gamexx</caption>
       <caption xml:lang="zh-CN">骑士,象棋游戏</caption>
@@ -790,6 +791,7 @@
       <caption xml:lang="sk">Hlavné okno - Človek vs. Počítač</caption>
       <caption xml:lang="sl">Glavno okno - Človek proti računalniku</caption>
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
+      <caption xml:lang="tr">Ana Pencere - İnsan, Satranç İşletkesine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Human vs. Chess Enginexx</caption>
       <caption xml:lang="zh-CN">主窗口 - 人与国际象棋引擎的对决</caption>
@@ -822,6 +824,7 @@
       <caption xml:lang="sk">Hlavné okno - Počítač vs. Počítač</caption>
       <caption xml:lang="sl">Glavno okno - Računalnik proti računalniku</caption>
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
+      <caption xml:lang="tr">Ana Pencere - Satranç İşletkesi, Kendisine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
       <caption xml:lang="x-test">xxMain Window - Chess Engine vs. Chess Enginexx</caption>
       <caption xml:lang="zh-CN">主窗口 - 国际象棋引擎之间的对决</caption>
@@ -855,6 +858,7 @@
       <caption xml:lang="sk">Dialógové okno "Nová Hra"</caption>
       <caption xml:lang="sl">Pogovor o 'Novi igri'</caption>
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
+      <caption xml:lang="tr">"Yeni Oyun" Penceresi</caption>
       <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
       <caption xml:lang="x-test">xx"New Game" Dialogxx</caption>
       <caption xml:lang="zh-CN">“新建游戏”窗口</caption>
@@ -887,6 +891,7 @@
       <caption xml:lang="sk">Automatická detekcia šachových enginov</caption>
       <caption xml:lang="sl">Avtomatska detekcija šahovskih aplikacij</caption>
       <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
+      <caption xml:lang="tr">Satraç İşletkesinin Otomatik Algılaması</caption>
       <caption xml:lang="uk">Автоматичне виявлення шахових рушіїв</caption>
       <caption xml:lang="x-test">xxAuto-Detection of Chess Enginesxx</caption>
       <caption xml:lang="zh-CN">象棋引擎的自动检测</caption>
@@ -919,6 +924,7 @@
       <caption xml:lang="sk">Hranie online - konzola FICS</caption>
       <caption xml:lang="sl">Sprotna igra - konzola FICS</caption>
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
+      <caption xml:lang="tr">Çevrimiçi oyna - FICS Konsolu</caption>
       <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
       <caption xml:lang="x-test">xxPlaying online - FICS Consolexx</caption>
       <caption xml:lang="zh-CN">在线播放 - 公务员协联控制台</caption>
@@ -951,6 +957,7 @@
       <caption xml:lang="sk">Hra online - grafický Seek-Graph</caption>
       <caption xml:lang="sl">Sprotna igra - grafični prikaz iskanja potez</caption>
       <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
+      <caption xml:lang="tr">Çevrimiçi oyna - grafik Seek-Graph</caption>
       <caption xml:lang="uk">Гра у мережі — граф пошуку гравців</caption>
       <caption xml:lang="x-test">xxPlaying online - graphical Seek-Graphxx</caption>
       <caption xml:lang="zh-CN">在线播放-图形搜索图</caption>
