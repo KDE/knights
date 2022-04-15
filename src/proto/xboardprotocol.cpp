@@ -73,9 +73,9 @@ void XBoardProtocol::startGame() {
 }
 
 void XBoardProtocol::move ( const Move& m ) {
-	QString str = m.string(false);
+	QString str =  m.from().string() + m.to().string();
 	if (m.promotedType())
-		str = str.toLower(); // "e7e8q" is used for the pawn promotion -> convert Q in the move string to lowercase q
+		str += Piece::charFromType ( m.promotedType() ).toLower();
 
 	qCDebug(LOG_KNIGHTS) << "Player's move:" << str;
 	write(str);
