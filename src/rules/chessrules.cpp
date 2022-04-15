@@ -460,9 +460,9 @@ QList< Move > ChessRules::castlingMoves ( const Pos& pos ) {
 	Color color = m_grid->value ( pos )->color();
 	if ( hasKingMoved ( color ) )
 		return QList<Move>();
-	if ( !hasRookMoved ( color, Move::QueenSide ) && isPathClearForCastling ( pos, queenRookStartPos[color] ) )
+	if ( !hasRookMoved ( color, Move::QueenSide ) && isPathClearForCastling ( pos, queenRookStartPos[color] ) && ( m_grid->value ( queenRookStartPos[color] )->pieceType() == Rook ) )
 		moves << Move::castling ( Move::QueenSide, color );
-	if ( !hasRookMoved ( color, Move::KingSide ) && isPathClearForCastling ( pos, kingRookStartPos[color] ) )
+	if ( !hasRookMoved ( color, Move::KingSide ) && isPathClearForCastling ( pos, kingRookStartPos[color] ) && ( m_grid->value ( kingRookStartPos[color] )->pieceType() == Rook ) )
 		moves << Move::castling ( Move::KingSide, color );
 	return moves;
 }
