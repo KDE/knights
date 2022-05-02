@@ -595,7 +595,7 @@
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="ar">دعم ميفاق UCI (المستخدم بواسطة Stockfish و Chessbase وغيرها الكثير)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
-      <li xml:lang="ca-valencia">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i atres)</li>
+      <li xml:lang="ca-valencia">Admet el protocol UCI (usat per Stockfish, Chessbase i atres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
       <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
@@ -663,7 +663,7 @@
       <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
       <li xml:lang="ar">استخدام Jovie ، برنامج تحويل النص إلى كلام من كدي للتحدث بحركات الخصم</li>
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>
-      <li xml:lang="ca-valencia">Ús del Jovie, el programa de text a veu de KDE, per a llegir els moviments de l'adversari</li>
+      <li xml:lang="ca-valencia">Ús de Jovie, el programa de text a veu de KDE, per a llegir els moviments de l'adversari</li>
       <li xml:lang="da">Brug af Jovie, KDEs tekst-til-tale-program, til at sige modstanderens træk</li>
       <li xml:lang="de">Verwendet den KDE-Sprachausgabedienst Jovie, um die Züge des Gegners vorzulegen</li>
       <li xml:lang="el">Χρήση του Jovie, του προγράμματος μετατροπής κειμένου σε ομιλία του KDE, για την προφορική διατύπωση των κινήσεων του αντιπάλου</li>
