@@ -26,3 +26,5 @@ Dependencies:
     'frameworks/kdoctools': '@stable'
     'frameworks/kwallet': '@stable'
     'frameworks/plasma-framework': '@stable'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
