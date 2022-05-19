@@ -187,7 +187,7 @@
       <li>Play against any computer program that supports the XBoard protocol</li>
       <li xml:lang="ar">اللعب ضد أي برنامج حاسوب يدعم ميفاق XBoard</li>
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
-      <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
+      <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepte el protocol XBoard</li>
       <li xml:lang="da">Spil mod computerprogram der understøtter XBoard-protokollen</li>
       <li xml:lang="de">Spiele gegen jedes Rechnerprogramm, das das XBoard-Protokoll unterstützt</li>
       <li xml:lang="el">Παίξε εναντίον οποιουδήποτε προγράμματος που υποστηρίζει το πρωτόκολλο XBoard</li>
@@ -965,7 +965,7 @@
       <image>https://cdn.kde.org/screenshots/knights/knights_seek_graph.png</image>
     </screenshot>
   </screenshots>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
   <url type="homepage">https://www.kde.org/applications/games/knights/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=knights</url>
   <url type="donation">https://www.kde.org/community/donations/?app=knights&amp;source=appdata</url>
