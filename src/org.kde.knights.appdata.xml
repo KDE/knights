@@ -493,7 +493,7 @@
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="ar">طرق عرض للعب على خادم الشطرنج ، بما في ذلك رسم بياني ووحدة تحكم نصية وأداة دردشة</li>
       <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
-      <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de xat</li>
+      <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de chat</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
       <li xml:lang="de">Ansichten zum Spielen auf einem Schachserver, inklusive Suchgraphen,  Textkonsole und Chatmöglichkeit</li>
       <li xml:lang="el">Προβολές παιχνιδιού σε εξυπηρετητή σκακιού, με γράφο αναζήτησης, κονσόλα κειμένου και γραφικό συστατικό συνοιμλίας</li>
@@ -595,7 +595,7 @@
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="ar">دعم ميفاق UCI (المستخدم بواسطة Stockfish و Chessbase وغيرها الكثير)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
-      <li xml:lang="ca-valencia">Admet el protocol UCI (usat per Stockfish, Chessbase i atres)</li>
+      <li xml:lang="ca-valencia">Admet el protocol UCI (utilisat per Stockfish, Chessbase i atres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
       <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
