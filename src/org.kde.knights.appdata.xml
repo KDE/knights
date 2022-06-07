@@ -643,7 +643,7 @@
       <li>Support for saving and loading Portable game notation (PGN) files</li>
       <li xml:lang="ar">دعم حفظ وتحميل ملفات تدوين الألعاب المحمولة (PGN)</li>
       <li xml:lang="ca">Admet els fitxers «Portable game notation» (PGN) per a desar i carregar</li>
-      <li xml:lang="ca-valencia">Admet els fitxers «Portable game notation» (PGN) per a guardar i carregar</li>
+      <li xml:lang="ca-valencia">Admet els fichers «Portable game notation» (PGN) per a guardar i carregar</li>
       <li xml:lang="da">Understøttelse af gem og indlæsning af Portable game notation-filer (PGN)</li>
       <li xml:lang="de">Laden und speichern von Dateien im Format Portable Spielnotation (*.pgn)</li>
       <li xml:lang="el">Υποστήριξη για αποθήκευση και φόρτωση αρχείων συμβολισμών PGN (Portable game notation)</li>
@@ -855,7 +855,7 @@
       <caption>"New Game" Dialog</caption>
       <caption xml:lang="ar">حواريّ لعبة جديدة</caption>
       <caption xml:lang="ca">Diàleg «Joc nou»</caption>
-      <caption xml:lang="ca-valencia">Diàleg «Joc nou»</caption>
+      <caption xml:lang="ca-valencia">Diàlec «Joc nou»</caption>
       <caption xml:lang="cs">Okno "Nová hra"</caption>
       <caption xml:lang="da">"Nyt parti"-dialog</caption>
       <caption xml:lang="de">"Dialog Neues Spiel</caption>
