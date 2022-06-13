@@ -608,7 +608,7 @@
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="ar">دعم ميفاق UCI (المستخدم بواسطة Stockfish و Chessbase وغيرها الكثير)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
-      <li xml:lang="ca-valencia">Admet el protocol UCI (utilisat per Stockfish, Chessbase i atres)</li>
+      <li xml:lang="ca-valencia">Admet el protocol UCI (utilitzat per Stockfish, Chessbase i altres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
       <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
@@ -855,7 +855,7 @@
       <caption>"New Game" Dialog</caption>
       <caption xml:lang="ar">حواريّ لعبة جديدة</caption>
       <caption xml:lang="ca">Diàleg «Joc nou»</caption>
-      <caption xml:lang="ca-valencia">Diàlec «Joc nou»</caption>
+      <caption xml:lang="ca-valencia">Diàleg «Joc nou»</caption>
       <caption xml:lang="cs">Okno "Nová hra"</caption>
       <caption xml:lang="da">"Nyt parti"-dialog</caption>
       <caption xml:lang="de">"Dialog Neues Spiel</caption>
@@ -924,7 +924,7 @@
       <caption>Playing online - FICS Console</caption>
       <caption xml:lang="ar">اللعب عن طريق الإنترنت - طرفية FICS</caption>
       <caption xml:lang="ca">Jugant en línia: consola FICS</caption>
-      <caption xml:lang="ca-valencia">Jugant en llínea: consola FICS</caption>
+      <caption xml:lang="ca-valencia">Jugant en línia: consola FICS</caption>
       <caption xml:lang="da">Spiller online - FICS Console</caption>
       <caption xml:lang="de">Online spielen - FICS-Konsole</caption>
       <caption xml:lang="el">Παίζω σε σύνδεση - Κονσόλα FICS</caption>
@@ -958,7 +958,7 @@
       <caption>Playing online - graphical Seek-Graph</caption>
       <caption xml:lang="ar">اللعب على الإنترنت - رسم بياني</caption>
       <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
-      <caption xml:lang="ca-valencia">Jugant en llínea: gràfic de busca</caption>
+      <caption xml:lang="ca-valencia">Jugant en línia: gràfic de busca</caption>
       <caption xml:lang="da">Spiller online - grafisk søgegraf</caption>
       <caption xml:lang="de">Online spielen - Such-Graph</caption>
       <caption xml:lang="el">Παίζω σε σύνδεση - γραφικό Seek-Graph</caption>
