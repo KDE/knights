@@ -35,14 +35,17 @@
 #include "historywidget.h"
 #include "enginesettings.h"
 
+// KDEGames
+#include <kdegames_version.h>
+#include <KgThemeSelector>
+#include <KStandardGameAction>
+
 #include <KConfigDialog>
 #include <KActionCollection>
 #include <KStandardAction>
 #include <KToggleAction>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KgThemeSelector>
-#include <KStandardGameAction>
 
 #include <QCloseEvent>
 #include <QDockWidget>
@@ -108,7 +111,11 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	connect(Manager::self(), &Manager::winnerNotify, this, &MainWindow::gameOver);
 	connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
+#if KDEGAMES_VERSION >= QT_VERSION_CHECK(7, 4, 0)
+	m_themeProvider->discoverThemes(QStringLiteral("themes"));
+#else
 	m_themeProvider->discoverThemes("appdata", QStringLiteral("themes"));
+#endif
 	m_view->drawBoard(m_themeProvider);
 }
 
