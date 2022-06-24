@@ -25,6 +25,7 @@
  ***************************************************************************/
 #include "textprotocol.h"
 #include "knightsdebug.h"
+#include <QIODevice>
 
 using namespace Knights;
 
