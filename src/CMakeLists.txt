@@ -63,9 +63,9 @@ file(GLOB ICON_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-knights.png")
 ecm_add_app_icon(knights_SRCS ICONS ${ICON_SRCS})
 add_executable(knights ${knights_SRCS})
 
-if (Qt5TextToSpeech_FOUND)
+if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
   target_link_libraries(knights
-        Qt5::TextToSpeech)
+        Qt${QT_MAJOR_VERSION}::TextToSpeech)
 endif()
 
 target_link_libraries(knights

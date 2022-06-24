@@ -40,10 +40,10 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONEN
    Svg
 )
 
-find_package(Qt5TextToSpeech ${QT_REQUIRED_VERSION} QUIET)
-set_package_properties(Qt5TextToSpeech PROPERTIES
+find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} QUIET)
+set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES
    PURPOSE "Speaking of opponents moves")
-if (Qt5TextToSpeech_FOUND)
+if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
    add_definitions(-DHAVE_SPEECH)
 endif ()
 
