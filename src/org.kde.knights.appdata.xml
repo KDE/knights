@@ -533,7 +533,7 @@
       <li xml:lang="tr">Satranç sunucusu üzerindeki oyunlar için görünüm, grafik arama, metin konsolu ve sohbet programcığı da içerir</li>
       <li xml:lang="uk">Перегляд гри на шаховому сервері із графом пошуку, текстовою консоллю та віджетом спілкування.</li>
       <li xml:lang="x-test">xxViews for playing on a chess server, including a seek graph, text console, and chat widgetxx</li>
-      <li xml:lang="zh-CN">在象棋服务器上播放的试图，包括寻找图形、文本控制台和聊天小部件</li>
+      <li xml:lang="zh-CN">用于在象棋服务器上对战的视图，包括寻径图表、文本控制台和聊天部件</li>
       <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
       <li xml:lang="ar">خيار التراجع عن الحركات وإعادتها</li>
