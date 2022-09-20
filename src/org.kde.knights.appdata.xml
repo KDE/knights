@@ -990,7 +990,7 @@
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1"/>
-  <url type="homepage">https://www.kde.org/applications/games/knights/</url>
+  <url type="homepage">https://apps.kde.org/knights</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=knights</url>
   <url type="donation">https://www.kde.org/community/donations/?app=knights&amp;source=appdata</url>
   <project_group>KDE</project_group>
