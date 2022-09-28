@@ -798,7 +798,7 @@
       <caption xml:lang="fi">Pääikkuna – ihminen vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
-      <caption xml:lang="id">Window Utama - Manusia vs. Mesin Catur</caption>
+      <caption xml:lang="id">Jendela Utama - Manusia vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
       <caption xml:lang="ko">주 창 - 인간 대 체스 엔진</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
@@ -832,7 +832,7 @@
       <caption xml:lang="fi">Pääikkuna – šakkikone vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
-      <caption xml:lang="id">Window Utama - Mesin Catur vs. Mesin Catur</caption>
+      <caption xml:lang="id">Jendela Utama - Mesin Catur vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
       <caption xml:lang="ko">주 창 - 체스 엔진간 대결</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
