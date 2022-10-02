@@ -1,0 +1,1447 @@
+# translation of knights.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
+# sutha <sutha@khmeros.info>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: knights\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-21 00:43+0000\n"
+"PO-Revision-Date: 2012-07-13 10:01+0700\n"
+"Last-Translator: sutha <sutha@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: WordForge 0.8 RC1\n"
+"X-Language: km-KH\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: board.cpp:577
+#, fuzzy, kde-format
+#| msgid "Promotion"
+msgctxt "@title:window"
+msgid "Promotion"
+msgstr "ការ​បង្កើន"
+
+#: board.cpp:581
+#, kde-format
+msgid "Promote"
+msgstr "បង្កើន"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupB)
+#: clockwidget.ui:17
+#, kde-format
+msgid "Black"
+msgstr "ខ្មៅ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorWhite)
+#. i18n: ectx: property (title), widget (QGroupBox, groupW)
+#: clockwidget.ui:44 gamedialog.ui:90
+#, kde-format
+msgid "White"
+msgstr "ស"
+
+#. i18n: ectx: property (text), widget (QLabel, searchDepthLabel)
+#: customdifficultydialog.ui:26
+#, kde-format
+msgid "Search &depth:"
+msgstr "ស្វែងរក​ជម្រៅ"
+
+#. i18n: ectx: property (specialValueText), widget (KPluralHandlingSpinBox, sbSearchDepth)
+#: customdifficultydialog.ui:36
+#, kde-format
+msgctxt "Let the engine determine the search depth"
+msgid "Engine default"
+msgstr "លំនាំដើម​ម៉ាស៊ីន"
+
+#. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
+#: customdifficultydialog.ui:43
+#, kde-format
+msgid "Memory &size:"
+msgstr "អង្គ​ចងចាំ និង​ទំហំ ៖"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, sbMemorySize)
+#: customdifficultydialog.ui:53
+#, kde-format
+msgctxt "Megabytes"
+msgid " MB"
+msgstr "មេកាបៃ"
+
+#: difficultydialog.cpp:35
+#, fuzzy, kde-format
+#| msgid " move"
+#| msgid_plural " moves"
+msgctxt "Search depth suffix"
+msgid " move"
+msgid_plural " moves"
+msgstr[0] "ផ្លាស់ទី"
+
+#: difficultydialog.cpp:46
+#, kde-format
+msgctxt "@title:window"
+msgid "Difficulty Level"
+msgstr ""
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "XBoard"
+msgstr "XBoard"
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "UCI"
+msgstr "UCI"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: enginesettings.ui:19
+#, kde-format
+msgid "Auto detect"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: enginesettings.ui:39
+#, kde-format
+msgid "Add"
+msgstr "បន្ថែម"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: enginesettings.ui:46
+#, kde-format
+msgid "Remove"
+msgstr "យកចេញ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:71
+#, kde-format
+msgid "Name"
+msgstr "ឈ្មោះ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:76
+#, kde-format
+msgid "Command"
+msgstr "ពាក្យ​បញ្ជា"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:81
+#, kde-format
+msgid "Protocol"
+msgstr "ពិធីការ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:86
+#, kde-format
+msgid "Installed"
+msgstr "បាន​ដំឡើង"
+
+#: gamedialog.cpp:67
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "ល្បែង​ថ្មី"
+
+#: gamedialog.cpp:259
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] "នាទី"
+
+#: gamedialog.cpp:260
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] "វិនាទី"
+
+#: gamedialog.cpp:261
+#, kde-format
+msgid " move"
+msgid_plural " moves"
+msgstr[0] "ផ្លាស់ទី"
+
+#: gamedialog.cpp:300
+#, fuzzy, kde-format
+#| msgid "Computer Engines"
+msgctxt "@title:window"
+msgid "Chess Engines"
+msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ"
+
+#: gamedialog.cpp:352
+#, kde-format
+msgid "Select a chess engine for the first player."
+msgstr ""
+
+#: gamedialog.cpp:358
+#, kde-format
+msgid "Select a chess engine for the second player."
+msgstr ""
+
+#: gamedialog.cpp:363
+#, fuzzy, kde-format
+#| msgid "Automatically start the game"
+msgid "Start the game."
+msgstr "ចាប់ផ្ដើម​ល្បែង​ដោយ​ស្វ័យប្រវត្តិ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, player1Box)
+#: gamedialog.ui:29
+#, kde-format
+msgid "Player 1"
+msgstr "អ្នកលេង ១"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
+#: gamedialog.ui:35
+#, fuzzy, kde-format
+#| msgid "Human (You)"
+msgid "Human (&You)"
+msgstr "មនុស្ស (អ្នក)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
+#: gamedialog.ui:45
+#, fuzzy, kde-format
+#| msgid "Computer engine:"
+msgid "&Computer engine:"
+msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ ៖"
+
+#. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
+#: gamedialog.ui:78
+#, kde-format
+msgid "Player 1's Color"
+msgstr "ពណ៌​របស់​អ្នក​លេង ១"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
+#: gamedialog.ui:103
+#, fuzzy, kde-format
+#| msgid "Black"
+msgid "B&lack"
+msgstr "ខ្មៅ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
+#: gamedialog.ui:116
+#, fuzzy, kde-format
+#| msgid "Choose randomly"
+msgid "Choose r&andomly"
+msgstr "ជ្រើស​ដោយ​ចៃដន្យ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, player2Box)
+#: gamedialog.ui:129
+#, kde-format
+msgid "Player 2"
+msgstr "អ្នក​លេង​ ២"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
+#: gamedialog.ui:135
+#, fuzzy, kde-format
+#| msgid "Human"
+msgid "H&uman"
+msgstr "មនុស្ស"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
+#: gamedialog.ui:145
+#, fuzzy, kde-format
+#| msgid "Computer engine:"
+msgid "Co&mputer engine:"
+msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ ៖"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
+#: gamedialog.ui:175
+#, kde-format
+msgid "Chess server:"
+msgstr "ម៉ាស៊ីន​បម្រើ​អុក ៖"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
+#: gamedialog.ui:207
+#, fuzzy, kde-format
+#| msgid "Use Time Control"
+msgid "&Use time control"
+msgstr "ប្រើ​វត្ថុ​បញ្ជា​ពេលវេលា"
+
+#. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
+#: gamedialog.ui:214
+#, fuzzy, kde-format
+#| msgid "Time control period"
+msgid "&Time control period:"
+msgstr "អំឡុង​ពេល​ត្រួតពិនិត្យពេលវេលា"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
+#: gamedialog.ui:230
+#, kde-format
+msgctxt "Time control mode"
+msgid "Timer Only"
+msgstr "តែ​ឧបករណ៍​កំណត់ពេល"
+
+#. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
+#: gamedialog.ui:243
+#, fuzzy, kde-format
+#| msgid "Initial time limit"
+msgid "&Initial time limit:"
+msgstr "ម៉ោង​កំណត់​ដំបូង"
+
+#. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
+#: gamedialog.ui:269
+#, fuzzy, kde-format
+#| msgid "Increment per move"
+msgid "I&ncrement per move:"
+msgstr "ចំនួន​បន្ថែម​ក្នុង​ការ​ផ្លាស់ទី"
+
+#: gamemanager.cpp:416
+#, kde-format
+msgctxt "The player of this color"
+msgid "White"
+msgstr "ស"
+
+#: gamemanager.cpp:417
+#, kde-format
+msgctxt "The player of this color"
+msgid "Black"
+msgstr "ខ្មៅ"
+
+#: gamemanager.cpp:524
+#, kde-format
+msgid "%1 offers you a draw"
+msgstr "%1 ផ្ដល់​ឲ្យ​អ្នក​អូស"
+
+#: gamemanager.cpp:527
+#, kde-format
+msgid "%2 would like to take back a half move"
+msgid_plural "%2 would like to take back %1 half moves"
+msgstr[0] "%2 ​ចង់​ផ្លាស់ទី %1 ថយក្រោយ​​ពាក់កណ្ដាល"
+
+#: gamemanager.cpp:530
+#, kde-format
+msgid "%1 would like to adjourn the game"
+msgstr "%1 ចង់​ផ្អាក​ល្បែង"
+
+#: gamemanager.cpp:533
+#, kde-format
+msgid "%1 would like to abort the game"
+msgstr "%1 ចង់​បោះបង់​ល្បែង"
+
+#: gamemanager.cpp:628
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles queenside"
+msgstr "%1 castles queenside"
+
+#: gamemanager.cpp:631
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles kingside"
+msgstr "%1 castles kingside"
+
+#: gamemanager.cpp:635
+#, kde-format
+msgctxt "string to be spoken when the opponent makes a normal  move"
+msgid "%1 to %2"
+msgstr "%1 ទៅ %2"
+
+#: gamemanager.cpp:648
+#, kde-format
+msgctxt "Your king is under attack"
+msgid "Check"
+msgstr "ពិនិត្យមើល"
+
+#: gamemanager.cpp:650
+#, kde-format
+msgctxt "Your king is dead"
+msgid "Checkmate"
+msgstr "ឈ្នះ"
+
+#: historywidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "White"
+msgid "white"
+msgstr "ស"
+
+#: historywidget.cpp:27
+#, fuzzy, kde-format
+#| msgid "Black"
+msgid "black"
+msgstr "ខ្មៅ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, twMoves)
+#: historywidget.ui:39 historywidget.ui:44
+#, kde-format
+msgid "New Column"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, notationLabel)
+#: historywidget.ui:57
+#, kde-format
+msgid "&Notation:"
+msgstr "ការ​កំណត់ ៖"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:68
+#, kde-format
+msgid "Short Algebraic"
+msgstr "ពីជគណិត​ខ្មី"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:73
+#, kde-format
+msgid "Long Algebraic"
+msgstr "ពីជគណិត​វែង"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:78
+#, kde-format
+msgid "Coordinate"
+msgstr "កូអរដោនេ"
+
+#: knights.cpp:94
+#, kde-format
+msgid "Custom"
+msgstr "ផ្ទាល់ខ្លួន"
+
+#: knights.cpp:138
+#, kde-format
+msgid "%1 is thinking..."
+msgstr ""
+
+#: knights.cpp:145
+#, kde-format
+msgid "Clock"
+msgstr "នាឡិកា"
+
+#: knights.cpp:176
+#, fuzzy, kde-format
+#| msgid "Move History"
+msgctxt "@title:window"
+msgid "Move History"
+msgstr "ផ្លាស់ទី​ប្រវត្តិ"
+
+#: knights.cpp:195 knights.cpp:484
+#, kde-format
+msgid "Resign"
+msgstr "ចុះចាញ់"
+
+#: knights.cpp:196
+#, kde-format
+msgid "Admit your inevitable defeat"
+msgstr "ទទួល​ស្គាល់​ការ​ចាញ់​​​ដែល​មិន​អាច​ជៀស​បាន​របស់​អ្នក"
+
+#: knights.cpp:201
+#, kde-format
+msgid "Undo"
+msgstr "មិន​ធ្វើ​វិញ"
+
+#: knights.cpp:202
+#, kde-format
+msgid "Take back your last move"
+msgstr "ថយ​ក្រោយ​ការ​ផ្លាស់ទី​ចុងក្រោយ​របស់​អ្នក"
+
+#: knights.cpp:208
+#, kde-format
+msgid "Redo"
+msgstr "ធ្វើ​វិញ"
+
+#: knights.cpp:209
+#, kde-format
+msgid "Repeat your last move"
+msgstr "ផ្លាស់ទី​ចុងក្រោយ​របស់​អ្នក​ម្ដងទៀត"
+
+#: knights.cpp:216
+#, kde-format
+msgid "Offer &Draw"
+msgstr "ផ្ដល់​​គំនូរ"
+
+#: knights.cpp:217
+#, kde-format
+msgid "Offer a draw to your opponent"
+msgstr "ផ្ដល់​​គំនូរ​​ទៅ​គូប្រជែង​របស់​អ្នក"
+
+#: knights.cpp:222
+#, kde-format
+msgid "Adjourn"
+msgstr "ផ្អាក"
+
+#: knights.cpp:223
+#, kde-format
+msgid "Continue this game at a later time"
+msgstr "បន្ត​ល្បែង​នេះ​នៅ​ពេល​ក្រោយ"
+
+#: knights.cpp:228
+#, kde-format
+msgid "Abort"
+msgstr "បោះបង់"
+
+#: knights.cpp:229
+#, kde-format
+msgid "End the game immediately"
+msgstr "បញ្ចប់​ល្បែង​រំពេច​នេះ"
+
+#: knights.cpp:233
+#, kde-format
+msgid "Show Clock"
+msgstr "បង្ហាញ​នាឡិកា"
+
+#: knights.cpp:239
+#, kde-format
+msgid "Show History"
+msgstr "បង្ហាញ​ប្រវត្តិ"
+
+#: knights.cpp:246
+#, kde-format
+msgid "Show White Console"
+msgstr "បង្ហាញ​កុងសូល​ស"
+
+#: knights.cpp:252
+#, kde-format
+msgid "Show Black Console"
+msgstr "បង្ហាញ​កុងសូល​ខ្មៅ"
+
+#: knights.cpp:258
+#, kde-format
+msgid "Show Chat"
+msgstr "បង្ហាញ​ជជែក"
+
+#: knights.cpp:297
+#, kde-format
+msgid "Open File"
+msgstr ""
+
+#: knights.cpp:298 knights.cpp:651 knights.cpp:674
+#, fuzzy, kde-format
+#| msgid "*.pgn | Portable game notation"
+msgid "Portable game notation (*.pgn)"
+msgstr "*.pgn | ការ​កំណត់​ល្បែង​ចល័ត"
+
+#: knights.cpp:462
+#, kde-format
+msgid "General"
+msgstr "ទូទៅ"
+
+#: knights.cpp:466
+#, kde-format
+msgid "Computer Engines"
+msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ"
+
+#: knights.cpp:477
+#, kde-format
+msgid "Theme"
+msgstr "រូបរាង"
+
+#: knights.cpp:484
+#, kde-format
+msgid "Do you really want to resign?"
+msgstr ""
+
+#: knights.cpp:530
+#, fuzzy, kde-format
+#| msgid "Game over"
+msgctxt "@title:window"
+msgid "Game over"
+msgstr "ល្បែង​ចប់​​ហើយ"
+
+#: knights.cpp:554
+#, kde-format
+msgid "The game ended in a draw"
+msgstr "ល្បែង​បាន​បញ្ចប់​នៅ​ពេល​អូស"
+
+#: knights.cpp:560
+#, fuzzy, kde-format
+#| msgctxt "White as in the player with white pieces"
+#| msgid "The game ended with a victory for <emphasis>White</emphasis>"
+msgctxt "White as in the player with white pieces"
+msgid "The game ended with a victory for <em>White</em>"
+msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ​ <emphasis>ស</emphasis>"
+
+#: knights.cpp:563
+#, fuzzy, kde-format
+#| msgctxt "Black as in the player with black pieces"
+#| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
+msgctxt "Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>Black</em>"
+msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>ខ្មៅ</emphasis>"
+
+#: knights.cpp:568
+#, fuzzy, kde-format
+#| msgctxt "Player name, then <White as in the player with white pieces"
+#| msgid ""
+#| "The game ended with a victory for <emphasis>%1</emphasis>, playing White"
+msgctxt "Player name, then <White as in the player with white pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing White"
+msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ស"
+
+#: knights.cpp:571
+#, fuzzy, kde-format
+#| msgctxt "Player name, then Black as in the player with black pieces"
+#| msgid ""
+#| "The game ended with a victory for <emphasis>%1</emphasis>, playing Black"
+msgctxt "Player name, then Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing Black"
+msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ខ្មៅ"
+
+#: knights.cpp:617
+#, kde-format
+msgid "%1 vs. %2"
+msgstr "%1 vs. %2"
+
+#: knights.cpp:630
+#, kde-format
+msgid ""
+"This will end your game.\n"
+"Would you like to save the move history?"
+msgstr ""
+"វា​នឹង​បញ្ចប់​ល្បែង​របស់​អ្នក ។\n"
+"តើ​អ្នក​ចង់​រក្សាទុក​ប្រវត្តិ​​ផ្លាស់ទី​ដែរ​ឬ​ទេ ។"
+
+#: knights.cpp:650
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: knights.cpp:673
+#, fuzzy, kde-format
+#| msgid "&Save History"
+msgctxt "@title:window"
+msgid "Save As"
+msgstr "រក្សាទុក​ប្រវត្តិ"
+
+#. i18n: ectx: label, entry (Theme), group (KGameTheme)
+#: knights.kcfg:9
+#, kde-format
+msgid "Theme file for the board"
+msgstr "ឯកសារ​រូបរាង​សម្រាប់​ក្ដារ"
+
+#. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
+#: knights.kcfg:15
+#, kde-format
+msgid "whether to show a confirmation dialog before discarding game history"
+msgstr "ថា​តើ​​ត្រូវ​បង្ហាញ​ប្រអប់​អះអាង មុន​ពេល​បោះបង់​ប្រវត្តិ​ល្បែង​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
+#: knights.kcfg:19
+#, kde-format
+msgid "internal variable controlling the confirm dialog"
+msgstr "ត្រួតពិនិត្យ​អថេរ​ខាងក្នុង​ប្រអប់​អះអាង"
+
+#. i18n: ectx: label, entry (animationSpeed), group (Preferences)
+#: knights.kcfg:31
+#, kde-format
+msgid "Moves animation speed"
+msgstr "ផ្លាស់​ទី​ល្បឿន​ចលនា"
+
+#. i18n: ectx: label, entry (animateBoard), group (Preferences)
+#: knights.kcfg:35
+#, kde-format
+msgid "whether the Board is animated during rotating and resizing"
+msgstr "ថា​តើ​ក្ដារ​ត្រូវ​បាន​ធ្វើ​ឲ្យ​មាន​ចលនា​ដែរ​ឬ​ទេ អំឡុង​ពេល​បង្វិល និង​ប្ដូរ​ទំហំ"
+
+#. i18n: ectx: label, entry (flipBoard), group (Preferences)
+#: knights.kcfg:39
+#, kde-format
+msgid "whether to rotate the board when in local two-player mode"
+msgstr "ថា​តើ​ត្រូវ​បង្វិល​ក្ដារ ជា​របៀប​អ្នក​លេង​ពីរ​អ្នក​​​​មូលដ្ឋាន​​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (playSounds), group (Preferences)
+#: knights.kcfg:43
+#, fuzzy, kde-format
+#| msgid "whether to log in as guest"
+msgid "whether to play move sounds"
+msgstr "ថា​តើ​ត្រូវ​ចូល​ជា​ភ្ញៀវ​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
+#: knights.kcfg:52
+#, kde-format
+msgid "chessboard border type"
+msgstr "ប្រភេទ​ស៊ុម​របស់​ក្ដារ​អុក"
+
+#. i18n: ectx: label, entry (showDanger), group (Preferences)
+#: knights.kcfg:56
+#, kde-format
+msgid "show check marker"
+msgstr "បង្ហាញ​សញ្ញា​សម្គាល់​ពិនិត្យ​មើល"
+
+#. i18n: ectx: label, entry (showMarker), group (Preferences)
+#: knights.kcfg:60
+#, kde-format
+msgid "show legal moves marker"
+msgstr "បង្ហាញ​សញ្ញា​សម្គាល់​ផ្លាស់ទី​មូលដ្ឋាន"
+
+#. i18n: ectx: label, entry (showMotion), group (Preferences)
+#: knights.kcfg:64
+#, kde-format
+msgid "show opponents move marker"
+msgstr "បង្ហាញ​សញ្ញា​សម្គាល់​​ការ​ផ្លាស់ទី​របស់​គូប្រកួត"
+
+#. i18n: ectx: label, entry (showClock), group (Preferences)
+#: knights.kcfg:68
+#, kde-format
+msgid "show clocks when time control is in use"
+msgstr "បង្ហាញ​នាឡិកា​ នៅ​ពេល​វត្ថុ​បញ្ជា​កំពុង​ប្រើ"
+
+#. i18n: ectx: label, entry (showChat), group (Preferences)
+#: knights.kcfg:72
+#, kde-format
+msgid "show chat window, if supported by the protocol"
+msgstr "បង្ហាញ​បង្អួច​ជជែក ប្រសិនបើ​បាន​គាំទ្រ​ដោយ​ពិធីការ"
+
+#. i18n: ectx: label, entry (showConsole), group (Preferences)
+#: knights.kcfg:76
+#, kde-format
+msgid "show the text console, if supported by the protocol"
+msgstr "បង្ហាញ​កុងសូល​អត្ថបទ ប្រសិនបើ​បាន​គាំទ្រ​ដោយ​ពិធីការ"
+
+#. i18n: ectx: label, entry (showHistory), group (Preferences)
+#: knights.kcfg:80
+#, kde-format
+msgid "show move history"
+msgstr "បង្ហាញ​ប្រវត្តិ​ការ​ផ្លាស់ទី"
+
+#. i18n: ectx: label, entry (timeLimit), group (Time Control)
+#: knights.kcfg:86
+#, kde-format
+msgid "initial time limit for both players"
+msgstr "ម៉ោង​កំណត់​ដំបូង​សម្រាប់​អ្នក​លេង​ទាំងពីរ"
+
+#. i18n: ectx: label, entry (timeIncrement), group (Time Control)
+#: knights.kcfg:90
+#, kde-format
+msgid "time increment per move (for Incremental time control)"
+msgstr "ចំនួន​​ពេលវេលា​បន្ថែម​ក្នុង​ការ​ផ្លាស់ទី (សម្រាប់​​ត្រួតពិនិត្យ​​ពេល​វេលា​ក្នុង​ការ​បន្ថែម)"
+
+#. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
+#: knights.kcfg:94
+#, kde-format
+msgid ""
+"the number of moves the player has to make in the specified time (for "
+"Conventional time control)"
+msgstr ""
+"ចំនួន​ក្នុង​ការ​ផ្លាស់ទី​អ្នក​លេង​ត្រូវ​បាន​ធ្វើ​​នៅ​ពេល​វេលា​ដែល​បាន​បញ្ជាក់ (សម្រាប់​ការ​ត្រួតពិនិត្យ​នៅ​ពេលវេលា​"
+"ធម្មតា)"
+
+#. i18n: ectx: label, entry (timeEnabled), group (Time Control)
+#: knights.kcfg:98
+#, kde-format
+msgid "whether time limits are enabled and displayed"
+msgstr "ថា​តើ​ការ​កំណត់​ពេលវេលា​ត្រូវ​បាន​បើក និង​បិទ​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (player1Protocol), group (Protocols)
+#. i18n: ectx: label, entry (player2Protocol), group (Protocols)
+#: knights.kcfg:108 knights.kcfg:117
+#, kde-format
+msgid "protocol to be used for player 1"
+msgstr "ពិធីការ​ត្រូវ​បាន​ប្រើ​សម្រាប់​អ្នក​លេង​ ១"
+
+#. i18n: ectx: label, entry (color), group (Protocols)
+#: knights.kcfg:126
+#, kde-format
+msgid ""
+"the local human player's color in a game against a computer or over the "
+"Internet."
+msgstr "ពណ៌​របស់​អ្នក​លេង​ល្បែង​មូលដ្ឋាន​​​នៅ​លើ​កុំព្យូទ័រ ឬ​លើ​អ៊ីនធឺណិត ។​​"
+
+#. i18n: ectx: label, entry (programs), group (Protocols)
+#: knights.kcfg:130
+#, kde-format
+msgid "list of programs to run for playing against the computer"
+msgstr "រាយ​បញ្ជី​របស់​កម្មវិធី​ ដើម្បី​ដំណើរការ​លេង​ប្រឆាំង​នឹង​កុំព្យូទ័រ"
+
+#. i18n: ectx: label, entry (player1Program), group (Protocols)
+#: knights.kcfg:134
+#, kde-format
+msgid "the last selected program for player 1"
+msgstr "កម្មវិធី​ដែល​បាន​ចុង​ក្រោយ​សម្រាប់​អ្នក​លេង ១"
+
+#. i18n: ectx: label, entry (player2Program), group (Protocols)
+#: knights.kcfg:138
+#, kde-format
+msgid "the last selected program for player 2"
+msgstr "កម្មវិធី​ដែល​បាន​ជ្រើស​ចុងក្រោយ​សម្រាប់​អ្នក​លេង ២"
+
+#. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
+#: knights.kcfg:142
+#, kde-format
+msgid ""
+"the search depth of computer engines, when the difficulty is set to "
+"Configurable"
+msgstr "ស្វែងរក​ជម្រៅ​ម៉ាស៊ីន​កុំព្យូទ័រ នៅ​ពេល​មាន​ភាព​ពិបាក​ក្នុង​​ការ​កំណត់​រចនាសម្ព័ន្ធ"
+
+#. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
+#: knights.kcfg:146
+#, kde-format
+msgid ""
+"the memory size used by computer engines, when the difficulty is set to "
+"Configurable"
+msgstr "ទំហំ​អង្គ​ចងចាំ​ដែល​បាន​ប្រើ​ដោយ​ម៉ាស៊ីន​កុំព្យូទ័រ នៅ​ពេល​មាន​ភាព​ពិបាក​ក្នុង​ការ​កំណត់​រចនាសម្ព័ន្ធ"
+
+#. i18n: ectx: label, entry (servers), group (Protocols)
+#: knights.kcfg:150
+#, kde-format
+msgid "list of servers for playing over the Internet"
+msgstr "រាយ​បញ្ជី​ម៉ាស៊ីន​បម្រើ​សម្រាប់​លេង​នៅ​លើ​អ៊ីនធឺណិត"
+
+#. i18n: ectx: label, entry (currentServer), group (Protocols)
+#: knights.kcfg:154
+#, kde-format
+msgid "the last selected server"
+msgstr "ម៉ាស៊ីន​បម្រើ​ដែល​បាន​ជ្រើស​ចុងក្រោយ"
+
+#. i18n: ectx: label, entry (ficsUsername), group (Protocols)
+#: knights.kcfg:158
+#, kde-format
+msgid "username for the Free Internet Chess Server"
+msgstr "ឈ្មោះ​អ្នក​ប្រើ​​សម្រាប់​ម៉ាស៊ីន​បម្រើ​អុក​អ៊ីនធឺណិត​​ឥត​គិត​ថ្មី"
+
+#. i18n: ectx: label, entry (guest), group (Protocols)
+#: knights.kcfg:162
+#, kde-format
+msgid "whether to log in as guest"
+msgstr "ថា​តើ​ត្រូវ​ចូល​ជា​ភ្ញៀវ​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (autoLogin), group (Protocols)
+#: knights.kcfg:166
+#, kde-format
+msgid "whether to log in to chess server automatically"
+msgstr "ថា​តើ​ត្រូវ​ចូល​ទៅកាន់​ម៉ាស៊ីន​បម្រើ​អុក​ដោយ​ស្វ័យ​ប្រវត្តិ​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: label, entry (computerDelay), group (Protocols)
+#: knights.kcfg:170
+#, kde-format
+msgid "delay before a computer's move is reported, in milliseconds"
+msgstr "ពន្យារពេល មុន​ពេល​ការ​ផ្លាស់ទី​របស់​កុំព្យូទ័រ​ត្រូវ​បាន​រាយការណ៍ គិត​ជា​វិនាទី"
+
+#. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
+#: knights.kcfg:174
+#, kde-format
+msgid "stored configurations of engine-specific settings"
+msgstr "ទុក​ការ​កំណត់​រចនាសម្ព័ន្ធ​​ក្នុង​ការ​កំណត់​ម៉ាស៊ីន​ជាក់លាក់"
+
+#. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
+#: knights.kcfg:180
+#, kde-format
+msgid "whether opponents' moves are spoken by Jovie"
+msgstr "ថា​តើ​ការ​ផ្លាស់ទី​របស់​គូប្រជែង​ត្រូវ​បាន​និយាយ​ដោយ Jovie"
+
+#. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
+#: knights.kcfg:184
+#, kde-format
+msgid "whether commands over D-Bus are accepted"
+msgstr "ថា​តើ​ពាក្យ​បញ្ជា​នៅ​លើ D-Bus ត្រូវ​បាន​ព្រម​ទទួល​ដែរ​ឬ​ទេ"
+
+#. i18n: ectx: Menu (move)
+#: knightsui.rc:22
+#, kde-format
+msgid "Move"
+msgstr "ផ្លាស់ទី"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knightsui.rc:38
+#, kde-format
+msgid "Main Toolbar"
+msgstr "របារ​ឧបករណ៍​មេ"
+
+#. i18n: ectx: ToolBar (actionsToolbar)
+#: knightsui.rc:45
+#, kde-format
+msgid "Game Actions Toolbar"
+msgstr "របារ​ឧបករណ៍​សកម្មភាព​ល្បែង"
+
+#. i18n: ectx: ToolBar (dockToolBar)
+#: knightsui.rc:58
+#, kde-format
+msgid "Dockable Windows Toolbar"
+msgstr "របារ​ឧបករណ៍​វីនដូ​ដែល​អាច​ចត​បាន"
+
+#: knightsview.cpp:91
+#, kde-format
+msgid "Settings changed"
+msgstr "បាន​ផ្លាស់ប្ដូរ​ការ​កំណត់"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
+#: knightsview_base.ui:14 main.cpp:50
+#, kde-format
+msgid "Knights"
+msgstr "Knights"
+
+#: main.cpp:52
+#, kde-format
+msgid "KDE Chess Board"
+msgstr ""
+
+#: main.cpp:53
+#, fuzzy, kde-format
+#| msgid "(C) 2009-2011 Miha Čančula"
+msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៩-២០១១ ដោយ Miha Čančula"
+
+#: main.cpp:56
+#, kde-format
+msgid "Alexander Semke"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "Miha Čančula"
+msgstr "Miha Čančula"
+
+#: main.cpp:59
+#, kde-format
+msgid "Troy Corbin"
+msgstr "Troy Corbin"
+
+#: main.cpp:59
+#, kde-format
+msgid "Original Knights for KDE3 and theme author"
+msgstr "Knights ដើម​សម្រាប់ KDE3 និង​អ្នក​និពន្ធ​​"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dave Kaye"
+msgstr "Dave Kaye"
+
+#: main.cpp:61
+#, kde-format
+msgid "Help with new theme features and rendering without KGameRenderer"
+msgstr "ជំនួយ​ដែល​មាន​លក្ខណ​ពិសេស​រូបរាង​ថ្មី និង​​ការ​ផ្ដល់​នូវ​​ដែល​គ្មាន KGameRenderer"
+
+#: main.cpp:62
+#, kde-format
+msgid "Thomas Kamps"
+msgstr "Thomas Kamps"
+
+#: main.cpp:62
+#, kde-format
+msgid "Clock displaying the remaining time"
+msgstr "នាឡិកា​បង្ហាញ​ពេលវេលា​ដែល​សល់"
+
+#: main.cpp:69
+#, kde-format
+msgid "Document to open"
+msgstr "ឯកសារ​ត្រូវ​បើក"
+
+#. i18n: ectx: property (text), widget (QPushButton, acceptButton)
+#: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
+#: proto/ficsprotocol.cpp:192
+#, kde-format
+msgid "Accept"
+msgstr "ព្រមទទួល"
+
+#. i18n: ectx: property (text), widget (QPushButton, declineButton)
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#, kde-format
+msgid "Decline"
+msgstr "បដិសេធ"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: popup.ui:51
+#, kde-format
+msgid "Close"
+msgstr "បិទ"
+
+#. i18n: ectx: property (title), widget (QGroupBox, external_box)
+#: prefs_access.ui:17
+#, kde-format
+msgid "External Programs"
+msgstr "កម្មវិធី​​ខាងក្រៅ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
+#: prefs_access.ui:23
+#, kde-format
+msgid "Speak opponent's moves"
+msgstr "បញ្ជាក់​ការ​ផ្លាស់ទី​របស់​គូប្រជែង"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
+#: prefs_access.ui:30
+#, kde-format
+msgid "Allow other programs to control Knights"
+msgstr "អនុញ្ញាត​​ឲ្យ​កម្មវិធី​ផ្សេង​ទៀត​ត្រួតពិនិត្យ​សេស"
+
+#. i18n: ectx: property (title), widget (QGroupBox, animationGroup)
+#: prefs_base.ui:17
+#, kde-format
+msgid "Animations"
+msgstr "ចលនា"
+
+#. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
+#: prefs_base.ui:23
+#, fuzzy, kde-format
+#| msgid "Animation &speed:"
+msgid "&Animation speed:"
+msgstr "ចលនា និង​ល្បឿន. ៖"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:34
+#, kde-format
+msgid "Instant (no animation)"
+msgstr "(គ្មាន​ចលនា) មួយស្របក់"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:39
+#, kde-format
+msgid "Fast"
+msgstr "លឿន"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:44
+#, kde-format
+msgid "Normal"
+msgstr "ធម្មតា"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:49
+#, kde-format
+msgid "Slow"
+msgstr "យឺត"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_animateBoard)
+#: prefs_base.ui:57
+#, kde-format
+msgid "Animate the board as well"
+msgstr "ធ្វើ​ឲ្យ​មាន​ចលនា​ក្ដារ​ដូច​គ្នា"
+
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: prefs_base.ui:67
+#, kde-format
+msgid "Appearance"
+msgstr "រូបរាង"
+
+#. i18n: ectx: property (text), widget (QLabel, showMarkersForLabel)
+#: prefs_base.ui:76
+#, kde-format
+msgid "Show &markers for:"
+msgstr "បង្ហាញ​កម្មវិធី​​សញ្ញា​សម្គាល់​សម្រាប់ ៖"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
+#: prefs_base.ui:86
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Legal moves"
+msgstr "ផ្លាស់ទី​មូលដ្ឋាន"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
+#: prefs_base.ui:99
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Opponent's move"
+msgstr "​ការ​ផ្លាស់ទី​របស់​គូប្រជែង"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
+#: prefs_base.ui:109
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Check"
+msgstr "ពិនិត្យមើល"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: prefs_base.ui:119
+#, kde-format
+msgid "Border display:"
+msgstr "បង្ហាញ​ស៊ុម ៖"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:127
+#, kde-format
+msgid "No borders"
+msgstr "គ្មាន​ស៊ុម"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:132
+#, kde-format
+msgid "Only borders"
+msgstr "តែ​ស៊ុម​ប៉ុណ្ណោះ"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:137
+#, kde-format
+msgid "Borders and notation"
+msgstr "ស៊ុម និង​ការ​កំណត់"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: prefs_base.ui:148
+#, kde-format
+msgid "Behavior"
+msgstr "ឥរិយាបថ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_playSounds)
+#: prefs_base.ui:154
+#, kde-format
+msgid "Play sounds"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
+#: prefs_base.ui:161
+#, kde-format
+msgid "Flip the board in local matches between humans"
+msgstr "ត្រឡប់​ក្ដារ​ក្នុង​ការ​ផ្គូផ្គង​មូលដ្ឋាន​រវាង​មនុស្ស"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
+#: prefs_base.ui:168
+#, kde-format
+msgid "Show confirmation dialog before closing"
+msgstr "បង្ហាញ​ប្រអប់​ក្នុង​ការ​អះអាង មុន​ពេល​បិទ"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
+#: promotiondialog.ui:14
+#, kde-format
+msgid "Pawn Promotion"
+msgstr "ការ​បង្កើន​ត្រី"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: promotiondialog.ui:26
+#, kde-format
+msgid "Promote pawn to:"
+msgstr "បង្កើន​ត្រី​ទៅកាន់ ។"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
+#: promotiondialog.ui:40
+#, fuzzy, kde-format
+#| msgid "Queen"
+msgid "&Queen"
+msgstr "ស្ដេចស្រី"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
+#: promotiondialog.ui:56
+#, kde-format
+msgid "Roo&k"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
+#: promotiondialog.ui:69
+#, fuzzy, kde-format
+#| msgid "Bishop"
+msgid "B&ishop"
+msgstr "ឆ្នៀង​​"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
+#: promotiondialog.ui:82
+#, fuzzy, kde-format
+#| msgid "Knight"
+msgid "&Knight"
+msgstr "សេស"
+
+#: proto/chatwidget.cpp:62
+#, kde-format
+msgid " says: "
+msgstr "ការ​និយាយ ៖"
+
+#: proto/chatwidget.cpp:95
+#, kde-format
+msgid "You: "
+msgstr "អ្នក ៖"
+
+#. i18n: ectx: property (text), widget (QPushButton, sendButton)
+#: proto/chatwidget.ui:20
+#, kde-format
+msgid "Send"
+msgstr "ផ្ញើ"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButton)
+#: proto/chatwidget.ui:51
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#: proto/computerprotocol.cpp:36
+#, kde-format
+msgid ""
+"Program <code>%1</code> could not be started, please check that it is "
+"installed."
+msgstr "មិន​អាច​ចាប់ផ្ដើម​កម្មវិធី <code>%1</code>បាន​ទេ សូម​ពិនិត្យមើល​ថា​វា​ត្រូវ​បាន​ដំឡើង​រួចហើយ ។"
+
+#: proto/computerprotocol.cpp:51
+#, kde-format
+msgid "Console for %1 (%2)"
+msgstr "កុងសូល​សម្រាប់ %1 (%2)"
+
+#: proto/ficsdialog.cpp:58
+#, kde-format
+msgid "Session started"
+msgstr "បាន​ចាប់ផ្ដើម​សម័យ"
+
+#: proto/ficsdialog.cpp:69
+#, kde-format
+msgid "Logging in..."
+msgstr "កំពុង​ចូល..."
+
+#: proto/ficsdialog.cpp:110
+#, kde-format
+msgctxt "PlayerName (rating)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: proto/ficsdialog.cpp:168
+#, kde-format
+msgid "<font color='red'>Error: %1</font>"
+msgstr "<font color='red'>កំហុស ៖ %1</font>"
+
+#. i18n: ectx: attribute (title), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:33
+#, kde-format
+msgid "Account"
+msgstr "គណនី"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:36
+#, kde-format
+msgid "Log in to the chess server"
+msgstr "ចូល​ទៅ​កាន់​ម៉ាស៊ីន​បម្រើ​អុក"
+
+#. i18n: ectx: property (text), widget (QLabel, usernameLabel)
+#: proto/ficsdialog.ui:55
+#, fuzzy, kde-format
+#| msgid "&Username"
+msgid "&Username:"
+msgstr "ឈ្មោះ​អ្នក​ប្រើ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
+#: proto/ficsdialog.ui:72
+#, kde-format
+msgid "This is a registered account"
+msgstr "នេះ​ជា​គណនី​ដែល​បាន​ចុះឈ្មោះ"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: proto/ficsdialog.ui:82
+#, fuzzy, kde-format
+#| msgid "&Password"
+msgid "&Password:"
+msgstr "ពាក្យ​សម្ងាត់"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
+#: proto/ficsdialog.ui:102
+#, kde-format
+msgid "Log me in automatically"
+msgstr "ខ្ញុំ​ចូល​ដោយ​ស្វ័យប្រវត្តិ"
+
+#. i18n: ectx: property (text), widget (QPushButton, logInButton)
+#: proto/ficsdialog.ui:109
+#, kde-format
+msgid "Log in"
+msgstr "ចូល"
+
+#. i18n: ectx: property (text), widget (QPushButton, registerButton)
+#: proto/ficsdialog.ui:129
+#, kde-format
+msgid "Create an account"
+msgstr "បង្កើត​គណនី"
+
+#. i18n: ectx: attribute (title), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:153
+#, kde-format
+msgid "Seek List"
+msgstr "ស្វែងរក​បញ្ជី"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:156
+#, kde-format
+msgid "Current ads arranged in a list"
+msgstr "បាន​រៀបចំ ads បច្ចុប្បន្ន​នៅ​ក្នុង​បញ្ជី"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:199
+#, kde-format
+msgid "Player"
+msgstr "អ្នក​លេង"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:204
+#, kde-format
+msgid "Rating"
+msgstr "ការ​វាយ​តម្លៃ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:209
+#, kde-format
+msgid "Time"
+msgstr "ពេលវេលា"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:214
+#, kde-format
+msgid "Increment"
+msgstr "ចំនួន​បន្ថែម"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:219
+#, kde-format
+msgid "Rated"
+msgstr "បាន​វាយ​តម្លៃ"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:224
+#, kde-format
+msgid "Variant"
+msgstr "ផ្សេង​គ្នា"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:229
+#, kde-format
+msgid "Your color"
+msgstr "ពណ៌​របស់​អ្នក"
+
+#. i18n: ectx: attribute (title), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:238
+#, kde-format
+msgid "Seek Graph"
+msgstr "ក្រាហ្វ​ស្វែងរក"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:241
+#, kde-format
+msgid "Current ads arranged by rating and duration"
+msgstr "បាន​រៀបចំ​ ads បច្ចុប្បន្ន​​តាម​ការ​វាយតម្លៃ និង​ពេលវេលា"
+
+#. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:258
+#, kde-format
+msgid "Challenges"
+msgstr "ការ​ប្រកួត"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:261
+#, kde-format
+msgid "Post an ad for other players"
+msgstr "ប្រកាស និង​បន្ថែម​សម្រាប់​អ្នក​លេង​​ផ្សេងៗ​ទៀត"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
+#: proto/ficsdialog.ui:267
+#, kde-format
+msgid "Rated match"
+msgstr "ការផ្គូផ្គង​ដែល​បាន​វាយ​តម្លៃ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
+#: proto/ficsdialog.ui:274
+#, kde-format
+msgid "Automatically start the game"
+msgstr "ចាប់ផ្ដើម​ល្បែង​ដោយ​ស្វ័យប្រវត្តិ"
+
+#. i18n: ectx: property (text), widget (QPushButton, seekButton)
+#: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
+#, kde-format
+msgctxt "Start searching for opponents"
+msgid "Seek"
+msgstr "ស្វែងរក"
+
+#. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:295
+#, kde-format
+msgid "Console"
+msgstr "កុងសូល"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:298
+#, kde-format
+msgid "Use custom commands"
+msgstr "ប្រើ​ពាក្យ​បញ្ជា​ផ្ទាល់ខ្លួន"
+
+#: proto/ficsprotocol.cpp:117
+#, kde-format
+msgctxt "Stop searching for opponents"
+msgid "Unseek"
+msgstr "មិន​ស្វែងរក"
+
+#: proto/ficsprotocol.cpp:119
+#, kde-format
+msgid "Help"
+msgstr "ជំនួយ"
+
+#: proto/ficsprotocol.cpp:140
+#, kde-format
+msgid "Server Console"
+msgstr "កុងសូល​ម៉ាស៊ីន​បម្រើ"
+
+#: proto/ficsprotocol.cpp:152
+#, kde-format
+msgid "Chat with %1"
+msgstr "ជជែក​ជាមួយ %1"
+
+#: proto/ficsprotocol.cpp:181
+#, kde-format
+msgid "Login failed"
+msgstr "ចូល​បាន​បរាជ័យ"
+
+#: proto/ficsprotocol.cpp:187
+#, fuzzy, kde-format
+#| msgid "Chess server"
+msgctxt "@title:window"
+msgid "Chess server"
+msgstr "ម៉ាស៊ីន​បម្រើ​អុក"
+
+#: proto/ficsprotocol.cpp:278
+#, kde-format
+msgid "Invalid Password"
+msgstr "ពាក្យ​សម្ងាត់​មិន​ត្រឹមត្រូវ"
+
+#: proto/protocol.cpp:54
+#, kde-format
+msgid "No Error"
+msgstr "គ្មាន​កំហុស"
+
+#: proto/protocol.cpp:57
+#, kde-format
+msgid "User Canceled"
+msgstr "បាន​បោះបង់​អ្នក​ប្រើ"
+
+#: proto/protocol.cpp:60
+#, kde-format
+msgid "Network Error"
+msgstr "កំហុស​បណ្ដាញ"
+
+#: proto/protocol.cpp:63
+#, kde-format
+msgid "Unknown Error"
+msgstr "មិន​ស្គាល់​កំហុស"
+
+#: proto/protocol.cpp:66
+#, kde-format
+msgid "Program Error"
+msgstr "កំហុស​កម្មវិធី"
+
+#: proto/seekgraph.cpp:26
+#, kde-format
+msgid "Time limit [minutes]"
+msgstr "ម៉ោង​កំណត់ [នាទី]"
+
+#: proto/seekgraph.cpp:27
+#, kde-format
+msgid "Opponent's rating"
+msgstr "ការ​វាយ​តម្លៃ​របស់​អ្នក​ប្រឆាំង"
+
+#~ msgid "Accessibility"
+#~ msgstr "មធ្យោបាយ​ងាយស្រួល"
+
+#, fuzzy
+#~| msgid "Chess board based on KDE Development Platform 4"
+#~ msgid "Chess board based on KF5"
+#~ msgstr "ក្ដារ​អុក​ផ្អែក​លើ​កម្មវិធី​ការ​អភិវឌ្ឍន៍​ ៤ របស់ KDE"
+
+#~ msgid "This feature is not yet implemented in Knights"
+#~ msgstr "លក្ខណ​ពិសេស​នេះ​មិន​ទាន់​បាន​ប្រតិបត្តិ​នៅ​ក្នុង Knights​ ​នៅ​ឡើង​ទេ"
+
+#~ msgid "Invalid interface"
+#~ msgstr "ចំណុច​ប្រទាក់​មិន​ត្រឹមត្រូវ"
+
+#~ msgid "H:mm:ss"
+#~ msgstr "H:mm:ss"
+
+#~ msgid "Configure Engines"
+#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ​ម៉ាស៊ីន"
+
+#, fuzzy
+#~| msgid "Knights"
+#~ msgid "KNights"
+#~ msgstr "Knights"
+
+#~ msgid "&Save History"
+#~ msgstr "រក្សាទុក​ប្រវត្តិ"
+
+#~ msgid "Rook"
+#~ msgstr "ទូក"

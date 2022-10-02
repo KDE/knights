@@ -1,0 +1,1032 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY i18n-knights "<application
+>Escacs</application
+>">
+  <!ENTITY kappversion "2.6.2"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+  <bookinfo>
+    <title
+>El manual del &knights;</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Miha</firstname
+> <surname
+>Čančula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+          </address>
+        </affiliation>
+      </author>
+      &traductor.Antoni.Bella; 
+
+    </authorgroup>
+    <copyright>
+      <year
+>2011</year>
+      <holder
+>Miha Čančula</holder>
+    </copyright>
+
+    <legalnotice
+>&FDLNotice;
+    </legalnotice>
+
+    <date
+>13 d'octubre de 2021</date
+><!-- Date of (re)writing, or update.-->
+    <releaseinfo
+>&kappversion; (KDE Gear 21.08)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+    <abstract>
+      <para
+>Aquesta documentació descriu el joc &i18n-knights; versió &kappversion;</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword
+><!-- do not change this! -->
+      <keyword
+>partida</keyword
+><!-- do not change this! -->
+      <keyword
+>tauler</keyword>
+      <keyword
+>escacs</keyword>
+      <keyword
+>Knights</keyword>
+    </keywordset>
+
+  </bookinfo>
+
+  <chapter id="introduction">
+    <title
+>Introducció</title>
+
+    <note>
+      <title
+>Tipus de joc:</title>
+      <para
+>Tauler</para>
+    </note>
+
+    <note>
+      <title
+>Nombre de possibles jugadors:</title>
+      <para
+>Un o dos</para>
+    </note>
+
+    <para
+>El &i18n-knights; és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</para>
+  </chapter>
+
+  <chapter id="how-to-play"
+><title
+>Com es juga</title
+> <!-- do not change this! -->
+    <!--Describe the objective of the game.-->
+    <sect1 id="objective">
+      <title
+>Objectiu</title>
+
+      <para
+>Moure les vostres peces, capturant les peces de l'adversari fins que el rei de l'adversari estigui sota atac i no tingui moviment per a aturar-ho -això s'anomena <quote
+>escac i mat</quote
+>-.</para>
+
+      <para
+>Si us sembla que no podeu guanyar, podeu jugar per a fer taules (empat). Movent les vostres peces fins que no tingueu moviments legals i que el vostre rei no resti sota atac -s'anomena <quote
+>punt mort</quote
+>-. Hi poden haver disponibles altres formes de fer taules depenent de les regles dels escacs que seguiu per a la partida.</para>
+    </sect1>
+
+    <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+    <sect1 id="starting-the-game">
+      <title
+>Començar la partida</title>
+
+      <para
+>En iniciar el programa o quan l'usuari selecciona <menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+></menuchoice
+>, es mostrarà un diàleg. En aquest diàleg, és possible especificar contra qui jugareu, el vostre color i els terminis.</para>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Partida nova»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-newgame-dialog.png" format="PNG"/></imageobject>
+          <caption
+>El diàleg «Partida nova»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Si voleu jugar contra un amic en el mateix ordinador, seleccioneu <guilabel
+>Humà (vós)</guilabel
+> per al <guilabel
+>Jugador 1</guilabel
+> i <guilabel
+>Humà</guilabel
+> per al <guilabel
+>Jugador 2</guilabel
+>.</para>
+
+      <para
+>Si voleu jugar contra l'ordinador, seleccioneu <guilabel
+>Humà (vós)</guilabel
+> per al <guilabel
+>Jugador 1</guilabel
+> i <guilabel
+>Motor de l'ordinador:</guilabel
+> per al <guilabel
+>Jugador 2</guilabel
+>. Des d'aquesta llista desplegable, escolliu el programa contra el qual us agradaria jugar i assegureu-vos que el programa especificat es troba instal·lat al vostre sistema, així com que és compatible amb els protocols XBoard o <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>Si heu instal·lat un motor d'escacs, però no apareix a la llista, feu clic al botó <guibutton
+>Configura...</guibutton
+> i afegiu-hi el motor. Per a obtenir més informació sobre aquest diàleg, vegeu <link linkend="configuration-engines"
+>Motors d'ordinador</link
+>.</para>
+
+      <note
+><para
+>Encara que el programa aparegui en el diàleg, no voldrà dir que està instal·lat. Assegureu-vos d'instal·lar qualsevol motor d'escacs contra el que vulgueu jugar. Podeu comprovar si un motor està o no instal·lat al vostre sistema en el diàleg <guilabel
+>Motors d'escacs</guilabel
+>.</para
+></note>
+
+      <para
+>Si voleu jugar contra algú a través d'Internet, seleccioneu <guilabel
+>Humà (vós)</guilabel
+> per al <guilabel
+>Jugador 1</guilabel
+> i <guilabel
+>Servidor d'escacs:</guilabel
+> per al <guilabel
+>Jugador 2</guilabel
+>. Abans de poder jugar haureu d'iniciar una sessió al servidor i trobar un adversari. El servidor d'escacs lliure d'Internet (<ulink url="https://www.freechess.org/"
+>FreeChess.org</ulink
+>) permet clients, però haureu de registrar-vos per a jugar partides que afectin la vostra qualificació.</para>
+
+      <para
+>També podeu veure jugar dos programes un contra l'altra, seleccionant <guilabel
+>Motor de l'ordinador:</guilabel
+> per a ambdós jugadors.</para>
+
+      <para
+>De manera similar, podeu fer jugar un motor d'ordinador contra un adversari en un servidor d'escacs. No obstant això, cal tenir en compte que el servidor d'escacs pot tenir una política respecte a la partida. El servidor d'escacs lliure d'Internet es troba <ulink url="https://www.freechess.org/Help/HelpFiles/computers.html"
+>aquí</ulink
+>.</para>
+
+      <para
+>La casella de selecció <guilabel
+>Usa el control de temps</guilabel
+> permet el vostre torn sobre un comptador de temps opcional. El &i18n-knights; utilitza el comptador de temps d'escacs estàndard, el qual té tres paràmetres dins de botons de selecció de valors:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+><guilabel
+>Període del control de temps:</guilabel
+> especifica el nombre de moviments després que el <guilabel
+>Límit de temps inicial:</guilabel
+> és afegit al rellotge del jugador. Podeu desactivar aquesta acció establint el valor a zero.</para>
+        <note
+><para
+>Aquesta opció no estarà disponible quan es juga sobre un servidor d'escacs.</para
+></note
+><para/></listitem>
+        <listitem
+><para
+>El <guilabel
+>Límit de temps inicial:</guilabel
+> és la quantitat de temps amb el que comencen els jugadors.</para
+></listitem>
+        <listitem
+><para
+><guilabel
+>Increment per moviment:</guilabel
+> especifica quant temps s'afegirà al rellotge del jugador després de cada moviment que faci. Es pot establir amb seguretat a zero per a desactivar l'increment del temps del rellotge.</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>Després premeu el botó <guibutton
+>D'acord</guibutton
+> i es tancarà el diàleg. Si heu seleccionat un jugador en un servidor d'escacs, haureu d'iniciar una sessió i trobar al vostre adversari. En cas contrari, la partida començarà immediatament.</para>
+
+      <note
+><para
+>El &i18n-knights; carregarà un tema predeterminat de forma automàtica una vegada inicieu la partida i podreu començar a jugar immediatament.</para
+></note>
+    </sect1>
+
+    <sect1 id="server-dialog">
+      <title
+>El diàleg del servidor d'escacs</title>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Servidor d'escacs»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-account.png" format="PNG"/></imageobject>
+          <caption
+>La pestanya «Compte»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Si opteu per jugar sobre un servidor d'escacs, primer haureu d'iniciar una sessió al servidor. Si disposeu d'un compte al servidor, escriviu el vostre nom d'usuari i contrasenya, i seleccioneu la casella de selecció <guilabel
+>Aquest és un compte enregistrat</guilabel
+>. En cas contrari, escriviu un nom d'usuari de la vostra elecció i premeu el botó <guibutton
+>Accés</guibutton
+>.</para>
+
+      <para
+>Hi ha dues maneres de triar l'adversari. O bé anunciar la vostra partida (s'anomena <quote
+>cercar</quote
+>) o respondre a algú altre.</para>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Servidor d'escacs»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-challenges.png" format="PNG"/></imageobject>
+          <caption
+>La pestanya «Desafiaments»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Per al vostre propi anunci, aneu a la pestanya <guilabel
+>Desafiaments</guilabel
+> i premeu el botó <guibutton
+>Cerca d'adversaris</guibutton
+>. Si heu marcat <guilabel
+>Engega automàticament la partida</guilabel
+>, una vegada que un jugador accepti la vostra cerca d'adversari, la partida començarà immediatament. En cas contrari, haureu d'acceptar el desafiament de forma manual, seleccionant-lo des de la llista i prement el botó <guibutton
+>D'acord</guibutton
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Servidor d'escacs»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-list.png" format="PNG"/></imageobject>
+          <caption
+>La pestanya «Llista de cerca»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Per a respondre a la cerca d'adversaris d'altres persones, utilitzeu les pestanyes <guilabel
+>Llista de cerca</guilabel
+> o <guilabel
+>Gràfic de cerca</guilabel
+>. A cada pestanya, seleccioneu l'adversari fent clic sobre seu i després premeu el botó <guibutton
+>D'acord</guibutton
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Servidor d'escacs»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
+          <caption
+>La pestanya «Gràfic de cerca»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>El gràfic mostra tots els adversaris actualment disponibles, disposats segons la qualificació de l'adversari i la durada de la partida. En fer clic sobre un punt en el gràfic acceptareu l'adversari.</para>
+
+      <note
+><para
+>Per a un ús avançat, el &i18n-knights; ofereix accés directe a la consola del servidor. Seleccioneu la pestanya <guilabel
+>Consola</guilabel
+> per a emprar-la.</para
+></note>
+    </sect1>
+
+    <sect1 id="playing-the-game">
+      <title
+>Jugar la partida</title>
+
+      <para
+>Les peces es mouen fent clic sobre seu i arrossegant-les cap al lloc desitjat. Només podreu moure una peça si és vostra i si és el vostre torn, i si en moure aquesta peça no poseu en perill immediat al vostre rei.</para>
+
+      <para
+>El &i18n-knights; segueix les regles estàndards dels escacs, així que no podreu fer cap moviment il·legal.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="rules_and_tips">
+    <title
+>Regles, estratègies i consells de la partida</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+    <sect1 id="standard-rules">
+      <title
+>Regles estàndards</title>
+
+      <para
+>El conjunt principal de regles per als escacs són establertes per la Federació Mundial d'Escacs (World Chess Federation - FIDE-). Altres grups nacionals i locals poden fer petites modificacions a les regles. En general, les principals diferències entre les normes es troben en el cronometratge o els tipus de taules permeses -la partida i el moviment de les peces són els mateixos. El &i18n-knights; implementa els escacs estàndard i té una certa flexibilitat sobre el control del temps.</para>
+
+      <para
+>Hi ha moltes variants d'escacs estàndard. Una font ha trobat més de 2000 variants diferents del joc. Les variants més importants són Fischer Random, Bughouse, Crazyhouse i Suïcidi. Les variants tenen diferents regles sobre la captura de la peça, moviment de les peces, final de la partida i el retorn de les peces a la partida. El &i18n-knights; no admet aquestes variants dels escacs.</para>
+      <para
+>Les regles completes dels escacs clàssics es poden trobar a:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+>Federació Internacional d'Escacs -World Chess Federation, FIDE- (<ulink url="https://www.fide.com/"
+>fide.com</ulink
+>)</para
+></listitem>
+        <listitem
+><para
+>Federació d'Escacs dels Estats Units -United States Chess Federation, USCF- (<ulink url="https://new.uschess.org/"
+>main.uschess.org</ulink
+>)</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>Les regles i informació general sobre els escacs es poden trobar a:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+>A la <ulink url="https://en.wikipedia.org/wiki/Rules_of_chess"
+>Wikipedia</ulink
+> o a la <ulink url="https://ca.wikipedia.org/wiki/Reglament_dels_escacs"
+>Viquipèdia</ulink
+>&nbsp;</para
+></listitem>
+      </itemizedlist>
+    </sect1>
+
+    <sect1 id="board">
+      <title
+>Tauler d'escacs</title>
+      <sect2 id="board-layout">
+        <title
+>Disposició del tauler</title>
+
+        <para
+>Un tauler d'escacs consisteix en 64 caselles iguals disposades en vuit files i vuit columnes. Les caselles estan disposades en dos colors alternats, el blanc i el negre. S'empren materials diferents en els taulers d'escacs, de manera que el material de color més clar es coneix com a blanques i el material més fosc es coneix com a negres.</para>
+
+        <para
+>Parts del tauler es coneixen amb noms especials:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Fila: Les vuit files horitzontals del tauler d'escacs s'anomenen files.</para
+></listitem>
+          <listitem
+><para
+>Columna: Les vuit columnes verticals del tauler d'escacs s'anomenen columnes.</para
+></listitem>
+          <listitem
+><para
+>Diagonal: Una línia recta de caselles del mateix color que discorren en un angle des d'un extrem del tauler fins a un altre s'anomena diagonal.</para
+></listitem>
+          <listitem
+><para
+>Centre: Les quatre caselles al centre del tauler s'anomenen centre.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Cada casella individual té un nom, de manera que es pot mantenir un registre dels moviments de la partida. Existeixen diversos sistemes de nomenclatura, però la <quote
+>notació algebraica</quote
+> és la més popular i és el sistema oficial. En aquest sistema, cada casella s'anomena per la fila i la columna on es troba. Les files són numerades de l'1 fins al 8 començant pel costat blanc del tauler i cap al costat negre del tauler. Les columnes s'etiqueten amb lletres minúscules de la «a» a la «h» d'esquerra a dreta segons el punt de vista del jugador blanc. La casella porta el nom de la lletra seguida pel número. D'aquesta manera, la casella de la cantonada inferior esquerra es coneix com a «a1». L'estructura de la nomenclatura es pot veure en el següent diagrama:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="board-setup">
+        <title
+>Configuració inicial</title>
+
+        <para
+>El tauler d'escacs es gira de manera que hi hagi una casella blanca a la primera fila al costat dret del jugador.</para>
+
+        <para
+>Les peces es col·loquen en els costats blanc i negre del tauler de la mateixa manera. En la primera fila començant en ambdós extrems i cap a l'interior, es col·loquen les torres, els cavalls i els alfils. Per a les dues caselles restants, es col·loca la dama a la casella del mateix color i el rei a l'altra. Una vegada col·locades, quedaran enfrontades entre si amb l'altra costat del tauler. A la segona fila es col·locarà una fila de peons. La disposició final quedarà com en el següent diagrama.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="piece-movement">
+      <title
+>Moviment de les peces</title>
+      <sect2 id="all-movement">
+        <title
+>Moviments i captures</title>
+
+        <para
+>Els escacs tenen sis tipus de peces: el peó, la torre, el cavall, l'alfil, la dama i el rei. Cada peça té la seva pròpia i única forma de moure's. Hi ha algunes similituds entre els moviments de les diferents peces. Totes les peces, excepte el cavall, es mouen en línia recta -horitzontal, vertical o diagonal-. No es poden moure més enllà del final del tauler i tornen per l'altre costat. La vora del tauler és un límit que no es pot creuar. Totes les peces excepte el cavall no poden saltar per sobre de les altres peces -totes les caselles entre la casella on comença el seu moviment la peça i on l'acaba han d'estar buides-. El moviment no pot acabar en una casella ocupada per una peça del mateix color.</para>
+
+        <para
+>Si la casella on una peça acaba el seu moviment conté una peça de l'adversari, la peça de l'adversari serà <quote
+>capturada</quote
+> (matada), i s'eliminarà de la partida. Es poden capturar totes les peces a excepció del rei. La partida acaba en el moviment anterior a la captura del rei -<quote
+><link linkend="checkmate"
+>escac i mat</link
+></quote
+>. La captura sempre requereix que la peça atacant es col·loqui a la casella de la peça de l'adversari mentre es realitza un moviment normal. L'única excepció és per a capturar un peó <link linkend="en_passant-movement"
+>al pas</link
+>. No esteu obligat a capturar una peça quan hi ha una oportunitat de fer-ho, la captura és una opció. L'única vegada que la captura és obligatòria, és quan el rei està sota atac i la captura de la peça atacant és l'única manera d'aturar l'atac.</para>
+
+        <para
+>A la següent imatge, la torre blanca es pot moure cap a la dreta, esquerra, amunt o avall (de manera vertical o horitzontal) en línies rectes. Es pot moure cap avall i cap a la dreta qualsevol nombre de caselles fins que s'assoleix l'extrem del tauler. Aquestes caselles tenen una X verda sobre seu. Es pot moure un màxim de dues caselles cap a l'esquerra. La resta del tauler està bloquejat per una peça del mateix color, en aquest cas un cavall blanc. La torre no pot saltar sobre el cavall per a arribar al final del tauler. Només es pot moure una casella abans de ser bloquejat pel peó negre. Pot capturar el peó movent-se dues caselles cap amunt i aterrant sobre el peó, ja que el peó és una peça de l'adversari (peça d'un color diferent). Aquesta casella té una X vermella sobre seu. No pot saltar per sobre del peó per a arribar al final del tauler. Per tant, la torre compta amb un total de deu caselles on pot anar.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Per a començar la partida, les blanques mouen primer. Després, els jugadors es van alternant fent un moviment cada vegada. En el vostre torn haureu de moure, no es permet passar.</para>
+      </sect2>
+
+      <sect2 id="pawn-movement">
+        <title
+>Peó</title>
+
+        <para
+>El peó és la més nombrosa i la peça menys poderosa sobre el tauler d'escacs. Els peons són inusuals en el seu moviment. En general, el peó només es mou cap endavant, una casella cada vegada. Una excepció és la primera vegada que es mou un peó, pot avançar dues caselles. El peó no pot saltar sobre les altres peces, qualsevol peça directament al davant d'un peó bloquejarà el seu avanç a la casella. El peó és l'única peça que no es pot moure cap enrere. El peó és l'única peça que no captura de la mateixa manera en què es mou. El peó captura una peça oponent en diagonal una casella -no pot capturar en moviment cap endavant-.</para>
+
+        <para
+>A la imatge que es mostra a continuació, el peó de més avall continua en la seva casella original, de manera que es pot moure una o dues caselles cap endavant (indicades per la X verda). Pot capturar movent-se cap a la dreta o a l'esquerra en diagonal, però només si la casella està ocupada per una peça oponent (indicada per la X de color vermell). En cas contrari, no es pot moure en diagonal. El peó de més a dalt ja s'ha mogut des de la seva casella original. Només es pot moure una casella cap endavant. Així mateix, pot capturar movent-se cap a l'esquerra o a la dreta en diagonal si la casella conté una peça oponent.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>El peó també està implicat en dos moviments especials. El primer és la <link linkend="en_passant-movement"
+>captura al pas</link
+>, en el qual un peó és capturat en el seu moviment inicial de dues caselles. El segon és la <link linkend="pawn-promotion-movement"
+>promoció d'un peó</link
+>, en el qual es promou un peó a una altra peça, quan el peó abasta l'altre extrem del tauler.</para>
+      </sect2>
+
+      <sect2 id="bishop-movement">
+        <title
+>Alfil</title>
+
+        <para
+>L'alfil es mou en línia recta diagonal sobre el tauler. Es pot moure tantes caselles com vulgui, fins que es troba al final del tauler o una altra peça. L'alfil no pot saltar sobre les altres peces. Captura de la mateixa manera com es mou, aterrant sobre la casella de la peça oponent. A causa de la manera en què es mou l'alfil, la peça sempre romandrà sobre les caselles del mateix color en què va començar. Cada jugador comença amb dos alfils, un en les caselles de color negre i l'altre en les de color blanc. Sovint es coneixen com l'alfil de les <quote
+>caselles negres</quote
+> i l'alfil de les <quote
+>caselles blanques</quote
+>. Els alfils també es poden segons el costat on comencen, l'alfil del rei i l'alfil de dama.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="rook-movement">
+        <title
+>Torre</title>
+
+        <para
+>La torre es mou en una línia recta horitzontal o vertical a través de qualsevol nombre de caselles no ocupades, fins que abasta el final del tauler o està bloquejada per una altra peça. No pot saltar sobre les altres peces. La torre captura en el mateix camí on es mou, ocupant la casella on es troba una peça oponent. La torre pot aterrar sobre qualsevol casella del tauler, per tant és una de les peces més poderosa sobre el tauler.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>La torre també està implicada en un moviment especial. És el <link linkend="castling-movement"
+>moviment que enroca</link
+>, en el qual s'agrupen una torre i el rei en una posició defensiva.</para>
+      </sect2>
+
+      <sect2 id="knight-movement">
+        <title
+>Cavall</title>
+
+        <para
+>El cavall és la peça més especial en els escacs, amb una flexibilitat que fa que sigui una peça poderosa. El cavall és l'única peça en el tauler que pot saltar sobre les altres peces. El cavall es mou dues caselles horitzontal o vertical i després una casella més en un angle recte. El moviment del cavall té forma de <quote
+>L</quote
+>. El cavall sempre aterra sobre una casella del color contrari al de la seva casella inicial. El cavall pot saltar sobre les peces de qualsevol color mentre va cap a la seva casella de destinació, però no capturarà cap de les peces sobre les quals salti. El cavall captura aterrant sobre la casella de la peça oponent. El cavall no pot aterrar sobre una casella ocupada per una peça del mateix color. Ja que el moviment del cavall no és en línia recta, pot atacar a una dama, alfil, torre o sense ser atacada de manera recíproca per aquestes peces.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="queen-movement">
+        <title
+>Dama</title>
+
+        <para
+>La dama és considerada la peça més poderosa sobre el tauler. Es pot moure qualsevol nombre de caselles en línia recta -sigui vertical, horitzontal o diagonal-. La dama es mou com la torre i l'alfil junts. Llevat de la captura, la dama s'ha de moure a una casella desocupada, i no pot saltar sobre les peces. La dama captura en el mateix camí en el qual es mou, aterrant sobre la casella de la peça oponent.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="king-movement">
+        <title
+>Rei</title>
+
+        <para
+>El rei és la peça més important en els escacs. Si el rei està atrapat de manera que la seva captura és inevitable, la partida haurà acabat i aquest jugador perd. El rei té poca mobilitat, per la qual cosa també és considerat una de les peces més febles del joc. El rei es pot moure a qualsevol casella adjacent. És a dir, es pot moure una casella en qualsevol direcció: horitzontal, vertical o diagonal. No es pot moure a una casella ocupada per una peça del mateix color. El rei captura una peça de la mateixa manera que es mou, aterrant sobre la casella de la peça oponent. Hi ha un límit addicional en el moviment del rei. El rei no es pot moure a una casella on es posa al rei sota atac per una peça contrària (anomenat <quote
+>escac</quote
+>). Com a resultat d'aquesta limitació, dos reis no poden estar un al costat de l'altre -ja que qualsevol moviment cap al rei oponent posaria en escac al rei en moviment-. El rei també pot ser forçat a moure o capturar si el rei està sota atac (<quote
+>escac</quote
+>) i l'única manera d'aturar l'atac consisteix a moure el rei.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="special-movement">
+      <title
+>Moviments especials</title>
+      <sect2 id="en_passant-movement">
+        <title
+>Al pas</title>
+
+        <para
+>Quan es va introduir la regla per a permetre que un peó es mogui dues caselles en el seu primer moviment, un peó podria evitar ser capturat per un peó de l'adversari sobrepassant la casella atacada. La captura al pas (del francès <quote
+>passant</quote
+>) es va afegir per a evitar-ho. La captura es realitza exactament com si el peó s'hagués mogut només una casella cap endavant. Hi ha condicions especials per a la captura al pas:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Un peó s'ha de moure dues caselles des de la seva posició inicial en un sol moviment.</para
+></listitem>
+          <listitem
+><para
+>Un peó oponent ha d'estar atacant la casella sobre la qual es mou el primer peó.</para
+></listitem>
+          <listitem
+><para
+>El primer peó es pot capturar com si només es mogués una sola casella.</para
+></listitem>
+          <listitem
+><para
+>La captura només es pot realitzar en el proper moviment de l'adversari. Si no es realitza la captura, el primer peó estarà fora de perill de captura al pas la resta de la partida.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>En el següent diagrama, el peó blanc no s'ha mogut de la seva posició inicial. El seu primer moviment pot ser una o dues caselles endavant. La primera casella està sent atacada pel peó negre (els peons ataquen en diagonal) com indica la X vermella. El peó blanc avança dues caselles, evitant l'atac. En el següent moviment, el peó negre es mou a la casella on el peó blanc s'hauria mogut si només s'hagués mogut una sola casella en el primer moviment. El peó negre ataca amb èxit al peó blanc, i el captura <quote
+>al pas</quote
+>. El peó blanc s'elimina del joc.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="castling-movement">
+        <title
+>L'enroc</title>
+
+        <para
+>L'enroc utilitza el rei i la torre, i és l'única vegada durant la partida en què es poden moure més d'una peça durant un sol torn. Durant l'enroc, el rei es mou dues caselles cap a la torre i després la torre es mou cap a la casella a l'altre costat del rei.</para>
+
+        <para
+>L'enroc té alguns requisits estrictes:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Tant el rei com la torre no s'han d'haver mogut durant la partida.</para
+></listitem>
+          <listitem
+><para
+>No hi ha d'haver cap peça entre el rei i la torre.</para
+></listitem>
+          <listitem
+><para
+>El rei no ha d'estar en escac.</para
+></listitem>
+          <listitem
+><para
+>El rei no ha de passar per més d'una casella que sigui atacada per les peces de l'adversari.</para
+></listitem>
+          <listitem
+><para
+>El rei no pot acabar el moviment sobre una casella atacada per les peces de l'adversari. (L'enroc no pot acabar amb el rei en escac).</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Hi ha dues formes d'enroc. Una s'anomena <quote
+>del costat del rei</quote
+>. També es coneix com a <quote
+>enroc curt</quote
+>, ja que es realitza cap al costat curt del tauler i la torre només s'ha de moure dues caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>La segona forma d'enroc s'anomena <quote
+>del costat de la dama</quote
+>, en el qual el rei es mou cap a la casella que ha deixat vacant la dama. També es coneix com a <quote
+>enroc llarg</quote
+>, ja que es realitza pel costat llarg del tauler i la torre s'ha de moure tres caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+        <note
+><para
+>Per a enrocar en el &i18n-knights;, moveu el rei dues caselles cap a la torre. El &i18n-knights; completarà l'enroc. No moveu la torre, ja que el &i18n-knights; suposarà que només voleu moure la torre i no enrocar.</para
+></note>
+      </sect2>
+
+      <sect2 id="pawn-promotion-movement">
+        <title
+>Promoció del peó</title>
+
+        <para
+>Quan un peó abasta l'altre extrem del tauler no pot anar més enllà, ja que sempre s'ha de moure endavant i no cap enrere. Llavors, el peó es converteix (<quote
+>promociona</quote
+>) en una dama, torre, alfil o cavall. Aquesta promoció es produeix com a part del moviment. Normalment, la peça triada és la dama, sovint s'anomena <quote
+>coronació</quote
+>. De vegades es trien les altres peces, quan els seus moviments ajuden en l'escac i mat, sovint s'anomena <quote
+>sota promoció</quote
+>. El peó es pot convertir en una peça, fins i tot si aquesta peça encara és al tauler. És a dir, podeu tenir dues reines o tres torres, alfils o cavalls jugant alhora.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="game-end">
+      <title
+>Finals de la partida</title>
+      <sect2 id="checkmate">
+        <title
+>Escac i mat</title>
+
+        <para
+>Quan un rei és atacat i amenaçat de ser capturat per una peça de l'adversari, es diu que el rei està <quote
+>en escac</quote
+>. Un rei haurà d'escapar de l'escac immediatament. Hi ha tres maneres possibles per a sortir d'un escac.</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Capturar la peça atacant.</para
+></listitem>
+          <listitem
+><para
+>Moure el rei lluny de l'atac i a una casella segura, que no està sent atacada per una peça de l'adversari.</para
+></listitem>
+          <listitem
+><para
+>Bloquejar l'atac col·locant una peça entre l'atacant i el rei. (No es pot fer per a un atac d'un cavall o un peó).</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Si el rei no té forma d'escapar de l'escac, la posició s'anomenarà <quote
+>escac i mat</quote
+> i la partida acabarà. El jugador que està en escac i mat perdrà la partida. En realitat, el rei no serà capturat ni eliminat del tauler.</para>
+      </sect2>
+
+      <sect2 id="resign">
+        <title
+>Renunciar</title>
+
+        <para
+>En qualsevol moment durant la partida, un jugador pot renunciar (abandonar). La partida acabarà i l'adversari del jugador guanyarà la partida.</para>
+      </sect2>
+
+      <sect2 id="draw">
+        <title
+>Taules</title>
+
+        <para
+>El fet de fer <quote
+>taules</quote
+> és un empat entre els jugadors. Hi ha diverses maneres en què poden ocórrer les taules.</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Punt mort: (vegeu més avall)</para
+></listitem>
+          <listitem
+><para
+>Tercera repetició: Si la mateixa posició es repeteix almenys 3 vegades (no necessàriament per una repetició de moviments). Es requereix que els possibles moviments de totes les peces d'ambdós jugadors siguin els mateixos. Si ha canviat la possibilitat de capturar al pas un peó al pas o si ha canviat la possibilitat d'enrocar, la posició no és la mateixa -fins i tot si les peces estan en les mateixes posicions-.</para
+></listitem>
+          <listitem
+><para
+>La regla dels cinquanta moviments: Si no s'ha capturat una peça o mogut un peó en els últims cinquanta moviments de cada jugador.</para
+></listitem>
+          <listitem
+><para
+>La impossibilitat de fer escac i mat: Si sorgeix una situació en la qual cap dels jugadors pot donar escac i mat mitjançant una sèrie de moviments legals. Normalment, això és perquè no queden prou peces per a fer escac i mat, però és possible en altres posicions. Les combinacions amb un nombre insuficient de peces per a fer escac i mat són les següents:</para>
+
+            <itemizedlist>
+              <listitem
+><para
+>rei contra rei</para
+></listitem>
+              <listitem
+><para
+>rei i alfil contra rei</para
+></listitem>
+              <listitem
+><para
+>rei i cavall contra rei</para
+></listitem>
+              <listitem
+><para
+>rei i alfil contra rei i alfil amb els alfils en el mateix color</para
+></listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem
+><para
+>El temps expira: Si s'esgota el temps d'un jugador i el seu adversari no té prou peces per a fer escac i mat (vegeu a continuació).</para
+></listitem>
+          <listitem
+><para
+>De mutu acord: Si ambdós jugadors estan d'acord a fer taules.</para
+></listitem>
+        </itemizedlist>
+      </sect2>
+
+      <sect2 id="stalemate">
+        <title
+>Punt mort</title>
+
+        <para
+>Si a un jugador no li queda cap moviment legal (cada moviment possible seria posar el seu rei en escac), però el seu rei no està actualment sota escac, el joc acaba en un <quote
+>punt mort</quote
+>. El punt mort fa que la partida acabi en taules.</para>
+      </sect2>
+
+      <sect2 id="time-end">
+        <title
+>Temps</title>
+
+        <para
+>Si s'esgota el temps d'un jugador abans de completar el nombre requerit de moviments:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>El jugador perdrà la partida si a l'adversari li queden prou peces per a fer escac i mat.</para
+></listitem>
+          <listitem
+><para
+>La partida serà taules si a l'adversari no li queden prou peces per a fer escac i mat.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Les peces per a fer escac i mat poden ser qualsevol grup de peces excepte només un rei, un rei i un alfil, o un rei i un cavall.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="time-controls">
+      <title
+>Controls del temps</title>
+
+      <para
+>Moltes partides d'escacs utilitzen controls de temps per a accelerar la partida o assegurar un final en un període de temps raonable. Hi ha dos tipus principals de controls de temps.</para>
+
+      <para
+>El primer tipus de control de temps és el de moviments per temps. En aquest tipus, un jugador haurà de completar un nombre determinat de moviments dins d'un període determinat de temps.</para>
+
+      <para
+>El segon tipus de control de temps s'anomena <quote
+>mort sobtada</quote
+>. En aquest tipus hi ha una quantitat determinada de temps per a completar la partida, sense importar el nombre de moviments realitzats.</para>
+
+      <para
+>En el control de temps hi pot haver un retard per a compensar el temps perdut en realitzar un moviment físic. En el <quote
+>retard Bronstein</quote
+>, el rellotge no començarà a funcionar al començament del moviment del jugador, sinó quan se superi el temps de retard. Si el moviment es completa abans que expiri el temps, no es restarà temps del rellotge del jugador. En el <quote
+>retard Fischer</quote
+>, el temps de retard s'afegirà al temps que li queda al jugador abans del moviment. Si el moviment es realitza abans que expiri el temps, el temps de retard restant serà afegit al temps del rellotge del jugador. De manera similar, es pot afegir un temps fix al rellotge del jugador després de completar un moviment. Quan s'afegeix el temps al rellotge, la quantitat de temps es coneix com a <quote
+>increment de temps</quote
+>.</para>
+
+      <para
+>Els controls de temps varien àmpliament depenent de la partida, el tipus de partida i del patrocinador. A més, durant una partida hi poden haver diversos tipus de controls de temps combinats, amb el temps no utilitzat afegit al següent control del temps. Per a tots els principals esdeveniments de la Federació Internacional d'Escacs (FIDE) el control de temps és de 90 minuts per als primers 40 moviments seguits de 30 minuts de mort sobtada, amb 30 segons addicionals per moviment a partir del primer moviment. Els valors predeterminats a FICS (el servidor d'escacs lliure per Internet) estan a 2 minuts per a la partida (mort sobtada), més 12 segons de temps incrementats per a cada moviment. Molts esdeveniments importants utilitzen 90 minuts de mort sobtada per al seu control de temps. A la Federació d'Escacs dels EUA el control de temps és de 5 minuts per a la partida, sense demores/increments de temps.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="markers">
+    <title
+>Marcadors</title>
+
+    <para
+>Els marcadors són el ressaltat de les caselles al tauler d'escacs. Es poden utilitzar per a mostrar moviments legals per a la vostra peça d'escacs, el moviment anterior de l'adversari, o un rei en escac. El seu color i la seva forma dependrà de quin tema esteu utilitzant. Es pot activar/desactivar a la secció d'arranjament general del menú de configuració.</para>
+
+    <para
+>En fer clic sobre la vostra peça durant el vostre torn es mostrarà un marcador sobre cada casella en la qual es pot moure aquesta peça. La imatge mostra els moviments legals per a la dama blanca.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>Quan el vostre adversari hagi fet un moviment, el seu últim moviment serà indicat per marcadors. Un marcador mostrarà la posició inicial de la peça d'escacs, i un segon destacarà la nova posició de la peça d'escacs.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>Si l'últim moviment de l'adversari posa al vostre rei sota atac (<quote
+>escac</quote
+>), el rei i totes les peces de l'atac també es ressaltaran.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+    <note
+><para
+>Alguns temes no admeten tots els tipus de marcadors.</para
+></note>
+  </chapter>
+
+  <chapter id="configuration">
+    <title
+>Configurar la partida</title
+><!-- do not change this! -->
+
+    <para
+>El diàleg de configuració del &i18n-knights; permet canviar les opcions visuals, així com els temes seleccionats per al &i18n-knights;.</para>
+
+    <para
+>Una vegada esteu satisfet amb els canvis que heu seleccionat, podeu aplicar-los prement el botó <guibutton
+>Aplica</guibutton
+> o <guibutton
+>D'acord</guibutton
+>, situats a la part inferior del diàleg. En prémer el botó <guibutton
+>D'acord</guibutton
+> també es tancarà el diàleg de configuració.</para>
+
+    <para
+>No obstant això, si no esteu satisfet amb els canvis: senzillament premeu el botó <guibutton
+>Cancel·la</guibutton
+> per a descartar-los i tancar el diàleg de configuració. Haureu de prémer el botó <guibutton
+>Cancel·la</guibutton
+> abans de prémer el botó <guibutton
+>Aplica</guibutton
+> o <guibutton
+>D'acord</guibutton
+>.</para>
+
+    <sect1 id="configuration-general">
+      <title
+>General</title>
+
+      <para
+>La pàgina <guilabel
+>General</guilabel
+> conté les opcions sobre l'aspecte general del &i18n-knights;. Les animacions de les peces i del tauler es poden activar o modificar. La secció de les animacions es basa en el programari del sistema, i només es veuen si les animacions estan disponibles. Està disponible girar el tauler, permetent que es giri el tauler d'escacs del &i18n-knights; quan s'utilitza en una pantalla d'ordinador o en mode estacionari quan s'utilitza en una tauleta com a substitut d'un tauler d'escacs. Els tres tipus de <link linkend="markers"
+>marcadors</link
+> es poden activar o desactivar. Les fronteres al voltant del tauler d'escacs es poden activar amb notació algebraica d'escacs o sense, utilitzant una llista desplegable.</para>
+
+      <note
+><para
+>Pot ser que alguns temes no siguin compatibles amb els marcadors, les fronteres i/o les notacions. En aquest cas, la configuració no tindrà cap efecte sobre seu, però serà recordada en el cas de canviar una altra vegada els temes.</para
+></note>
+    </sect1>
+
+    <sect1 id="configuration-engines">
+      <title
+>Motors d'ordinador</title>
+
+      <screenshot>
+        <screeninfo
+>El diàleg «Configura - &i18n-knights;»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-engines.png" format="PNG"/></imageobject>
+          <caption
+>La pàgina «Motors d'ordinador»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>La pàgina <guimenu
+>Motors d'ordinador</guimenu
+> permet configurar els vostres adversaris de l'ordinador. Especificar el nom del programa per a cada motor, l'ordre utilitzat per a llançar-lo i el protocol que utilitza. El &i18n-knights; implementa dos protocols per a motors d'escacs: XBoard i <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>Es pot afegir una configuració nova del motor prement el botó <guibutton
+>Afegeix</guibutton
+> i introduint les tres opcions esmentades anteriorment. Un símbol en l'última columna indicarà si el programa especificat està o no instal·lat en el vostre ordinador.</para>
+    </sect1>
+
+    <sect1 id="configuration-themes">
+      <title
+>Temes</title>
+
+      <para
+>La pàgina <guilabel
+>Tema</guilabel
+> permet la selecció d'un tema. El tema subministrarà les imatges del tauler, de les peces, dels marcadors i d'altres elements. Per a seleccionar un nou tema, escolliu el nom del tema des de la llista de selecció. També podeu descarregar nous temes des de la mateixa pàgina, prement el botó <guibutton
+>Obtén temes nous...</guibutton
+>. Els temes es desaran a kde-look.org sota &knights;.</para>
+
+      <note
+><para
+>Per a la vostra comoditat, es mostrarà una captura de pantalla d'una vista prèvia ràpida a mà dreta al costat de la llista de selecció tan aviat com seleccioneu el tema en el qual esteu interessat.</para
+></note>
+    </sect1>
+  </chapter>
+
+  <chapter id="credits-and-license">
+    <title
+>Crèdits i llicència</title>
+
+    <para
+>&knights;</para>
+
+    <itemizedlist>
+      <listitem
+><para
+>Miha Čančula <email
+>miha.cancula@gmail.com</email
+> - Autor original</para
+></listitem>
+    </itemizedlist>
+
+    <para
+>Copyright de la documentació 2010, Miha Čančula <email
+>miha.cancula@gmail.com</email
+></para>
+
+    <para
+>Traductor/Revisor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+</book>

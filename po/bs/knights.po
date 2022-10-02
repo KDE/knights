@@ -1,0 +1,1482 @@
+# Translation of knights.po into Bosnian.
+# Slobodan Terzić <githzerai06@gmail.com>, 2010.
+# Chusslove Illich <caslav.ilic@gmx.net>, 2010, 2011.
+# slobodan terzić <githzerai06@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: knights\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-21 00:43+0000\n"
+"PO-Revision-Date: 2014-10-20 19:25+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <kde-i18n-bs@kde.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:23+0000\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Slobodan Terzić, Samir Ribić,Lejla Bajgoric"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Githzerai06@gmail.com, megaribi@epn.ba,lbajgoric1@etf.unsa.ba"
+
+#: board.cpp:577
+#, fuzzy, kde-format
+#| msgid "Promotion"
+msgctxt "@title:window"
+msgid "Promotion"
+msgstr "Promocija"
+
+#: board.cpp:581
+#, kde-format
+msgid "Promote"
+msgstr "Promoviši"
+
+# >! Contexts.
+# >> @option:radio Your Color
+#. i18n: ectx: property (title), widget (QGroupBox, groupB)
+#: clockwidget.ui:17
+#, kde-format
+msgid "Black"
+msgstr "Crni"
+
+# >! Contexts.
+# >> @option:radio Your Color
+#. i18n: ectx: property (text), widget (QRadioButton, colorWhite)
+#. i18n: ectx: property (title), widget (QGroupBox, groupW)
+#: clockwidget.ui:44 gamedialog.ui:90
+#, kde-format
+msgid "White"
+msgstr "Bijeli"
+
+#. i18n: ectx: property (text), widget (QLabel, searchDepthLabel)
+#: customdifficultydialog.ui:26
+#, kde-format
+msgid "Search &depth:"
+msgstr "&Dubinu pretrage:"
+
+#. i18n: ectx: property (specialValueText), widget (KPluralHandlingSpinBox, sbSearchDepth)
+#: customdifficultydialog.ui:36
+#, kde-format
+msgctxt "Let the engine determine the search depth"
+msgid "Engine default"
+msgstr "Podrazumijevani pogon"
+
+#. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
+#: customdifficultydialog.ui:43
+#, kde-format
+msgid "Memory &size:"
+msgstr "Memorijska &veličina:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, sbMemorySize)
+#: customdifficultydialog.ui:53
+#, kde-format
+msgctxt "Megabytes"
+msgid " MB"
+msgstr " MB"
+
+#: difficultydialog.cpp:35
+#, fuzzy, kde-format
+#| msgid " move"
+#| msgid_plural " moves"
+msgctxt "Search depth suffix"
+msgid " move"
+msgid_plural " moves"
+msgstr[0] " potez"
+msgstr[1] " poteza"
+msgstr[2] " poteza"
+
+#: difficultydialog.cpp:46
+#, kde-format
+msgctxt "@title:window"
+msgid "Difficulty Level"
+msgstr ""
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "XBoard"
+msgstr "XBoard"
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "UCI"
+msgstr "UCI"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: enginesettings.ui:19
+#, kde-format
+msgid "Auto detect"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: enginesettings.ui:39
+#, kde-format
+msgid "Add"
+msgstr "Dodaj"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: enginesettings.ui:46
+#, kde-format
+msgid "Remove"
+msgstr "Ukloni"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:71
+#, kde-format
+msgid "Name"
+msgstr "Ime"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:76
+#, kde-format
+msgid "Command"
+msgstr "Naredba"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:81
+#, kde-format
+msgid "Protocol"
+msgstr "Protokol"
+
+# >> @option:radio Order by
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:86
+#, kde-format
+msgid "Installed"
+msgstr "Instaliranom"
+
+#: gamedialog.cpp:67
+#, fuzzy, kde-format
+#| msgid "New Game"
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Nova partija"
+
+#: gamedialog.cpp:259
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minuta"
+msgstr[1] " minuta"
+msgstr[2] " minuta"
+
+#: gamedialog.cpp:260
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " sekundi"
+msgstr[1] " sekundi"
+msgstr[2] " sekundi"
+
+#: gamedialog.cpp:261
+#, kde-format
+msgid " move"
+msgid_plural " moves"
+msgstr[0] " potez"
+msgstr[1] " poteza"
+msgstr[2] " poteza"
+
+#: gamedialog.cpp:300
+#, fuzzy, kde-format
+#| msgid "Computer Engines"
+msgctxt "@title:window"
+msgid "Chess Engines"
+msgstr "Kompjuterski motori"
+
+#: gamedialog.cpp:352
+#, kde-format
+msgid "Select a chess engine for the first player."
+msgstr ""
+
+#: gamedialog.cpp:358
+#, kde-format
+msgid "Select a chess engine for the second player."
+msgstr ""
+
+#: gamedialog.cpp:363
+#, fuzzy, kde-format
+#| msgid "Automatically start the game"
+msgid "Start the game."
+msgstr "Automatski započni partiju"
+
+#. i18n: ectx: property (title), widget (QGroupBox, player1Box)
+#: gamedialog.ui:29
+#, kde-format
+msgid "Player 1"
+msgstr "Igrač 1"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
+#: gamedialog.ui:35
+#, fuzzy, kde-format
+#| msgid "Human (You)"
+msgid "Human (&You)"
+msgstr "Čovjek (vi)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
+#: gamedialog.ui:45
+#, fuzzy, kde-format
+#| msgid "Computer engine:"
+msgid "&Computer engine:"
+msgstr "Računarski motor:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
+#: gamedialog.ui:78
+#, kde-format
+msgid "Player 1's Color"
+msgstr "Boja igrača 1"
+
+# >! Contexts.
+# >> @option:radio Your Color
+#. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
+#: gamedialog.ui:103
+#, fuzzy, kde-format
+#| msgid "Black"
+msgid "B&lack"
+msgstr "Crni"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
+#: gamedialog.ui:116
+#, fuzzy, kde-format
+#| msgid "Choose randomly"
+msgid "Choose r&andomly"
+msgstr "Izaberi nasumično"
+
+#. i18n: ectx: property (title), widget (QGroupBox, player2Box)
+#: gamedialog.ui:129
+#, kde-format
+msgid "Player 2"
+msgstr "Igrač 2"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
+#: gamedialog.ui:135
+#, fuzzy, kde-format
+#| msgid "Human"
+msgid "H&uman"
+msgstr "Čovjek"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
+#: gamedialog.ui:145
+#, fuzzy, kde-format
+#| msgid "Computer engine:"
+msgid "Co&mputer engine:"
+msgstr "Računarski motor:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
+#: gamedialog.ui:175
+#, kde-format
+msgid "Chess server:"
+msgstr "Šahovski server:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
+#: gamedialog.ui:207
+#, fuzzy, kde-format
+#| msgid "Use Time Control"
+msgid "&Use time control"
+msgstr "Vremenska kontrola"
+
+#. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
+#: gamedialog.ui:214
+#, fuzzy, kde-format
+#| msgid "Time control period"
+msgid "&Time control period:"
+msgstr "Period vremenske kontrole"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
+#: gamedialog.ui:230
+#, kde-format
+msgctxt "Time control mode"
+msgid "Timer Only"
+msgstr "Samo sat"
+
+#. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
+#: gamedialog.ui:243
+#, fuzzy, kde-format
+#| msgid "Initial time limit"
+msgid "&Initial time limit:"
+msgstr "Početno vremensko ograničenje"
+
+#. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
+#: gamedialog.ui:269
+#, fuzzy, kde-format
+#| msgid "Increment per move"
+msgid "I&ncrement per move:"
+msgstr "Uvećanje po potezu"
+
+#: gamemanager.cpp:416
+#, kde-format
+msgctxt "The player of this color"
+msgid "White"
+msgstr "Bijeli"
+
+#: gamemanager.cpp:417
+#, kde-format
+msgctxt "The player of this color"
+msgid "Black"
+msgstr "Crni"
+
+#: gamemanager.cpp:524
+#, kde-format
+msgid "%1 offers you a draw"
+msgstr "%1 vam nudi remi"
+
+#: gamemanager.cpp:527
+#, kde-format
+msgid "%2 would like to take back a half move"
+msgid_plural "%2 would like to take back %1 half moves"
+msgstr[0] "%2 želi da povuče %1 polupotez"
+msgstr[1] "%2 želi da povuče %1 polupoteza"
+msgstr[2] "%2 želi da povuče %1 polupoteza"
+
+#: gamemanager.cpp:530
+#, kde-format
+msgid "%1 would like to adjourn the game"
+msgstr "%1 želi da odgodi partiju"
+
+#: gamemanager.cpp:533
+#, kde-format
+msgid "%1 would like to abort the game"
+msgstr "%1 želi da prekine partiju"
+
+#: gamemanager.cpp:628
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles queenside"
+msgstr "%1 izvodi veliku rokadu"
+
+#: gamemanager.cpp:631
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles kingside"
+msgstr "%1 izvodi malu rokadu"
+
+#: gamemanager.cpp:635
+#, kde-format
+msgctxt "string to be spoken when the opponent makes a normal  move"
+msgid "%1 to %2"
+msgstr "%1 na %2"
+
+#: gamemanager.cpp:648
+#, kde-format
+msgctxt "Your king is under attack"
+msgid "Check"
+msgstr "Šah"
+
+#: gamemanager.cpp:650
+#, kde-format
+msgctxt "Your king is dead"
+msgid "Checkmate"
+msgstr "Šah‑mat"
+
+# >! Contexts.
+# >> @option:radio Your Color
+#: historywidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "White"
+msgid "white"
+msgstr "Bijeli"
+
+# >! Contexts.
+# >> @option:radio Your Color
+#: historywidget.cpp:27
+#, fuzzy, kde-format
+#| msgid "Black"
+msgid "black"
+msgstr "Crni"
+
+#. i18n: ectx: property (text), widget (QTableWidget, twMoves)
+#: historywidget.ui:39 historywidget.ui:44
+#, kde-format
+msgid "New Column"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, notationLabel)
+#: historywidget.ui:57
+#, kde-format
+msgid "&Notation:"
+msgstr "&Notacija:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:68
+#, kde-format
+msgid "Short Algebraic"
+msgstr "Kratki algebarski"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:73
+#, kde-format
+msgid "Long Algebraic"
+msgstr "Dugi algebarski"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:78
+#, kde-format
+msgid "Coordinate"
+msgstr "Koordinata"
+
+#: knights.cpp:94
+#, kde-format
+msgid "Custom"
+msgstr "Proizvoljno"
+
+#: knights.cpp:138
+#, kde-format
+msgid "%1 is thinking..."
+msgstr ""
+
+#: knights.cpp:145
+#, kde-format
+msgid "Clock"
+msgstr "Sat"
+
+#: knights.cpp:176
+#, fuzzy, kde-format
+#| msgid "Move History"
+msgctxt "@title:window"
+msgid "Move History"
+msgstr "Historija kretanja"
+
+#: knights.cpp:195 knights.cpp:484
+#, kde-format
+msgid "Resign"
+msgstr "Predaj"
+
+#: knights.cpp:196
+#, kde-format
+msgid "Admit your inevitable defeat"
+msgstr "Priznaj neizbježan poraz"
+
+#: knights.cpp:201
+#, kde-format
+msgid "Undo"
+msgstr "Opozovi"
+
+#: knights.cpp:202
+#, kde-format
+msgid "Take back your last move"
+msgstr "Povuci moj posljednji potez"
+
+#: knights.cpp:208
+#, kde-format
+msgid "Redo"
+msgstr "Ponovi"
+
+#: knights.cpp:209
+#, kde-format
+msgid "Repeat your last move"
+msgstr "Ponovi moj posljednji potez"
+
+#: knights.cpp:216
+#, kde-format
+msgid "Offer &Draw"
+msgstr "Ponudi &remi"
+
+#: knights.cpp:217
+#, kde-format
+msgid "Offer a draw to your opponent"
+msgstr "Predloži protivniku remi"
+
+#: knights.cpp:222
+#, kde-format
+msgid "Adjourn"
+msgstr "Odgodi"
+
+#: knights.cpp:223
+#, kde-format
+msgid "Continue this game at a later time"
+msgstr "Nastavi ovu igru kasnije"
+
+#: knights.cpp:228
+#, kde-format
+msgid "Abort"
+msgstr "Prekid"
+
+#: knights.cpp:229
+#, kde-format
+msgid "End the game immediately"
+msgstr "Odmah završi igru"
+
+#: knights.cpp:233
+#, kde-format
+msgid "Show Clock"
+msgstr "Prikaži sat"
+
+#: knights.cpp:239
+#, kde-format
+msgid "Show History"
+msgstr "Prikaži istorijat"
+
+#: knights.cpp:246
+#, kde-format
+msgid "Show White Console"
+msgstr "Prikaži konzolu bijelog"
+
+#: knights.cpp:252
+#, kde-format
+msgid "Show Black Console"
+msgstr "Prikaži konzolu crnog"
+
+#: knights.cpp:258
+#, kde-format
+msgid "Show Chat"
+msgstr "Prikaži ćaskanje"
+
+#: knights.cpp:297
+#, kde-format
+msgid "Open File"
+msgstr ""
+
+#: knights.cpp:298 knights.cpp:651 knights.cpp:674
+#, fuzzy, kde-format
+#| msgid "*.pgn | Portable game notation"
+msgid "Portable game notation (*.pgn)"
+msgstr "*.pgn | Prenosiva notacija igre"
+
+#: knights.cpp:462
+#, kde-format
+msgid "General"
+msgstr "Opšte"
+
+#: knights.cpp:466
+#, kde-format
+msgid "Computer Engines"
+msgstr "Kompjuterski motori"
+
+#: knights.cpp:477
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: knights.cpp:484
+#, kde-format
+msgid "Do you really want to resign?"
+msgstr ""
+
+#: knights.cpp:530
+#, fuzzy, kde-format
+#| msgid "Game over"
+msgctxt "@title:window"
+msgid "Game over"
+msgstr "Kraj igre"
+
+#: knights.cpp:554
+#, kde-format
+msgid "The game ended in a draw"
+msgstr "Partija je završena remijem."
+
+#: knights.cpp:560
+#, fuzzy, kde-format
+#| msgctxt "White as in the player with white pieces"
+#| msgid "The game ended with a victory for <emphasis>White</emphasis>"
+msgctxt "White as in the player with white pieces"
+msgid "The game ended with a victory for <em>White</em>"
+msgstr "Igra je završena sa pobjedom za <emphasis>Bijele</emphasis>"
+
+#: knights.cpp:563
+#, fuzzy, kde-format
+#| msgctxt "Black as in the player with black pieces"
+#| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
+msgctxt "Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>Black</em>"
+msgstr "Igra je završena sa pobjedom za <emphasis>Crne</emphasis>"
+
+#: knights.cpp:568
+#, fuzzy, kde-format
+#| msgctxt "Player name, then <White as in the player with white pieces"
+#| msgid ""
+#| "The game ended with a victory for <emphasis>%1</emphasis>, playing White"
+msgctxt "Player name, then <White as in the player with white pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing White"
+msgstr "Igra je završena sa pobjedom za <emphasis>%1</emphasis>, igra Bijeli"
+
+#: knights.cpp:571
+#, fuzzy, kde-format
+#| msgctxt "Player name, then Black as in the player with black pieces"
+#| msgid ""
+#| "The game ended with a victory for <emphasis>%1</emphasis>, playing Black"
+msgctxt "Player name, then Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing Black"
+msgstr "Igra je završena sa pobjedom za <emphasis>%1</emphasis>, igra Crni"
+
+#: knights.cpp:617
+#, kde-format
+msgid "%1 vs. %2"
+msgstr "%1 — %2"
+
+#: knights.cpp:630
+#, kde-format
+msgid ""
+"This will end your game.\n"
+"Would you like to save the move history?"
+msgstr ""
+"Ovo će završiti vašu igru.\n"
+"Da li želite sačuvati historiju poteza?"
+
+#: knights.cpp:650
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: knights.cpp:673
+#, fuzzy, kde-format
+#| msgid "&Save History"
+msgctxt "@title:window"
+msgid "Save As"
+msgstr "&Sačuvaj historiju"
+
+#. i18n: ectx: label, entry (Theme), group (KGameTheme)
+#: knights.kcfg:9
+#, kde-format
+msgid "Theme file for the board"
+msgstr "Datoteka teme table"
+
+#. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
+#: knights.kcfg:15
+#, kde-format
+msgid "whether to show a confirmation dialog before discarding game history"
+msgstr "da li prikazati prozor za potvrdu prije odbacivanja historije igre"
+
+#. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
+#: knights.kcfg:19
+#, kde-format
+msgid "internal variable controlling the confirm dialog"
+msgstr "interna varijabla kontroliše prozor za potvrdu"
+
+#. i18n: ectx: label, entry (animationSpeed), group (Preferences)
+#: knights.kcfg:31
+#, kde-format
+msgid "Moves animation speed"
+msgstr "Brzina animacije poteza"
+
+#. i18n: ectx: label, entry (animateBoard), group (Preferences)
+#: knights.kcfg:35
+#, kde-format
+msgid "whether the Board is animated during rotating and resizing"
+msgstr "da li se tabla animira pri rotaciji i promijeni veličine"
+
+#. i18n: ectx: label, entry (flipBoard), group (Preferences)
+#: knights.kcfg:39
+#, kde-format
+msgid "whether to rotate the board when in local two-player mode"
+msgstr "da li da rotirate ploču kada se igraju dva igrača"
+
+#. i18n: ectx: label, entry (playSounds), group (Preferences)
+#: knights.kcfg:43
+#, fuzzy, kde-format
+#| msgid "whether to log in as guest"
+msgid "whether to play move sounds"
+msgstr "da li se prijaviti kao gost"
+
+#. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
+#: knights.kcfg:52
+#, kde-format
+msgid "chessboard border type"
+msgstr "vrsta ivica šahovske table"
+
+#. i18n: ectx: label, entry (showDanger), group (Preferences)
+#: knights.kcfg:56
+#, kde-format
+msgid "show check marker"
+msgstr "marker šaha"
+
+#. i18n: ectx: label, entry (showMarker), group (Preferences)
+#: knights.kcfg:60
+#, kde-format
+msgid "show legal moves marker"
+msgstr "marker dozvoljenih poteza"
+
+#. i18n: ectx: label, entry (showMotion), group (Preferences)
+#: knights.kcfg:64
+#, kde-format
+msgid "show opponents move marker"
+msgstr "marker protivničkog poteza"
+
+#. i18n: ectx: label, entry (showClock), group (Preferences)
+#: knights.kcfg:68
+#, kde-format
+msgid "show clocks when time control is in use"
+msgstr "prikaži satove pri vremenskoj kontroli"
+
+#. i18n: ectx: label, entry (showChat), group (Preferences)
+#: knights.kcfg:72
+#, kde-format
+msgid "show chat window, if supported by the protocol"
+msgstr "prikaži prozor ćaskanja, ako ga podržava protokol"
+
+#. i18n: ectx: label, entry (showConsole), group (Preferences)
+#: knights.kcfg:76
+#, kde-format
+msgid "show the text console, if supported by the protocol"
+msgstr "prikaži tekstualnu konzolu, ako je podržava protokol"
+
+#. i18n: ectx: label, entry (showHistory), group (Preferences)
+#: knights.kcfg:80
+#, kde-format
+msgid "show move history"
+msgstr "pokaži historiju poteza"
+
+#. i18n: ectx: label, entry (timeLimit), group (Time Control)
+#: knights.kcfg:86
+#, kde-format
+msgid "initial time limit for both players"
+msgstr "početno vremensko ograničenje za oba igrača"
+
+#. i18n: ectx: label, entry (timeIncrement), group (Time Control)
+#: knights.kcfg:90
+#, kde-format
+msgid "time increment per move (for Incremental time control)"
+msgstr "uvećanje vremena po potezu (za vremensku kontrolu sa uvećanjem)"
+
+#. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
+#: knights.kcfg:94
+#, kde-format
+msgid ""
+"the number of moves the player has to make in the specified time (for "
+"Conventional time control)"
+msgstr ""
+"broj poteza koji igrač mora da načini u zadatom vremenu (za običnu kontrolu "
+"vremena)"
+
+#. i18n: ectx: label, entry (timeEnabled), group (Time Control)
+#: knights.kcfg:98
+#, kde-format
+msgid "whether time limits are enabled and displayed"
+msgstr "da li su vremenska ograničenja uključena i vidljiva"
+
+#. i18n: ectx: label, entry (player1Protocol), group (Protocols)
+#. i18n: ectx: label, entry (player2Protocol), group (Protocols)
+#: knights.kcfg:108 knights.kcfg:117
+#, kde-format
+msgid "protocol to be used for player 1"
+msgstr "željeni protokol za igrača 1"
+
+#. i18n: ectx: label, entry (color), group (Protocols)
+#: knights.kcfg:126
+#, kde-format
+msgid ""
+"the local human player's color in a game against a computer or over the "
+"Internet."
+msgstr ""
+"boja lokalnog ljudskog igrača u igri protiv računara ili preko Interneta."
+
+#. i18n: ectx: label, entry (programs), group (Protocols)
+#: knights.kcfg:130
+#, kde-format
+msgid "list of programs to run for playing against the computer"
+msgstr "spisak programa koji se pokreću za igranje protiv računara"
+
+#. i18n: ectx: label, entry (player1Program), group (Protocols)
+#: knights.kcfg:134
+#, kde-format
+msgid "the last selected program for player 1"
+msgstr "posljednje izabrani program za igrača 1"
+
+#. i18n: ectx: label, entry (player2Program), group (Protocols)
+#: knights.kcfg:138
+#, kde-format
+msgid "the last selected program for player 2"
+msgstr "posljednje izabrani program za igrača 2"
+
+#. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
+#: knights.kcfg:142
+#, kde-format
+msgid ""
+"the search depth of computer engines, when the difficulty is set to "
+"Configurable"
+msgstr ""
+"pretraga dubine kompjuterske mašine, kada je težina stavljena na Podesiv"
+
+#. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
+#: knights.kcfg:146
+#, kde-format
+msgid ""
+"the memory size used by computer engines, when the difficulty is set to "
+"Configurable"
+msgstr ""
+"veličina memorije koju koristi kompjuterska mašina, kada je težina stavljena "
+"na Podesiv"
+
+#. i18n: ectx: label, entry (servers), group (Protocols)
+#: knights.kcfg:150
+#, kde-format
+msgid "list of servers for playing over the Internet"
+msgstr "spisak servera za igranje preko Interneta"
+
+#. i18n: ectx: label, entry (currentServer), group (Protocols)
+#: knights.kcfg:154
+#, kde-format
+msgid "the last selected server"
+msgstr "posljednje izabrani server"
+
+#. i18n: ectx: label, entry (ficsUsername), group (Protocols)
+#: knights.kcfg:158
+#, kde-format
+msgid "username for the Free Internet Chess Server"
+msgstr "korisničko ime na Slobodnom šahovskom serveru na Internetu"
+
+#. i18n: ectx: label, entry (guest), group (Protocols)
+#: knights.kcfg:162
+#, kde-format
+msgid "whether to log in as guest"
+msgstr "da li se prijaviti kao gost"
+
+#. i18n: ectx: label, entry (autoLogin), group (Protocols)
+#: knights.kcfg:166
+#, kde-format
+msgid "whether to log in to chess server automatically"
+msgstr "da li se automatski prijaviti na šahovski server"
+
+#. i18n: ectx: label, entry (computerDelay), group (Protocols)
+#: knights.kcfg:170
+#, kde-format
+msgid "delay before a computer's move is reported, in milliseconds"
+msgstr "odgodi prije nego što je potez kompjutera prijavljen, u milisekunde"
+
+#. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
+#: knights.kcfg:174
+#, kde-format
+msgid "stored configurations of engine-specific settings"
+msgstr "smještene konfiguracije korisnički specifičnih postavku+i"
+
+#. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
+#: knights.kcfg:180
+#, kde-format
+msgid "whether opponents' moves are spoken by Jovie"
+msgstr "da li se protivnički potezi izgovaraju preko Džovi"
+
+#. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
+#: knights.kcfg:184
+#, kde-format
+msgid "whether commands over D-Bus are accepted"
+msgstr "da li se prihvataju naredbe preko d‑busa"
+
+#. i18n: ectx: Menu (move)
+#: knightsui.rc:22
+#, kde-format
+msgid "Move"
+msgstr "Potez"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knightsui.rc:38
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Glavna traka"
+
+#. i18n: ectx: ToolBar (actionsToolbar)
+#: knightsui.rc:45
+#, kde-format
+msgid "Game Actions Toolbar"
+msgstr "Alatna traka akcija igara"
+
+#. i18n: ectx: ToolBar (dockToolBar)
+#: knightsui.rc:58
+#, kde-format
+msgid "Dockable Windows Toolbar"
+msgstr "Dockable Windows Traka sa alatima"
+
+#: knightsview.cpp:91
+#, kde-format
+msgid "Settings changed"
+msgstr "Postavke su izmijenjene"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
+#: knightsview_base.ui:14 main.cpp:50
+#, kde-format
+msgid "Knights"
+msgstr "Knights"
+
+#: main.cpp:52
+#, kde-format
+msgid "KDE Chess Board"
+msgstr ""
+
+#: main.cpp:53
+#, fuzzy, kde-format
+#| msgid "(C) 2009-2011 Miha Čančula"
+msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
+msgstr "© 2009–2011, Miha Čančula"
+
+#: main.cpp:56
+#, kde-format
+msgid "Alexander Semke"
+msgstr ""
+
+#: main.cpp:57
+#, kde-format
+msgid "Miha Čančula"
+msgstr "Miha Čančula"
+
+#: main.cpp:59
+#, kde-format
+msgid "Troy Corbin"
+msgstr "Troj Korbin"
+
+#: main.cpp:59
+#, kde-format
+msgid "Original Knights for KDE3 and theme author"
+msgstr "Prvobitni Knights za KDE 3, autor teme"
+
+#: main.cpp:61
+#, kde-format
+msgid "Dave Kaye"
+msgstr "Dejv Kej"
+
+#: main.cpp:61
+#, kde-format
+msgid "Help with new theme features and rendering without KGameRenderer"
+msgstr "Pomoć oko novih mogućnosti za teme, renderovanje bez KGameRenderer"
+
+#: main.cpp:62
+#, kde-format
+msgid "Thomas Kamps"
+msgstr "Tomas Kamps"
+
+#: main.cpp:62
+#, kde-format
+msgid "Clock displaying the remaining time"
+msgstr "Sat za prikaz preostalog vremena"
+
+#: main.cpp:69
+#, kde-format
+msgid "Document to open"
+msgstr "Dokument za otvaranje"
+
+#. i18n: ectx: property (text), widget (QPushButton, acceptButton)
+#: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
+#: proto/ficsprotocol.cpp:192
+#, kde-format
+msgid "Accept"
+msgstr "Prihvati"
+
+#. i18n: ectx: property (text), widget (QPushButton, declineButton)
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#, kde-format
+msgid "Decline"
+msgstr "Odbij"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: popup.ui:51
+#, kde-format
+msgid "Close"
+msgstr "Zatvori"
+
+#. i18n: ectx: property (title), widget (QGroupBox, external_box)
+#: prefs_access.ui:17
+#, kde-format
+msgid "External Programs"
+msgstr "Vanjski programi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
+#: prefs_access.ui:23
+#, kde-format
+msgid "Speak opponent's moves"
+msgstr "Izgovaraj poteze protivnika"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
+#: prefs_access.ui:30
+#, kde-format
+msgid "Allow other programs to control Knights"
+msgstr "Dozvoli drugim programima da upravljaju programom Knights"
+
+#. i18n: ectx: property (title), widget (QGroupBox, animationGroup)
+#: prefs_base.ui:17
+#, kde-format
+msgid "Animations"
+msgstr "Animacije"
+
+#. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
+#: prefs_base.ui:23
+#, fuzzy, kde-format
+#| msgid "Animation &speed:"
+msgid "&Animation speed:"
+msgstr "&Brzina animacije:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:34
+#, kde-format
+msgid "Instant (no animation)"
+msgstr "Trenutna (bez animacije)"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:39
+#, kde-format
+msgid "Fast"
+msgstr "Brza"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:44
+#, kde-format
+msgid "Normal"
+msgstr "Normalna"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:49
+#, kde-format
+msgid "Slow"
+msgstr "Spora"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_animateBoard)
+#: prefs_base.ui:57
+#, kde-format
+msgid "Animate the board as well"
+msgstr "Animiraj ploču kao i"
+
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: prefs_base.ui:67
+#, kde-format
+msgid "Appearance"
+msgstr "Izgled"
+
+#. i18n: ectx: property (text), widget (QLabel, showMarkersForLabel)
+#: prefs_base.ui:76
+#, kde-format
+msgid "Show &markers for:"
+msgstr "Pokaži &znakove za:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
+#: prefs_base.ui:86
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Legal moves"
+msgstr "Legalni potezi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
+#: prefs_base.ui:99
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Opponent's move"
+msgstr "Protivnikov potez"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
+#: prefs_base.ui:109
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Check"
+msgstr "Provjeri"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: prefs_base.ui:119
+#, kde-format
+msgid "Border display:"
+msgstr "Granični prikaz:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:127
+#, kde-format
+msgid "No borders"
+msgstr "Bez granice"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:132
+#, kde-format
+msgid "Only borders"
+msgstr "Samo granice"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:137
+#, kde-format
+msgid "Borders and notation"
+msgstr "Granice i notacija"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: prefs_base.ui:148
+#, kde-format
+msgid "Behavior"
+msgstr "Ponašanje"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_playSounds)
+#: prefs_base.ui:154
+#, kde-format
+msgid "Play sounds"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
+#: prefs_base.ui:161
+#, kde-format
+msgid "Flip the board in local matches between humans"
+msgstr "Okreći ploču u igrama između ljudi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
+#: prefs_base.ui:168
+#, kde-format
+msgid "Show confirmation dialog before closing"
+msgstr "Pokaži prozor za potvrdu prije zatvaranja"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
+#: promotiondialog.ui:14
+#, kde-format
+msgid "Pawn Promotion"
+msgstr "Promocija pješaka"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: promotiondialog.ui:26
+#, kde-format
+msgid "Promote pawn to:"
+msgstr "Promoviši pješaka u:"
+
+# >> @item
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
+#: promotiondialog.ui:40
+#, fuzzy, kde-format
+#| msgid "Queen"
+msgid "&Queen"
+msgstr "Kraljica"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
+#: promotiondialog.ui:56
+#, kde-format
+msgid "Roo&k"
+msgstr ""
+
+# >> @item
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
+#: promotiondialog.ui:69
+#, fuzzy, kde-format
+#| msgid "Bishop"
+msgid "B&ishop"
+msgstr "Lovac"
+
+# >> @item
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
+#: promotiondialog.ui:82
+#, fuzzy, kde-format
+#| msgid "Knight"
+msgid "&Knight"
+msgstr "Konj"
+
+#: proto/chatwidget.cpp:62
+#, kde-format
+msgid " says: "
+msgstr " kaže: "
+
+#: proto/chatwidget.cpp:95
+#, kde-format
+msgid "You: "
+msgstr "Vi: "
+
+#. i18n: ectx: property (text), widget (QPushButton, sendButton)
+#: proto/chatwidget.ui:20
+#, kde-format
+msgid "Send"
+msgstr "Pošalji"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButton)
+#: proto/chatwidget.ui:51
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#: proto/computerprotocol.cpp:36
+#, kde-format
+msgid ""
+"Program <code>%1</code> could not be started, please check that it is "
+"installed."
+msgstr ""
+"Nije moguće pokrenuti program <code>%1</code>, provjerite da li je "
+"instaliran."
+
+#: proto/computerprotocol.cpp:51
+#, kde-format
+msgid "Console for %1 (%2)"
+msgstr "Konzola za %1 (%2)"
+
+#: proto/ficsdialog.cpp:58
+#, kde-format
+msgid "Session started"
+msgstr "Sesija je započeta"
+
+#: proto/ficsdialog.cpp:69
+#, kde-format
+msgid "Logging in..."
+msgstr "Prijavljujem se..."
+
+#: proto/ficsdialog.cpp:110
+#, kde-format
+msgctxt "PlayerName (rating)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: proto/ficsdialog.cpp:168
+#, kde-format
+msgid "<font color='red'>Error: %1</font>"
+msgstr "<font color='red'>Greška: %1</font>"
+
+#. i18n: ectx: attribute (title), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:33
+#, kde-format
+msgid "Account"
+msgstr "Nalog"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:36
+#, kde-format
+msgid "Log in to the chess server"
+msgstr "Prijavi se na šahovski server"
+
+#. i18n: ectx: property (text), widget (QLabel, usernameLabel)
+#: proto/ficsdialog.ui:55
+#, fuzzy, kde-format
+#| msgid "&Username"
+msgid "&Username:"
+msgstr "&Korisničko ime"
+
+#. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
+#: proto/ficsdialog.ui:72
+#, kde-format
+msgid "This is a registered account"
+msgstr "Ovo je registrovan nalog"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: proto/ficsdialog.ui:82
+#, fuzzy, kde-format
+#| msgid "&Password"
+msgid "&Password:"
+msgstr "&Lozinka"
+
+# rewrite-msgid: /Log me in/Log in/
+#. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
+#: proto/ficsdialog.ui:102
+#, kde-format
+msgid "Log me in automatically"
+msgstr "Prijavi me automatski"
+
+#. i18n: ectx: property (text), widget (QPushButton, logInButton)
+#: proto/ficsdialog.ui:109
+#, kde-format
+msgid "Log in"
+msgstr "Prijavi me"
+
+#. i18n: ectx: property (text), widget (QPushButton, registerButton)
+#: proto/ficsdialog.ui:129
+#, kde-format
+msgid "Create an account"
+msgstr "Napravi nalog"
+
+#. i18n: ectx: attribute (title), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:153
+#, kde-format
+msgid "Seek List"
+msgstr "Lista pretrage"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:156
+#, kde-format
+msgid "Current ads arranged in a list"
+msgstr "Tekući izazovi poređani u spisak"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:199
+#, kde-format
+msgid "Player"
+msgstr "Igrač"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:204
+#, kde-format
+msgid "Rating"
+msgstr "Rejting"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:209
+#, kde-format
+msgid "Time"
+msgstr "Vrijeme"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:214
+#, kde-format
+msgid "Increment"
+msgstr "Uvećanje"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:219
+#, kde-format
+msgid "Rated"
+msgstr "Za rejting"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:224
+#, kde-format
+msgid "Variant"
+msgstr "Varijanta"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:229
+#, kde-format
+msgid "Your color"
+msgstr "Vaša boja"
+
+#. i18n: ectx: attribute (title), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:238
+#, kde-format
+msgid "Seek Graph"
+msgstr "Grafikon pretrage"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:241
+#, kde-format
+msgid "Current ads arranged by rating and duration"
+msgstr "Tekući izazovi poređani po rejtingu i trajanju"
+
+#. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:258
+#, kde-format
+msgid "Challenges"
+msgstr "Izazovi"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:261
+#, kde-format
+msgid "Post an ad for other players"
+msgstr "Postavi izazov za druge igrače"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
+#: proto/ficsdialog.ui:267
+#, kde-format
+msgid "Rated match"
+msgstr "Meč za rejting"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
+#: proto/ficsdialog.ui:274
+#, kde-format
+msgid "Automatically start the game"
+msgstr "Automatski započni partiju"
+
+#. i18n: ectx: property (text), widget (QPushButton, seekButton)
+#: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
+#, kde-format
+msgctxt "Start searching for opponents"
+msgid "Seek"
+msgstr "Traži"
+
+#. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:295
+#, kde-format
+msgid "Console"
+msgstr "Konzola"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:298
+#, kde-format
+msgid "Use custom commands"
+msgstr "Unesite posebne naredbe"
+
+#: proto/ficsprotocol.cpp:117
+#, kde-format
+msgctxt "Stop searching for opponents"
+msgid "Unseek"
+msgstr "Ne traži"
+
+#: proto/ficsprotocol.cpp:119
+#, kde-format
+msgid "Help"
+msgstr "Pomoć"
+
+#: proto/ficsprotocol.cpp:140
+#, kde-format
+msgid "Server Console"
+msgstr "Konzola servera"
+
+#: proto/ficsprotocol.cpp:152
+#, kde-format
+msgid "Chat with %1"
+msgstr "Ćaskanje sa %1"
+
+#: proto/ficsprotocol.cpp:181
+#, kde-format
+msgid "Login failed"
+msgstr "Neuspješno prijavljivanje"
+
+#: proto/ficsprotocol.cpp:187
+#, fuzzy, kde-format
+#| msgid "Chess server"
+msgctxt "@title:window"
+msgid "Chess server"
+msgstr "Šahovski server"
+
+#: proto/ficsprotocol.cpp:278
+#, kde-format
+msgid "Invalid Password"
+msgstr "Neispravna lozinka"
+
+#: proto/protocol.cpp:54
+#, kde-format
+msgid "No Error"
+msgstr "Nema greške"
+
+#: proto/protocol.cpp:57
+#, kde-format
+msgid "User Canceled"
+msgstr "Otkazao korisnik"
+
+#: proto/protocol.cpp:60
+#, kde-format
+msgid "Network Error"
+msgstr "Greška na mreži"
+
+#: proto/protocol.cpp:63
+#, kde-format
+msgid "Unknown Error"
+msgstr "Nepoznata greška"
+
+#: proto/protocol.cpp:66
+#, kde-format
+msgid "Program Error"
+msgstr "Greška u programu"
+
+#: proto/seekgraph.cpp:26
+#, kde-format
+msgid "Time limit [minutes]"
+msgstr "Vremensko ograničenje [minuti]"
+
+#: proto/seekgraph.cpp:27
+#, kde-format
+msgid "Opponent's rating"
+msgstr "Protivnikov rejting"
+
+#~ msgid "Accessibility"
+#~ msgstr "Pristupačnost"
+
+#, fuzzy
+#~| msgid "Chess board based on KDE Development Platform 4"
+#~ msgid "Chess board based on KF5"
+#~ msgstr "Šahovska igra zasnovana na Razvojnoj platformi KDE‑a 4"
+
+#~ msgid "This feature is not yet implemented in Knights"
+#~ msgstr "Ova mogućnost još nije izvedena u programu Knights"
+
+#~ msgid "Invalid interface"
+#~ msgstr "Neispravan interfejs"
+
+# >! Context.
+# >> qtdt-format
+#~ msgid "H:mm:ss"
+#~ msgstr "H.mm.ss"
+
+#~ msgid "Configure Engines"
+#~ msgstr "Podesi motore"
+
+#, fuzzy
+#~| msgid "Knights"
+#~ msgid "KNights"
+#~ msgstr "Knights"
+
+#~ msgid "&Save History"
+#~ msgstr "&Sačuvaj historiju"
+
+# >> @item
+#~ msgid "Rook"
+#~ msgstr "Top"

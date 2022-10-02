@@ -1,0 +1,921 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY knights "<application
+>Knights</application
+>">
+  <!ENTITY kappname "&knights;">
+  <!ENTITY kappversion "2.5.0"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+	<bookinfo>
+		<title
+>Le manuel de &knights; </title>
+
+		<authorgroup>
+			<author
+><firstname
+>Miha</firstname
+> <surname
+>Cancula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+					</address>
+				</affiliation>
+			</author>
+			<othercredit role="translator"
+><firstname
+>Xavier</firstname
+><surname
+>Besnard</surname
+><affiliation
+><address
+><email
+>ktranslator31@yahoo.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française&nbsp;</contrib
+></othercredit
+> 
+
+		</authorgroup>
+		<copyright>
+			<year
+>2011</year>
+			<holder
+>Miha Cancula</holder>
+		</copyright>
+
+		<legalnotice
+>&FDLNotice;
+		</legalnotice>
+
+		<date
+>07-01-2015</date
+><!-- Date of (re)writing, or update.-->
+		<releaseinfo
+>&kappversion; </releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+		<abstract>
+			<para
+>Cette documentation présente le jeu &knights; version &kappversion;. </para>
+		</abstract>
+
+		<keywordset>
+			<keyword
+>KDE</keyword
+><!-- do not change this! -->
+			<keyword
+>kdegames</keyword
+><!-- do not change this! -->
+			<keyword
+>Jeu</keyword
+><!-- do not change this! -->
+			<keyword
+>Grille</keyword>
+			<keyword
+>Échecs</keyword>
+			<keyword
+>Knights</keyword>
+		</keywordset>
+
+	</bookinfo>
+<!-- 
+new in
+>2.4.0 history, UCI, Difficulty settings, see
+http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
+-->
+	<chapter id="introduction">
+		<title
+>Introduction</title>
+		<note>
+			<title
+>Type de partie :</title>
+			<para
+>Grille</para>
+		</note>
+		<note>
+			<title
+>Nombre de joueurs possibles :</title>
+			<para
+>Un ou deux</para>
+		</note>
+
+		<para
+>&knights; est un jeu d'échecs. Comme joueur, votre objectif est de battre votre adversaire faisant un échec et mat à son roi. </para>
+	</chapter>
+
+	<chapter id="how-to-play"
+><title
+>Comment jouer</title
+> <!-- do not change this! -->
+		<!--Describe the objective of the game.-->
+		<sect1 id="objective">
+			<title
+>Objectif</title>
+			<para
+>Déplacer vos pièces, prendre les pièces de son adversaire jusqu'à ce que le roi de votre adversaire soit attaqué et qu'il n'ait plus de déplacement pour arrêter l'attaque - ce qui s'appelle faire <quote
+>échec et mat</quote
+>.</para>
+			<para
+>Si vous vous apercevez que vous ne pouvez plus gagner, vous pouvez jouer pour un match nul (pat). Déplacer vos pièces jusqu'à ce que vous ne puissiez plus trouver de déplacements autorisés et que votre roi ne soit pas attaqué - cela s'appelle un <quote
+>pat</quote
+>.</para>
+		</sect1>
+
+		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+		<sect1 id="starting-the-game">
+			<title
+>Démarrage de la partie</title>
+			<para
+>Lorsque le programme démarre ou que le joueur sélectionne le menu <menuchoice
+><guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Nouveau</guimenuitem
+></menuchoice
+>, une boîte de dialogue s'affiche. Dans celle-ci, vous pouvez spécifier quels sont vos adversaires, votre couleur et les limites de durée. </para>
+				<mediaobject
+><imageobject
+><imagedata fileref="Knights-newgame-dialog.png"/></imageobject
+></mediaobject>
+			<para
+>Si vous voulez jouer contre un ami sur le même ordinateur, sélectionner <guilabel
+>Humain (Vous)</guilabel
+> pour le <guilabel
+>Joueur 1</guilabel
+> et <guilabel
+>Humain</guilabel
+> pour le <guilabel
+>Joueur 2</guilabel
+>. </para>
+			<para
+>Si vous voulez jouer contre l'ordinateur, sélectionner <guilabel
+>Humain (Vous)</guilabel
+> comme <guilabel
+>Joueur 1</guilabel
+> et <guilabel
+>Ordinateur</guilabel
+> comme <guilabel
+>Joueur 2</guilabel
+>. Choisissez le programme contre lequel vous aimeriez jouer et assurez vous que celui-ci est bien installé sur votre ordinateur et qu'il prend bien en charge les protocoles XBoard ou UCI. </para>
+			<para
+>Si vous avez déjà installé un logiciel d'échecs mais qu'il n'apparaît pas dans la liste, cliquez sur le bouton <guilabel
+>Configurer le logiciel d'échecs</guilabel
+> et ajouter le ici. Pour plus d'informations sur cette boîte de dialogue, veuillez vous référer à <link linkend="configuration-engines"
+>Logiciel d'échecs</link
+>. </para>
+			<note
+><title
+>Note</title>
+			<para
+>Même si un programme est présent dans la liste de la boîte de dialogue, cela ne signifie pas qu'il est installé. Veuillez vous assurer que vous avez installé tout ce qui est nécessaire pour le logiciel d'échecs contre lequel vous voulez jouer. Vous pouvez vérifier si le logiciel est installé ou non sur votre système dans la boîte de dialogue <guilabel
+>Configurer les logiciels d'échecs</guilabel
+>. </para>
+			</note>
+			<para
+>Si vous voulez jouer contre un adversaire sur Internet, sélectionner <guilabel
+>Humain (Vous)</guilabel
+> comme <guilabel
+>Joueur 1</guilabel
+> et <guilabel
+>Humain sur un serveur d'échecs</guilabel
+> comme <guilabel
+>Joueur 2</guilabel
+>. Vous aurez à vous connecter au serveur et trouver un adversaire avant de commencer à jouer. Le serveur libre d'échecs (<ulink url="http://freechess.org"
+>FreeChess.org</ulink
+>) accepte les invités mais vous avez besoin de vous enregistrer pour faire des parties qui modifieront votre classement. </para>
+			<para
+>Vous pouvez aussi regarder deux programmes jouer l'un contre l'autre ne sélectionnant <guilabel
+>Logiciel d'échecs</guilabel
+> comme les deux joueurs. </para>
+			<para
+>De façon identique, vous pouvez faire jouer un logiciel d'échecs contre un adversaire connecté à un serveur d'échecs. Cependant, veuillez noter que le serveur d'échecs peut avoir une politique relative à ce type de partie. Le serveur libre d'échecs est accessible <ulink url="http://www.freechess.org/Help/HelpFiles/computers.html"
+>ici</ulink
+>. </para>
+			<para
+>La section <guilabel
+>utiliser le contrôle de temps</guilabel
+> vous permet de démarrer un chronomètre optionnel. Knights utilise le contrôle de temps standard aux échecs, qui possède trois paramètres : </para>
+			      <itemizedlist>
+				<listitem>
+				  <para
+><guilabel
+>Période de contrôle de temps</guilabel
+> : spécifie le nombre de mouvements après lesquels la <guilabel
+>limite de temps initial</guilabel
+> est ajoutée au chronomètre du joueur. Vous pouvez désactiver cette addition en fixant la valeur à zéro. </para>
+				  <note
+><title
+>Note</title>
+				    <para
+>Cette option est non disponible lorsque vous jouez sur un serveur d'échecs. </para>
+				  </note>
+				</listitem>
+				<listitem>
+				  <para
+>La <guilabel
+>limite de temps initial</guilabel
+> est la quantité de temps allouée aux joueurs au départ. </para>
+				</listitem>
+				<listitem>
+				  <para
+>L'<guilabel
+>incrément par déplacement</guilabel
+> : spécifie combien de temps sera ajouté au chronomètre du joueur après chaque déplacement qu'il fera. Il peut être mis à zéro de façon sûre pour désactiver l'incrémentation du chronomètre. </para>
+				</listitem>
+				
+			</itemizedlist>
+			<para
+>Après avoir appuyé sur le bouton <guibutton
+>Ok</guibutton
+>, la boîte de dialogue sera fermée. Si vous sélectionnez un joueur sur un serveur d'échecs, vous aurez à vous connecter et trouver votre adversaire. Autrement, la partie démarrera immédiatement. </para>
+			<note
+><title
+>Note</title>
+			<para
+>&knights; chargera un thème par défaut de façon automatique, une fois que vous démarrez le jeu et que vous commencez à jouer. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="server-dialog">
+			<title
+>La boîte de dialogue du serveur d'échecs</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-account.png"/></imageobject
+></mediaobject>
+			<para
+>Si vous choisissez de jouer sur un serveur d'échecs, vous devez d'abord vous connecter au serveur. Si vous avez un compte sur le serveur, saisissez votre identifiant et mot de passe puis sélectionnez <guilabel
+>Ceci est un compte déclaré</guilabel
+>. Sinon, saisissez un identifiant de votre choix et cliquez sur le bouton <guibutton
+>Se connecter</guibutton
+>. </para>
+			<para
+>Il y a deux façons de choisir un adversaire. Soit vous diffusez une demande pour votre partie (nommée une « demande ») ou vous répondez à une demande de quelqu'un. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-challenges.png"/></imageobject
+></mediaobject>
+			<para
+>Pour diffuser le votre, allez sur l'ongle <guilabel
+>Défis</guilabel
+> et cliquez sur <guibutton
+>Demande</guibutton
+>. Si vous avez sélectionné <guilabel
+>Démarrer automatiquement la partie</guilabel
+>, dès que le joueur aura accepté le défi, le jeu commencera de façon immédiate. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-list.png"/></imageobject
+></mediaobject>
+			<para
+>Pour répondre à des demandes d'autres personnes, utilisez les onglets <guilabel
+>Liste des demandes</guilabel
+> ou <guilabel
+>Graphe des demandes</guilabel
+>. Sur l'un de ces onglets, sélectionnez la demande en cliquant dessus et appuyez sur le bouton <guibutton
+>Accepter</guibutton
+>. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-graph.png"/></imageobject
+></mediaobject>
+			<para
+>Le graphe des demandes affiches toutes les demandes diffusées actuellement, triées par classement des adversaires et par durée de partie. Un clic sur un point du graphe correspond à accepter une demande. </para>
+			<note>
+				<para
+>Pour des usages avancés, &knights; fournit un accès direct à une console du serveur. Sélectionnez l'onglet <guilabel
+>Console</guilabel
+> pour l'utiliser. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="playing-the-game">
+			<title
+>Faire une partie</title>
+			<para
+>Un déplacement de pièce se fait par un clic dessus et un glisser d'une pièce la place sur l'endroit désiré. Vous ne pouvez déplacer une pièce que si elle vous appartient, que c'est votre tour et que le déplacement de la pièce ne met pas votre roi en échec. </para>
+			<para
+>&knights; suit les règles standards des échecs. Ainsi, vous ne pouvez faire de déplacement illégal. </para>
+		</sect1>
+	</chapter>
+	
+	<chapter id="rules_and_tips">
+		<title
+>Règles du jeu, stratégies et astuces</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="standard-rules">
+		<title
+>Règles standards</title>
+		<para
+>Le principale ensemble de règles sont définis par la fédération internationale d'échecs - FIDE. Les autres groupes locaux ou nationaux peuvent présentés de légères modifications à ces règles. En général, les différences les plus importantes entre règles concernent la gestion du temps ou le type de parties nulles autorisées - la partie générale et les déplacements de pièces sont similaires. &knights; prend en charge le jeu d'échecs standard et offre une certaine flexibilité sur la gestion du temps.</para>
+		<para
+>Il y a de multiples variantes du jeu d'échecs. 2000 variantes de jeu d'échecs ont été trouvées. Les variantes majeures incluent « Fischer Random », « Bug-house », « Crazy-house » et « Suicide ».</para>
+		<para
+>La totalité des règles du jeu standard d'échecs peuvent être trouvés à :</para>
+		<itemizedlist>
+			<listitem
+><para
+>Fédération internationale d'échecs - FIDE (<ulink url="http://www.fide.com"
+>fide.com</ulink
+>)</para
+></listitem>
+			<listitem
+><para
+>Fédération américaine d'échecs - USCF (<ulink url="http://main.uschess.org"
+>main.uschess.org</ulink
+>)</para
+></listitem>
+		</itemizedlist>
+		<para
+>Les règles et les informations générales sur le jeu d'échecs peuvent être trouvées à : <itemizedlist
+> <listitem
+><para
+><ulink url="http://en.wikipedia.org/wiki/Rules_of_chess"
+>Wikipédia</ulink
+>&nbsp;</para
+></listitem>
+		</itemizedlist>
+		</para>
+	</sect1>
+
+	<sect1 id="board">
+		<title
+>Échiquier</title>
+		<sect2 id="board-layout">
+			<title
+>Disposition de l'échiquier</title>
+			<para
+>Un échiquier se compose de 64 cases de taille égale, organisées en huit lignes et huit colonnes. Les cases sont organisées par couleurs alternées, blancs et noirs. De nombreux matériaux différents sont utilisés pour faire un échiquier. Ainsi, le matériau de la couleur la plus claire représente le blanc et celui de la couleur la plus sombre représente le noir. </para>
+			<para
+>Certaines parties de l'échiquier sont repérés par des noms particuliers : <itemizedlist>
+				<listitem
+><para
+>Rang - les huit lignes horizontales de l'échiquier sont appelés les rangs.</para
+></listitem>
+				<listitem
+><para
+> Rangées - les huit colonnes verticales de l'échiquier sont appelés les rangées.</para
+></listitem>
+				<listitem
+><para
+>Diagonale - une ligne droite de cases de la même couleur allant d'un angle d'un coté de l'échiquier à l'autre angle sur l'autre coté est appelée une diagonale.</para
+></listitem>
+				<listitem
+><para
+>Centre - les quatre cases trouvées au milieu de l'échiquier sont appelés centre.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>Chaque case individuelle a un nom. Ainsi, les enregistrements des mouvements peuvent être conservés. Plusieurs systèmes de nommage existent mais la <quote
+>notation algébrique</quote
+> est la plus populaire et la version officielle. Dans ce système de notation, chaque case est nommée par la ligne et la colonne où il se trouve. Les rangs (lignes) sont numérotés de 1 à 8 en commençant par le coté blanc de l'échiquier et en se déplaçant vers le coté noir. Les files (colonnes) sont nommées par des lettres en minuscules de « a » à « h » en se déplaçant de la gauche à la droite selon le point de vue du joueur ayant les blancs. Le case est nommée par une lettre suivi par un nombre. Ainsi, le case en bas et à gauche est nommée « a1 ». L'organisation du nommage est donnée dans le diagramme ci-dessous : </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="board-setup">
+			<title
+>Configuration initiale</title>
+			<para
+>L'échiquier peut être retourné pour avoir un case blanche dans la première ligne du coté droit du joueur.</para>
+			<para
+>Les pièces sont placés sur le coté blanc et noire de l'échiquier de la même manière. Dans la première ligne, commençant à chaque bord et en se déplaçant vers l'intérieur, il y a la tour, le cavalier (quelque fois appelé le cheval) et le fou. Pour les deux cases restantes, placez la reine sur le case de la même couleur. Placez le roi sur la case restante. Une fois terminé, toutes les même pièces se font face d'une part et d'autre de l'échiquier. Sur la seconde ligne, placez une ligne de pions. L'échiquier complet doit alors ressembler à la figure ci-dessous.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="piece-movement">
+		<title
+>Déplacement des pièces</title>
+		<sect2 id="all-movement">
+			<title
+>Déplacement et prise</title>
+			<para
+>Les échecs ont 6 types de pièces : le pion, la tour, le cavalier, le fou, la reine et le roi. Chaque pièce possède une façon unique de déplacement. Il y a des similarités entre les déplacements des différentes pièces. Toutes les pièces, excepté le roi, se déplacent en ligne droite - horizontalement, verticalement ou diagonalement. Elles ne peuvent se déplacer jusqu'au bord de l'échiquier et revenir de l'autre coté. Le bord de l'échiquier est une limite qui ne peut être franchie. Toutes les pièces, à l'exception du cavalier, ne peuvent sauter par dessus une autre pièce - toutes les cases entre celle où se trouve la pièce et celle sur laquelle la pièce veut aller, doivent être vides. Un déplacement ne peut se finir sur un case occupée par une pièce de même couleur.</para>
+			
+			<para
+>Si le case où le déplacement d'une pièce se termine contient une pièce de l'adversaire, celle-ci est <quote
+>prise</quote
+> et est retirée de la partie. Toutes les pièces peuvent être prises sauf le roi. La partie s'arrête sur le déplacement avant que le roi ne soit pris en <quote
+><link linkend="checkmate"
+>échec et mat</link
+></quote
+>. La prise nécessite toujours que la pièce attaquante arrive sur le case où est la pièce adverse en faisant un déplacement autorisé. La seule exception est lors de la capture d'un pion <link linkend="en_passant-movement"
+>en passant</link
+>. Vous n'êtes pas obligé de prendre une pièce quand l'opportunité se présente, la prise n'est qu'une possibilité. Le seul moment où la prise est nécessaire est lorsque que le roi est en échec et que la prise de la pièce attaquante est la seule solution d'arrêter l'attaque.</para>
+			
+			<para
+>Dans la figure ci-dessous, la tour des blancs peut se déplacer vers la droite, la gauche, le haut ou le bas (verticalement ou horizontalement) en ligne droite. Elle peut se déplacer vers le bas et vers la droite de n'importe quel nombre de cases jusque ce que le bord de l'échiquier soit atteint. Ces cases sont repérées par un X vert. Elle peut se déplacer de 2 cases maximum vers la gauche. Le reste de l'échiquier est bloqué par une pièce de la même couleur, dans ce cas, par le cavalier blanc. La tour ne peut pas passer au dessus du cavalier pour atteindre le bord de l'échiquier. Elle ne peut se déplacer que d'un case vers le haut avant d'être bloqué par le pion noir. Elle peut prendre le pion en se déplaçant de deux cases vers le haut et en s'arrêtant sur le pion, puisque le pion est une pièce de l'adversaire (pièce de couleur différente). Ce case est repérée par un X en rouge dessus. Elle ne peut pas passer au dessus du pion pour arriver au bord de l'échiquier. Cependant, la tour a en tout, dix cases où elle peut se déplacer.</para>
+
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Pour commencer la partie, les blancs commencent à jouer. Les joueurs alternent alors en faisant un déplacement à chaque tour. Vous devez faire un déplacement lorsque que cela est votre tour et vous ne pouvez passer votre tour.</para>
+		</sect2>
+		<sect2 id="pawn-movement">
+			<title
+>Pion</title>
+			<para
+>Les pions sont les plus nombreux des pièces et les moins forts sur l'échiquier. Les pions ont un déplacement inhabituel. En général, les pions se déplacent en avant uniquement, d'un case à chaque fois. Une exception est le premier mouvement d'un pion où il peut se déplacer en avant de deux cases. Le pion ne peut passer au dessus des autres pièces ; toute pièce directement devant un pion bloque sa progression. Le pion est la seule pièce qui ne peut faire marche arrière. Le pion est aussi la seule pièce qui ne peut prendre dans le même sens qu'il se déplace. Le pion prend une pièce adverse en se déplaçant en diagonale d'une case - il ne peut pas prendre en se déplaçant en ligne droite.</para>
+			
+			<para
+>Dans la figure ci-dessous, le pion le plus bas est toujours sur sa position de départ. Ainsi, il peut de déplacer de une ou deux cases en avant (repérée par un X vert). Il peut prendre en se déplaçant sur la droite ou la gauche en diagonale mais seulement si la cas est occupée par une pièce adverse (repérée par un X rouge). Autrement, il ne peut se déplacer en diagonale. Le pion le plus haut s'est déjà déplacé de sa position initiale. Il ne peut se déplacer que d'une case en avant. Il peut également prendre en se déplaçant vers la gauche ou la droite diagonalement si la case contient une pièce adverse.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Le pion est aussi concerné par deux déplacements particuliers. Le premier est la <link linkend="en_passant-movement"
+>prise en passant</link
+> quand un pion est pris sur son déplacement initial de deux cases. Le second est la <link linkend="pawn-promotion-movement"
+>promotion du pion</link
+> quand un pion est promu vers une autre pièce lorsqu'il atteint l'autre coté de l'échiquier.</para>
+		</sect2>
+		<sect2 id="bishop-movement">
+			<title
+>Fou</title>
+			<para
+>Le fou se déplace en ligne droite diagonalement sur l'échiquier. Il peut se déplacer d'autant de cases qu'il veut jusqu'à ce qu'il atteigne le bord de l'échiquier ou une autre pièce. Le fou ne peut sauter par dessus d'autres pièces. Le fou prend sur le même trajet qu'il se déplace en arrivant sur la case de la pièce adverse. A cause de la façon dont il se déplace, le fou reste toujours sur les cases de même couleur qu'à son démarrage. Chaque joueur démarre avec deux fous, l'un sur les cases noires et l'autre sur les cases blanches. Ils sont appelés souvent fou <quote
+>noir</quote
+> et fou <quote
+>blanc</quote
+>. Les fous peuvent être aussi appelés par le coté sur lequel ils démarrent - fou du roi et fou de la reine.</para
+>  
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="rook-movement">
+			<title
+>Tour</title>
+			<para
+>La tour se déplace en ligne droite soit horizontalement soit verticalement de tout nombre de cases inoccupées, jusqu'à ce qu'elle atteigne le bord de l'échiquier ou qu'elle soit bloquée par une autre pièce. Elle ne peut passer au dessus d'une autre pièce. La tour prend sur le même trajet qu'elle se déplace en occupant la case sur laquelle une pièce adverse se trouve. La tour peut arriver sur toute case de l'échiquier et pour cette raison, elle est l'une des pièces les plus importantes de l'échiquier.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png"/></imageobject
+></mediaobject>
+			<para
+>La tour est aussi concernée par un déplacement spécial. Il s'agit du <link linkend="castling-movement"
+>roque</link
+> où la tour et le roi se regroupent dans une position défensive.</para>
+		</sect2>
+		<sect2 id="knight-movement">
+			<title
+>Cavalier</title>
+			<para
+>Le cavalier est la pièce la plus originale de l'échiquier ayant une grande liberté qui en fait la pièce la plus efficace. Le cavalier est la seule pièce sur l'échiquier qui peut passer au dessus des autres pièces. Le cavalier se déplace de deux cases horizontalement ou verticalement puis d'une case perpendiculairement. Le déplacement du cavalier est en forme de <quote
+>L</quote
+>. Le cavalier s'arrête toujours sur une case de couleur opposée à celle dont il est parti. La cavalier peut passer au dessus des pièces de n'importe quelle couleur en allant vers sa case de destination, mais il ne prend pas de pièces en passant par dessus. Le cavalier prend en s'arrêtant sur une case occupée par une pièce de couleur opposée. Il ne peut s'arrêter sur une case occupée par une pièce de même couleur. Puisque le mouvement du cavalier n'est pas en ligne droite, il peut attaquer une reine, un fou ou une tour sans être attaqué en retour par cette pièce.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="queen-movement">
+			<title
+>Reine</title>
+			<para
+>La reine est considérée comme la pièce la plus puissante de l'échiquier. Elle peut se déplacer de n'importe quel nombre de cases en ligne droite, verticalement ou horizontalement ou diagonalement. La reine se déplace de façon combinée comme un tour et un fou. Sauf si elle doit prendre, la reine peut se déplacer sur n'importe quelle case vide. Elle ne peut passer au dessus des pièces. La reine prend sur le même trajet sur lequel elle se déplace, en s'arrêtant sur la case de la pièce opposée.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="king-movement">
+			<title
+>Roi</title>
+			<para
+>Le roi est la pièce la plus importante sur l'échiquier. Si le roi est pris au pièce impliquant un prise inévitable, la partie est terminée et ce joueur perd la partie. Le roi a une mobilité réduite et il est considéré comme la pièce la plus faible du jeu. Le roi peut se déplacer vers toute case adjacente. C'est-à-dire, qu'il peut se déplacer d'une case dans toute direction : horizontalement, verticalement ou diagonalement. Il ne peut de déplacer vers une case occupée par une pièce de la même couleur. Le roi prend une autre pièce de la même façon qu'il se déplace, en s'arrêtant sur la case d'une pièce opposée. Il y a une condition supplémentaire concernant le déplacement du roi. Le roi ne peut se déplacer sur une case qui le mettrait sous l'attaque d'une pièce adverse (appelée <quote
+>échec</quote
+>). Une des conséquences de cette condition, les deux rois ne peuvent être placés cote à cote puisque le déplacer juste à coté du roi opposé mettrait le roi se déplaçant sous attaque (<quote
+>échec</quote
+>) et la seule façon d'arrêter l'attaque est de déplacer le roi.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="special-movement">
+		<title
+>Déplacements particuliers</title>
+		<sect2 id="en_passant-movement">
+			<title
+>En Passant</title>
+			<para
+>Quand la règle permettant à un pion de se déplacer de deux cases à son premier mouvement a été ajoutée, un pion pouvait potentiellement échapper à un pion opposé en passant derrière une case sous attaque. La prise « en passant » (comme en français) a été ajouté pour éviter cela. La capture est faite exactement comme si le pion s'était déplacé uniquement d'une case en avant. Il y a des conditions particulières pour une prise « en passant » : <itemizedlist>
+				<listitem
+><para
+>Un pion doit se déplacer de deux cases de sa position initiale en un unique déplacement.</para
+></listitem>
+				<listitem
+><para
+>Un pion adverse doit attaquer la case sur laquelle le premier pion s'est déplacé.</para
+></listitem>
+				<listitem
+><para
+>Le premier pion peut être pris comme s'il s'était déplacé seulement d'une case.</para
+></listitem>
+				<listitem
+><para
+>La prise peut être uniquement réalisée lors du prochain déplacement de la pièce adverse. Si la prise n'est pas faite, le premier pion est à l'abri de la capture « en passant » pour le reste de la partie.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>Dans le diagramme ci-dessous, le pion blanc n'a pas bougé de sa position initiale. Son premier déplacement peut se faire d'une ou de deux cases vers l'avant. La première case est sous l'attaque du pion noir (les pions attaquent en diagonale) comme indiqué par le X rouge. Le pion blanc se déplace en avant de deux cases pour éviter l'attaque. Au déplacement suivant, le pion noir se déplace sur la case où le pion blanc se serait déplacé s'il avait pu se déplacer d'une seule case à son premier déplacement. Le pion noir attaque avec succès le pion blanc et le prend <quote
+>en passant</quote
+>. Le pion blanc est retiré de la partie.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="castling-movement">
+			<title
+>Roque</title>
+			<para
+>Le roque implique le roi et une tour. C'est le seul cas dans le jeu où plus d'une pièce peuvent être déplacées lors d'un seul tour. Lors du roque, le roi se déplace de deux cases vers la tour et la tour se déplace vers le case de l'autre coté du roi.</para>
+			
+			<para
+>Le roque ne peut se faire que sous des conditions très strictes : <itemizedlist>
+				<listitem
+><para
+>Le roi et la tour ne doivent jamais avoir été déplacés durant la partie.</para
+></listitem>
+				<listitem
+><para
+>Il n'y a aucune pièce entre le roi et la tour.</para
+></listitem>
+				<listitem
+><para
+>Le roi n'est pas en échec.</para
+></listitem>
+				<listitem
+><para
+>Le roi ne doit pas traverser un case qui est attaquée par des pièces de l'adversaire.</para
+></listitem>
+				<listitem
+><para
+>Le roi ne doit pas terminer son déplacement sur un case qui est attaquée par des pièces de son adversaire. Le roque ne peut conduire à un déplacement qui mettrait le roi en échec.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Il y a deux variantes de roque. L'un est nommé <quote
+>Roque coté roi</quote
+>. Il est aussi connu sous le terme <quote
+>Petit roque</quote
+> car il est réalisé sur le coté court de l'échiquier et la tour n'a qu'à se déplacer de deux cases pour être du coté opposé du roi. La situation est résumée dans le diagramme ci-dessous :</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png"/></imageobject
+></mediaobject>
+			
+			<para
+>La seconde variante du roque est appelée <quote
+>Roque coté reine</quote
+> car le roi se déplace vers le case laissée vide par la reine. Ce déplacement est nommé aussi <quote
+>grand roque</quote
+> puisqu'il est réalisé du coté long de l'échiquier. La tour doit se déplacer de trois cases pour être du coté opposé du roi. La situation est résumée dans le diagramme ci-dessous :</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png"/></imageobject
+></mediaobject>
+			
+			<note
+><title
+>Remarque :</title>
+			<para
+>Dans &knights;, le roque est réalisé en déplaçant le roi de 2 cases vers la tour. &knights; complétera le déplacement en roque. Ne pas déplacer la tour sinon &knights; supposera que vous voulez uniquement déplacer la tour et non roquer. </para>
+			</note>
+			
+		</sect2>
+		<sect2 id="pawn-promotion-movement">
+			<title
+>Promotion du pion</title>
+			<para
+>Quand un pion a atteint l'autre coté de l'échiquier, il ne peut aller plus loin puisqu'il doit toujours aller vers l'avant et ne peut reculer. Le pion est alors transformé(<quote
+>promu</quote
+>) en une reine, un fou ou un cavalier. Cette promotion se fait dans le cadre d'un déplacement. En général, la pièce choisie est une reine, ce qui s'appelle <quote
+>règne</quote
+>. Les autres pièces sont quelquefois choisies quand leurs mouvements aideront dans la mise en échec et mat, ce qui s'appelle <quote
+>une promotion</quote
+>. Le pion peut être transformé en une pièce qui est déjà sur l'échiquier. Ainsi, vous pouvez avoir immédiatement dans la partie, deux reines ou trois tours, fous ou cavaliers.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="game-end">
+		<title
+>Fins de partie</title>
+		<sect2 id="checkmate">
+			<title
+>Échec et mat</title>
+			<para
+>Quand le roi est attaqué et menacé par la capture d'une pièce adverse, le roi est dit <quote
+>en échec</quote
+>. Un roi doit sortir d'un échec immédiatement. Il a trois possibilités pour sortir d'un échec. <itemizedlist>
+				<listitem
+><para
+>Prendre la pièce attaquante.</para
+></listitem>
+				<listitem
+><para
+>Déplacer le roi hors de l'attaque et sur un case sûre non attaquée par une pièce adverse.</para
+></listitem>
+				<listitem
+><para
+>Contrer l'attaque en plaçant une pièce entre l'attaquant et le roi (ne peut être fait pour une attaque avec un cavalier ou un pion).</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Si le roi n'a aucune solution pour s'échapper de l'échec, la position est déclarée <quote
+>échec et mat</quote
+> et la partie est terminée. Le joueur qui a été déclaré « échec et mat » a perdu la partie. Le roi n'est jamais pris et retiré de l'échiquier.</para>
+		</sect2>
+		<sect2 id="resign">
+			<title
+>Abandon</title>
+			<para
+>A tout moment durant la partie, un joueur peut déclarer abandonner (quitter). La partie se termine et l'adversaire remporte la partie.</para>
+		</sect2>
+		<sect2 id="draw">
+			<title
+>Match nul</title>
+			<para
+>Un <quote
+>match nul</quote
+> provient d'un accord entre les joueurs. Il y a de nombreux cas où un match nul peut survenir. <itemizedlist>
+				<listitem
+><para
+>Pat - (voir ci-dessous)</para
+></listitem>
+				<listitem
+><para
+>Répétition triple - Si la position exactement identique est répétée au moins 3 fois (pas forcément la répétition des déplacements). Cela nécessite que les déplacements de toutes les pièces des deux joueurs soient similaires. Si la possibilité qu'a un pion de faire une capture en passant à changer ou si la possibilité d'un roque a changé, la position n'est pas la même - même si les pièces sont sur les mêmes emplacements.</para
+></listitem>
+				<listitem
+><para
+>Règle des 50 déplacements - Si aucune pièce n'est prise ou si aucun pion n'a bougé durant les cinquante derniers déplacements par chacun des joueurs.</para
+></listitem>
+				<listitem
+><para
+>Impossibilité de faire « échec et mat » - si une situation se présente où aucun des joueurs ne peut plus arriver à un « échec et mat » par une série de déplacements autorisés. En général, cela arrive lorsqu'il n'y a plus suffisamment de pièces pour faire « échec et mat », mais il est possible d'avoir d'autres conditions. Les situations avec insuffisamment de pièces pour faire un « échec et mat » sont : <itemizedlist>
+					<listitem
+><para
+>Roi contre roi</para
+></listitem>
+					<listitem
+><para
+>Roi et fou contre roi</para
+></listitem>
+					<listitem
+><para
+>Roi et cavalier contre roi</para
+></listitem>
+					<listitem
+><para
+>Roi et fou contre roi et fou avec les fous sur la même couleur</para
+></listitem>
+				</itemizedlist>
+    </para
+></listitem>
+				<listitem
+><para
+>Expiration du chronomètre - si le temps d'un joueur est épuisé et que son adversaire n'a pas assez de pièces pour faire échec (voir ci-dessous)</para
+></listitem>
+				<listitem
+><para
+>Accord mutuel - si les deux joueurs sont d'accord pour un pat.</para
+></listitem>
+			</itemizedlist>
+			</para>
+		</sect2>
+		<sect2 id="stalemate">
+			<title
+>Échec</title>
+			<para
+>Si un joueur ne dispose plus de déplacement autorisés (tous les mouvements possibles mettraient son roi en échec) mais que le roi n'est pas actuellement en échec, la partie se termine par un échec. Cet échec conduit à terminer la partie en pat.</para>
+		</sect2>
+		<sect2 id="time-end">
+			<title
+>Temps</title>
+			<para
+>Si le temps est écoulé pour un joueur avant qu'ils aient terminé le nombre nécessaire de déplacements : <itemizedlist
+> <listitem
+><para
+> Le joueur perd la partie si l'adversaire a des pièces pour attaquer. </para
+></listitem
+> <listitem
+><para
+>La partie est déclarée en match nul si l'adversaire n'a pas de pièces pour attaquer.</para
+></listitem
+> </itemizedlist
+> Les pièces sont constituées de tout groupe de pièces sauf un roi uniquement, un roi et un fou ou un roi et un cavalier.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="time-controls">
+		<title
+>Contrôle du temps</title>
+		<para
+>De nombreuses parties d'échecs utilisent les contrôles de temps pour accélérer le jeu ou d'assurer une fin de partie dans une durée raisonnable. Il y a deux modes principaux de contrôle du temps.</para>
+		
+		<para
+>Le premier mode de contrôle du temps est « déplacements dans un temps donné ». Dans ce type, un joueur doit terminer un nombre donné de déplacement dans une période de temps fixée.</para>
+		
+		<para
+>Le second mode de contrôle de temps est appelé <quote
+>mort subite</quote
+>. Dans ce mode, il y a un durée de temps maximale pour terminer la partie, indépendamment du nombre de déplacements effectués.</para>
+		
+		<para
+>Dans le contrôle de temps, il peut y avoir un durée supplémentaire pour compenser le temps pour réaliser physiquement un déplacement. Dans le mode <quote
+>retardement de Bronstein</quote
+> le chronomètre ne démarre pas le comptage au début du déplacement réalisé par le joueur jusqu'à ce que le temps de retardement soit écoulé. Aucun temps n'est soustrait du chronomètre du joueur. Dans le mode <quote
+>retardement de Fischer</quote
+>, le temps de retardement est ajouté au temps restant au joueur avant le mouvement. Si le déplacement est réalisé avant que le temps de retardement soit écoulé, le temps de retardement restant est conservé par le joueur et leurs temps sur les chronomètres sont augmentés. De la même façon, un temps fixé est ajouté au chronomètre, la quantité de temps est appelée l'<quote
+> incrément de temps</quote
+>.</para>
+		
+		<para
+>Les contrôles de temps différent largement de la partie, du type de parties et des organisateurs. Ainsi, durant une partie, il peut y avoir plusieurs modes de contrôle de temps combinés ensemble, avec le temps non utilisé ajouté au contrôle de temps suivant. Pour toutes les manifestations importantes de la fédération internationale d'échecs (FIDE), le contrôle du temps est fixé à 90 minutes pour les 40 premiers déplacements, suivis par 30 minutes en mort subite et avec un temps additionnel de 30 secondes par déplacement démarrant au premier déplacement. Le mode par défaut sur le serveur libre d'échecs (FICS) est fixé à 2 minutes pour la partie (mort subite) plus 12 secondes de temps d'incrément à chaque déplacement. Le mode de la fédération américaine d'échecs Blitz est fixé à 5 minutes pour la partie avec aucun retardement de temps ou d'incrément.</para>
+	</sect1
+>	
+	</chapter>
+	
+	<chapter id="markers">
+		<title
+>Marqueurs</title>
+		<para
+>Les marqueurs permettent de souligner les cases sur l'échiquier. Ils peuvent être utilisés pour afficher les déplacements autorisés de votre pièce, le déplacement précédent de votre adversaire ou un roi en échec. Leurs couleurs et leurs formes dépendent du thème que vous utilisez. Ils peuvent être activés ou désactivés dans la section de configuration générale du menu de configuration. </para>
+		<para
+>Un clic sur votre pièce dans votre tour affiche un marqueur sur toutes les cases sur lesquelles votre pièce peut se déplacer. La figure affiche les déplacements autorisés pour la reine blanche. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png"/></imageobject
+></mediaobject>
+		<para
+>Quand votre adversaire a fait un déplacement, son dernier déplacement est affiché avec des marqueurs. Un marqueur affiche la position initiale de la pièce et un second affiche sa nouvelle position. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png"/></imageobject
+></mediaobject>
+		<para
+>Si le dernier déplacement de votre adversaire met votre roi en échec (<quote
+>check</quote
+>), votre roi et toutes les pièces attaquantes sont surlignés aussi. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png"/></imageobject
+></mediaobject>
+		<note>
+			<title
+>Remarque :</title>
+			<para
+>Certains thèmes peuvent ne pas prendre en charge tous les types de marqueurs. </para>
+		</note>
+	</chapter>
+
+	<chapter id="configuration">
+		<title
+>Configuration d'une partie</title
+><!-- do not change this! -->
+		<para
+>La boîte de dialogue pour configurer &knights; vous permet de changer les options d'affichage comme la sélection des thèmes de &knights;. </para>
+		<para
+>Une fois satisfait des modifications que vous avez sélectionnez, vous pouvez valider les modifications soit en cliquant sur le bouton <guibutton
+>Appliquer</guibutton
+> ou soit sur le bouton <guibutton
+>Ok</guibutton
+>, situés dans le bas de la boîte de dialogue. Un clic sur <guibutton
+>Ok</guibutton
+> fermera aussi la boîte de dialogue de configuration. </para>
+		<para
+>Si cependant, vous n'êtes pas satisfait par vos modifications - cliquez simplement sur le bouton <guibutton
+>Annuler</guibutton
+> pour ignorer vos modifications et fermer la boîte de dialogue de configuration. Vous devez cliquer sur <guibutton
+>Annuler</guibutton
+> avant de cliquer sur <guibutton
+>Appliquer</guibutton
+> ou <guibutton
+>Ok</guibutton
+>. </para>
+
+		<sect1 id="configuration-general">
+			<title
+>Général</title>
+			<para
+>La section <guimenu
+>Général</guimenu
+> contient les options sur l'apparence générale de &knights;. Les animations des pièces et de l'échiquier peuvent être activées ou modifiées. La section relatives aux animations est visible, repose sur le logiciel du système et est affichée sur les animations sont disponibles. Pouvoir tourner autour de l'échiquier est une effet disponible, permettant à l'échiquier de &knights; d'être retourné lorsque un écran d'ordinateur est utilisé ainsi que rester fixe lorsqu'une tablette est utilisée en remplacement d'un échiquier. Les trois types de <link linkend="markers"
+>marqueurs</link
+> peuvent être activés ou désactivés. Les bordures autour de l'échiquier peuvent être activées avec ou sans la notation algébrique des échecs en utilisant un menu à liste déroulante. </para>
+			<note>
+				<title
+>Remarque :</title>
+				<para
+>Certains thèmes peuvent ne pas prendre en charge les marqueurs, les bordures et / ou les annotations. Dans ce cas, la configuration n'aura aucun effet sur eux et vous sera rappelée lorsque vous changerez les thèmes de nouveau. </para>
+			</note>
+		</sect1>
+
+		<sect1 id="configuration-engines">
+			<title
+>Logiciel d'échecs</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-engines.png"/></imageobject
+></mediaobject>
+			<para
+>La section <guimenu
+>Logiciel d'échecs</guimenu
+> vous permet de configurer les logiciels comme adversaires. Pour chaque logiciel, spécifiez le nom du programme, la commande pou le lancer et le protocole qu'il utilise. &knights; prend en charge deux protocoles : XBoard et UCI. </para>
+			<para
+>La configuration pour un nouveau logiciel peut être ajoutée en cliquant sur <guibutton
+>Ajouter</guibutton
+> et en entrant les trois options mentionnées ci-dessus. Un symbole dans les dernières colonnes vous dit si le programme spécifié est installé sur votre ordinateur ou pas. </para>
+		</sect1>
+		
+		<sect1 id="configuration-accessibility">
+			<title
+>Accessibilité</title>
+			<para
+>La section <guimenu
+>Accessibilité</guimenu
+> propose quelques options concernant l'affichage et l'utilisation de l'échiquier par des logiciels externes pour qu'il soit plus facile pour jouer une partie pour des personnes ayant des handicaps. </para>
+			<para
+>&jovie;; la synthèse vocale de &kde; peut être utilisée pour annoncer les déplacements de votre adversaire. </para>
+			<para
+>Il est possible de piloter &knights; via l'interface &DBus;. Il n'y a pas d'utilisation actuelle sauf avec la version expérimentale de <ulink url="http://simon-listens.org/"
+>Simon</ulink
+>, permettant un pilotage par commande vocale. </para>
+		</sect1>
+
+		<sect1 id="configuration-themes">
+			<title
+>Thèmes</title>
+			<para
+>La section <guimenu
+>Thème</guimenu
+> permet la sélection d'un thème. Un thème fournit des images pour l'échiquier, les pièces, les marqueurs et d'autres éléments. Pour sélectionner un nouveau thème, choisissez le nom du thème dans la liste de sélection. Vous pouvez aussi télécharger de nouveaux thèmes à partir de la même page en cliquant sur <guibutton
+>Obtenir de nouveaux thèmes</guibutton
+>. Ceux ci sont regroupés sur le site kde-look.org dans la page &knights;. </para>
+			<note>
+				<title
+>Remarque :</title>
+				<para
+>Pour votre confort, une copie d'écran d'un aperçu rapide sera affichée sur le coté droit de la liste de sélection dès que vous aurez sélectionné le thème qui vous intéresse. </para>
+			</note>
+		</sect1>
+	</chapter>
+
+	<chapter id="credits-and-license">
+		<title
+>Remerciements et licence</title>
+
+
+		<para
+>&knights;</para>
+		<itemizedlist>
+   <listitem>
+				<para
+>Miha Cancula <email
+>miha.cancula@gmail.com</email
+> - Auteur original </para>
+   </listitem>
+		</itemizedlist>
+		<para
+>Copyright 2010 de la documentation, Miha Cancula <email
+>miha.cancula@gmail.com</email
+> </para>
+		
+		<para
+>Traduction française par Xavier Besnard <email
+>ktranslator31@yahoo.fr</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+</book>

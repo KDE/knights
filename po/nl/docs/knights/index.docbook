@@ -1,0 +1,1018 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY i18n-knights "<application
+>Knights</application
+>">
+  <!ENTITY kappversion "2.6.2"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+  <bookinfo>
+    <title
+>Handboek van &knights;</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Miha</firstname
+> <surname
+>Čančula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+          </address>
+        </affiliation>
+      </author>
+      &Freek.de.Kruijf;&Jaap.Woldringh; 
+
+    </authorgroup>
+    <copyright>
+      <year
+>2011</year>
+      <holder
+>Miha Čančula</holder>
+    </copyright>
+
+    <legalnotice
+>&FDLNotice;
+    </legalnotice>
+
+    <date
+>2021-10-13</date
+><!-- Date of (re)writing, or update.-->
+    <releaseinfo
+>&kappversion; (KDE Gear 21.08)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+    <abstract>
+      <para
+>In deze documentatie wordt het spel &i18n-knights; versie &kappversion; beschreven</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword
+><!-- do not change this! -->
+      <keyword
+>spel</keyword
+><!-- do not change this! -->
+      <keyword
+>bord</keyword>
+      <keyword
+>schaakspel</keyword>
+      <keyword
+>Knights</keyword>
+    </keywordset>
+
+  </bookinfo>
+
+  <chapter id="introduction">
+    <title
+>Inleiding</title>
+
+    <note>
+      <title
+>Speltype:</title>
+      <para
+>Bord</para>
+    </note>
+
+    <note>
+      <title
+>Aantal mogelijke spelers:</title>
+      <para
+>Eén of twee</para>
+    </note>
+
+    <para
+>&i18n-knights; is een schaakspel. Het doel is uw tegenspeler te verslaan door zijn/haar koning schaakmat te zetten.</para>
+  </chapter>
+
+  <chapter id="how-to-play"
+><title
+>Hoe te spelen</title
+> <!-- do not change this! -->
+    <!--Describe the objective of the game.-->
+    <sect1 id="objective">
+      <title
+>Doel</title>
+
+      <para
+>Door uw stukken te verplaatsen, en die van uw tegenspeler te slaan, uiteindelijk de koning van de tegenspeler aan te vallen,  zonder dat hij/zij daar iets aan kan doen om dit te veranderen - dit wordt <quote
+>schaakmat</quote
+> genoemd.</para>
+
+      <para
+>Indien het ernaar uitziet dat u niet kunt winnen, kunt u proberen remise te bereiken: u noch uw tegenspeler wint dan. Verplaats daartoe uw stukken zo dat er geen geldige zetten meer overblijven, zonder dat uw koning in een aangevallen positie staat - dit wordt <quote
+>pat</quote
+> genoemd. Afhankelijk van de gevolgde spelregels kan dit ook op andere manieren worden bereikt.</para>
+    </sect1>
+
+    <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+    <sect1 id="starting-the-game">
+      <title
+>Het spel starten</title>
+
+      <para
+>Wanneer het programma start, kan de gebruiker menu-item <menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+></menuchoice
+> selecteren, hij/zij ziet dan een dialoog. Hierin kan hij/zij opgeven tegen wie wordt gespeeld, met welke kleur, en de tijdslimieten.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialoog Nieuw spel</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-newgame-dialog.png" format="PNG"/></imageobject>
+          <caption
+>Dialoog Nieuw spel</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Indien u wenst te spelen tegen een vriend op dezelfde computer, dan selecteert u <guilabel
+>Mens (U)</guilabel
+> voor  <guilabel
+>Speler 1</guilabel
+> en <guilabel
+>Mens</guilabel
+> voor <guilabel
+>Speler 2</guilabel
+>.</para>
+
+      <para
+>Indien u tegen de computer wilt spelen, selecteert u <guilabel
+>Mens (U)</guilabel
+> voor <guilabel
+>Speler 1</guilabel
+> en <guilabel
+>Computerprogramma</guilabel
+> voor <guilabel
+>Speler 2</guilabel
+>. Uit deze afrollijst kiest u het programma waar u tegen wilt spelen. U moet er wel zeker van zijn dat het door u opgegeven programma op uw computer is geïnstalleerd en dat dit het XBoard- of <acronym
+>UCI</acronym
+>-protocol ondersteunt.</para>
+
+      <para
+>Indien een door u geïnstalleerd schaakprogramma niet in de lijst voorkomt, klik dan op de knop <guibutton
+>Configureren...</guibutton
+> waarna u uw programma kunt toevoegen. Zie <xref linkend="configuration-engines"/> voor meer informatie hierover.</para>
+
+      <note
+><para
+>Ook al staat een programma in de lijst, betekent dat nog niet dat het is geïnstalleerd. Vergewis u ervan dat elk schaakprogramma waar u tegen wilt spelen, ook werkelijk is geïnstalleerd. U kunt in de dialoog <guilabel
+>Schaakprogramma's</guilabel
+> controleren welke programma's op uw systeem zijn geïnstalleerd.</para
+></note>
+
+      <para
+>Indien u wenst te spelen tegen iemand op het internet, selecteert u <guilabel
+>Mens (U)</guilabel
+> voor <guilabel
+>Speler 1</guilabel
+> en  <guilabel
+>Schaakserver</guilabel
+> voor <guilabel
+>Speler 2</guilabel
+>. U moet dan op de server inloggen en een tegenspeler zoeken waar u tegen wilt spelen. De Free Internet Chess Server (<ulink url="https://www.freechess.org"
+>FreeChess.org</ulink
+>) laat wel gasten toe, maar u moet u laten registreren om volgens uw rating (vaardigheidsgetal) te kunnen spelen.</para>
+
+      <para
+>U kunt ook toekijken hoe twee programma's tegen elkaar spelen, door voor beide spelers <guilabel
+>Computerprogramma:</guilabel
+> te selecteren.</para>
+
+      <para
+>Op dezelfde manier kunt u ook een computerprogramma tegen iemand laten spelen op een schaakserver. U moet er echter op letten of dat op die schaakserver wel is toegestaan.  Voor de Free Internet Chess Server vindt u <ulink url="https://www.freechess.org/Help/HelpFiles/computers.html"
+>hier</ulink
+> de regels.</para>
+
+      <para
+>Het keuzevak <guilabel
+>Tijdcontrole gebruiken</guilabel
+> biedt u een optionele tijdklok te activeren. In &i18n-knights; wordt de standaard schaaktijdmeting gebruikt, met drie parameters in draaischakelaars:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+>Met <guilabel
+>Periode van tijdcontrole:</guilabel
+> wordt het aantal zetten opgegeven,  waarna de <guilabel
+>Aanvankelijke tijdslimiet</guilabel
+> wordt opgeteld bij de klok van de speler. U kunt dit uitzetten door die op nul in te stellen</para>
+        <note
+><para
+>Deze optie is niet beschikbaar bij het spelen op een schaakserver.</para
+></note
+><para/></listitem>
+        <listitem
+><para
+>De <guilabel
+>Aanvankelijke tijdslimiet:</guilabel
+> is de beschikbare tijd die de spelers aan het begin van het spel hebben.</para
+></listitem>
+        <listitem
+><para
+><guilabel
+>Extra tijd per zet:</guilabel
+> is de tijd die een speler extra krijgt na elke zet. Deze kan veilig op nul worden gesteld om dit uit te schakelen.</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>Na drukken op de knop <guibutton
+>Ok</guibutton
+> wordt de dialoog afgesloten. Kiest u om tegen een speler op een schaakserver te spelen, dan moet u nog inloggen en een tegenstander vinden. In andere gevallen start het spel meteen.</para>
+
+      <note
+><para
+>&i18n-knights; leest automatisch een standaard thema in als u het spel start, zodat u direct met spelen kunt beginnen.</para
+></note>
+    </sect1>
+
+    <sect1 id="server-dialog">
+      <title
+>De dialoog voor de schaakserver</title>
+
+      <screenshot>
+        <screeninfo
+>Dialoog van de schaakserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-account.png" format="PNG"/></imageobject>
+          <caption
+>Tabblad Account</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Indien u op een schaakserver wilt spelen, moet u daarop eerst inloggen. Indien u een account heeft op de server, typt u uw gebruikersnaam en wachtwoord in, en selecteert u het keuzevakje <guilabel
+>Dit is een geregistreerde account</guilabel
+>. Anders typt u een gebruikersnaam in naar keuze, en klikt op de knop <guibutton
+>Aanmelden</guibutton
+>.</para>
+
+      <para
+>U kunt op twee manieren een tegenspeler kiezen. Of u plaatst een oproep om met u te spelen (dit wordt een <quote
+>seek</quote
+> (zoeken) genoemd), of u reageert op de seek van iemand anders.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialoog van de schaakserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-challenges.png" format="PNG"/></imageobject>
+          <caption
+>Tabblad Uitdagingen</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Om uw eigen oproep te plaatsen gaat u naar het tabblad <guilabel
+>Uitdagingen</guilabel
+>, en drukt u op de knop <guibutton
+>Zoeken</guibutton
+>. Indien <guilabel
+>Automatisch het spel starten</guilabel
+> is geactiveerd, zal het spel onmiddellijk beginnen nadat iemand op uw "seek" reageert. Anders moet u de uitdaging handmatig accepteren, door die in de lijst te selecteren, en op de knop <guibutton
+>Accepteren</guibutton
+> te klikken.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialoog van de schaakserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-list.png" format="PNG"/></imageobject>
+          <caption
+>Tabblad Zoeklijst</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>U kunt op de "seeks" van anderen reageren in de tabbladen <guilabel
+>Zoeklijst</guilabel
+> of  <guilabel
+>Zoekdiagram</guilabel
+>. In beide tabbladen kunt u een "seek" selecteren en op de knop <guibutton
+>Accepteren</guibutton
+> te drukken.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialoog van de schaakserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
+          <caption
+>Tabblad Zoekdiagram</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>In het seekdiagram ziet u alle nu uitstaande "seeks", geordend naar de rating van de tegenspeler en naar de spelduur. Door op een punt in het diagram te klikken accepteert u een seek.</para>
+
+      <note
+><para
+>Voor gevorderd gebruik biedt &i18n-knights; u direct toegang tot de console van de server. Daarvoor dient het tabblad <guilabel
+>Console</guilabel
+>.</para
+></note>
+    </sect1>
+
+    <sect1 id="playing-the-game">
+      <title
+>Spelen</title>
+
+      <para
+>U kunt stukken verplaatsen door ze met klikken en slepen op de gewenste positie te plaatsen. U kunt alleen uw eigen stukken verplaatsen, wanneer het uw beurt is, en uw koning hierdoor niet in een aangevallen positie komt.</para>
+
+      <para
+>&i18n-knights; volgt de standaard regels voor schaken, u kunt dus geen ongeldige zetten doen.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="rules_and_tips">
+    <title
+>Spelregels, strategieën en aanwijzingen</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+    <sect1 id="standard-rules">
+      <title
+>Standaard regels</title>
+
+      <para
+>De spelregels voor schaken zijn vastgesteld door de World Chess Federation (wereldschaakbond) - FIDE. Andere nationale en lokale groepen kunnen hierin kleine wijzigingen aanbrengen. De voornaamste verschillen hebben betrekking tot het bijhouden van tijden, of de toegestane manieren waarop een remise kan worden bereikt - de basisregels voor het spel en het verplaatsen van stukken blijven gelijk. &i18n-knights; ondersteunt de standaard schaakregels, en is wat flexibel met het instellen van tijden.</para>
+
+      <para
+>Er zijn vele varianten op standaard schaken. Volgens een bron zijn er meer dan 2000 verschillende varianten van het spel. De belangrijkste zijn o.a.: Probleemschaak, Doorgeefschaak, en niet te vergeten Simultaanschaak. Op de FICS kunt u ook Fischer Random, Bughouse, Crazyhouse en Suicide spelen. De varianten hebben verschillende regels voor het slaan van stukken, plaatsen van stukken, het einde van het spel, en het op het bord terugzetten van stukken. Deze varianten worden niet door &i18n-knights; ondersteund. </para>
+      <para
+>U kunt de standaard regels voor schaken vinden op:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+>Koninklijke Nederlandse Schaakbond (<ulink url="https://www.schaakbond.nl/knsb/handboek/schaakregels/FIDE-Regels%20voor%20het%20Schaakspel%201-7-2014.pdf"
+>schaakbond.nl</ulink
+>)</para
+></listitem>
+        <listitem
+><para
+>United States Chess Federation-USCF (<ulink url="https://new.uschess.org/"
+>new.uschess.org</ulink
+>)</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>De spelregels, en algemene informatie over het schaken vindt u op:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+><ulink url="https://nl.wikipedia.org/wiki/Schaken#Spelregels_van_het_Schaakspel"
+>Wikipedia</ulink
+>&nbsp;</para
+></listitem>
+      </itemizedlist>
+    </sect1>
+
+    <sect1 id="board">
+      <title
+>Schaakbord</title>
+      <sect2 id="board-layout">
+        <title
+>Indeling van het bord</title>
+
+        <para
+>Een schaakbord is ingedeeld in 64 gelijke vierkanten (velden), in acht rijen en kolommen. Deze velden zijn afwisselend in de kleuren zwart en wit. Schaakborden worden van veel verschillende materialen gemaakt, het lichter gekleurde materiaal wordt wit genoemd, en het donkere materiaal zwart.</para>
+
+        <para
+>De onderdelen van het bord worden als volgt genoemd:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Rij - de 8 horizontale rijen van het schaakbord worden rijen genoemd.</para
+></listitem>
+          <listitem
+><para
+>Kolom - de 8 verticale kolommen van het schaakbord worden kolommen genoemd.</para
+></listitem>
+          <listitem
+><para
+>Diagonaal - velden van dezelfde kleur die op een rechte lijn liggen evenwijdig aan de diagonaal van het bord worden een diagonaal genoemd</para
+></listitem>
+          <listitem
+><para
+>Centrum - de vier velden in het midden van het bord worden het centrum genoemd.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Elk afzonderlijke veld heeft een naam, zodat de zetten in het spel kunnen worden opgeschreven. Er bestaan diverse naamsystemen, maar de <quote
+>algebraische notatie</quote
+> is het meest gangbaar, en is het officiële systeem. Hierin wordt elk veld genoemd naar de rij en de kolom waarin het zich bevindt. Rijen worden genummerd van 1 t/m 8, vanaf de zijde van de speler met wit, tot aan de zijde waar de speler met zwart zit. De kolommen worden a t/m h genoemd (kleine letters), van links naar rechts vanuit het gezichtspunt van de speler met wit. De naam van een veld is een letter, gevolgd door een getal. Het veld linksonder (voor wit) heet dus a1. De naamstructuur ziet u in het volgende diagram:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="board-setup">
+        <title
+>Beginopstelling</title>
+
+        <para
+>Het schaakbord wordt zo gedraaid dat voor beide spelers het  veld  linksonder zwart is.</para>
+
+        <para
+>De stukken worden zowel voor wit als voor zwart op dezelfde manier op het bord geplaatst. Op de onderste rij, beginnend aan de buitenkanten, en naar binnen toe werkend, worden een toren, een paard en een loper geplaatst. Op de overblijvende twee velden, wordt de koningin (dame) geplaatst op het veld met dezelfde kleur. De koning wordt op het overblijvende veld geplaatst. Wanneer dit klaar is, staan steeds twee dezelfde stukken op het bord tegenover elkaar. Op de tweede rij worden de pionnen geplaatst. De speler met wit plaatst de witte stukken, de speler met zwart de zwarte.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="piece-movement">
+      <title
+>Hoe de stukken bewegen</title>
+      <sect2 id="all-movement">
+        <title
+>Bewegen en slaan</title>
+
+        <para
+>In het schaakspel zijn er 6 soorten stukken: pion, toren, paard, loper, koningin (dame)  en koning. Elk ervan beweegt op zijn eigen manier op het bord. Er zijn ook overeenkomsten. Alle stukken behalve het paard, bewegen in een rechte lijn - horizontaal, verticaal of diagonaal. Zij kunnen niet voorbij de rand van het bord bewegen, en dan terugkeren aan de andere kant. De rand van het bord is een grens die niet kan worden overschreden. Alle stukken behalve het paard kunnen niet over een ander stuk heen springen - alle velden tussen de begin- en eindpositie van het stuk moeten leeg zijn. De beweging mag niet eindigen op een veld waarop een stuk van de eigen kleur staat.</para>
+
+        <para
+>Indien er op het veld waar een stuk naar toe beweegt, een stuk staat  van de tegenspeler, dan wordt dat stuk <quote
+>geslagen</quote
+>, en van het bord verwijderd. Alle stukken kunnen worden geslagen, behalve de koning. Het spel eindigt als de koning kan worden geslagen zonder dat dit kan worden verhinderd - met <quote
+><link linkend="checkmate"
+>schaakmat</link
+></quote
+>. Voor slaan is het altijd nodig dat het verplaatste stuk terecht komt op het veld van het geslagen stuk, na een toegestane zet (beweging). De enige uitzondering is wanneer een pion <link linkend="en_passant-movement"
+>en passant</link
+> wordt geslagen. Slaan van een stuk is niet verplicht, maar u mag dit doen wanneer dit mogelijk is. U bent alleen verplicht een stuk te slaan dat de koning kan slaan  (schaak zet) en dit de enige manier is om daaraan een einde te maken.</para>
+
+        <para
+>In de afbeelding hieronder, kan de toren naar rechts, naar links, naar boven of naar beneden bewegen langs een rechte lijn. De toren kan een willekeurig aantal velden naar beneden of naar rechts bewegen, tot de rand van het bord. Op deze velden staat een groene X. Hij kan hoogstens twee velden naar links worden verplaatst. De rest van het bord is geblokkeerd door een stuk van de eigen kleur, in dit geval een wit paard. De toren kan niet over het paard heen springen naar de rand van het bord. Hij kan slechts een veld naar boven bewegen, omdat de zwarte pion in de weg staat. Hij kan de pion slaan, na een verplaatsing van twee velden, naar het veld waar de zwarte pion op staat, omdat de pion van de tegenspeler is (stuk van een andere kleur). Op dit veld staat een rode X. Hij kan niet over de pion heen springen naar de rand van het bord. Dus zijn er in totaal 10 velden waar de toren naar toe kan worden verplaatst.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Bij het begin van het spel is eerst wit aan zet. De spelers doen om de beurt een zet. De speler die aan zet is, moet een zet doen, en mag geen beurten overslaan.</para>
+      </sect2>
+
+      <sect2 id="pawn-movement">
+        <title
+>Pion</title>
+
+        <para
+>De pion is het meest talrijke en het minst krachtige stuk op het bord. De bewegingen van pionnen zijn erg ongewoon. Gewoonlijk bewegen zij zich alleen naar voren, een veld per keer. Maar bij de eerste keer dat een pion wordt verplaatst, kan die twee velden naar voren gaan. De pion kan niet over andere stukken springen, elk stuk dat direct voor de pion staat blokkeert zijn voortgang. De pion is het enige stuk dat niet naar achteren kan bewegen. De pion is ook het enige stuk dat niet in zijn normale bewegingsrichting slaat. De pion slaat een stuk van de tegenspeler door diagonaal (schuin) een veld vooruit te gaan - hij kan geen stuk recht vooruit slaan.</para>
+
+        <para
+>In de onderstaande afbeelding staat de onderste pion nog op het zelfde veld als toen het spel begon, en kan dus een of twee velden naar voren gaan (aangegeven met de groene X). Hij kan een stuk van de tegenpartij één veld schuin naar linksvoor of rechtsvoor slaan, als die zich op dat veld bevindt (zie rode X). Dit is de enige manier waarop een pion in een diagonale richting kan bewegen. De bovenste pion is al eens eerder verplaatst, en kan dus alleen één veld naar voren bewegen. Overigens mag hij op de zelfde manier slaan als de andere pion.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>De pion kent ook nog twee speciale bewegingen. Ten eerste <link linkend="en_passant-movement"
+>slaan "en passant"</link
+> waarbij een pion wordt geslagen als die twee velden vooruit gaat vanuit de beginpositie. Ten tweede de <link linkend="pawn-promotion-movement"
+>pion-promotie</link
+> waarbij de pion promoveert naar een ander stuk bij het bereiken van de rand aan de overzijde van het bord.</para>
+      </sect2>
+
+      <sect2 id="bishop-movement">
+        <title
+>Loper</title>
+
+        <para
+>De loper beweegt in rechte diagonale lijnen op het bord. Hij kan elk gewenst aantal velden worden verplaatst, tot de rand van het bord, of een ander stuk. De loper kan niet over andere stukken springen. De loper kan een stuk van de tegenspeler slaan dat zich op zijn weg bevindt, door op het veld van dat stuk te gaan staan. Door de manier waarop de loper beweegt, blijft die altijd op velden van dezelfde kleur. Elke speler begint met twee lopers, een op de witte, en de andere op de zwarte velden. De lopers worden vaak genoemd naar de kleur van de velden waarop zij bewegen, maar ook naar hun beginpositie, naast de koning of de koningin.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="rook-movement">
+        <title
+>Toren</title>
+
+        <para
+>De toren beweegt in een rechte horizontale of verticale lijn over een willekeurig aantal vrije velden, tot aan de rand van het bord, of tot een ander stuk op zijn weg. Hij kan niet over andere stukken springen. De toren kan een stuk van de tegenspeler slaan dat zijn weg blokkeert, door op het veld ervan te gaan staan. De toren kan op elk veld van het bord komen, en is dus een van de sterkere stukken op het bord.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Ook voor de toren is er een speciale zet. Deze wordt <link linkend="castling-movement"
+>Rokeren</link
+> genoemd, waardoor een toren en de koning wat meer defensief worden opgesteld.</para>
+      </sect2>
+
+      <sect2 id="knight-movement">
+        <title
+>Paard</title>
+
+        <para
+>Het paard is het meest bijzondere schaakstuk, met een flexibiliteit die het tot een krachtig stuk maakt. Het paard is het enige stuk op het bord dat over andere stukken kan springen. Het paard beweegt twee velden horizontaal of verticaal, en een veld in de richting hier loodrecht op (8 mogelijkheden). De beweging van het paard lijkt op de letter <quote
+>L</quote
+>. Het paard komt altijd terecht op een veld met een andere kleur als het veld waar het eerst op stond. Het paard kan over stukken springen van beide kleuren, maar kan geen van die stukken slaan. Het paard slaat een stuk van de tegenspeler, dat op het veld staat waar het paard op terecht komt. Het paard kan niet op een veld terecht komen waar al een stuk op staat van de eigen kleur. Omdat het paard niet langs een rechte lijn beweegt, kan het een dame, loper, of toren slaan, zonder zelf door dat stuk geslagen te kunnen worden.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="queen-movement">
+        <title
+>Koningin of Dame</title>
+
+        <para
+>De Koningin (Dame) wordt beschouwd als het krachtigste stuk op het bord. De dame kan een willekeurig aantal velden bewegen langs elke rechte lijn - horizontaal, verticaal of diagonaal. De dame kan dus de bewegingen van zowel de toren als de loper uitvoeren. Behalve als er een stuk wordt geslagen, moet de koningin op een vrij veld terecht komen, en de dame kan niet over andere stukken springen.De koningin slaat een stuk van de tegenspeler, op een veld op de lijn waarlangs de dame beweegt, door op dat veld te worden geplaatst.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="king-movement">
+        <title
+>Koning</title>
+
+        <para
+>De Koning is het belangrijkste schaakstuk. Als de koning wordt vastgezet, zodat slaan ervan onontkoombaar is geworden, is het spel afgelopen, en de eigenaar van die koning  verliest. De koning heeft weinig bewegingsmogelijkheden, en wordt dus als een van de zwakke stukken in het spel beschouwd. De koning kan naar elk omliggend veld gaan. Dit wil zeggen: één veld bewegen in horizontale, verticale of diagonale richting. De koning kan niet bewegen naar een veld dat reeds is bezet door een stuk van dezelfde kleur. De koning kan een stuk slaan van de tegenspeler, door geplaatst te worden op een veld dat bezet wordt door dat stuk. Er is nog een beperking van de bewegingsvrijheid van de koning. De koning mag niet op een veld gaan staan waardoor hij zou kunnen worden geslagen door een stuk van de tegenspeler (waardoor hij <quote
+>schaak</quote
+> zou komen te staan). Als gevolg hiervan kunnen de beide koningen nooit naast elkaar staan op het bord - ze zouden dan beiden <quote
+>schaak</quote
+> staan door elkaar. De koning kan ook worden gedwongen te bewegen of te slaan, als die <quote
+>schaak</quote
+> staat, en dit de enige manier is om daar wat aan te doen. </para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="special-movement">
+      <title
+>Speciale zetten</title>
+      <sect2 id="en_passant-movement">
+        <title
+>En Passant</title>
+
+        <para
+>Toen de mogelijkheid werd ingevoerd dat bij de eerste zet een pion twee velden naar voren mocht worden verplaatst, zou op deze manier eventueel slaan door een pion van de tegenspeler onmogelijk kunnen worden gemaakt, door de eigen pion voorbij het aangevallen veld te bewegen. Slaan "en passant" (uit het Frans: <quote
+>in het voorbijgaan</quote
+>) werd toen ingevoerd om dit te voorkomen. Het slaan gebeurt dan net alsof de eigen pion maar een veld naar voren werd geplaatst. Er zijn speciale voorwaarden verbonden aan het slaan en passant:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Een pion moet in één enkele zet twee velden worden verplaatst.</para
+></listitem>
+          <listitem
+><para
+>Een pion van de tegenspeler moet het veld waar de eerste pion overheen gaat aanvallen.</para
+></listitem>
+          <listitem
+><para
+>De eerste pion kan worden geslagen alsof die slechts een veld werd verplaatst.</para
+></listitem>
+          <listitem
+><para
+>Het slaan kan alleen gebeuren in de eerstvolgende zet van de tegenspeler. Indien dat dan niet gebeurt, is de eerste pion veilig, en kan in de rest van het spel niet meer en passant worden geslagen.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>In de onderstaande stelling staat de witte pion nog op de beginpositie, en kan dus twee velden naar voren worden gezet. Het eerste veld wordt aangevallen door de zwarte pion (pionnen slaan diagonaal), dit wordt aangegeven met een rode X. De witte pion beweegt twee velden naar voren, om de aanval te ontwijken. In de volgende zet gaat de zwarte pion naar het veld, waarop de witte pion zou hebben gestaan als die maar een veld naar voren was geplaatst. De zwarte pion heeft hiermee de witte pion met succes <quote
+>en passant</quote
+> geslagen. De witte pion wordt van het bord verwijderd.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="castling-movement">
+        <title
+>Rokade</title>
+
+        <para
+>Bij een rokade zijn de koning en de toren betrokken. De rokade is de enige zet in het schaakspel waarbij in een zet meerdere stukken worden verplaatst. Bij een rokade wordt de koning twee velden verplaatst in de richting van een van de torens, waarna die toren op het veld aan de andere kant van de koning wordt geplaatst.</para>
+
+        <para
+>Er zijn enkele strenge regels verbonden aan rokeren:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Zowel de koning als de toren mogen tijdens het spel nog niet zijn verzet.</para
+></listitem>
+          <listitem
+><para
+>Er mogen tussen de koning en de toren geen stukken staan.</para
+></listitem>
+          <listitem
+><para
+>De koning mag niet schaak staan.</para
+></listitem>
+          <listitem
+><para
+>De koning mag niet over een veld gaan dat door een stuk van de tegenspeler wordt aangevallen.</para
+></listitem>
+          <listitem
+><para
+>De koning mag niet schaak komen te staan, dus het veld waarop de koning wordt geplaatst mag niet zijn aangevallen door een stuk van de tegenspeler.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Er zijn twee soorten rokades. De ene wordt <quote
+>korte rokade</quote
+> genoemd, omdat de koning naar de dichtstbij zijnde rand van het bord beweegt, en de toren maar twee velden wordt verplaatst, naar de andere kant van de koning. Zie de stelling hieronder:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>De tweede vorm van de rokade heet <quote
+>lange rokade</quote
+>, de koning beweegt dan over het veld dat eerder door de koningin is verlaten. De koning beweegt dus naar de verre rand van het bord, en de toren wordt drie velden verplaatst naar de andere kant van de koning. Zie de onderstaande stelling:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+        <note
+><para
+>In &i18n-knights; kan je rokeren door de koning twee velden in de richting van de toren te verplaatsen, daarna voltooit &i18n-knights; de rokade. Verplaats niet de toren, &i18n-knights; neemt dan aan dat u alleen maar de toren wilt verplaatsen, in plaats van rokeren (dat zou namelijk een geldige zet kunnen zijn).</para
+></note>
+      </sect2>
+
+      <sect2 id="pawn-promotion-movement">
+        <title
+>Promoveren van de pion</title>
+
+        <para
+>Als een pion de overzijde bereikt van het bord, kan die niet verder gaan, omdat een pion alleen vooruit, en niet achteruit, kan gaan. De pion verandert dan (<quote
+>wordt gepromoveerd</quote
+>) in, naar keuze, een koningin (dame), toren, loper of paard. Deze promotie is dan onderdeel van de zet. Gewoonlijk wordt hiervoor natuurlijk de koningin gekozen, wat <quote
+>een dame halen</quote
+> wordt genoemd. Soms wordt echter een ander stuk gekozen, als hierdoor een schaakmat of een gewenste patstelling wordt vereenvoudigd. Een pion kan zelfs ook naar een stuk promoveren, als er nog zo'n stuk op het bord aanwezig is. Zo kunnen er dus twee dames of drie torens, lopers of paarden op het bord staan, van dezelfde kleur.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="game-end">
+      <title
+>Het einde van het spel</title>
+      <sect2 id="checkmate">
+        <title
+>Schaakmat</title>
+
+        <para
+>Als een koning aangevallen wordt, en dus kan worden geslagen door een stuk van de tegenspeler, zegt men dat de koning <quote
+>schaak staat</quote
+>. Aan zo'n situatie moet onmiddellijk een einde worden gemaakt. Daartoe zijn er drie mogelijkheden:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Slaan van het aanvallende stuk.</para
+></listitem>
+          <listitem
+><para
+>Verplaatsen van de koning naar een veilig veld dat niet wordt aangevallen door een stuk van de tegenspeler.</para
+></listitem>
+          <listitem
+><para
+>Blokkeren van de aanval, door het plaatsen van een stuk tussen het aanvallende stuk en de koning (dit kan niet bij een aanval door een pion of paard).</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Indien er geen mogelijkheid is de koning te laten ontsnappen uit schaak staan, dan heet dit <quote
+>schaakmat</quote
+>, en is het spel afgelopen. De speler die schaakmat is gezet heeft het spel verloren. De koning wordt nooit werkelijk geslagen en van het bord verwijderd.</para>
+      </sect2>
+
+      <sect2 id="resign">
+        <title
+>Opgeven</title>
+
+        <para
+>Op elk moment gedurende het spel kan een speler opgeven. Het spel eindigt dan en zijn tegenspeler heeft het spel gewonnen.</para>
+      </sect2>
+
+      <sect2 id="draw">
+        <title
+>Remise</title>
+
+        <para
+>Men spreekt van <quote
+>Remise</quote
+> wanneer geen van beide spelers wint. Remise kan op verschillende manieren worden bereikt.</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Pat - (zie hieronder)</para
+></listitem>
+          <listitem
+><para
+>Drievoudige herhaling - Indien er minstens drie keer dezelfde stelling op het bord komt te staan (niet noodzakelijk na herhaling van zetten). Hiervoor is vereist dat alle mogelijke zetten van al de stukken van beide spelers dezelfde zijn. Indien de mogelijkheid een pion en passant te slaan is gewijzigd, of om te rokeren, is de stelling gewijzigd - zelfs als alle stukken op exact dezelfde posities staan.</para
+></listitem>
+          <listitem
+><para
+>Vijftig zettenregel - Als er tijdens de laatste vijftig zetten van een van beide spelers geen stuk is geslagen of pion verzet.</para
+></listitem>
+          <listitem
+><para
+>Schaakmat is onmogelijk - Indien schaakmat bereiken voor beide spelers onmogelijk is geworden. Meestal is dit het gevolg van onvoldoende stukken die op het bord zijn achtergebleven, maar het komt ook in andere gevallen voor. </para>
+
+            <itemizedlist>
+              <listitem
+><para
+>koning tegen koning</para
+></listitem>
+              <listitem
+><para
+>koning en loper tegen koning</para
+></listitem>
+              <listitem
+><para
+>koning en paard tegen koning</para
+></listitem>
+              <listitem
+><para
+>koning en loper tegen koning en loper, met beide lopers op dezelfde kleur</para
+></listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem
+><para
+>Tijd loopt af - Indien de tijd die een speler heeft op raakt, en de tegenspeler geen materiaal meer heeft voor mat zetten (zie hieronder).</para
+></listitem>
+          <listitem
+><para
+>Onderlinge overeenstemming - Indien beide spelers remise overeenkomen.</para
+></listitem>
+        </itemizedlist>
+      </sect2>
+
+      <sect2 id="stalemate">
+        <title
+>Pat</title>
+
+        <para
+>Als er geen legale zetten zijn die een speler kan doen zonder zijn koning daarmee schaak te zetten, eindigt het spel met een  <quote
+>patstelling</quote
+>. Dit betekent een remise.</para>
+      </sect2>
+
+      <sect2 id="time-end">
+        <title
+>Tijd</title>
+
+        <para
+>Als de tijd voorbij is bij een speler voordat deze het vereiste aantal zetten heeft gedaan:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Verliest de speler het spel als de tegenstander materiaal heeft voor mat zetten.</para
+></listitem>
+          <listitem
+><para
+>Het spel is geëindigd in remise als de tegenstander geen materiaal heeft voor mat zetten.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Materiaal dat voldoende is voor mat zetten is elke groep van stukken, behalve alleen maar een koning, een koning met een loper, of een koning met een paard.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="time-controls">
+      <title
+>Tijdbeperkingen</title>
+
+      <para
+>In veel schaakspelen worden beperkingen in de beschikbare tijd gebruikt om het spel sneller te maken, en ervoor te zorgen dat het spel in een redelijke tijd eindigt. Er zijn hiervoor twee manieren:</para>
+
+      <para
+>De eerste manier is het aantal zetten per tijd. Dit betekent dat binnen een bepaalde tijd een vastgesteld aantal zetten moet worden gedaan. </para>
+
+      <para
+>De tweede manier om de tijd te beperken heet <quote
+>snelschaak</quote
+>. Hierbij is er een vastgestelde tijd voor het hele spel, onafhankelijk van het aantal zetten.</para>
+
+      <para
+>Naast de tijdbeperking kan er ook een vertragingstijd worden toegepast, om de tijd die nodig is om een zet uit te voeren te compenseren. Met de <quote
+>Bronsteinvertraging</quote
+> begint de klok, nadat de speler begint met zijn zet uit te voeren, pas na een zekere vertragingstijd te lopen. Als de zet wordt gedaan binnen deze vertragingstijd, heeft dat geen invloed op de klok van de speler. Bij de <quote
+>Fischervertraging</quote
+> wordt de vertragingstijd eerst opgeteld bij de resterende tijd van de speler, voordat de zet wordt uitgevoerd. Als de zet binnen de vertragingstijd wordt uitgevoerd, behoudt de speler de resterende tijd, en krijgt hij dan dus meer kloktijd. Ook kan een vastgestelde tijd bij de kloktijd van een speler worden opgeteld na elke zet.  Tijd die bij de kloktijd wordt opgeteld, noemt men <quote
+>extra tijd</quote
+>.</para>
+
+      <para
+>De tijdbeperkingen variëren sterk, afhankelijk van het spel, speltype en mogelijke sponsor. Tijdens een spel kunnen er zelfs verschillende soorten tijdbeperking worden toegepast, waarbij ongebruikte tijd wordt opgeteld bij de volgende tijdbeperking. Voor alle belangrijke toernooien die onder de vlag van de wereldschaakbond (World Chess Federation (FIDE)) worden gespeeld, geldt dat de toegestane tijd 90 minuten is voor de eerste 40 zetten, gevolgd door 30 minuten snelschaak, met een extra tijd van 30 seconden per zet, te beginnen met de eerste zet. Voor wedstrijden op de FICS (Free Internet Chess Server) geldt standaard 2 minuten voor het spel (snelschaak), plus 12 seconden extra tijd voor elke zet. Bij veel belangrijke schaaktoernooien geldt een toegestane  van 90 minuten per spel, met snelschaak. In Nederland worden bij snelschaak de FIDE-regels voor snelschaken toegepast, waarbij elke speler 5 minuten krijgt voor het spel.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="markers">
+    <title
+>Merktekens</title>
+
+    <para
+>Merktekens vestigen de aandacht op bepaalde velden op het bord. Ze kunnen worden gebruikt om de geldige zetten voor uw schaakstuk te laten zien, of de vorige zet van de tegenspeler, of dat de koning schaak staat. Hun kleur en vorm hangt af van het gebruikte thema. U kunt ze aan- en uitzetten in het algemene gedeelte van het instellingenmenu.</para>
+
+    <para
+>Als u tijdens uw beurt klikt op een stuk, dan wordt elk veld waarnaar dit stuk kan worden verplaatst gemarkeerd. In de afbeelding ziet u de geldige zetten voor de witte dame.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>Wanneer uw tegenspeler een zet heeft gedaan, wordt zijn laatste zet met merktekens zichtbaar gemaakt. Het ene merkteken toont de positie van het stuk voor de zet, en een tweede de nieuwe positie na de zet.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>Indien door de laatste zet van uw tegenspeler uw koning wordt aangevallen (<quote
+>schaak staat</quote
+>), worden uw koning en alle aanvallende stukken ook gemarkeerd.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+    <note
+><para
+>In sommige thema's zijn mogelijk niet alle soorten merktekens beschikbaar.</para
+></note>
+  </chapter>
+
+  <chapter id="configuration">
+    <title
+>Spelconfiguratie</title
+><!-- do not change this! -->
+
+    <para
+>In de configuratiedialoog van &i18n-knights; kunt u visuele opties wijzigen en een thema kiezen voor &i18n-knights;.</para>
+
+    <para
+>Als u met uw wijzigingen tevreden bent, kunt u op de knoppen <guibutton
+>Toepassen</guibutton
+> of <guibutton
+>Ok</guibutton
+> drukken, die u onderin de dialoog vindt. Door op de knop <guibutton
+>Ok</guibutton
+> te drukken wordt ook de configuratiedialoog afgesloten.</para>
+
+    <para
+>Indien uw wijzigingen u echter toch niet kunnen bekoren kunt u die ongedaan maken door te drukken op de knop <guibutton
+>Annuleren</guibutton
+>. Hierdoor wordt ook de configuratiedialoog afgesloten. U moet natuurlijk niet eerst op de knop <guibutton
+>Toepassen</guibutton
+> of <guibutton
+>Ok</guibutton
+> drukken voordat u op de knop <guibutton
+>Annuleren</guibutton
+> drukt.</para>
+
+    <sect1 id="configuration-general">
+      <title
+>Algemeen</title>
+
+      <para
+>Op de pagina <guilabel
+>Algemeen</guilabel
+> zijn opties voor het algemene uiterlijk van &i18n-knights;. U kunt hier de animaties aan/uitzetten en wijzigen van de stukken en het bord. Het animatiegedeelte is afhankelijk van de hardware en alleen zichtbaar wanneer animaties mogelijk zijn. Draaien van het bord is mogelijk, waardoor &i18n-knights; het bord kan draaien op een computerscherm, of het bord vast staat indien gebruik wordt gemaakt van een tablet in plaats van een schaakbord. Alle drie soorten <link linkend="markers"
+>merktekens</link
+> kunnen worden aan- of uitgezet. Het langs de randen van het bord wel of niet tonen van de kenmerken van de vakjes volgens de algebraïsche schaaknotatie kan in een afrolmenu worden gekozen.</para>
+
+      <note
+><para
+>In sommige thema's zijn er geen merktekens, randen en/of notaties beschikbaar. Hierin zijn de instellingen niet van toepassing, maar die worden wel onthouden voor het geval dat u weer een ander thema kiest.</para
+></note>
+    </sect1>
+
+    <sect1 id="configuration-engines">
+      <title
+>Computerprogramma's</title>
+
+      <screenshot>
+        <screeninfo
+>Configureren - &i18n-knights; dialoog</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-engines.png" format="PNG"/></imageobject>
+          <caption
+>Pagina Computerprogramma's</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>De pagina <guilabel
+>Computerprogramma's</guilabel
+> biedt u het configureren van uw tegenstander als computer. Van elk programma geeft u de naam op, de opdracht waar het mee wordt gestart, en het gebruikte protocol. &i18n-knights; kent twee protocollen voor schaakprogramma's: XBoard en <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>U kunt nieuwe programmaconfiguraties toevoegen met de knop <guibutton
+>Toevoegen</guibutton
+>, waarna u de bovenstaande opties invoert. Met een symbool in de laatste kolom wordt aangegeven of het opgegeven programma op uw computer is geïnstalleerd.</para>
+    </sect1>
+
+    <sect1 id="configuration-themes">
+      <title
+>Thema's</title>
+
+      <para
+>Op de pagina <guimenu
+>Thema</guimenu
+> kunt u een thema kiezen. Het thema levert de afbeeldingen van het bord, de stukken, merktekens en andere. U kunt een thema kiezen uit een lijst van beschikbare thema's. U kunt ook nieuwe thema's op dezelfde pagina ophalen (downloaden) door te drukken op de knop <guibutton
+>Nieuwe thema's ophalen...</guibutton
+>. Thema's zijn beschikbaar op kde-look.org onder &knights;.</para>
+
+      <note
+><para
+>Voor uw gemak ziet u na het kiezen van een thema een schermafbeelding daarvan, rechts van de keuzelijst.</para
+></note>
+    </sect1>
+  </chapter>
+
+  <chapter id="credits-and-license">
+    <title
+>Dankbetuigingen en licenties</title>
+
+    <para
+>&knights;</para>
+
+    <itemizedlist>
+      <listitem
+><para
+>Miha Čančula <email
+>miha.cancula@gmail.com</email
+> - Originele auteur</para
+></listitem>
+    </itemizedlist>
+
+    <para
+>Documentatie copyright 2010, Miha Čančula <email
+>miha.cancula@gmail.com</email
+></para>
+
+    &meld.fouten;&vertaling.freek;&vertaling.jaap; &underFDL; &underGPL; </chapter>
+
+</book>

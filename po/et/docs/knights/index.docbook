@@ -1,0 +1,940 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY knights "<application
+>Knights</application
+>">
+  <!ENTITY kappname "&knights;">
+  <!ENTITY package "extragear/games">
+  <!ENTITY kappversion "2.5.0"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+	<bookinfo>
+		<title
+>&knights;i käsiraamat</title>
+
+		<authorgroup>
+			<author
+><firstname
+>Miha</firstname
+> <surname
+>Čančula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+					</address>
+				</affiliation>
+			</author>
+			<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+
+		</authorgroup>
+		<copyright>
+			<year
+>2011</year>
+			<holder
+>Miha Čančula</holder>
+		</copyright>
+
+		<legalnotice
+>&FDLNotice;
+		</legalnotice>
+
+		<date
+>2012-08-08</date
+><!-- Date of (re)writing, or update.-->
+		<releaseinfo
+>&kappversion; (&kde; 4.9) </releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+		<abstract>
+			<para
+>See käsiraamat kirjeldab mängu &knights; versiooni &kappversion;. </para>
+		</abstract>
+
+		<keywordset>
+			<keyword
+>KDE</keyword
+><!-- do not change this! -->
+			<keyword
+>kdegames</keyword
+><!-- do not change this! -->
+			<keyword
+>mäng</keyword
+><!-- do not change this! -->
+			<keyword
+>lauamäng</keyword>
+			<keyword
+>male</keyword>
+			<keyword
+>knights</keyword>
+			<keyword
+>Knights</keyword>
+		</keywordset>
+
+	</bookinfo>
+<!-- 
+new in
+>2.4.0 history, UCI, Difficulty settings, see
+http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
+-->
+	<chapter id="introduction">
+		<title
+>Sissejuhatus</title>
+		<note>
+			<title
+>Mängu tüüp:</title>
+			<para
+>lauamäng</para>
+		</note>
+		<note>
+			<title
+>Mängijate arv:</title>
+			<para
+>üks või kaks</para>
+		</note>
+
+		<para
+>&knights; on malemäng. Mängijana on sinu eesmärk võita vastane, matistades tema kuninga. </para>
+	</chapter>
+
+	<chapter id="how-to-play"
+><title
+>Kuidas mängida</title
+> <!-- do not change this! -->
+		<!--Describe the objective of the game.-->
+		<sect1 id="objective">
+			<title
+>Eesmärk:</title>
+			<para
+>Oma nuppe liigutades tuleb ära võtta vastase nuppe, kuni tema kuningas satub rünnaku alla ning tal ei ole enam ühtegi käiku, millega rünnakut peatada - seda nimetatakse <quote
+>matiks</quote
+>.</para>
+			<para
+>Kui tundub, et sa ei suuda võita, võib proovida mängida viiki. Liiguta oma nuppe, kuni pole enam ühtegi lubatud käiku ning sinu kuningas ei ole tule all - seda nimetatakse <quote
+>patiks</quote
+>. Viigiks on ka mõned spetsiaalsemad võimalused, mis sõltuvad rohkem sellest, milliseid reegleid mängimisel kasutatakse.</para>
+		</sect1>
+
+		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+		<sect1 id="starting-the-game">
+			<title
+>Mängu käivitamine</title>
+			<para
+>Rakenduse käivitamisel või kui mängija valib menüükäsu <menuchoice
+><guimenu
+>Mäng</guimenu
+><guimenuitem
+>Uus</guimenuitem
+></menuchoice
+>, ilmub dialoog. Selles saab määrata, kellega mängida, millist värvi nuppudega ja võimalikud ajapiirangud. </para>
+				<mediaobject
+><imageobject
+><imagedata fileref="Knights-newgame-dialog.png"/></imageobject
+></mediaobject>
+			<para
+>Kui soovid mängida sõbraga sama arvuti taga, vali <guilabel
+>Inimene (sina)</guilabel
+> <guilabel
+>Mängija 1</guilabel
+> ning samuti <guilabel
+>Inimene (sina)</guilabel
+> <guilabel
+>Mängija 2</guilabel
+> jaoks. </para>
+			<para
+>Kui soovid mängida arvuti vastu, vali <guilabel
+>Inimene (sina)</guilabel
+> <guilabel
+>Mängija 1</guilabel
+> ja <guilabel
+>Arvutimootor</guilabel
+> <guilabel
+>Mängija 2</guilabel
+> jaoks. Vali programm, mille vastu soovid mängida, ja kontrolli kindlasti, et määratud programm oleks arvutisse paigaldatud ning toetaks protokolli XBoard või UCI. </para>
+			<para
+>Kui oled paigaldanud malemootori, aga seda pole nimekirjas näha, klõpsa nupule <guilabel
+>Seadista mootoreid</guilabel
+> ja lisa see selle kaudu. Dialoogist kõneleb lähemalt osa <link linkend="configuration-engines"
+>Arvutimootorid</link
+>. </para>
+			<note
+><title
+>Märkus</title>
+			<para
+>Isegi kui programm on dialoogis kirjas, ei tähenda see, et see oleks paigaldatud. Kontrolli, et oleksid paigaldanud kõik malemootorid, mida soovid mängimisel kasutada. Seda, kas mootor on sisu süsteemi paigaldatud, saab kontrollida dialoogis <guilabel
+>Mootorite seadistamine</guilabel
+>. </para>
+			</note>
+			<para
+>Kui soovid mängida kellegagi internetis, vali <guilabel
+>Inimene (sina)</guilabel
+> <guilabel
+>Mängija 1</guilabel
+> ja <guilabel
+>Inimene maleserveris</guilabel
+> <guilabel
+>Mängija 2</guilabel
+> jaoks. Sa pead serverisse sisse logima ja vastase leidma, enne kui saad päriselt mängima hakata. Vaba Interneti Maleserver (FICS, <ulink url="http://freechess.org"
+>FreeChess.org</ulink
+>) toetab külalisi, aga et mängida ja koguda endale reitingut, tuleb siiski registreeruda. </para>
+			<para
+>Samuti võib lata kahel programmil mängida teineteise vastu, valides mõlemale mängija <guilabel
+>Arvutimootor</guilabel
+>. </para>
+			<para
+>Soovi korral võib lasta arvutimootoril mängida ka vastasega maleserveris. Arvesta siiski, et maleserveris võivad olla kehtestatud teatud reeglid selliste mängude kohta. Vaba interneti-maleserveri FICS puhul asuvad need <ulink url="http://www.freechess.org/Help/HelpFiles/computers.html"
+>siin</ulink
+>. </para>
+			<para
+>Sektsioonis <guilabel
+>Ajaarvestuse kasutamine</guilabel
+> saab soovi korral sisse lülitada taimeri. Knights kasutab standardset malekella, millel on kolm parameetrit: </para>
+			      <itemizedlist>
+				<listitem>
+				  <para
+><guilabel
+>Ajaarvestuse periood</guilabel
+> tähistab käikude arvu, pärast mida lisatakse mängija kellale <guilabel
+>algne ajapiirang</guilabel
+>. Selle lisamise võib keelata, kui määrata väärtuseks null. </para>
+				  <note
+><title
+>Märkus</title>
+				    <para
+>Seda valikut ei saa kasutada mängimise korral maleserveris. </para>
+				  </note>
+				</listitem>
+				<listitem>
+				  <para
+><guilabel
+>Algne ajapiirang</guilabel
+> on ajahulk, millega mängijad alustavad. </para>
+				</listitem>
+				<listitem>
+				  <para
+><guilabel
+>Lisamine käigu kohta</guilabel
+> määrab, kui palju aega lisatakse kumbki mängija kellale pärast iga sooritatud käiku. Suurenemise vältimiseks võib selle julgelt nulliks määrata. </para>
+				</listitem>
+				
+			</itemizedlist>
+			<para
+>Kui klõpsad nupule <guibutton
+>OK</guibutton
+>, dialoog sulgub. Kui oled valinud mängija maleserveris, pead sisse logima ja leidma endale vastase. Vastasel juhul algab mäng otsekohe. </para>
+			<note
+><title
+>Märkus</title>
+			<para
+>&knights; laadib vaikimisi teema automaatselt kohe mängu alusmisel, nii et saad otsemaid mängima hakata. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="server-dialog">
+			<title
+>Maleserveri dialoog</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-account.png"/></imageobject
+></mediaobject>
+			<para
+>Kui otsustad mängida maleserveris, tuleb kõigepealt serverisse sisse logida. Kui sul on serveris konto, kirjuta oma kasutajanimi ja parool ning vali <guilabel
+>See on registreeritud konto</guilabel
+>. Vastasel juhul kirjuta meelepärane kasutajanimi ja klõpsa nupule <guibutton
+>Logi sisse</guibutton
+>. </para>
+			<para
+>Vastast saab valida kahel moel. Esiteks võib postitada oma mängu reklaami (seda nimetatakse "otsinguks"), teiseks aga vastata kellegi teise otsingule. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-challenges.png"/></imageobject
+></mediaobject>
+			<para
+>Oma reklaami avaldamiseks vali kaart <guilabel
+>Mängukutsed</guilabel
+> ja klõpsa nupule <guibutton
+>Otsi</guibutton
+>. Kui oled märkinud valiku <guilabel
+>Mängu automaatne alustamine</guilabel
+>, siis algab mäng niipea, kui mõni mängija on sinu otsingule vastanud. Vastasel juhul tuleb sul pakkumine käsitsi vastu võtta, valides selle nimekirjast ja klõpsates nupule <guibutton
+>Nõus</guibutton
+>. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-list.png"/></imageobject
+></mediaobject>
+			<para
+>Teiste inimeste otsingule vastamiseks kasuta kaarti <guilabel
+>Otsimisnimekiri</guilabel
+> või <guilabel
+>Otsimisgraafik</guilabel
+>. Ükspuha kummal kaardil vali otsing sellele klõpsates ning seejärel nupule <guibutton
+>Nõus</guibutton
+> klõpsates. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-graph.png"/></imageobject
+></mediaobject>
+			<para
+>Otsimisgraafik näitab kõiki parajasti postitatud otsinguid, mis on korraldatud vastavalt vastase reitingule ja mängu kestusele. Klõps graafiku punktile tähendab nõustumist otsinguga. </para>
+			<note>
+				<para
+>Kogenenumatele kasutajatele pakub &knights; võimalust serveri konsooli otse kasutada. Selleks vali kaart <guilabel
+>Konsool</guilabel
+>. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="playing-the-game">
+			<title
+>Mängimine</title>
+			<para
+>Nuppe saab liigutada neil klõpsates ja vajalikku kohta lohistades. Liigutada saab nuppu ainult siis, kui see on sinu oma, on sinu käik ja nupu liigutamine ei sea sinu kuningat vahetusse ohtu. </para>
+			<para
+>&knights; järgib standardseid malereegleid ega lase sestap teha sul lubamatuid käike. </para>
+		</sect1>
+	</chapter>
+	
+	<chapter id="rules_and_tips">
+		<title
+>Mängureeglid, strateegia ja nõuanded</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="standard-rules">
+		<title
+>Standardreeglid</title>
+		<para
+>Malereeglid määrab põhimõtteliselt kindlaks Rahvusvaheline Maleföderatsioon FIDE. Teised üleriiklikud või kohalikud maleorganisatsioonid võivad mõnikord neid kergelt modifitseerida. Enamasti puudutavad erinevused ajaarvestust või spetsiaalsete viigivõimaluste tüüpe, aga üldiselt on mängureeglid ja nuppude liikumine ikka ühesugune. &knights; toetab standardseid malereegleid ja pakub teatavat paindlikkust ajaarvestusel.</para>
+		<para
+>Standardselgi malel on palju variante. Ühe allika kohaselt on neid lausa üle 2000. Tuntumad variandid kannavad inglise keeles nimetusi Fischer Random, Bughouse, Crazyhouse ja Suicide. Nende erinevuseks on nuppude äravõtmine, liikumine, mängu lõpetamine ning nuppude mängu tagasitoomine. &knights; malevariante ei toeta.</para>
+		<para
+>Täielikud standardsed malereeglid võib leida siit:</para>
+		<itemizedlist>
+			<listitem
+><para
+>Rahvusvaheline Maleföderatsioon FIDE (<ulink url="http://www.fide.com"
+>fide.com</ulink
+>)</para
+></listitem>
+			<listitem
+><para
+>USA Maleföderatsioon USCF (<ulink url="http://main.uschess.org"
+>main.uschess.org</ulink
+>)</para
+></listitem>
+		</itemizedlist>
+		<para
+>Reeglid ja üldist teavet male kohta võib leida siit: <itemizedlist
+> <listitem
+><para
+><ulink url="http://en.wikipedia.org/wiki/Rules_of_chess"
+>Wikipedia</ulink
+>&nbsp;</para
+></listitem>
+		</itemizedlist>
+		</para>
+	</sect1>
+
+	<sect1 id="board">
+		<title
+>Malelaud</title>
+		<sect2 id="board-layout">
+			<title
+>Laua välimus</title>
+			<para
+>Malelaud koosneb 64 ruudust, mis on jagatud kaheksasse ritta ja kaheksasse veergu. Ruutude värv vaheldub musta ja valge vahel. Kuna malelaudade valmistamiseks kasutatakse mitmesuguseid materjale, võivad konkreetsed värvid erineda, aga kokkuleppe kohaselt nimetatakse heledamat tooni valgeks ja tumedamat mustaks.</para>
+			<para
+>Malelaua osade kohta kasutatakse spetsiaalseid nimetusi: <itemizedlist>
+				<listitem
+><para
+>Rida ehk horisontaal - kaheksa rõhtsat rida.</para
+></listitem>
+				<listitem
+><para
+>Liin ehk vertikaal - kaheksa püstist veergu.</para
+></listitem>
+				<listitem
+><para
+>Diagonaal - sama värvi väljade rida, mis jookseb teravnurga all laua ühest servast teise.</para
+></listitem>
+				<listitem
+><para
+>Tsenter - neli ruutu laua keskel.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>Igal väljal on oma nimi, et mängu käiku oleks võimalik üles märkida. Kasutatakse mitut süsteemi, kuid levinuim ja ametlik on <quote
+>algebraline notatsioon</quote
+>. Selles süsteemis on iga väli tähistatud rea ja liiniga. Ridadele on antud numbrid 1 kuni 8 alates valgete nuppude poolest. Liinid tähistatakse väiketähtedega a kuni h vasakult paremale valgetega mängija vaatepunktist. Välja tähistuseks on täht, millele järgneb number. Niisiis on alumine vasakpoolne väli a1. Seda ülestähendust näeb järgmisel joonisel:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="board-setup">
+			<title
+>Algpaigutus</title>
+			<para
+>Malelaud keeratakse nii, et mängija paremale käele esimeses reas jääb valge ruut.</para>
+			<para
+>Malendid asetatakse nii laua mustade kui valgete poolel ühtmoodi. Esimeses reas paiknevad mõlemalt poolt väljast sissepoole vanker, ratsu ja oda. Kahele keskmisele ruudule asetatakse nupu värviga sobivale väljale lipp, see tähendab must lipp mustale ja valge lipp valgele väljale. Viimasele väljale asetatakse kuningas. Nii on lõpuks mõlemal lauapoolel vastamisi ühesugused vigurid. Teise ritta asetatakse etturid. Algpaigutus näeb välja selline, nagu näidatud alloleval joonisel.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="piece-movement">
+		<title
+>Nuppude liikumine</title>
+		<sect2 id="all-movement">
+			<title
+>Liikumine ja löömine</title>
+			<para
+>Malendeid on kuut liiki: ettur, vanker, ratsu, ida, kipp ja kuningas. Igal malendil on oma eripärane liikumisviis, kuid nad on ka mõneti sarnased. Kõik nupud peale ratsu liiguvad otse, olgu rõhtsalt, püstiselt või diagonaalis. Nad ei saa liikuda üle serva ja teiselt poolt tagasi tulla. Laua serv on piir, mida ei saa ületada. Ükski malend peale ratsu ei saa liikuda üle teiste nuppude: kõik väljad selle ruudu vahel, kust liikumist alustatakse, ja selle ruudu vahel, kus see lõpetatakse, peavad olema tühjad. Käik ei tohi lõppeda väljal, kus seisab sama värvi malend.</para>
+			
+			<para
+>Kui väljal, kus malendi käik lõpeb, asub vastase nupp, see <quote
+>lüüakse</quote
+> ja eemaldatakse laualt. Lüüa saab kõiki malendeid peale kuninga. Mäng lõpeb käiguga enne seda kui lüüakse kuningas - seda nimetatakse <quote
+><link linkend="checkmate"
+>matiks</link
+></quote
+>. Löömise puhul peab ründav malend kindlasti asuma väljale, millel vastase nupp löödi. Ainuke erand on etturi löömine <link linkend="en_passant-movement"
+>en passant</link
+>. Vastase malendi löömine ei ole kohustuslik. Ainuke juhtum, kus löömine on kohustuslik, on siis, kui kuningas satub tule alla ja tuld andva malendi löömine on ainuke võimalus tuld kõrvaldada.</para>
+			
+			<para
+>Alloleval pildil saab valge vanker liikuda sirgjooneliselt paremale, vasakule, üles või alla. Alla ja paremale saab vanker liikuda seni, kuni vastu tuleb laua serv. Need väljad on tähistatud rohelise X-iga. Vasakule saab vanker liikuda kõige rohkem kahe välja võrra. Edasi tõkestab tee sama värvi malend, antud juhul valge ratsu. Vanker ei saa hüpata üle ratsu, et jõuda laua servani. Ülespoole saab vanker liikuda ainult ühe välja, siis seisab ees must ettur. Vanker võib aga liikuda ka kaks välja ülespoole ja lüüa etturi, sest see on vastase värvi. See väli on tähistatud punase X-iga. Ka üle etturi ei saa vanker hüpata, et jõuda laua servani. Niisiis on vankril kokku kümme välja, millele ta saab liikuda.</para>
+
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Mängu alguses teeb esimese käigu valge. Seejärel jätkavad vastased kordamööda käies. Oma käik tuleb igal juhul sooritada, seda ei saa vahele jätta.</para>
+		</sect2>
+		<sect2 id="pawn-movement">
+			<title
+>Ettur</title>
+			<para
+>Etturid on kõige rohkearvulisemad ja kõige nõrgemad nupud malelaual. Etturite liikumine on mõnevõrra ebatavaline. Üldiselt saavad nad liikuda ainult otse edasi ühe ruudu võrra. Erand on etturi esimene käik, millisel juhul ta võib käia ka kaks ruutu edasi. Ettur ei saa hüpata üle teiste nuppude, iga otse tema ees seisev malend tõkestab etturi tee. Ettur on ainuke malend, mis ei saa liikuda tagasisuunas. Samuti on ettur ainuke malend, mis lööb teisiti kui liigub. Ettur lööb vastase nupu, liikudes ühe ruudu võrra diagonaalselt - ta ei saa lüüa nuppu otse edasi liikudes.</para>
+			
+			<para
+>Alloleval pildil on alumine ettur veel oma algväljal, nii et ta võib liikuda edasi ühe või kahe välja võrra (need on tähistatud rohelise X-iga). Ta võib lüüa diagonaalis paremale või vasakule liikudes, aga muidugi ainult sel juhul, kui seal on vastase nupp, mida lüüa (tähistatud punase X-iga). Muul juhul ettur diagonaalselt liikuda ei tohi. Ülemine ettur on juba algväljalt lahkunud. Seepärast saab ta edasi liikuda ainult ühe välja võrra. Nagu teinegi, võib ta lüüa diagonaalselt vasakule või paremale, kui neil väljadel seisab vastase malend.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Etturiga on seotud ka kaks erilist käiku. Esimene on löömine <link linkend="en_passant-movement"
+>en passant</link
+>, mille korral ettur lüüakse tema algsel liikumisel kahe välja võrra edasi. Teine on <link linkend="pawn-promotion-movement"
+>etturi muundamine</link
+>, mille korral ettur muundatakse mõneks muuks malendiks, kui ta jõuab laua teise serva.</para>
+		</sect2>
+		<sect2 id="bishop-movement">
+			<title
+>Oda</title>
+			<para
+>Oda saab liikuda sirgjooneliselt mööda diagonaali. Ta võib liikuda seni, kuni ette tuleb laua serv või teine nupp. Oda ei saa hüpata üle teiste malendite. Oda lööb nuppe oma liikumise teel, asudes seejärel väljale, kus enne asus löödud vastase nupp, Oda liikumise tõttu püsib ta alati sama värvi väljal, millelt ta liikumist alustas. Mängijatel on algul kaks oda, üks mustal ja teine valgel väljal. Neid nimetatakse sageli <quote
+>valgeks odaks</quote
+> ja <quote
+>mustaks odaks</quote
+>. Mõnikord kasutatakse ka nimetust vastavalt sellele, milliselt küljelt nad liikumist alustavad: kuningaoda ja lipuoda. </para
+>  
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="rook-movement">
+			<title
+>Vanker</title>
+			<para
+>Vanker saab liikuda sirgjooneliselt mööda rida või liini mööda vabu välju, kuni talle satub ette laua serv või teine nupp. Ta ei saa hüpata üle teiste malendite. Vanker lööb vastase nuppe oma liikumise teel, jäädes seejärel väljale, kus enne asus löödud nupp. Vanker võib jõuda laua igale väljale, olles sel moel üks tugevamaid malendeid.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png"/></imageobject
+></mediaobject>
+			<para
+>Vankriga kaasneb samuti üks eriline käik. See on <link linkend="castling-movement"
+>vangerdamine</link
+>, mille korral vanker ja kuningas liiguvad teatavasse kaitseasendisse.</para>
+		</sect2>
+		<sect2 id="knight-movement">
+			<title
+>Ratsu</title>
+			<para
+>Ratsu on üks erilisemaid malendeid, mille paindlik liikumine muudab ta väga tugevaks. Ratsu on ainuke malend, mis võib hüpata üle teiste nuppude. Ratsu liigub kaks välja rõhtsalt või püstiselt ja siis veel ühe välja täisnurga all. Niisiis on ratsu liikumine <quote
+>L</quote
+> tähe kujuline. Ratsu lõpetab käigu alati teist  värvi väljal kui see, millelt ta liikumist alustas. Ratsu võib hüpata lõppväljale liikumisel üle mõlemat värvi malendite, kuid ta ei löö neid nuppe, millest ta üle hüppab. Ratsu lööb vastase nupu ainult siis, kui see seisab väljal, millel ratsu oma käigu lõpetab. Ratsu ei saa lõpetada käiku väljal, millel seisab sama värvi nupp. Et ratsu ei liigu sirgjooneliselt, võib ta rünnata lippu, oda või vankrit, ilma et need saaksid talle samaga vastata.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="queen-movement">
+			<title
+>Lipp</title>
+			<para
+>Lippu peetakse kõige tugevamaks malendiks. Ta võib liikuda suvalise arvu välju sirgjooneliselt nii rõht- ja püstsuunas kui ka diagonaalis. Niisiis liigub lipp nagu vanker ja oda kombineeritult. Kui lipp just ei löö vastase nuppu, peab ta lõpetama käigu hõivamata väljal ning ta ei saa hüpata üle teiste malendite. Lipp lööb vastase nuppe oma liikumisteel, jäädes seejärel väljale, kus asus enne löödud nupp.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="king-movement">
+			<title
+>Kuningas</title>
+			<para
+>Kuningas on males kõige tähtsam vigur. Kui kuningas satub niimoodi lõksu, et tema äravõtmine on vältimatu, on mäng läbi ja kuninga omanik kaotanud. Kuninga liikuvus on napp, mistõttu seda peetakse ühtlasi üheks mängu nõrgemaks nupuks. Kuningas võib liikuda suvalisele naaberväljale. See tähendab, et ta saab liikuda ühe ruudu võrra igas suunas, nii vasakule, paremale, üles anna kui ka diagonaalis. Kuningas ei saa liikuda väljale, kus seisab sama värvi malend. Kuningas võtab vastase nupu ära sarnaselt liikumisega, asudes äravõetud nupu väljale. Kuninga liikumisel on veel üks piirang. Ta ei saa liikuda väljale, kus ta satuks vastase malendi rünnaku alla (seda nimetatakse <quote
+>tuleks</quote
+>). Selle piirangu tõttu ei saa kaks kuningat kunagi seista kõrvuti, sest sel juhul oleksid nad vastavalt vastase tule all. Kuningas võib olla ka sunnitud liikuma või vastase nupu ära võtma, kui ta on rünnaku ehk <quote
+>tule</quote
+> all ja see on ainuke võimalus rünnakut peatada.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="special-movement">
+		<title
+>Erikäigud</title>
+		<sect2 id="en_passant-movement">
+			<title
+>En Passant</title>
+			<para
+>Kui omal ajal kehtestati reegel, mis lubas etturil esimese käiguga liikuda kahe välja võrra, oli etturil võimalik vältida äravõtmist vastase etturi poolt, hüpates üle tule all oleva välja. Selle takistamiseks lisatigi en passant (prantsuse keeles <quote
+>möödaminnes</quote
+>) äravõtmine. See sooritatakse täpselt nii, nagu oleks ettur liikunud ainult ühe välja võrra. En passant'i kasutamiseks peavad kehtima kindlad tingimused: <itemizedlist>
+				<listitem
+><para
+>Ettur peab liikuma kahe välja võrra oma algpositsioonist ühe käiguga.</para
+></listitem>
+				<listitem
+><para
+>Vastase ettur peab hoidma tule all välja, millest esimene ettur üle hüppas.</para
+></listitem>
+				<listitem
+><para
+>Esimene ettur võetakse ära, nagu oleks see liikunud ainult ühe välja võrra.</para
+></listitem>
+				<listitem
+><para
+>Äravõtmise saab sooritada ainult vastase järgmisel käigul. Kui seda ei tehta, pääseb esimene ettur edasises mängus en passant'i ohust.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>Alloleval joonisel ei ole valge ettur veel algpositsioonist liikunud, nii et tema esimene käik võib olla kas üks või kaks välja ettepoole. Esimene väli on musta etturi tule all (ettur ründab teatavasti diagonaalselt), mida näitab punane X. Valge ettur liigub edasi kahe välja võrra, vältides sel moel rünnakut. Järgmisel käigul liigub must ettur väljale, kuhu oleks sattunud valge ettur, kui ta oleks liikunud oma esimesel käigul ainult ühe välja võrra. Niisiis ründab must ettur edukalt valget etturit ja võtab selle ära <quote
+>en passant</quote
+>. Valge ettur eemaldatakse mängust.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="castling-movement">
+			<title
+>Vangerdamine</title>
+			<para
+>Vangerdamiseks on vaja kuningat ja vankrit ning see on ainuke kord mängus, kus korraga võib liikuda rohkem kui üks malend. Vangerdamisel liigub kuningas kaks välja vankri poole ning vanker liigub seejärel teisele poole kuningat.</para>
+			
+			<para
+>Vangerdamisel on mõningad kindlad nõudmised: <itemizedlist>
+				<listitem
+><para
+>Ei kuningas ega vanker tohi olla mängu jooksul varem liikunud.</para
+></listitem>
+				<listitem
+><para
+>Kuninga ja vankri vahel ei asu ühtegi muud malendit.</para
+></listitem>
+				<listitem
+><para
+>Kuningas ei ole tule all.</para
+></listitem>
+				<listitem
+><para
+>Kuningas ei läbi välja, mis on vastase malendi tule all.</para
+></listitem>
+				<listitem
+><para
+>Kuningas ei lõpeta käiku väljal, mis on vastase malendi tule all (vangerdamine ei tohi lõppeda olukorraga, kus kuningas on tule all).</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Vangerdamisel on kaks vormi. Üks neist on <quote
+>kuningavangerdus</quote
+> ehk <quote
+>lühike vangerdus</quote
+>, sest see sooritatakse laua lühemal küljel ning vanker peab liikuma kuninga teisele küljele jõudmiseks ainult kahe välja võrra. Seda näeb alloleval joonisel:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Teist nimetatakse <quote
+>lipuvangerduseks</quote
+>, sest kuningas liigub välja suunas, kus varem asus lipp. Samuti nimetatakse seda <quote
+>pikaks vangerduseks</quote
+>, sest see sooritatakse laua pikemal küljel ning vanker peab kuninga teisele küljele jõudmiseks liikuma kolme välja võrra. Seda näeb alloleval joonisel:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png"/></imageobject
+></mediaobject>
+			
+			<note
+><title
+>Märkus:</title>
+			<para
+>&knights;is tuleb vangerdamiseks liigutada kuningat kahe välja võrra vankri poole. &knights; lõpetab vangerdamise ise. Ära liiguta vankrit, sest &knights; arvab sel juhul, et soovid lihtsalt vankrit liigutada, mitte aga vangerdada. </para>
+			</note>
+			
+		</sect2>
+		<sect2 id="pawn-promotion-movement">
+			<title
+>Etturi muundamine</title>
+			<para
+>Kui ettur jõuab laua teise serva, ei saa ta enam liikuda, sest ettur tohib liikuda ainult edasi, mitte aga tagasi. Seejärel <quote
+>muundatakse</quote
+> lipuks, vankriks, odaks või ratsuks. Muundamine on osa käigust. Tavaliselt valitakse muundamiseks välja lipp, mistõttu seda nimetatakse sageli ka <quote
+>lipustumiseks</quote
+>. Mõnikord valitakse siiski ka mõni muu vigur, kui nende liikumine võib kaasa aidata matistamisele, mida sel juhul nimetatakse sageli matiks <quote
+>lipustumisel</quote
+>. Etturit võib moondada teiseks malendiks isegi siis, kui sama tüüpi malend on veel laual. Niisiis võib olla laual korraga näiteks kaks lippu või kolm vankrit, oda või ratsut.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="game-end">
+		<title
+>Mängu lõpetamine</title>
+		<sect2 id="checkmate">
+			<title
+>Matt</title>
+			<para
+>Kui kuningas on rünnaku all ja seda ähvardab äravõtmine vastase malendi poolt, nimetatakse sellist olukorda <quote
+>tule all</quote
+> olemiseks. Kuningas peab otsekohe tule alt väljuma. Selleks on kolm võimalust. <itemizedlist>
+				<listitem
+><para
+>Ründava malendi äravõtmine.</para
+></listitem>
+				<listitem
+><para
+>Kuninga liigutamine rünnaku alt turvalisele väljale, mida vastase malend ei hoia tule all.</para
+></listitem>
+				<listitem
+><para
+>Rünnaku blokeerimine, asetades malendi ründaja ja kuninga vahele (seda ei saa teha ratsuga või etturiga ründamise korral).</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Kui kuningal pole võimalust tule alt pääseda, nimetatakse olukorda <quote
+>matiks</quote
+>, mis tähendab mängu lõppu. Mängija, kellele matt tehti, kaotab mängu. Kuningat ei võeta kunagi ära ega eemaldata mängulaualt.</para>
+		</sect2>
+		<sect2 id="resign">
+			<title
+>Alistumine</title>
+			<para
+>Mängija võib igal hetkel loobuda edasimängimisest, see tähendab alistuda. Sel juhul mäng lõpeb ning võit kuulub alistuja vastasele.</para>
+		</sect2>
+		<sect2 id="draw">
+			<title
+>Viik</title>
+			<para
+>Viik võib saabuda mitmel viisil. <itemizedlist>
+				<listitem
+><para
+>Patt (vaata allpool).</para
+></listitem>
+				<listitem
+><para
+>Kolmekordne kordus - kui täpselt sama seis kordub vähemalt kolm korda (mitte tingimata järjestikuste käikude kordamisega). See eeldab, et mõlema mängija kõigi nuppude võimalikud käigud korduvad. Kui näiteks on muutunud võimalus lüüa ettur en passant või ei saa enam vangerdada, ei ole situatsioon enam samasugune, isegi kui nupud jäävad samasse asukohta.</para
+></listitem>
+				<listitem
+><para
+>50 käigu reegel - kui kumbki mängija ei ole viimase viiekümne käiguga suutnud ühtegi nuppu lüüa ega etturit liigutada.</para
+></listitem>
+				<listitem
+><para
+>Matt ei ole võimalik - kui tekib situatsioon, kus kumbki mängija ei saa matistada määrustepärase käikude seeriaga. Tavaliselt on see tingitud sellest, et pole enam nuppe, millega matistada, kuid võimalikud on ka muud olukorrad. Ebapiisava materjali näited on järgmised: <itemizedlist>
+					<listitem
+><para
+>kuningas kuninga vastu</para
+></listitem>
+					<listitem
+><para
+>kuningas ja oda kuninga vastu</para
+></listitem>
+					<listitem
+><para
+>kuningas ja ratsu kuninga vastu</para
+></listitem>
+					<listitem
+><para
+>kuningas ja oda kuninga ja oda vastu, kusjuures mõlemad odad on üht värvi</para
+></listitem>
+				</itemizedlist>
+    </para
+></listitem>
+				<listitem
+><para
+>Ajaületus - kui mängija aeg saab läbi ja vastasel ei ole võimalik matistada (vt. allpool)</para
+></listitem>
+				<listitem
+><para
+>Vastastikune kokkulepe - kui mõlemad mängijad on viigiga nõus</para
+></listitem>
+			</itemizedlist>
+			</para>
+		</sect2>
+		<sect2 id="stalemate">
+			<title
+>Patt</title>
+			<para
+>Kui mängijal ei ole määrustepärast käiku (iga võimalik käik viiks kuninga tule alla), aga kuningas ei ole parajasti tule all, lõpeb mäng <quote
+>patiga</quote
+>. Patt tähendab viiki.</para>
+		</sect2>
+		<sect2 id="time-end">
+			<title
+>Aeg</title>
+			<para
+>Kui mängijal peaks aeg otsa lõppema, enne kui ta saab sooritada nõutava arvu käike: <itemizedlist
+><listitem
+><para
+>Mängija kaotab mängu, kui vastasel on võimalus matistada.</para
+></listitem
+> <listitem
+><para
+>Mäng jääb viiki, kui vastasel ei ole võimalust matistada.</para
+></listitem
+> </itemizedlist
+> Matistamise võimaluseks peetakse mis tahes malendite kombinatsiooni, välja arvatud ainult kuningas, kuningas ja oda või kuningas ja ratsu.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="time-controls">
+		<title
+>Ajaarvestus</title>
+		<para
+>Males kasutatakse enamasti ajaarvestust, et kiirendada mängu või kindlustada selle lõppemine mõistliku aja jooksul. Ajaarvestusel on kaks peamist vormi.</para>
+		
+		<para
+>Esimene neist on käikude arv aja kohta. Sel juhul peab mängija sooritama määratud aja jooksul määratud arvu käike.</para>
+		
+		<para
+>Teist tüüpi nimetatakse <quote
+>äkksurmaks</quote
+>. Sel juhul tuleb mäng lõpetada määratud aja jooksul sõltumata sellest, palju selleks käike kulub.</para>
+		
+		<para
+>Ajaarvestuse puhul võib lisada väikese viivituse, mis kompenseerib käigu füüsilisele sooritamisele kuluvat aega. <quote
+>Bronšteini viivituse</quote
+> korral hakkab kell mängija käigu puhul käima alles siis, kui viivitus on möödas. Kui käik sooritatakse enne viivituse lõppemist, ei võeta mängija kellalt üldse aega maha. <quote
+>Fischeri viivituse</quote
+> korral lisatakse viivitusaeg mängija allesjäänud ajale enne käiku. Kui käik sooritatakse enne viivituse möödumist, jääb allesjäänud viivitusaeg mängijale alles ja see lisatakse kellanäidule. Samuti võib mängija kellale lisada kindlaks määratud aja pärast käigu sooritamist. Viimasel juhul nimetatakse lisatud aega <quote
+>ajalisaks</quote
+>.</para>
+		
+		<para
+>Ajaarvestus sõltub väga tugevasti mängust, mängutüübist ja sponsorist. Mängu jooksul võib ka eri tüüpi ajaarvestusi ühendada, näiteks lisada kasutamata aja järgmisele mõtlemisajale. Kõigi suuremate Rahvusvahelise Maleföderatsiooni FIDE korraldatud mängude puhul antakse esimesele 40 käigule aega 90 minutit, millele lisandub 30 minutit kiireks lõppmänguks, sealjuures lisandub algusest peale iga käigu kohta 30 sekundit. Vabas interneti-maleserveris FICS on vaikeväärtusteks 2 minutit mängu kohta (kiire lõppmäng) pluss 12 sekundit lisa iga käigu kohta. Paljudel suurematel mängudel kasutatakse 90-minutilist kiiret lõppmängu. USA Maleföderatsiooni Blitzi ajaarvestuse kohaselt on mängu kohta 5 minutit ning viivitusi ega lisasid pole.</para>
+	</sect1
+>	
+	</chapter>
+	
+	<chapter id="markers">
+		<title
+>Markerid</title>
+		<para
+>Markerid tähendavad malelaual esiletõstetud välju. Neid võib kasutada oma malendi määrustepäraste käiguvõimaluste, vastase eelmise käigu või tule all oleva kuninga näitamiseks. Nende värv ja kuju sõltub kasutatavast teemast. Nende näitamist saab sisse ja välja lülitada seadistustedialoogi üldiste seadistuste osas. </para>
+		<para
+>Oma käigu ajal enda malendile klõpsates näeb eesiletõstetuna kõiki välju, kuhu selle malendiga saab käia. Pildil on näha valge lipu määrustepärased käiguvõimalused. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png"/></imageobject
+></mediaobject>
+		<para
+>Kui vastane on käigu sooritanud, näidatakse tema viimast käiku markeritega. Üks marker näitab malendi algasukohta, teine uut asukohta. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png"/></imageobject
+></mediaobject>
+		<para
+>Kui vastase viimane käik seadis sinu kuninga <quote
+>tule</quote
+> alla, tõstetakse esile ka kuningas ja kõik tuld andvad malendid. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png"/></imageobject
+></mediaobject>
+		<note>
+			<title
+>Märkus:</title>
+			<para
+>Mõned teemad ei pruugi toetada kõiki markerite tüüpe. </para>
+		</note>
+	</chapter>
+
+	<chapter id="configuration">
+		<title
+>Mängu seadistamine</title
+><!-- do not change this! -->
+		<para
+>&knights;i seadistustedialoog võimaldab muuta visuaalseid valikuid ning valida &knights;i teema. </para>
+		<para
+>Kui oled tehtud muudatustega rahul, saab need rakendada kas klõpsuga nupule <guibutton
+>Rakenda</guibutton
+> või <guibutton
+>OK</guibutton
+>, mis mõlemad asuvad dialoogi allservas. Klõps nupule <guibutton
+>OK</guibutton
+> sulgeb ühtlasi seadistustedialoogi. </para>
+		<para
+>Kui aga muudatused sind ei rahulda, klõpsa lihtsalt nupule <guibutton
+>Loobu</guibutton
+>, mis tühistab muudatused ja sulgeb seadistustedialoogi. Nupule <guibutton
+>Loobu</guibutton
+> tuleb klõpsata enne seda, kui oled klõpsanud nupule <guibutton
+>Rakenda</guibutton
+> või <guibutton
+>OK</guibutton
+>. </para>
+
+		<sect1 id="configuration-general">
+			<title
+>Üldine</title>
+			<para
+>Sektsiooni <guimenu
+>Üldine</guimenu
+> valikud puudutavad &knights;i üldist välimust. Siin saab sisse lülitada või muuta malendite ja mängulaua animatsioone. Animatsioonide sektsiooni näidatakse sõltuvalt süsteemi tarkvarast, eelkõige muidugi siis, kui animatsioonid on saadaval.Mängulauda on võimalik pöörata, mis lubab &knights;i malelauda ümber pöörata, kui kasutad seda arvutiekraanil või tahvelarvutil ehtsa malelaua asendusena. Sisse või välja lülitada saab kõiki <link linkend="markers"
+>markerite</link
+> kolme tüüpi. Soovi korral saab sisse lülitada piirded malelaua ümber ning algebralise tähistuse. </para>
+			<note>
+				<title
+>Märkus:</title>
+				<para
+>Mõned teemad ei pruugi toetada markereid, piirdeid ja/või tähistust. Sel juhul siinne seadistus mingit mõju ei avalda, kuid see jäetakse meelde ja võetakse kasutusele, kui muudad teemat. </para>
+			</note>
+		</sect1>
+
+		<sect1 id="configuration-engines">
+			<title
+>Arvutimootorid</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-engines.png"/></imageobject
+></mediaobject>
+			<para
+><guimenu
+>Arvutimootorite</guimenu
+> sektsioon võimaldab seadistada enda arvutivastaseid. Iga mootori korral peab olema kirjas programmi nimi, käsk selle käivitamiseks ja protokoll, mida mootor kasutab. &knights; toetab kaht malemootorite protokolli: XBoard ja UCI. </para>
+			<para
+>Uus mootori seadistuse saab lisada klõpsuga nupule <guibutton
+>Lisa</guibutton
+> ja mainitud kolme parameetrit sisestades. Sümbol viimases veerus näitab, kas programm on sinu arvutisse paigaldatud või mitte. </para>
+		</sect1>
+		
+		<sect1 id="configuration-accessibility">
+			<title
+>Hõlbustus</title>
+			<para
+>Sektsioonis <guimenu
+>Hõlbustus</guimenu
+> leiab mõned valikud mängulaua ja väliste programmide kasutamise kohta, mis peaksid muutma mängimise lihtsamaks puuetega inimestele. </para>
+			<para
+>&kde; teksti ettelugemise teenust &jovie; saab kasutada vastase käikude kuuldavalt esitamiseks. </para>
+			<para
+>&knights;i on võimalik juhtida &DBus;-liidesega. Praegu ei ole sel praktilist kasutust, välja arvatud <ulink url="http://simon-listens.org/"
+>Simoni</ulink
+> veel välja laskmata versioon, mis lubab mängida ka ainult häälsuhtluse abil. </para>
+		</sect1>
+
+		<sect1 id="configuration-themes">
+			<title
+>Teemad</title>
+			<para
+>Sektsioonis <guimenu
+>Teema</guimenu
+> saab valida teema. Sellega kaasneb mängulaua, malendite, markerite ja muude elementide teatav kujundus. Uue teema valimiseks vali selle nimi nimekirjast. Samuti võib siinsamas alla laadida uusi teemasid, klõpsates nupule <guibutton
+>Hangi uusi teemasid</guibutton
+>. Teemad leiduvad veebisaidil kde-look.org &knights;i all. </para>
+			<note>
+				<title
+>Märkus:</title>
+				<para
+>Parema ülevaate huvides näidatakse kohe pärast teema valimist selle eelvaatlust nimekirjast paremal. </para>
+			</note>
+		</sect1>
+	</chapter>
+
+	<chapter id="credits-and-license">
+		<title
+>Autorid ja litsents</title>
+
+
+		<para
+>&knights;</para>
+		<itemizedlist>
+   <listitem>
+				<para
+>Miha Čančula <email
+>miha.cancula@gmail.com</email
+> - algne autor </para>
+   </listitem>
+		</itemizedlist>
+		<para
+>Dokumentatsiooni autoriõigus 2010: Miha Čančula <email
+>miha.cancula@gmail.com</email
+> </para>
+		
+		<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+	<appendix id="installation">
+		<title
+>Paigaldamine</title>
+
+		&install.intro.documentation;
+
+		&install.compile.documentation;
+
+	</appendix>
+
+
+</book>

@@ -1,0 +1,923 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY knights "<application
+>Knights</application
+>">
+  <!ENTITY kappname "&knights;">
+  <!ENTITY kappversion "2.5.0"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+	<bookinfo>
+		<title
+>Das Handbuch zu &knights;</title>
+
+		<authorgroup>
+			<author
+><firstname
+>Miha</firstname
+><surname
+>Čančula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+					</address>
+				</affiliation>
+			</author>
+			<othercredit role="translator"
+><firstname
+>Johannes</firstname
+><surname
+>Obermayr</surname
+><affiliation
+><address
+><email
+>johannesobermayr@gmx.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+
+		</authorgroup>
+		<copyright>
+			<year
+>2011</year>
+			<holder
+>Miha Čančula</holder>
+		</copyright>
+
+		<legalnotice
+>&FDLNotice;
+		</legalnotice>
+
+		<date
+>2015-01-07</date
+><!-- Date of (re)writing, or update.-->
+		<releaseinfo
+>&kappversion; </releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+		<abstract>
+			<para
+>Dieses Handbuch beschreibt die Version &kappversion; von &knights;. </para>
+		</abstract>
+
+		<keywordset>
+			<keyword
+>KDE</keyword
+><!-- do not change this! -->
+			<keyword
+>kdegames</keyword
+><!-- do not change this! -->
+			<keyword
+>Spiel</keyword
+><!-- do not change this! -->
+			<keyword
+>Brettspiel</keyword>
+			<keyword
+>Schach</keyword>
+			<keyword
+>knights</keyword>
+		</keywordset>
+
+	</bookinfo>
+<!-- 
+new in
+>2.4.0 history, UCI, Difficulty settings, see
+http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
+-->
+	<chapter id="introduction">
+		<title
+>Einleitung</title>
+		<note>
+			<title
+>Spielart:</title>
+			<para
+>Brettspiel</para>
+		</note>
+		<note>
+			<title
+>Anzahl der Spieler:</title>
+			<para
+>Einer oder zwei</para>
+		</note>
+
+		<para
+>&knights; ist ein Schachspiel, bei dem der Gegner durch matt setzen des Königs besiegt wird. </para>
+	</chapter>
+
+	<chapter id="how-to-play"
+><title
+>Spielanleitung</title
+> <!-- do not change this! -->
+		<!--Describe the objective of the game.-->
+		<sect1 id="objective">
+			<title
+>Ziel des Spiels</title>
+			<para
+>Ziehen Sie Ihre Spielfiguren, schlagen Sie die Figuren des Gegners, bis Sie dessen König angreifen und der Gegner keinen Zug mehr ausführen kann, um den Angriff abzuwehren - <quote
+>Schachmatt</quote
+>.</para>
+			<para
+>Wenn Sie anscheinend nicht mehr gewinnen können, spielen Sie auf Remis (Gleichstand). Ziehen Sie Ihre Figuren so lange, bis kein weiterer erlaubter Zug möglich ist und Ihr König nicht im Schach ist, das wird <quote
+>Patt</quote
+> genannt. Abhängig von den vereinbarten Schachregeln für das aktuelle Spiel kann es weitere Möglichkeiten geben, um zu einem Remis zu kommen.</para>
+		</sect1>
+
+		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+		<sect1 id="starting-the-game">
+			<title
+>Spielstart</title>
+			<para
+>Wenn das Programm gestartet wird oder der Benutzer <menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+></menuchoice
+> wählt, wird ein Dialog angezeigt. In diesem Dialog können Sie einstellen, gegen wen Sie spielen möchten, die Farbe für Spieler 1 bestimmen und Zeitbegrenzung aktivieren. </para>
+				<mediaobject
+><imageobject
+><imagedata fileref="Knights-newgame-dialog.png"/></imageobject
+></mediaobject>
+			<para
+>Möchten Sie gegen einen Freund auf demselben Rechner spielen, wählen Sie <guilabel
+>Mensch (Sie)</guilabel
+> für <guilabel
+>Spieler 1</guilabel
+> und <guilabel
+>Mensch</guilabel
+> für <guilabel
+>Spieler 2</guilabel
+>. </para>
+			<para
+>Möchten Sie gegen den Rechner spielen, wählen Sie <guilabel
+>Mensch (Sie)</guilabel
+> für <guilabel
+>Spieler 1</guilabel
+> und <guilabel
+>Schach-Modul</guilabel
+> für <guilabel
+>Spieler 2</guilabel
+>. Wählen Sie das Programm, gegen das Sie spielen wollen. Das Schachprogramm muss auf dem Rechner installiert sein und entweder das XBoard- oder UCI-Protokoll unterstützen. </para>
+			<para
+>Haben Sie ein Schach-Modul installiert, es wird in der Liste aber nicht angezeigt, klicken Sie auf den Knopf <guilabel
+>Schach-Module einrichten</guilabel
+> und fügen Sie das Modul hinzu. Weitere Informationen zu diesem Dialog finden Sie unter <link linkend="configuration-engines"
+>Schach-Module</link
+>. </para>
+			<note
+><title
+>Anmerkung</title>
+			<para
+>Auch wenn ein Programm im Dialog aufgeführt wird, muss es nicht installiert sein. Installieren Sie das Schach-Modul, das Sie benutzen wollen. Im Dialog <guilabel
+>Schach-Module einrichten</guilabel
+> können Sie überprüfen, ob das Modul auf Ihrem System installiert ist. </para>
+			</note>
+			<para
+>Möchten Sie gegen Andere über das Internet spielen. wählen Sie <guilabel
+>Mensch (Sie)</guilabel
+> für <guilabel
+>Spieler 1</guilabel
+> und <guilabel
+>Schach-Server</guilabel
+> für <guilabel
+>Spieler 2</guilabel
+>. Sie müssen sich nun beim Server anmelden und einen Gegner suchen, damit das Spiel beginnen kann. Auf dem freien Internet-Schach-Server (<ulink url="http://freechess.org"
+>FreeChess.org</ulink
+>) können Sie auch als Gast spielen. Sie müssen sich registrieren, wenn Ihre Spiele in die Bewertung einbezogen werden sollen. </para>
+			<para
+>Sie können auch zwei Programme gegeneinander spielen lassen, wenn Sie <guilabel
+>Schach-Modul</guilabel
+> für beide Spieler auswählen. </para>
+			<para
+>Außerdem können Sie auch ein Schach-Modul gegen einen Gegner auf einem Schach-Server spielen lassen. Überprüfen Sie bitte ob dies auf dem von Ihnen gewählten Schach-Server erlaubt ist. Die Regeln für den freien Internet-Schach-Server finden Sie <ulink url="http://www.freechess.org/Help/HelpFiles/computers.html"
+>hier</ulink
+>. </para>
+			<para
+>Im Abschnitt <guilabel
+>Zeitbegrenzung verwenden</guilabel
+> können Sie wahlweise eine Schachuhr aktivieren. In &knights; werden die Standard-Zeitbegrenzungsregeln des Schachspiels mit drei möglichen Parametern verwendet:  </para>
+			      <itemizedlist>
+				<listitem>
+				  <para
+>Die <guilabel
+>Zeitbegrenzungsdauer</guilabel
+> legt die Anzahl der Spielzüge fest, nach der die <guilabel
+>Anfängliche Zeitbegrenzung</guilabel
+> zu der Spielzeit des Gegners hinzugefügt wird. Diese Einstellung kann deaktiviert werden, indem Sie den Wert auf Null setzen. </para>
+				  <note
+><title
+>Anmerkung</title>
+				    <para
+>Diese Einstellung ist beim Spiel auf einen Schach-Server nicht verfügbar. </para>
+				  </note>
+				</listitem>
+				<listitem>
+				  <para
+>Die <guilabel
+>Anfängliche Zeitbegrenzung</guilabel
+> gibt die Zeitbegrenzung beim Start des Spiels an. </para>
+				</listitem>
+				<listitem>
+				  <para
+><guilabel
+>Erhöhung pro Spielzug</guilabel
+> legt fest, wieviel Spielzeit für jeden Spieler nach jedem ausgeführten Zug addiert wird. Dieser Wert kann auch auf Null gesetzt werden, damit wird die Zeitbegrenzung nicht erhöht. </para>
+				</listitem>
+				
+			</itemizedlist>
+			<para
+>Wenn Sie den Knopf <guibutton
+>OK</guibutton
+> drücken, wird der Dialog geschlossen. Spielen Sie auf einen Schach-Server, müssen Sie sich jetzt anmelden und einen Gegner suchen. Ansonsten beginnt das Spiel sofort. </para>
+			<note
+><title
+>Anmerkung</title>
+			<para
+>&knights; lädt das Standarddesign automatisch beim Spielbeginn und es sofort losgehen. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="server-dialog">
+			<title
+>Der Dialog Schach-Server</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-account.png"/></imageobject
+></mediaobject>
+			<para
+>Spielen Sie auf einem Schach-Server, müssen Sie sich zuerst anmelden. Haben Sie bereits einen Zugang zu diesem Server, geben Sie den Benutzernamen und dass Passwort ein und aktivieren das Ankreuzfeld <guilabel
+>Dies ist ein registrierter Zugang</guilabel
+>. Ansonsten geben Sie einen beliebigen Benutzernamen ein und drücken den Knopf <guibutton
+>Anmelden</guibutton
+>. </para>
+			<para
+>Es gibt zwei Möglichkeiten, einen Gegenspieler auszuwählen. Entweder Sie schicken eine Anfrage für Ihr Spiel (auch „Suche“ genannt) oder Sie antworten auf die Anfrage eines anderen Spielers. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-challenges.png"/></imageobject
+></mediaobject>
+			<para
+>Um Ihre eigene Anfrage zu senden, wechseln Sie zur Karteikarte <guilabel
+>Herausforderungen</guilabel
+> und klicken auf den Knopf <guibutton
+>Suchen</guibutton
+>. Wenn die Einstellung <guilabel
+>Partie automatisch starten</guilabel
+> aktiviert ist, beginnt das Spiel sofort. Ansonsten müssen Sie die Herausforderung annehmen, indem Sie sie aus der Liste auswählen und auf <guibutton
+>Annehmen</guibutton
+> drücken. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-list.png"/></imageobject
+></mediaobject>
+			<para
+>Um auf die Anfrage anderer Spieler zu antworten, benutzen Sie die Karteikarten <guilabel
+>Suchliste</guilabel
+> oder <guilabel
+>Suchgrafik</guilabel
+>. Auf einer der Karteikarte wählen Sie eine Anfrage, indem Sie mit der Maus darauf klicken und drücken dann den Knopf <guibutton
+>Annehmen</guibutton
+>. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-server-graph.png"/></imageobject
+></mediaobject>
+			<para
+>In der Suchgrafik werden alle zurzeit gesendeten Anfragen mit der Bewertung des Gegners und der Zeitbegrenzung angezeigt. Klicken Sie auf einen Punkt in der Grafik, um die Anfrage anzunehmen. </para>
+			<note>
+				<para
+>Für die Fehlersuche bei Problemen können Sie direkt auf die Serverkonsole zugreifen. Wählen Sie dazu die Karteikarte <guilabel
+>Konsole</guilabel
+>. </para>
+			</note>
+		</sect1>
+		
+		<sect1 id="playing-the-game">
+			<title
+>Spielablauf</title>
+			<para
+>Um eine Schachfigur zu ziehen, klicken Sie darauf und verschieben Sie sie dann zum gewünschten Endfeld des Zuges. Sie können nur eine eigene Figur bewegen, wenn Sie am Zug sind und Ihr König durch den Zug nicht in eine Schachstellung gebracht wird. </para>
+			<para
+>&knights; erlaubt nur Schachzüge nach den Standardregeln, Sie können also keine ungültigen Spielzüge machen. </para>
+		</sect1>
+	</chapter>
+	
+	<chapter id="rules_and_tips">
+		<title
+>Spielregeln, Spielstrategien und Tipps</title
+> <!-- do not change this! -->
+	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+	<sect1 id="standard-rules">
+		<title
+>Standardregeln</title>
+		<para
+>Die Hauptregeln für Schach werden vom Weltschachverband (World Chess Federation ) FIDE festgelegt. Andere nationale oder lokale Gruppen können geringfügig veränderte Regeln benutzten. Normalerweise besteht der wesentliche Unterschied zwischen den Regeln in der benutzten Zeitbegrenzung oder den erlaubten Spielzügen - die grundsätzlichen Spielregeln und Spielzüge stimmen überein. &knights; benutzt die Standardregeln des Schachspiels mit mehreren möglichen Zeitbegrenzungsregeln.</para>
+		<para
+>Es gibt viele Varianten des Standardschach. angeblich existieren mehr als 2000 Varianten. Die wichtigsten Varianten sind Schach-960 („Fischer-Random-Chess“), Tandemschach (Bughouse/Konferenz/Berliner Vierer), Crazyhouse oder Einsetzschach und Räuberschach (Suicide). In diesen Varianten gibt es abweichende Regeln für das Schlagen und Ziehen der Spielfiguren, das Spielende und für die Rückkehr von Figuren ins Spiel. Schachvarianten können mit &knights; nicht gespielt werden.</para>
+		<para
+>Vollständige Standardregeln für Schach finden Sie auf:</para>
+		<itemizedlist>
+			<listitem
+><para
+>World Chess Federation-FIDE (<ulink url="http://www.fide.com"
+>fide.com</ulink
+>) und <ulink url="http://www.schachbund.de/"
+>Deutscher Schachbund e. V.</ulink
+></para
+></listitem>
+			<listitem
+><para
+>United States Chess Federation-USCF (<ulink url="http://main.uschess.org"
+>main.uschess.org</ulink
+>)</para
+></listitem>
+		</itemizedlist>
+		<para
+>Regeln und allgemeine Informationen über Schach finden Sie auf: <itemizedlist
+> <listitem
+><para
+><ulink url="http://de.wikipedia.org/wiki/Rules_of_chess"
+>Wikipedia</ulink
+>&nbsp;</para
+></listitem>
+		</itemizedlist>
+		</para>
+	</sect1>
+
+	<sect1 id="board">
+		<title
+>Schachbrett</title>
+		<sect2 id="board-layout">
+			<title
+>Spielfeldaufbau</title>
+			<para
+>Ein Schachbrett besteht aus 64 Quadraten, die in acht Reihen und acht Spalten angeordnet sind. Die Felder haben abwechselnd eine weiße und eine schwarze Farbe. Für die Herstellung von Schachbretter werden viele verschiedene Materialien benutzt. Dabei wird das helle Material als Weiß und das dunkle Material als Schwarz bezeichnet.</para>
+			<para
+>Für die einzelnen Bestandteile des Spielbretts gibt es bestimmte Bezeichnungen: <itemizedlist>
+				<listitem
+><para
+>Reihen - die acht waagerechten Zeilen auf dem Schachbrett werden Reihen genannt.</para
+></listitem>
+				<listitem
+><para
+>Linien - die acht senkrechten Spalten auf dem Schachbrett werden Linien genannt.</para
+></listitem>
+				<listitem
+><para
+>Diagonale - eine gradlinige Folge von Feldern gleicher Farbe, die von einem Rand des Schachbretts zum anderen Rand verläuft, wird Diagonale genannt.</para
+></listitem>
+				<listitem
+><para
+>Zentrum - die vier Felder in der Mitte des Schachbretts werden Zentrum genannt.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>Für jedes einzelne Feld gibt es eine Bezeichnung, daher kann eine Partie aufgezeichnet werden. Es gibt mehrere Bezeichnungssysteme, aber die <quote
+>Algebraische Notation</quote
+> ist am bekanntesten und wird als offizielles System der FIDE verwendet. In diesem System wird jedes Feld durch die Position der Zeile und Spalte gekennzeichnet. Die waagerechten Reihen (Zeilen) sind von 1 bis 8 von der weißen bis zur schwarzen Seite des Schachbretts durchnummeriert. Sie Linien (Spalten) werden mit den kleinen Buchstaben von a bis h von links nach rechts aus der Sicht des weißen Spielers gekennzeichnet. Jedes Feld erhält die Bezeichnung durch den Buchstaben gefolgt von der Zahl, as linke untere Feld zum Beispiele a1. Das folgende Bild zeigt dieses System:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="board-setup">
+			<title
+>Einrichtung für den Start</title>
+			<para
+>Das Schachbrett wird gedreht, sodass sich in der ersten Reihe rechts ein weißes Spielfeld befindet.</para>
+			<para
+>Die Spielfiguren werden in gleicher Weise auf der schwarzen und weißen Seite des Schachbretts angeordnet. In der ersten Reihe stehen die Türme ganz außen, dann folgen nach innen die Springer und Läufer. Auf den beiden verbleibenden Feldern wird die Dame auf das Feld mit der gleichen Farbe und der König auf das letzte Feld gesetzt. In die zweiten Reihe werden alle Bauern gesetzt. Haben beide Spieler Ihre Figuren aufgestellt, stehen diese sich auf dem Schachbrett gegenüber, wie das nächste Bild zeigt.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="piece-movement">
+		<title
+>Spielzüge</title>
+		<sect2 id="all-movement">
+			<title
+>Spielzüge und Schlagen von Figuren</title>
+			<para
+>Im Schach gibt es sechs Spielfiguren: Bauer, Turm, Springer, Läufer, Dame und König. Jede dieser Figuren wird auf eigene Art gezogen. Es gibt einige Ähnlichkeiten zwischen den Zügen der Figuren. Alle Figuren außer dem Springer ziehen in gerader Linie - waagerecht, senkrecht oder diagonal. Sie können nicht über den Rand des Schachbretts gezogen werden und es auf der gegenüberliegenden Seite wieder betreten. Der Rand des Schachbretts ist eine Grenze, die nicht überschritten werden kann. Alle Figuren außer dem Springer können andere Figuren nicht überspringen - alle Felder zwischen der Anfangs- und Endposition eines Zuges müssen frei sein. Ein Zug kann nicht auf einem Feld enden, das bereits von einer eigenen Figur besetzt ist.</para>
+			
+			<para
+>Steht auf dem Feld, auf dem ein Spielzug endet, eine gegnerische Schachfigur, dann wird sie <quote
+>geschlagen</quote
+> und vom Schachbrett genommen. Alle Figuren außer dem König können geschlagen werden. Das Spiel endet, wenn der König mit dem nächsten Zug geschlagen werden könnte - <link linkend="checkmate"
+>Schachmatt</link
+>. Ein Schlagen ist nur möglich, wenn eine eigene Figur mit einem regelmäßigen Zug auf ein Feld bewegt wird, das von einer gegnerischen Figur besetzt ist. Die einzige Ausnahme dieser Regel ist das <link linkend="en_passant-movement"
+>Schlagen En Passant</link
+>. Gegnerische Figuren müssen nicht geschlagen werden, wenn die Möglichkeit dafür gegeben ist, das Schlagen ist freigestellt. Ein Zwang zum Schlagen besteht nur dann, wenn der König im Schach steht und nur mit dem Schlagen der gegnerischen Figur dieser Angriff abgewehrt werden kann.</para>
+			
+			<para
+>In der folgenden Abbildung kann der Turm waagerecht nach rechts oder links und senkrecht nach unten oder oben gezogen werden. Nach unten und nach rechts ist ein Zug auf jedes beliebige Feld bis zum Rand des Schachbretts erlaubt. Diese Felder sind mit einem grünen X gekennzeichnet. Der Turm kann nur höchstens zwei Felder nach links ziehen. Die restlichen Felder des Schachbretts werden durch eine eigenen Figur (ein weißer Springer) blockiert. Der Turm kann nicht über den Springer bis zum Rand des Schachbretts ziehen. Nach oben kann der Turm nur ein Feld weit ziehen, dann wird er durch einen schwarzen Bauern blockiert. Zieht der Turm zwei Felder nach oben, kann er den Bauern schlagen, da es eine Schachfigur des Gegners mit einer anderen Farbe ist. Diese Feld ist durch ein rotes X bezeichnet. Der Bauer kann nicht übersprungen werden, um die dahinter liegenden Felder bis zum Rand des Schachbretts zu erreichen. Zusammen ergeben sich 10 mögliche Züge für den Turm.</para>
+
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Beim Spielbeginn hat Weiß den ersten Zug. Die Spieler ziehen dann abwechselnd. Jeder Spieler muss einen Zug ausführen, wenn er an der Reihe ist. Er darf nicht aussetzen.</para>
+		</sect2>
+		<sect2 id="pawn-movement">
+			<title
+>Bauer</title>
+			<para
+>Der Bauer ist die häufigste und schwächste Spielfigur auf dem Schachbrett. Bauer führen ungewöhnliche Züge durch. Grundsätzlich kann ein Bauer nur ein Feld vorwärts gezogen werden. Die Ausnahme ist der erste Zug, der auch über zwei Felder gehen darf. Der Bauer kann keine anderen Spielfiguren überspringen, jede gegnerische Spielfigur auf einem Feld direkt vor einem Bauern blockiert ihn. Der Bauer ist die einzigste Spielfigur, die nicht rückwärts gezogen werden kann und beim Schlagen anders als bei der normalen Bewegung gezogen wird. Ein Bauer schlägt eine gegnerische Figur durch einen diagonalen Zug auf das nächste Feld, er kann beim geraden Zug vorwärts keine Figur schlagen.</para>
+			
+			<para
+>In der folgenden Abbildung steht der untere Bauer immer noch auf seiner Ausgangsposition, so dass er ein oder zwei Felder vorwärts auf die mit dem grünen X gekennzeichneten Positionen gezogen werden kann. Der Bauer kann durch einen diagonalen Zug nach links oder rechts auf die mit dem roten X gekennzeichneten Felder gegnerische Figuren schlagen, aber nur wenn diese Felder tatsächlich vom Gegner besetzt sind. Ansonsten ist ein diagonaler Zug nicht erlaubt. Der obere weiße Bauer hat bereits seine Anfangsposition verlassen. Er darf nur noch ein Feld vorwärts gezogen werden. Desgleichen kann er gegnerische Spielfiguren auf dem nächsten diagonalen Feld rechts oder links schlagen.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Bauern sind auch an zwei besonderen Spielzügen beteiligt. Der erste ist das <link linkend="en_passant-movement"
+>Schlagen En Passant</link
+>, bei der ein Bauer bei dem ersten Zug über zwei Felder geschlagen wird. Der zweite Spielzug ist die <link linkend="pawn-promotion-movement"
+>Bauern-Umwandlung</link
+>. Dabei wird ein Bauer, der die gegenüberliegende Seite des Schachbretts erreicht hat, in eine andere Spielfigur umgetauscht.</para>
+		</sect2>
+		<sect2 id="bishop-movement">
+			<title
+>Läufer</title>
+			<para
+>Ein Läufer zieht in gerader Linie diagonal auf dem Schachbrett und kann dabei beliebig weit bis zum Rand des Schachbretts oder bis zu einer anderen Figur gehen. Der Läufer kann andere Figuren nicht überspringen. Er schlägt auf die gleiche Art wie er zieht, indem er das Feld mit der gegnerischen Schachfigur besetzt. Auf Grund der Bewegung des Läufers bleibt er immer auf Feldern mit gleicher Farbe. Jeder Spieler hat zu Anfang zwei Läufer, einen auf den weißen und den anderen auf den schwarzen Feldern. Sie werden häufig auch als <quote
+>weißfeldrige</quote
+> und <quote
+>schwarzfeldrige</quote
+> Läufer bezeichnet. Auch die Namen Damenläufer und Königsläufer auf Grund ihrer Anfangsstellung neben der Dame bzw. dem König werden verwendet.</para
+>  
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="rook-movement">
+			<title
+>Turm</title>
+			<para
+>Der Turm zieht in gerader Linie waagerecht oder senkrecht über eine beliebige Anzahl von nicht besetzten Feldern bis zum Rand des Schachbretts oder bis zur nächsten Spielfigur . Er kann andere Figuren nicht überspringen. Der Turm schlägt auf die gleiche Art wie er zieht, indem er das Feld mit der gegnerischen Schachfigur besetzt. Ein Turm kann jedes Feld auf dem Schachbrett erreichen, daher ist er einer der stärkeren Schachfiguren. </para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png"/></imageobject
+></mediaobject>
+			<para
+>Der Turm ist auch an einem besonderen Spielzug beteiligt. Das ist die <link linkend="castling-movement"
+>Rochade</link
+>, bei der ein Turm und der König in eine Verteidigungsposition gezogen werden.</para>
+		</sect2>
+		<sect2 id="knight-movement">
+			<title
+>Springer</title>
+			<para
+>Der Springer ist eine besondere Figur im Schach und auf Grund seiner Flexibilität sehr schlagkräftig. Der Springer ist die einige Schachfigur, die andere Figuren überspringen kann. Er zieht zwei Felder waagerecht oder senkrecht und dann rechtwinklig ein Feld weit zur Seite. Ein Springerzug sieht wie ein <quote
+>L</quote
+> aus. Das Start- und Endfeld eines Springerzuges haben immer verschiedenen Farben. Ein Springer kann während des Zuges auf sein Zielfeld eigene und gegnerische Figuren überspringen. Dabei werden diese Figuren aber nicht geschlagen. Der Springer schlägt eine gegnerische Figur, wenn Sie auf dem Endfeld seines Zuges steht. Der Zug auf ein Feld, dass von einer eigenen Figur besetzt ist, ist nicht möglich. Da ein Springerzug nicht in gerader Linie ausgeführt wird, kann er eine Dame, einen Läufer oder Turm angreifen, ohne selbst geschlagen werden zu können.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="queen-movement">
+			<title
+>Dame</title>
+			<para
+>Die Dame ist die schlagkräftigste Figur auf dem Schachbrett. Sie kann jede beliebige Anzahl von Feldern in gerader Linie ziehen, entweder waagerecht, senkrecht oder diagonal. Sie bewegt sich wie eine Kombination aus Turm und Läufer. Außer beim Schlagen kann die Dame nur auf freie Felder gezogen werden und dabei keine anderen Schachfiguren überspringen. Die Dame schlägt auf die gleiche Art wie sie zieht, indem sie das Feld mit der gegnerischen Schachfigur besetzt.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="king-movement">
+			<title
+>König</title>
+			<para
+>Der König ist die wichtigste Figur im Schach. Ist ein König so bedroht, dass das Schlagen nicht mehr verhindert werden kann, ist das Spiel beendet und der Spieler hat verloren. Ein König ist wenig beweglich und wird deshalb auch als schwächste Figur im Spiel eingestuft. Ein König kann auf jedes angrenzende Feld ziehen, &ie; ein Feld in jeder Richtung: waagerecht, senkrechte und diagonal. Er kann nicht auf ein Feld ziehen, das von einer eigenen Figur besetzt ist. Der König schlägt auf die gleiche Art wie er zieht, indem er das Feld mit der gegnerischen Schachfigur besetzt. Es gibt eine zusätzliche Einschränkung für erlaubte Züge des Königs. Er darf nicht auf ein Feld ziehen, auf dem er von einer gegnerischen Schachfigur angegriffen wird - auch <quote
+>Schach</quote
+> genannt. Auf Grund dieser Einschränkung können zwei Könige niemals auf benachbarten Feldern stehen, da der Zug auf ein Feld neben den König des Gegners den eigenen König ins Schach setzt. Ein König kann außerdem durch einen Angriff (<quote
+>Schach</quote
+>) zum Ziehen oder Schlagen gezwungen werden, wenn der Angriff nicht durch eine gegnerische Figur blockiert werden kann.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png"/></imageobject
+></mediaobject>
+		</sect2>
+	</sect1>
+
+	<sect1 id="special-movement">
+		<title
+>Besondere Spielzüge</title>
+		<sect2 id="en_passant-movement">
+			<title
+>En Passant</title>
+			<para
+>Da es einem Bauern nach den Schachregeln erlaubt ist, beim ersten Zug um zwei Felder verschoben zu werden, könnte ein Bauer einem gegnerischen Angriff ausweichen, wenn er das angegriffene Feld überspringt. Das Schlagen <quote
+>En Passant</quote
+> (französisch für <quote
+> Im Vorbeigehen</quote
+>) wurde eingeführt, um das zu verhindern. Der gegnerische Bauer wird genauso geschlagen, als wenn er nur ein Feld vorwärts gezogen worden wäre. Für das Schlagen <quote
+>En Passant</quote
+> gibt es bestimmte Bedingungen. <itemizedlist>
+				<listitem
+><para
+>Der Bauer muss zwei Felder in einem einzelnen Zug von der Startposition aus bewegt werden.</para
+></listitem>
+				<listitem
+><para
+>Der gegnerische Bauer muss das Feld angreifen, über das der Bauer gezogen wird.</para
+></listitem>
+				<listitem
+><para
+>Der erste Bauer kann so geschlagen werden, als ob er nur ein Feld gezogen wurde.</para
+></listitem>
+				<listitem
+><para
+>Der Bauer darf nur beim nächsten Zug des Gegners geschlagen werden. Wurde der Bauer nicht geschlagen, kann der erste Bauer im Rest des Spiels nicht mehr <quote
+>En Passant</quote
+> geschlagen werden.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			<para
+>In der unten angezeigten Schachstellung wurde der weiße Bauer nicht nicht aus seiner Anfangsposition gezogen. Sein erster Zug kann ein oder zwei Felder geradeaus erfolgen. Das erste Feld wird vom schwarzen Bauern angegriffen (Bauern schlagen diagonal), was durch das rote X angezeigt wird. Der weiße Bauer wird zwei Felder weit gezogen, um dem Angriff zu entgehen. Beim nächsten Zug wird der schwarze Bauer in das Feld gesetzt, das der weiße Bauer übersprungen hat. Der schwarze Bauer greift damit den weißen Bauern erfolgreich an und schlägt ihn <quote
+>En Passant</quote
+>. Der weiße Bauer wird aus dem Spiel genommen.</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png"/></imageobject
+></mediaobject>
+		</sect2>
+		<sect2 id="castling-movement">
+			<title
+>Rochade</title>
+			<para
+>Eine Rochade findet zwischen König und Turm statt. Dies ist das einzigste Mal in einem Spiel, dass mehr als eine Spielfigur mit einem einzelnen Zug bewegt werden kann. Bei der Rochade wird der König zwei Felder in Richtung des Turms gezogen, der Turm zieht dann zum gegenüberliegenden Feld neben dem König.</para>
+			
+			<para
+>Für die Rochade gibt es einige Bedingungen: <itemizedlist>
+				<listitem
+><para
+>Der König wie auch der Turm dürfen im Spiel noch keinen Zug durchgeführt haben. </para
+></listitem>
+				<listitem
+><para
+>Es gibt keine Spielfiguren zwischen König und Turm.</para
+></listitem>
+				<listitem
+><para
+>Der König steht nicht im Schach.</para
+></listitem>
+				<listitem
+><para
+>Der König darf kein Feld überqueren, das von den gegnerischen Spielfiguren angegriffen wird.</para
+></listitem>
+				<listitem
+><para
+>Der König darf seinen Zug nicht auf einem Feld beenden, das von den gegnerischen Spielfiguren angegriffen wird. Die Rochade kann nicht mit dem König im Schach beendet werden.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Es gibt zwei Formen der Rochade. Die erste wird <quote
+>Königsrochade</quote
+> oder <quote
+>kleine Rochade</quote
+> genannt, da sie auf der kurzen Seite des Schachbretts ausgeführt wird und der Turm nur zwei Felder auf der andere Seite des Königs gezogen wird, wie die folgende Abbildung zeigt:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png"/></imageobject
+></mediaobject>
+			
+			<para
+>Die zweite Form der Rochade heißt <quote
+>Damenrochade</quote
+>, dabei wird der König über die freie Anfangsposition der Dame in Richtung des Turms gezogen. Diese Rochade ist auch unter dem Namen <quote
+>große Rochade</quote
+> bekannt, da sie auf der langen Seite des Schachbretts ausgeführt und der Turm wie in der folgenden Abbildung drei Felder gezogen werden muss:</para>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png"/></imageobject
+></mediaobject>
+			
+			<note
+><title
+>Anmerkung:</title>
+			<para
+>Um in &knights; eine Rochade auszuführen, ziehen Sie den König zwei Felder in Richtung des Turms. &knights; schließt die Rochade ab und zieht den Turm. Beginnen Sie eine Rochade nicht durch Ziehen des Turms, da &knights; dann annimmt, dass Sie nur den Turm ziehen und keine Rochade ausführen möchten.  </para>
+			</note>
+			
+		</sect2>
+		<sect2 id="pawn-promotion-movement">
+			<title
+>Bauern-Umwandlung</title>
+			<para
+>Wenn ein Bauer den gegenüberliegenden Rand des Schachbretts erreicht hat, kann er nicht weiter gezogen werden, da ein Bauer nur vorwärts, aber nicht rückwärts gegen darf. Der Bauer wird dann in eine Dame, einen Turm, einen Läufer oder einen Springer umgewandelt. Diese Umwandlung ist Bestandteil dieses Zuges. Normalerweise wird der Bauer in eine Dame umgewandelt. Die anderen Spielfiguren werden manchmal gewählt, wenn Ihre möglichen Spielzüge zu einem Schach führen. Der Bauer kann auch in eine Schachfigur umgewandelt werden, die bereits auf dem Schachbrett vorhanden ist. Mit Bauern-Umwandlungen können Sie also zwei Damen oder drei Türme, Läufer bzw. Springer in einem Spiel haben.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="game-end">
+		<title
+>Spielende</title>
+		<sect2 id="checkmate">
+			<title
+>Schachmatt</title>
+			<para
+>Wenn ein König angegriffen wird und er im nächsten Zug durch eine gegnerische Figur geschlagen werden kann, wird das als <quote
+>Schach</quote
+> bezeichnet. Der angegriffene König muss sofort aus dem Schach gebracht werden. Dazu gibt es drei Möglichkeiten. <itemizedlist>
+				<listitem
+><para
+>Schlagen der angreifenden Spielfigur.</para
+></listitem>
+				<listitem
+><para
+>Der König wird aus dem angegriffenen Feld auf eine anderes Feld gezogen, auf dem er nicht durch eine gegnerische Spielfigur angegriffen werden kann. </para
+></listitem>
+				<listitem
+><para
+>Der Angriff wird blockiert, indem eine eigene Spielfigur zwischen den Angreifer und den König gezogen wird. Das ist beim Angriff durch einen Springer oder Bauern nicht möglich.</para
+></listitem>
+			</itemizedlist>
+			</para>
+			
+			<para
+>Gibt es keine Möglichkeit, den König aus dem Schach zu bringen, wird diese Stellung <quote
+>Schachmatt</quote
+> genannt und das Spiel ist beendet. Der Spieler im Schachmatt verliert das Spiel. Der König wird niemals tatsächlich geschlagen und vom Schachbrett entfernt.</para>
+		</sect2>
+		<sect2 id="resign">
+			<title
+>Aufgeben</title>
+			<para
+>Zu jedem Zeitpunkt im Spiel kann ein Spieler aufgeben. Das Spiel ist beendet und der Gegner hat gewonnen.</para>
+		</sect2>
+		<sect2 id="draw">
+			<title
+>Remis</title>
+			<para
+>Ein <quote
+>Remis</quote
+> ist ein Gleichstand zwischen den Spielern. Es gibt mehrere Möglichkeiten, die zu einem Remis führen können. <itemizedlist>
+				<listitem
+><para
+>Patt (siehe unten)</para
+></listitem>
+				<listitem
+><para
+>Dreifache Wiederholung- wenn die gleiche Stellung mindestens zum dritten Mal ((nicht notwendigerweise durch Zugwiederholung) entsteht. Dabei müssen die möglichen Züge der Figuren beider Spieler gleich sein. Stellungen sind nicht gleich, wenn sich die Möglichkeit geändert hat, einen Bauern En Passant zu schlagen oder eine Rochade durchzuführen, auch wenn alle Figuren auf den gleichen Feldern stehen.</para
+></listitem>
+				<listitem
+><para
+>50-Züge-Regel - wenn in den letzten 50 Zügen jedes Spielers keine Spielfigur geschlagen oder ein Bauer gezogen wurde.</para
+></listitem>
+				<listitem
+><para
+>Schachmatt ist nicht mehr möglich - wenn eine Spielsituation entstanden ist, in der keiner der beiden Spieler den anderen mit einer Folgen von regelmäßigen Zügen Schachmatt setzen kann. Der Grund dafür ist normalerweise, dass die Spieler nicht mehr genug Figuren für ein Schachmatt haben, kann aber auch in anderen Fällen auftreten. Kombinationen von Figuren, die den Gegner nicht mehr Schachmatt setzen können sind: <itemizedlist>
+					<listitem
+><para
+>König gegen König</para
+></listitem>
+					<listitem
+><para
+>König und Läufer gegen König</para
+></listitem>
+					<listitem
+><para
+>König und Springer gegen König</para
+></listitem>
+					<listitem
+><para
+>König und Läufer gegen König und Läufer mit beiden Läufern auf der gleichen Farbe</para
+></listitem>
+				</itemizedlist>
+    </para
+></listitem>
+				<listitem
+><para
+>Zeitablauf - Für einen Spieler ist die Bedenkzeit abgelaufen und der Gegner hat nicht mehr genügend Schachfiguren, um ihn Schachmatt zu setzen (siehe weiter unten).</para
+></listitem>
+				<listitem
+><para
+>Gegenseitiges Einvernehmen - wenn beide Spieler einem Remis zustimmen.</para
+></listitem>
+			</itemizedlist>
+			</para>
+		</sect2>
+		<sect2 id="stalemate">
+			<title
+>Patt</title>
+			<para
+>Wenn ein Spieler keinen erlaubten Zug mehr ausführen kann, da jeder erlaubte Zug den König in Schach bringt, der König aber in der jetzigen Stellung nicht im Schach ist, dann endet das Spiel mit einem <quote
+>Patt</quote
+>. Ein Patt wird als unentschieden gewertet.</para>
+		</sect2>
+		<sect2 id="time-end">
+			<title
+>Zeit</title>
+			<para
+>Wenn die Bedenkzeit eines Spielers abläuft, ehe er die nötige Anzahl von Spielzügen ausgeführt hat, gibt es folgende Wertung des Spiels:<itemizedlist
+> <listitem
+><para
+>Der Spieler verliert, wenn der Gegner ihn noch Schachmatt setzen kann.</para
+></listitem
+> <listitem
+><para
+>Das Spiel ist ein Remis, wenn der Gegner keine Möglichkeit für ein Schachmatt mehr hat.</para
+></listitem
+> </itemizedlist
+> Als ausreichend für das Schachmatt setzen des Gegners werden alle Gruppen von Schachfiguren außer nur ein König, nur ein König und ein Läufer und nur ein König und ein Springer angenommen.</para>
+		</sect2>
+	</sect1>
+	
+	<sect1 id="time-controls">
+		<title
+>Zeitbegrenzung</title>
+		<para
+>Bei vielen Schachspielen wird eine Zeitbegrenzung benutzt, um das Spiel zu beschleunigen und es in einem vernünftigen Zeitraum zu beenden. Es gibt zwei wichtige Arten der Zeitbegrenzung.</para>
+		
+		<para
+>Bei der ersten Art der Zeitbegrenzung wird die Anzahl der Züge für einen bestimmten Zeitraum festgelegt. Dann muss der Spieler diese vorgegebene Anzahl von Zügen in dem festgelegten Zeitraum ausführen.</para>
+		
+		<para
+>Die zweite Art der Zeitbegrenzung heißt <quote
+>Absolute Zeit (Sudden Death)</quote
+>. Dabei wird jedem Spieler eine festgelegte Gesamtzeit zugewiesen, in der er das Spiel bei beliebiger Anzahl der durchgeführten Züge beendet haben muss.</para>
+		
+		<para
+>Bei der Zeitkontrolle kann eine Zeitgutschrift benutzt werden, um die Zeit auszugleichen, die tatsächlich für die Ausführung eines Zugs gebraucht wird, Im <quote
+>Bronstein-Modus</quote
+> wird das Anlaufen der Uhr bei Beginn des Spielzuges um eine geringe Zeitspanne verzögert, bis die Zeitgutschrift aufgebraucht ist. Wird der Zug vor Ablauf der Zeitgutschrift beendet, dann wird keine Zeitspanne von der eigentlichen Bedenkzeit abgezogen. Beim <quote
+>Fischer-Modus</quote
+> wird diese Zeitgutschrift zur noch vorhandenen eigentlichen Bedenkzeit vor dem Zug hinzugefügt. Wird der Zug vor Ablauf der Zeitgutschrift beendet, dann wird die Rest Zeitgutschrift der vorhandenen Bedenkzeit hinzugefügt, die dadurch sogar größer werden kann. in einem weiteren Modus kann eine festgelegte Zeitspanne zur Bedenkzeit hinzugefügt werden, wenn der Spieler seinen Zug beendet hat. Diese Zeitspanne wird in diesem Fall als <quote
+>Zeiterhöhung</quote
+> bezeichnet,</para>
+		
+		<para
+>Es gibt verschiedene Arten von Zeitbegrenzungsregeln, abhängig vom Spiel, dem Spieltyp und dem Sponsor eines Turniers. Außerdem kann es während eines Spiels mehrere Zeitbegrenzungsregeln geben, wobei die nicht verbrauchte Zeit der nächsten Zeitbegrenzung gutgeschrieben wird. In allen wichtigen Turnieren der World Chess Federation (FIDE) gibt es eines Zeitbegrenzung von 90 Minuten für die ersten 40 Spielzüge, danach 30 Minuten absolute Zeit (Sudden Death) mit zusätzlichen 30 Sekunden Zugabe je Zug ab dem ersten Zug. Auf dem Schachserver FICS (Free Internet Chess Server) wird mit 2 Minuten absoluter Zeit (Sudden Death) für das Spiel und einer Zeiterhöhung von 12 Sekunden je Zug gespielt. In vielen großen Turnieren wird eine absolute Zeit von 90 Minuten als Zeitbegrenzung verwendet. Für das Blitzschach der US Chess Federation ist eine Zeitbegrenzung von 5 Minuten je Spiel ohne Zeiterhöhung/Zeitgutschrift üblich.</para>
+	</sect1
+>	
+	</chapter>
+	
+	<chapter id="markers">
+		<title
+>Markierungen</title>
+		<para
+>Markierungen sind Hervorhebungen der Felder auf dem Schachbrett. Damit können zulässige Züge Ihrer Schachfiguren, der letzte Zug des Gegners oder ein König im Schach angezeigt werden. Die Farbe und Form wird durch das verwendete Design festgelegt. Die Anzeige von Markierungen kann auf der Seite <guilabel
+>Allgemein</guilabel
+> des Einrichtungsdialogs ein- und ausgeschaltet werden. </para>
+		<para
+>Klicken Sie auf eine Schachfigur, wenn Sie am Zug sind, dann werden alle Felder markiert, auf die die Figur gezogen werden kann. Das folgende Bildschirmfoto zeigt die zulässigen Züge der weißen Dame. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png"/></imageobject
+></mediaobject>
+		<para
+>Wenn Ihr Gegner seinen Zug ausgeführt hat, wird der letzte Zug durch Markierungen angezeigt. Eine Markierung zeigt die Ausgangsposition des Spielzuges, eine weiter Markierung die neue Position der Spielfigur. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png"/></imageobject
+></mediaobject>
+		<para
+>Wenn der Gegner mit seinem letzten Zug Ihren König angreift (<quote
+>Schach</quote
+>), dann werden Ihr König und alle angreifenden Spielfiguren gleichfalls hervorgehoben. </para>
+		<mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png"/></imageobject
+></mediaobject>
+		<note>
+			<title
+>Anmerkung:</title>
+			<para
+>Einige Designs unterstützen nicht alle Arten von Markierungen. </para>
+		</note>
+	</chapter>
+
+	<chapter id="configuration">
+		<title
+>Spieleinstellungen</title
+><!-- do not change this! -->
+		<para
+>Im Einrichtungsdialog von &knights; können Sie das Erscheinungsbild und Designs für &knights; einstellen. </para>
+		<para
+>Haben Sie alle Einstellungen nach Ihren Wünschen geändert, klicken Sie auf die Knöpfe <guibutton
+>Anwenden</guibutton
+> oder <guibutton
+>OK</guibutton
+> unten im Dialog. Mit <guibutton
+>OK</guibutton
+> wird der Dialog sofort geschlossen. </para>
+		<para
+>Sind Sie mit Ihren Änderungen nicht zufrieden, klicken Sie auf <guibutton
+>Abbrechen</guibutton
+>, um alle Änderungen zu verwerfen und den Dialog zu schließen. Sie müssen auf <guibutton
+>Abbrechen</guibutton
+> drücken, ehe Sie <guibutton
+>Anwenden</guibutton
+> oder <guibutton
+>OK</guibutton
+> benutzen. </para>
+
+		<sect1 id="configuration-general">
+			<title
+>Allgemein</title>
+			<para
+>Diese Seite enthält Einstellungen für das allgemeine Erscheinungsbild von &knights;. Die Animation von Spielfiguren und Schachbrett kann aktiviert oder geändert werden. Der Abschnitt Animationen wird nur angezeigt, wenn die Systemsoftware Animationen unterstützt. Das Schachbrett kann in lokalen Spielen zwischen Personen gedreht werden, damit kann &knights; auf einem Tablett-Rechner als Ersatz für ein Schachbrett benutzt werden.Alle drei Arten von <link linkend="markers"
+>Markierungen</link
+> können ein- und ausgeschaltet werden. Im Auswahlfeld lässt sich einstellen, ob ein Rand mit oder ohne algebraische Schachnotierung um das Schachbrett angezeigt wird. </para>
+			<note>
+				<title
+>Anmerkung:</title>
+				<para
+>In einigen Designs gibt es keine Markierungen, Ränder und/oder Hervorhebungen. In diesem Fall hat die Einstellung keinen Effekt, sie wird aber gespeichert und angewendet, wenn ein anderes Design geladen wird. </para>
+			</note>
+		</sect1>
+
+		<sect1 id="configuration-engines">
+			<title
+>Schach-Module</title>
+			<mediaobject
+><imageobject
+><imagedata fileref="Knights-engines.png"/></imageobject
+></mediaobject>
+			<para
+>Auf der Seite <guilabel
+>Schach-Module</guilabel
+> können Sie das Modul für den Rechner als Gegner einrichten. Geben Sie für jedes Modul den Namen des Programms, den Befehl zum Start des Programms und das verwendete Protokoll an. &knights; unterstützt zwei Protokolle für Schach-Module: XBoard und UCI. </para>
+			<para
+>Um ein neues Schach-Modul einzurichten, klicken Sie auf den Knopf <guibutton
+>hinzuzufügen</guibutton
+> und geben Sie die drei oben genannten Optionen an. Das Symbol in der letzten Spalte zeigt an, ob das Programm auf Ihrem Rechner installiert ist. </para>
+		</sect1>
+		
+		<sect1 id="configuration-accessibility">
+			<title
+>Zugangshilfen</title>
+			<para
+>Auf dieser Seite gibt es einige Einstellungen für die Anzeige des Schachbretts und die Benutzung von Externen Programmen zur Steuerung, die es Personen mit Behinderungen ermöglicht, Schach zu spielen. </para>
+			<para
+>Der &kde;-Sprachausgabedienst &jovie; kann benutzt werden, um die Züge des Gegners vorzulesen, </para>
+			<para
+>&knights; kann nun über die &DBus;-Schnittstelle gesteuert werden. Diese Funktion wird zurzeit noch nicht benutzt, außer um das &knights; mit einer noch nicht veröffentlichten Entwicklerversion von <ulink url="http://simon-listens.org/"
+>Simon</ulink
+> mit Sprachbefehlen zu spielen. </para>
+		</sect1>
+
+		<sect1 id="configuration-themes">
+			<title
+>Designs</title>
+			<para
+>Auf dieser Seite können Sie ein Design auswählen. Das Design besteht aus den Bildern und Symbolen für das Schachbrett, die Spielfiguren, Markierungen und anderen Elementen. Durch Klicken auf den Namen in der Liste wählen Sie ein neues Design aus. Auf dieser Seite können Sie außerdem auch neues Designs herunterladen, indem Sie den Knopf <guibutton
+>Neue Designs holen ...</guibutton
+> drücken. Designs werden auf kde-look.org unter &knights; gespeichert. </para>
+			<note>
+				<title
+>Anmerkung:</title>
+				<para
+>Zur leichteren Entscheidungsfindung wird ein Vorschaubild des Designs rechts neben der Auswahlliste angezeigt. </para>
+			</note>
+		</sect1>
+	</chapter>
+
+	<chapter id="credits-and-license">
+		<title
+>Danksagungen und Lizenz</title>
+
+
+		<para
+>&knights;</para>
+		<itemizedlist>
+   <listitem>
+				<para
+>Miha Čančula <email
+>miha.cancula@gmail.com</email
+> - Ursprünglicher Autor </para>
+   </listitem>
+		</itemizedlist>
+		<para
+>Dokumentation © 2010, Miha Čančula <email
+>miha.cancula@gmail.com</email
+> </para>
+		
+		<para
+>Übersetzung: Johannes Obermayr <email
+>johannesobermayr@gmx.de</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+</book>

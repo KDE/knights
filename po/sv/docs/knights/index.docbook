@@ -1,0 +1,1046 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY i18n-knights "<application
+>Knights</application
+>">
+  <!ENTITY kappversion "2.6.2"
+><!--Application version. Use this variable everywhere it's needed.-->
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+<book id="knights" lang="&language;">
+  <bookinfo>
+    <title
+>Handbok &knights;</title>
+
+    <authorgroup>
+      <author
+><firstname
+>Miha</firstname
+> <surname
+>Čančula</surname
+> <affiliation
+> <address
+> <email
+>miha.cancula@gmail.com</email>
+          </address>
+        </affiliation>
+      </author>
+      <othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+
+    </authorgroup>
+    <copyright>
+      <year
+>2011</year>
+      <holder
+>Miha Čančula</holder>
+    </copyright>
+
+    <legalnotice
+>&FDLNotice;
+    </legalnotice>
+
+    <date
+>2021-10-13</date
+><!-- Date of (re)writing, or update.-->
+    <releaseinfo
+>&kappversion; (KDE Gear 21.08)</releaseinfo
+><!-- Application version number. Use the variable definitions within header to change this value.-->
+
+    <abstract>
+      <para
+>Denna dokumentation beskriver spelet &i18n-knights;, version &kappversion;</para>
+    </abstract>
+
+    <keywordset>
+      <keyword
+>KDE</keyword
+><!-- do not change this! -->
+      <keyword
+>spel</keyword
+><!-- do not change this! -->
+      <keyword
+>bräde</keyword>
+      <keyword
+>schack</keyword>
+      <keyword
+>Knights</keyword>
+    </keywordset>
+
+  </bookinfo>
+
+  <chapter id="introduction">
+    <title
+>Inledning</title>
+
+    <note>
+      <title
+>Speltyp:</title>
+      <para
+>Bräde</para>
+    </note>
+
+    <note>
+      <title
+>Antal möjliga spelare:</title>
+      <para
+>En eller två</para>
+    </note>
+
+    <para
+>&i18n-knights; är ett schackspel. Som spelare är ditt mål att besegra motståndaren genom att göra hans kung schackmatt.</para>
+  </chapter>
+
+  <chapter id="how-to-play"
+><title
+>Hur man spelar</title
+> <!-- do not change this! -->
+    <!--Describe the objective of the game.-->
+    <sect1 id="objective">
+      <title
+>Syfte</title>
+
+      <para
+>Flytta dina pjäser och slå motståndarens pjäser till motståndarens kung är hotad, och han inte har något drag som kan stoppa hotet, en så kallad <quote
+>schackmatt</quote
+>.</para>
+
+      <para
+>Om det verkar som om du inte kan vinna, kan du spela för oavgjort. Flytta dina pjäser till du inte har något tillåtet drag kvar, och din kung inte är hotad, en så kallad <quote
+>patt</quote
+>. Andra typer av oavgjorda partier kan vara tillgängliga beroende på schackreglerna som partiet använder.</para>
+    </sect1>
+
+    <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+    <sect1 id="starting-the-game">
+      <title
+>Starta partiet</title>
+
+      <para
+>När programmet startas eller användaren väljer menyalternativet <menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nytt</guimenuitem
+></menuchoice
+>, visas en dialogruta. Det är möjligt att ange vem du spelar mot, din färg och tidsgränserna i den här dialogrutan.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialogrutan Nytt spel</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-newgame-dialog.png" format="PNG"/></imageobject>
+          <caption
+>Dialogrutan Nytt spel</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Om du vill spela mot en vän på samma dator, välj <guilabel
+>Människa (du)</guilabel
+> som <guilabel
+>Spelare 1</guilabel
+> och <guilabel
+>Människa</guilabel
+> som <guilabel
+>Spelare 2</guilabel
+>.</para>
+
+      <para
+>Om du vill spela mot datorn, välj <guilabel
+>Människa (du)</guilabel
+> som <guilabel
+>Spelare 1</guilabel
+> och <guilabel
+>Datorspelare</guilabel
+> som <guilabel
+>Spelare 2</guilabel
+>. Välj programmet du vill spela mot i kombinationslistan, och försäkra dig om att programmet du anger är installerat på datorn, och att det antingen stöder protokollet XBoard eller <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>Om du har installerat en datorspelare, men den visas inte i listan, klicka på knappen <guilabel
+>Anpassa...</guilabel
+> och lägg till den där. Se <link linkend="configuration-engines"
+>Datorspelare</link
+> för mer information om dialogrutan.</para>
+
+      <note
+><para
+>Även om ett program listas i dialogrutan betyder det inte att det är installerat. Försäkra dig om att installera de datorspelare du vill spela mot. Du kan kontrollera om en spelare är installerad på systemet eller inte i dialogrutan <guilabel
+>Datorspelare</guilabel
+>.</para
+></note>
+
+      <para
+>Om du vill spela mot någon via Internet, välj <guilabel
+>Människa (du)</guilabel
+> som <guilabel
+>Spelare 1</guilabel
+> och <guilabel
+>Schackserver</guilabel
+> som <guilabel
+>Spelare 2</guilabel
+>. Du måste logga in på servern och hitta en motståndare innan du kan börja spela. Den fria Internetschackservern (<ulink url="https://freechess.org"
+>FreeChess.org</ulink
+>) stöder gäster, men du måste registrera dig för att spela partier som påverkar din rankning.</para>
+
+      <para
+>Du kan också se två program spela mot varandra genom att välja <guilabel
+>Datorspelare:</guilabel
+> för båda spelarna.</para>
+
+      <para
+>På liknande sätt kan en datorspelare spela mot en motståndare vid en schackserver. Observera dock att schackservern kan ha en policy när det gäller sådant spel. För den fria Internetschackservern finns den <ulink url="https://www.freechess.org/Help/HelpFiles/computers.html"
+>här</ulink
+>.</para>
+
+      <para
+>Kryssrutan <guilabel
+>Använd betänketid</guilabel
+> låter dig aktivera valfri tidtagning. &i18n-knights; använder den vanliga schacktidtagningen som har tre parametrar i nummerrutor:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+><guilabel
+>Betänketid:</guilabel
+> anger antal drag innan <guilabel
+>Inledande tidsgräns:</guilabel
+> läggs till på spelarens klocka. Du kan inaktivera tillägget genom att sätta värdet till noll.</para>
+        <note
+><para
+>Alternativet är inte tillgängligt vid spel på en schackserver.</para
+></note
+><para/></listitem>
+        <listitem
+><para
+><guilabel
+>Inledande tidsgräns:</guilabel
+> är den totala tiden som spelarna börjar med. </para
+></listitem>
+        <listitem
+><para
+><guilabel
+>Ökning per drag:</guilabel
+> anger hur mycket tid som läggs till på spelarens klocka efter varje drag som utförs. Den kan ställas in till noll utan problem för att inaktivera tillägg på klockan.</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>Efter att har klickat på knappen <guibutton
+>Ok</guibutton
+> stängs dialogrutan. Om du valde en spelare på en schackserver måste du logga in och hitta motståndaren. Annars börjar partiet omedelbart.</para>
+
+      <note
+><para
+>&i18n-knights; läser automatiskt in ett standardtema när spelet väl har startats, och du kan börja spela direkt.</para
+></note>
+    </sect1>
+
+    <sect1 id="server-dialog">
+      <title
+>Dialogrutan Schackserver</title>
+
+      <screenshot>
+        <screeninfo
+>Dialogrutan Schackserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-account.png" format="PNG"/></imageobject>
+          <caption
+>Fliken Konto</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Om du väljer att spela på en schackserver måste du först logga in på servern. Om du har ett konto, skriv in användarnamn och lösenord, och markera kryssrutan <guilabel
+>Det här är ett registrerat konto</guilabel
+>. Skriv annars in ett användarnamn du vill använda, och klicka på knappen <guibutton
+>Logga in</guibutton
+>.</para>
+
+      <para
+>Det finns två sätt att välja motspelare. Antingen skickar du in en annons om partiet (vilket kallas <quote
+>sökning</quote
+>), eller svarar du på någon annans sökning.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialogrutan Schackserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-challenges.png" format="PNG"/></imageobject>
+          <caption
+>Fliken Utmaningar</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>För att annonsera själv, gå till fliken <guilabel
+>Utmaningar</guilabel
+> och klicka på knappen <guibutton
+>Sök</guibutton
+>. Om du markerade <guilabel
+>Starta partiet automatiskt</guilabel
+>, så startar partiet omedelbart när väl en spelare har accepterat din sökning. Annars måste du acceptera utmatningen manuellt, genom att markera den i listan och klicka på knappen <guibutton
+>Acceptera</guibutton
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialogrutan Schackserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-list.png" format="PNG"/></imageobject>
+          <caption
+>Fliken Söklista</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>För att svara på andras sökningar, använd flikarna <guilabel
+>Söklista</guilabel
+> eller <guilabel
+>Sökdiagram</guilabel
+>. Välj sökningen genom att klicka på den under någon av flikarna, och klicka därefter på knappen <guibutton
+>Acceptera</guibutton
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Dialogrutan Schackserver</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
+          <caption
+>Fliken Sökdiagram</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Sökdiagrammet visar alla sökningar som annonserats, arrangerade enligt motspelarens rankning och spelets varaktighet. Genom att klicka på en punkt i diagrammet accepteras sökningen.</para>
+
+      <note
+><para
+>För avancerad användning, ger &i18n-knights; direktåtkomst till serverns konsol. Gå till fliken <guilabel
+>Konsol</guilabel
+> för att använda den.</para
+></note>
+    </sect1>
+
+    <sect1 id="playing-the-game">
+      <title
+>Spela spelet</title>
+
+      <para
+>Pjäserna flyttas genom att klicka på dem och dra dem till önskad ruta. Du kan bara flytta en pjäs om den är din egen, det är din tur, och att flytta pjäsen inte gör att din kung hamnar i schack.</para>
+
+      <para
+>&i18n-knights; följer de vanliga schackreglerna, så du kan inte göra ett otillåtet drag.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="rules_and_tips">
+    <title
+>Spelets regler, strategi och tips</title
+> <!-- do not change this! -->
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+    <sect1 id="standard-rules">
+      <title
+>Standardregler</title>
+
+      <para
+>Huvudreglerna i schack bestäms av Världsschackförbundet, FIDE. Andra nationella och lokala grupper kan göra små modifikationer av reglerna. Oftast är huvudskillnaderna mellan regler om tidtagning och vilka typer av remi som är tillåtna: grundspelet och pjäsförflyttningarna är likadana. &i18n-knights; stöder standardschack och har viss flexibilitet i tidtagning.</para>
+
+      <para
+>Det finns många varianter av vanlig schack. En källa har hittat mer än 2000 varianter av spelet. Större varianter innefattar schack960, bughouse, crazyhouse och självmordsschack. Varianter har olika regler om hur pjäser slås och flyttas, hur partier avslutas och hur pjäser återkommer till partiet. &i18n-knights; stöder inte några av dessa schackvarianter.</para>
+      <para
+>Fullständiga regler för vanlig schack finns på:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+>Världsschackförbundet - FIDE (<ulink url="https://www.fide.com"
+>fide.com</ulink
+>)</para
+></listitem>
+        <listitem
+><para
+>Förenta Staternas schackförbund - USCF  (<ulink url="https://new.uschess.org"
+>new.uschess.org</ulink
+>)</para
+></listitem>
+      </itemizedlist>
+
+      <para
+>Regler och allmän information om schack finns på:</para>
+
+      <itemizedlist>
+        <listitem
+><para
+><ulink url="https://sv.wikipedia.org/wiki/Schackregler"
+>Wikipedia</ulink
+>&nbsp;</para
+></listitem>
+      </itemizedlist>
+    </sect1>
+
+    <sect1 id="board">
+      <title
+>Schackbräde</title>
+      <sect2 id="board-layout">
+        <title
+>Brädets utseende</title>
+
+        <para
+>Ett schackbräde består av 64 likadana rutor arrangerade i åtta rader och åtta kolumner. Rutorna består av två alternerande färger, vita och svarta. Många olika material används för att göra schackbräden, så det ljusare materialet kallas vit och det mörkare kallas svart.</para>
+
+        <para
+>Brädets delar betecknas med särskilda termer:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Rad: De åtta horisontella raderna på schackbrädet kallas för rader.</para
+></listitem>
+          <listitem
+><para
+>Linje: De åtta vertikala kolumnerna på schackbrädet kallas för linjer.</para
+></listitem>
+          <listitem
+><para
+>Diagonal: En rak linje med rutor av samma färg som går i en vinkel från en kant av brädet till en annan kant kallas för diagonal.</para
+></listitem>
+          <listitem
+><para
+>Centrum: De fyra rutorna i mitten av brädet kallas för centrum.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Varje enskild ruta har en beteckning så att dragen i ett parti kan registreras. Det finns flera beteckningssystem, men <quote
+>algebraisk notation</quote
+> är det populäraste och det officiella systemet. I detta system betecknas varje ruta med raden och kolumnen där den finns. Raderna numreras från 1 till 8, med början på vit sida av brädet och gående mot svart sida. Linjerna (kolumnerna) betecknas med små bokstäver från a till h, från vänster till höger från den vita spelarens synvinkel. Rutorna betecknas av bokstaven följt av siffran. Sålunda kallas rutan längst ner till vänster a1. Beteckningsstrukturen visas i följande diagram:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="board-setup">
+        <title
+>Utgångsställning</title>
+
+        <para
+>Schackbrädet roteras så att det finns en vit ruta i den första raden på spelarens högra sida.</para>
+
+        <para
+>Pjäserna placeras på samma sätt på vit och svart sida av brädet. På första raden, med början från ytterkanterna och mot mitten, placera tornet, springaren (ibland kallad hästen) och löparen. På de två återstående rutorna placeras damen på rutan med samma färg, och kungen placeras på den sista rutan. När det är färdigt, står samma pjäser mitt emot varandra på brädet. Placera en rad med bönder på den andra raden. Det färdiga brädet ser ut som diagrammet nedan.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="piece-movement">
+      <title
+>Pjäsernas rörelse</title>
+      <sect2 id="all-movement">
+        <title
+>Flytta och slå</title>
+
+        <para
+>Schack har sex olika pjäser: bonde, torn, springare, löpare, dam och kung. Varje pjäs har sitt eget unika sätt att flyttas. Det finns vissa likheter mellan hur de olika pjäserna flyttas. Alla pjäser utom springaren flyttas i en rak linje: horisontellt, vertikalt eller diagonalt. De kan inte flyttas förbi brädets kant och återkomma på andra sidan. Brädets kant är en gräns som inte kan korsas. Inga pjäser utom springaren får hoppa över andra pjäser: alla rutor mellan rutan där pjäsen står och dit den flyttas måste vara tomma. Draget får inte sluta på en ruta där en pjäs av samma färg för närvarande befinner sig.</para>
+
+        <para
+>Om en av motståndarens pjäser befinner sig på rutan dit en pjäs flyttas, <quote
+>slås</quote
+> motståndarens pjäs, och den tas bort från partiet. Alla pjäser kan slås utom kungen. Partiet slutar med draget innan kungen slås: <quote
+><link linkend="checkmate"
+>schackmatt</link
+></quote
+>. Att slå en pjäs kräver alltid att den angripande pjäsen hamnar på rutan där motståndarens pjäs befinner sig när ett normalt drag utförs. Det enda undantaget är när en bonde slås <link linkend="en_passant-movement"
+>en passant</link
+>. Man behöver inte slå en pjäs när det finns möjlighet, det är valfritt att slå en pjäs. Det enda tillfället då det är nödvändigt att slå en pjäs är om kungen är hotad, och det enda sättet att stoppa hotet är att slå den angripande pjäsen.</para>
+
+        <para
+>På bilden nedan kan det vita tornet flyttas åt höger, vänster, uppåt eller neråt (vertikalt eller horisontellt) i raka linjer. Det kan flyttas neråt och åt höger hur många rutor som helst till brädets kant nås. Dessa rutor har ett grönt kryss. Det kan flyttas maximalt två rutor åt vänster. Resten av brädet är blockerat av en pjäs med samma färg, i det här fallet en vit springare. Tornet kan inte hoppa över springaren för att nå brädets kant. Det kan bara flyttas en ruta uppåt innan det blockeras av den svarta bonden. Det kan slå bonden genom att flyttas två rutor upp och hamna på bondens ruta, eftersom bonden är en av motståndarens pjäser (en pjäs med annan färg). Den rutan har ett rött kryss. Det kan inte hoppa över bonden för att nå brädets kant. Därför har tornet totalt tio rutor som det kan flyttas till.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-limits.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>För att börja ett parti, drar vit först. Därefter turas spelarna om att göra ett drag åt gången. Du måste flytta när det är din tur, du får inte passa.</para>
+      </sect2>
+
+      <sect2 id="pawn-movement">
+        <title
+>Bonde</title>
+
+        <para
+>Bonden är den talrikaste och svagaste pjäsen på schackbrädet. Bönder flyttas på ett ovanligt sätt. I allmänhet flyttas bonden bara en ruta i taget framåt. Ett undantag är att den första gången en bonde flyttas, får den gå fram två rutor. Bonden kan inte hoppa över andra pjäser, vilken pjäs som helst direkt framför en bonde blockerar den till rutan den står på. Bonden är den enda pjäsen som inte kan röra sig bakåt. Bonden är också den enda pjäsen som slår på samma sätt som den flyttas. Bonden slår en av motståndarens pjäser genom att gå diagonalt en ruta: den kan inte slå genom att gå rakt framåt.</para>
+
+        <para
+>På bilden nedan är den nedre bonden fortfarande på sin ursprungliga ruta, så den får flyttas en eller två rutor framåt (angivet av det gröna krysset). Den kan slå genom att flyttas diagonalt åt höger eller vänster, men bara om en av motståndarnas pjäser står på rutan (angivet av det röda krysset). Annars får den inte gå diagonalt. Den övre bonden har redan flyttats från sin ursprungliga ruta. Den får bara gå en ruta framåt. På samma sätt kan den slå genom att flyttas diagonalt åt höger eller vänster om en av motståndarnas pjäser står på någon av rutorna.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-pawn.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Bonden deltar också i två särskilda drag. Det första är <link linkend="en_passant-movement"
+>en passant</link
+>, då en bonde slås efter sin ursprungliga förflyttning två rutor framåt. Det andra är <link linkend="pawn-promotion-movement"
+>bondepromovering</link
+>, då en bonde promoveras till en annan pjäs när den når brädets andra sida.</para>
+      </sect2>
+
+      <sect2 id="bishop-movement">
+        <title
+>Löpare</title>
+
+        <para
+>Löparen flyttas i en rak linje diagonalt över brädet. Den kan flyttas så många rutor som önskas, till den når brädets kant eller en annan pjäs. Löparen kan inte hoppa över andra pjäser. Löparen slår längs samma väg som den flyttas, genom att ställas på rutan där motståndarens pjäs befinner sig. På grund av sättet som löparen flyttas, blir den alltid kvar på rutor med samma färg som rutan den började på. Varje spelare börjar med två löpare, en på de svarta fälten och en på de vita. De kallas ofta <quote
+>svartfältig</quote
+> löpare och <quote
+>vitfältig</quote
+> löpare. Löparna kan också namnges enligt sidan de börjar, kungslöpare och damlöpare.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-bishop.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="rook-movement">
+        <title
+>Torn</title>
+
+        <para
+>Tornet flyttas i en rak linje, antingen horisontellt eller vertikalt över hur många tomma rutor som helst, till det når brädets kant eller blockeras av en annan pjäs. Det kan inte hoppa över andra pjäser. Tornet slår längs samma väg som det flyttas, genom att ställas på rutan där motståndarens pjäs befinner sig. Tornet kan hamna på vilken ruta som helst på brädet, och är därför en av de starkare pjäserna på brädet.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-rook.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Tornet är också inblandat i ett specialdrag. Det är en <link linkend="castling-movement"
+>rockad</link
+>, då tornet och kungen grupperas i en försvarsposition.</para>
+      </sect2>
+
+      <sect2 id="knight-movement">
+        <title
+>Springare</title>
+
+        <para
+>Springaren är den mest speciella pjäsen i schack, då den har en flexibilitet som gör den till en stark pjäs. Springaren är den enda pjäsen på brädet som kan hoppa över andra pjäser. Springaren rör sig två rutor horisontellt eller vertikalt, och därefter ytterligare en ruta i rät vinkel. Ett drag med springaren är format som ett <quote
+>L</quote
+>. Springaren hamnar alltid på en ruta av motsatt färg än startrutan. Springaren kan hoppa över pjäser av båda färger när den är på väg till rutan den flyttas till. Springaren slår genom att ställas på rutan där motståndarens pjäs befinner sig. Springaren kan inte ställas på en ruta där en pjäs av samma färg befinner sig. Eftersom drag med springaren inte görs i en rak linje, kan den anfalla en dam, löpare eller torn utan att själv vara hotad av den pjäsen.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-knight.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="queen-movement">
+        <title
+>Dam</title>
+
+        <para
+>Damen anses vara den starkaste pjäsen på brädet. Den kan flyttas hur många rutor som helst i en rak linje, antingen vertikalt, horisontellt eller diagonalt. Damen flyttas som tornet och löparen tillsammans. Om den inte slår, måste damen flyttas till en tom ruta, och den kan inte hoppa över pjäser. Damen slår längs samma väg den flyttas, genom att ställas på rutan där motståndarens pjäs befinner sig.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-queen.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="king-movement">
+        <title
+>Kung</title>
+
+        <para
+>Kungen är den viktigaste pjäsen i schack. Om kungen fångas så att det är oundvikligt att den slås, är partiet slut och spelaren förlorar. Kungen har dålig rörlighet, så den anses också vara en av de svagaste pjäserna i spelet. Kungen kan flyttas till vilken intilliggande ruta som helst. Den kan alltså flyttas en ruta i vilken riktning som helst: horisontellt, vertikalt eller diagonalt. Den kan inte flyttas till en ruta där en pjäs av samma färg befinner sig. Kungen slår en pjäs på samma sätt som den flyttas, genom att ställas på rutan där motståndarens pjäs befinner sig. Det finns en ytterligare begränsning för hur den flyttas. Kungen får inte flyttas till en ruta som skulle göra att den hotas av någon av motståndarens pjäser (kallat <quote
+>schack</quote
+>). På grund av denna begränsning, kan två kungar aldrig stå intill varandra, eftersom att flyttas intill motståndarens kung skulle göra att den flyttade kungen blir schack. Kungen kan också vara tvungen att flyttas eller slå om den är hotat (<quote
+>schack</quote
+>) och det enda sättet att stoppa attacken är att flytta kungen.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="special-movement">
+      <title
+>Särskilda drag</title>
+      <sect2 id="en_passant-movement">
+        <title
+>En passant</title>
+
+        <para
+>När regeln som tillåter en bonde att gå två rutor första gången den flyttas lades till, kunde en bonde potentiellt undgå att slås av en motståndares bonde genom att gå förbi en hotad ruta. Att slå en passant (från franskans <quote
+>i förbigående</quote
+>) lades till för att förhindra det. Då slås bonden precis som om den bara hade flyttats en ruta framåt. Det finns särskilda villkor för att få slå en passant:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>En bonde måste flyttas två rutor från sin ursprungliga position med ett drag.</para
+></listitem>
+          <listitem
+><para
+>En av motståndarens bönder måste hota rutan som den första bonden flyttades förbi.</para
+></listitem>
+          <listitem
+><para
+>Den första bonden kan slås som om den bara flyttades en ruta.</para
+></listitem>
+          <listitem
+><para
+>Det går bara att slå vid motståndarens nästa drag. Om den inte slås då, är den första bonden skyddad mot att slås en passant under resten av partiet.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>I diagrammet nedan har inte den vita bonden flyttats från sin ursprungliga position. Den kan antingen flyttas en eller två rutor framåt. Den första rutan är hotad av den svarta bonden (bönder anfaller diagonalt), som anges av det röda krysset. Den vita bonden flyttas framåt två rutor, och undgår hotet. Vid nästa drag, flyttas den svarta bonden till rutan dit den vita skulle ha flyttats om den bara kunde gå en ruta vid det första draget. Den svarta bonden slår den vita <quote
+>en passant</quote
+>, och den vita bonden tas bort från spelet.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-enpassant.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="castling-movement">
+        <title
+>Rockad</title>
+
+        <para
+>En rockad använder kungen och ett torn, och är det enda tillfället under ett parti då mer än en pjäs får flyttas i ett drag. Vid en rockad flyttas kungen två rutor mot tornet, och tornet flyttas därefter till rutan på andra sidan kungen.</para>
+
+        <para
+>Rockad har ett antal hårda krav:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Varken kungen eller tornet får ha flyttats under partiet.</para
+></listitem>
+          <listitem
+><para
+>Det finns inga pjäser mellan kungen och tornet.</para
+></listitem>
+          <listitem
+><para
+>Kungen är inte schack.</para
+></listitem>
+          <listitem
+><para
+>Kungen korsar inte en ruta som är hotad av motståndarens pjäser.</para
+></listitem>
+          <listitem
+><para
+>Kungen slutar inte draget på en ruta som är hotad av motståndarens pjäser (en rockad kan inte sluta med att kungen är schack).</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Det finns två sorters rockad. Den ena kallas <quote
+>rockad på kungsflygeln</quote
+>. Den kallas också <quote
+>kort rockad</quote
+>, eftersom den utförs på brädets korta sida och tornet bara behöver flyttas två rutor till kungens andra sida. Den visas i diagrammet nedan:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-kingside.png" format="PNG"/></imageobject
+></mediaobject>
+
+        <para
+>Den andra sortens rockad kallas <quote
+>rockad på damflygeln</quote
+>, då kungen flyttas mot rutan damen har lämnat. Den kallas också <quote
+>lång rockad</quote
+>, eftersom den utförs på brädets långa sida och tornet måste flyttas tre rutor till kungens andra sida. Den visas i diagrammet nedan:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-castle-queenside.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+        <note
+><para
+>För att göra en rockad i &i18n-knights;, flyttar du kungen två rutor mot tornet. &i18n-knights; fullbordar rockaden. Flytta inte tornet, eftersom &i18n-knights; då antar att du bara vill flytta tornet och inte göra rockad.</para
+></note>
+      </sect2>
+
+      <sect2 id="pawn-promotion-movement">
+        <title
+>Bondepromovering</title>
+
+        <para
+>När en bonde har nått brädets andra ände kan den inte flyttas längre, eftersom den alltid måste flyttas framåt och inte bakåt. Bonden förvandlas då (<quote
+>promoveras</quote
+>) till en dam, ett torn, en löpare eller en springare. Denna promovering utförs som en del av draget. Oftast är pjäsen som väljes damen, vilket kallas för <quote
+>dampromovering</quote
+>. Övriga pjäser väljes ibland, när deras rörelse kan hjälpa till att nå schackmatt, vilket ofta kallas <quote
+>underpromovering</quote
+>. Bonden kan förvandlas till en pjäs även om den pjästypen fortfarande finns på bordet. Sålunda kan man ha två damer eller tre torn, löpare eller springare på brädet samtidigt.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="game-end">
+      <title
+>Slutspel</title>
+      <sect2 id="checkmate">
+        <title
+>Schackmatt</title>
+
+        <para
+>När en kung är hotad och kan slås av motståndarens pjäs, sägs kungen vara <quote
+>schack</quote
+>. En kung måste omedelbart komma ur schack. Det finns tre möjliga sätt att göra det.</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Slå den hotande pjäsen.</para
+></listitem>
+          <listitem
+><para
+>Flytta bort kungen från hotet till en säker ruta, som inte är hotad av någon av motståndarens pjäser.</para
+></listitem>
+          <listitem
+><para
+>Blockera hotet genom att placera en pjäs mellan den hotande pjäsen och kungen (kan inte göras vid hot från en springare eller bonde).</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Om kungen inte har något sätt att undvika schack, kallas positionen <quote
+>schackmatt</quote
+> och partiet tar slut. Spelaren som är schackmatt förlorar partiet. Kungen slås i själva verket aldrig och tas bort från brädet.</para>
+      </sect2>
+
+      <sect2 id="resign">
+        <title
+>Ge upp</title>
+
+        <para
+>När som helst under ett parti, kan en spelare ge upp (sluta). Partiet slutar och motståndaren vinner partiet.</para>
+      </sect2>
+
+      <sect2 id="draw">
+        <title
+>Remi</title>
+
+        <para
+>En <quote
+>remi</quote
+> innebär att det är oavgjort mellan spelarna. Det finns flera sätt en remi kan uppstå.</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Patt (se nedan)</para
+></listitem>
+          <listitem
+><para
+>Ställningsupprepning: Om exakt samma position upprepas minst tre gånger (inte nödvändigtvis genom att repetera dragen). Den kräver att de möjliga dragen för båda spelarnas alla pjäser är likadana. Om möjligheten att en bonde slås en passant har ändrats eller möjligheten att göra rockad har ändrats, är positionen inte samma, även om pjäserna befinner sig på samma platser.</para
+></listitem>
+          <listitem
+><para
+>50-dragsregeln: Om ingen pjäs slås eller en bonde förflyttas under de senaste 50 dragen av varje spelare.</para
+></listitem>
+          <listitem
+><para
+>Omöjligt att nå schackmatt: Om en position uppstår där ingen av spelarna har möjlighet att åstadkomma schackmatt med en följd av tillåtna drag. Oftast beror det på att det inte finns tillräckligt material kvar för schackmatt, men det är möjligt i andra positioner. Kombinationer med otillräckligt mattsättande material är:</para>
+
+            <itemizedlist>
+              <listitem
+><para
+>kung mot kung</para
+></listitem>
+              <listitem
+><para
+>kung och löpare mot kung</para
+></listitem>
+              <listitem
+><para
+>kung och springare mot kung</para
+></listitem>
+              <listitem
+><para
+>kung och löpare mot kung och löpare, när båda löpare är på samma färg</para
+></listitem>
+            </itemizedlist>
+          </listitem>
+          <listitem
+><para
+>Betänketiden går ut: Om en spelares betänketid tar slut och motståndaren inte har mattsättande material.</para
+></listitem>
+          <listitem
+><para
+>Gemensam överenskommelse: Om båda spelarna kommer överens om remi.</para
+></listitem>
+        </itemizedlist>
+      </sect2>
+
+      <sect2 id="stalemate">
+        <title
+>Patt</title>
+
+        <para
+>Om en spelare inte kan göra något tillåtet drag (varje möjligt drag skulle göra att kungen blir schack), men kungen är för närvarande inte schack, slutar partiet med <quote
+>patt</quote
+>. Patt gör att partiet blir oavgjort.</para>
+      </sect2>
+
+      <sect2 id="time-end">
+        <title
+>Tid</title>
+
+        <para
+>Om tiden går ut för en spelare innan de slutför det nödvändiga antalet drag:</para>
+
+        <itemizedlist>
+          <listitem
+><para
+>Spelaren förlorar partiet om motståndaren har mattsättande material.</para
+></listitem>
+          <listitem
+><para
+>Partiet slutar med remi om motståndaren inte har mattsättande material.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Mattsättande material anses vara vilken uppsättning pjäser som helst utom bara en kung, en kung och en löpare, eller en kung och en springare.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="time-controls">
+      <title
+>Betänketid</title>
+
+      <para
+>Många schackpartier använder betänketid för att snabba upp spelet, eller försäkra att det tar slut inom rimlig tid. Det finns två huvudsakliga typer av betänketid.</para>
+
+      <para
+>Den första typen av betänketid är drag per tidsenhet. Vid denna typ måste en spelare slutföra ett angivet antal drag inom en bestämd tid.</para>
+
+      <para
+>Den andra typen av betänketid kallas <quote
+>sudden death</quote
+>. Vid denna typ anges en bestämd tid att slutföra partiet, oberoende av antal utförda drag.</para>
+
+      <para
+>I betänketiden kan ingå en fördröjning för att kompensera för tiden som går förlorad genom att fysiskt utföra ett drag. Med <quote
+>Bronstein-tid</quote
+> börjar inte klockan gå i början av spelarens drag innan fördröjningen har gått ut. Om draget görs innan fördröjningen gått ut, subtraheras ingen tid från spelarens klocka. Med <quote
+>Fischer-tid</quote
+> adderas fördröjningen till spelarens återstående tid innan draget. Om draget görs innan fördröjningen gått ut, behålls den återstående tiden av spelaren och deras klocktid ökas. På liknande sätt kan en bestämd tid adderas till spelarens klocka efter ett drag är utfört. När tid adderas till klockan, kallas den för <quote
+>tilläggstid</quote
+>.</para>
+
+      <para
+>Betänketiden varierar mycket beroende på parti, speltyp och evetuella sponsorer. Dessutom kan det finns flera olika betänketider som kombineras under ett parti, med oanvänd tid adderad till nästa betänketid. I alla större tävlingar anordnade av Världsschackförbundet (FIDE), är betänketiden 90 minuter för de första 40 dragen, följt av 30 minuter sudden death, med ytterligare 30 sekunder per drag med början på det första draget. Standardvärden för FICS (Free Internet Chess Server) är 2 minuter för partiet (sudden death) plus 12 sekunders tilläggstid för varje drag. Många större tävlingar använder 90 minuters sudden death som betänketid. Förenta staternas schackförbund använder betänketiden 5 minuter för ett parti blixtschack, utan någon tilläggstid.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="markers">
+    <title
+>Markörer</title>
+
+    <para
+>Markörer är färgläggning av rutor på schackbrädet. De kan användas för att visa godkända drag för en schackpjäs, motståndarens föregående drag, eller att en kung är schack. Deras färg och form beror på vilket tema som används. De kan sättas på eller stängas av under inställningsmenyns allmänna inställningar.</para>
+
+    <para
+>Om du klickar på en pjäs när det är din tur visas markeringar på varje ruta som den pjäsen kan flyttas till. Bilden visar de lagliga dragen för den vita damen.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-moving-queen.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>När motståndaren har gjort ett drag, anges hans eller hennes senaste drag med markeringar. En markering visar schackpjäsens ursprungliga position, och en andra pekar ut schackpjäsens nya position.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-lastmove.png" format="PNG"/></imageobject
+></mediaobject>
+
+    <para
+>Om motståndarens senaste drag gör att din kung hotas (<quote
+> schack</quote
+>), markeras dessutom din kung och alla angripande pjäser.</para>
+
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+    <note
+><para
+>Vissa teman kanske inte stöder alla typer av markeringar.</para
+></note>
+  </chapter>
+
+  <chapter id="configuration">
+    <title
+>Spelanpassning</title
+><!-- do not change this! -->
+
+    <para
+>Inställningsdialogrutan i &i18n-knights; låter dig ändra visuella alternativ, samt välja teman för &i18n-knights;.</para>
+
+    <para
+>När du är nöjd med ändringarna du har gjort kan du utföra dem genom att antingen klicka på knappen <guibutton
+>Verkställ</guibutton
+> eller <guibutton
+>Ok</guibutton
+>, placerade längst ner i dialogrutan. Att klicka på knappen <guibutton
+>Ok</guibutton
+> stänger också inställningsdialogrutan.</para>
+
+    <para
+>Om du dock är missnöjd med ändringarna, klicka helt enkelt på <guibutton
+>Avbryt</guibutton
+> för att kasta ändringarna och stänga inställningsdialogrutan. Du måste klicka på knappen <guibutton
+>Avbryt</guibutton
+> innan du klickar på knappen <guibutton
+>Verkställ</guibutton
+> eller <guibutton
+>Ok</guibutton
+>.</para>
+
+    <sect1 id="configuration-general">
+      <title
+>Allmänt</title>
+
+      <para
+>Delen <guilabel
+>Allmänt</guilabel
+> innehåller alternativ för &i18n-knights; allmänna utseende. Animeringar av pjäserna och brädet kan aktiveras eller ändras. Animeringsdelen är synlig baserat på systemets programvara, och visas bara om animeringar är tillgängliga. Det är möjligt att vänta på brädet, vilket gör det möjligt att snurra &i18n-knights; schackbräde när det används på en datorskärm eller vara stationärt när det används på en läsplatta som ersättning för ett schackbräde. Alla tre typer av <link linkend="markers"
+>markeringar</link
+> kan aktiveras eller inaktiveras. Kanter omkring schackbrädet kan aktiveras, med eller utan algebraisk schacknotation genom att använda en kombinationsruta.</para>
+
+      <note
+><para
+>Vissa teman kanske inte stöder markörer, kanter och/eller notation. I så fall har inställningen ingen effekt för dem, men sparas i händelse av att temat ändras igen.</para
+></note>
+    </sect1>
+
+    <sect1 id="configuration-engines">
+      <title
+>Datorspelare</title>
+
+      <screenshot>
+        <screeninfo
+>Anpassa - &i18n-knights; dialogruta</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-engines.png" format="PNG"/></imageobject>
+          <caption
+>Sidan Datorspelare</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Sidan <guilabel
+>Datorspelare</guilabel
+> låter dig anpassa datormotståndare. För varje spelare, ange programnamnet, kommandot som används för att starta det, och protokollet det använder. &i18n-knights; stöder två protokoll för datorspelare: XBoard och <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>En ny spelarinställning kan läggas till genom att klicka på knappen <guibutton
+>Lägg till</guibutton
+> och skriva in ovannämnda tre alternativ. En symbol i den sista kolumnen talar om ifall det angivna programmet är installerat eller inte på datorn.</para>
+    </sect1>
+
+    <sect1 id="configuration-themes">
+      <title
+>Teman</title>
+
+      <para
+>Sidan <guilabel
+>Tema</guilabel
+> gör det möjligt att välja ett tema. Temat tillhandahåller bilder av brädet, pjäserna, markeringar och andra objekt. Markera temats namn i urvalslistan för att välja ett nytt tema.Du kan också ladda ner nya teman på samma sida, genom att klicka på knappen <guibutton
+>Hämta nya teman</guibutton
+>. Teman lagras under &knights; på kde-look.org.</para>
+
+      <note
+><para
+>För din bekvämlighet visas en skärmbild med en snabbgranskning på höger sida om urvalslistan, så fort du markerat temat du är intresserad av.</para
+></note>
+    </sect1>
+  </chapter>
+
+  <chapter id="credits-and-license">
+    <title
+>Tack till och licens</title>
+
+    <para
+>&knights;</para>
+
+    <itemizedlist>
+      <listitem
+><para
+>Miha Čančula <email
+>miha.cancula@gmail.com</email
+> - Ursprunglig upphovsman</para
+></listitem>
+    </itemizedlist>
+
+    <para
+>Dokumentation copyright 2010, Miha Čančula <email
+>miha.cancula@gmail.com</email
+></para>
+
+    <para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+</book>
