@@ -261,7 +261,7 @@ msgstr "Servidor d'escacs:"
 #: gamedialog.ui:207
 #, kde-format
 msgid "&Use time control"
-msgstr "&Utilitza el control de temps"
+msgstr "Utilit&za el control de temps"
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
