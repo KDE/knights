@@ -20,6 +20,7 @@
   <name xml:lang="gl">KNights</name>
   <name xml:lang="id">KNights</name>
   <name xml:lang="it">KNights</name>
+  <name xml:lang="ka">KNights</name>
   <name xml:lang="ko">KNights</name>
   <name xml:lang="nl">KNights</name>
   <name xml:lang="nn">Knights</name>
@@ -56,6 +57,7 @@
   <summary xml:lang="gl">Xogo de xadrez</summary>
   <summary xml:lang="id">Permainan catur</summary>
   <summary xml:lang="it">Gioco di scacchi</summary>
+  <summary xml:lang="ka">ჭადრაკი</summary>
   <summary xml:lang="ko">체스 게임</summary>
   <summary xml:lang="nl">Schaakspel</summary>
   <summary xml:lang="nn">Sjakkspel</summary>
@@ -130,6 +132,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Caratteristiche:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
@@ -766,6 +769,7 @@
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
       <caption xml:lang="it">Knights, gioco di scacchi</caption>
+      <caption xml:lang="ka">Knights, ჭადრაკი</caption>
       <caption xml:lang="ko">Knights, 체스 게임</caption>
       <caption xml:lang="nl">Knights, schaakspel</caption>
       <caption xml:lang="nn">Knights – sjakkspel</caption>
