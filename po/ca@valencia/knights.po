@@ -714,7 +714,7 @@ msgstr "Si els límits de temps estan actius i es visualitzen"
 #: knights.kcfg:108 knights.kcfg:117
 #, kde-format
 msgid "protocol to be used for player 1"
-msgstr "El protocol a utilitzar per al jugador 1"
+msgstr "El protocol que s'ha d'utilitzar per al jugador 1"
 
 #. i18n: ectx: label, entry (color), group (Protocols)
 #: knights.kcfg:126
