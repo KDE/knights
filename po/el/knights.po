@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-21 00:43+0000\n"
+"POT-Creation-Date: 2022-10-21 00:44+0000\n"
 "PO-Revision-Date: 2021-11-06 10:36+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -391,183 +391,190 @@ msgstr "Αλγεβρική μεγάλου μήκους"
 msgid "Coordinate"
 msgstr "Συντεταγμένη"
 
-#: knights.cpp:94
+#: knights.cpp:95
 #, kde-format
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
-#: knights.cpp:138
+#: knights.cpp:139
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 σκέφτεται..."
 
-#: knights.cpp:145
+#: knights.cpp:146
 #, kde-format
 msgid "Clock"
 msgstr "Ρολόι"
 
-#: knights.cpp:176
+#: knights.cpp:177
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Ιστορικό κινήσεων"
 
-#: knights.cpp:195 knights.cpp:484
+#: knights.cpp:196 knights.cpp:490
 #, kde-format
 msgid "Resign"
 msgstr "Παραίτηση"
 
-#: knights.cpp:196
+#: knights.cpp:197
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "Αποδέχεσαι την αναπόφευκτη ήττα"
 
-#: knights.cpp:201
+#: knights.cpp:202
 #, kde-format
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: knights.cpp:202
+#: knights.cpp:203
 #, kde-format
 msgid "Take back your last move"
 msgstr "Αναίρεση της τελευταίας σου κίνησης"
 
-#: knights.cpp:208
+#: knights.cpp:209
 #, kde-format
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: knights.cpp:209
+#: knights.cpp:210
 #, kde-format
 msgid "Repeat your last move"
 msgstr "Επανάληψη της τελευταίας σου κίνησης"
 
-#: knights.cpp:216
+#: knights.cpp:217
 #, kde-format
 msgid "Offer &Draw"
 msgstr "Προσφορά &ισοπαλίας"
 
-#: knights.cpp:217
+#: knights.cpp:218
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "Προσφορά ισοπαλίας στον αντίπαλο"
 
-#: knights.cpp:222
+#: knights.cpp:223
 #, kde-format
 msgid "Adjourn"
 msgstr "Διακοπή"
 
-#: knights.cpp:223
+#: knights.cpp:224
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "Συνέχεια του παιχνιδιού αργότερα"
 
-#: knights.cpp:228
+#: knights.cpp:229
 #, kde-format
 msgid "Abort"
 msgstr "Εγκατάλειψη"
 
-#: knights.cpp:229
+#: knights.cpp:230
 #, kde-format
 msgid "End the game immediately"
 msgstr "Άμεσος τερματισμός του παιχνιδιού"
 
-#: knights.cpp:233
+#: knights.cpp:234
 #, kde-format
 msgid "Show Clock"
 msgstr "Εμφάνιση ρολογιού"
 
-#: knights.cpp:239
+#: knights.cpp:240
 #, kde-format
 msgid "Show History"
 msgstr "Εμφάνιση ιστορικού"
 
-#: knights.cpp:246
+#: knights.cpp:247
 #, kde-format
 msgid "Show White Console"
 msgstr "Εμφάνιση κονσόλας λευκών"
 
-#: knights.cpp:252
+#: knights.cpp:253
 #, kde-format
 msgid "Show Black Console"
 msgstr "Εμφάνιση κονσόλας μαύρων"
 
-#: knights.cpp:258
+#: knights.cpp:259
 #, kde-format
 msgid "Show Chat"
 msgstr "Εμφάνιση συνομιλίας"
 
-#: knights.cpp:297
+#: knights.cpp:298
 #, kde-format
 msgid "Open File"
 msgstr "Άνοιγμα αρχείου"
 
-#: knights.cpp:298 knights.cpp:651 knights.cpp:674
+#: knights.cpp:299 knights.cpp:675 knights.cpp:698
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "*Φορητός συμβολισμός παιχνιδιού (*.ppm)"
 
-#: knights.cpp:462
+#: knights.cpp:463
 #, kde-format
 msgid "General"
 msgstr "Γενικά"
 
-#: knights.cpp:466
+#: knights.cpp:467
 #, kde-format
 msgid "Computer Engines"
 msgstr "Υπολογιστικές μηχανές"
 
-#: knights.cpp:477
+#: knights.cpp:478
 #, kde-format
 msgid "Theme"
 msgstr "Θέμα"
 
-#: knights.cpp:484
+#: knights.cpp:490
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Θέλετε πράγματι να παραιτηθείτε;"
 
-#: knights.cpp:530
+#: knights.cpp:491
+#, fuzzy, kde-format
+#| msgid "Resign"
+msgctxt "@action:button"
+msgid "Resign"
+msgstr "Παραίτηση"
+
+#: knights.cpp:542
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Τέλος παιχνιδιού"
 
-#: knights.cpp:554
+#: knights.cpp:566
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Το παιχνίδι τελείωσε ισόπαλο"
 
-#: knights.cpp:560
+#: knights.cpp:572
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>Λευκά</em>"
 
-#: knights.cpp:563
+#: knights.cpp:575
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>Μαύρα</em>"
 
-#: knights.cpp:568
+#: knights.cpp:580
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>%1</em>, παίζουν τα Λευκά"
 
-#: knights.cpp:571
+#: knights.cpp:583
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>%1</em>, παίζουν τα Μαύρα"
 
-#: knights.cpp:617
+#: knights.cpp:629
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
 
-#: knights.cpp:630
+#: knights.cpp:646
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -576,12 +583,12 @@ msgstr ""
 "Αυτό θα τερματίσει το παιχνίδι σας.\n"
 "Θέλετε να αποθηκεύσετε το ιστορικό των κινήσεων;"
 
-#: knights.cpp:650
+#: knights.cpp:674
 #, kde-format
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: knights.cpp:673
+#: knights.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
