@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2022-10-10 06:54+0200\n"
+"PO-Revision-Date: 2022-10-22 07:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -182,17 +182,17 @@ msgstr "ჭადრაკის ძრავები"
 #: gamedialog.cpp:352
 #, kde-format
 msgid "Select a chess engine for the first player."
-msgstr ""
+msgstr "აირჩიეთ ჭადრაკის ძრავა პირველი მოთამაშისთვის."
 
 #: gamedialog.cpp:358
 #, kde-format
 msgid "Select a chess engine for the second player."
-msgstr ""
+msgstr "აირჩიეთ ჭადრაკის ძრავა მეორე მოთამაშისთვის."
 
 #: gamedialog.cpp:363
 #, kde-format
 msgid "Start the game."
-msgstr ""
+msgstr "ახალი თამაშის დაწყება."
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
@@ -283,7 +283,7 @@ msgstr "&დროის საწყისი ლიმიტი:"
 #: gamedialog.ui:269
 #, kde-format
 msgid "I&ncrement per move:"
-msgstr ""
+msgstr "&გაზრდა თითოეულ ბიჯთან ერთად:"
 
 #: gamemanager.cpp:416
 #, kde-format
@@ -468,7 +468,7 @@ msgstr "შეწყვეტა"
 #: knights.cpp:230
 #, kde-format
 msgid "End the game immediately"
-msgstr ""
+msgstr "მიმდინარე თამაშის დაუყოვნებლად დასრულება"
 
 #: knights.cpp:234
 #, kde-format
@@ -526,8 +526,7 @@ msgid "Do you really want to resign?"
 msgstr ""
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "გადადგომა"
