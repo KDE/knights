@@ -531,8 +531,7 @@ msgid "Do you really want to resign?"
 msgstr "Deseja mesmo desistir?"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Desistir"

@@ -1,23 +1,23 @@
 # Translation of knights.po to Catalan
-# Copyright (C) 2010-2021 This_file_is_part_of_KDE
+# Copyright (C) 2010-2022 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2015, 2016, 2017, 2018, 2019, 2021.
+# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2015, 2016, 2017, 2018, 2019, 2021, 2022.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2016, 2017, 2018, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2021-10-14 09:17+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2022-10-21 13:22+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 20.12.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -526,11 +526,10 @@ msgstr "Tema"
 #: knights.cpp:490
 #, kde-format
 msgid "Do you really want to resign?"
-msgstr "Realment voleu resignar-vos?"
+msgstr "Realment voleu renunciar?"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Renuncia"
@@ -1398,30 +1397,3 @@ msgstr "Límit de temps [minuts]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Classificació de l'adversari"
-
-#~ msgid "Accessibility"
-#~ msgstr "Accessibilitat"
-
-#~ msgid "Chess board based on KF5"
-#~ msgstr "Tauler d'escacs basat en els KF5"
-
-#~ msgid "This feature is not yet implemented in Knights"
-#~ msgstr "Aquesta funcionalitat encara no està implementada en el Knights"
-
-#~ msgid "Invalid interface"
-#~ msgstr "Interfície no vàlida"
-
-#~ msgid "H:mm:ss"
-#~ msgstr "H:mm:ss"
-
-#~ msgid "Configure Engines"
-#~ msgstr "Configura els motors"
-
-#~ msgid "KNights"
-#~ msgstr "KNights"
-
-#~ msgid "&Save History"
-#~ msgstr "De&sa historial"
-
-#~ msgid "Rook"
-#~ msgstr "Torre"
