@@ -900,7 +900,7 @@ msgstr "Dave Kaye"
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr ""
-"Ajuda amb les noves funcionalitats de tema i representació sense "
+"Ajuda amb les noves característiques de tema i representació sense "
 "KGameRenderer"
 
 #: main.cpp:62
