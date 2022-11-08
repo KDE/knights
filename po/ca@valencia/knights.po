@@ -326,13 +326,13 @@ msgstr "%1 desitjaria interrompre la partida"
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr "%1 s'enroca a la banda de la dama"
+msgstr "%1 s'enroca en la banda de la dama"
 
 #: gamemanager.cpp:631
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr "%1 s'enroca a la banda del rei"
+msgstr "%1 s'enroca en la banda del rei"
 
 #: gamemanager.cpp:635
 #, kde-format
