@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2022-08-08 17:50+0200\n"
+"PO-Revision-Date: 2022-11-22 18:08+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -525,8 +525,7 @@ msgid "Do you really want to resign?"
 msgstr "Vil du virkelig opgive?"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Opgiv"
