@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Stefan Asserhäll <stefan.asserhall@bredband.net>, 2010.
-# Stefan Asserhall <stefan.asserhall@bredband.net>, 2010, 2011, 2012, 2016, 2017, 2018, 2019, 2021.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2010, 2011, 2012, 2016, 2017, 2018, 2019, 2021, 2022.
 # Arve Eriksson <031299870@telia.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2021-10-14 17:01+0200\n"
+"PO-Revision-Date: 2022-11-27 11:41+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -527,8 +527,7 @@ msgid "Do you really want to resign?"
 msgstr "Vill verkligen ge upp?"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Ge upp"
