@@ -72,7 +72,7 @@ void FicsDialog::slotLogin() {
 
 void FicsDialog::slotCreateAccount() {
 	QUrl url;
-	url.setScheme ( QStringLiteral ( "http" ) );
+	url.setScheme ( QStringLiteral ( "https" ) );
 	url.setHost ( serverName );
 	if ( serverName == QLatin1String ( "freechess.org" ) )
 		url.setPath ( QStringLiteral ( "/Register/index.html" ) );
