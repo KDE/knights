@@ -526,7 +526,6 @@ msgstr ""
 
 #: knights.cpp:491
 #, fuzzy, kde-format
-#| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Предаване"
