@@ -83,7 +83,7 @@ target_link_libraries(knights
      KF5::Plasma
      KF5::Completion
      KF5::TextWidgets
-     KF5::Wallet)
+     Qt${QT_MAJOR_VERSION}Keychain::Qt${QT_MAJOR_VERSION}Keychain)
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 

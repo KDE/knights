@@ -24,7 +24,7 @@ Dependencies:
     'frameworks/kio': '@stable'
     'frameworks/kplotting': '@stable'
     'frameworks/kdoctools': '@stable'
-    'frameworks/kwallet': '@stable'
     'frameworks/plasma-framework': '@stable'
+    'third-party/qtkeychain': '@latest'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
