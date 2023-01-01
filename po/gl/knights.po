@@ -258,7 +258,8 @@ msgstr "&Motor informático"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Chess server:"
 msgid "Chess server:"
 msgstr "Servidor de xadrez:"
 
