@@ -235,7 +235,7 @@
       <li xml:lang="et">Mäng vabas interneti maleserveris (FICS)</li>
       <li xml:lang="eu">Interneteko xake zerbitzari dohainekoan (FICS) jolastu</li>
       <li xml:lang="fi">Pelaa FICSissä (vapaa internetšakkipalvelin)</li>
-      <li xml:lang="fr">Jouez sur le Free Internet Chess Server (FICS)</li>
+      <li xml:lang="fr">Jouez sur le serveur « FICS » (Free Internet Chess Server)</li>
       <li xml:lang="gl">Xogar no servidor libre de xadrez por Internet (FICS).</li>
       <li xml:lang="id">Bermain pada server catur bebas internet  Free Internet Chess Server (FICS)</li>
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
@@ -620,7 +620,7 @@
       <li xml:lang="et">UCI protokolli (seda kasutavad Stockfish, Chessbase ja veel paljud teised) toetus</li>
       <li xml:lang="eu">UCI protokoloaren euskarria (Stockfish, Chessbase eta beste hainbatek erabilia)</li>
       <li xml:lang="fi">Tuki UCI-yhteyskäytännölle (jota käyttävät mm. Stockfish ja Chessbase)</li>
-      <li xml:lang="fr">Prise en charge du protocole UCI (utilisé par Stockfish, Chessbase et bien d'autres)</li>
+      <li xml:lang="fr">Prise en charge du protocole « UCI » (utilisé par Stockfish, Chessbase et bien d'autres)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
       <li xml:lang="id">Dukungan untuk protokol UCI (digunakan oleh Stockfish, Chessbase, dan banyak lainnya)</li>
       <li xml:lang="it">Supporto per il protocollo UCI (usato da Stockfish, Chessbase e molti altri)</li>
@@ -655,7 +655,7 @@
       <li xml:lang="et">PGN-failide salvestamise ja laadimise toetus</li>
       <li xml:lang="eu">Joko eramangarriaren notazio (PGN) fitxategiak gorde eta kargatzeko euskarria</li>
       <li xml:lang="fi">Siirrettävien pelinotaatiotiedostojen (PGN) tallennuksen ja latauksen tuki</li>
-      <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers PGN (Notation portable de jeu)</li>
+      <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers « PGN » (Notation portable de jeu)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida interoperábel (PGN).</li>
       <li xml:lang="id">Dukungan untuk menyimpan dan memuat file-file (PGN) notasi permainan Portable</li>
       <li xml:lang="it">Supporto per il salvataggio e il caricamento dei file Portable game notation (PGN)</li>
