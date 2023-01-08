@@ -2,7 +2,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Stelios <sstavra@gmail.com>, 2011, 2012, 2016, 2017, 2018, 2020, 2021.
+# Stelios <sstavra@gmail.com>, 2011, 2012, 2016, 2017, 2018, 2020, 2021, 2023.
 # Dimitrios Glentadakis <dglent@gmail.com>, 2011.
 # Antonis Geralis <capoiosct@gmail.com>, 2012.
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2021-11-06 10:36+0200\n"
+"PO-Revision-Date: 2023-01-07 09:59+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -528,8 +528,7 @@ msgid "Do you really want to resign?"
 msgstr "Θέλετε πράγματι να παραιτηθείτε;"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Παραίτηση"
