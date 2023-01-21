@@ -25,6 +25,7 @@ Dependencies:
     'frameworks/kplotting': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/kwallet': '@stable'
+- 'on': ['Linux', 'FreeBSD']
     'frameworks/plasma-framework': '@stable'
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
