@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2022-10-22 07:19+0200\n"
+"PO-Revision-Date: 2023-01-28 11:22+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -347,7 +347,7 @@ msgstr "შემოწმება"
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
-msgstr ""
+msgstr "მატი"
 
 #: historywidget.cpp:26
 #, kde-format
@@ -448,17 +448,17 @@ msgstr "ფრეს &შეთავაზება"
 #: knights.cpp:218
 #, kde-format
 msgid "Offer a draw to your opponent"
-msgstr ""
+msgstr "მეტოქისთვის ფრეს შეთავაზება"
 
 #: knights.cpp:223
 #, kde-format
 msgid "Adjourn"
-msgstr ""
+msgstr "თამაშის გადადება"
 
 #: knights.cpp:224
 #, kde-format
 msgid "Continue this game at a later time"
-msgstr ""
+msgstr "თამაშის მოგვიანებით გაგრძელება"
 
 #: knights.cpp:229
 #, kde-format
@@ -513,7 +513,7 @@ msgstr "ძირითადი"
 #: knights.cpp:467
 #, kde-format
 msgid "Computer Engines"
-msgstr ""
+msgstr "ძრავები"
 
 #: knights.cpp:478
 #, kde-format
@@ -523,7 +523,7 @@ msgstr "თემა"
 #: knights.cpp:490
 #, kde-format
 msgid "Do you really want to resign?"
-msgstr ""
+msgstr "გნებავთ, დანებდეთ?"
 
 #: knights.cpp:491
 #, kde-format
@@ -540,7 +540,7 @@ msgstr "თამაში დასრულდა"
 #: knights.cpp:566
 #, kde-format
 msgid "The game ended in a draw"
-msgstr ""
+msgstr "თამაში ფრეთი დასრულდა"
 
 #: knights.cpp:572
 #, kde-format
@@ -593,7 +593,7 @@ msgstr "შენახვა როგორც"
 #: knights.kcfg:9
 #, kde-format
 msgid "Theme file for the board"
-msgstr ""
+msgstr "თემის ფაილი დაფისთვის"
 
 #. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
 #: knights.kcfg:15
@@ -611,7 +611,7 @@ msgstr ""
 #: knights.kcfg:31
 #, kde-format
 msgid "Moves animation speed"
-msgstr ""
+msgstr "სვლების ანიმაციის სიჩქარე"
 
 #. i18n: ectx: label, entry (animateBoard), group (Preferences)
 #: knights.kcfg:35
@@ -629,19 +629,19 @@ msgstr ""
 #: knights.kcfg:43
 #, kde-format
 msgid "whether to play move sounds"
-msgstr ""
+msgstr "ჩართულია თუ არა თამაშის ხმები"
 
 #. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
 #: knights.kcfg:52
 #, kde-format
 msgid "chessboard border type"
-msgstr ""
+msgstr "ჭადრაკის დაფის საზღვრის ტიპი"
 
 #. i18n: ectx: label, entry (showDanger), group (Preferences)
 #: knights.kcfg:56
 #, kde-format
 msgid "show check marker"
-msgstr ""
+msgstr "შახის ჩვენება"
 
 #. i18n: ectx: label, entry (showMarker), group (Preferences)
 #: knights.kcfg:60
@@ -677,13 +677,13 @@ msgstr ""
 #: knights.kcfg:80
 #, kde-format
 msgid "show move history"
-msgstr ""
+msgstr "სვლების ისტორიის ჩვენება"
 
 #. i18n: ectx: label, entry (timeLimit), group (Time Control)
 #: knights.kcfg:86
 #, kde-format
 msgid "initial time limit for both players"
-msgstr ""
+msgstr "საწყისი დროის ლიმიტი ორივე მოთამაშისთვის"
 
 #. i18n: ectx: label, entry (timeIncrement), group (Time Control)
 #: knights.kcfg:90
@@ -710,7 +710,7 @@ msgstr ""
 #: knights.kcfg:108 knights.kcfg:117
 #, kde-format
 msgid "protocol to be used for player 1"
-msgstr ""
+msgstr "პირველი მოთამაშისთვის გამოყენებული პროტოკოლი"
 
 #. i18n: ectx: label, entry (color), group (Protocols)
 #: knights.kcfg:126
@@ -764,7 +764,7 @@ msgstr ""
 #: knights.kcfg:154
 #, kde-format
 msgid "the last selected server"
-msgstr ""
+msgstr "ბოლოს არჩეული სერვერი"
 
 #. i18n: ectx: label, entry (ficsUsername), group (Protocols)
 #: knights.kcfg:158
@@ -776,7 +776,7 @@ msgstr ""
 #: knights.kcfg:162
 #, kde-format
 msgid "whether to log in as guest"
-msgstr ""
+msgstr "სტუმრად შესვლა"
 
 #. i18n: ectx: label, entry (autoLogin), group (Protocols)
 #: knights.kcfg:166
@@ -846,7 +846,7 @@ msgstr "Knights"
 #: main.cpp:52
 #, kde-format
 msgid "KDE Chess Board"
-msgstr ""
+msgstr "KDE -ის ჭადრაკის დაფა"
 
 #: main.cpp:53
 #, kde-format
@@ -921,7 +921,7 @@ msgstr "დაკეტვა"
 #: prefs_access.ui:17
 #, kde-format
 msgid "External Programs"
-msgstr ""
+msgstr "გარე პროგრამები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
 #: prefs_access.ui:23
@@ -945,13 +945,13 @@ msgstr "ანიმაციები"
 #: prefs_base.ui:23
 #, kde-format
 msgid "&Animation speed:"
-msgstr ""
+msgstr "&ანიმაციის სიჩქარე:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
 #, kde-format
 msgid "Instant (no animation)"
-msgstr ""
+msgstr "მყისი (ანიმაციის გარეშე)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:39
@@ -994,14 +994,14 @@ msgstr ""
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Legal moves"
-msgstr ""
+msgstr "დაშვებული სვლები"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
 #: prefs_base.ui:99
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr ""
+msgstr "მეტოქის სვლა"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
@@ -1014,25 +1014,25 @@ msgstr "შემოწმება"
 #: prefs_base.ui:119
 #, kde-format
 msgid "Border display:"
-msgstr ""
+msgstr "საზღვრების ჩვენება:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:127
 #, kde-format
 msgid "No borders"
-msgstr ""
+msgstr "საზღვრების გარეშე"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:132
 #, kde-format
 msgid "Only borders"
-msgstr ""
+msgstr "მხოლოდ საზღვრები"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:137
 #, kde-format
 msgid "Borders and notation"
-msgstr ""
+msgstr "საზღვრები და ნოტაცია"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: prefs_base.ui:148
@@ -1086,7 +1086,7 @@ msgstr ""
 #: promotiondialog.ui:69
 #, kde-format
 msgid "B&ishop"
-msgstr ""
+msgstr "&სპილო"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
@@ -1237,7 +1237,7 @@ msgstr "გაზრდა"
 #: proto/ficsdialog.ui:219
 #, kde-format
 msgid "Rated"
-msgstr ""
+msgstr "რეიტინგით"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:224
@@ -1255,7 +1255,7 @@ msgstr "თქვენი ფერი"
 #: proto/ficsdialog.ui:238
 #, kde-format
 msgid "Seek Graph"
-msgstr ""
+msgstr "მეტოქეების გრაფიკი"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
 #: proto/ficsdialog.ui:241
@@ -1267,7 +1267,7 @@ msgstr ""
 #: proto/ficsdialog.ui:258
 #, kde-format
 msgid "Challenges"
-msgstr ""
+msgstr "გამოწვევის შექმნა"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:261
@@ -1279,13 +1279,13 @@ msgstr ""
 #: proto/ficsdialog.ui:267
 #, kde-format
 msgid "Rated match"
-msgstr ""
+msgstr "რეიტინგული პარტია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
 #: proto/ficsdialog.ui:274
 #, kde-format
 msgid "Automatically start the game"
-msgstr ""
+msgstr "თამაშის ავტომატური დაწყება"
 
 #. i18n: ectx: property (text), widget (QPushButton, seekButton)
 #: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
@@ -1304,13 +1304,13 @@ msgstr "კონსოლი"
 #: proto/ficsdialog.ui:298
 #, kde-format
 msgid "Use custom commands"
-msgstr ""
+msgstr "ხელით მითითებული ბრძანებების გამოყენება"
 
 #: proto/ficsprotocol.cpp:117
 #, kde-format
 msgctxt "Stop searching for opponents"
 msgid "Unseek"
-msgstr ""
+msgstr "გამოძახების გაუქმება"
 
 #: proto/ficsprotocol.cpp:119
 #, kde-format
@@ -1320,12 +1320,12 @@ msgstr "დახმარება"
 #: proto/ficsprotocol.cpp:140
 #, kde-format
 msgid "Server Console"
-msgstr ""
+msgstr "სერვერის კონსოლი"
 
 #: proto/ficsprotocol.cpp:152
 #, kde-format
 msgid "Chat with %1"
-msgstr ""
+msgstr "%1-სთან საუბარი"
 
 #: proto/ficsprotocol.cpp:181
 #, kde-format
@@ -1336,7 +1336,7 @@ msgstr "შესვლის შეცდომა"
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr ""
+msgstr "ჭადრაკის სერვერი"
 
 #: proto/ficsprotocol.cpp:278
 #, kde-format
@@ -1376,4 +1376,4 @@ msgstr "დროის ლიმიტი [წთ]"
 #: proto/seekgraph.cpp:27
 #, kde-format
 msgid "Opponent's rating"
-msgstr ""
+msgstr "მეტოქის რეიტინგი"
