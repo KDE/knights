@@ -4,19 +4,20 @@
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010, 2012.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2010, 2011.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2019-10-11 12:24+0800\n"
-"Last-Translator: pan93412 <pan93412@gmail.com>\n"
-"Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
+"PO-Revision-Date: 2023-01-29 23:11+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.08.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -30,8 +31,7 @@ msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
 
 #: board.cpp:577
-#, fuzzy, kde-format
-#| msgid "Promotion"
+#, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "晉級"
@@ -88,8 +88,7 @@ msgid_plural " moves"
 msgstr[0] " 步"
 
 #: difficultydialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Difficulty Level"
+#, kde-format
 msgctxt "@title:window"
 msgid "Difficulty Level"
 msgstr "難度等級"
@@ -149,8 +148,7 @@ msgid "Installed"
 msgstr "已安裝"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "開始新遊戲"
@@ -174,8 +172,7 @@ msgid_plural " moves"
 msgstr[0] " 步"
 
 #: gamedialog.cpp:300
-#, fuzzy, kde-format
-#| msgid "Chess Engines"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "西洋棋引擎"
@@ -205,14 +202,13 @@ msgstr "玩家 1"
 #: gamedialog.ui:35
 #, kde-format
 msgid "Human (&You)"
-msgstr "人類（您） (&Y)"
+msgstr "人類（您）(&Y)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
-#, fuzzy, kde-format
-#| msgid "&Computer engine"
+#, kde-format
 msgid "&Computer engine:"
-msgstr "電腦引擎 (&C)"
+msgstr "電腦引擎(&C)："
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -224,13 +220,13 @@ msgstr "玩家 1 的顏色"
 #: gamedialog.ui:103
 #, kde-format
 msgid "B&lack"
-msgstr "黑 (&B)"
+msgstr "黑(&B)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
 #, kde-format
 msgid "Choose r&andomly"
-msgstr "隨機選取 (&A)"
+msgstr "隨機選取(&A)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, player2Box)
 #: gamedialog.ui:129
@@ -242,35 +238,31 @@ msgstr "玩家 2"
 #: gamedialog.ui:135
 #, kde-format
 msgid "H&uman"
-msgstr "人類 (&U)"
+msgstr "人類(&U)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
-#, fuzzy, kde-format
-#| msgid "Co&mputer engine"
+#, kde-format
 msgid "Co&mputer engine:"
-msgstr "電腦引擎 (&M)"
+msgstr "電腦引擎(&M)："
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgid "Chess server:"
-msgstr "下棋伺服器"
+msgstr "下棋伺服器："
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
-#, fuzzy, kde-format
-#| msgid "&Use Time Control"
+#, kde-format
 msgid "&Use time control"
-msgstr "使用時間控制 (&U)"
+msgstr "使用時間控制(&U)"
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
-#, fuzzy, kde-format
-#| msgid "&Time control period"
+#, kde-format
 msgid "&Time control period:"
-msgstr "時間控制期間 (&T)"
+msgstr "時間控制期間(&T)："
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
@@ -281,17 +273,15 @@ msgstr "只用計時器"
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
-#, fuzzy, kde-format
-#| msgid "&Initial time limit"
+#, kde-format
 msgid "&Initial time limit:"
-msgstr "初始時間限制 (&I)"
+msgstr "初始時間限制(&I)："
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
-#, fuzzy, kde-format
-#| msgid "I&ncrement per move"
+#, kde-format
 msgid "I&ncrement per move:"
-msgstr "每次移動遞增時間 (&I)"
+msgstr "每次移動遞增時間(&I)："
 
 #: gamemanager.cpp:416
 #, kde-format
@@ -412,8 +402,7 @@ msgid "Clock"
 msgstr "時鐘"
 
 #: knights.cpp:177
-#, fuzzy, kde-format
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "移動歷史"
@@ -534,15 +523,13 @@ msgid "Do you really want to resign?"
 msgstr "你確定要放棄嗎？"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "放棄"
 
 #: knights.cpp:542
-#, fuzzy, kde-format
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "遊戲結束"
@@ -596,11 +583,10 @@ msgid "Save"
 msgstr "儲存"
 
 #: knights.cpp:697
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr "另存新檔..."
+msgstr "另存新檔"
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
@@ -1087,7 +1073,7 @@ msgstr "將士兵升級為："
 #: promotiondialog.ui:40
 #, kde-format
 msgid "&Queen"
-msgstr "皇后 (&Q)"
+msgstr "皇后(&Q)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
@@ -1105,7 +1091,7 @@ msgstr "主教(&I)"
 #: promotiondialog.ui:82
 #, kde-format
 msgid "&Knight"
-msgstr "騎士 (&K)"
+msgstr "騎士(&K)"
 
 #: proto/chatwidget.cpp:62
 #, kde-format
@@ -1176,10 +1162,9 @@ msgstr "登入下棋伺服器"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
-#, fuzzy, kde-format
-#| msgid "&Username"
+#, kde-format
 msgid "&Username:"
-msgstr "使用者名稱(&U)"
+msgstr "使用者名稱(&U)："
 
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
 #: proto/ficsdialog.ui:72
@@ -1189,10 +1174,9 @@ msgstr "這個帳號已註冊"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "&Password"
+#, kde-format
 msgid "&Password:"
-msgstr "密碼(&P)"
+msgstr "密碼(&P)："
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
@@ -1348,8 +1332,7 @@ msgid "Login failed"
 msgstr "登入失敗"
 
 #: proto/ficsprotocol.cpp:187
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "下棋伺服器"
