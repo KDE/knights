@@ -453,6 +453,12 @@ void ChessRules::moveMade ( const Move& m ) {
 	moveHistory << data;
 }
 
+static PieceType gridPieceType(Grid *grid, const Pos& pos)
+{
+	Piece *p = grid->value ( pos );
+	return p ? p->pieceType() : NoType;
+}
+
 QList< Move > ChessRules::castlingMoves ( const Pos& pos ) {
 	// TODO: move from a model which permanently stores king's and rooks' move history
 	// to account for undone moves.
@@ -460,9 +466,9 @@ QList< Move > ChessRules::castlingMoves ( const Pos& pos ) {
 	Color color = m_grid->value ( pos )->color();
 	if ( hasKingMoved ( color ) )
 		return QList<Move>();
-	if ( !hasRookMoved ( color, Move::QueenSide ) && isPathClearForCastling ( pos, queenRookStartPos[color] ) && ( m_grid->value ( queenRookStartPos[color] )->pieceType() == Rook ) )
+	if ( !hasRookMoved ( color, Move::QueenSide ) && isPathClearForCastling ( pos, queenRookStartPos[color] ) && ( gridPieceType( m_grid, queenRookStartPos[color] ) == Rook ) )
 		moves << Move::castling ( Move::QueenSide, color );
-	if ( !hasRookMoved ( color, Move::KingSide ) && isPathClearForCastling ( pos, kingRookStartPos[color] ) && ( m_grid->value ( kingRookStartPos[color] )->pieceType() == Rook ) )
+	if ( !hasRookMoved ( color, Move::KingSide ) && isPathClearForCastling ( pos, kingRookStartPos[color] ) && ( gridPieceType( m_grid, kingRookStartPos[color] ) == Rook ) )
 		moves << Move::castling ( Move::KingSide, color );
 	return moves;
 }
