@@ -623,7 +623,7 @@ msgstr "ملف سمة اللوحة"
 #: knights.kcfg:15
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
-msgstr "لإظهار مربع حوار تأكيدي قبل مسح تأريخ اللعبة"
+msgstr "لإظهار مربع حوار تأكِيدِي قبل مسح تأريخ اللعبة"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
@@ -873,7 +873,7 @@ msgstr "الفرسان"
 #: main.cpp:52
 #, kde-format
 msgid "KDE Chess Board"
-msgstr "لوح شطرنج كدي"
+msgstr "لوح شطرنج كِيدِي"
 
 #: main.cpp:53
 #, kde-format
@@ -898,7 +898,7 @@ msgstr "Troy Corbin"
 #: main.cpp:59
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
-msgstr "مؤلف الفرسان الأصلي لـكدي 3 والسمة"
+msgstr "مؤلف الفرسان الأصلي لـكِيدِي 3 والسمة"
 
 #: main.cpp:61
 #, kde-format
@@ -1083,7 +1083,7 @@ msgstr "قلب اللوحة عند المباريات المحليّة بين ش
 #: prefs_base.ui:168
 #, kde-format
 msgid "Show confirmation dialog before closing"
-msgstr "أظهر مربع حوار تأكيدي قبل إغلاق الإغلاق"
+msgstr "أظهر مربع حوار تأكِيدِي قبل إغلاق الإغلاق"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
 #: promotiondialog.ui:14
@@ -1411,7 +1411,7 @@ msgstr "تقييم الخصم"
 #, fuzzy
 #~| msgid "Chess board based on KDE Development Platform 4"
 #~ msgid "Chess board based on KF5"
-#~ msgstr "لوحة الشطرنج مبنيّة على منصة تطوير كدي 4"
+#~ msgstr "لوحة الشطرنج مبنيّة على منصة تطوير كِيدِي 4"
 
 #~ msgid "This feature is not yet implemented in Knights"
 #~ msgstr "هذه الميزة غير مطبّقة بعد في أحصنة"
