@@ -1,4 +1,5 @@
 # Translation of knights into esperanto.
+# Copyright (C) 2010 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2010.
 #
 msgid ""
@@ -6,8 +7,8 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2010-06-20 20:01+0200\n"
-"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"PO-Revision-Date: 2023-03-22 19:14+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -145,8 +146,7 @@ msgid "Installed"
 msgstr "Instalita"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Nova ludo"
@@ -195,10 +195,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
-#, fuzzy, kde-format
-#| msgid "Player"
+#, kde-format
 msgid "Player 1"
-msgstr "Ludanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
@@ -214,17 +213,15 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
-#, fuzzy, kde-format
-#| msgid "Player"
+#, kde-format
 msgid "Player 1's Color"
-msgstr "Ludanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
 #: gamedialog.ui:103
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "B&lack"
-msgstr "Negra"
+msgstr "N&igra"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
@@ -234,10 +231,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player2Box)
 #: gamedialog.ui:129
-#, fuzzy, kde-format
-#| msgid "Player"
+#, kde-format
 msgid "Player 2"
-msgstr "Ludanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
@@ -295,8 +291,7 @@ msgid "White"
 msgstr ""
 
 #: gamemanager.cpp:417
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "The player of this color"
 msgid "Black"
 msgstr "Negra"
@@ -359,10 +354,9 @@ msgid "white"
 msgstr ""
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "black"
-msgstr "Negra"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
@@ -476,9 +470,9 @@ msgid "End the game immediately"
 msgstr ""
 
 #: knights.cpp:234
-#, fuzzy, kde-format
+#, kde-format
 msgid "Show Clock"
-msgstr "Svarmoj"
+msgstr ""
 
 #: knights.cpp:240
 #, kde-format
@@ -496,10 +490,9 @@ msgid "Show Black Console"
 msgstr ""
 
 #: knights.cpp:259
-#, fuzzy, kde-format
-#| msgid "Slow"
+#, kde-format
 msgid "Show Chat"
-msgstr "Malrapida"
+msgstr ""
 
 #: knights.cpp:298
 #, kde-format
@@ -615,9 +608,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (animationSpeed), group (Preferences)
 #: knights.kcfg:31
-#, fuzzy, kde-format
+#, kde-format
 msgid "Moves animation speed"
-msgstr "Animigu"
+msgstr ""
 
 #. i18n: ectx: label, entry (animateBoard), group (Preferences)
 #: knights.kcfg:35
@@ -657,10 +650,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (showMotion), group (Preferences)
 #: knights.kcfg:64
-#, fuzzy, kde-format
-#| msgid "Opponent"
+#, kde-format
 msgid "show opponents move marker"
-msgstr "Kontraŭanto"
+msgstr ""
 
 #. i18n: ectx: label, entry (showClock), group (Preferences)
 #: knights.kcfg:68
@@ -932,10 +924,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
 #: prefs_access.ui:23
-#, fuzzy, kde-format
-#| msgid "Opponent"
+#, kde-format
 msgid "Speak opponent's moves"
-msgstr "Kontraŭanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
 #: prefs_access.ui:30
@@ -951,9 +942,9 @@ msgstr "Animaciaĵoj"
 
 #. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
 #: prefs_base.ui:23
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Animation speed:"
-msgstr "Animigu"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
@@ -999,26 +990,24 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
 #: prefs_base.ui:86
-#, fuzzy, kde-format
-#| msgid "&Move"
+#, kde-format
 msgctxt "Option to show markers for"
 msgid "Legal moves"
-msgstr "&Movi"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
 #: prefs_base.ui:99
-#, fuzzy, kde-format
-#| msgid "Opponent"
+#, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr "Kontraŭanto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Option to show markers for"
 msgid "Check"
-msgstr "Svarmoj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: prefs_base.ui:119
@@ -1110,10 +1099,9 @@ msgid " says: "
 msgstr ""
 
 #: proto/chatwidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "You"
+#, kde-format
 msgid "You: "
-msgstr "Vi"
+msgstr "Vi: "
 
 #. i18n: ectx: property (text), widget (QPushButton, sendButton)
 #: proto/chatwidget.ui:20
@@ -1186,10 +1174,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "Invalid Password"
+#, kde-format
 msgid "&Password:"
-msgstr "Nevalida pasvorto"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
@@ -1386,31 +1373,6 @@ msgid "Time limit [minutes]"
 msgstr ""
 
 #: proto/seekgraph.cpp:27
-#, fuzzy, kde-format
-#| msgid "Opponent"
+#, kde-format
 msgid "Opponent's rating"
-msgstr "Kontraŭanto"
-
-#~ msgid "Accessibility"
-#~ msgstr "Alirebleco"
-
-#, fuzzy
-#~| msgid "Normal"
-#~ msgid "Form"
-#~ msgstr "Normala"
-
-#~ msgid "Congratulations!"
-#~ msgstr "Gratulon!"
-
-#, fuzzy
-#~| msgid "Normal"
-#~ msgid "Normal Games"
-#~ msgstr "Normala"
-
-#~ msgid "You"
-#~ msgstr "Vi"
-
-#, fuzzy
-#~| msgid "Opponent"
-#~ msgid "&Seek opponents"
-#~ msgstr "Kontraŭanto"
+msgstr ""
