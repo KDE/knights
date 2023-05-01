@@ -3,14 +3,14 @@
 # Xosé <xosecalvo@gmail.com>, 2012.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013.
 # Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail.com>, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-21 00:44+0000\n"
-"PO-Revision-Date: 2019-10-19 15:09+0200\n"
+"PO-Revision-Date: 2023-04-30 15:49+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,8 +31,7 @@ msgid "Your emails"
 msgstr "xosecalvo@gmail.com"
 
 #: board.cpp:577
-#, fuzzy, kde-format
-#| msgid "Promotion"
+#, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "Promoción"
@@ -90,8 +89,7 @@ msgstr[0] " movemento"
 msgstr[1] " movementos"
 
 #: difficultydialog.cpp:46
-#, fuzzy, kde-format
-#| msgid "Difficulty Level"
+#, kde-format
 msgctxt "@title:window"
 msgid "Difficulty Level"
 msgstr "Nivel de dificultade"
@@ -151,11 +149,10 @@ msgid "Installed"
 msgstr "Instalado"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Partida nova"
+msgstr "Nova partida"
 
 #: gamedialog.cpp:259
 #, kde-format
@@ -179,8 +176,7 @@ msgstr[0] " movemento"
 msgstr[1] " movementos"
 
 #: gamedialog.cpp:300
-#, fuzzy, kde-format
-#| msgid "Chess Engines"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Motores de xadrez"
@@ -214,10 +210,9 @@ msgstr "Humano (&vostede)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
-#, fuzzy, kde-format
-#| msgid "&Computer engine"
+#, kde-format
 msgid "&Computer engine:"
-msgstr "Motor informáti&co"
+msgstr "Motor da intelixencia artifi&cial:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -251,52 +246,46 @@ msgstr "H&umano"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
-#, fuzzy, kde-format
-#| msgid "Co&mputer engine"
+#, kde-format
 msgid "Co&mputer engine:"
-msgstr "&Motor informático"
+msgstr "&Motor da intelixencia artificial:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
-#, fuzzy, kde-format
-#| msgid "Chess server:"
+#, kde-format
 msgid "Chess server:"
 msgstr "Servidor de xadrez:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
-#, fuzzy, kde-format
-#| msgid "&Use Time Control"
+#, kde-format
 msgid "&Use time control"
-msgstr "&Usar o control do tempo"
+msgstr "&Usar control do tempo"
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
-#, fuzzy, kde-format
-#| msgid "&Time control period"
+#, kde-format
 msgid "&Time control period:"
-msgstr "Período de control do &tempo"
+msgstr "Período de control do &tempo:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
 #, kde-format
 msgctxt "Time control mode"
 msgid "Timer Only"
-msgstr "Só o temporalizador"
+msgstr "Só o temporizador"
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
-#, fuzzy, kde-format
-#| msgid "&Initial time limit"
+#, kde-format
 msgid "&Initial time limit:"
-msgstr "Límite de tempo &inicial"
+msgstr "Límite de tempo &inicial:"
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
-#, fuzzy, kde-format
-#| msgid "I&ncrement per move"
+#, kde-format
 msgid "I&ncrement per move:"
-msgstr "Aume&ntar por movemento"
+msgstr "Aume&ntar por movemento:"
 
 #: gamemanager.cpp:416
 #, kde-format
@@ -418,8 +407,7 @@ msgid "Clock"
 msgstr "Reloxo"
 
 #: knights.cpp:177
-#, fuzzy, kde-format
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Historial de movementos"
@@ -540,15 +528,13 @@ msgid "Do you really want to resign?"
 msgstr "Seguro que queres abandonar?"
 
 #: knights.cpp:491
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Abandonar"
 
 #: knights.cpp:542
-#, fuzzy, kde-format
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Rematou a partida"
@@ -602,8 +588,7 @@ msgid "Save"
 msgstr "Gardar"
 
 #: knights.cpp:697
-#, fuzzy, kde-format
-#| msgid "Save As"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save As"
 msgstr "Gardar como"
@@ -1200,10 +1185,9 @@ msgstr "Acceder ao servidor de xadrez"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
-#, fuzzy, kde-format
-#| msgid "&Username"
+#, kde-format
 msgid "&Username:"
-msgstr "Nome de &usuario:"
+msgstr "Nome de &usuaria:"
 
 # skip-rule: trasno-crear-conta
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
@@ -1214,8 +1198,7 @@ msgstr "Esta é unha conta rexistrada"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "&Password"
+#, kde-format
 msgid "&Password:"
 msgstr "&Contrasinal:"
 
@@ -1374,8 +1357,7 @@ msgid "Login failed"
 msgstr "Fallou o acceso"
 
 #: proto/ficsprotocol.cpp:187
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "Servidor de xadrez"
