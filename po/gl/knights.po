@@ -475,27 +475,27 @@ msgstr "Finalizar a partida inmediatamente"
 #: knights.cpp:234
 #, kde-format
 msgid "Show Clock"
-msgstr "Mostrar o reloxo"
+msgstr "Amosar o reloxo"
 
 #: knights.cpp:240
 #, kde-format
 msgid "Show History"
-msgstr "Mostrar o historial"
+msgstr "Amosar o historial"
 
 #: knights.cpp:247
 #, kde-format
 msgid "Show White Console"
-msgstr "Mostrar a consola branca"
+msgstr "Amosar a consola branca"
 
 #: knights.cpp:253
 #, kde-format
 msgid "Show Black Console"
-msgstr "Mostrar a consola negra"
+msgstr "Amosar a consola negra"
 
 #: knights.cpp:259
 #, kde-format
 msgid "Show Chat"
-msgstr "Mostrar a conversa"
+msgstr "Amosar a conversa"
 
 #: knights.cpp:298
 #, kde-format
@@ -604,7 +604,7 @@ msgstr "Ficheiro de tema para o taboleiro"
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
 msgstr ""
-"se se desexa mostrar un diálogo de confirmación antes de descartar o "
+"se se desexa amosar un diálogo de confirmación antes de descartar o "
 "historial da partida"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
@@ -647,43 +647,43 @@ msgstr "tipo de bordo do taboleiro"
 #: knights.kcfg:56
 #, kde-format
 msgid "show check marker"
-msgstr "mostrar o marcador de xaques"
+msgstr "amosar o marcador de xaques"
 
 #. i18n: ectx: label, entry (showMarker), group (Preferences)
 #: knights.kcfg:60
 #, kde-format
 msgid "show legal moves marker"
-msgstr "mostrar o marcador de movementos legais"
+msgstr "amosar o marcador de movementos legais"
 
 #. i18n: ectx: label, entry (showMotion), group (Preferences)
 #: knights.kcfg:64
 #, kde-format
 msgid "show opponents move marker"
-msgstr "mostrar o marcador de movementos do contrincante"
+msgstr "amosar o marcador de movementos do contrincante"
 
 #. i18n: ectx: label, entry (showClock), group (Preferences)
 #: knights.kcfg:68
 #, kde-format
 msgid "show clocks when time control is in use"
-msgstr "mostrar os reloxos cando se empregue o control de tempo"
+msgstr "amosar os reloxos cando se use o control de tempo"
 
 #. i18n: ectx: label, entry (showChat), group (Preferences)
 #: knights.kcfg:72
 #, kde-format
 msgid "show chat window, if supported by the protocol"
-msgstr "mostrar unha xanela de conversa se o admite o protocolo"
+msgstr "amosar unha xanela de conversa se o admite o protocolo"
 
 #. i18n: ectx: label, entry (showConsole), group (Preferences)
 #: knights.kcfg:76
 #, kde-format
 msgid "show the text console, if supported by the protocol"
-msgstr "mostrar a consola de texto se o admite o protocolo"
+msgstr "amosar a consola de texto se o admite o protocolo"
 
 #. i18n: ectx: label, entry (showHistory), group (Preferences)
 #: knights.kcfg:80
 #, kde-format
 msgid "show move history"
-msgstr "Mostrar o historial de movementos"
+msgstr "Amosar o historial de movementos"
 
 #. i18n: ectx: label, entry (timeLimit), group (Time Control)
 #: knights.kcfg:86
@@ -712,14 +712,14 @@ msgstr ""
 #: knights.kcfg:98
 #, kde-format
 msgid "whether time limits are enabled and displayed"
-msgstr "se se activan e mostran os límites de tempo"
+msgstr "se se activan e amosan os límites de tempo"
 
 #. i18n: ectx: label, entry (player1Protocol), group (Protocols)
 #. i18n: ectx: label, entry (player2Protocol), group (Protocols)
 #: knights.kcfg:108 knights.kcfg:117
 #, kde-format
 msgid "protocol to be used for player 1"
-msgstr "protocolo para empregarse polo xogador 1"
+msgstr "protocolo para usarse polo xogador 1"
 
 #. i18n: ectx: label, entry (color), group (Protocols)
 #: knights.kcfg:126
@@ -1007,7 +1007,7 @@ msgstr "Aparencia"
 #: prefs_base.ui:76
 #, kde-format
 msgid "Show &markers for:"
-msgstr "Mostrar os &marcadores de:"
+msgstr "Amosar os &marcadores de:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
 #: prefs_base.ui:86
@@ -1034,7 +1034,7 @@ msgstr "Xaque"
 #: prefs_base.ui:119
 #, kde-format
 msgid "Border display:"
-msgstr "Mostrar o bordo:"
+msgstr "Amosar o bordo:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:127
@@ -1076,7 +1076,7 @@ msgstr "Xirar o taboleiro en partidas locais entre humanos"
 #: prefs_base.ui:168
 #, kde-format
 msgid "Show confirmation dialog before closing"
-msgstr "Mostrar o diálogo de configuración antes de pechar"
+msgstr "Amosar o diálogo de configuración antes de pechar"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
 #: promotiondialog.ui:14
@@ -1328,7 +1328,7 @@ msgstr "Consola"
 #: proto/ficsdialog.ui:298
 #, kde-format
 msgid "Use custom commands"
-msgstr "Empregar ordes personalizadas"
+msgstr "Usar ordes personalizadas"
 
 #: proto/ficsprotocol.cpp:117
 #, kde-format
