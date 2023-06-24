@@ -29,6 +29,7 @@
 
 #include <KProcess>
 #include <QFileDialog>
+#include <QRegExp>
 
 using namespace Knights;
 

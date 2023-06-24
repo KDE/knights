@@ -11,7 +11,7 @@
 #include "proto/textprotocol.h"
 #include <gamemanager.h>
 
-
+#include <QRegExp>
 
 namespace Knights {
 class FicsDialog;

@@ -44,6 +44,7 @@
 #include <QTimer>
 #include <QStandardPaths>
 #include <QRandomGenerator>
+#include <QRegExp>
 
 #include <memory>
 

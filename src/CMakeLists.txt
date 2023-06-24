@@ -73,17 +73,23 @@ target_link_libraries(knights
      Qt${QT_MAJOR_VERSION}::Svg
      Qt${QT_MAJOR_VERSION}::Gui
      Qt${QT_MAJOR_VERSION}::Concurrent
-     KF5::Crash
-     KF5::Solid
-     KF5::WidgetsAddons
-     KF5::DBusAddons
-     KF5::XmlGui
-     KF5KDEGames
-     KF5::Plotting
-     KF5::Plasma
-     KF5::Completion
-     KF5::TextWidgets
-     KF5::Wallet)
+     KF${QT_MAJOR_VERSION}::Crash
+     KF${QT_MAJOR_VERSION}::Solid
+     KF${QT_MAJOR_VERSION}::WidgetsAddons
+     KF${QT_MAJOR_VERSION}::DBusAddons
+     KF${QT_MAJOR_VERSION}::XmlGui
+     KF${QT_MAJOR_VERSION}::Plotting
+     KF${QT_MAJOR_VERSION}::Plasma
+     KF${QT_MAJOR_VERSION}::Completion
+     KF${QT_MAJOR_VERSION}::TextWidgets
+     KF${QT_MAJOR_VERSION}::Wallet
+)
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(knights Qt6::Core5Compat KDEGames6)
+else()
+    target_link_libraries(knights KF5KDEGames)
+endif()
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 

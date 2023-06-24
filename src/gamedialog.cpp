@@ -37,14 +37,21 @@
 #include "enginesettings.h"
 
 #include <QRandomGenerator>
-#include <QNetworkConfigurationManager>
 #include <QDialogButtonBox>
+
+#if QT_VERSION_MAJOR == 6
+#include <QNetworkInformation>
+#else
+#include <QNetworkConfigurationManager>
+#endif
 
 using namespace Knights;
 
 GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	ui(new Ui::GameDialog()),
+#if QT_VERSION_MAJOR == 5
 	m_networkManager(new QNetworkConfigurationManager(this)),
+#endif
 	okButton(nullptr) {
 
 	QFrame* mainFrame = new QFrame(this);
@@ -127,9 +134,22 @@ GameDialog::GameDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f),
 	connect(ui->sbTimeIncrement, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits);
 	connect(ui->sbNumberOfMoves, static_cast<void (QSpinBox::*)(int)> (&QSpinBox::valueChanged), this, &GameDialog::updateTimeEdits);
 
+#if QT_VERSION_MAJOR == 6
+	bool hasNetworkInfo = QNetworkInformation::loadBackendByFeatures(QNetworkInformation::Feature::Reachability);
+
+	if (hasNetworkInfo) {
+		connect(QNetworkInformation::instance(), &QNetworkInformation::reachabilityChanged, this, [this](QNetworkInformation::Reachability newReachability) {
+			networkStatusChanged(newReachability == QNetworkInformation::Reachability::Online);
+		});
+
+		networkStatusChanged(QNetworkInformation::instance()->reachability() == QNetworkInformation::Reachability::Online);
+	}
+#else
 	connect(m_networkManager, &QNetworkConfigurationManager::onlineStateChanged, this, &GameDialog::networkStatusChanged);
 
 	networkStatusChanged(m_networkManager->isOnline());
+#endif
+
 	updateTimeEdits();
 	player1SettingsChanged();
 	player2SettingsChanged();

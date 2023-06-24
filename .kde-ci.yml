@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['@all']
+- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'games/libkdegames': '@same'
@@ -25,8 +25,32 @@ Dependencies:
     'frameworks/kplotting': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/kwallet': '@stable'
-- 'on': ['Linux', 'FreeBSD']
-  'require':
     'frameworks/plasma-framework': '@stable'
+
+- 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
+  'require':
+    'frameworks/extra-cmake-modules': '@latest-kf6'
+    'games/libkdegames': '@same'
+    'frameworks/kconfig': '@latest-kf6'
+    'frameworks/kconfigwidgets': '@latest-kf6'
+    'frameworks/kcoreaddons': '@latest-kf6'
+    'frameworks/kcrash': '@latest-kf6'
+    'frameworks/kdbusaddons': '@latest-kf6'
+    'frameworks/kdoctools': '@latest-kf6'
+    'frameworks/ki18n': '@latest-kf6'
+    'frameworks/ktextwidgets': '@latest-kf6'
+    'frameworks/kwidgetsaddons': '@latest-kf6'
+    'frameworks/kxmlgui': '@latest-kf6'
+    'frameworks/kdbusaddons': '@latest-kf6'
+    'frameworks/kconfigwidgets': '@latest-kf6'
+    'frameworks/kcrash': '@latest-kf6'
+    'frameworks/ktextwidgets': '@latest-kf6'
+    'frameworks/kxmlgui': '@latest-kf6'
+    'frameworks/kio': '@latest-kf6'
+    'frameworks/kplotting': '@latest-kf6'
+    'frameworks/kdoctools': '@latest-kf6'
+    'frameworks/kwallet': '@latest-kf6'
+    'frameworks/plasma-framework': '@latest-kf6'
+
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']

@@ -40,6 +40,10 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONEN
    Svg
 )
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+   find_package(Qt6Core5Compat REQUIRED)
+endif()
+
 find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} QUIET)
 set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES
    PURPOSE "Speaking of opponents moves")
@@ -47,7 +51,7 @@ if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
    add_definitions(-DHAVE_SPEECH)
 endif ()
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
   DBusAddons
   ConfigWidgets
   Crash
@@ -60,7 +64,11 @@ find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
   Plasma
 )
 
-find_package(KF5KDEGames 7.3.1 REQUIRED)
+if (QT_MAJOR_VERSION STREQUAL "6")
+   find_package(KDEGames6 7.3.1 REQUIRED)
+else()
+   find_package(KF5KDEGames 7.3.1 REQUIRED)
+endif()
 
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)

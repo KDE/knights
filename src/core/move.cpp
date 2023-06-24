@@ -27,6 +27,8 @@
 #include "knightsdebug.h"
 
 #include <QTime>
+#include <QRegExp>
+#include <QRegularExpression>
 
 namespace Knights {
 class MovePrivate : public QSharedData {
@@ -307,7 +309,7 @@ bool Move::isValid() const {
 	if(d->notationType == Coordinate )
 		return d->from.isValid() && d->to.isValid();
 	else if(d->string.size() < 6) {
-		if(d->string.contains(QRegExp(QLatin1String("[a-h][1-8]"))) || d->string.contains(QLatin1String("o-o")) )
+		if(d->string.contains(QRegularExpression(QLatin1String("[a-h][1-8]"))) || d->string.contains(QLatin1String("o-o")) )
 			return true;
 	}
 	return false;
