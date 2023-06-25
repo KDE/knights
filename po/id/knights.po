@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:44+0000\n"
+"POT-Creation-Date: 2023-06-25 00:47+0000\n"
 "PO-Revision-Date: 2022-09-27 17:54+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -147,52 +147,52 @@ msgstr "Protokol"
 msgid "Installed"
 msgstr "Terinstal"
 
-#: gamedialog.cpp:67
+#: gamedialog.cpp:74
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Permainan Baru"
 
-#: gamedialog.cpp:259
+#: gamedialog.cpp:279
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " menit"
 msgstr[1] " menit"
 
-#: gamedialog.cpp:260
+#: gamedialog.cpp:280
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " detik"
 msgstr[1] " detik"
 
-#: gamedialog.cpp:261
+#: gamedialog.cpp:281
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " langkah"
 msgstr[1] " langkah"
 
-#: gamedialog.cpp:300
+#: gamedialog.cpp:320
 #, fuzzy, kde-format
 #| msgid "Chess Engines"
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Mesin Catur"
 
-#: gamedialog.cpp:352
+#: gamedialog.cpp:372
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr "Pilih sebuah mesin catur untuk pemain pertama."
 
-#: gamedialog.cpp:358
+#: gamedialog.cpp:378
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr "Pilih sebuah mesin catur untuk pemain kedua."
 
-#: gamedialog.cpp:363
+#: gamedialog.cpp:383
 #, kde-format
 msgid "Start the game."
 msgstr "Mulaikan permainan."
@@ -295,65 +295,65 @@ msgstr "Batas waktu &awal"
 msgid "I&ncrement per move:"
 msgstr "Pe&nambahan tiap langkah"
 
-#: gamemanager.cpp:416
+#: gamemanager.cpp:417
 #, kde-format
 msgctxt "The player of this color"
 msgid "White"
 msgstr "Putih"
 
-#: gamemanager.cpp:417
+#: gamemanager.cpp:418
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
 msgstr "Hitam"
 
-#: gamemanager.cpp:524
+#: gamemanager.cpp:525
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "%1 menawarkan kamu sebuah remis"
 
-#: gamemanager.cpp:527
+#: gamemanager.cpp:528
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
 msgstr[0] "%2 ingin kembali setengah langkah"
 msgstr[1] "%2 ingin kembali %1 setengah langkah"
 
-#: gamemanager.cpp:530
+#: gamemanager.cpp:531
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "%1 ingin menunda permainan"
 
-#: gamemanager.cpp:533
+#: gamemanager.cpp:534
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "%1 ingin menggugurkan permainan"
 
-#: gamemanager.cpp:628
+#: gamemanager.cpp:629
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "%1 queenside istana"
 
-#: gamemanager.cpp:631
+#: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "%1 kingside istana"
 
-#: gamemanager.cpp:635
+#: gamemanager.cpp:636
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 ke %2"
 
-#: gamemanager.cpp:648
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "Sekak"
 
-#: gamemanager.cpp:650
+#: gamemanager.cpp:651
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"

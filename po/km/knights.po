@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:44+0000\n"
+"POT-Creation-Date: 2023-06-25 00:47+0000\n"
 "PO-Revision-Date: 2012-07-13 10:01+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -151,49 +151,49 @@ msgstr "ពិធីការ"
 msgid "Installed"
 msgstr "បាន​ដំឡើង"
 
-#: gamedialog.cpp:67
+#: gamedialog.cpp:74
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "ល្បែង​ថ្មី"
 
-#: gamedialog.cpp:259
+#: gamedialog.cpp:279
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] "នាទី"
 
-#: gamedialog.cpp:260
+#: gamedialog.cpp:280
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] "វិនាទី"
 
-#: gamedialog.cpp:261
+#: gamedialog.cpp:281
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] "ផ្លាស់ទី"
 
-#: gamedialog.cpp:300
+#: gamedialog.cpp:320
 #, fuzzy, kde-format
 #| msgid "Computer Engines"
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ"
 
-#: gamedialog.cpp:352
+#: gamedialog.cpp:372
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr ""
 
-#: gamedialog.cpp:358
+#: gamedialog.cpp:378
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr ""
 
-#: gamedialog.cpp:363
+#: gamedialog.cpp:383
 #, fuzzy, kde-format
 #| msgid "Automatically start the game"
 msgid "Start the game."
@@ -300,64 +300,64 @@ msgstr "ម៉ោង​កំណត់​ដំបូង"
 msgid "I&ncrement per move:"
 msgstr "ចំនួន​បន្ថែម​ក្នុង​ការ​ផ្លាស់ទី"
 
-#: gamemanager.cpp:416
+#: gamemanager.cpp:417
 #, kde-format
 msgctxt "The player of this color"
 msgid "White"
 msgstr "ស"
 
-#: gamemanager.cpp:417
+#: gamemanager.cpp:418
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
 msgstr "ខ្មៅ"
 
-#: gamemanager.cpp:524
+#: gamemanager.cpp:525
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "%1 ផ្ដល់​ឲ្យ​អ្នក​អូស"
 
-#: gamemanager.cpp:527
+#: gamemanager.cpp:528
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
 msgstr[0] "%2 ​ចង់​ផ្លាស់ទី %1 ថយក្រោយ​​ពាក់កណ្ដាល"
 
-#: gamemanager.cpp:530
+#: gamemanager.cpp:531
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "%1 ចង់​ផ្អាក​ល្បែង"
 
-#: gamemanager.cpp:533
+#: gamemanager.cpp:534
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "%1 ចង់​បោះបង់​ល្បែង"
 
-#: gamemanager.cpp:628
+#: gamemanager.cpp:629
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "%1 castles queenside"
 
-#: gamemanager.cpp:631
+#: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "%1 castles kingside"
 
-#: gamemanager.cpp:635
+#: gamemanager.cpp:636
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 ទៅ %2"
 
-#: gamemanager.cpp:648
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "ពិនិត្យមើល"
 
-#: gamemanager.cpp:650
+#: gamemanager.cpp:651
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"

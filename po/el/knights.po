@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:44+0000\n"
+"POT-Creation-Date: 2023-06-25 00:47+0000\n"
 "PO-Revision-Date: 2023-01-07 09:59+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -148,50 +148,50 @@ msgstr "Πρωτόκολλο"
 msgid "Installed"
 msgstr "Εγκαταστάθηκε"
 
-#: gamedialog.cpp:67
+#: gamedialog.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Νέο παιχνίδι"
 
-#: gamedialog.cpp:259
+#: gamedialog.cpp:279
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " λεπτό"
 msgstr[1] " λεπτά"
 
-#: gamedialog.cpp:260
+#: gamedialog.cpp:280
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " δευτερόλεπτο"
 msgstr[1] " δευτερόλεπτα"
 
-#: gamedialog.cpp:261
+#: gamedialog.cpp:281
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " κίνηση"
 msgstr[1] " κινήσεις"
 
-#: gamedialog.cpp:300
+#: gamedialog.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Σκακιστικές μηχανές"
 
-#: gamedialog.cpp:352
+#: gamedialog.cpp:372
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr "Επιλέξτε μηχανή σκακιού για τον πρώτο παίκτη."
 
-#: gamedialog.cpp:358
+#: gamedialog.cpp:378
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr "Επιλέξτε μηχανή σκακιού για τον δεύτερο παίκτη."
 
-#: gamedialog.cpp:363
+#: gamedialog.cpp:383
 #, kde-format
 msgid "Start the game."
 msgstr "Έναρξη παιχνιδιού."
@@ -287,65 +287,65 @@ msgstr "Αρχ&ικό χρονικό περιθώριο:"
 msgid "I&ncrement per move:"
 msgstr "&Πρόοδος ανά κίνηση:"
 
-#: gamemanager.cpp:416
+#: gamemanager.cpp:417
 #, kde-format
 msgctxt "The player of this color"
 msgid "White"
 msgstr "Λευκά"
 
-#: gamemanager.cpp:417
+#: gamemanager.cpp:418
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
 msgstr "Μαύρα"
 
-#: gamemanager.cpp:524
+#: gamemanager.cpp:525
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "Ο %1 προσφέρει ισοπαλία"
 
-#: gamemanager.cpp:527
+#: gamemanager.cpp:528
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
 msgstr[0] "Ο %2 επιθυμεί να πάρει πίσω την τελευταία κίνηση"
 msgstr[1] "Ο %2 επιθυμεί να πάρει πίσω τις %1 τελευταίες κινήσεις"
 
-#: gamemanager.cpp:530
+#: gamemanager.cpp:531
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "Ο %1 επιθυμεί τη διακοπή του παιχνιδιού"
 
-#: gamemanager.cpp:533
+#: gamemanager.cpp:534
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "Ο %1 επιθυμεί να εγκαταλείψει το παιχνίδι"
 
-#: gamemanager.cpp:628
+#: gamemanager.cpp:629
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "O %1 κάνει ροκέ με τη βασίλισσα"
 
-#: gamemanager.cpp:631
+#: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "Ο %1 κάνει ροκέ με το βασιλιά"
 
-#: gamemanager.cpp:635
+#: gamemanager.cpp:636
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 to %2"
 
-#: gamemanager.cpp:648
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "Σαχ"
 
-#: gamemanager.cpp:650
+#: gamemanager.cpp:651
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:44+0000\n"
+"POT-Creation-Date: 2023-06-25 00:47+0000\n"
 "PO-Revision-Date: 2022-10-21 09:55+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -150,13 +150,13 @@ msgstr "Протокол"
 msgid "Installed"
 msgstr "Встановлено"
 
-#: gamedialog.cpp:67
+#: gamedialog.cpp:74
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Нова гра"
 
-#: gamedialog.cpp:259
+#: gamedialog.cpp:279
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
@@ -165,7 +165,7 @@ msgstr[1] " хвилини"
 msgstr[2] " хвилин"
 msgstr[3] " хвилина"
 
-#: gamedialog.cpp:260
+#: gamedialog.cpp:280
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
@@ -174,7 +174,7 @@ msgstr[1] " секунди"
 msgstr[2] " секунд"
 msgstr[3] " секунда"
 
-#: gamedialog.cpp:261
+#: gamedialog.cpp:281
 #, kde-format
 msgid " move"
 msgid_plural " moves"
@@ -183,23 +183,23 @@ msgstr[1] " ходи"
 msgstr[2] " ходів"
 msgstr[3] " хід"
 
-#: gamedialog.cpp:300
+#: gamedialog.cpp:320
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Рушії шахової гри"
 
-#: gamedialog.cpp:352
+#: gamedialog.cpp:372
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr "Виберіть шаховий рушій для першого гравця."
 
-#: gamedialog.cpp:358
+#: gamedialog.cpp:378
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr "Виберіть шаховий рушій для другого гравця."
 
-#: gamedialog.cpp:363
+#: gamedialog.cpp:383
 #, kde-format
 msgid "Start the game."
 msgstr "Почати гру."
@@ -295,24 +295,24 @@ msgstr "По&чаткове обмеження часу:"
 msgid "I&ncrement per move:"
 msgstr "З&більшення за хід:"
 
-#: gamemanager.cpp:416
+#: gamemanager.cpp:417
 #, kde-format
 msgctxt "The player of this color"
 msgid "White"
 msgstr "Білі"
 
-#: gamemanager.cpp:417
+#: gamemanager.cpp:418
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
 msgstr "Чорні"
 
-#: gamemanager.cpp:524
+#: gamemanager.cpp:525
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "%1 пропонує вам нічию"
 
-#: gamemanager.cpp:527
+#: gamemanager.cpp:528
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
@@ -321,41 +321,41 @@ msgstr[1] "%2 бажає скасувати %1 свої ходи"
 msgstr[2] "%2 бажає скасувати %1 своїх ходів"
 msgstr[3] "%2 бажає скасувати свій хід"
 
-#: gamemanager.cpp:530
+#: gamemanager.cpp:531
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "%1 бажає відкласти гру"
 
-#: gamemanager.cpp:533
+#: gamemanager.cpp:534
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "%1 бажає перервати гру"
 
-#: gamemanager.cpp:628
+#: gamemanager.cpp:629
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "%1 робить рокіровку з флангу королеви"
 
-#: gamemanager.cpp:631
+#: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "%1 робить рокіровку з флангу короля"
 
-#: gamemanager.cpp:635
+#: gamemanager.cpp:636
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 на %2"
 
-#: gamemanager.cpp:648
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "Шах"
 
-#: gamemanager.cpp:650
+#: gamemanager.cpp:651
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
