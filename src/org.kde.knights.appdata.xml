@@ -1004,9 +1004,9 @@
     <binary>knights</binary>
   </provides>
   <releases>
+    <release version="2.6.23043" date="2023-07-06"/>
     <release version="2.6.23042" date="2023-06-08"/>
     <release version="2.6.23041" date="2023-05-11"/>
     <release version="2.6.23040" date="2023-04-20"/>
-    <release version="2.6.22123" date="2023-03-02"/>
   </releases>
 </component>
