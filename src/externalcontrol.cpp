@@ -40,5 +40,4 @@ void ExternalControl::slotMoveMade(const Knights::Move& move) {
 	Q_EMIT moveMade(move.string());
 }
 
-
-
+#include "moc_externalcontrol.cpp"

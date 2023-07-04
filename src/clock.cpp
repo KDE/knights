@@ -180,3 +180,5 @@ void Clock::paintEvent( QPaintEvent * ) {
 	paint.setRenderHint(QPainter::Antialiasing);
 	paintInterface(&paint, rect());
 }
+
+#include "moc_clock.cpp"

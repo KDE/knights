@@ -551,3 +551,5 @@ void FicsProtocol::makeOffer(const Offer& offer) {
 		break;
 	}
 }
+
+#include "moc_ficsprotocol.cpp"

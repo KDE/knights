@@ -250,3 +250,5 @@ void EngineSettings::save() {
 
 	Settings::setEngineConfigurations(out);
 }
+
+#include "moc_enginesettings.cpp"

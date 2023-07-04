@@ -205,3 +205,5 @@ void Protocol::setDifficulty(int depth, int memory) {
 }
 
 }
+
+#include "moc_protocol.cpp"

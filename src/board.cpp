@@ -602,3 +602,5 @@ PieceType Board::getPromotedType() {
 	delete dialog;
 	return piece;
 }
+
+#include "moc_board.cpp"

@@ -382,3 +382,5 @@ void GameDialog::checkOkButton() {
 	okButton->setEnabled(true);
 	okButton->setToolTip(i18n("Start the game."));
 }
+
+#include "moc_gamedialog.cpp"

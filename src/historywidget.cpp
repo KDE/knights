@@ -70,3 +70,5 @@ void HistoryWidget::updateHistory() {
 	if (bottom)
 		ui->twMoves->scrollToBottom();
 }
+
+#include "moc_historywidget.cpp"

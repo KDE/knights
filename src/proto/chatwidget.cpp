@@ -156,8 +156,4 @@ bool ChatWidget::consoleMode() const {
 	return m_consoleMode;
 }
 
-
-
-
-
-
+#include "moc_chatwidget.cpp"

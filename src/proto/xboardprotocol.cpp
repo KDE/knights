@@ -292,3 +292,5 @@ void XBoardProtocol::setDifficulty(int depth, int memory) {
 	write ( QLatin1String("sd ") + QString::number ( depth ) );
 	write ( QLatin1String("memory ") + QString::number ( memory ) );
 }
+
+#include "moc_xboardprotocol.cpp"

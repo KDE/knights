@@ -961,3 +961,5 @@ QStack< Move > Manager::moveHistory() const {
 	Q_D(const GameManager);
 	return d->moveHistory;
 }
+
+#include "moc_gamemanager.cpp"

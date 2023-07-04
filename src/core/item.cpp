@@ -125,3 +125,5 @@ void Item::moveAndResize ( const QPointF& pos, qreal tileSize, const QSize& size
 		group->start ( QAbstractAnimation::DeleteWhenStopped );
 	}
 }
+
+#include "moc_item.cpp"

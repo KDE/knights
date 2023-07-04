@@ -55,5 +55,4 @@ void LocalProtocol::declineOffer(const Offer& offer) {
 	Q_UNUSED(offer);
 }
 
-
-
+#include "moc_localprotocol.cpp"

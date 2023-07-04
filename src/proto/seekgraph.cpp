@@ -119,3 +119,5 @@ void SeekGraph::setRect ( const QRectF rect ) {
 	m_dataRect = rect;
 	setLimits ( rect.left(), rect.right(), rect.top(), rect.bottom() );
 }
+
+#include "moc_seekgraph.cpp"

@@ -153,3 +153,5 @@ void KnightsView::updateOffers() {
 	}
 	ui->notificationWidget->show();
 }
+
+#include "moc_knightsview.cpp"

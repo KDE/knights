@@ -225,3 +225,5 @@ void FicsDialog::rememberCheckBoxChanged( int state ) {
 	Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
 	Settings::self()->save();
 }
+
+#include "moc_ficsdialog.cpp"

@@ -50,3 +50,5 @@ void OfferWidget::closeClicked() {
 	Q_EMIT close(offerId, IgnoreOffer);
 	deleteLater();
 }
+
+#include "moc_offerwidget.cpp"

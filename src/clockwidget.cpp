@@ -84,3 +84,5 @@ void ClockWidget::updateTimeFormat() {
 	else
 		m_timeFormat = QStringLiteral("mm:ss");
 }
+
+#include "moc_clockwidget.cpp"

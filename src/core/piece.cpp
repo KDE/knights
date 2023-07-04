@@ -151,3 +151,5 @@ void Piece::updateSpriteKey() {
 }
 
 }
+
+#include "moc_piece.cpp"

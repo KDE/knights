@@ -60,3 +60,5 @@ int DifficultyDialog::memorySize() const {
 int DifficultyDialog::searchDepth() const {
 	return ui->sbSearchDepth->value();
 }
+
+#include "moc_difficultydialog.cpp"

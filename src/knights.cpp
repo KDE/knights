@@ -720,3 +720,5 @@ void MainWindow::closeEvent(QCloseEvent* event) {
 	if (!maybeSave())
 		event->ignore();
 }
+
+#include "moc_knights.cpp"
