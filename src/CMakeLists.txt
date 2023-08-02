@@ -38,6 +38,7 @@ set(knights_SRCS
     knightsview.cpp
     knights.cpp
     main.cpp
+    knights.qrc
  )
 
 ki18n_wrap_ui(knights_SRCS
@@ -97,7 +98,6 @@ install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( PROGRAMS org.kde.knights.desktop  DESTINATION ${KDE_INSTALL_APPDIR} )
 install( FILES knights.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
-install( FILES knightsui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUIDIR}/knights )
 install( FILES knights.knsrc  DESTINATION  ${KDE_INSTALL_DATADIR}/knsrcfiles )
 install( FILES org.kde.Knights.xml DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR} )
 install( FILES org.kde.knights.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR} )
