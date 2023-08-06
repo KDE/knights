@@ -495,7 +495,7 @@ msgstr "Amosar a consola negra"
 #: knights.cpp:259
 #, kde-format
 msgid "Show Chat"
-msgstr "Amosar a conversa"
+msgstr "Amosar a charla"
 
 #: knights.cpp:298
 #, kde-format
@@ -671,7 +671,7 @@ msgstr "amosar os reloxos cando se use o control de tempo"
 #: knights.kcfg:72
 #, kde-format
 msgid "show chat window, if supported by the protocol"
-msgstr "amosar unha xanela de conversa se o admite o protocolo"
+msgstr "amosar unha xanela de charla se o admite o protocolo"
 
 #. i18n: ectx: label, entry (showConsole), group (Preferences)
 #: knights.kcfg:76
