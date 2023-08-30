@@ -13,7 +13,11 @@
 
 #include <math.h>
 
+#if QT_VERSION_MAJOR == 5
 #include <Plasma/Svg>
+#else
+#include <KSvg/Svg>
+#endif
 
 #include <QPainter>
 #include <QPaintEvent>
@@ -21,10 +25,17 @@
 using namespace Knights;
 
 Clock::Clock(QWidget* parent) : QWidget(parent),
+#if QT_VERSION_MAJOR == 5
 	m_theme(new Plasma::Svg(this)),
+#else
+	m_theme(new KSvg::Svg(this)),
+#endif
 	m_repaintCache(RepaintNone),
 	m_verticalTranslation(0.) {
 
+#if QT_VERSION_MAJOR == 6
+	m_theme->setImageSet(new KSvg::ImageSet(QString(), QStringLiteral("plasma/desktoptheme"), this));
+#endif
 	m_theme->setImagePath(QStringLiteral("widgets/clock") );
 	m_theme->setContainsMultipleImages(true);
 }

@@ -61,13 +61,14 @@ find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
   Plotting
   DocTools
   Wallet
-  Plasma
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
    find_package(KDEGames6 7.3.1 REQUIRED)
+   find_package(KF6Svg ${KF_MIN_VERSION} REQUIRED)
 else()
    find_package(KF5KDEGames 7.3.1 REQUIRED)
+   find_package(KF5Plasma ${KF_MIN_VERSION} REQUIRED)
 endif()
 
 include(KDECMakeSettings)

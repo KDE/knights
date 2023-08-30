@@ -15,9 +15,15 @@
 #include <QWidget>
 #include <QTime>
 
+#if QT_VERSION_MAJOR == 5
 namespace Plasma {
 class Svg;
 }
+#else
+namespace KSvg {
+class Svg;
+}
+#endif
 
 namespace Knights {
 /**
@@ -48,7 +54,11 @@ private:
 	void paintInterface(QPainter *p, const QRect &rect);
 
 	QTime time;
+#if QT_VERSION_MAJOR == 5
 	Plasma::Svg *m_theme;
+#else
+	KSvg::Svg *m_theme;
+#endif
 	enum RepaintCache {
 		RepaintNone,
 		RepaintAll,
