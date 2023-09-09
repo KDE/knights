@@ -52,6 +52,7 @@ if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
 endif ()
 
 find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+  CoreAddons
   DBusAddons
   ConfigWidgets
   Crash

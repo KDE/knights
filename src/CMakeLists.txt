@@ -74,6 +74,7 @@ target_link_libraries(knights
      Qt${QT_MAJOR_VERSION}::Svg
      Qt${QT_MAJOR_VERSION}::Gui
      Qt${QT_MAJOR_VERSION}::Concurrent
+     KF${QT_MAJOR_VERSION}::CoreAddons
      KF${QT_MAJOR_VERSION}::Crash
      KF${QT_MAJOR_VERSION}::Solid
      KF${QT_MAJOR_VERSION}::WidgetsAddons
