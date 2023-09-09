@@ -65,8 +65,18 @@ find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
+   find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+       Svg
+   )
    find_package(KDEGames6 7.3.1 REQUIRED)
+
+   find_package(KF6Plasma REQUIRED)
+   set_package_properties(KF6Plasma PROPERTIES
+       TYPE RUNTIME
+       PURPOSE "clock svg (part of the desktop theme)"
+   )
 else()
+   find_package(KF5Plasma ${KF_MIN_VERSION} REQUIRED)
    find_package(KF5KDEGames 7.3.1 REQUIRED)
 endif()
 

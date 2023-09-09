@@ -80,16 +80,22 @@ target_link_libraries(knights
      KF${QT_MAJOR_VERSION}::DBusAddons
      KF${QT_MAJOR_VERSION}::XmlGui
      KF${QT_MAJOR_VERSION}::Plotting
-     KF${QT_MAJOR_VERSION}::Plasma
      KF${QT_MAJOR_VERSION}::Completion
      KF${QT_MAJOR_VERSION}::TextWidgets
      KF${QT_MAJOR_VERSION}::Wallet
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(knights Qt6::Core5Compat KDEGames6)
+    target_link_libraries(knights
+        Qt6::Core5Compat
+        KDEGames6
+        KF6::Svg
+    )
 else()
-    target_link_libraries(knights KF5KDEGames)
+    target_link_libraries(knights
+        KF5KDEGames
+        KF5::Plasma
+    )
 endif()
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
