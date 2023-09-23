@@ -29,8 +29,15 @@ endif(CMAKE_COMPILER_IS_GNUCXX)
 
 #set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
 
-include(FeatureSummary)
 include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
+include(ECMAddAppIcon)
+include(ECMInstallIcons)
+include(ECMQtDeclareLoggingCategory)
+include(ECMSetupVersion)
+include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
    Concurrent
@@ -80,15 +87,6 @@ else()
    find_package(KF5Plasma ${KF_MIN_VERSION} REQUIRED)
    find_package(KF5KDEGames 7.3.1 REQUIRED)
 endif()
-
-include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-
-include(FeatureSummary)
-include(ECMAddAppIcon)
-include(ECMInstallIcons)
-include(ECMQtDeclareLoggingCategory)
-include(ECMSetupVersion)
 
 add_definitions(
     -DQT_NO_CAST_TO_ASCII
