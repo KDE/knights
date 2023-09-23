@@ -2,31 +2,6 @@
 # SPDX-License-Identifier: CC0-1.0
 
 Dependencies:
-- 'on': ['Linux/Qt5', 'FreeBSD/Qt5']
-  'require':
-    'frameworks/extra-cmake-modules': '@stable'
-    'games/libkdegames': '@same'
-    'frameworks/kconfig': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-    'frameworks/kcoreaddons': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/kdbusaddons': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/ki18n': '@stable'
-    'frameworks/ktextwidgets': '@stable'
-    'frameworks/kwidgetsaddons': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/kdbusaddons': '@stable'
-    'frameworks/kconfigwidgets': '@stable'
-    'frameworks/kcrash': '@stable'
-    'frameworks/ktextwidgets': '@stable'
-    'frameworks/kxmlgui': '@stable'
-    'frameworks/kio': '@stable'
-    'frameworks/kplotting': '@stable'
-    'frameworks/kdoctools': '@stable'
-    'frameworks/kwallet': '@stable'
-    'frameworks/plasma-framework': '@stable'
-
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
   'require':
     'frameworks/extra-cmake-modules': '@latest-kf6'

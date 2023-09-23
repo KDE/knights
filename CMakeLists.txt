@@ -12,15 +12,15 @@ set(KNIGHTS_VERSION "${KNIGHTS_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSION}"
 
 project(Knights VERSION ${KNIGHTS_VERSION})
 
-set (QT_MIN_VERSION "5.15.0")
-set (KF_MIN_VERSION "5.91.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
 if(CMAKE_COMPILER_IS_GNUCXX)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpointer-arith -Wunreachable-code -fno-omit-frame-pointer -fstack-protector") 
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpointer-arith -Wunreachable-code -fno-omit-frame-pointer -fstack-protector")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
 #set(CMAKE_CXX_FLAGS_PROFILE "-fprofile-arcs -ftest-coverage -pg")
@@ -36,76 +36,50 @@ include(ECMSetupVersion)
 include(ECMDeprecationSettings)
 include(FeatureSummary)
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_MIN_VERSION "6.5.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
-
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
-   Concurrent
-   Core
-   Gui
-   Widgets
-   Svg
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
+    Concurrent
+    Core
+    Core5Compat
+    Gui
+    Widgets
+    Svg
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-   find_package(Qt6Core5Compat REQUIRED)
-endif()
-
-find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} QUIET)
-set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES
-   PURPOSE "Speaking of opponents moves")
-if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
-   add_definitions(-DHAVE_SPEECH)
+find_package(Qt6TextToSpeech ${QT_MIN_VERSION} QUIET)
+set_package_properties(Qt6TextToSpeech PROPERTIES
+    PURPOSE "Speaking of opponents moves"
+)
+if (Qt6TextToSpeech_FOUND)
+    add_definitions(-DHAVE_SPEECH)
 endif ()
 
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
-  CoreAddons
-  DBusAddons
-  ConfigWidgets
-  Crash
-  TextWidgets
-  XmlGui
-  KIO
-  Plotting
-  DocTools
-  Wallet
-  Plasma
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+    CoreAddons
+    DBusAddons
+    ConfigWidgets
+    Crash
+    TextWidgets
+    XmlGui
+    KIO
+    Plotting
+    DocTools
+    Wallet
+    Svg
 )
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-   find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
-       Svg
-   )
-   find_package(KDEGames6 7.3.1 REQUIRED)
+find_package(KF6Plasma REQUIRED)
+set_package_properties(KF6Plasma PROPERTIES
+    TYPE RUNTIME
+    PURPOSE "clock svg (part of the desktop theme)"
+)
 
-   find_package(KF6Plasma REQUIRED)
-   set_package_properties(KF6Plasma PROPERTIES
-       TYPE RUNTIME
-       PURPOSE "clock svg (part of the desktop theme)"
-   )
-else()
-   find_package(KF5Plasma ${KF_MIN_VERSION} REQUIRED)
-   find_package(KF5KDEGames 7.3.1 REQUIRED)
-endif()
+find_package(KDEGames6 7.5 REQUIRED)
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-   ecm_set_disabled_deprecation_versions(
-      QT 6.5
-      KF 5.239
-      KDEGAMES 7.5
-   )
-else()
-   ecm_set_disabled_deprecation_versions(
-      QT 5.15.2
-      KF 5.91
-      KDEGAMES 7.5
-   )
-endif()
+ecm_set_disabled_deprecation_versions(
+    QT 6.5
+    KF 5.239
+    KDEGAMES 7.5
+)
 
 add_subdirectory(doc)
 add_subdirectory(icons)
@@ -113,12 +87,13 @@ add_subdirectory(sounds)
 add_subdirectory(src)
 add_subdirectory(themes)
 
-ecm_qt_install_logging_categories(EXPORT KNIGHTS FILE knights.categories DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+ecm_qt_install_logging_categories(
+    EXPORT KNIGHTS
+    FILE knights.categories
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 ki18n_install(po)
 kdoctools_install(po)
 
-feature_summary(WHAT ALL
-                INCLUDE_QUIET_PACKAGES
-                FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

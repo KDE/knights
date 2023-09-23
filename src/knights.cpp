@@ -36,11 +36,9 @@
 #include "enginesettings.h"
 
 // KDEGames
-#include <kdegames_version.h>
 #include <KgThemeSelector>
 #include <KStandardGameAction>
 
-#include <kwidgetsaddons_version.h>
 #include <KConfigDialog>
 #include <KActionCollection>
 #include <KStandardAction>
@@ -112,11 +110,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	connect(Manager::self(), &Manager::winnerNotify, this, &MainWindow::gameOver);
 	connect(qApp, &QGuiApplication::lastWindowClosed, this, &MainWindow::exitKnights);
 
-#if KDEGAMES_VERSION >= QT_VERSION_CHECK(7, 4, 0)
 	m_themeProvider->discoverThemes(QStringLiteral("themes"));
-#else
-	m_themeProvider->discoverThemes("appdata", QStringLiteral("themes"));
-#endif
 	m_view->drawBoard(m_themeProvider);
 }
 
@@ -482,19 +476,11 @@ void MainWindow::optionsPreferences() {
 }
 
 void MainWindow::resign() {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
 	int rc = KMessageBox::questionTwoActions(this,
-#else
-	int rc = KMessageBox::questionYesNo(this,
-#endif
 					    i18n("Do you really want to resign?"), i18n("Resign"),
 					    KGuiItem(i18nc("@action:button", "Resign"), QStringLiteral("flag-red")),
 					    KStandardGuiItem::cancel());
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
 	if (rc == KMessageBox::PrimaryAction)
-#else
-	if (rc == KMessageBox::Yes)
-#endif
 		Manager::self()->resign();
 }
 
@@ -638,11 +624,7 @@ bool MainWindow::maybeSave() {
 
 	Settings::setDontAskInternal(QString());
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
 	int result = KMessageBox::warningTwoActionsCancel(QApplication::activeWindow(),
-#else
-	int result = KMessageBox::warningYesNoCancel(QApplication::activeWindow(),
-#endif
 	             i18n("This will end your game.\nWould you like to save the move history?"),
 	             QString(),
 	             KStandardGuiItem::save(),
@@ -651,17 +633,9 @@ bool MainWindow::maybeSave() {
 	             QLatin1String(DontAskDiscard));
 
 	KMessageBox::ButtonCode res;
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
 	Settings::setAskDiscard(KMessageBox::shouldBeShownTwoActions(QLatin1String(DontAskDiscard), res));
-#else
-	Settings::setAskDiscard(KMessageBox::shouldBeShownYesNo(QLatin1String(DontAskDiscard), res));
-#endif
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
 	if(result == KMessageBox::PrimaryAction)
-#else
-	if(result == KMessageBox::Yes)
-#endif
 		fileSave();
 
 	return result != KMessageBox::Cancel;

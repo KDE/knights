@@ -28,10 +28,6 @@
 
 #include <QDialog>
 
-#if QT_VERSION_MAJOR == 5
-class QNetworkConfigurationManager;
-#endif
-
 namespace Ui {
 class GameDialog;
 }
@@ -57,9 +53,6 @@ public:
 
 private:
 	Ui::GameDialog* ui;
-#if QT_VERSION_MAJOR == 5
-	QNetworkConfigurationManager* m_networkManager;
-#endif
 	QPushButton* okButton;
 
 private Q_SLOTS:

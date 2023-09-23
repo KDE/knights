@@ -76,40 +76,31 @@ ecm_qt_declare_logging_category(knights
 file(GLOB ICON_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-knights.png")
 ecm_add_app_icon(knights ICONS ${ICON_SRCS})
 
-if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
-  target_link_libraries(knights
-        Qt${QT_MAJOR_VERSION}::TextToSpeech)
+if (Qt6TextToSpeech_FOUND)
+     target_link_libraries(knights
+         Qt6::TextToSpeech
+     )
 endif()
 
 target_link_libraries(knights
-     Qt${QT_MAJOR_VERSION}::Network
-     Qt${QT_MAJOR_VERSION}::Svg
-     Qt${QT_MAJOR_VERSION}::Gui
-     Qt${QT_MAJOR_VERSION}::Concurrent
-     KF${KF_MAJOR_VERSION}::CoreAddons
-     KF${KF_MAJOR_VERSION}::Crash
-     KF${KF_MAJOR_VERSION}::Solid
-     KF${KF_MAJOR_VERSION}::WidgetsAddons
-     KF${KF_MAJOR_VERSION}::DBusAddons
-     KF${KF_MAJOR_VERSION}::XmlGui
-     KF${KF_MAJOR_VERSION}::Plotting
-     KF${KF_MAJOR_VERSION}::Completion
-     KF${KF_MAJOR_VERSION}::TextWidgets
-     KF${KF_MAJOR_VERSION}::Wallet
+     KDEGames6
+     KF6::CoreAddons
+     KF6::Crash
+     KF6::Solid
+     KF6::WidgetsAddons
+     KF6::DBusAddons
+     KF6::XmlGui
+     KF6::Plotting
+     KF6::Completion
+     KF6::Svg
+     KF6::TextWidgets
+     KF6::Wallet
+     Qt6::Network
+     Qt6::Svg
+     Qt6::Gui
+     Qt6::Concurrent
+     Qt6::Core5Compat
 )
-
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(knights
-        Qt6::Core5Compat
-        KDEGames6
-        KF6::Svg
-    )
-else()
-    target_link_libraries(knights
-        KF5KDEGames
-        KF5::Plasma
-    )
-endif()
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
