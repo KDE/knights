@@ -17,7 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set (QT_MIN_VERSION "5.15.0")
-set (KF_MIN_VERSION "5.90.0")
+set (KF_MIN_VERSION "5.91.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
 
@@ -37,6 +37,7 @@ include(ECMAddAppIcon)
 include(ECMInstallIcons)
 include(ECMQtDeclareLoggingCategory)
 include(ECMSetupVersion)
+include(ECMDeprecationSettings)
 include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
@@ -88,15 +89,25 @@ else()
    find_package(KF5KDEGames 7.3.1 REQUIRED)
 endif()
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+   ecm_set_disabled_deprecation_versions(
+      QT 6.5
+      KF 5.239
+      KDEGAMES 7.5
+   )
+else()
+   ecm_set_disabled_deprecation_versions(
+      QT 5.15.2
+      KF 5.91
+      KDEGAMES 7.5
+   )
+endif()
+
 add_definitions(
     -DQT_NO_CAST_TO_ASCII
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_URL_CAST_FROM_STRING
     -DQT_NO_CAST_FROM_BYTEARRAY
-    -DQT_DISABLE_DEPRECATED_BEFORE=0x050F02
-    -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900
-    -DKF_DEPRECATED_WARNINGS_SINCE=0x060000
 )
 
 add_subdirectory(doc)
