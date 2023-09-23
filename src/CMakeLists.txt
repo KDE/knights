@@ -3,7 +3,14 @@ ecm_setup_version(${KNIGHTS_VERSION}
     VERSION_HEADER knights_version.h
 )
 
-set(knights_SRCS
+add_executable(knights)
+
+set(dbus_SRCS)
+qt_add_dbus_adaptor(dbus_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
+
+target_sources(knights PRIVATE
+    ${dbus_SRCS}
+
     core/pos.cpp
     core/move.cpp
     core/item.cpp
@@ -41,7 +48,7 @@ set(knights_SRCS
     knights.qrc
  )
 
-ki18n_wrap_ui(knights_SRCS
+ki18n_wrap_ui(knights
     knightsview_base.ui
     prefs_base.ui
     prefs_access.ui
@@ -56,13 +63,18 @@ ki18n_wrap_ui(knights_SRCS
     customdifficultydialog.ui
 )
 
-kconfig_add_kcfg_files(knights_SRCS settings.kcfgc )
-qt_add_dbus_adaptor(knights_SRCS org.kde.Knights.xml externalcontrol.h Knights::ExternalControl)
-ecm_qt_declare_logging_category(knights_SRCS HEADER knightsdebug.h IDENTIFIER LOG_KNIGHTS CATEGORY_NAME log_knights DESCRIPTION "knights" EXPORT KNIGHTS)
+kconfig_add_kcfg_files(knights settings.kcfgc )
+
+ecm_qt_declare_logging_category(knights
+    HEADER knightsdebug.h
+    IDENTIFIER LOG_KNIGHTS
+    CATEGORY_NAME log_knights
+    DESCRIPTION "knights"
+    EXPORT KNIGHTS
+)
 
 file(GLOB ICON_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../icons/*-apps-knights.png")
-ecm_add_app_icon(knights_SRCS ICONS ${ICON_SRCS})
-add_executable(knights ${knights_SRCS})
+ecm_add_app_icon(knights ICONS ${ICON_SRCS})
 
 if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
   target_link_libraries(knights
@@ -100,8 +112,6 @@ else()
 endif()
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
-
-########### install files ###############
 
 install( PROGRAMS org.kde.knights.desktop  DESTINATION ${KDE_INSTALL_APPDIR} )
 install( FILES knights.kcfg  DESTINATION  ${KDE_INSTALL_KCFGDIR} )
