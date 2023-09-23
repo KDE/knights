@@ -74,16 +74,16 @@ target_link_libraries(knights
      Qt${QT_MAJOR_VERSION}::Svg
      Qt${QT_MAJOR_VERSION}::Gui
      Qt${QT_MAJOR_VERSION}::Concurrent
-     KF${QT_MAJOR_VERSION}::CoreAddons
-     KF${QT_MAJOR_VERSION}::Crash
-     KF${QT_MAJOR_VERSION}::Solid
-     KF${QT_MAJOR_VERSION}::WidgetsAddons
-     KF${QT_MAJOR_VERSION}::DBusAddons
-     KF${QT_MAJOR_VERSION}::XmlGui
-     KF${QT_MAJOR_VERSION}::Plotting
-     KF${QT_MAJOR_VERSION}::Completion
-     KF${QT_MAJOR_VERSION}::TextWidgets
-     KF${QT_MAJOR_VERSION}::Wallet
+     KF${KF_MAJOR_VERSION}::CoreAddons
+     KF${KF_MAJOR_VERSION}::Crash
+     KF${KF_MAJOR_VERSION}::Solid
+     KF${KF_MAJOR_VERSION}::WidgetsAddons
+     KF${KF_MAJOR_VERSION}::DBusAddons
+     KF${KF_MAJOR_VERSION}::XmlGui
+     KF${KF_MAJOR_VERSION}::Plotting
+     KF${KF_MAJOR_VERSION}::Completion
+     KF${KF_MAJOR_VERSION}::TextWidgets
+     KF${KF_MAJOR_VERSION}::Wallet
 )
 
 if (QT_MAJOR_VERSION STREQUAL "6")

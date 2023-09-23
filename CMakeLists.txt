@@ -36,6 +36,14 @@ include(ECMSetupVersion)
 include(ECMDeprecationSettings)
 include(FeatureSummary)
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_MIN_VERSION "6.5.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MAJOR_VERSION "5")
+endif()
+
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS
    Concurrent
    Core
@@ -55,7 +63,7 @@ if (Qt${QT_MAJOR_VERSION}TextToSpeech_FOUND)
    add_definitions(-DHAVE_SPEECH)
 endif ()
 
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
   CoreAddons
   DBusAddons
   ConfigWidgets
