@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:47+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2013-08-11 23:21+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -149,52 +149,52 @@ msgstr "Protokoll"
 msgid "Installed"
 msgstr "Telepített"
 
-#: gamedialog.cpp:74
+#: gamedialog.cpp:67
 #, fuzzy, kde-format
 #| msgid "New Game"
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Új játék"
 
-#: gamedialog.cpp:279
+#: gamedialog.cpp:266
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " perc"
 msgstr[1] " perc"
 
-#: gamedialog.cpp:280
+#: gamedialog.cpp:267
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " másodperc"
 msgstr[1] " másodperc"
 
-#: gamedialog.cpp:281
+#: gamedialog.cpp:268
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " lépés"
 msgstr[1] " lépés"
 
-#: gamedialog.cpp:320
+#: gamedialog.cpp:307
 #, fuzzy, kde-format
 #| msgid "Computer Engines"
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Számítógép motorok"
 
-#: gamedialog.cpp:372
+#: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr ""
 
-#: gamedialog.cpp:378
+#: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr ""
 
-#: gamedialog.cpp:383
+#: gamedialog.cpp:370
 #, fuzzy, kde-format
 #| msgid "Automatically start the game"
 msgid "Start the game."
@@ -407,164 +407,164 @@ msgstr "Hosszú algebrai"
 msgid "Coordinate"
 msgstr "Koordináta"
 
-#: knights.cpp:95
+#: knights.cpp:93
 #, kde-format
 msgid "Custom"
 msgstr "Egyéni"
 
-#: knights.cpp:139
+#: knights.cpp:133
 #, kde-format
 msgid "%1 is thinking..."
 msgstr ""
 
-#: knights.cpp:146
+#: knights.cpp:140
 #, kde-format
 msgid "Clock"
 msgstr "Óra"
 
-#: knights.cpp:177
+#: knights.cpp:171
 #, fuzzy, kde-format
 #| msgid "Move History"
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Lépéselőzmények"
 
-#: knights.cpp:196 knights.cpp:490
+#: knights.cpp:190 knights.cpp:480
 #, kde-format
 msgid "Resign"
 msgstr "Feladás"
 
-#: knights.cpp:197
+#: knights.cpp:191
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr ""
 
-#: knights.cpp:202
+#: knights.cpp:196
 #, kde-format
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: knights.cpp:203
+#: knights.cpp:197
 #, kde-format
 msgid "Take back your last move"
 msgstr "Az utolsó lépés visszavétele"
 
-#: knights.cpp:209
+#: knights.cpp:203
 #, kde-format
 msgid "Redo"
 msgstr "Újra végrehajtás"
 
-#: knights.cpp:210
+#: knights.cpp:204
 #, kde-format
 msgid "Repeat your last move"
 msgstr "Az utolsó lépés megismétlése"
 
-#: knights.cpp:217
+#: knights.cpp:211
 #, kde-format
 msgid "Offer &Draw"
 msgstr "&Döntetlen felajánlása"
 
-#: knights.cpp:218
+#: knights.cpp:212
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "Döntetlen felajánlása az ellenfélnek"
 
-#: knights.cpp:223
+#: knights.cpp:217
 #, kde-format
 msgid "Adjourn"
 msgstr "Elhalasztás"
 
-#: knights.cpp:224
+#: knights.cpp:218
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "A játék folytatása később"
 
-#: knights.cpp:229
+#: knights.cpp:223
 #, kde-format
 msgid "Abort"
 msgstr "Megszakítás"
 
-#: knights.cpp:230
+#: knights.cpp:224
 #, kde-format
 msgid "End the game immediately"
 msgstr "A játék azonnali befejezése"
 
-#: knights.cpp:234
+#: knights.cpp:228
 #, kde-format
 msgid "Show Clock"
 msgstr "Óra megjelenítése"
 
-#: knights.cpp:240
+#: knights.cpp:234
 #, kde-format
 msgid "Show History"
 msgstr "Előzmények megjelenítése"
 
-#: knights.cpp:247
+#: knights.cpp:241
 #, kde-format
 msgid "Show White Console"
 msgstr "Világos konzol megjelenítése"
 
-#: knights.cpp:253
+#: knights.cpp:247
 #, kde-format
 msgid "Show Black Console"
 msgstr "Sötét konzol megjelenítése"
 
-#: knights.cpp:259
+#: knights.cpp:253
 #, kde-format
 msgid "Show Chat"
 msgstr "Csevegőablak megjelenítése"
 
-#: knights.cpp:298
+#: knights.cpp:292
 #, kde-format
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:299 knights.cpp:675 knights.cpp:698
+#: knights.cpp:293 knights.cpp:649 knights.cpp:672
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
 msgstr "*.pgn | Hordozható játékábrázolás"
 
-#: knights.cpp:463
+#: knights.cpp:457
 #, kde-format
 msgid "General"
 msgstr "Általános"
 
-#: knights.cpp:467
+#: knights.cpp:461
 #, kde-format
 msgid "Computer Engines"
 msgstr "Számítógép motorok"
 
-#: knights.cpp:478
+#: knights.cpp:472
 #, kde-format
 msgid "Theme"
 msgstr "Téma"
 
-#: knights.cpp:490
+#: knights.cpp:480
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr ""
 
-#: knights.cpp:491
+#: knights.cpp:481
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Feladás"
 
-#: knights.cpp:542
+#: knights.cpp:528
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Vége a játéknak"
 
-#: knights.cpp:566
+#: knights.cpp:552
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "A játék döntetlennel ért véget"
 
-#: knights.cpp:572
+#: knights.cpp:558
 #, fuzzy, kde-format
 #| msgctxt "White as in the player with white pieces"
 #| msgid "The game ended with a victory for <emphasis>White</emphasis>"
@@ -572,7 +572,7 @@ msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "A játék véget ért a <emphasis>Világos</emphasis> győzelmével"
 
-#: knights.cpp:575
+#: knights.cpp:561
 #, fuzzy, kde-format
 #| msgctxt "Black as in the player with black pieces"
 #| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
@@ -580,7 +580,7 @@ msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "A játék véget ért a <emphasis>Sötét</emphasis> győzelmével"
 
-#: knights.cpp:580
+#: knights.cpp:566
 #, fuzzy, kde-format
 #| msgctxt "Player name, then <White as in the player with white pieces"
 #| msgid ""
@@ -591,7 +591,7 @@ msgstr ""
 "A játék véget ért a <emphasis>%1</emphasis> győzelmével, aki világossal "
 "játszott"
 
-#: knights.cpp:583
+#: knights.cpp:569
 #, fuzzy, kde-format
 #| msgctxt "Player name, then Black as in the player with black pieces"
 #| msgid ""
@@ -602,24 +602,24 @@ msgstr ""
 "A játék véget ért a <emphasis>%1</emphasis> győzelmével, aki sötéttel "
 "játszott"
 
-#: knights.cpp:629
+#: knights.cpp:615
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
 
-#: knights.cpp:646
+#: knights.cpp:628
 #, kde-format
 msgid ""
 "This will end your game.\n"
 "Would you like to save the move history?"
 msgstr ""
 
-#: knights.cpp:674
+#: knights.cpp:648
 #, kde-format
 msgid "Save"
 msgstr ""
 
-#: knights.cpp:697
+#: knights.cpp:671
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -875,63 +875,63 @@ msgid "Settings changed"
 msgstr "A beállítások megváltoztak"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
-#: knightsview_base.ui:14 main.cpp:50
+#: knightsview_base.ui:14 main.cpp:46
 #, kde-format
 msgid "Knights"
 msgstr "Knights"
 
-#: main.cpp:52
+#: main.cpp:48
 #, kde-format
 msgid "KDE Chess Board"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:49
 #, fuzzy, kde-format
 #| msgid "(C) 2009-2011 Miha Čančula"
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 msgstr "© Miha Čančula, 2009-2011."
 
-#: main.cpp:56
+#: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
 msgstr ""
 
-#: main.cpp:57
+#: main.cpp:53
 #, kde-format
 msgid "Miha Čančula"
 msgstr "Miha Čančula"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Troy Corbin"
 msgstr "Troy Corbin"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
 msgstr "Eredeti Knights a KDE3-hoz és témaszerző"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Dave Kaye"
 msgstr "Dave Kaye"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr ""
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Thomas Kamps"
 msgstr "Thomas Kamps"
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Clock displaying the remaining time"
 msgstr "A hátralévő időt mutató óra"
 
-#: main.cpp:69
+#: main.cpp:65
 #, kde-format
 msgid "Document to open"
 msgstr "Megnyitandó dokumentum"

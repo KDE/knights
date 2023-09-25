@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:47+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2023-04-27 12:47+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -153,50 +153,50 @@ msgstr "Yhteyskäytäntö"
 msgid "Installed"
 msgstr "Asennettu"
 
-#: gamedialog.cpp:74
+#: gamedialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Uusi peli"
 
-#: gamedialog.cpp:279
+#: gamedialog.cpp:266
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " minuutti"
 msgstr[1] " minuuttia"
 
-#: gamedialog.cpp:280
+#: gamedialog.cpp:267
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " sekunti"
 msgstr[1] " sekuntia"
 
-#: gamedialog.cpp:281
+#: gamedialog.cpp:268
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " siirto"
 msgstr[1] " siirtoa"
 
-#: gamedialog.cpp:320
+#: gamedialog.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "Šakkikoneet"
 
-#: gamedialog.cpp:372
+#: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr "Valitse ensimmäisen pelaajan šakkimoottori."
 
-#: gamedialog.cpp:378
+#: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr "Valitse toisen pelaajan šakkimoottori."
 
-#: gamedialog.cpp:383
+#: gamedialog.cpp:370
 #, kde-format
 msgid "Start the game."
 msgstr "Aloita peli."
@@ -396,189 +396,189 @@ msgstr "Pitkä algebrallinen"
 msgid "Coordinate"
 msgstr "Koordinaatti"
 
-#: knights.cpp:95
+#: knights.cpp:93
 #, kde-format
 msgid "Custom"
 msgstr "Muu"
 
-#: knights.cpp:139
+#: knights.cpp:133
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 miettii…"
 
-#: knights.cpp:146
+#: knights.cpp:140
 #, kde-format
 msgid "Clock"
 msgstr "Kello"
 
-#: knights.cpp:177
+#: knights.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Siirtohistoria"
 
-#: knights.cpp:196 knights.cpp:490
+#: knights.cpp:190 knights.cpp:480
 #, kde-format
 msgid "Resign"
 msgstr "Luovuta"
 
-#: knights.cpp:197
+#: knights.cpp:191
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "Hyväksy väistämätön tappiosi"
 
-#: knights.cpp:202
+#: knights.cpp:196
 #, kde-format
 msgid "Undo"
 msgstr "Kumoa"
 
-#: knights.cpp:203
+#: knights.cpp:197
 #, kde-format
 msgid "Take back your last move"
 msgstr "Ota takaisin viimeisin siirtosi"
 
-#: knights.cpp:209
+#: knights.cpp:203
 #, kde-format
 msgid "Redo"
 msgstr "Tee uudelleen"
 
-#: knights.cpp:210
+#: knights.cpp:204
 #, kde-format
 msgid "Repeat your last move"
 msgstr "Toista viimeisin siirtosi"
 
-#: knights.cpp:217
+#: knights.cpp:211
 #, kde-format
 msgid "Offer &Draw"
 msgstr "&Tarjoa tasapeliä"
 
-#: knights.cpp:218
+#: knights.cpp:212
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "Tarjoa tasapeliä vastustajallesi"
 
-#: knights.cpp:223
+#: knights.cpp:217
 #, kde-format
 msgid "Adjourn"
 msgstr "Lykkää"
 
-#: knights.cpp:224
+#: knights.cpp:218
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "Jatka tätä peliä myöhemmin"
 
-#: knights.cpp:229
+#: knights.cpp:223
 #, kde-format
 msgid "Abort"
 msgstr "Keskeytä"
 
-#: knights.cpp:230
+#: knights.cpp:224
 #, kde-format
 msgid "End the game immediately"
 msgstr "Lopeta peli välittömästi"
 
-#: knights.cpp:234
+#: knights.cpp:228
 #, kde-format
 msgid "Show Clock"
 msgstr "Näytä kello"
 
-#: knights.cpp:240
+#: knights.cpp:234
 #, kde-format
 msgid "Show History"
 msgstr "Näytä historia"
 
-#: knights.cpp:247
+#: knights.cpp:241
 #, kde-format
 msgid "Show White Console"
 msgstr "Näytä valkoisen konsoli"
 
-#: knights.cpp:253
+#: knights.cpp:247
 #, kde-format
 msgid "Show Black Console"
 msgstr "Näytä mustan konsoli"
 
-#: knights.cpp:259
+#: knights.cpp:253
 #, kde-format
 msgid "Show Chat"
 msgstr "Näytä verkkojuttelu"
 
-#: knights.cpp:298
+#: knights.cpp:292
 #, kde-format
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: knights.cpp:299 knights.cpp:675 knights.cpp:698
+#: knights.cpp:293 knights.cpp:649 knights.cpp:672
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable game notation (*.pgn)"
 
-#: knights.cpp:463
+#: knights.cpp:457
 #, kde-format
 msgid "General"
 msgstr "Yleistä"
 
-#: knights.cpp:467
+#: knights.cpp:461
 #, kde-format
 msgid "Computer Engines"
 msgstr "Tietokoneet"
 
-#: knights.cpp:478
+#: knights.cpp:472
 #, kde-format
 msgid "Theme"
 msgstr "Teema"
 
-#: knights.cpp:490
+#: knights.cpp:480
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Haluatko varmasti luovuttaa?"
 
-#: knights.cpp:491
+#: knights.cpp:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Luovuta"
 
-#: knights.cpp:542
+#: knights.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Peli päättyi"
 
-#: knights.cpp:566
+#: knights.cpp:552
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Peli päättyi tasan"
 
-#: knights.cpp:572
+#: knights.cpp:558
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Peli päättyi <em>valkoisen</em> voittoon"
 
-#: knights.cpp:575
+#: knights.cpp:561
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Peli päättyi <em>mustan</em> voittoon"
 
-#: knights.cpp:580
+#: knights.cpp:566
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Peli päättyi, voittajaksi selviytyi valkoisella pelannut <em>%1</em>"
 
-#: knights.cpp:583
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Peli päättyi, voittajaksi selviytyi mustalla pelannut <em>%1</em>"
 
-#: knights.cpp:629
+#: knights.cpp:615
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 vastaan %2"
 
-#: knights.cpp:646
+#: knights.cpp:628
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -587,12 +587,12 @@ msgstr ""
 "Tämä päättää pelin.\n"
 "Haluatko tallentaa siirtohistorian?"
 
-#: knights.cpp:674
+#: knights.cpp:648
 #, kde-format
 msgid "Save"
 msgstr "Tallenna"
 
-#: knights.cpp:697
+#: knights.cpp:671
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -855,63 +855,63 @@ msgstr "Asetuksia on muutettu"
 # pmap: =:gen=Knightsin:
 # pmap: =:elat=Knightsista:
 #. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
-#: knightsview_base.ui:14 main.cpp:50
+#: knightsview_base.ui:14 main.cpp:46
 #, kde-format
 msgid "Knights"
 msgstr "Knights"
 
-#: main.cpp:52
+#: main.cpp:48
 #, kde-format
 msgid "KDE Chess Board"
 msgstr "KDE:n šakkilauta"
 
-#: main.cpp:53
+#: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 msgstr "© 2016–2017 Alexander Semke, 2009–2011 Miha Čančula"
 
-#: main.cpp:56
+#: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
 msgstr "Alexander Semke"
 
-#: main.cpp:57
+#: main.cpp:53
 #, kde-format
 msgid "Miha Čančula"
 msgstr "Miha Čančula"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Troy Corbin"
 msgstr "Troy Corbin"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
 msgstr "KDE 3:n alkuperäisen Knights-pelin ja -teeman tekijä"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Dave Kaye"
 msgstr "Dave Kaye"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr ""
 "Auttoi uuden teeman toteutuksessa ja hahmonnuksessa ilman KGameRendereriä"
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Thomas Kamps"
 msgstr "Thomas Kamps"
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Clock displaying the remaining time"
 msgstr "Jäljellä olevan ajan näyttävä kello"
 
-#: main.cpp:69
+#: main.cpp:65
 #, kde-format
 msgid "Document to open"
 msgstr "Avattava tiedosto"

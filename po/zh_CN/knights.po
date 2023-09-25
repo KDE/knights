@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-25 00:47+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2023-09-16 10:08\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -144,47 +144,47 @@ msgstr "协议"
 msgid "Installed"
 msgstr "已安装"
 
-#: gamedialog.cpp:74
+#: gamedialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "新游戏"
 
-#: gamedialog.cpp:279
+#: gamedialog.cpp:266
 #, kde-format
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " 分"
 
-#: gamedialog.cpp:280
+#: gamedialog.cpp:267
 #, kde-format
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " 秒"
 
-#: gamedialog.cpp:281
+#: gamedialog.cpp:268
 #, kde-format
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " 步"
 
-#: gamedialog.cpp:320
+#: gamedialog.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
 msgstr "国际象棋引擎"
 
-#: gamedialog.cpp:372
+#: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
 msgstr "为第一名用户选择一个棋子引擎"
 
-#: gamedialog.cpp:378
+#: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
 msgstr "为第二名用户选择一个棋子引擎"
 
-#: gamedialog.cpp:383
+#: gamedialog.cpp:370
 #, kde-format
 msgid "Start the game."
 msgstr "开始游戏"
@@ -383,189 +383,189 @@ msgstr "长代数"
 msgid "Coordinate"
 msgstr "座标"
 
-#: knights.cpp:95
+#: knights.cpp:93
 #, kde-format
 msgid "Custom"
 msgstr "自定义"
 
-#: knights.cpp:139
+#: knights.cpp:133
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 正在思考..."
 
-#: knights.cpp:146
+#: knights.cpp:140
 #, kde-format
 msgid "Clock"
 msgstr "时钟"
 
-#: knights.cpp:177
+#: knights.cpp:171
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "回合历史"
 
-#: knights.cpp:196 knights.cpp:490
+#: knights.cpp:190 knights.cpp:480
 #, kde-format
 msgid "Resign"
 msgstr "认输"
 
-#: knights.cpp:197
+#: knights.cpp:191
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "承认您的必输之局"
 
-#: knights.cpp:202
+#: knights.cpp:196
 #, kde-format
 msgid "Undo"
 msgstr "撤销"
 
-#: knights.cpp:203
+#: knights.cpp:197
 #, kde-format
 msgid "Take back your last move"
 msgstr "回到您的上一步"
 
-#: knights.cpp:209
+#: knights.cpp:203
 #, kde-format
 msgid "Redo"
 msgstr "重下"
 
-#: knights.cpp:210
+#: knights.cpp:204
 #, kde-format
 msgid "Repeat your last move"
 msgstr "重复您的上一步"
 
-#: knights.cpp:217
+#: knights.cpp:211
 #, kde-format
 msgid "Offer &Draw"
 msgstr "提请和局(&D)"
 
-#: knights.cpp:218
+#: knights.cpp:212
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "向您的对手提请和局"
 
-#: knights.cpp:223
+#: knights.cpp:217
 #, kde-format
 msgid "Adjourn"
 msgstr "暂停"
 
-#: knights.cpp:224
+#: knights.cpp:218
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "稍后再继续此局游戏"
 
-#: knights.cpp:229
+#: knights.cpp:223
 #, kde-format
 msgid "Abort"
 msgstr "中止"
 
-#: knights.cpp:230
+#: knights.cpp:224
 #, kde-format
 msgid "End the game immediately"
 msgstr "立即终结游戏"
 
-#: knights.cpp:234
+#: knights.cpp:228
 #, kde-format
 msgid "Show Clock"
 msgstr "显示时钟"
 
-#: knights.cpp:240
+#: knights.cpp:234
 #, kde-format
 msgid "Show History"
 msgstr "显示历史"
 
-#: knights.cpp:247
+#: knights.cpp:241
 #, kde-format
 msgid "Show White Console"
 msgstr "显示白方控制台"
 
-#: knights.cpp:253
+#: knights.cpp:247
 #, kde-format
 msgid "Show Black Console"
 msgstr "显示黑方控制台"
 
-#: knights.cpp:259
+#: knights.cpp:253
 #, kde-format
 msgid "Show Chat"
 msgstr "显示聊天界面"
 
-#: knights.cpp:298
+#: knights.cpp:292
 #, kde-format
 msgid "Open File"
 msgstr "打开文件"
 
-#: knights.cpp:299 knights.cpp:675 knights.cpp:698
+#: knights.cpp:293 knights.cpp:649 knights.cpp:672
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "可移动游戏标记 (*.pgn)"
 
-#: knights.cpp:463
+#: knights.cpp:457
 #, kde-format
 msgid "General"
 msgstr "通用"
 
-#: knights.cpp:467
+#: knights.cpp:461
 #, kde-format
 msgid "Computer Engines"
 msgstr "电脑引擎"
 
-#: knights.cpp:478
+#: knights.cpp:472
 #, kde-format
 msgid "Theme"
 msgstr "主题"
 
-#: knights.cpp:490
+#: knights.cpp:480
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "您真的确定要离开吗？"
 
-#: knights.cpp:491
+#: knights.cpp:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr ""
 
-#: knights.cpp:542
+#: knights.cpp:528
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "游戏结束"
 
-#: knights.cpp:566
+#: knights.cpp:552
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "游戏以和局结束"
 
-#: knights.cpp:572
+#: knights.cpp:558
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "游戏以 <em>白方</em>获胜而结束"
 
-#: knights.cpp:575
+#: knights.cpp:561
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "游戏以<em>黑方</em>获胜而结束"
 
-#: knights.cpp:580
+#: knights.cpp:566
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "游戏以 <emphasis>%1</emphasis> 执白胜出结束"
 
-#: knights.cpp:583
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "游戏以 <emphasis>%1</emphasis> 执黑胜出结束"
 
-#: knights.cpp:629
+#: knights.cpp:615
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 对 %2"
 
-#: knights.cpp:646
+#: knights.cpp:628
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -574,12 +574,12 @@ msgstr ""
 "这将结束您的游戏。\n"
 "您想要保存回合历史吗？"
 
-#: knights.cpp:674
+#: knights.cpp:648
 #, kde-format
 msgid "Save"
 msgstr "保存文档"
 
-#: knights.cpp:697
+#: knights.cpp:671
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -835,62 +835,62 @@ msgid "Settings changed"
 msgstr "设置已更改"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
-#: knightsview_base.ui:14 main.cpp:50
+#: knightsview_base.ui:14 main.cpp:46
 #, kde-format
 msgid "Knights"
 msgstr "Knights"
 
-#: main.cpp:52
+#: main.cpp:48
 #, kde-format
 msgid "KDE Chess Board"
 msgstr "KDE 国际象棋"
 
-#: main.cpp:53
+#: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 msgstr "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 
-#: main.cpp:56
+#: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
 msgstr "亚历山大塞姆克"
 
-#: main.cpp:57
+#: main.cpp:53
 #, kde-format
 msgid "Miha Čančula"
 msgstr "Miha Čančula"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Troy Corbin"
 msgstr "Troy Corbin"
 
-#: main.cpp:59
+#: main.cpp:55
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
 msgstr "KDE 3 下原始 Knights 的开发者和主题作者"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Dave Kaye"
 msgstr "Dave Kaye"
 
-#: main.cpp:61
+#: main.cpp:57
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr "帮助开发了新的主题功能和不使用 KGameRenderer 的渲染"
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Thomas Kamps"
 msgstr "Thomas Kamps"
 
-#: main.cpp:62
+#: main.cpp:58
 #, kde-format
 msgid "Clock displaying the remaining time"
 msgstr "开发了显示剩余时间的时钟"
 
-#: main.cpp:69
+#: main.cpp:65
 #, kde-format
 msgid "Document to open"
 msgstr "打开文档"
