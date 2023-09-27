@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2023-09-25 10:16+0200\n"
+"PO-Revision-Date: 2023-09-26 10:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -323,13 +323,13 @@ msgstr "%1-ს თამაში აღარ უნდა"
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr ""
+msgstr "%1 როქი დედოფლის მხარეს"
 
 #: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr ""
+msgstr "%1 როქი მეფის მხარეს"
 
 #: gamemanager.cpp:636
 #, kde-format
@@ -1072,13 +1072,13 @@ msgstr "დახურვისას დადასტურების კ�
 #: promotiondialog.ui:14
 #, kde-format
 msgid "Pawn Promotion"
-msgstr ""
+msgstr "პაიკის დაწინაურება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: promotiondialog.ui:26
 #, kde-format
 msgid "Promote pawn to:"
-msgstr ""
+msgstr "პაიკის დაწინაურება ფიგურაზე:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
@@ -1090,7 +1090,7 @@ msgstr "&დედოფალი"
 #: promotiondialog.ui:56
 #, kde-format
 msgid "Roo&k"
-msgstr ""
+msgstr "&ეტლი"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
@@ -1219,7 +1219,7 @@ msgstr "ძებნის სია"
 #: proto/ficsdialog.ui:156
 #, kde-format
 msgid "Current ads arranged in a list"
-msgstr ""
+msgstr "თამაშის გამოძახებები სიის მიხედვითაა დალაგებული"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:199
@@ -1273,7 +1273,7 @@ msgstr "მეტოქეების გრაფიკი"
 #: proto/ficsdialog.ui:241
 #, kde-format
 msgid "Current ads arranged by rating and duration"
-msgstr ""
+msgstr "თამაშის გამოძახებები რეიტინგითა და ხანგრძლივობითაა დალაგებული"
 
 #. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:258
@@ -1285,7 +1285,7 @@ msgstr "გამოწვევის შექმნა"
 #: proto/ficsdialog.ui:261
 #, kde-format
 msgid "Post an ad for other players"
-msgstr ""
+msgstr "თამაშზე გამოძახების შექმნა სხვა მომხმრებლებისთვის"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
 #: proto/ficsdialog.ui:267
