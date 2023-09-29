@@ -534,7 +534,7 @@
 >Torre</title>
 
         <para
->La torre es mou en una línia recta horitzontal o vertical a través de qualsevol nombre de caselles no ocupades, fins que abasta el final del tauler o està bloquejada per una altra peça. No pot saltar sobre les altres peces. La torre captura en el mateix camí on es mou, ocupant la casella on es troba una peça oponent. La torre pot aterrar sobre qualsevol casella del tauler, per tant és una de les peces més poderosa sobre el tauler.</para>
+>La torre es mou en una línia recta horitzontal o vertical a través de qualsevol nombre de caselles no ocupades, fins que abasta el final del tauler o està bloquejada per una altra peça. No pot saltar sobre les altres peces. La torre captura en el mateix camí on es mou, ocupant la casella on es troba una peça oponent. La torre pot aterrar sobre qualsevol casella del tauler, per tant, és una de les peces més poderosa sobre el tauler.</para>
 
         <mediaobject
 ><imageobject
@@ -695,7 +695,7 @@
 
         <note
 ><para
->Per a enrocar en el &i18n-knights;, moveu el rei dues caselles cap a la torre. El &i18n-knights; completarà l'enroc. No moveu la torre, ja que el &i18n-knights; suposarà que només voleu moure la torre i no enrocar.</para
+>Per a enrocar en el &i18n-knights;, moveu el rei dues caselles cap a la torre. El &i18n-knights; completarà l'enroc. No mogueu la torre, ja que el &i18n-knights; suposarà que només voleu moure la torre i no enrocar.</para
 ></note>
       </sect2>
 
