@@ -163,7 +163,7 @@ void EngineSettings::autoDetectEngines() {
 	commands << QStringLiteral("glaurung");
 	commands << QStringLiteral("hoichess");
 
-	QVector<EngineConfiguration::Interface> interfaces;
+	QList<EngineConfiguration::Interface> interfaces;
 	interfaces << EngineConfiguration::XBoard; //gnuchess
 	interfaces << EngineConfiguration::XBoard; //crafty
 	interfaces << EngineConfiguration::Uci; //stockfish
