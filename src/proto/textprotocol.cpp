@@ -82,7 +82,7 @@ void TextProtocol::write(const char* text) {
 
 void TextProtocol::setConsole(ChatWidget* widget) {
 	m_console = widget;
-	for ( const ChatWidget::Message& message : qAsConst(messages) )
+	for ( const ChatWidget::Message& message : std::as_const(messages) )
 		m_console->addText ( message );
 	messages.clear();
 }
