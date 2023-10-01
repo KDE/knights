@@ -186,20 +186,20 @@ void MainWindow::setupActions() {
 	m_saveAsAction->setEnabled(false);
 	KStandardGameAction::load(this, &MainWindow::fileLoad, actionCollection());
 
-	m_resignAction = actionCollection()->addAction(QStringLiteral("resign"), this, SLOT(resign()));
+	m_resignAction = actionCollection()->addAction(QStringLiteral("resign"), this, &MainWindow::resign);
 	m_resignAction->setText(i18n("Resign"));
 	m_resignAction->setToolTip(i18n("Admit your inevitable defeat"));
 	m_resignAction->setIcon(QIcon::fromTheme(QStringLiteral("flag-red")));
 	m_resignAction->setEnabled(false);
 
-	m_undoAction = actionCollection()->addAction(QStringLiteral("move_undo"), this, SLOT(undo()));
+	m_undoAction = actionCollection()->addAction(QStringLiteral("move_undo"), this, &MainWindow::undo);
 	m_undoAction->setText(i18n("Undo"));
 	m_undoAction->setToolTip(i18n("Take back your last move"));
 	m_undoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
 	connect(Manager::self(), &Manager::undoPossible, m_undoAction, &QAction::setEnabled);
 	m_undoAction->setEnabled(false);
 
-	m_redoAction = actionCollection()->addAction(QStringLiteral("move_redo"), this, SLOT(redo()));
+	m_redoAction = actionCollection()->addAction(QStringLiteral("move_redo"), this, &MainWindow::redo);
 	m_redoAction->setText(i18n("Redo"));
 	m_redoAction->setToolTip(i18n("Repeat your last move"));
 	m_redoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
@@ -207,19 +207,19 @@ void MainWindow::setupActions() {
 	m_redoAction->setEnabled(false);
 	m_redoAction->setVisible(false);
 
-	m_drawAction = actionCollection()->addAction(QStringLiteral("propose_draw"), Manager::self(), SLOT(offerDraw()));
+	m_drawAction = actionCollection()->addAction(QStringLiteral("propose_draw"), Manager::self(), &Manager::offerDraw);
 	m_drawAction->setText(i18n("Offer &Draw"));
 	m_drawAction->setToolTip(i18n("Offer a draw to your opponent"));
 	m_drawAction->setIcon(QIcon::fromTheme(QStringLiteral("flag-blue")));
 	m_drawAction->setEnabled(false);
 
-	m_adjournAction = actionCollection()->addAction(QStringLiteral("adjourn"), Manager::self(), SLOT(adjourn()));
+	m_adjournAction = actionCollection()->addAction(QStringLiteral("adjourn"), Manager::self(), &Manager::adjourn);
 	m_adjournAction->setText(i18n("Adjourn"));
 	m_adjournAction->setToolTip(i18n("Continue this game at a later time"));
 	m_adjournAction->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
 	m_adjournAction->setEnabled(false);
 
-	QAction* abortAction = actionCollection()->addAction(QStringLiteral("abort"), Manager::self(), SLOT(abort()));
+	QAction* abortAction = actionCollection()->addAction(QStringLiteral("abort"), Manager::self(), &Manager::abort);
 	abortAction->setText(i18n("Abort"));
 	abortAction->setToolTip(i18n("End the game immediately"));
 	abortAction->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));

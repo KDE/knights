@@ -136,6 +136,10 @@ public Q_SLOTS:
 	void undo();
 	void redo();
 
+	void offerDraw();
+	void adjourn();
+	void abort();
+
 	void loadGameHistoryFrom(const QString& filename);
 	void saveGameHistoryAs(const QString& filename);
 
@@ -143,9 +147,6 @@ private Q_SLOTS:
 	void moveByProtocol(const Move&);
 	void protocolInitSuccesful();
 	void gameOver(Color);
-	void offerDraw();
-	void adjourn();
-	void abort();
 	void setTimeRunning(bool);
 	void sendPendingMove();
 
