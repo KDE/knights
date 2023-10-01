@@ -174,17 +174,17 @@ void MainWindow::setupDocks() {
 }
 
 void MainWindow::setupActions() {
-	KStandardGameAction::gameNew(this, SLOT(fileNew()), actionCollection());
-	KStandardGameAction::quit(qApp, SLOT(closeAllWindows()), actionCollection());
-	m_pauseAction = KStandardGameAction::pause(Manager::self(), SLOT(pause(bool)), actionCollection());
+	KStandardGameAction::gameNew(this, &MainWindow::fileNew, actionCollection());
+	KStandardGameAction::quit(qApp, &QApplication::closeAllWindows, actionCollection());
+	m_pauseAction = KStandardGameAction::pause(Manager::self(), &Manager::pause, actionCollection());
 	m_pauseAction->setEnabled(false);
-	KStandardAction::preferences(this, SLOT(optionsPreferences()), actionCollection());
+	KStandardAction::preferences(this, &MainWindow::optionsPreferences, actionCollection());
 
-	m_saveAction = KStandardGameAction::save(this, SLOT(fileSave()), actionCollection());
+	m_saveAction = KStandardGameAction::save(this, &MainWindow::fileSave, actionCollection());
 	m_saveAction->setEnabled(false);
-	m_saveAsAction = KStandardGameAction::saveAs(this, SLOT(fileSaveAs()), actionCollection());
+	m_saveAsAction = KStandardGameAction::saveAs(this, &MainWindow::fileSaveAs, actionCollection());
 	m_saveAsAction->setEnabled(false);
-	KStandardGameAction::load(this, SLOT(fileLoad()), actionCollection());
+	KStandardGameAction::load(this, &MainWindow::fileLoad, actionCollection());
 
 	m_resignAction = actionCollection()->addAction(QStringLiteral("resign"), this, SLOT(resign()));
 	m_resignAction->setText(i18n("Resign"));
