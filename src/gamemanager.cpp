@@ -742,7 +742,7 @@ void Manager::processMove(const Move& move) {
 		startTime();
 	pendingMove = m;
 	if ( Protocol::byColor(d->activePlayer)->isComputer() )
-		QTimer::singleShot ( Settings::computerDelay(), this, SLOT(sendPendingMove()) );
+		QTimer::singleShot ( Settings::computerDelay(), this, &Manager::sendPendingMove );
 	else
 		sendPendingMove();
 }
