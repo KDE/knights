@@ -28,7 +28,7 @@
 #define KNIGHTSBOARD_H
 
 #include "core/piece.h"
-#include <KgThemeProvider>
+#include <KGameThemeProvider>
 
 #include <QGraphicsScene>
 #include <QMap>
@@ -55,7 +55,7 @@ public:
 		Motion
 	};
 
-	explicit Board(KgThemeProvider*, QObject* parent = nullptr);
+	explicit Board(KGameThemeProvider*, QObject* parent = nullptr);
 	~Board() override;
 
 	void populate();
@@ -71,7 +71,7 @@ private:
 	bool m_displayBorders;
 	bool m_displayNotations;
 	KGameRenderer* renderer;
-	KgThemeProvider* m_themeProvider;
+	KGameThemeProvider* m_themeProvider;
 
 	QPointer<QDrag> drag;
 	bool m_dragActive;

@@ -67,7 +67,7 @@ const QString blackLettersKey = QStringLiteral ( "BlackLetters" );
 const QString whiteNumbersKey = QStringLiteral ( "WhiteNumbers" );
 const QString blackNumbersKey = QStringLiteral ( "BlackNumbers" );
 
-Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent),
+Board::Board(KGameThemeProvider* provider, QObject* parent) : QGraphicsScene(parent),
 	m_rules(nullptr),
 	m_background(nullptr),
 	m_displayBorders(true),
@@ -89,7 +89,7 @@ Board::Board(KgThemeProvider* provider, QObject* parent) : QGraphicsScene(parent
 	Manager::self()->rules()->setGrid(&m_grid);
 	updateTheme();
 
-	connect (provider, &KgThemeProvider::currentThemeChanged, this, &Board::updateTheme);
+	connect (provider, &KGameThemeProvider::currentThemeChanged, this, &Board::updateTheme);
 }
 
 Board::~Board() {

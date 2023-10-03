@@ -36,7 +36,7 @@
 #include "enginesettings.h"
 
 // KDEGames
-#include <KgThemeSelector>
+#include <KGameThemeSelector>
 #include <KStandardGameAction>
 
 #include <KConfigDialog>
@@ -66,7 +66,7 @@ using namespace Knights;
 */
 MainWindow::MainWindow() : KXmlGuiWindow(),
 	m_view(new KnightsView(this)),
-	m_themeProvider(new KgThemeProvider("Theme", this)) {
+	m_themeProvider(new KGameThemeProvider("Theme", this)) {
 	// accept dnd
 	setAcceptDrops(true);
 
@@ -467,7 +467,7 @@ void MainWindow::optionsPreferences() {
 // 	ui_prefs_access.setupUi(accessDlg);
 // 	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));
 
-    KgThemeSelector* themeDlg = new KgThemeSelector(m_themeProvider, KgThemeSelector::EnableNewStuffDownload, dialog);
+    KGameThemeSelector* themeDlg = new KGameThemeSelector(m_themeProvider, KGameThemeSelector::EnableNewStuffDownload, dialog);
     themeDlg->setNewStuffConfigFileName(QStringLiteral("knights.knsrc"));
 	dialog->addPage(themeDlg, i18n("Theme"), QStringLiteral("games-config-theme"));
 	dialog->setAttribute(Qt::WA_DeleteOnClose);

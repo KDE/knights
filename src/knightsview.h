@@ -29,7 +29,7 @@
 #include "core/piece.h"
 #include <QWidget>
 
-class KgThemeProvider;
+class KGameThemeProvider;
 
 namespace Ui {
 class KnightsView;
@@ -47,8 +47,8 @@ public:
 	explicit KnightsView(QWidget*);
 	~KnightsView() override;
 
-	void setupBoard(KgThemeProvider*);
-	void drawBoard(KgThemeProvider*);
+	void setupBoard(KGameThemeProvider*);
+	void drawBoard(KGameThemeProvider*);
 
 private:
 	Ui::KnightsView* ui;

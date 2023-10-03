@@ -55,7 +55,7 @@ KnightsView::~KnightsView() {
 	delete ui;
 }
 
-void KnightsView::drawBoard(KgThemeProvider* provider) {
+void KnightsView::drawBoard(KGameThemeProvider* provider) {
 	m_board = new Board(provider, this);
 	ui->canvas->setScene(m_board);
 	resizeScene();
@@ -66,7 +66,7 @@ void KnightsView::drawBoard(KgThemeProvider* provider) {
 	m_board->setPlayerColors(playerColors);
 }
 
-void KnightsView::setupBoard(KgThemeProvider* provider) {
+void KnightsView::setupBoard(KGameThemeProvider* provider) {
 	if (m_board)
 		delete m_board;
 

@@ -35,7 +35,7 @@
 #include <KXmlGuiWindow>
 
 class KToggleAction;
-class KgThemeProvider;
+class KGameThemeProvider;
 
 namespace Knights {
 class Protocol;
@@ -103,7 +103,7 @@ private:
 	KToggleAction* m_toolbarAction;
 	KToggleAction* m_statusbarAction;
 	QMap<QByteArray, Protocol::Feature> m_protocolFeatures;
-	KgThemeProvider* m_themeProvider;
+	KGameThemeProvider* m_themeProvider;
 
 	QString m_loadFileName;
 	QString m_fileName;
