@@ -34,7 +34,7 @@
 
 #include <KLocalizedString>
 #include <KGameDifficulty>
-#include <KgSound>
+#include <KGameSound>
 
 #ifdef HAVE_SPEECH
 #include <QtTextToSpeech>
@@ -82,10 +82,10 @@ public:
 	QMap<int, Offer> offers;
 	QSet<int> usedOfferIds;
 
-	std::unique_ptr<KgSound> captureWhiteSound;
-	std::unique_ptr<KgSound> captureBlackSound;
-	std::unique_ptr<KgSound> moveWhiteSound;
-	std::unique_ptr<KgSound> moveBlackSound;
+	std::unique_ptr<KGameSound> captureWhiteSound;
+	std::unique_ptr<KGameSound> captureBlackSound;
+	std::unique_ptr<KGameSound> moveWhiteSound;
+	std::unique_ptr<KGameSound> moveBlackSound;
 
 #ifdef HAVE_SPEECH
 	QTextToSpeech* speech;
@@ -116,10 +116,10 @@ GameManagerPrivate::GameManagerPrivate()
 	  loading(false) {
 
 	const QDir dir = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds"), QStandardPaths::LocateDirectory);
-	captureWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_white.ogg"))) );
-	captureBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("capture_black.ogg"))) );
-	moveWhiteSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_white.ogg"))) ) ;
-        moveBlackSound = std::unique_ptr<KgSound>( new KgSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
+	captureWhiteSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("capture_white.ogg"))) );
+	captureBlackSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("capture_black.ogg"))) );
+	moveWhiteSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("move_white.ogg"))) ) ;
+        moveBlackSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
 }
 
 GameManagerPrivate::~GameManagerPrivate()
