@@ -34,7 +34,7 @@
 #include <QTime>
 #include <QStack>
 
-class KgDifficultyLevel;
+class KGameDifficultyLevel;
 
 namespace Knights {
 
@@ -122,7 +122,7 @@ private:
 	Protocol* local();
 
 public Q_SLOTS:
-	void levelChanged(const KgDifficultyLevel*);
+	void levelChanged(const KGameDifficultyLevel*);
 
 	void moveByExternalControl(const Move&);
 	void moveByBoard(const Move&);

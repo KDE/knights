@@ -33,7 +33,7 @@
 #include "knightsdebug.h"
 
 #include <KLocalizedString>
-#include <KgDifficulty>
+#include <KGameDifficulty>
 #include <KgSound>
 
 #ifdef HAVE_SPEECH
@@ -431,7 +431,7 @@ void Manager::startGame() {
 	setRules(new ChessRules);
 	if ( Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty
 	        || Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty)
-		levelChanged(Kg::difficulty()->currentLevel());
+		levelChanged(KGameDifficulty::global()->currentLevel());
 
 	Protocol::white()->startGame();
 	Protocol::black()->startGame();
@@ -761,32 +761,32 @@ bool Manager::canLocalMove() const {
 	return false;
 }
 
-void Manager::levelChanged ( const KgDifficultyLevel* level ) {
+void Manager::levelChanged ( const KGameDifficultyLevel* level ) {
 	qCDebug(LOG_KNIGHTS);
 	int depth = 0;
 	int size = 32;
 	switch ( level->standardLevel() ) {
-	case KgDifficultyLevel::VeryEasy:
+	case KGameDifficultyLevel::VeryEasy:
 		depth = 1;
 		break;
 
-	case KgDifficultyLevel::Easy:
+	case KGameDifficultyLevel::Easy:
 		depth = 3;
 		break;
 
-	case KgDifficultyLevel::Medium:
+	case KGameDifficultyLevel::Medium:
 		depth = 8;
 		break;
 
-	case KgDifficultyLevel::Hard:
+	case KGameDifficultyLevel::Hard:
 		depth = 16;
 		break;
 
-	case KgDifficultyLevel::VeryHard:
+	case KGameDifficultyLevel::VeryHard:
 		depth = 32;
 		break;
 
-	case KgDifficultyLevel::Custom: {
+	case KGameDifficultyLevel::Custom: {
 			QPointer<DifficultyDialog> dlg = new DifficultyDialog();
 			if ( dlg->exec() == QDialog::Accepted ) {
 				depth = dlg->searchDepth();

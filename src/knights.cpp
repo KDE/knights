@@ -89,11 +89,11 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	m_protocolFeatures [ "abort" ] = Protocol::Abort;
 
 	// setup difficulty management
-	connect(Kg::difficulty(), &KgDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
-	Kg::difficulty()->addLevel(new KgDifficultyLevel(0, "custom", i18n("Custom"), false));
-	Kg::difficulty()->addStandardLevelRange(KgDifficultyLevel::VeryEasy, KgDifficultyLevel::VeryHard, KgDifficultyLevel::Medium);
-	KgDifficultyGUI::init(this);
-	Kg::difficulty()->setEditable(false);
+	connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
+	KGameDifficulty::global()->addLevel(new KGameDifficultyLevel(0, "custom", i18n("Custom"), false));
+	KGameDifficulty::global()->addStandardLevelRange(KGameDifficultyLevel::VeryEasy, KGameDifficultyLevel::VeryHard, KGameDifficultyLevel::Medium);
+	KGameDifficultyGUI::init(this);
+	KGameDifficulty::global()->setEditable(false);
 
 	// make all the docks invisible.
 	// Show required docks after the game protocols are selected
@@ -274,7 +274,7 @@ void MainWindow::fileNew() {
 
 		bool difficulty = (Protocol::white()->supportedFeatures()& Protocol::AdjustDifficulty)
 		                  || (Protocol::black()->supportedFeatures()& Protocol::AdjustDifficulty);
-		Kg::difficulty()->setEditable(difficulty);
+		KGameDifficulty::global()->setEditable(difficulty);
 	}
 	delete gameNewDialog;
 

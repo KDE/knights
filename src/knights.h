@@ -31,7 +31,7 @@
 #include "ui_prefs_access.h"
 #include "proto/protocol.h"
 
-#include <KgDifficulty>
+#include <KGameDifficulty>
 #include <KXmlGuiWindow>
 
 class KToggleAction;
