@@ -58,9 +58,10 @@ void HistoryWidget::updateHistory() {
 
 	ui->twMoves->clearContents();
 
-	ui->twMoves->setRowCount(ceil(double(Manager::self()->moveHistory().size())/2));
-	for (int i=1; i<=Manager::self()->moveHistory().size(); ++i) {
-		const Move& move = Manager::self()->moveHistory().at(i-1);
+	const QStack<Move> moveHistory = Manager::self()->moveHistory();
+	ui->twMoves->setRowCount(ceil(double(moveHistory.size())/2));
+	for (int i=1; i<=moveHistory.size(); ++i) {
+		const Move& move = moveHistory.at(i-1);
 		QTableWidgetItem* item = new QTableWidgetItem(move.stringForNotation(notation));
 		const int row = ceil(double(i)/2)-1;
 		const int column = i%2 ? 0 : 1;
