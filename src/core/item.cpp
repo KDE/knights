@@ -19,7 +19,7 @@ static const int fastAnimationDuration = 150;
 static const int normalAnimationDuration = 250;
 static const int slowAnimationDuration = 400;
 
-Item::Item ( KGameRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedObjectItem ( renderer, key, parentItem ) {
+Item::Item ( KGameGraphicsViewRenderer* renderer, const QString &key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem ) : KGameRenderedGraphicsObject ( renderer, key, parentItem ) {
 	setBoardPos ( boardPos );
 	if ( scene )
 		scene->addItem ( this );

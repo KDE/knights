@@ -70,7 +70,7 @@ private:
 	Item* m_background;
 	bool m_displayBorders;
 	bool m_displayNotations;
-	KGameRenderer* renderer;
+	KGameGraphicsViewRenderer* renderer;
 	KGameThemeProvider* m_themeProvider;
 
 	QPointer<QDrag> drag;

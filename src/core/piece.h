@@ -37,7 +37,7 @@ QString pieceTypeName ( PieceType type );
 class Piece : public Item {
 	Q_OBJECT
 public:
-	Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = nullptr );
+	Piece ( KGameGraphicsViewRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent = nullptr );
 	~Piece() override;
 
 	PieceType pieceType();

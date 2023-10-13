@@ -10,17 +10,17 @@
 
 #include "pos.h"
 
-#include <KGameRenderedObjectItem>
+#include <KGameRenderedGraphicsObject>
 
 namespace Knights {
 
-class Item : public KGameRenderedObjectItem {
+class Item : public KGameRenderedGraphicsObject {
 	Q_OBJECT
 	Q_PROPERTY ( Pos boardPos READ boardPos WRITE setBoardPos )
 	Q_PROPERTY ( QSize renderSize READ renderSize WRITE setRenderSize )
 
 public:
-	Item ( KGameRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = nullptr );
+	Item ( KGameGraphicsViewRenderer* renderer, const QString& key, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parentItem = nullptr );
 	~Item() override;
 
 	void setBoardPos ( const Pos& pos );

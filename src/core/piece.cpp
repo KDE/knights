@@ -83,7 +83,7 @@ PieceType Piece::typeFromChar ( QChar typeChar ) {
 	return pType;
 }
 
-Piece::Piece ( KGameRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent ) :
+Piece::Piece ( KGameGraphicsViewRenderer* renderer, PieceType type, Color color, QGraphicsScene* scene, Pos boardPos, QGraphicsItem* parent ) :
 	Item ( renderer, spriteKey ( type, color ), scene, boardPos, parent ) {
 	m_color = color;
 	m_type = type;

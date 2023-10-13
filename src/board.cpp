@@ -33,7 +33,7 @@
 #include "rules/chessrules.h"
 #include "ui_promotiondialog.h"
 
-#include <KGameRenderer>
+#include <KGameGraphicsViewRenderer>
 
 #include <QDialog>
 #include <QDialogButtonBox>
@@ -83,7 +83,7 @@ Board::Board(KGameThemeProvider* provider, QObject* parent) : QGraphicsScene(par
 	m_displayedPlayer(NoColor),
 	m_drawFrame(true) {
 
-	renderer = new KGameRenderer(m_themeProvider);
+	renderer = new KGameGraphicsViewRenderer(m_themeProvider);
 	if (!Manager::self()->rules())
 		Manager::self()->setRules(new ChessRules);
 	Manager::self()->rules()->setGrid(&m_grid);
