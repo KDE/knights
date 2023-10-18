@@ -37,7 +37,7 @@
 
 // KDEGames
 #include <KGameThemeSelector>
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 
 #include <KConfigDialog>
 #include <KActionCollection>
@@ -82,7 +82,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	setupGUI();
 
 	//protocol features
-	m_protocolFeatures [ KStandardGameAction::name(KStandardGameAction::Pause) ] = Protocol::Pause;
+	m_protocolFeatures [ KGameStandardAction::name(KGameStandardAction::Pause) ] = Protocol::Pause;
 	m_protocolFeatures [ "propose_draw" ] = Protocol::Draw;
 	m_protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
 	m_protocolFeatures [ "resign" ] = Protocol::Resign;
@@ -174,17 +174,17 @@ void MainWindow::setupDocks() {
 }
 
 void MainWindow::setupActions() {
-	KStandardGameAction::gameNew(this, &MainWindow::fileNew, actionCollection());
-	KStandardGameAction::quit(qApp, &QApplication::closeAllWindows, actionCollection());
-	m_pauseAction = KStandardGameAction::pause(Manager::self(), &Manager::pause, actionCollection());
+	KGameStandardAction::gameNew(this, &MainWindow::fileNew, actionCollection());
+	KGameStandardAction::quit(qApp, &QApplication::closeAllWindows, actionCollection());
+	m_pauseAction = KGameStandardAction::pause(Manager::self(), &Manager::pause, actionCollection());
 	m_pauseAction->setEnabled(false);
 	KStandardAction::preferences(this, &MainWindow::optionsPreferences, actionCollection());
 
-	m_saveAction = KStandardGameAction::save(this, &MainWindow::fileSave, actionCollection());
+	m_saveAction = KGameStandardAction::save(this, &MainWindow::fileSave, actionCollection());
 	m_saveAction->setEnabled(false);
-	m_saveAsAction = KStandardGameAction::saveAs(this, &MainWindow::fileSaveAs, actionCollection());
+	m_saveAsAction = KGameStandardAction::saveAs(this, &MainWindow::fileSaveAs, actionCollection());
 	m_saveAsAction->setEnabled(false);
-	KStandardGameAction::load(this, &MainWindow::fileLoad, actionCollection());
+	KGameStandardAction::load(this, &MainWindow::fileLoad, actionCollection());
 
 	m_resignAction = actionCollection()->addAction(QStringLiteral("resign"), this, &MainWindow::resign);
 	m_resignAction->setText(i18n("Resign"));
@@ -487,7 +487,7 @@ void MainWindow::resign() {
 void MainWindow::undo() {
 	if(!Protocol::white()->isLocal() && !Protocol::black()->isLocal()) {
 		// No need to pause the game if both players are local
-		QAction* pa = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+		QAction* pa = actionCollection()->action(QLatin1String(KGameStandardAction::name(KGameStandardAction::Pause)));
 		if(pa)
 			pa->setChecked(true);
 	}
@@ -498,7 +498,7 @@ void MainWindow::redo() {
 	Manager::self()->redo();
 	if(!Protocol::white()->isLocal() && !Protocol::black()->isLocal()) {
 		// No need to pause the game if both players are local
-		QAction* pa = actionCollection()->action(QLatin1String(KStandardGameAction::name(KStandardGameAction::Pause)));
+		QAction* pa = actionCollection()->action(QLatin1String(KGameStandardAction::name(KGameStandardAction::Pause)));
 		if(pa && !Manager::self()->canRedo())
 			pa->setChecked(false);
 	}
@@ -530,8 +530,8 @@ void MainWindow::gameOver(Color winner) {
 
 	QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
 	QMap<QDialogButtonBox::StandardButton, QByteArray> buttonsMap;
-	buttonsMap[QDialogButtonBox::Ok] = KStandardGameAction::name ( KStandardGameAction::New );
-	buttonsMap[QDialogButtonBox::Apply] = KStandardGameAction::name ( KStandardGameAction::Save );
+	buttonsMap[QDialogButtonBox::Ok] = KGameStandardAction::name ( KGameStandardAction::New );
+	buttonsMap[QDialogButtonBox::Apply] = KGameStandardAction::name ( KGameStandardAction::Save );
 
 	for ( QMap<QDialogButtonBox::StandardButton, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it ) {
 		QAction* a = actionCollection()->action ( QLatin1String ( it.value() ) );
