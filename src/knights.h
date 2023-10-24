@@ -102,7 +102,7 @@ private:
 	QAction* m_adjournAction;
 	KToggleAction* m_toolbarAction;
 	KToggleAction* m_statusbarAction;
-	QMap<QByteArray, Protocol::Feature> m_protocolFeatures;
+	QMap<QString, Protocol::Feature> m_protocolFeatures;
 	KGameThemeProvider* m_themeProvider;
 
 	QString m_loadFileName;

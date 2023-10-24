@@ -82,11 +82,13 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 	setupGUI();
 
 	//protocol features
-	m_protocolFeatures [ KGameStandardAction::name(KGameStandardAction::Pause) ] = Protocol::Pause;
-	m_protocolFeatures [ "propose_draw" ] = Protocol::Draw;
-	m_protocolFeatures [ "adjourn" ] = Protocol::Adjourn;
-	m_protocolFeatures [ "resign" ] = Protocol::Resign;
-	m_protocolFeatures [ "abort" ] = Protocol::Abort;
+	m_protocolFeatures = {
+	    {KGameStandardAction::name(KGameStandardAction::Pause), Protocol::Pause},
+	    {QStringLiteral("propose_draw"), Protocol::Draw},
+	    {QStringLiteral("adjourn"), Protocol::Adjourn},
+	    {QStringLiteral("resign"), Protocol::Resign},
+	    {QStringLiteral("abort"), Protocol::Abort},
+	};
 
 	// setup difficulty management
 	connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
@@ -358,9 +360,8 @@ void MainWindow::protocolInitSuccesful() {
 		f &= Protocol::black()->supportedFeatures();
 	}
 
-	QMap<QByteArray, Protocol::Feature>::ConstIterator it;
-	for(it = m_protocolFeatures.constBegin(); it != m_protocolFeatures.constEnd(); ++it)
-		actionCollection()->action(QLatin1String(it.key()))->setEnabled(f & it.value());
+	for (auto it = m_protocolFeatures.constBegin(); it != m_protocolFeatures.constEnd(); ++it)
+		actionCollection()->action(it.key())->setEnabled(f & it.value());
 
 	// show console action button if protocol allows a console
 	// show console dock widget if protocol allows and configuration file entry has visible = true
@@ -487,7 +488,7 @@ void MainWindow::resign() {
 void MainWindow::undo() {
 	if(!Protocol::white()->isLocal() && !Protocol::black()->isLocal()) {
 		// No need to pause the game if both players are local
-		QAction* pa = actionCollection()->action(QLatin1String(KGameStandardAction::name(KGameStandardAction::Pause)));
+		QAction* pa = actionCollection()->action(KGameStandardAction::name(KGameStandardAction::Pause));
 		if(pa)
 			pa->setChecked(true);
 	}
@@ -498,7 +499,7 @@ void MainWindow::redo() {
 	Manager::self()->redo();
 	if(!Protocol::white()->isLocal() && !Protocol::black()->isLocal()) {
 		// No need to pause the game if both players are local
-		QAction* pa = actionCollection()->action(QLatin1String(KGameStandardAction::name(KGameStandardAction::Pause)));
+		QAction* pa = actionCollection()->action(KGameStandardAction::name(KGameStandardAction::Pause));
 		if(pa && !Manager::self()->canRedo())
 			pa->setChecked(false);
 	}
@@ -529,12 +530,12 @@ void MainWindow::gameOver(Color winner) {
 	mainLayout->addWidget(mainWidget);
 
 	QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
-	QMap<QDialogButtonBox::StandardButton, QByteArray> buttonsMap;
+	QMap<QDialogButtonBox::StandardButton, QString> buttonsMap;
 	buttonsMap[QDialogButtonBox::Ok] = KGameStandardAction::name ( KGameStandardAction::New );
 	buttonsMap[QDialogButtonBox::Apply] = KGameStandardAction::name ( KGameStandardAction::Save );
 
-	for ( QMap<QDialogButtonBox::StandardButton, QByteArray>::ConstIterator it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it ) {
-		QAction* a = actionCollection()->action ( QLatin1String ( it.value() ) );
+	for ( auto it = buttonsMap.constBegin(); it != buttonsMap.constEnd(); ++it ) {
+		QAction* a = actionCollection()->action ( it.value() );
 		Q_ASSERT(a);
 
 		bBox->button ( it.key() )->setText ( a->text() );
