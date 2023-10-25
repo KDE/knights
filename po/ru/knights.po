@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:49+0000\n"
 "PO-Revision-Date: 2023-01-12 10:47+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -410,190 +410,190 @@ msgstr "Длинные алгебраические"
 msgid "Coordinate"
 msgstr "Координаты"
 
-#: knights.cpp:93
+#: knights.cpp:95
 #, kde-format
 msgid "Custom"
 msgstr "Другой"
 
-#: knights.cpp:133
+#: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 думают…"
 
-#: knights.cpp:140
+#: knights.cpp:142
 #, kde-format
 msgid "Clock"
 msgstr "Часы"
 
-#: knights.cpp:171
+#: knights.cpp:173
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Журнал ходов"
 
-#: knights.cpp:190 knights.cpp:480
+#: knights.cpp:192 knights.cpp:481
 #, kde-format
 msgid "Resign"
 msgstr "Сдаться"
 
-#: knights.cpp:191
+#: knights.cpp:193
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "Признать неминуемое поражение"
 
-#: knights.cpp:196
+#: knights.cpp:198
 #, kde-format
 msgid "Undo"
 msgstr "Отменить"
 
-#: knights.cpp:197
+#: knights.cpp:199
 #, kde-format
 msgid "Take back your last move"
 msgstr "Отменить последний ход"
 
-#: knights.cpp:203
+#: knights.cpp:205
 #, kde-format
 msgid "Redo"
 msgstr "Повторить"
 
-#: knights.cpp:204
+#: knights.cpp:206
 #, kde-format
 msgid "Repeat your last move"
 msgstr "Повторить последний ход"
 
-#: knights.cpp:211
+#: knights.cpp:213
 #, kde-format
 msgid "Offer &Draw"
 msgstr "Предложить &ничью"
 
-#: knights.cpp:212
+#: knights.cpp:214
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "Предложить противнику ничью"
 
-#: knights.cpp:217
+#: knights.cpp:219
 #, kde-format
 msgid "Adjourn"
 msgstr "Отложить игру"
 
-#: knights.cpp:218
+#: knights.cpp:220
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "Продолжить эту игру позже"
 
-#: knights.cpp:223
+#: knights.cpp:225
 #, kde-format
 msgid "Abort"
 msgstr "Завершить игру"
 
-#: knights.cpp:224
+#: knights.cpp:226
 #, kde-format
 msgid "End the game immediately"
 msgstr "Завершить немедленно игру"
 
-#: knights.cpp:228
+#: knights.cpp:230
 #, kde-format
 msgid "Show Clock"
 msgstr "Показать часы"
 
-#: knights.cpp:234
+#: knights.cpp:236
 #, kde-format
 msgid "Show History"
 msgstr "Показать журнал"
 
-#: knights.cpp:241
+#: knights.cpp:243
 #, kde-format
 msgid "Show White Console"
 msgstr "Показать консоль белых"
 
-#: knights.cpp:247
+#: knights.cpp:249
 #, kde-format
 msgid "Show Black Console"
 msgstr "Показать консоль чёрных"
 
-#: knights.cpp:253
+#: knights.cpp:255
 #, kde-format
 msgid "Show Chat"
 msgstr "Показать чат"
 
-#: knights.cpp:292
+#: knights.cpp:294
 #, kde-format
 msgid "Open File"
 msgstr "Открыть файл"
 
-#: knights.cpp:293 knights.cpp:649 knights.cpp:672
+#: knights.cpp:295 knights.cpp:650 knights.cpp:673
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Игровые обозначения (*.pgn)"
 
-#: knights.cpp:457
+#: knights.cpp:458
 #, kde-format
 msgid "General"
 msgstr "Основное"
 
-#: knights.cpp:461
+#: knights.cpp:462
 #, kde-format
 msgid "Computer Engines"
 msgstr "Движки"
 
-#: knights.cpp:472
+#: knights.cpp:473
 #, kde-format
 msgid "Theme"
 msgstr "Оформление"
 
-#: knights.cpp:480
+#: knights.cpp:481
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Действительно сдаться?"
 
-#: knights.cpp:481
+#: knights.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Сдаться"
 
-#: knights.cpp:528
+#: knights.cpp:529
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Игра окончена"
 
 # есть более правильно название "ничьи" --aspotashev
-#: knights.cpp:552
+#: knights.cpp:553
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Игра закончилась вничью"
 
-#: knights.cpp:558
+#: knights.cpp:559
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Игра закончилась победой <em>белых</em>"
 
-#: knights.cpp:561
+#: knights.cpp:562
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Игра закончилась победой <em>чёрных</em>"
 
-#: knights.cpp:566
+#: knights.cpp:567
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Игра закончилась победой <em>%1</em>, играющего за белых"
 
-#: knights.cpp:569
+#: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Игра закончилась победой <em>%1</em>, играющего за чёрных"
 
-#: knights.cpp:615
+#: knights.cpp:616
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 против %2"
 
-#: knights.cpp:628
+#: knights.cpp:629
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -602,12 +602,12 @@ msgstr ""
 "Сейчас ваша игра будет закончена.\n"
 "Вы хотите сохранить запись ходов?"
 
-#: knights.cpp:648
+#: knights.cpp:649
 #, kde-format
 msgid "Save"
 msgstr "Сохранить"
 
-#: knights.cpp:671
+#: knights.cpp:672
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:49+0000\n"
 "PO-Revision-Date: 2023-03-11 13:50+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -391,189 +391,189 @@ msgstr "Lang algebraisk"
 msgid "Coordinate"
 msgstr "Koordinat"
 
-#: knights.cpp:93
+#: knights.cpp:95
 #, kde-format
 msgid "Custom"
 msgstr "Tilpassa"
 
-#: knights.cpp:133
+#: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 tenkjer …"
 
-#: knights.cpp:140
+#: knights.cpp:142
 #, kde-format
 msgid "Clock"
 msgstr "Klokke"
 
-#: knights.cpp:171
+#: knights.cpp:173
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "Trekklogg"
 
-#: knights.cpp:190 knights.cpp:480
+#: knights.cpp:192 knights.cpp:481
 #, kde-format
 msgid "Resign"
 msgstr "Gje opp"
 
-#: knights.cpp:191
+#: knights.cpp:193
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "Innsjå ditt uungåelege nederlag"
 
-#: knights.cpp:196
+#: knights.cpp:198
 #, kde-format
 msgid "Undo"
 msgstr "Angra"
 
-#: knights.cpp:197
+#: knights.cpp:199
 #, kde-format
 msgid "Take back your last move"
 msgstr "Ta tilbake det siste trekket ditt"
 
-#: knights.cpp:203
+#: knights.cpp:205
 #, kde-format
 msgid "Redo"
 msgstr "Gjer om"
 
-#: knights.cpp:204
+#: knights.cpp:206
 #, kde-format
 msgid "Repeat your last move"
 msgstr "Gjenta det siste trekket ditt"
 
-#: knights.cpp:211
+#: knights.cpp:213
 #, kde-format
 msgid "Offer &Draw"
 msgstr "Tilby &remis"
 
-#: knights.cpp:212
+#: knights.cpp:214
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "Tilby remis til motstandaren"
 
-#: knights.cpp:217
+#: knights.cpp:219
 #, kde-format
 msgid "Adjourn"
 msgstr "Ta ein pause"
 
-#: knights.cpp:218
+#: knights.cpp:220
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "Fortsett dette partiet seinare"
 
-#: knights.cpp:223
+#: knights.cpp:225
 #, kde-format
 msgid "Abort"
 msgstr "Avbryt"
 
-#: knights.cpp:224
+#: knights.cpp:226
 #, kde-format
 msgid "End the game immediately"
 msgstr "Avslutt partiet no"
 
-#: knights.cpp:228
+#: knights.cpp:230
 #, kde-format
 msgid "Show Clock"
 msgstr "Vis klokke"
 
-#: knights.cpp:234
+#: knights.cpp:236
 #, kde-format
 msgid "Show History"
 msgstr "Vis trekklogg"
 
-#: knights.cpp:241
+#: knights.cpp:243
 #, kde-format
 msgid "Show White Console"
 msgstr "Vis programlogg for kvit"
 
-#: knights.cpp:247
+#: knights.cpp:249
 #, kde-format
 msgid "Show Black Console"
 msgstr "Vis programlogg for svart"
 
-#: knights.cpp:253
+#: knights.cpp:255
 #, kde-format
 msgid "Show Chat"
 msgstr "Vis pratevindauge"
 
-#: knights.cpp:292
+#: knights.cpp:294
 #, kde-format
 msgid "Open File"
 msgstr "Opna fil"
 
-#: knights.cpp:293 knights.cpp:649 knights.cpp:672
+#: knights.cpp:295 knights.cpp:650 knights.cpp:673
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable Game Notation (*.pgn)"
 
-#: knights.cpp:457
+#: knights.cpp:458
 #, kde-format
 msgid "General"
 msgstr "Generelt"
 
-#: knights.cpp:461
+#: knights.cpp:462
 #, kde-format
 msgid "Computer Engines"
 msgstr "Sjakkmotorar"
 
-#: knights.cpp:472
+#: knights.cpp:473
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
 
-#: knights.cpp:480
+#: knights.cpp:481
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Er du sikker på at du vil gje opp?"
 
-#: knights.cpp:481
+#: knights.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Gje opp"
 
-#: knights.cpp:528
+#: knights.cpp:529
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Partiet er over"
 
-#: knights.cpp:552
+#: knights.cpp:553
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Partiet enda i remis"
 
-#: knights.cpp:558
+#: knights.cpp:559
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Partiet enda med siger til <em>kvit</em>"
 
-#: knights.cpp:561
+#: knights.cpp:562
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Partiet enda med siger til <em>svart</em>"
 
-#: knights.cpp:566
+#: knights.cpp:567
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Partiet enda med siger til <em>%1</em>, som spela kvit"
 
-#: knights.cpp:569
+#: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Partiet enda med siger til <em>%1</em>, som spela svart"
 
-#: knights.cpp:615
+#: knights.cpp:616
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 mot %2"
 
-#: knights.cpp:628
+#: knights.cpp:629
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -582,12 +582,12 @@ msgstr ""
 "Dette vil avslutta spelet. \n"
 "Vil du lagra trekkloggen?"
 
-#: knights.cpp:648
+#: knights.cpp:649
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: knights.cpp:671
+#: knights.cpp:672
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

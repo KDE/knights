@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-25 01:49+0000\n"
 "PO-Revision-Date: 2023-10-21 13:51\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -383,189 +383,189 @@ msgstr "长代数"
 msgid "Coordinate"
 msgstr "座标"
 
-#: knights.cpp:93
+#: knights.cpp:95
 #, kde-format
 msgid "Custom"
 msgstr "自定义"
 
-#: knights.cpp:133
+#: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking..."
 msgstr "%1 正在思考..."
 
-#: knights.cpp:140
+#: knights.cpp:142
 #, kde-format
 msgid "Clock"
 msgstr "时钟"
 
-#: knights.cpp:171
+#: knights.cpp:173
 #, kde-format
 msgctxt "@title:window"
 msgid "Move History"
 msgstr "回合历史"
 
-#: knights.cpp:190 knights.cpp:480
+#: knights.cpp:192 knights.cpp:481
 #, kde-format
 msgid "Resign"
 msgstr "认输"
 
-#: knights.cpp:191
+#: knights.cpp:193
 #, kde-format
 msgid "Admit your inevitable defeat"
 msgstr "承认您的必输之局"
 
-#: knights.cpp:196
+#: knights.cpp:198
 #, kde-format
 msgid "Undo"
 msgstr "撤销"
 
-#: knights.cpp:197
+#: knights.cpp:199
 #, kde-format
 msgid "Take back your last move"
 msgstr "回到您的上一步"
 
-#: knights.cpp:203
+#: knights.cpp:205
 #, kde-format
 msgid "Redo"
 msgstr "重下"
 
-#: knights.cpp:204
+#: knights.cpp:206
 #, kde-format
 msgid "Repeat your last move"
 msgstr "重复您的上一步"
 
-#: knights.cpp:211
+#: knights.cpp:213
 #, kde-format
 msgid "Offer &Draw"
 msgstr "提请和局(&D)"
 
-#: knights.cpp:212
+#: knights.cpp:214
 #, kde-format
 msgid "Offer a draw to your opponent"
 msgstr "向您的对手提请和局"
 
-#: knights.cpp:217
+#: knights.cpp:219
 #, kde-format
 msgid "Adjourn"
 msgstr "暂停"
 
-#: knights.cpp:218
+#: knights.cpp:220
 #, kde-format
 msgid "Continue this game at a later time"
 msgstr "稍后再继续此局游戏"
 
-#: knights.cpp:223
+#: knights.cpp:225
 #, kde-format
 msgid "Abort"
 msgstr "中止"
 
-#: knights.cpp:224
+#: knights.cpp:226
 #, kde-format
 msgid "End the game immediately"
 msgstr "立即终结游戏"
 
-#: knights.cpp:228
+#: knights.cpp:230
 #, kde-format
 msgid "Show Clock"
 msgstr "显示时钟"
 
-#: knights.cpp:234
+#: knights.cpp:236
 #, kde-format
 msgid "Show History"
 msgstr "显示历史"
 
-#: knights.cpp:241
+#: knights.cpp:243
 #, kde-format
 msgid "Show White Console"
 msgstr "显示白方控制台"
 
-#: knights.cpp:247
+#: knights.cpp:249
 #, kde-format
 msgid "Show Black Console"
 msgstr "显示黑方控制台"
 
-#: knights.cpp:253
+#: knights.cpp:255
 #, kde-format
 msgid "Show Chat"
 msgstr "显示聊天界面"
 
-#: knights.cpp:292
+#: knights.cpp:294
 #, kde-format
 msgid "Open File"
 msgstr "打开文件"
 
-#: knights.cpp:293 knights.cpp:649 knights.cpp:672
+#: knights.cpp:295 knights.cpp:650 knights.cpp:673
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "可移动游戏标记 (*.pgn)"
 
-#: knights.cpp:457
+#: knights.cpp:458
 #, kde-format
 msgid "General"
 msgstr "通用"
 
-#: knights.cpp:461
+#: knights.cpp:462
 #, kde-format
 msgid "Computer Engines"
 msgstr "电脑引擎"
 
-#: knights.cpp:472
+#: knights.cpp:473
 #, kde-format
 msgid "Theme"
 msgstr "主题"
 
-#: knights.cpp:480
+#: knights.cpp:481
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "您真的确定要离开吗？"
 
-#: knights.cpp:481
+#: knights.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr ""
 
-#: knights.cpp:528
+#: knights.cpp:529
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "游戏结束"
 
-#: knights.cpp:552
+#: knights.cpp:553
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "游戏以和局结束"
 
-#: knights.cpp:558
+#: knights.cpp:559
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "游戏以 <em>白方</em>获胜而结束"
 
-#: knights.cpp:561
+#: knights.cpp:562
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "游戏以<em>黑方</em>获胜而结束"
 
-#: knights.cpp:566
+#: knights.cpp:567
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "游戏以 <emphasis>%1</emphasis> 执白胜出结束"
 
-#: knights.cpp:569
+#: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "游戏以 <emphasis>%1</emphasis> 执黑胜出结束"
 
-#: knights.cpp:615
+#: knights.cpp:616
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 对 %2"
 
-#: knights.cpp:628
+#: knights.cpp:629
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -574,12 +574,12 @@ msgstr ""
 "这将结束您的游戏。\n"
 "您想要保存回合历史吗？"
 
-#: knights.cpp:648
+#: knights.cpp:649
 #, kde-format
 msgid "Save"
 msgstr "保存文档"
 
-#: knights.cpp:671
+#: knights.cpp:672
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
