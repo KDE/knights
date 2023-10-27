@@ -101,14 +101,10 @@
 >Objectiu</title>
 
       <para
->Moure les vostres peces, capturant les peces de l'adversari fins que el rei de l'adversari estigui sota atac i no tingui moviment per a aturar-ho -això s'anomena <quote
->escac i mat</quote
->-.</para>
+>Moure les vostres peces, capturant les peces de l'adversari fins que el rei de l'adversari estigui sota atac i no tingui moviment per a aturar-ho -això s'anomena «escac i mat»-.</para>
 
       <para
->Si us sembla que no podeu guanyar, podeu jugar per a fer taules (empat). Movent les vostres peces fins que no tingueu moviments legals i que el vostre rei no resti sota atac -s'anomena <quote
->punt mort</quote
->-. Hi poden haver disponibles altres formes de fer taules depenent de les regles dels escacs que seguiu per a la partida.</para>
+>Si us sembla que no podeu guanyar, podeu jugar per a fer taules (empat). Movent les vostres peces fins que no tingueu moviments legals i que el vostre rei no resti sota atac -s'anomena «punt mort»-. Hi poden haver disponibles altres formes de fer taules depenent de les regles dels escacs que seguiu per a la partida.</para>
     </sect1>
 
     <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
@@ -269,9 +265,7 @@
 >.</para>
 
       <para
->Hi ha dues maneres de triar l'adversari. O bé anunciar la vostra partida (s'anomena <quote
->cercar</quote
->) o respondre a algú altre.</para>
+>Hi ha dues maneres de triar l'adversari. O bé anunciar la vostra partida (s'anomena «cercar») o respondre a algú altre.</para>
 
       <screenshot>
         <screeninfo
@@ -429,9 +423,7 @@
         </itemizedlist>
 
         <para
->Cada casella individual té un nom, de manera que es pot mantenir un registre dels moviments de la partida. Existeixen diversos sistemes de nomenclatura, però la <quote
->notació algebraica</quote
-> és la més popular i és el sistema oficial. En aquest sistema, cada casella s'anomena per la fila i la columna on es troba. Les files són numerades de l'1 fins al 8 començant pel costat blanc del tauler i cap al costat negre del tauler. Les columnes s'etiqueten amb lletres minúscules de la «a» a la «h» d'esquerra a dreta segons el punt de vista del jugador blanc. La casella porta el nom de la lletra seguida pel número. D'aquesta manera, la casella de la cantonada inferior esquerra es coneix com a «a1». L'estructura de la nomenclatura es pot veure en el següent diagrama:</para>
+>Cada casella individual té un nom, de manera que es pot mantenir un registre dels moviments de la partida. Existeixen diversos sistemes de nomenclatura, però la «notació algebraica» és la més popular i és el sistema oficial. En aquest sistema, cada casella s'anomena per la fila i la columna on es troba. Les files són numerades de l'1 fins al 8 començant pel costat blanc del tauler i cap al costat negre del tauler. Les columnes s'etiqueten amb lletres minúscules de la «a» a la «h» d'esquerra a dreta segons el punt de vista del jugador blanc. La casella porta el nom de la lletra seguida pel número. D'aquesta manera, la casella de la cantonada inferior esquerra es coneix com a «a1». L'estructura de la nomenclatura es pot veure en el següent diagrama:</para>
 
         <mediaobject
 ><imageobject
@@ -467,13 +459,9 @@
 >Els escacs tenen sis tipus de peces: el peó, la torre, el cavall, l'alfil, la dama i el rei. Cada peça té la seva pròpia i única forma de moure's. Hi ha algunes similituds entre els moviments de les diferents peces. Totes les peces, excepte el cavall, es mouen en línia recta -horitzontal, vertical o diagonal-. No es poden moure més enllà del final del tauler i tornen per l'altre costat. La vora del tauler és un límit que no es pot creuar. Totes les peces excepte el cavall no poden saltar per sobre de les altres peces -totes les caselles entre la casella on comença el seu moviment la peça i on l'acaba han d'estar buides-. El moviment no pot acabar en una casella ocupada per una peça del mateix color.</para>
 
         <para
->Si la casella on una peça acaba el seu moviment conté una peça de l'adversari, la peça de l'adversari serà <quote
->capturada</quote
-> (matada), i s'eliminarà de la partida. Es poden capturar totes les peces a excepció del rei. La partida acaba en el moviment anterior a la captura del rei -<quote
-><link linkend="checkmate"
+>Si la casella on una peça acaba el seu moviment conté una peça de l'adversari, la peça de l'adversari serà «capturada» (matada), i s'eliminarà de la partida. Es poden capturar totes les peces a excepció del rei. La partida acaba en el moviment anterior a la captura del rei -«<link linkend="checkmate"
 >escac i mat</link
-></quote
->. La captura sempre requereix que la peça atacant es col·loqui a la casella de la peça de l'adversari mentre es realitza un moviment normal. L'única excepció és per a capturar un peó <link linkend="en_passant-movement"
+>». La captura sempre requereix que la peça atacant es col·loqui a la casella de la peça de l'adversari mentre es realitza un moviment normal. L'única excepció és per a capturar un peó <link linkend="en_passant-movement"
 >al pas</link
 >. No esteu obligat a capturar una peça quan hi ha una oportunitat de fer-ho, la captura és una opció. L'única vegada que la captura és obligatòria, és quan el rei està sota atac i la captura de la peça atacant és l'única manera d'aturar l'atac.</para>
 
@@ -517,11 +505,7 @@
 >Alfil</title>
 
         <para
->L'alfil es mou en línia recta diagonal sobre el tauler. Es pot moure tantes caselles com vulgui, fins que es troba al final del tauler o una altra peça. L'alfil no pot saltar sobre les altres peces. Captura de la mateixa manera com es mou, aterrant sobre la casella de la peça oponent. A causa de la manera en què es mou l'alfil, la peça sempre romandrà sobre les caselles del mateix color en què va començar. Cada jugador comença amb dos alfils, un en les caselles de color negre i l'altre en les de color blanc. Sovint es coneixen com l'alfil de les <quote
->caselles negres</quote
-> i l'alfil de les <quote
->caselles blanques</quote
->. Els alfils també es poden segons el costat on comencen, l'alfil del rei i l'alfil de dama.</para>
+>L'alfil es mou en línia recta diagonal sobre el tauler. Es pot moure tantes caselles com vulgui, fins que es troba al final del tauler o una altra peça. L'alfil no pot saltar sobre les altres peces. Captura de la mateixa manera com es mou, aterrant sobre la casella de la peça oponent. A causa de la manera en què es mou l'alfil, la peça sempre romandrà sobre les caselles del mateix color en què va començar. Cada jugador comença amb dos alfils, un en les caselles de color negre i l'altre en les de color blanc. Sovint es coneixen com l'alfil de les «caselles negres» i l'alfil de les «caselles blanques». Els alfils també es poden segons el costat on comencen, l'alfil del rei i l'alfil de dama.</para>
 
         <mediaobject
 ><imageobject
@@ -552,9 +536,7 @@
 >Cavall</title>
 
         <para
->El cavall és la peça més especial en els escacs, amb una flexibilitat que fa que sigui una peça poderosa. El cavall és l'única peça en el tauler que pot saltar sobre les altres peces. El cavall es mou dues caselles horitzontal o vertical i després una casella més en un angle recte. El moviment del cavall té forma de <quote
->L</quote
->. El cavall sempre aterra sobre una casella del color contrari al de la seva casella inicial. El cavall pot saltar sobre les peces de qualsevol color mentre va cap a la seva casella de destinació, però no capturarà cap de les peces sobre les quals salti. El cavall captura aterrant sobre la casella de la peça oponent. El cavall no pot aterrar sobre una casella ocupada per una peça del mateix color. Ja que el moviment del cavall no és en línia recta, pot atacar a una dama, alfil, torre o sense ser atacada de manera recíproca per aquestes peces.</para>
+>El cavall és la peça més especial en els escacs, amb una flexibilitat que fa que sigui una peça poderosa. El cavall és l'única peça en el tauler que pot saltar sobre les altres peces. El cavall es mou dues caselles horitzontal o vertical i després una casella més en un angle recte. El moviment del cavall té forma de «L». El cavall sempre aterra sobre una casella del color contrari al de la seva casella inicial. El cavall pot saltar sobre les peces de qualsevol color mentre va cap a la seva casella de destinació, però no capturarà cap de les peces sobre les quals salti. El cavall captura aterrant sobre la casella de la peça oponent. El cavall no pot aterrar sobre una casella ocupada per una peça del mateix color. Ja que el moviment del cavall no és en línia recta, pot atacar a una dama, alfil, torre o sense ser atacada de manera recíproca per aquestes peces.</para>
 
         <mediaobject
 ><imageobject
@@ -580,11 +562,7 @@
 >Rei</title>
 
         <para
->El rei és la peça més important en els escacs. Si el rei està atrapat de manera que la seva captura és inevitable, la partida haurà acabat i aquest jugador perd. El rei té poca mobilitat, per la qual cosa també és considerat una de les peces més febles del joc. El rei es pot moure a qualsevol casella adjacent. És a dir, es pot moure una casella en qualsevol direcció: horitzontal, vertical o diagonal. No es pot moure a una casella ocupada per una peça del mateix color. El rei captura una peça de la mateixa manera que es mou, aterrant sobre la casella de la peça oponent. Hi ha un límit addicional en el moviment del rei. El rei no es pot moure a una casella on es posa al rei sota atac per una peça contrària (anomenat <quote
->escac</quote
->). Com a resultat d'aquesta limitació, dos reis no poden estar un al costat de l'altre -ja que qualsevol moviment cap al rei oponent posaria en escac al rei en moviment-. El rei també pot ser forçat a moure o capturar si el rei està sota atac (<quote
->escac</quote
->) i l'única manera d'aturar l'atac consisteix a moure el rei.</para>
+>El rei és la peça més important en els escacs. Si el rei està atrapat de manera que la seva captura és inevitable, la partida haurà acabat i aquest jugador perd. El rei té poca mobilitat, per la qual cosa també és considerat una de les peces més febles del joc. El rei es pot moure a qualsevol casella adjacent. És a dir, es pot moure una casella en qualsevol direcció: horitzontal, vertical o diagonal. No es pot moure a una casella ocupada per una peça del mateix color. El rei captura una peça de la mateixa manera que es mou, aterrant sobre la casella de la peça oponent. Hi ha un límit addicional en el moviment del rei. El rei no es pot moure a una casella on es posa al rei sota atac per una peça contrària (anomenat «escac»). Com a resultat d'aquesta limitació, dos reis no poden estar un al costat de l'altre -ja que qualsevol moviment cap al rei oponent posaria en escac al rei en moviment-. El rei també pot ser forçat a moure o capturar si el rei està sota atac («escac») i l'única manera d'aturar l'atac consisteix a moure el rei.</para>
 
         <mediaobject
 ><imageobject
@@ -601,9 +579,7 @@
 >Al pas</title>
 
         <para
->Quan es va introduir la regla per a permetre que un peó es mogui dues caselles en el seu primer moviment, un peó podria evitar ser capturat per un peó de l'adversari sobrepassant la casella atacada. La captura al pas (del francès <quote
->passant</quote
->) es va afegir per a evitar-ho. La captura es realitza exactament com si el peó s'hagués mogut només una casella cap endavant. Hi ha condicions especials per a la captura al pas:</para>
+>Quan es va introduir la regla per a permetre que un peó es mogui dues caselles en el seu primer moviment, un peó podria evitar ser capturat per un peó de l'adversari sobrepassant la casella atacada. La captura al pas (del francès «passant») es va afegir per a evitar-ho. La captura es realitza exactament com si el peó s'hagués mogut només una casella cap endavant. Hi ha condicions especials per a la captura al pas:</para>
 
         <itemizedlist>
           <listitem
@@ -625,9 +601,7 @@
         </itemizedlist>
 
         <para
->En el següent diagrama, el peó blanc no s'ha mogut de la seva posició inicial. El seu primer moviment pot ser una o dues caselles endavant. La primera casella està sent atacada pel peó negre (els peons ataquen en diagonal) com indica la X vermella. El peó blanc avança dues caselles, evitant l'atac. En el següent moviment, el peó negre es mou a la casella on el peó blanc s'hauria mogut si només s'hagués mogut una sola casella en el primer moviment. El peó negre ataca amb èxit al peó blanc, i el captura <quote
->al pas</quote
->. El peó blanc s'elimina del joc.</para>
+>En el següent diagrama, el peó blanc no s'ha mogut de la seva posició inicial. El seu primer moviment pot ser una o dues caselles endavant. La primera casella està sent atacada pel peó negre (els peons ataquen en diagonal) com indica la X vermella. El peó blanc avança dues caselles, evitant l'atac. En el següent moviment, el peó negre es mou a la casella on el peó blanc s'hauria mogut si només s'hagués mogut una sola casella en el primer moviment. El peó negre ataca amb èxit al peó blanc, i el captura «al pas». El peó blanc s'elimina del joc.</para>
 
         <mediaobject
 ><imageobject
@@ -669,11 +643,7 @@
         </itemizedlist>
 
         <para
->Hi ha dues formes d'enroc. Una s'anomena <quote
->del costat del rei</quote
->. També es coneix com a <quote
->enroc curt</quote
->, ja que es realitza cap al costat curt del tauler i la torre només s'ha de moure dues caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
+>Hi ha dues formes d'enroc. Una s'anomena «del costat del rei». També es coneix com a «enroc curt», ja que es realitza cap al costat curt del tauler i la torre només s'ha de moure dues caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
 
         <mediaobject
 ><imageobject
@@ -681,11 +651,7 @@
 ></mediaobject>
 
         <para
->La segona forma d'enroc s'anomena <quote
->del costat de la dama</quote
->, en el qual el rei es mou cap a la casella que ha deixat vacant la dama. També es coneix com a <quote
->enroc llarg</quote
->, ja que es realitza pel costat llarg del tauler i la torre s'ha de moure tres caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
+>La segona forma d'enroc s'anomena «del costat de la dama», en el qual el rei es mou cap a la casella que ha deixat vacant la dama. També es coneix com a «enroc llarg», ja que es realitza pel costat llarg del tauler i la torre s'ha de moure tres caselles cap al costat oposat del rei. És el diagrama a continuació:</para>
 
         <mediaobject
 ><imageobject
@@ -704,13 +670,7 @@
 >Promoció del peó</title>
 
         <para
->Quan un peó abasta l'altre extrem del tauler no pot anar més enllà, ja que sempre s'ha de moure endavant i no cap enrere. Llavors, el peó es converteix (<quote
->promociona</quote
->) en una dama, torre, alfil o cavall. Aquesta promoció es produeix com a part del moviment. Normalment, la peça triada és la dama, sovint s'anomena <quote
->coronació</quote
->. De vegades es trien les altres peces, quan els seus moviments ajuden en l'escac i mat, sovint s'anomena <quote
->sota promoció</quote
->. El peó es pot convertir en una peça, fins i tot si aquesta peça encara és al tauler. És a dir, podeu tenir dues reines o tres torres, alfils o cavalls jugant alhora.</para>
+>Quan un peó abasta l'altre extrem del tauler no pot anar més enllà, ja que sempre s'ha de moure endavant i no cap enrere. Llavors, el peó es converteix («promociona») en una dama, torre, alfil o cavall. Aquesta promoció es produeix com a part del moviment. Normalment, la peça triada és la dama, sovint s'anomena «coronació». De vegades es trien les altres peces, quan els seus moviments ajuden en l'escac i mat, sovint s'anomena «sota promoció». El peó es pot convertir en una peça, fins i tot si aquesta peça encara és al tauler. És a dir, podeu tenir dues reines o tres torres, alfils o cavalls jugant alhora.</para>
       </sect2>
     </sect1>
 
@@ -722,9 +682,7 @@
 >Escac i mat</title>
 
         <para
->Quan un rei és atacat i amenaçat de ser capturat per una peça de l'adversari, es diu que el rei està <quote
->en escac</quote
->. Un rei haurà d'escapar de l'escac immediatament. Hi ha tres maneres possibles per a sortir d'un escac.</para>
+>Quan un rei és atacat i amenaçat de ser capturat per una peça de l'adversari, es diu que el rei està «en escac». Un rei haurà d'escapar de l'escac immediatament. Hi ha tres maneres possibles per a sortir d'un escac.</para>
 
         <itemizedlist>
           <listitem
@@ -742,9 +700,7 @@
         </itemizedlist>
 
         <para
->Si el rei no té forma d'escapar de l'escac, la posició s'anomenarà <quote
->escac i mat</quote
-> i la partida acabarà. El jugador que està en escac i mat perdrà la partida. En realitat, el rei no serà capturat ni eliminat del tauler.</para>
+>Si el rei no té forma d'escapar de l'escac, la posició s'anomenarà «escac i mat» i la partida acabarà. El jugador que està en escac i mat perdrà la partida. En realitat, el rei no serà capturat ni eliminat del tauler.</para>
       </sect2>
 
       <sect2 id="resign">
@@ -760,9 +716,7 @@
 >Taules</title>
 
         <para
->El fet de fer <quote
->taules</quote
-> és un empat entre els jugadors. Hi ha diverses maneres en què poden ocórrer les taules.</para>
+>El fet de fer «taules» és un empat entre els jugadors. Hi ha diverses maneres en què poden ocórrer les taules.</para>
 
         <itemizedlist>
           <listitem
@@ -816,9 +770,7 @@
 >Punt mort</title>
 
         <para
->Si a un jugador no li queda cap moviment legal (cada moviment possible seria posar el seu rei en escac), però el seu rei no està actualment sota escac, el joc acaba en un <quote
->punt mort</quote
->. El punt mort fa que la partida acabi en taules.</para>
+>Si a un jugador no li queda cap moviment legal (cada moviment possible seria posar el seu rei en escac), però el seu rei no està actualment sota escac, el joc acaba en un «punt mort». El punt mort fa que la partida acabi en taules.</para>
       </sect2>
 
       <sect2 id="time-end">
@@ -855,18 +807,10 @@
 >El primer tipus de control de temps és el de moviments per temps. En aquest tipus, un jugador haurà de completar un nombre determinat de moviments dins d'un període determinat de temps.</para>
 
       <para
->El segon tipus de control de temps s'anomena <quote
->mort sobtada</quote
->. En aquest tipus hi ha una quantitat determinada de temps per a completar la partida, sense importar el nombre de moviments realitzats.</para>
+>El segon tipus de control de temps s'anomena «mort sobtada». En aquest tipus hi ha una quantitat determinada de temps per a completar la partida, sense importar el nombre de moviments realitzats.</para>
 
       <para
->En el control de temps hi pot haver un retard per a compensar el temps perdut en realitzar un moviment físic. En el <quote
->retard Bronstein</quote
->, el rellotge no començarà a funcionar al començament del moviment del jugador, sinó quan se superi el temps de retard. Si el moviment es completa abans que expiri el temps, no es restarà temps del rellotge del jugador. En el <quote
->retard Fischer</quote
->, el temps de retard s'afegirà al temps que li queda al jugador abans del moviment. Si el moviment es realitza abans que expiri el temps, el temps de retard restant serà afegit al temps del rellotge del jugador. De manera similar, es pot afegir un temps fix al rellotge del jugador després de completar un moviment. Quan s'afegeix el temps al rellotge, la quantitat de temps es coneix com a <quote
->increment de temps</quote
->.</para>
+>En el control de temps hi pot haver un retard per a compensar el temps perdut en realitzar un moviment físic. En el «retard Bronstein», el rellotge no començarà a funcionar al començament del moviment del jugador, sinó quan se superi el temps de retard. Si el moviment es completa abans que expiri el temps, no es restarà temps del rellotge del jugador. En el «retard Fischer», el temps de retard s'afegirà al temps que li queda al jugador abans del moviment. Si el moviment es realitza abans que expiri el temps, el temps de retard restant serà afegit al temps del rellotge del jugador. De manera similar, es pot afegir un temps fix al rellotge del jugador després de completar un moviment. Quan s'afegeix el temps al rellotge, la quantitat de temps es coneix com a «increment de temps».</para>
 
       <para
 >Els controls de temps varien àmpliament depenent de la partida, el tipus de partida i del patrocinador. A més, durant una partida hi poden haver diversos tipus de controls de temps combinats, amb el temps no utilitzat afegit al següent control del temps. Per a tots els principals esdeveniments de la Federació Internacional d'Escacs (FIDE) el control de temps és de 90 minuts per als primers 40 moviments seguits de 30 minuts de mort sobtada, amb 30 segons addicionals per moviment a partir del primer moviment. Els valors predeterminats a FICS (el servidor d'escacs lliure per Internet) estan a 2 minuts per a la partida (mort sobtada), més 12 segons de temps incrementats per a cada moviment. Molts esdeveniments importants utilitzen 90 minuts de mort sobtada per al seu control de temps. A la Federació d'Escacs dels EUA el control de temps és de 5 minuts per a la partida, sense demores/increments de temps.</para>
@@ -897,9 +841,7 @@
 ></mediaobject>
 
     <para
->Si l'últim moviment de l'adversari posa al vostre rei sota atac (<quote
->escac</quote
->), el rei i totes les peces de l'atac també es ressaltaran.</para>
+>Si l'últim moviment de l'adversari posa al vostre rei sota atac («escac»), el rei i totes les peces de l'atac també es ressaltaran.</para>
 
     <mediaobject
 ><imageobject
