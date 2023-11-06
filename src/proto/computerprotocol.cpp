@@ -52,7 +52,7 @@ QList< Protocol::ToolWidgetData > ComputerProtocol::toolWidgets() {
 	data.name = QLatin1String("console") + attribute("program").toString() + QLatin1Char( color() == White ? 'W' : 'B' );
 	data.type = ConsoleToolWidget;
 	data.owner = color();
-	return QList< Protocol::ToolWidgetData >() << data;
+	return {data};
 }
 
 

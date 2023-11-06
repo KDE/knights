@@ -106,7 +106,7 @@ void EngineSettings::addClicked() {
 	int n = ui->tableWidget->rowCount();
 	ui->tableWidget->insertRow ( n );
 	KComboBox* box = new KComboBox ( this );
-	box->insertItems ( 0, QStringList() << i18nc("Protocol name", "XBoard") << i18nc("Protocol name", "UCI") );
+	box->insertItems(0, {i18nc("Protocol name", "XBoard"), i18nc("Protocol name", "UCI")});
 	ui->tableWidget->setCellWidget ( n, ProtocolColumn, box );
 	ui->tableWidget->edit ( ui->tableWidget->model()->index ( n, NameColumn ) );
 }

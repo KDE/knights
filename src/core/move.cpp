@@ -79,7 +79,7 @@ Move Move::castling(Move::CastlingSide side, Color color) {
 	rookMove.setFrom(rookFile, rank);
 	rookMove.setTo(rookDestinationFile, rank);
 	rookMove.setFlag(Forced, true);
-	m.setAdditionalMoves(QList<Move>() << rookMove);
+	m.setAdditionalMoves({rookMove});
 
 	QLatin1String str((side == QueenSide) ? "O-O-O" : "O-O");
 	m.setStringForNotation(Coordinate, str);

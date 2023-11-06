@@ -435,8 +435,8 @@ void ChessRules::moveMade ( const Move& m ) {
 	case Pawn:
 		if ( length ( m ) == 2 ) {
 			Pos mid = ( m.to() + m.from() ) / 2;
-			QList<Direction> dirs = QList<Direction>() << W << E;
-			for ( Direction dir : std::as_const(dirs) )
+			const QList<Direction> dirs {W, E};
+			for ( Direction dir : dirs )
 				if ( m_grid->contains ( m.to() + directions[dir] ) ) {
 					Move enPassantMove;
 					enPassantMove.setFrom ( m.to() + directions[dir] );

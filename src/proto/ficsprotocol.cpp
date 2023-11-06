@@ -153,7 +153,10 @@ QList< Protocol::ToolWidgetData > FicsProtocol::toolWidgets() {
 	chatData.name = QStringLiteral("chat");
 	chatData.type = ChatToolWidget;
 
-	return QList<ToolWidgetData>() << consoleData << chatData;
+	return {
+	    consoleData,
+	    chatData,
+	};
 }
 
 void FicsProtocol::socketError() {
