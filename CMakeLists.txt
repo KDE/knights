@@ -14,6 +14,7 @@ project(Knights VERSION ${KNIGHTS_VERSION})
 
 set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "5.240.0")
+set(PLASMA_MIN_VERSION "5.240.0")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
 
@@ -67,7 +68,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Svg
 )
 
-find_package(KF6Plasma REQUIRED)
+find_package(KF6Plasma ${PLASMA_MIN_VERSION} REQUIRED)
 set_package_properties(KF6Plasma PROPERTIES
     TYPE RUNTIME
     PURPOSE "clock svg (part of the desktop theme)"
