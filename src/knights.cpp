@@ -289,7 +289,7 @@ void MainWindow::fileLoad() {
 	if(!maybeSave())
 		return;
 
-	KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+	KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
 	QString dir = conf.readEntry("LastOpenDir", "");
 	const QString&  fileName = QFileDialog::getOpenFileName(this, i18n("Open File"), dir,
 	                           i18n("Portable game notation (*.pgn)"));
@@ -644,7 +644,7 @@ bool MainWindow::maybeSave() {
 
 void MainWindow::fileSave() {
 	if(m_fileName.isEmpty()) {
-		KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+		KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
 		QString dir = conf.readEntry("LastOpenDir", "");
 		m_fileName = QFileDialog::getSaveFileName(this, i18n("Save"), dir,
 		             i18n("Portable game notation (*.pgn)"));
@@ -667,7 +667,7 @@ void MainWindow::fileSave() {
 }
 
 void MainWindow::fileSaveAs() {
-	KConfigGroup conf(KSharedConfig::openConfig(), "MainWindow");
+	KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
 	QString dir = conf.readEntry("LastOpenDir", "");
 	QString fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save As"), dir,
 	                   i18n("Portable game notation (*.pgn)"));
