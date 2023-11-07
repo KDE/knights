@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:49+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2013-08-11 23:21+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -938,13 +938,13 @@ msgstr "Megnyitandó dokumentum"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:192
+#: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "Elfogadás"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "Elutasítás"
@@ -1373,19 +1373,19 @@ msgstr "Kiszolgáló konzol"
 msgid "Chat with %1"
 msgstr "Csevegés vele: %1"
 
-#: proto/ficsprotocol.cpp:181
+#: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
 msgstr "Sikertelen bejelentkezés"
 
-#: proto/ficsprotocol.cpp:187
+#: proto/ficsprotocol.cpp:190
 #, fuzzy, kde-format
 #| msgid "Chess server"
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "Sakkkiszolgáló"
 
-#: proto/ficsprotocol.cpp:278
+#: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
 msgstr "Érvénytelen jelszó"

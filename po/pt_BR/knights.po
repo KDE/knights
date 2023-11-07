@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:49+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2022-12-15 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -919,13 +919,13 @@ msgstr "Documento a ser aberto"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:192
+#: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "Aceitar"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "Recusar"
@@ -1348,18 +1348,18 @@ msgstr "Console do servidor"
 msgid "Chat with %1"
 msgstr "Conversar com %1"
 
-#: proto/ficsprotocol.cpp:181
+#: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
 msgstr "Falha na autenticação"
 
-#: proto/ficsprotocol.cpp:187
+#: proto/ficsprotocol.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "Servidor de xadrez"
 
-#: proto/ficsprotocol.cpp:278
+#: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
 msgstr "Senha inválida"

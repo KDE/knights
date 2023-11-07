@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:49+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2019-12-12 21:50+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathantra Malayalam Computing | സ്വതന്ത്ര മലയാളം കമ്പ്യൂട്ടിങ് "
@@ -931,13 +931,13 @@ msgstr "തുറക്കുവാനുള്ള രേഖ"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:192
+#: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "അംഗീകരിക്കുക"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "തിരസ്കരിക്കുക"
@@ -1380,19 +1380,19 @@ msgstr ""
 msgid "Chat with %1"
 msgstr ""
 
-#: proto/ficsprotocol.cpp:181
+#: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
 msgstr ""
 
-#: proto/ficsprotocol.cpp:187
+#: proto/ficsprotocol.cpp:190
 #, fuzzy, kde-format
 #| msgid "Human at a chess server:"
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "ചെസ്സ് സര്‍വറിലുള്ള വ്യക്തി:"
 
-#: proto/ficsprotocol.cpp:278
+#: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
 msgstr ""

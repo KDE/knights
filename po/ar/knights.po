@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:49+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2022-10-22 18:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -927,13 +927,13 @@ msgstr "المستند لفتحه"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:192
+#: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "اقبل"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "ارفض"
@@ -1354,18 +1354,18 @@ msgstr "طرفية الخادم"
 msgid "Chat with %1"
 msgstr "محادثة مع %1"
 
-#: proto/ficsprotocol.cpp:181
+#: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
 msgstr "فشل الولوج"
 
-#: proto/ficsprotocol.cpp:187
+#: proto/ficsprotocol.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "خادم الشطرنج"
 
-#: proto/ficsprotocol.cpp:278
+#: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
 msgstr "كلمة سر غير صحيحة"

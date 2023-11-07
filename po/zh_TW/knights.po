@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-25 01:49+0000\n"
+"POT-Creation-Date: 2023-11-07 02:42+0000\n"
 "PO-Revision-Date: 2023-01-29 23:11+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -899,13 +899,13 @@ msgstr "要開啟的文件"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:192
+#: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "接受"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:196
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "婉拒"
@@ -1326,18 +1326,18 @@ msgstr "伺服器主控台"
 msgid "Chat with %1"
 msgstr "與 %1 聊天"
 
-#: proto/ficsprotocol.cpp:181
+#: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
 msgstr "登入失敗"
 
-#: proto/ficsprotocol.cpp:187
+#: proto/ficsprotocol.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
 msgstr "下棋伺服器"
 
-#: proto/ficsprotocol.cpp:278
+#: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
 msgstr "不正確的密碼"
