@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extragear-games-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-07 02:42+0000\n"
-"PO-Revision-Date: 2023-06-17 20:31+0300\n"
+"PO-Revision-Date: 2023-11-11 23:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.07.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -797,7 +797,7 @@ msgstr "misafir olarak oturum açılıp açılmayacağı"
 #: knights.kcfg:166
 #, kde-format
 msgid "whether to log in to chess server automatically"
-msgstr "satranç sunucusuna otomatik olarak oturum açılıp açılamayacağı"
+msgstr "satranç sunucusuna kendiliğinden oturum açılıp açılamayacağı"
 
 #. i18n: ectx: label, entry (computerDelay), group (Protocols)
 #: knights.kcfg:170
@@ -1201,7 +1201,7 @@ msgstr "&Parola:"
 #: proto/ficsdialog.ui:102
 #, kde-format
 msgid "Log me in automatically"
-msgstr "Otomatik olarak bağlan"
+msgstr "Kendiliğinden bağlan"
 
 #. i18n: ectx: property (text), widget (QPushButton, logInButton)
 #: proto/ficsdialog.ui:109
@@ -1303,7 +1303,7 @@ msgstr "Oranlı eşleşme"
 #: proto/ficsdialog.ui:274
 #, kde-format
 msgid "Automatically start the game"
-msgstr "Oyunu otomatik başlat"
+msgstr "Oyunu kendiliğinden başlat"
 
 #. i18n: ectx: property (text), widget (QPushButton, seekButton)
 #: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
