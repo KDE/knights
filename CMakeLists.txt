@@ -68,8 +68,8 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     Svg
 )
 
-find_package(KF6Plasma ${PLASMA_MIN_VERSION} REQUIRED)
-set_package_properties(KF6Plasma PROPERTIES
+find_package(Plasma ${PLASMA_MIN_VERSION} REQUIRED)
+set_package_properties(Plasma PROPERTIES
     TYPE RUNTIME
     PURPOSE "clock svg (part of the desktop theme)"
 )
