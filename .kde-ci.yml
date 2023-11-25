@@ -26,7 +26,7 @@ Dependencies:
     'frameworks/kdoctools': '@latest-kf6'
     'frameworks/kwallet': '@latest-kf6'
     'frameworks/ksvg': '@latest-kf6'
-    'plasma/plasma-framework': '@latest-kf6'
+    'plasma/libplasma': '@latest-kf6'
 
 Options:
   require-passing-tests-on: [ 'Linux', 'FreeBSD']
