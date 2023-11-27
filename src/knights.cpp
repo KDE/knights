@@ -170,7 +170,7 @@ void MainWindow::setupDocks() {
 	m_historyDock = new QDockWidget();
 	m_historyDock->setObjectName(QStringLiteral("HistoryDockWidget"));
 	m_historyDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
-	m_historyDock->setWindowTitle(i18nc("@title:window", "Move History"));
+	m_historyDock->setWindowTitle(i18nc("@title:window Title of the list of all the moves made in the game", "Move History"));
 	m_historyDock->setWidget(new HistoryWidget);
 	addDockWidget(Qt::LeftDockWidgetArea, m_historyDock);
 }
