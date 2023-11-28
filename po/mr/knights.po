@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
 "PO-Revision-Date: 2013-03-11 18:08+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -411,7 +411,7 @@ msgstr "घड्याळ"
 #: knights.cpp:173
 #, fuzzy, kde-format
 #| msgid "Show History"
-msgctxt "@title:window"
+msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "इतिहास दर्शवा"
 

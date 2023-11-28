@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
 "PO-Revision-Date: 2013-07-11 14:08+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -439,7 +439,7 @@ msgstr "Laikrodis"
 #: knights.cpp:173
 #, fuzzy, kde-format
 #| msgid "Move History"
-msgctxt "@title:window"
+msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Perkelti istoriją"
 

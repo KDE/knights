@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
 "PO-Revision-Date: 2022-11-10 20:32+0100\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -406,8 +406,10 @@ msgid "Clock"
 msgstr "Uhr"
 
 #: knights.cpp:173
-#, kde-format
-msgctxt "@title:window"
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Move History"
+msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Spielverlauf"
 

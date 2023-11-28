@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:42+0000\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
 "PO-Revision-Date: 2010-05-08 12:40-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -397,7 +397,7 @@ msgstr ""
 
 #: knights.cpp:173
 #, kde-format
-msgctxt "@title:window"
+msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr ""
 
