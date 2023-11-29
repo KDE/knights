@@ -1007,7 +1007,7 @@ msgstr ""
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Check"
-msgstr ""
+msgstr "Kontroli"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: prefs_base.ui:119
