@@ -430,7 +430,7 @@ void Manager::startGame() {
 	Q_ASSERT(!d->gameStarted);
 	setRules(new ChessRules);
 	if ( Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty
-	        || Protocol::white()->supportedFeatures() & Protocol::AdjustDifficulty)
+	        || Protocol::black()->supportedFeatures() & Protocol::AdjustDifficulty)
 		levelChanged(KGameDifficulty::global()->currentLevel());
 
 	Protocol::white()->startGame();
