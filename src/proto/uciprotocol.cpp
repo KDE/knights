@@ -112,7 +112,6 @@ void UciProtocol::requestNextMove() {
 
 	QString goString = QStringLiteral("go");
 
-	//TODO: mDifficulty doesn't seem to be properly set nowhere
 	if ( mDifficulty )
 		goString += QLatin1String(" depth ") + QString::number ( mDifficulty );
 
