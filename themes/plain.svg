@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="280pt"
+   height="160pt"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <g
+     id="defitem0">
+    <rect
+       width="45"
+       height="45"
+       x="0"
+       y="0"
+       transform="translate(9.17065,20.4292)"
+       id="WhiteTile"
+       style="fill:#ffce9e" />
+    <rect
+       width="45"
+       height="45"
+       x="0"
+       y="0"
+       transform="translate(59.1706,20.4292)"
+       id="BlackTile"
+       style="fill:#d18b47" />
+    <g
+       transform="translate(109.335,20.3422)"
+       id="Marker"
+       style="fill:none">
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3136"
+         style="fill:none" />
+      <path
+         d="M 19.2533,9.62667 C 19.2533,14.9434 14.9434,19.2533 9.62667,19.2533 C 4.31001,19.2533 0,14.9434 0,9.62667 C 0,4.31001 4.31001,0 9.62667,0 C 14.9434,0 19.2533,4.31001 19.2533,9.62667 z"
+         transform="matrix(0.894737,0,0,0.894737,14,14)"
+         id="path1933"
+         style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:2.04095006;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:2" />
+    </g>
+    <g
+       transform="translate(9.00689,75.8857)"
+       id="WhiteBishop"
+       style="fill:none">
+      <g
+         transform="translate(5.25,5.09288)"
+         id="WB"
+         style="fill:none">
+        <g
+           id="layer1-9"
+           style="fill:none">
+          <path
+             d="M 3,2 C 6.38526,1.02767 13.1147,2.43082 16.5,0 C 19.8853,2.43082 26.6147,1.02767 30,2 C 30,2 31.6459,2.54151 33,4 C 32.3229,4.97233 31.3541,4.98616 30,4.5 C 26.6147,3.52767 19.8853,4.95849 16.5,3.5 C 13.1147,4.95849 6.38526,3.52767 3,4.5 C 1.6459,4.98616 0.677051,4.97233 0,4 C 1.3541,2.05534 3,2 3,2 z"
+             transform="translate(0.75,29.25)"
+             id="path4582-3"
+             style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+          <path
+             d="M 1.3047,21.5 C 3.8047,24 13.8047,24 16.3047,21.5 C 16.8047,20 16.3047,19.5 16.3047,19.5 C 16.3047,17 13.8047,15.5 13.8047,15.5 C 19.3047,14 19.8047,4 8.8047,0 C -2.1953,4 -1.6953,14 3.8047,15.5 C 3.8047,15.5 1.3047,17 1.3047,19.5 C 1.3047,19.5 0.804725,20 1.3047,21.5 z"
+             transform="translate(8.4453,5.75)"
+             id="path4584-1"
+             style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+          <path
+             d="M 5,2.5 C 5,3.88071 3.88071,5 2.5,5 C 1.11929,5 0,3.88071 0,2.5 C 0,1.11929 1.11929,0 2.5,0 C 3.88071,0 5,1.11929 5,2.5 z"
+             transform="translate(14.75,0.75)"
+             id="path4586-9"
+             style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+          <path
+             d="M 0,0 L 10,0"
+             transform="translate(12.25,21.25)"
+             id="path4588-4"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+          <path
+             d="M 0,0 L 15,0"
+             transform="translate(9.75,25.25)"
+             id="path4590-7"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+          <path
+             d="M 0,0 L 0,5"
+             transform="translate(17.25,10.75)"
+             id="path4592-8"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+          <path
+             d="M 0,0 L 5,0"
+             transform="translate(14.75,13.25)"
+             id="path4594-4"
+             style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        </g>
+        <g
+           transform="translate(-14.2569,-80.546)"
+           id="layer2"
+           style="fill:none" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3373"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(9.00689,128.527)"
+       id="BlackBishop"
+       style="fill:none">
+      <g
+         transform="translate(5.25,5.09289)"
+         id="BB"
+         style="fill:none">
+        <path
+           d="M 3,2 C 6.38526,1.02767 13.1147,2.43082 16.5,0 C 19.8853,2.43082 26.6147,1.02767 30,2 C 30,2 31.6459,2.54151 33,4 C 32.3229,4.97233 31.3541,4.98616 30,4.5 C 26.6147,3.52767 19.8853,4.95849 16.5,3.5 C 13.1147,4.95849 6.38526,3.52767 3,4.5 C 1.6459,4.98616 0.677051,4.97233 0,4 C 1.3541,2.05534 3,2 3,2 z"
+           transform="translate(0.75,29.25)"
+           id="path4582"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 1.3047,21.5 C 3.8047,24 13.8047,24 16.3047,21.5 C 16.8047,20 16.3047,19.5 16.3047,19.5 C 16.3047,17 13.8047,15.5 13.8047,15.5 C 19.3047,14 19.8047,4 8.8047,0 C -2.1953,4 -1.6953,14 3.8047,15.5 C 3.8047,15.5 1.3047,17 1.3047,19.5 C 1.3047,19.5 0.804725,20 1.3047,21.5 z"
+           transform="translate(8.4453,5.75)"
+           id="path4584"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 5,2.5 C 5,3.88071 3.88071,5 2.5,5 C 1.11929,5 0,3.88071 0,2.5 C 0,1.11929 1.11929,0 2.5,0 C 3.88071,0 5,1.11929 5,2.5 z"
+           transform="translate(14.75,0.75)"
+           id="path4586"
+           style="fill:#000000;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,0 L 10,0"
+           transform="translate(12.25,21.25)"
+           id="path4588"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,0 L 15,0"
+           transform="translate(9.75,25.25)"
+           id="path4590"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,0 L 0,5"
+           transform="translate(17.25,10.75)"
+           id="path4592"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,0 L 5,0"
+           transform="translate(14.75,13.25)"
+           id="path4594"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3388"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(63.6705,75.4531)"
+       id="WhiteKing"
+       style="fill:none">
+      <g
+         transform="translate(5.10733,4.9375)"
+         id="WK"
+         style="fill:none">
+        <path
+           d="M 0,5.625 L 0,0"
+           transform="translate(17.4231,0.75)"
+           id="path6570-1"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 3.30612,13 C 3.30612,13 7.80612,5.5 6.30612,2.5 C 6.30612,2.5 5.30612,0 3.30612,0 C 1.30612,0 0.306124,2.5 0.306124,2.5 C -1.19388,5.5 3.30612,13 3.30612,13"
+           transform="translate(14.117,6.75)"
+           id="path5683-0"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 5.67313,21.069 C 11.1731,24.569 21.1731,24.569 26.6731,21.069 L 26.6731,14.069 C 26.6731,14.069 35.6731,9.56896 32.6731,3.56896 C 28.6731,-2.93104 19.1731,0.0689612 16.6731,7.56896 L 16.6731,11.069 L 16.6731,7.56896 C 13.1731,0.0689612 3.67313,-2.93104 0.67313,3.56896 C -2.32687,9.56896 5.67313,13.569 5.67313,13.569 L 5.67313,21.069 z"
+           transform="translate(0.75,10.681)"
+           id="path5681-6"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0 L 5,0"
+           transform="translate(14.9231,2.75)"
+           id="path6572-3"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,1.81677 C 5.5,-0.683234 15.5,-0.683234 21,2.31677"
+           transform="translate(6.42313,22.4332)"
+           id="path6574-2"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,1.875 C 5.5,-0.625 15.5,-0.625 21,1.875"
+           transform="translate(6.42313,29.875)"
+           id="path6576-0"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,1.5 C 5.5,-0.5 15.5,-0.5 21,1.5"
+           transform="translate(6.42313,26.75)"
+           id="path6578-6"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3421"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(118.334,75.4531)"
+       id="WhiteKnight"
+       style="fill:none">
+      <g
+         transform="translate(5.73552,5.75)"
+         id="WN"
+         style="fill:none">
+        <path
+           d="M 7,0 C 17.5,1 23.5,8 23,29 L 0,29 C 0,20 10,22.5 8,8"
+           transform="translate(9.75,3.75)"
+           id="path3491-7"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 18,11 C 18.3845,13.9113 12.4471,18.3686 10,20 C 7,22 7.1808,24.3429 5,24 C 3.95828,23.056 6.41343,20.9625 5,21 C 4,21 5.18733,22.2317 4,23 C 3,23 -0.00315831,24 2.49315e-06,19 C 2.49315e-06,17 6,7 6,7 C 6,7 7.88587,5.09787 8,3.5 C 7.27396,2.50563 7.5,1.5 7.5,0.5 C 8.5,-0.5 10.5,3 10.5,3 L 12.5,3 C 12.5,3 13.2818,1.00807 15,0 C 16,0 16,3 16,3"
+           transform="translate(0.75,0.75)"
+           id="path3495-6"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 1,0.5 C 1,0.776142 0.776142,1 0.5,1 C 0.223858,1 0,0.776142 0,0.5 C 0,0.223858 0.223858,0 0.5,0 C 0.776142,0 1,0.223858 1,0.5 z"
+           transform="translate(3.25,18.75)"
+           id="path3499-5"
+           style="fill:#000000;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 1,1.5 C 1,2.32843 0.776142,3 0.5,3 C 0.223858,3 0,2.32843 0,1.5 C 0,0.671573 0.223858,0 0.5,0 C 0.776142,0 1,0.671573 1,1.5 z"
+           transform="matrix(0.866025,0.5,-0.5,0.866025,9.56698,7.70096)"
+           id="path3501-6"
+           style="fill:#000000;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 12,28.5 C 13,8.5 6.5,1 0,0"
+           transform="translate(19.75,4.25)"
+           id="path8049-9"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3434"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(172.998,75.4531)"
+       id="WhitePawn"
+       style="fill:none">
+      <g
+         transform="translate(10.25,6.5)"
+         id="WP"
+         style="fill:none">
+        <path
+           d="M 11.5,0 C 9.292,0 7.5,1.792 7.5,4 C 7.5,4.8851 7.79397,5.71223 8.28125,6.375 C 6.32927,7.49692 5,9.58849 5,12 C 5,14.0339 5.94204,15.8391 7.40625,17.0312 C 4.4071,18.0891 0,22.578 0,30.5 L 23,30.5 C 23,22.578 18.5929,18.0891 15.5938,17.0312 C 17.058,15.8391 18,14.0339 18,12 C 18,9.58849 16.6707,7.49692 14.7187,6.375 C 15.206,5.71223 15.5,4.8851 15.5,4 C 15.5,1.792 13.708,0 11.5,0 z"
+           transform="translate(0.75,0.75)"
+           id="path3194-5"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3465"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(227.661,75.4531)"
+       id="WhiteQueen"
+       style="fill:none">
+      <g
+         transform="translate(3.25,4.875)"
+         id="WQ"
+         style="fill:none">
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(0.75,5.25)"
+           id="path5571-0"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(17.25,0.75)"
+           id="path5573-7"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(33.75,5.25)"
+           id="path5575-8"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(8.75,1.75)"
+           id="path5577-6"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(25.75,2.25)"
+           id="path5579-8"
+           style="fill:#ffffff;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 2,16.5 C 10.5,15 23,15 29,16.5 L 31,4.5 L 24,15.5 L 24,1.5 L 18.5,15 L 15.5,0 L 12.5,15 L 7,1 L 7,15.5 L 0,4.5 L 2,16.5 z"
+           transform="translate(3.75,4.75)"
+           id="path5581-8"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,1.125 C 0,3.125 1.5,3.125 2.5,5.125 C 3.5,6.625 3.5,6.125 3,8.625 C 1.5,9.625 1.5,11.125 1.5,11.125 C 0,12.625 2,13.625 2,13.625 C 8.5,14.625 18.5,14.625 25,13.625 C 25,13.625 26.5,12.625 25,11.125 C 25,11.125 25.5,9.625 24,8.625 C 23.5,6.125 23.5,6.625 24.5,5.125 C 25.5,3.125 27,3.125 27,1.125 C 18.5,-0.375 8.5,-0.375 0,1.125 z"
+           transform="translate(5.75,20.125)"
+           id="path5583-4"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 3.5,-0.25 18.5,-0.25 22,0.75"
+           transform="translate(8.25,24.5)"
+           id="path5585-3"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 6,-0.25 15,-0.25 21,0.75"
+           transform="translate(8.75,28)"
+           id="path5587-1"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 5,-0.25 18.5,-0.25 23.5,0.75"
+           transform="translate(7.25,30.5)"
+           id="path5589-4"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3472"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(282.325,75.4531)"
+       id="WhiteRook"
+       style="fill:none">
+      <g
+         transform="translate(8.25,6.75)"
+         id="WR"
+         style="fill:none">
+        <path
+           d="M 0,3 L 27,3 L 27,0 L 0,0 L 0,3 z"
+           transform="translate(0.75,27.75)"
+           id="path3119-9"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,4 L 0,0 L 21,0 L 21,4 L 0,4 z"
+           transform="translate(3.75,23.75)"
+           id="path3121-2"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,5 L 0,0 L 4,0 L 4,2 L 9,2 L 9,0 L 14,0 L 14,2 L 19,2 L 19,0 L 23,0 L 23,5"
+           transform="translate(2.75,0.75)"
+           id="path3129-6"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 23,0 L 20,3 L 3,3 L 0,0"
+           transform="translate(2.75,5.75)"
+           id="path3127-6"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 17,0 L 17,12.5 L 0,12.5 L 0,0"
+           transform="translate(5.75,8.75)"
+           id="path3125-4"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 18.5,0 L 20,2.5 L 0,2.5 L 1.5,0"
+           transform="translate(4.25,21.25)"
+           id="path3123-9"
+           style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0 L 23,0"
+           transform="translate(2.75,5.75)"
+           id="path5175"
+           style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3474"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(63.9325,128.527)"
+       id="BlackKing"
+       style="fill:none">
+      <g
+         transform="translate(5.10733,4.9375)"
+         id="BK"
+         style="fill:none">
+        <path
+           d="M 0,5.625 L 0,0"
+           transform="translate(17.4231,0.75)"
+           id="path6570"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 3.30612,13 C 3.30612,13 7.80612,5.5 6.30612,2.5 C 6.30612,2.5 5.30612,0 3.30612,0 C 1.30612,0 0.306124,2.5 0.306124,2.5 C -1.19388,5.5 3.30612,13 3.30612,13"
+           transform="translate(14.117,6.75)"
+           id="path5683"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 5.67313,21.069 C 11.1731,24.569 21.1731,24.569 26.6731,21.069 L 26.6731,14.069 C 26.6731,14.069 35.6731,9.56896 32.6731,3.56896 C 28.6731,-2.93104 19.1731,0.0689612 16.6731,7.56896 L 16.6731,11.069 L 16.6731,7.56896 C 13.1731,0.0689612 3.67313,-2.93104 0.67313,3.56896 C -2.32687,9.56896 5.67313,13.569 5.67313,13.569 L 5.67313,21.069 z"
+           transform="translate(0.75,10.681)"
+           id="path5681"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0 L 5,0"
+           transform="translate(14.9231,2.75)"
+           id="path6572"
+           style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,1.81677 C 5.5,-0.683234 15.5,-0.683234 21,2.31677"
+           transform="translate(6.42313,22.4332)"
+           id="path6574"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 0,1.875 C 5.5,-0.625 15.5,-0.625 21,1.875"
+           transform="translate(6.42313,29.875)"
+           id="path6576"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,1.5 C 5.5,-0.5 15.5,-0.5 21,1.5"
+           transform="translate(6.42313,26.75)"
+           id="path6578"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 25.5205,12.4924 C 25.5205,12.4924 34.0205,8.49243 31.5464,2.83898 C 27.6679,-3.01102 18.5205,0.992428 16.0205,7.49243 L 16.0322,9.58898 L 16.0205,7.49243 C 13.5205,0.992428 3.42687,-3.01102 0.517946,2.83898 C -1.97952,8.49243 5.36615,11.839 5.36615,11.839"
+           transform="translate(1.40265,11.7576)"
+           id="path5638"
+           style="fill:none;stroke:#ffffff;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3501"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(118.858,128.527)"
+       id="BlackKnight"
+       style="fill:none">
+      <g
+         transform="translate(5.98552,6)"
+         id="BN"
+         style="fill:none">
+        <path
+           d="M 7,0 C 17.5,1 23.5,8 23,29 L 0,29 C 0,20 10,22.5 8,8"
+           transform="translate(9.5,3.5)"
+           id="path3491"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+        <path
+           d="M 18,11 C 18.3845,13.9113 12.4471,18.3686 10,20 C 7,22 7.1808,24.3429 5,24 C 3.95828,23.056 6.41343,20.9625 5,21 C 4,21 5.18733,22.2317 4,23 C 3,23 -0.00315831,24 2.49315e-06,19 C 2.49315e-06,17 6,7 6,7 C 6,7 7.88587,5.09787 8,3.5 C 7.27396,2.50563 7.5,1.5 7.5,0.5 C 8.5,-0.5 10.5,3 10.5,3 L 12.5,3 C 12.5,3 13.2818,1.00807 15,0 C 16,0 16,3 16,3"
+           transform="translate(0.5,0.5)"
+           id="path3495"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 1,0.5 C 1,0.776142 0.776142,1 0.5,1 C 0.223858,1 0,0.776142 0,0.5 C 0,0.223858 0.223858,0 0.5,0 C 0.776142,0 1,0.223858 1,0.5 z"
+           transform="translate(3,18.5)"
+           id="path3499"
+           style="fill:#000000;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 1,1.5 C 1,2.32843 0.776142,3 0.5,3 C 0.223858,3 0,2.32843 0,1.5 C 0,0.671573 0.223858,0 0.5,0 C 0.776142,0 1,0.671573 1,1.5 z"
+           transform="matrix(0.866025,0.5,-0.5,0.866025,9.31698,7.45096)"
+           id="path3501"
+           style="fill:#000000;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0.3,0 L 0,1.1 L 0.55,1.2 C 3.65146,1.67715 6.87353,3.4342 9.125,7.69375 C 11.3765,11.9533 12.0472,18.6569 11.55,28.6 L 11.5,29.1 L 13.25,29.1 L 13.25,28.6 C 13.7528,18.5431 12.3735,11.7467 10,7.25625 C 7.62647,2.7658 4.21104,0.622853 0.8125,0.1 L 0.3,0 z"
+           transform="translate(18.75,3.9)"
+           id="path8049"
+           style="fill:#ffffff;fill-rule:evenodd" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3515"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(173.784,128.527)"
+       id="BlackPawn"
+       style="fill:none">
+      <g
+         transform="translate(10.5,6.75)"
+         id="BP"
+         style="fill:none">
+        <path
+           d="M 11.5,0 C 9.292,0 7.5,1.792 7.5,4 C 7.5,4.8851 7.79397,5.71223 8.28125,6.375 C 6.32927,7.49692 5,9.58849 5,12 C 5,14.0339 5.94204,15.8391 7.40625,17.0312 C 4.4071,18.0891 0,22.578 0,30.5 L 23,30.5 C 23,22.578 18.5929,18.0891 15.5938,17.0312 C 17.058,15.8391 18,14.0339 18,12 C 18,9.58849 16.6707,7.49692 14.7187,6.375 C 15.206,5.71223 15.5,4.8851 15.5,4 C 15.5,1.792 13.708,0 11.5,0 z"
+           transform="translate(0.5,0.5)"
+           id="path3194"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3526"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(228.709,128.527)"
+       id="BlackQueen"
+       style="fill:none">
+      <g
+         transform="translate(3.5,5.125)"
+         id="BQ"
+         style="fill:none">
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(0.5,5)"
+           id="path5571"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(17,0.5)"
+           id="path5573"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(33.5,5)"
+           id="path5575"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(8.5,1.5)"
+           id="path5577"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 4,2 C 4,3.10457 3.10457,4 2,4 C 0.895431,4 0,3.10457 0,2 C 0,0.895431 0.895431,0 2,0 C 3.10457,0 4,0.895431 4,2 z"
+           transform="translate(25.5,2)"
+           id="path5579"
+           style="fill:#000000;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 2,16.5 C 10.5,15 23,15 29,16.5 L 31,4.5 L 24,15.5 L 24,1.5 L 18.5,15 L 15.5,0 L 12.5,15 L 7,1 L 7,15.5 L 0,4.5 L 2,16.5 z"
+           transform="translate(3.5,4.5)"
+           id="path5581"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,1.125 C 0,3.125 1.5,3.125 2.5,5.125 C 3.5,6.625 3.5,6.125 3,8.625 C 1.5,9.625 1.5,11.125 1.5,11.125 C 0,12.625 2,13.625 2,13.625 C 8.5,14.625 18.5,14.625 25,13.625 C 25,13.625 26.5,12.625 25,11.125 C 25,11.125 25.5,9.625 24,8.625 C 23.5,6.125 23.5,6.625 24.5,5.125 C 25.5,3.125 27,3.125 27,1.125 C 18.5,-0.375 8.5,-0.375 0,1.125 z"
+           transform="translate(5.5,19.875)"
+           id="path5583"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 3.5,-0.25 18.5,-0.25 22,0.75"
+           transform="translate(8,24.25)"
+           id="path5585"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 6,-0.25 15,-0.25 21,0.75"
+           transform="translate(8.5,27.75)"
+           id="path5587"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+        <path
+           d="M 0,0.75 C 5,-0.25 18.5,-0.25 23.5,0.75"
+           transform="translate(7,30.25)"
+           id="path5589"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3533"
+         style="fill:none" />
+    </g>
+    <g
+       transform="translate(283.635,128.527)"
+       id="BlackRook"
+       style="fill:none">
+      <g
+         transform="translate(8.25,6.75)"
+         id="BR"
+         style="fill:none">
+        <path
+           d="M 0,3 L 27,3 L 27,0 L 0,0 L 0,3 z"
+           transform="translate(0.75,27.75)"
+           id="path3119"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,2.5 L 1.5,0 L 18.5,0 L 20,2.5 L 0,2.5 z"
+           transform="translate(4.25,21.25)"
+           id="path3123"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,4 L 0,0 L 21,0 L 21,4 L 0,4 z"
+           transform="translate(3.75,23.75)"
+           id="path3121"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,13 L 0,0 L 17,0 L 17,13 L 0,13 z"
+           transform="translate(5.75,8.25)"
+           id="path3125"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4" />
+        <path
+           d="M 3,2.5 L 0,0 L 23,0 L 20,2.5 L 3,2.5 z"
+           transform="translate(2.75,5.75)"
+           id="path3127"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,5 L 0,0 L 4,0 L 4,2 L 9,2 L 9,0 L 14,0 L 14,2 L 19,2 L 19,0 L 23,0 L 23,5 L 0,5 z"
+           transform="translate(2.75,0.75)"
+           id="path3129"
+           style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:round" />
+        <path
+           d="M 0,0 L 21,0 L 21,0"
+           transform="translate(3.75,27.25)"
+           id="path4967"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+        <path
+           d="M 0,0 L 19,0"
+           transform="translate(4.75,23.25)"
+           id="path4969"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+        <path
+           d="M 0,0 L 17,0"
+           transform="translate(5.75,21.25)"
+           id="path4971"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+        <path
+           d="M 0,0 L 17,0"
+           transform="translate(5.75,8.25)"
+           id="path5050"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+        <path
+           d="M 0,0 L 23,0"
+           transform="translate(2.75,5.75)"
+           id="path5052"
+           style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:2" />
+      </g>
+      <rect
+         width="45"
+         height="45"
+         x="0"
+         y="0"
+         id="rect3549"
+         style="fill:none" />
+    </g>
+  </g>
+</svg>
