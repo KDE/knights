@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 01:35+0000\n"
-"PO-Revision-Date: 2023-09-25 18:23+0200\n"
+"PO-Revision-Date: 2023-11-28 08:38+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -404,11 +404,10 @@ msgid "Clock"
 msgstr "Clock (Horologio)"
 
 #: knights.cpp:173
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr "Monstra Historia"
+msgstr "Move Chronologia"
 
 #: knights.cpp:192 knights.cpp:481
 #, kde-format
@@ -851,7 +850,7 @@ msgstr ""
 #: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr ""
+msgstr "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 
 #: main.cpp:52
 #, kde-format
@@ -1114,7 +1113,7 @@ msgstr "Invia"
 #: proto/chatwidget.ui:51
 #, kde-format
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: proto/computerprotocol.cpp:36
 #, kde-format
@@ -1249,7 +1248,7 @@ msgstr "Variante"
 #: proto/ficsdialog.ui:229
 #, kde-format
 msgid "Your color"
-msgstr ""
+msgstr "Tu color"
 
 #. i18n: ectx: attribute (title), widget (QWidget, graphTab)
 #: proto/ficsdialog.ui:238
@@ -1325,7 +1324,7 @@ msgstr ""
 #: proto/ficsprotocol.cpp:152
 #, kde-format
 msgid "Chat with %1"
-msgstr ""
+msgstr "Conversa con %1"
 
 #: proto/ficsprotocol.cpp:184
 #, kde-format
@@ -1351,7 +1350,7 @@ msgstr "Nulle error"
 #: proto/protocol.cpp:57
 #, kde-format
 msgid "User Canceled"
-msgstr ""
+msgstr "Usator cancellate"
 
 #: proto/protocol.cpp:60
 #, kde-format

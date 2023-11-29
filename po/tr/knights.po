@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extragear-games-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 01:35+0000\n"
-"PO-Revision-Date: 2023-11-11 23:31+0300\n"
+"PO-Revision-Date: 2023-11-28 20:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -112,7 +112,7 @@ msgstr "UCI"
 #: enginesettings.ui:19
 #, kde-format
 msgid "Auto detect"
-msgstr "Otomatik algıla"
+msgstr "Kendiliğinden Algıla"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #: enginesettings.ui:39
@@ -148,7 +148,7 @@ msgstr "Protokol"
 #: enginesettings.ui:86
 #, kde-format
 msgid "Installed"
-msgstr "Kuruldu"
+msgstr "Kurulu"
 
 #: gamedialog.cpp:67
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "İkinci oyuncu için bir satranç işletkesi seçin."
 #: gamedialog.cpp:370
 #, kde-format
 msgid "Start the game."
-msgstr "Oyunu başlat."
+msgstr "Oyunu başlatın."
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
@@ -256,7 +256,7 @@ msgstr "&Bilgisayar işletkesi:"
 #: gamedialog.ui:175
 #, kde-format
 msgid "Chess server:"
-msgstr "Satranç sunucu:"
+msgstr "Satranç sunucusu:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
@@ -409,9 +409,7 @@ msgid "Clock"
 msgstr "Saat"
 
 #: knights.cpp:173
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Hareket Geçmişi"
@@ -419,7 +417,7 @@ msgstr "Hareket Geçmişi"
 #: knights.cpp:192 knights.cpp:481
 #, kde-format
 msgid "Resign"
-msgstr "Oyunu bırak"
+msgstr "Oyunu Bırak"
 
 #: knights.cpp:193
 #, kde-format
@@ -489,12 +487,12 @@ msgstr "Geçmişi Göster"
 #: knights.cpp:243
 #, kde-format
 msgid "Show White Console"
-msgstr "Beyaz Konsol Göster"
+msgstr "Beyaz Konsolu Göster"
 
 #: knights.cpp:249
 #, kde-format
 msgid "Show Black Console"
-msgstr "Siyah Konsol Göster"
+msgstr "Siyah Konsolu Göster"
 
 #: knights.cpp:255
 #, kde-format
@@ -541,7 +539,7 @@ msgstr "Oyunu Bırak"
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
-msgstr "Oyun bitti"
+msgstr "Oyun Bitti"
 
 #: knights.cpp:553
 #, kde-format
@@ -858,7 +856,7 @@ msgstr "Ayarlar değişti"
 #: knightsview_base.ui:14 main.cpp:46
 #, kde-format
 msgid "Knights"
-msgstr "Knights"
+msgstr "K Satranç"
 
 #: main.cpp:48
 #, kde-format
@@ -888,7 +886,7 @@ msgstr "Troy Corbin"
 #: main.cpp:55
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
-msgstr "KDE3 için Orijinal Knights ve tema yazarı"
+msgstr "KDE3 için özgün K Satranç ve tema yazarı"
 
 #: main.cpp:57
 #, kde-format
@@ -921,7 +919,7 @@ msgstr "Açılacak belge"
 #: proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
-msgstr "Kabul et"
+msgstr "Kabul Et"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
 #: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
@@ -939,7 +937,7 @@ msgstr "Kapat"
 #: prefs_access.ui:17
 #, kde-format
 msgid "External Programs"
-msgstr "Harici Programlar"
+msgstr "Dış Programlar"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
 #: prefs_access.ui:23
@@ -1086,7 +1084,7 @@ msgstr "Piyonun Vezir Olması"
 #: promotiondialog.ui:26
 #, kde-format
 msgid "Promote pawn to:"
-msgstr "Piyonu terfi et:"
+msgstr "Piyonu terfi ettir:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
@@ -1287,7 +1285,7 @@ msgstr "Derecelendirme ve süreye göre düzenlenmiş geçerli ilanlar"
 #: proto/ficsdialog.ui:258
 #, kde-format
 msgid "Challenges"
-msgstr "s"
+msgstr "Meydan Okumalar"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:261
@@ -1356,7 +1354,7 @@ msgstr "Oturum açma başarısız"
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr "Satranç sunucusu"
+msgstr "Satranç Sunucusu"
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
