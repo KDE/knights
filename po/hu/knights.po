@@ -3,19 +3,20 @@
 #
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2010, 2011.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 01:35+0000\n"
-"PO-Revision-Date: 2013-08-11 23:21+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2024-01-05 11:30+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -26,11 +27,10 @@ msgstr "Kiszel Kristóf,Úr Balázs"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ulysses@kubuntu.org,urbalazs@gmail.com"
+msgstr "ulysses@fsf.hu,urbalazs@gmail.com"
 
 #: board.cpp:577
-#, fuzzy, kde-format
-#| msgid "Promotion"
+#, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "Előléptetés"
@@ -38,7 +38,7 @@ msgstr "Előléptetés"
 #: board.cpp:581
 #, kde-format
 msgid "Promote"
-msgstr "Előléptetés"
+msgstr "Előléptet"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -80,9 +80,7 @@ msgid " MB"
 msgstr " MB"
 
 #: difficultydialog.cpp:35
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
@@ -93,7 +91,7 @@ msgstr[1] " lépés"
 #, kde-format
 msgctxt "@title:window"
 msgid "Difficulty Level"
-msgstr ""
+msgstr "Nehézségi szint"
 
 #: enginesettings.cpp:109
 #, kde-format
@@ -111,7 +109,7 @@ msgstr "UCI"
 #: enginesettings.ui:19
 #, kde-format
 msgid "Auto detect"
-msgstr ""
+msgstr "Automatikus keresés"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #: enginesettings.ui:39
@@ -150,8 +148,7 @@ msgid "Installed"
 msgstr "Telepített"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "Új játék"
@@ -178,27 +175,25 @@ msgstr[0] " lépés"
 msgstr[1] " lépés"
 
 #: gamedialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
-msgstr "Számítógép motorok"
+msgstr "Sakkmotorok"
 
 #: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
-msgstr ""
+msgstr "Válasszon sakkmotort az első játékos számára."
 
 #: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
-msgstr ""
+msgstr "Válasszon sakkmotort a második játékos számára."
 
 #: gamedialog.cpp:370
-#, fuzzy, kde-format
-#| msgid "Automatically start the game"
+#, kde-format
 msgid "Start the game."
-msgstr "Automatikusan induljon a játék"
+msgstr "Játék indítása."
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
@@ -208,17 +203,15 @@ msgstr "1. játékos"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Human (You)"
+#, kde-format
 msgid "Human (&You)"
-msgstr "Ember (Ön)"
+msgstr "Ember (Ö&n)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "&Computer engine:"
-msgstr "Számítógép motor:"
+msgstr "Számító&gép motor:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -228,17 +221,15 @@ msgstr "1. játékos színe"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
 #: gamedialog.ui:103
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "B&lack"
-msgstr "Sötét"
+msgstr "Sö&tét"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
-#, fuzzy, kde-format
-#| msgid "Choose randomly"
+#, kde-format
 msgid "Choose r&andomly"
-msgstr "Véletlenszerű választás"
+msgstr "Véletlenszerű vál&asztás"
 
 #. i18n: ectx: property (title), widget (QGroupBox, player2Box)
 #: gamedialog.ui:129
@@ -248,37 +239,33 @@ msgstr "2. játékos"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
-#, fuzzy, kde-format
-#| msgid "Human"
+#, kde-format
 msgid "H&uman"
-msgstr "Ember"
+msgstr "E&mber"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "Co&mputer engine:"
-msgstr "Számítógép motor:"
+msgstr "Szá&mítógép motor:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
 #, kde-format
 msgid "Chess server:"
-msgstr "Sakk kiszolgáló:"
+msgstr "Sakk-kiszolgáló:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
-#, fuzzy, kde-format
-#| msgid "Use Time Control"
+#, kde-format
 msgid "&Use time control"
-msgstr "Idővezérlés használata"
+msgstr "Idővezérlés &használata"
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
-#, fuzzy, kde-format
-#| msgid "Time control period"
+#, kde-format
 msgid "&Time control period:"
-msgstr "Idővezérlés időszak"
+msgstr "I&dővezérlés időszak:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
@@ -289,17 +276,15 @@ msgstr "Csak időzítő"
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
-#, fuzzy, kde-format
-#| msgid "Initial time limit"
+#, kde-format
 msgid "&Initial time limit:"
-msgstr "Kezdeti időkorlát"
+msgstr "Kezdet&i időkorlát:"
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
-#, fuzzy, kde-format
-#| msgid "Increment per move"
+#, kde-format
 msgid "I&ncrement per move:"
-msgstr "Növelés lépésenként"
+msgstr "&Növelés lépésenként:"
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -316,14 +301,14 @@ msgstr "Sötét"
 #: gamemanager.cpp:525
 #, kde-format
 msgid "%1 offers you a draw"
-msgstr "%1 döntetlent ajánlott önnek"
+msgstr "%1 döntetlent ajánlott"
 
 #: gamemanager.cpp:528
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 szeretne visszavenni egy fél lépést"
+msgstr[1] "%2 szeretne visszavenni %1 fél lépést"
 
 #: gamemanager.cpp:531
 #, kde-format
@@ -339,13 +324,13 @@ msgstr "%1 szeretné megszakítani a játékot"
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr ""
+msgstr "%1 vezérszárnyra sáncol"
 
 #: gamemanager.cpp:632
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr ""
+msgstr "%1 királyszárnyra sáncol"
 
 #: gamemanager.cpp:636
 #, kde-format
@@ -366,22 +351,20 @@ msgid "Checkmate"
 msgstr "Sakk-matt"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgid "white"
-msgstr "Világos"
+msgstr "világos"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "black"
-msgstr "Sötét"
+msgstr "sötét"
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
 #, kde-format
 msgid "New Column"
-msgstr ""
+msgstr "Új oszlop"
 
 #. i18n: ectx: property (text), widget (QLabel, notationLabel)
 #: historywidget.ui:57
@@ -415,7 +398,7 @@ msgstr "Egyéni"
 #: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking..."
-msgstr ""
+msgstr "%1 gondolkodik…"
 
 #: knights.cpp:142
 #, kde-format
@@ -423,8 +406,7 @@ msgid "Clock"
 msgstr "Óra"
 
 #: knights.cpp:173
-#, fuzzy, kde-format
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Lépéselőzmények"
@@ -437,7 +419,7 @@ msgstr "Feladás"
 #: knights.cpp:193
 #, kde-format
 msgid "Admit your inevitable defeat"
-msgstr ""
+msgstr "Ismerje el az elkerülhetetlen vereséget"
 
 #: knights.cpp:198
 #, kde-format
@@ -517,13 +499,12 @@ msgstr "Csevegőablak megjelenítése"
 #: knights.cpp:294
 #, kde-format
 msgid "Open File"
-msgstr ""
+msgstr "Fájl megnyitása"
 
 #: knights.cpp:295 knights.cpp:650 knights.cpp:673
-#, fuzzy, kde-format
-#| msgid "*.pgn | Portable game notation"
+#, kde-format
 msgid "Portable game notation (*.pgn)"
-msgstr "*.pgn | Hordozható játékábrázolás"
+msgstr "Hordozható játékábrázolás (*.pgn)"
 
 #: knights.cpp:458
 #, kde-format
@@ -543,18 +524,16 @@ msgstr "Téma"
 #: knights.cpp:481
 #, kde-format
 msgid "Do you really want to resign?"
-msgstr ""
+msgstr "Biztosan fel szeretné adni?"
 
 #: knights.cpp:482
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Feladás"
 
 #: knights.cpp:529
-#, fuzzy, kde-format
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Vége a játéknak"
@@ -565,42 +544,28 @@ msgid "The game ended in a draw"
 msgstr "A játék döntetlennel ért véget"
 
 #: knights.cpp:559
-#, fuzzy, kde-format
-#| msgctxt "White as in the player with white pieces"
-#| msgid "The game ended with a victory for <emphasis>White</emphasis>"
+#, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
-msgstr "A játék véget ért a <emphasis>Világos</emphasis> győzelmével"
+msgstr "A játék véget ért a <em>Világos</em> győzelmével"
 
 #: knights.cpp:562
-#, fuzzy, kde-format
-#| msgctxt "Black as in the player with black pieces"
-#| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
+#, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
-msgstr "A játék véget ért a <emphasis>Sötét</emphasis> győzelmével"
+msgstr "A játék véget ért a <em>Sötét</em> győzelmével"
 
 #: knights.cpp:567
-#, fuzzy, kde-format
-#| msgctxt "Player name, then <White as in the player with white pieces"
-#| msgid ""
-#| "The game ended with a victory for <emphasis>%1</emphasis>, playing White"
+#, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
-msgstr ""
-"A játék véget ért a <emphasis>%1</emphasis> győzelmével, aki világossal "
-"játszott"
+msgstr "A játék véget ért <em>%1</em> győzelmével, aki világossal játszott"
 
 #: knights.cpp:570
-#, fuzzy, kde-format
-#| msgctxt "Player name, then Black as in the player with black pieces"
-#| msgid ""
-#| "The game ended with a victory for <emphasis>%1</emphasis>, playing Black"
+#, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
-msgstr ""
-"A játék véget ért a <emphasis>%1</emphasis> győzelmével, aki sötéttel "
-"játszott"
+msgstr "A játék véget ért <em>%1</em> győzelmével, aki sötéttel játszott"
 
 #: knights.cpp:616
 #, kde-format
@@ -613,18 +578,19 @@ msgid ""
 "This will end your game.\n"
 "Would you like to save the move history?"
 msgstr ""
+"Ezzel véget ér a játéka.\n"
+"Szeretné menteni a lépéselőzményeket?"
 
 #: knights.cpp:649
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: knights.cpp:672
-#, fuzzy, kde-format
-#| msgid "&Save History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr "&Előzmények mentése"
+msgstr "Mentés másként"
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
@@ -637,12 +603,13 @@ msgstr "Témafájl a táblához"
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
 msgstr ""
+"megjelenjen-e egy megerősítő párbeszédablak a játékelőzmények eldobása előtt"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
 #, kde-format
 msgid "internal variable controlling the confirm dialog"
-msgstr ""
+msgstr "a megerősítő párbeszédablakot vezérlő belső változó"
 
 #. i18n: ectx: label, entry (animationSpeed), group (Preferences)
 #: knights.kcfg:31
@@ -666,7 +633,7 @@ msgstr "forgassa-e a táblát helyi kétjátékos módban"
 #: knights.kcfg:43
 #, kde-format
 msgid "whether to play move sounds"
-msgstr ""
+msgstr "lejátsszon-e lépéshangokat"
 
 #. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
 #: knights.kcfg:52
@@ -726,7 +693,7 @@ msgstr "kezdeti időkorlát mindkét játékosnak"
 #: knights.kcfg:90
 #, kde-format
 msgid "time increment per move (for Incremental time control)"
-msgstr ""
+msgstr "időnövelés lépésenként (növeléses idővezérlésnél)"
 
 #. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
 #: knights.kcfg:94
@@ -735,19 +702,21 @@ msgid ""
 "the number of moves the player has to make in the specified time (for "
 "Conventional time control)"
 msgstr ""
+"a játékos által a megadott idő alatt végrehajtandó lépések száma "
+"(hagyományos idővezérléshez)"
 
 #. i18n: ectx: label, entry (timeEnabled), group (Time Control)
 #: knights.kcfg:98
 #, kde-format
 msgid "whether time limits are enabled and displayed"
-msgstr ""
+msgstr "az időkorlátok be vannak-e kapcsolva és megjelenítve"
 
 #. i18n: ectx: label, entry (player1Protocol), group (Protocols)
 #. i18n: ectx: label, entry (player2Protocol), group (Protocols)
 #: knights.kcfg:108 knights.kcfg:117
 #, kde-format
 msgid "protocol to be used for player 1"
-msgstr ""
+msgstr "az 1. játékos esetén használandó protokoll"
 
 #. i18n: ectx: label, entry (color), group (Protocols)
 #: knights.kcfg:126
@@ -756,24 +725,25 @@ msgid ""
 "the local human player's color in a game against a computer or over the "
 "Internet."
 msgstr ""
+"a helyi emberi játékos színe a számítógép elleni játékban vagy az interneten."
 
 #. i18n: ectx: label, entry (programs), group (Protocols)
 #: knights.kcfg:130
 #, kde-format
 msgid "list of programs to run for playing against the computer"
-msgstr ""
+msgstr "a számítógép elleni játékhoz futtatható programok listája"
 
 #. i18n: ectx: label, entry (player1Program), group (Protocols)
 #: knights.kcfg:134
 #, kde-format
 msgid "the last selected program for player 1"
-msgstr ""
+msgstr "az 1. játékos utoljára kiválasztott programja"
 
 #. i18n: ectx: label, entry (player2Program), group (Protocols)
 #: knights.kcfg:138
 #, kde-format
 msgid "the last selected program for player 2"
-msgstr ""
+msgstr "a 2. játékos utoljára kiválasztott programja"
 
 #. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
 #: knights.kcfg:142
@@ -781,7 +751,7 @@ msgstr ""
 msgid ""
 "the search depth of computer engines, when the difficulty is set to "
 "Configurable"
-msgstr ""
+msgstr "a számítógépes motorok keresési mélysége, ha a nehézség Beállítható"
 
 #. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
 #: knights.kcfg:146
@@ -790,6 +760,8 @@ msgid ""
 "the memory size used by computer engines, when the difficulty is set to "
 "Configurable"
 msgstr ""
+"a számítógépmotorok által használt memória mérete, ha a nehézségi érték "
+"Beállítható"
 
 #. i18n: ectx: label, entry (servers), group (Protocols)
 #: knights.kcfg:150
@@ -813,37 +785,38 @@ msgstr "felhasználónév a szabad internetes sakk kiszolgálóhoz"
 #: knights.kcfg:162
 #, kde-format
 msgid "whether to log in as guest"
-msgstr ""
+msgstr "vendégként jelentkezzen-e be"
 
 #. i18n: ectx: label, entry (autoLogin), group (Protocols)
 #: knights.kcfg:166
 #, kde-format
 msgid "whether to log in to chess server automatically"
-msgstr ""
+msgstr "automatikusan bejelentkezzen-e a sakk-kiszolgálóra"
 
 #. i18n: ectx: label, entry (computerDelay), group (Protocols)
 #: knights.kcfg:170
 #, kde-format
 msgid "delay before a computer's move is reported, in milliseconds"
 msgstr ""
+"késleltetés a számítógép lépésének bejelentése előtt, ezredmásodpercben"
 
 #. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
 #: knights.kcfg:174
 #, kde-format
 msgid "stored configurations of engine-specific settings"
-msgstr ""
+msgstr "a motorspecifikus beállítások tárolt konfigurációi"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
 #, kde-format
 msgid "whether opponents' moves are spoken by Jovie"
-msgstr ""
+msgstr "a Jovie felolvassa-e az ellenfelek lépéseit"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
 #, kde-format
 msgid "whether commands over D-Bus are accepted"
-msgstr ""
+msgstr "elfogadja-e a D-Buson keresztül küldött parancsokat"
 
 #. i18n: ectx: Menu (move)
 #: knightsui.rc:22
@@ -883,18 +856,19 @@ msgstr "Knights"
 #: main.cpp:48
 #, kde-format
 msgid "KDE Chess Board"
-msgstr ""
+msgstr "KDE sakktábla"
 
 #: main.cpp:49
-#, fuzzy, kde-format
-#| msgid "(C) 2009-2011 Miha Čančula"
+#, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr "© Miha Čančula, 2009-2011."
+msgstr ""
+"(C) Alexander Semke, 2016-2017.\n"
+"(C) Miha Čančula, 2009-2011."
 
 #: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
-msgstr ""
+msgstr "Alexander Semke"
 
 #: main.cpp:53
 #, kde-format
@@ -920,6 +894,8 @@ msgstr "Dave Kaye"
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr ""
+"Segítség az új témafunkciókkal és a KGameRenderer nélküli rendereléssel "
+"kapcsolatban"
 
 #: main.cpp:58
 #, kde-format
@@ -981,10 +957,9 @@ msgstr "Animációk"
 
 #. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
 #: prefs_base.ui:23
-#, fuzzy, kde-format
-#| msgid "Animation &speed:"
+#, kde-format
 msgid "&Animation speed:"
-msgstr "Animálási &sebesség:"
+msgstr "&Animálási sebesség:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
@@ -1026,7 +1001,7 @@ msgstr "Megjelenés"
 #: prefs_base.ui:76
 #, kde-format
 msgid "Show &markers for:"
-msgstr ""
+msgstr "&Jelölők megjelenítése ehhez:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
 #: prefs_base.ui:86
@@ -1083,13 +1058,13 @@ msgstr "Működés"
 #: prefs_base.ui:154
 #, kde-format
 msgid "Play sounds"
-msgstr ""
+msgstr "Hangok lejátszása"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
 #: prefs_base.ui:161
 #, kde-format
 msgid "Flip the board in local matches between humans"
-msgstr ""
+msgstr "Tábla megfordítása az emberek közötti helyi mérkőzéseken"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
 #: prefs_base.ui:168
@@ -1111,30 +1086,27 @@ msgstr "Gyalog előléptetése erre:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Queen"
+#, kde-format
 msgid "&Queen"
-msgstr "Vezér"
+msgstr "&Vezér"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
 #, kde-format
 msgid "Roo&k"
-msgstr ""
+msgstr "&Bástya"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
-#, fuzzy, kde-format
-#| msgid "Bishop"
+#, kde-format
 msgid "B&ishop"
-msgstr "Futó"
+msgstr "&Futó"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
-#, fuzzy, kde-format
-#| msgid "Knight"
+#, kde-format
 msgid "&Knight"
-msgstr "Huszár"
+msgstr "&Huszár"
 
 #: proto/chatwidget.cpp:62
 #, kde-format
@@ -1207,10 +1179,9 @@ msgstr "Bejelentkezés a sakk kiszolgálóra"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
-#, fuzzy, kde-format
-#| msgid "&Username"
+#, kde-format
 msgid "&Username:"
-msgstr "&Felhasználónév"
+msgstr "&Felhasználónév:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
 #: proto/ficsdialog.ui:72
@@ -1220,10 +1191,9 @@ msgstr "Ez egy regisztrált fiók"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "&Password"
+#, kde-format
 msgid "&Password:"
-msgstr "&Jelszó"
+msgstr "&Jelszó:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
@@ -1247,13 +1217,13 @@ msgstr "Fiók létrehozása"
 #: proto/ficsdialog.ui:153
 #, kde-format
 msgid "Seek List"
-msgstr ""
+msgstr "Keresési lista"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
 #: proto/ficsdialog.ui:156
 #, kde-format
 msgid "Current ads arranged in a list"
-msgstr ""
+msgstr "Aktuális hirdetések listába rendezve"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:199
@@ -1301,13 +1271,13 @@ msgstr "Saját szín"
 #: proto/ficsdialog.ui:238
 #, kde-format
 msgid "Seek Graph"
-msgstr ""
+msgstr "Keresési gráf"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
 #: proto/ficsdialog.ui:241
 #, kde-format
 msgid "Current ads arranged by rating and duration"
-msgstr ""
+msgstr "Aktuális hirdetések minősítés és időtartam szerint"
 
 #. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:258
@@ -1319,13 +1289,13 @@ msgstr "Kihívások"
 #: proto/ficsdialog.ui:261
 #, kde-format
 msgid "Post an ad for other players"
-msgstr ""
+msgstr "Hirdetés feladása más játékosoknak"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
 #: proto/ficsdialog.ui:267
 #, kde-format
 msgid "Rated match"
-msgstr ""
+msgstr "Minősített mérkőzés"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
 #: proto/ficsdialog.ui:274
@@ -1338,7 +1308,7 @@ msgstr "Automatikusan induljon a játék"
 #, kde-format
 msgctxt "Start searching for opponents"
 msgid "Seek"
-msgstr ""
+msgstr "Keresés"
 
 #. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
 #: proto/ficsdialog.ui:295
@@ -1356,7 +1326,7 @@ msgstr "Egyéni parancsok használata"
 #, kde-format
 msgctxt "Stop searching for opponents"
 msgid "Unseek"
-msgstr ""
+msgstr "Keresés leállítása"
 
 #: proto/ficsprotocol.cpp:119
 #, kde-format
@@ -1379,11 +1349,10 @@ msgid "Login failed"
 msgstr "Sikertelen bejelentkezés"
 
 #: proto/ficsprotocol.cpp:190
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr "Sakkkiszolgáló"
+msgstr "Sakk-kiszolgáló"
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
