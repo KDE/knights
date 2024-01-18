@@ -40,7 +40,7 @@ static QString version = QStringLiteral ("2.6.0");
 int main ( int argc, char **argv ) {
 	QApplication app(argc, argv);
 
-	KLocalizedString::setApplicationDomain("knights");
+	KLocalizedString::setApplicationDomain(QByteArrayLiteral("knights"));
 	KCrash::initialize();
 
 	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ),
