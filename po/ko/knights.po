@@ -1,18 +1,18 @@
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Shinjo Park <kde@peremen.name>
 # 이정희 (JungHee Lee) <daemul72@gmail.com>, 2020.
-# Shinjo Park <kde@peremen.name>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 한국어 번역\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 01:35+0000\n"
-"PO-Revision-Date: 2023-03-01 01:58+0100\n"
+"PO-Revision-Date: 2024-02-09 23:48+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -397,9 +397,7 @@ msgid "Clock"
 msgstr "시계"
 
 #: knights.cpp:173
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "이동 기록"
