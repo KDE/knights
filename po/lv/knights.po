@@ -1,0 +1,1396 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the knights package.
+#
+# SPDX-FileCopyrightText: 2024 Toms Trasūns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: knights\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"PO-Revision-Date: 2024-02-11 18:30+0200\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 23.08.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Toms Trasūns"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "toms.trasuns@posteo.net"
+
+#: board.cpp:577
+#, kde-format
+msgctxt "@title:window"
+msgid "Promotion"
+msgstr "Paaugstināšana"
+
+#: board.cpp:581
+#, kde-format
+msgid "Promote"
+msgstr "Paaugstināt"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupB)
+#: clockwidget.ui:17
+#, kde-format
+msgid "Black"
+msgstr "Melnie"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorWhite)
+#. i18n: ectx: property (title), widget (QGroupBox, groupW)
+#: clockwidget.ui:44 gamedialog.ui:90
+#, kde-format
+msgid "White"
+msgstr "Baltie"
+
+#. i18n: ectx: property (text), widget (QLabel, searchDepthLabel)
+#: customdifficultydialog.ui:26
+#, kde-format
+msgid "Search &depth:"
+msgstr "Meklēšanas &dziļums:"
+
+#. i18n: ectx: property (specialValueText), widget (KPluralHandlingSpinBox, sbSearchDepth)
+#: customdifficultydialog.ui:36
+#, kde-format
+msgctxt "Let the engine determine the search depth"
+msgid "Engine default"
+msgstr "Dziņa noklusējums"
+
+#. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
+#: customdifficultydialog.ui:43
+#, kde-format
+msgid "Memory &size:"
+msgstr "Atmiņas &izmērs:"
+
+#. i18n: ectx: property (suffix), widget (QSpinBox, sbMemorySize)
+#: customdifficultydialog.ui:53
+#, kde-format
+msgctxt "Megabytes"
+msgid " MB"
+msgstr " MB"
+
+#: difficultydialog.cpp:35
+#, kde-format
+msgctxt "Search depth suffix"
+msgid " move"
+msgid_plural " moves"
+msgstr[0] " gājiens"
+msgstr[1] " gājieni"
+msgstr[2] " gājienu"
+
+#: difficultydialog.cpp:46
+#, kde-format
+msgctxt "@title:window"
+msgid "Difficulty Level"
+msgstr "Grūtības pakāpe"
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "XBoard"
+msgstr "XBoard"
+
+#: enginesettings.cpp:109
+#, kde-format
+msgctxt "Protocol name"
+msgid "UCI"
+msgstr "UCI"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
+#: enginesettings.ui:19
+#, kde-format
+msgid "Auto detect"
+msgstr "Noteikt automātiski"
+
+#. i18n: ectx: property (text), widget (QPushButton, addButton)
+#: enginesettings.ui:39
+#, kde-format
+msgid "Add"
+msgstr "Pievienot"
+
+#. i18n: ectx: property (text), widget (QPushButton, removeButton)
+#: enginesettings.ui:46
+#, kde-format
+msgid "Remove"
+msgstr "Noņemt"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:71
+#, kde-format
+msgid "Name"
+msgstr "Vārds"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:76
+#, kde-format
+msgid "Command"
+msgstr "Komanda"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:81
+#, kde-format
+msgid "Protocol"
+msgstr "Protokols"
+
+#. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
+#: enginesettings.ui:86
+#, kde-format
+msgid "Installed"
+msgstr "Instalēts"
+
+#: gamedialog.cpp:67
+#, kde-format
+msgctxt "@title:window"
+msgid "New Game"
+msgstr "Jauna spēle"
+
+#: gamedialog.cpp:266
+#, kde-format
+msgid " minute"
+msgid_plural " minutes"
+msgstr[0] " minūte"
+msgstr[1] " minūtes"
+msgstr[2] " minūšu"
+
+#: gamedialog.cpp:267
+#, kde-format
+msgid " second"
+msgid_plural " seconds"
+msgstr[0] " sekunde"
+msgstr[1] " sekundes"
+msgstr[2] " sekunžu"
+
+#: gamedialog.cpp:268
+#, kde-format
+msgid " move"
+msgid_plural " moves"
+msgstr[0] " gājiens"
+msgstr[1] " gājieni"
+msgstr[2] " gājienu"
+
+#: gamedialog.cpp:307
+#, kde-format
+msgctxt "@title:window"
+msgid "Chess Engines"
+msgstr "Šaha dzinis"
+
+#: gamedialog.cpp:359
+#, kde-format
+msgid "Select a chess engine for the first player."
+msgstr "Atlasiet šaha dzini pirmajam spēlētājam."
+
+#: gamedialog.cpp:365
+#, kde-format
+msgid "Select a chess engine for the second player."
+msgstr "Atlasiet šaha dzini otrajam spēlētājam."
+
+#: gamedialog.cpp:370
+#, kde-format
+msgid "Start the game."
+msgstr "Sākt partiju."
+
+#. i18n: ectx: property (title), widget (QGroupBox, player1Box)
+#: gamedialog.ui:29
+#, kde-format
+msgid "Player 1"
+msgstr "1. spēlētājs"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
+#: gamedialog.ui:35
+#, kde-format
+msgid "Human (&You)"
+msgstr "Cilvēks (&Tu)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
+#: gamedialog.ui:45
+#, kde-format
+msgid "&Computer engine:"
+msgstr "&Datora dzinis:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
+#: gamedialog.ui:78
+#, kde-format
+msgid "Player 1's Color"
+msgstr "1. spēlētāja krāsa:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
+#: gamedialog.ui:103
+#, kde-format
+msgid "B&lack"
+msgstr "&Melna"
+
+#. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
+#: gamedialog.ui:116
+#, kde-format
+msgid "Choose r&andomly"
+msgstr "&Nejauša izvēle"
+
+#. i18n: ectx: property (title), widget (QGroupBox, player2Box)
+#: gamedialog.ui:129
+#, kde-format
+msgid "Player 2"
+msgstr "2. spēlētājs"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
+#: gamedialog.ui:135
+#, kde-format
+msgid "H&uman"
+msgstr "&Cilvēks"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
+#: gamedialog.ui:145
+#, kde-format
+msgid "Co&mputer engine:"
+msgstr "D&atora dzinis:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
+#: gamedialog.ui:175
+#, kde-format
+msgid "Chess server:"
+msgstr "Šaha serveris:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
+#: gamedialog.ui:207
+#, kde-format
+msgid "&Use time control"
+msgstr "&Izmantot laika kontroli"
+
+#. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
+#: gamedialog.ui:214
+#, kde-format
+msgid "&Time control period:"
+msgstr "&Laika kontroles periods:"
+
+#. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
+#: gamedialog.ui:230
+#, kde-format
+msgctxt "Time control mode"
+msgid "Timer Only"
+msgstr "Tikai taimeris"
+
+#. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
+#: gamedialog.ui:243
+#, kde-format
+msgid "&Initial time limit:"
+msgstr "&Sākotnējais laika limits:"
+
+#. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
+#: gamedialog.ui:269
+#, kde-format
+msgid "I&ncrement per move:"
+msgstr "&Pieliktais laiks gājienā:"
+
+#: gamemanager.cpp:417
+#, kde-format
+msgctxt "The player of this color"
+msgid "White"
+msgstr "Baltie"
+
+#: gamemanager.cpp:418
+#, kde-format
+msgctxt "The player of this color"
+msgid "Black"
+msgstr "Melnie"
+
+#: gamemanager.cpp:525
+#, kde-format
+msgid "%1 offers you a draw"
+msgstr "%1 jums piedāvā neizšķirtu"
+
+#: gamemanager.cpp:528
+#, kde-format
+msgid "%2 would like to take back a half move"
+msgid_plural "%2 would like to take back %1 half moves"
+msgstr[0] "%2 vēlas atsaukt %1 pusgājienu"
+msgstr[1] "%2 vēlas atsaukt %1 pusgājienu"
+msgstr[2] "%2 vēlas atsaukt %1 pusgājienu"
+
+#: gamemanager.cpp:531
+#, kde-format
+msgid "%1 would like to adjourn the game"
+msgstr "%1 vēlas atlikt partiju"
+
+#: gamemanager.cpp:534
+#, kde-format
+msgid "%1 would like to abort the game"
+msgstr "%1 vēlas atcelt partiju"
+
+#: gamemanager.cpp:629
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles queenside"
+msgstr "%1 veica rokādi dāmas spārnā"
+
+#: gamemanager.cpp:632
+#, kde-format
+msgctxt "string to be spoken when the opponent castles queenside"
+msgid "%1 castles kingside"
+msgstr "%1 veica rokādi karaļa spārnā"
+
+#: gamemanager.cpp:636
+#, kde-format
+msgctxt "string to be spoken when the opponent makes a normal  move"
+msgid "%1 to %2"
+msgstr "%1 uz %2"
+
+#: gamemanager.cpp:649
+#, kde-format
+msgctxt "Your king is under attack"
+msgid "Check"
+msgstr "Šahs"
+
+#: gamemanager.cpp:651
+#, kde-format
+msgctxt "Your king is dead"
+msgid "Checkmate"
+msgstr "Mats"
+
+#: historywidget.cpp:26
+#, kde-format
+msgid "white"
+msgstr "baltie"
+
+#: historywidget.cpp:27
+#, kde-format
+msgid "black"
+msgstr "melnie"
+
+#. i18n: ectx: property (text), widget (QTableWidget, twMoves)
+#: historywidget.ui:39 historywidget.ui:44
+#, kde-format
+msgid "New Column"
+msgstr "Jaunu kolonna"
+
+#. i18n: ectx: property (text), widget (QLabel, notationLabel)
+#: historywidget.ui:57
+#, kde-format
+msgid "&Notation:"
+msgstr "&Notācija:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:68
+#, kde-format
+msgid "Short Algebraic"
+msgstr "Īsā algebriskā"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:73
+#, kde-format
+msgid "Long Algebraic"
+msgstr "Garā algebriskā"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
+#: historywidget.ui:78
+#, kde-format
+msgid "Coordinate"
+msgstr "Koordināšu"
+
+#: knights.cpp:95
+#, kde-format
+msgid "Custom"
+msgstr "Pielāgota"
+
+#: knights.cpp:135
+#, kde-format
+msgid "%1 is thinking..."
+msgstr "%1 domā..."
+
+#: knights.cpp:142
+#, kde-format
+msgid "Clock"
+msgstr "Pulkstenis"
+
+#: knights.cpp:173
+#, kde-format
+msgctxt "@title:window Title of the list of all the moves made in the game"
+msgid "Move History"
+msgstr "Gājienu vēsture"
+
+#: knights.cpp:192 knights.cpp:481
+#, kde-format
+msgid "Resign"
+msgstr "Atkāpties"
+
+#: knights.cpp:193
+#, kde-format
+msgid "Admit your inevitable defeat"
+msgstr "Atzīt savu nenovēršamo zaudējumu"
+
+#: knights.cpp:198
+#, kde-format
+msgid "Undo"
+msgstr "Atsaukt"
+
+#: knights.cpp:199
+#, kde-format
+msgid "Take back your last move"
+msgstr "Paņemt atpakaļ savu pēdējo gājienu"
+
+#: knights.cpp:205
+#, kde-format
+msgid "Redo"
+msgstr "Atatsaukt"
+
+#: knights.cpp:206
+#, kde-format
+msgid "Repeat your last move"
+msgstr "Atkārtot savu pēdējo gājienu"
+
+#: knights.cpp:213
+#, kde-format
+msgid "Offer &Draw"
+msgstr "&Piedāvāt neizšķirtu"
+
+#: knights.cpp:214
+#, kde-format
+msgid "Offer a draw to your opponent"
+msgstr "Piedāvāt pretiniekam neizšķirtu"
+
+#: knights.cpp:219
+#, kde-format
+msgid "Adjourn"
+msgstr "Atlikt"
+
+#: knights.cpp:220
+#, kde-format
+msgid "Continue this game at a later time"
+msgstr "Turpināt partiju vēlāk"
+
+#: knights.cpp:225
+#, kde-format
+msgid "Abort"
+msgstr "Atcelt"
+
+#: knights.cpp:226
+#, kde-format
+msgid "End the game immediately"
+msgstr "Nekavējoties izbeigt partiju"
+
+#: knights.cpp:230
+#, kde-format
+msgid "Show Clock"
+msgstr "Rādīt pulksteni"
+
+#: knights.cpp:236
+#, kde-format
+msgid "Show History"
+msgstr "Rādīt vēsturi"
+
+#: knights.cpp:243
+#, kde-format
+msgid "Show White Console"
+msgstr "Rādīt balto konsoli"
+
+#: knights.cpp:249
+#, kde-format
+msgid "Show Black Console"
+msgstr "Rādīt melno konsoli"
+
+#: knights.cpp:255
+#, kde-format
+msgid "Show Chat"
+msgstr "Rādīt tērzēšanu"
+
+#: knights.cpp:294
+#, kde-format
+msgid "Open File"
+msgstr "Atvērt datni"
+
+#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#, kde-format
+msgid "Portable game notation (*.pgn)"
+msgstr "Partijas pārnesamā notācija (*.png)"
+
+#: knights.cpp:458
+#, kde-format
+msgid "General"
+msgstr "Pamata"
+
+#: knights.cpp:462
+#, kde-format
+msgid "Computer Engines"
+msgstr "Datora dziņi"
+
+#: knights.cpp:473
+#, kde-format
+msgid "Theme"
+msgstr "Motīvs"
+
+#: knights.cpp:481
+#, kde-format
+msgid "Do you really want to resign?"
+msgstr "Vai tiešām vēlaties atkāpties?"
+
+#: knights.cpp:482
+#, kde-format
+msgctxt "@action:button"
+msgid "Resign"
+msgstr "Atkāpties"
+
+#: knights.cpp:529
+#, kde-format
+msgctxt "@title:window"
+msgid "Game over"
+msgstr "Spēles beigas"
+
+#: knights.cpp:553
+#, kde-format
+msgid "The game ended in a draw"
+msgstr "Spēle beidzās ar neizšķirtu"
+
+#: knights.cpp:559
+#, kde-format
+msgctxt "White as in the player with white pieces"
+msgid "The game ended with a victory for <em>White</em>"
+msgstr "Spēle beidzās ar <em>balto</em> uzvaru"
+
+#: knights.cpp:562
+#, kde-format
+msgctxt "Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>Black</em>"
+msgstr "Spēle beidzās ar <em>melno</em> uzvaru"
+
+#: knights.cpp:567
+#, kde-format
+msgctxt "Player name, then <White as in the player with white pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing White"
+msgstr "Spēle beidzās ar balto spēlētāja <em>%1</em> uzvaru."
+
+#: knights.cpp:570
+#, kde-format
+msgctxt "Player name, then Black as in the player with black pieces"
+msgid "The game ended with a victory for <em>%1</em>, playing Black"
+msgstr "Spēle beidzās ar melno spēlētāja <em>%1</em> uzvaru."
+
+#: knights.cpp:616
+#, kde-format
+msgid "%1 vs. %2"
+msgstr "%1 pret %2"
+
+#: knights.cpp:629
+#, kde-format
+msgid ""
+"This will end your game.\n"
+"Would you like to save the move history?"
+msgstr ""
+"Spēle beigsies.\n"
+"Vai vēlaties saglabāt gājienu vēsturi?"
+
+#: knights.cpp:649
+#, kde-format
+msgid "Save"
+msgstr "Saglabāt"
+
+#: knights.cpp:672
+#, kde-format
+msgctxt "@title:window"
+msgid "Save As"
+msgstr "Saglabāt kā"
+
+#. i18n: ectx: label, entry (Theme), group (KGameTheme)
+#: knights.kcfg:9
+#, kde-format
+msgid "Theme file for the board"
+msgstr "Galdiņa motīvs"
+
+#. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
+#: knights.kcfg:15
+#, kde-format
+msgid "whether to show a confirmation dialog before discarding game history"
+msgstr "vai parādīt apstiprināšanas lodziņu pirms spēles vēstures izmešanas"
+
+#. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
+#: knights.kcfg:19
+#, kde-format
+msgid "internal variable controlling the confirm dialog"
+msgstr "iekšējā vērtība apstiprināšanas lodziņa kontrolēšanai"
+
+#. i18n: ectx: label, entry (animationSpeed), group (Preferences)
+#: knights.kcfg:31
+#, kde-format
+msgid "Moves animation speed"
+msgstr "Gājienu animāciju ātrums"
+
+#. i18n: ectx: label, entry (animateBoard), group (Preferences)
+#: knights.kcfg:35
+#, kde-format
+msgid "whether the Board is animated during rotating and resizing"
+msgstr "vai rādīt galdiņa animācijas, to rotējot un mainot izmēru"
+
+#. i18n: ectx: label, entry (flipBoard), group (Preferences)
+#: knights.kcfg:39
+#, kde-format
+msgid "whether to rotate the board when in local two-player mode"
+msgstr "vai rotēt galdiņu, spēlējot lokālu divu spēlētāju partiju"
+
+#. i18n: ectx: label, entry (playSounds), group (Preferences)
+#: knights.kcfg:43
+#, kde-format
+msgid "whether to play move sounds"
+msgstr "vai atskaņot gājienu skaņas"
+
+#. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
+#: knights.kcfg:52
+#, kde-format
+msgid "chessboard border type"
+msgstr "šaha galdiņa apmaļu tips"
+
+#. i18n: ectx: label, entry (showDanger), group (Preferences)
+#: knights.kcfg:56
+#, kde-format
+msgid "show check marker"
+msgstr "rādīt šaha pieteikšanas norādi"
+
+#. i18n: ectx: label, entry (showMarker), group (Preferences)
+#: knights.kcfg:60
+#, kde-format
+msgid "show legal moves marker"
+msgstr "rādīt atļauto gājienu norādi"
+
+#. i18n: ectx: label, entry (showMotion), group (Preferences)
+#: knights.kcfg:64
+#, kde-format
+msgid "show opponents move marker"
+msgstr "rādīt pretinieka gājiena norādi"
+
+#. i18n: ectx: label, entry (showClock), group (Preferences)
+#: knights.kcfg:68
+#, kde-format
+msgid "show clocks when time control is in use"
+msgstr "rādīt pulksteņos, izmantojot laika kontroli"
+
+#. i18n: ectx: label, entry (showChat), group (Preferences)
+#: knights.kcfg:72
+#, kde-format
+msgid "show chat window, if supported by the protocol"
+msgstr "rādīt tērzēšanas logu, ja to atbalsta protokols"
+
+#. i18n: ectx: label, entry (showConsole), group (Preferences)
+#: knights.kcfg:76
+#, kde-format
+msgid "show the text console, if supported by the protocol"
+msgstr "rādīt teksta konsoli, ja to atbalsta protokols"
+
+#. i18n: ectx: label, entry (showHistory), group (Preferences)
+#: knights.kcfg:80
+#, kde-format
+msgid "show move history"
+msgstr "rādīt gājienu vēsturi"
+
+#. i18n: ectx: label, entry (timeLimit), group (Time Control)
+#: knights.kcfg:86
+#, kde-format
+msgid "initial time limit for both players"
+msgstr "sākotnējais laiks katram spēlētājam"
+
+#. i18n: ectx: label, entry (timeIncrement), group (Time Control)
+#: knights.kcfg:90
+#, kde-format
+msgid "time increment per move (for Incremental time control)"
+msgstr "pieliktais laiks katrā gājienā (ja tiek izmantota šāda laika kontrole)"
+
+#. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
+#: knights.kcfg:94
+#, kde-format
+msgid ""
+"the number of moves the player has to make in the specified time (for "
+"Conventional time control)"
+msgstr ""
+"gājienu skaists, kas spēlētājiem ir jāveic noteiktajā laikā (tradicionālajai "
+"laika kontrolei)"
+
+#. i18n: ectx: label, entry (timeEnabled), group (Time Control)
+#: knights.kcfg:98
+#, kde-format
+msgid "whether time limits are enabled and displayed"
+msgstr "vai ir ieslēgti un parādīti limiti"
+
+#. i18n: ectx: label, entry (player1Protocol), group (Protocols)
+#. i18n: ectx: label, entry (player2Protocol), group (Protocols)
+#: knights.kcfg:108 knights.kcfg:117
+#, kde-format
+msgid "protocol to be used for player 1"
+msgstr "1. spēlētāja izmantotais protokols"
+
+#. i18n: ectx: label, entry (color), group (Protocols)
+#: knights.kcfg:126
+#, kde-format
+msgid ""
+"the local human player's color in a game against a computer or over the "
+"Internet."
+msgstr ""
+"lokālā cilvēka spēlētāja krāsa spēlē pret datora kontrolētu spēlētāju "
+"tiešsaistē."
+
+#. i18n: ectx: label, entry (programs), group (Protocols)
+#: knights.kcfg:130
+#, kde-format
+msgid "list of programs to run for playing against the computer"
+msgstr "saraksta ar palaižamajām programmām, spēlējot pret datoru"
+
+#. i18n: ectx: label, entry (player1Program), group (Protocols)
+#: knights.kcfg:134
+#, kde-format
+msgid "the last selected program for player 1"
+msgstr "pēdējā atlasītā programma 1. spēlētājam"
+
+#. i18n: ectx: label, entry (player2Program), group (Protocols)
+#: knights.kcfg:138
+#, kde-format
+msgid "the last selected program for player 2"
+msgstr "pēdējā atlasītā programma 2. spēlētājam"
+
+#. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
+#: knights.kcfg:142
+#, kde-format
+msgid ""
+"the search depth of computer engines, when the difficulty is set to "
+"Configurable"
+msgstr ""
+"datora dziņa meklēšanas dziļums, kad grūtība ir iestatīta uz konfigurējamu"
+
+#. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
+#: knights.kcfg:146
+#, kde-format
+msgid ""
+"the memory size used by computer engines, when the difficulty is set to "
+"Configurable"
+msgstr ""
+"datora dziņa izmantotais atmiņas dziļums, kad grūtība ir iestatīta uz "
+"konfigurējamu"
+
+#. i18n: ectx: label, entry (servers), group (Protocols)
+#: knights.kcfg:150
+#, kde-format
+msgid "list of servers for playing over the Internet"
+msgstr "saraksts ar serveriem spēlēšanai internetā"
+
+#. i18n: ectx: label, entry (currentServer), group (Protocols)
+#: knights.kcfg:154
+#, kde-format
+msgid "the last selected server"
+msgstr "pēdējais atlasītais serveris"
+
+#. i18n: ectx: label, entry (ficsUsername), group (Protocols)
+#: knights.kcfg:158
+#, kde-format
+msgid "username for the Free Internet Chess Server"
+msgstr "lietotājvārds lapā „Free Internet Chess Server“"
+
+#. i18n: ectx: label, entry (guest), group (Protocols)
+#: knights.kcfg:162
+#, kde-format
+msgid "whether to log in as guest"
+msgstr "vai ierakstīties kā viesim"
+
+#. i18n: ectx: label, entry (autoLogin), group (Protocols)
+#: knights.kcfg:166
+#, kde-format
+msgid "whether to log in to chess server automatically"
+msgstr "vai automātiski ierakstīties šaha serverī"
+
+#. i18n: ectx: label, entry (computerDelay), group (Protocols)
+#: knights.kcfg:170
+#, kde-format
+msgid "delay before a computer's move is reported, in milliseconds"
+msgstr "ir ziņota aizture pirms datora gājiena, milisekundēs"
+
+#. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
+#: knights.kcfg:174
+#, kde-format
+msgid "stored configurations of engine-specific settings"
+msgstr "saglabāta dzinim specifisku iestatījumu konfigurācija"
+
+#. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
+#: knights.kcfg:180
+#, kde-format
+msgid "whether opponents' moves are spoken by Jovie"
+msgstr "vai pretinieka gājienus izrunā „Jovie“"
+
+#. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
+#: knights.kcfg:184
+#, kde-format
+msgid "whether commands over D-Bus are accepted"
+msgstr "vai tiek pieņemtas komandas caur „D-Bus“"
+
+#. i18n: ectx: Menu (move)
+#: knightsui.rc:22
+#, kde-format
+msgid "Move"
+msgstr "Gājiens"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knightsui.rc:38
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Galvenā rīkjosla"
+
+#. i18n: ectx: ToolBar (actionsToolbar)
+#: knightsui.rc:45
+#, kde-format
+msgid "Game Actions Toolbar"
+msgstr "Spēles darbības rīkjosla"
+
+#. i18n: ectx: ToolBar (dockToolBar)
+#: knightsui.rc:58
+#, kde-format
+msgid "Dockable Windows Toolbar"
+msgstr "Piespraužama logu rīkjosla"
+
+#: knightsview.cpp:91
+#, kde-format
+msgid "Settings changed"
+msgstr "Iestatījumi ir izmainīti"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
+#: knightsview_base.ui:14 main.cpp:46
+#, kde-format
+msgid "Knights"
+msgstr "Knights"
+
+#: main.cpp:48
+#, kde-format
+msgid "KDE Chess Board"
+msgstr "KDE šaha galdiņš"
+
+#: main.cpp:49
+#, kde-format
+msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
+msgstr "(C) 2016–2017 Alexander Semke, 2009–2011 Miha Čančula"
+
+#: main.cpp:52
+#, kde-format
+msgid "Alexander Semke"
+msgstr "Alexander Semke"
+
+#: main.cpp:53
+#, kde-format
+msgid "Miha Čančula"
+msgstr "Miha Čančula"
+
+#: main.cpp:55
+#, kde-format
+msgid "Troy Corbin"
+msgstr "Troy Corbin"
+
+#: main.cpp:55
+#, kde-format
+msgid "Original Knights for KDE3 and theme author"
+msgstr "Sākotnējais KDE 3 „Knights“ un motīva autors"
+
+#: main.cpp:57
+#, kde-format
+msgid "Dave Kaye"
+msgstr "Dave Kaye"
+
+#: main.cpp:57
+#, kde-format
+msgid "Help with new theme features and rendering without KGameRenderer"
+msgstr ""
+"Palīdzēja mums ar jaunu motīvu iespējām un atveidošanu bez „KGameRenderer“."
+
+#: main.cpp:58
+#, kde-format
+msgid "Thomas Kamps"
+msgstr "Thomas Kamps"
+
+#: main.cpp:58
+#, kde-format
+msgid "Clock displaying the remaining time"
+msgstr "Pulkstenis ar atlikušo laiku"
+
+#: main.cpp:65
+#, kde-format
+msgid "Document to open"
+msgstr "Atveramais dokuments"
+
+#. i18n: ectx: property (text), widget (QPushButton, acceptButton)
+#: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
+#: proto/ficsprotocol.cpp:195
+#, kde-format
+msgid "Accept"
+msgstr "Pieņemt"
+
+#. i18n: ectx: property (text), widget (QPushButton, declineButton)
+#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
+#, kde-format
+msgid "Decline"
+msgstr "Noraidīt"
+
+#. i18n: ectx: property (text), widget (QPushButton, closeButton)
+#: popup.ui:51
+#, kde-format
+msgid "Close"
+msgstr "Aizvērt"
+
+#. i18n: ectx: property (title), widget (QGroupBox, external_box)
+#: prefs_access.ui:17
+#, kde-format
+msgid "External Programs"
+msgstr "Ārējās programmas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
+#: prefs_access.ui:23
+#, kde-format
+msgid "Speak opponent's moves"
+msgstr "Izrunāt pretinieka gājienus"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
+#: prefs_access.ui:30
+#, kde-format
+msgid "Allow other programs to control Knights"
+msgstr "Atļaut citām programmām kontrolēt „Knights“"
+
+#. i18n: ectx: property (title), widget (QGroupBox, animationGroup)
+#: prefs_base.ui:17
+#, kde-format
+msgid "Animations"
+msgstr "Animācijas"
+
+#. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
+#: prefs_base.ui:23
+#, kde-format
+msgid "&Animation speed:"
+msgstr "A&nimāciju ātrums:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:34
+#, kde-format
+msgid "Instant (no animation)"
+msgstr "Nekavējoties (bez animācijām)"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:39
+#, kde-format
+msgid "Fast"
+msgstr "Ātras"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:44
+#, kde-format
+msgid "Normal"
+msgstr "Normālas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
+#: prefs_base.ui:49
+#, kde-format
+msgid "Slow"
+msgstr "Lēnas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_animateBoard)
+#: prefs_base.ui:57
+#, kde-format
+msgid "Animate the board as well"
+msgstr "Animācijas arī galdiņam"
+
+#. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
+#: prefs_base.ui:67
+#, kde-format
+msgid "Appearance"
+msgstr "Izskats"
+
+#. i18n: ectx: property (text), widget (QLabel, showMarkersForLabel)
+#: prefs_base.ui:76
+#, kde-format
+msgid "Show &markers for:"
+msgstr "&Rādīt marķierus:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
+#: prefs_base.ui:86
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Legal moves"
+msgstr "Atļautiem gājieniem"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
+#: prefs_base.ui:99
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Opponent's move"
+msgstr "Pretinieka gājienam"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
+#: prefs_base.ui:109
+#, kde-format
+msgctxt "Option to show markers for"
+msgid "Check"
+msgstr "Šaha pieteikumam"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: prefs_base.ui:119
+#, kde-format
+msgid "Border display:"
+msgstr "Apmalas rādīšana:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:127
+#, kde-format
+msgid "No borders"
+msgstr "Bez apmales"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:132
+#, kde-format
+msgid "Only borders"
+msgstr "Tikai apmales"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
+#: prefs_base.ui:137
+#, kde-format
+msgid "Borders and notation"
+msgstr "Apmales un notācija"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: prefs_base.ui:148
+#, kde-format
+msgid "Behavior"
+msgstr "Uzvedība"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_playSounds)
+#: prefs_base.ui:154
+#, kde-format
+msgid "Play sounds"
+msgstr "Atskaņot skaņas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
+#: prefs_base.ui:161
+#, kde-format
+msgid "Flip the board in local matches between humans"
+msgstr "Apgriezt galdiņu, spēlējot lokālas partijas star cilvēkiem"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
+#: prefs_base.ui:168
+#, kde-format
+msgid "Show confirmation dialog before closing"
+msgstr "Pirms aizvēršanas parādīt apstiprinājuma lodziņu"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
+#: promotiondialog.ui:14
+#, kde-format
+msgid "Pawn Promotion"
+msgstr "Bandinieka paaugstināšana"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: promotiondialog.ui:26
+#, kde-format
+msgid "Promote pawn to:"
+msgstr "Paaugstināt bandinieku uz:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
+#: promotiondialog.ui:40
+#, kde-format
+msgid "&Queen"
+msgstr "&Dāmu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
+#: promotiondialog.ui:56
+#, kde-format
+msgid "Roo&k"
+msgstr "&Torni"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
+#: promotiondialog.ui:69
+#, kde-format
+msgid "B&ishop"
+msgstr "&Laidni"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
+#: promotiondialog.ui:82
+#, kde-format
+msgid "&Knight"
+msgstr "&Zirdziņu"
+
+#: proto/chatwidget.cpp:62
+#, kde-format
+msgid " says: "
+msgstr " saka: "
+
+#: proto/chatwidget.cpp:95
+#, kde-format
+msgid "You: "
+msgstr "Tu: "
+
+#. i18n: ectx: property (text), widget (QPushButton, sendButton)
+#: proto/chatwidget.ui:20
+#, kde-format
+msgid "Send"
+msgstr "Nosūtīt"
+
+#. i18n: ectx: property (text), widget (QToolButton, toolButton)
+#: proto/chatwidget.ui:51
+#, kde-format
+msgid "..."
+msgstr "..."
+
+#: proto/computerprotocol.cpp:36
+#, kde-format
+msgid ""
+"Program <code>%1</code> could not be started, please check that it is "
+"installed."
+msgstr ""
+"Programmu <code>%1</code> neizdodas palaist. Pārbaudiet, vai tā ir "
+"ieinstalēta."
+
+#: proto/computerprotocol.cpp:51
+#, kde-format
+msgid "Console for %1 (%2)"
+msgstr "Konsole programmai %1 (%2)"
+
+#: proto/ficsdialog.cpp:58
+#, kde-format
+msgid "Session started"
+msgstr "Palaista sesija"
+
+#: proto/ficsdialog.cpp:69
+#, kde-format
+msgid "Logging in..."
+msgstr "Ierakstās..."
+
+#: proto/ficsdialog.cpp:110
+#, kde-format
+msgctxt "PlayerName (rating)"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: proto/ficsdialog.cpp:168
+#, kde-format
+msgid "<font color='red'>Error: %1</font>"
+msgstr "<font color='red'>Kļūda: %1</font>"
+
+#. i18n: ectx: attribute (title), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:33
+#, kde-format
+msgid "Account"
+msgstr "Konts"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, accountTab)
+#: proto/ficsdialog.ui:36
+#, kde-format
+msgid "Log in to the chess server"
+msgstr "Ierakstīties šaha serverī"
+
+#. i18n: ectx: property (text), widget (QLabel, usernameLabel)
+#: proto/ficsdialog.ui:55
+#, kde-format
+msgid "&Username:"
+msgstr "&Lietotājvārds:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
+#: proto/ficsdialog.ui:72
+#, kde-format
+msgid "This is a registered account"
+msgstr "Šis ir reģistrēts konts"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: proto/ficsdialog.ui:82
+#, kde-format
+msgid "&Password:"
+msgstr "&Parole:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
+#: proto/ficsdialog.ui:102
+#, kde-format
+msgid "Log me in automatically"
+msgstr "Ierakstīties automātiski"
+
+#. i18n: ectx: property (text), widget (QPushButton, logInButton)
+#: proto/ficsdialog.ui:109
+#, kde-format
+msgid "Log in"
+msgstr "Ierakstīties"
+
+#. i18n: ectx: property (text), widget (QPushButton, registerButton)
+#: proto/ficsdialog.ui:129
+#, kde-format
+msgid "Create an account"
+msgstr "Izveidot kontu"
+
+#. i18n: ectx: attribute (title), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:153
+#, kde-format
+msgid "Seek List"
+msgstr "Meklēšanas saraksts"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
+#: proto/ficsdialog.ui:156
+#, kde-format
+msgid "Current ads arranged in a list"
+msgstr "Pašreizējie sludinājumi sarakstā"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:199
+#, kde-format
+msgid "Player"
+msgstr "Spēlētājs"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:204
+#, kde-format
+msgid "Rating"
+msgstr "Reitings"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:209
+#, kde-format
+msgid "Time"
+msgstr "Laiks"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:214
+#, kde-format
+msgid "Increment"
+msgstr "Pieliktais laiks"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:219
+#, kde-format
+msgid "Rated"
+msgstr "Ar reitingu"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:224
+#, kde-format
+msgid "Variant"
+msgstr "Variants"
+
+#. i18n: ectx: property (text), widget (QTableWidget, offerTable)
+#: proto/ficsdialog.ui:229
+#, kde-format
+msgid "Your color"
+msgstr "Jūsu krāsa"
+
+#. i18n: ectx: attribute (title), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:238
+#, kde-format
+msgid "Seek Graph"
+msgstr "Meklēšanas diagramma"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
+#: proto/ficsdialog.ui:241
+#, kde-format
+msgid "Current ads arranged by rating and duration"
+msgstr "Pašreizēji sludinājumi pēc reitinga un laika"
+
+#. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:258
+#, kde-format
+msgid "Challenges"
+msgstr "Izaicinājumi"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
+#: proto/ficsdialog.ui:261
+#, kde-format
+msgid "Post an ad for other players"
+msgstr "Publicēt sludinājumu citiem spēlētājiem"
+
+#. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
+#: proto/ficsdialog.ui:267
+#, kde-format
+msgid "Rated match"
+msgstr "Partija ar reitingu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
+#: proto/ficsdialog.ui:274
+#, kde-format
+msgid "Automatically start the game"
+msgstr "Automātiski sākt partiju"
+
+#. i18n: ectx: property (text), widget (QPushButton, seekButton)
+#: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
+#, kde-format
+msgctxt "Start searching for opponents"
+msgid "Seek"
+msgstr "Meklēt"
+
+#. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:295
+#, kde-format
+msgid "Console"
+msgstr "Konsole"
+
+#. i18n: ectx: attribute (toolTip), widget (QWidget, consoleTab)
+#: proto/ficsdialog.ui:298
+#, kde-format
+msgid "Use custom commands"
+msgstr "Izmantot pielāgotas komandas"
+
+#: proto/ficsprotocol.cpp:117
+#, kde-format
+msgctxt "Stop searching for opponents"
+msgid "Unseek"
+msgstr "Beigt meklēšanu"
+
+#: proto/ficsprotocol.cpp:119
+#, kde-format
+msgid "Help"
+msgstr "Palīdzība"
+
+#: proto/ficsprotocol.cpp:140
+#, kde-format
+msgid "Server Console"
+msgstr "Servera konsole"
+
+#: proto/ficsprotocol.cpp:152
+#, kde-format
+msgid "Chat with %1"
+msgstr "Čatot ar %1"
+
+#: proto/ficsprotocol.cpp:184
+#, kde-format
+msgid "Login failed"
+msgstr "Ierakstīšanās neizdevās"
+
+#: proto/ficsprotocol.cpp:190
+#, kde-format
+msgctxt "@title:window"
+msgid "Chess server"
+msgstr "Šaha serveris"
+
+#: proto/ficsprotocol.cpp:281
+#, kde-format
+msgid "Invalid Password"
+msgstr "Nederīga parole"
+
+#: proto/protocol.cpp:54
+#, kde-format
+msgid "No Error"
+msgstr "Nav kļūdu"
+
+#: proto/protocol.cpp:57
+#, kde-format
+msgid "User Canceled"
+msgstr "Lietotājs atcelts"
+
+#: proto/protocol.cpp:60
+#, kde-format
+msgid "Network Error"
+msgstr "Tīkla kļūda"
+
+#: proto/protocol.cpp:63
+#, kde-format
+msgid "Unknown Error"
+msgstr "Neidentificēta kļūda"
+
+#: proto/protocol.cpp:66
+#, kde-format
+msgid "Program Error"
+msgstr "Programmas kļūda"
+
+#: proto/seekgraph.cpp:26
+#, kde-format
+msgid "Time limit [minutes]"
+msgstr "Laika ierobežojums [minūtēs]"
+
+#: proto/seekgraph.cpp:27
+#, kde-format
+msgid "Opponent's rating"
+msgstr "Pretinieka reitings"
