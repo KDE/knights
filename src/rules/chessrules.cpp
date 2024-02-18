@@ -156,13 +156,14 @@ QList<Move> ChessRules::legalMoves ( const Pos& pos ) {
 
 	//from the list of possible moves, remove those moves where the king would be under attack
 	Pos currKingPos = kingPos[color];
-	for ( const Move& m : std::as_const(moves) ) {
+	moves.removeIf([this, isKingMoving, color, currKingPos, &pos](const Move &m) {
 		Grid t_grid = *m_grid;
 		t_grid.insert ( m.to(), t_grid.take ( pos ) );
 		if ( ( isKingMoving && isAttacked ( m.to(), color, &t_grid ) ) || ( !isKingMoving && isAttacked ( currKingPos, color, &t_grid ) ) ) {
-			moves.removeOne ( m );
+			return true;
 		}
-	}
+		return false;
+	});
 	return moves;
 }
 
