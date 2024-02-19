@@ -441,13 +441,11 @@ void Manager::startGame() {
 
 void Manager::gameOver(Color winner) {
 	Q_D(GameManager);
-	if (!d->gameStarted)
+	if (!d->gameStarted || d->gameOverInProcess)
 		return;
 
-	if (!d->gameOverInProcess) {
-		d->gameOverInProcess = true;
-		sendPendingMove();
-	}
+	d->gameOverInProcess = true;
+	sendPendingMove();
 
 	stopTime();
 	Protocol::white()->setWinner(winner);
