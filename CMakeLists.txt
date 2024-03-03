@@ -60,6 +60,7 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     DBusAddons
     ConfigWidgets
     Crash
+    I18n
     TextWidgets
     XmlGui
     KIO
