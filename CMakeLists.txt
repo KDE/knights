@@ -13,7 +13,7 @@ set(KNIGHTS_VERSION "${KNIGHTS_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSION}"
 project(Knights VERSION ${KNIGHTS_VERSION})
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "5.245.0")
+set(KF_MIN_VERSION "6.0.0")
 set(PLASMA_MIN_VERSION "5.27.80")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
@@ -80,7 +80,7 @@ find_package(KDEGames6 6.0.0 REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.5
-    KF 5.239
+    KF 6.0
     KDEGAMES 6.0
 )
 
