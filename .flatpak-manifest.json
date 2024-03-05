@@ -17,6 +17,12 @@
             "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/libkdegames.git" } ]
         },
         {
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "name": "libplasma",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/libplasma.git" } ]
+        },
+        {
             "name": "knights",
             "buildsystem": "cmake-ninja",
             "sources": [
