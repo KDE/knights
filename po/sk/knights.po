@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2024-03-07 00:36+0000\n"
 "PO-Revision-Date: 2023-12-05 17:24+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -300,12 +300,12 @@ msgctxt "The player of this color"
 msgid "Black"
 msgstr "Čierna"
 
-#: gamemanager.cpp:525
+#: gamemanager.cpp:523
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "%1 ponúka ťah"
 
-#: gamemanager.cpp:528
+#: gamemanager.cpp:526
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
@@ -313,41 +313,41 @@ msgstr[0] "%2 chce vrátiť svoj ťah"
 msgstr[1] "%2 chce vrátiť svoje %1 ťahy"
 msgstr[2] "%2 chce vrátiť svojich %1 ťahov"
 
-#: gamemanager.cpp:531
+#: gamemanager.cpp:529
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "%1 chce prerušiť hru"
 
-#: gamemanager.cpp:534
+#: gamemanager.cpp:532
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "%1 chce ukončiť hru"
 
-#: gamemanager.cpp:629
+#: gamemanager.cpp:627
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "%1 robí dlhú rošádu"
 
-#: gamemanager.cpp:632
+#: gamemanager.cpp:630
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "%1 robí krátku rošádu"
 
-#: gamemanager.cpp:636
+#: gamemanager.cpp:634
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 do %2"
 
-#: gamemanager.cpp:649
+#: gamemanager.cpp:647
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "Zaškrtnúť"
 
-#: gamemanager.cpp:651
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
