@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 01:35+0000\n"
+"POT-Creation-Date: 2024-03-07 02:18+0000\n"
 "PO-Revision-Date: 2023-11-28 17:27+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -307,12 +307,12 @@ msgctxt "The player of this color"
 msgid "Black"
 msgstr "Чорні"
 
-#: gamemanager.cpp:525
+#: gamemanager.cpp:523
 #, kde-format
 msgid "%1 offers you a draw"
 msgstr "%1 пропонує вам нічию"
 
-#: gamemanager.cpp:528
+#: gamemanager.cpp:526
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
@@ -321,41 +321,41 @@ msgstr[1] "%2 бажає скасувати %1 свої ходи"
 msgstr[2] "%2 бажає скасувати %1 своїх ходів"
 msgstr[3] "%2 бажає скасувати свій хід"
 
-#: gamemanager.cpp:531
+#: gamemanager.cpp:529
 #, kde-format
 msgid "%1 would like to adjourn the game"
 msgstr "%1 бажає відкласти гру"
 
-#: gamemanager.cpp:534
+#: gamemanager.cpp:532
 #, kde-format
 msgid "%1 would like to abort the game"
 msgstr "%1 бажає перервати гру"
 
-#: gamemanager.cpp:629
+#: gamemanager.cpp:627
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
 msgstr "%1 робить рокіровку з флангу королеви"
 
-#: gamemanager.cpp:632
+#: gamemanager.cpp:630
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
 msgstr "%1 робить рокіровку з флангу короля"
 
-#: gamemanager.cpp:636
+#: gamemanager.cpp:634
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
 msgstr "%1 на %2"
 
-#: gamemanager.cpp:649
+#: gamemanager.cpp:647
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
 msgstr "Шах"
 
-#: gamemanager.cpp:651
+#: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
