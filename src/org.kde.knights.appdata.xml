@@ -3,6 +3,9 @@
   <id>org.kde.knights.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
+  <developer id="org.kde">
+    <name translate="no">KDE</name>
+  </developer>
   <name>KNights</name>
   <name xml:lang="ar">الفرسان</name>
   <name xml:lang="ast">KNights</name>
