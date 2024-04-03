@@ -293,31 +293,31 @@ bool FicsProtocol::parseLine(const QString& line) {
 				if ( ok )
 					Q_EMIT gameOfferRemoved(id);
 			}
-		} else if ( line.startsWith( QLatin1String("<s>") ) && seekExp.indexIn(line) > -1 ) {
+		} else if ( const auto seekMatch = seekExp.match(line); line.startsWith( QLatin1String("<s>") ) && seekMatch.hasMatch() ) {
 			display = false;
 			FicsGameOffer offer;
 			int n = 1;
-			offer.gameId = seekExp.cap(n++).toInt();
-			offer.player.first = seekExp.cap(n++);
+			offer.gameId = seekMatch.capturedView(n++).toInt();
+			offer.player.first = seekMatch.captured(n++);
 			n++; // Ignore titles for now, TODO
-			offer.player.second = seekExp.cap(n++).toInt();
-			offer.baseTime = seekExp.cap(n++).toInt();
-			offer.timeIncrement = seekExp.cap(n++).toInt();
-			offer.rated = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('r') );
-			offer.variant = seekExp.cap(n++);
-			offer.color = parseColor(seekExp.cap(n++));
-			offer.ratingRange.first = seekExp.cap(n++).toInt();
-			offer.ratingRange.second = seekExp.cap(n++).toInt();
-			offer.automatic = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
-			offer.formula = ( !seekExp.cap(n).isEmpty() && seekExp.cap(n++)[0] == QLatin1Char('t') );
+			offer.player.second = seekMatch.capturedView(n++).toInt();
+			offer.baseTime = seekMatch.capturedView(n++).toInt();
+			offer.timeIncrement = seekMatch.capturedView(n++).toInt();
+			offer.rated = ( !seekMatch.capturedView(n).isEmpty() && seekMatch.capturedView(n++)[0] == QLatin1Char('r') );
+			offer.variant = seekMatch.captured(n++);
+			offer.color = parseColor(seekMatch.captured(n++));
+			offer.ratingRange.first = seekMatch.capturedView(n++).toInt();
+			offer.ratingRange.second = seekMatch.capturedView(n++).toInt();
+			offer.automatic = ( !seekMatch.capturedView(n).isEmpty() && seekMatch.capturedView(n++)[0] == QLatin1Char('t') );
+			offer.formula = ( !seekMatch.capturedView(n).isEmpty() && seekMatch.capturedView(n++)[0] == QLatin1Char('t') );
 			Q_EMIT gameOfferReceived ( offer );
-		} else if ( line.startsWith( QLatin1String("<pf>") ) && challengeExp.indexIn ( line ) > -1 ) {
+		} else if ( const auto challengeMatch = challengeExp.match(line); line.startsWith( QLatin1String("<pf>") ) && challengeMatch.hasMatch() ) {
 			display = false;
 			FicsChallenge challenge;
-			challenge.gameId = challengeExp.cap ( 1 ).toInt();
-			challenge.player.first = challengeExp.cap ( 2 );
-			int ratingPos = ( challengeExp.cap(2) == challengeExp.cap(3) ) ? 4 : 6;
-			challenge.player.second = challengeExp.cap ( ratingPos ).toInt();
+			challenge.gameId = challengeMatch.capturedView ( 1 ).toInt();
+			challenge.player.first = challengeMatch.captured ( 2 );
+			int ratingPos = ( challengeMatch.capturedView(2) == challengeMatch.capturedView(3) ) ? 4 : 6;
+			challenge.player.second = challengeMatch.capturedView ( ratingPos ).toInt();
 			Q_EMIT challengeReceived ( challenge );
 		} else if ( line.startsWith( QLatin1String("<pr>") ) ) {
 			display = false;
@@ -327,11 +327,11 @@ bool FicsProtocol::parseLine(const QString& line) {
 				if ( ok )
 					Q_EMIT challengeRemoved(id);
 			}
-		} else if ( gameStartedExp.indexIn ( line ) > -1 ) {
+		} else if ( const auto gameStartedMatch = gameStartedExp.match ( line ); gameStartedMatch.hasMatch() ) {
 			qCDebug(LOG_KNIGHTS) << "Game Started" << line;
 			type = ChatWidget::StatusMessage;
-			QString player1 = gameStartedExp.cap ( 1 );
-			QString player2 = gameStartedExp.cap ( 3 );
+			QString player1 = gameStartedMatch.captured ( 1 );
+			QString player2 = gameStartedMatch.captured ( 3 );
 			Color color = NoColor;
 			if ( player1 == otherPlayerName ) {
 				color = Black;
@@ -357,15 +357,15 @@ bool FicsProtocol::parseLine(const QString& line) {
 		}
 		break;
 	case PlayStage:
-		if ( moveRegExp.indexIn ( line ) > -1 ) {
+		if ( const auto moveMatch = moveRegExp.match ( line ); moveMatch.hasMatch() ) {
 			display = false;
-			qCDebug(LOG_KNIGHTS) << moveRegExp.cap(1) << colorName(color());
-			bool validMove = !( moveRegExp.cap ( 1 ) == QLatin1Char('W') && color() == White )
-			                 && !( moveRegExp.cap ( 1 ) == QLatin1Char('B') && color() == Black );
+			qCDebug(LOG_KNIGHTS) << moveMatch.capturedView(1) << colorName(color());
+			bool validMove = !( moveMatch.capturedView ( 1 ) == QLatin1Char('W') && color() == White )
+			                 && !( moveMatch.capturedView ( 1 ) == QLatin1Char('B') && color() == Black );
 
-			const int whiteTimeLimit = moveRegExp.cap ( 3 ).toInt();
-			const int blackTimeLimit = moveRegExp.cap ( 4 ).toInt();
-			const QString  moveString = moveRegExp.cap ( 6 );
+			const int whiteTimeLimit = moveMatch.capturedView ( 3 ).toInt();
+			const int blackTimeLimit = moveMatch.capturedView ( 4 ).toInt();
+			const QString  moveString = moveMatch.captured ( 6 );
 
 			qCDebug(LOG_KNIGHTS) << "Move:" << moveString;
 
@@ -373,7 +373,7 @@ bool FicsProtocol::parseLine(const QString& line) {
 				TimeControl tc;
 				tc.moves = 0;
 				tc.baseTime = QTime().addSecs(whiteTimeLimit);
-				tc.increment = moveRegExp.cap(2).toInt();
+				tc.increment = moveMatch.capturedView(2).toInt();
 				Manager::self()->setTimeControl(NoColor, tc);
 				break;
 			}
@@ -386,12 +386,12 @@ bool FicsProtocol::parseLine(const QString& line) {
 				} else if ( moveString == QLatin1String("o-o-o") ) {
 					// Long (Queen's rock) castling
 					m = Move::castling ( Move::QueenSide, color() );
-				} else if ( moveStringExp.indexIn ( moveString ) > -1 ) {
-					m.setFrom( Pos(moveStringExp.cap(1)) );
-					m.setTo( Pos(moveStringExp.cap(2)) );
-					if ( !moveStringExp.cap(3).isEmpty() ) {
+				} else if ( const auto moveStringMatch = moveStringExp.match ( moveString ); moveStringMatch.hasMatch() ) {
+					m.setFrom( Pos(moveStringMatch.captured(1)) );
+					m.setTo( Pos(moveStringMatch.captured(2)) );
+					if ( !moveStringMatch.capturedView(3).isEmpty() ) {
 						m.setFlag ( Move::Promote, true );
-						QChar typeChar = moveRegExp.cap ( 3 ).mid ( 1, 1 ) [0];
+						QChar typeChar = moveMatch.capturedView ( 3 ).mid ( 1, 1 ) [0];
 						m.setPromotedType ( Piece::typeFromChar ( typeChar ) );
 					}
 				}
@@ -401,14 +401,14 @@ bool FicsProtocol::parseLine(const QString& line) {
 			Manager::self()->setCurrentTime ( White, QTime().addSecs ( whiteTimeLimit ) );
 			Manager::self()->setCurrentTime ( Black, QTime().addSecs ( blackTimeLimit ) );
 
-			if ( moveRegExp.cap(5).toInt() == 2 ) {
+			if ( moveMatch.capturedView(5).toInt() == 2 ) {
 				// TODO: Notify the manager that time is starting now
 			}
-		} else if ( offerExp.indexIn(line) > -1 ) {
+		} else if ( const auto offerMatch = offerExp.match(line); offerMatch.hasMatch() ) {
 			Offer offer;
-			offer.id = offerExp.cap(1).toInt();
+			offer.id = offerMatch.capturedView(1).toInt();
 			offer.player = color();
-			QString type = offerExp.cap(3);
+			QString type = offerMatch.captured(3);
 			if ( type == QLatin1String("abort") )
 				offer.action = ActionAbort;
 			else if ( type == QLatin1String("adjourn") )
@@ -417,7 +417,7 @@ bool FicsProtocol::parseLine(const QString& line) {
 				offer.action = ActionDraw;
 			else if ( type == QLatin1String("takeback") ) {
 				offer.action = ActionUndo;
-				offer.numberOfMoves = offerExp.cap(4).toInt();
+				offer.numberOfMoves = offerMatch.capturedView(4).toInt();
 			}
 			m_offers.insert ( offer.id, offer );
 			Manager::self()->sendOffer ( offer );

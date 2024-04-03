@@ -11,7 +11,7 @@
 #include "proto/textprotocol.h"
 #include <gamemanager.h>
 
-#include <QRegExp>
+#include <QRegularExpression>
 
 namespace Knights {
 class FicsDialog;
@@ -62,12 +62,12 @@ public:
 
 private:
 	const QString movePattern;
-	const QRegExp seekExp;
-	const QRegExp challengeExp;
-	const QRegExp moveStringExp;
-	const QRegExp moveRegExp;
-	const QRegExp gameStartedExp;
-	const QRegExp offerExp;
+	const QRegularExpression seekExp;
+	const QRegularExpression challengeExp;
+	const QRegularExpression moveStringExp;
+	const QRegularExpression moveRegExp;
+	const QRegularExpression gameStartedExp;
+	const QRegularExpression offerExp;
 
 	Stage m_stage;
 	QString password;

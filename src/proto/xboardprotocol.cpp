@@ -29,7 +29,7 @@
 
 #include <KProcess>
 #include <QFileDialog>
-#include <QRegExp>
+#include <QRegularExpression>
 
 using namespace Knights;
 
@@ -121,18 +121,18 @@ bool XBoardProtocol::parseLine(const QString& line) {
 	ChatWidget::MessageType type = ChatWidget::GreetMessage;
 
 	bool display = true;
-	const QRegExp position(QLatin1String("[a-h][1-8]"));
+	const QRegularExpression position(QLatin1String("[a-h][1-8]"));
 	if ( line.contains ( QLatin1String ( "Illegal move" ) ) ) {
 		type = ChatWidget::ErrorMessage;
 		Q_EMIT illegalMove();
-	} else if ( position.indexIn(line) > -1 || line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) ) {
+	} else if ( const auto match = position.match(line); match.hasMatch() || line.contains ( QLatin1String ( "..." ) ) || line.contains(QLatin1String("move")) ) {
 		type = ChatWidget::MoveMessage;
 		QString moveString = line.split ( QLatin1Char ( ' ' ) ).last();
 		if ( moveString == lastMoveString )
 			return true;
 		lastMoveString = moveString;
 		Move m;
-		if ( position.indexIn(line) > -1 )
+		if ( match.hasMatch() )
 			m.setString(moveString);
 		else if ( moveString.contains(QLatin1String("O-O-O"))
 		          || moveString.contains(QLatin1String("o-o-o"))

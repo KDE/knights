@@ -41,7 +41,6 @@ include(InternalMacros)
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Concurrent
     Core
-    Core5Compat
     Gui
     Widgets
     Svg

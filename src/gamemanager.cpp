@@ -44,7 +44,7 @@
 #include <QTimer>
 #include <QStandardPaths>
 #include <QRandomGenerator>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <memory>
 
@@ -815,13 +815,13 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 	if ( !file.open(QIODevice::ReadOnly) )
 		return;
 
-	QRegExp tagPairExp = QRegExp(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
+	const auto tagPairExp = QRegularExpression(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
 	while ( file.bytesAvailable() > 0 ) {
 		QByteArray line = file.readLine();
-		if ( tagPairExp.indexIn ( QLatin1String(line) ) > -1 ) {
+		if ( const auto match = tagPairExp.match ( QLatin1String(line) ) ; match.hasMatch() ) {
 			// Parse a tag pair
-			QString key = tagPairExp.cap(1);
-			QString value = tagPairExp.cap(2);
+			QString key = match.captured(1);
+			QString value = match.captured(2);
 
 			if ( key == QLatin1String("White") )
 				Protocol::white()->setPlayerName ( value );

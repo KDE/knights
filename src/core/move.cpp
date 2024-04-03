@@ -27,7 +27,6 @@
 #include "knightsdebug.h"
 
 #include <QTime>
-#include <QRegExp>
 #include <QRegularExpression>
 
 namespace Knights {
@@ -162,8 +161,8 @@ void Move::setString(QString string) {
 	string.remove(QLatin1Char(' '));
 	string.remove(QLatin1Char('='));
 
-	QRegExp longMoveTest = QRegExp(QLatin1String("^[a-h][1-8][a-h][1-8]"));
-	if (longMoveTest.indexIn(string) > -1) {
+	const auto longMoveTest = QRegularExpression(QLatin1String("^[a-h][1-8][a-h][1-8]"));
+	if (const auto match = longMoveTest.match(string); match.hasMatch()) {
 		// Long move notation, can be directly converted to From and To
 		d->notationType = Coordinate;
 		setFrom( Pos(string.left(2)) );

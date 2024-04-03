@@ -99,7 +99,6 @@ target_link_libraries(knights
      Qt6::Svg
      Qt6::Gui
      Qt6::Concurrent
-     Qt6::Core5Compat
 )
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
