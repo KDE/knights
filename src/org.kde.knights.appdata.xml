@@ -29,7 +29,6 @@
   <name xml:lang="it">KNights</name>
   <name xml:lang="ka">KNights</name>
   <name xml:lang="ko">KNights</name>
-  <name xml:lang="lv">KNights</name>
   <name xml:lang="nl">KNights</name>
   <name xml:lang="nn">Knights</name>
   <name xml:lang="pl">KSkoczki</name>
@@ -70,7 +69,6 @@
   <summary xml:lang="it">Gioco di scacchi</summary>
   <summary xml:lang="ka">ჭადრაკი</summary>
   <summary xml:lang="ko">체스 게임</summary>
-  <summary xml:lang="lv">Šahs</summary>
   <summary xml:lang="nl">Schaakspel</summary>
   <summary xml:lang="nn">Sjakkspel</summary>
   <summary xml:lang="pl">Gra w szachy</summary>
@@ -112,7 +110,6 @@
     <p xml:lang="it">KNights è un gioco di scacchi. Come giocatore, il tuo obbiettivo è sconfiggere il tuo avversario facendo scacco matto al suo re.</p>
     <p xml:lang="ka">KNights ჭადრაკის თამაშია. როგორც მოთამაშის, თქვენი ვალდებულებაა მეტოქის მეფეს შახი გამოუცხადოთ.</p>
     <p xml:lang="ko">KNights는 체스 게임입니다. 플레이어의 목표는 다른 플레이어의 킹을 쓰러트리는 것입니다.</p>
-    <p xml:lang="lv">„KNights“ ir šaha programma. Tavs uzdevums šajā spēlē ir uzvarēt pretinieku, piesakot šahu viņa karalim.</p>
     <p xml:lang="nl">KNights is een schaakspel.Het doel is uw tegenspeler te verslaan door zijn/haar koning schaakmat te zetten.</p>
     <p xml:lang="nn">Knights er eit sjakkspel. Som spelar er målet ditt å slå motspelaren ved å setja kongen i sjakkmatt.</p>
     <p xml:lang="pl">KSkoczki jest grą w szachy. Jako gracz, twoim celem jest pokonanie przeciwnika poprzez zaszachowanie jego króla.</p>
@@ -153,7 +150,6 @@
     <p xml:lang="it">Caratteristiche:</p>
     <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
-    <p xml:lang="lv">Iespējas:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pl">Możliwości:</p>
@@ -193,7 +189,6 @@
       <li xml:lang="it">Sfida locale tra due giocatori sullo stesso computer</li>
       <li xml:lang="ka">ლოკალური თამაში ორ მოთამაშეს შორის იგივე კომპიუტერზე</li>
       <li xml:lang="ko">같은 컴퓨터에서 두 플레이어간 로컬 플레이</li>
-      <li xml:lang="lv">Lokāla spēle starp diviem spēlētājiem uz viena datora</li>
       <li xml:lang="nl">Lokaal spel tussen twee spelers op dezelfde computer</li>
       <li xml:lang="nn">Lokalt spel mellom to spelarar på same datamaskin</li>
       <li xml:lang="pl">Lokalna gra pomiędzy dwoma graczami na tym samym komputerze</li>
@@ -232,7 +227,6 @@
       <li xml:lang="it">Gioca contro qualsiasi programma di computer che supporti il protocollo XBoard</li>
       <li xml:lang="ka">ითამაშეთ ნებისმიერი კომპიუტერული პროგრამის წინააღმდეგ, რომელსაც XBoard-ის პროტოკოლის მხარდაჭერა გააჩნია</li>
       <li xml:lang="ko">XBoard 프로토콜을 지원하는 컴퓨터 프로그램과 대결</li>
-      <li xml:lang="lv">Spēlē pret jebkuru datorprogrammu, kas atbalsts „XBoard“ protokolu</li>
       <li xml:lang="nl">Tegen een elk computerprogramma spelen dat het XBoard-protocol ondersteunt</li>
       <li xml:lang="nn">Spel mot alle dataprogram som støttar XBoard-protokollen</li>
       <li xml:lang="pl">Gra przeciwko programowi komputerowemu, który obsługuje protokół XBoard</li>
@@ -271,7 +265,6 @@
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
       <li xml:lang="ka">ითამაშეთ უფასო ინტერნეტ-ჭადრაკის სერვერზე (FICS)</li>
       <li xml:lang="ko">FICS(Free Internet Chess Server)에서 대결</li>
-      <li xml:lang="lv">Spēlē uz Brīvā interneta šaha servera („Free Internet Chess Server“ jeb FICS)</li>
       <li xml:lang="nl">Spelen op de Free Internet Chess Server (FICS)</li>
       <li xml:lang="nn">Spel via FICS (Free Internet Chess Server)</li>
       <li xml:lang="pl">Gra na serwerze Free Internet Chess Server (FICS)</li>
@@ -310,7 +303,6 @@
       <li xml:lang="it">Guarda due motori di computer sfidarsi l'un l'altro</li>
       <li xml:lang="ka">უყურებთ, როგორ ეთამაშება ორი კომპიუტერული ძრავი ერთმანეთს</li>
       <li xml:lang="ko">두 컴퓨터 엔진간 대국 관전</li>
-      <li xml:lang="lv">Skatīties divu datora vadītu spēlētāju savstarpēju partiju</li>
       <li xml:lang="nl">Bekijken hoe twee computers tegen elkaar spelen</li>
       <li xml:lang="nn">Kan sjå to sjakkmotorar spela mot kvarandre</li>
       <li xml:lang="pl">Oglądania gry dwóch silników komputerowych przeciwko sobie</li>
@@ -349,7 +341,6 @@
       <li xml:lang="it">Supporto per il controllo delle mosse legali</li>
       <li xml:lang="ka">დაშვებული სვლის შემოწმების მხარდაჭერა</li>
       <li xml:lang="ko">올바른 말 움직임 검사</li>
-      <li xml:lang="lv">Atbalsts atļautu gājienu pārbaudei</li>
       <li xml:lang="nl">Ondersteuning voor controle op legale zetten</li>
       <li xml:lang="nn">Støtte for kontroll av lovlege trekk</li>
       <li xml:lang="pl">Obsługa dozwolonych ruchów szachowych</li>
@@ -388,7 +379,6 @@
       <li xml:lang="it">Contrassegni per mosse possibili, ultima mossa dell'avversario e fonti di controllo</li>
       <li xml:lang="ka">მარკეტები შესაძლო სვლებისთვის, მეტოქის ბოლო სვლა და შემოწმების წყაროები</li>
       <li xml:lang="ko">움직일 수 있는 위치, 상대방의 마지막 움직임과 확인 기준 표시</li>
-      <li xml:lang="lv">Iespējamo gājienu marķieri, pretinieka pēdējais gājiens un pārbaudes avoti</li>
       <li xml:lang="nl">Markeringen voor mogelijke zetten, de laatste zet van de tegenstander en bronnen voor controle</li>
       <li xml:lang="nn">Markering av moglege trekk, det siste siste trekket til motspelaren og av kjelder til sjakk</li>
       <li xml:lang="pl">Znaczniki możliwych ruchów, ostatni ruch przeciwnika i powody szachu</li>
@@ -427,7 +417,6 @@
       <li xml:lang="it">Bordi scacchiera e annotazioni siti</li>
       <li xml:lang="ka">დაფის საზღვრები და გვერდითი ნოტაციები</li>
       <li xml:lang="ko">판 경계선과 위치 표기</li>
-      <li xml:lang="lv">Galdiņa apmales un atrašanās vietas notācija</li>
       <li xml:lang="nl">Bordranden en notities ter plekke</li>
       <li xml:lang="nn">Sjakkbrettrammer og sjakknotasjon</li>
       <li xml:lang="pl">Obramowanie szachowicy i oznaczenia boczne</li>
@@ -466,7 +455,6 @@
       <li xml:lang="it">Controllo totale del tempo, con orologi in stile Plasma</li>
       <li xml:lang="ka">სრული დროის კონტროლი, Plasma-ის სტილის საათებით</li>
       <li xml:lang="ko">완전한 시간 제어, Plasma 스타일 시계</li>
-      <li xml:lang="lv">Pilnīga laika kontrole ar „Plasma“ stila pulksteņiem</li>
       <li xml:lang="nl">Volledige tijdcontrole, met klokken in Plasma-stijl</li>
       <li xml:lang="nn">Fullstendig tidskontroll, med klokker i Plasma-stil</li>
       <li xml:lang="pl">Całkowita kontrola czasu przy użyciu zegarów Plazmy</li>
@@ -505,7 +493,6 @@
       <li xml:lang="it">Temi diversi, con la possibilità di scaricarne nuovi all'interno del programma</li>
       <li xml:lang="ka">რამდენიმე თემა, შესაძლებლობით, ახლები პროგრამაშივე გადმოწეროთ</li>
       <li xml:lang="ko">다양한 테마 지원, 프로그램 내에서 다운로드 및 설치 가능</li>
-      <li xml:lang="lv">Vairāki motīvi ar iespēju pašā programmā lejupielādēt jaunus</li>
       <li xml:lang="nl">Een aantal thema's, met de mogelijkheid nieuwe te downloaden vanuit het programma</li>
       <li xml:lang="nn">Fleire grafiske tema, og du kan òg lasta ned nye gjennom programmet</li>
       <li xml:lang="pl">Kilka wystrojów, z możliwością pobrania nowych z poziomu programu</li>
@@ -544,7 +531,6 @@
       <li xml:lang="it">Mosse animate (configurabile)</li>
       <li xml:lang="ka">ანიმირებული სვლები (მორგებადი)</li>
       <li xml:lang="ko">말 움직임 애니메이션(설정 가능)</li>
-      <li xml:lang="lv">Animēti gājieni (pielāgojamas animācijas)</li>
       <li xml:lang="nl">Geanimeerde zetten (instelbaar)</li>
       <li xml:lang="nn">Animerte trekk (kan veljast vekk)</li>
       <li xml:lang="pl">Animowane ruchy (do ustawienia)</li>
@@ -583,7 +569,6 @@
       <li xml:lang="it">Viste per il gioco in un server di scacchi, incluso un grafico per la ricerca, una consolle testuale e un'estensione per la chat</li>
       <li xml:lang="ka">ხედები ჭადრაკის სერვერზე თამაშისთვის, ძებნის გრაფიკის, ტექსტური კონსოლის და ჩატის ვიჯეტის ჩათვლით</li>
       <li xml:lang="ko">온라인 체스 서버에서 플레이 가능, 탐색 그래프, 텍스트 콘솔, 채팅 위젯 지원</li>
-      <li xml:lang="lv">Dažādi skati, spēlējot uz šaha servera, tostarp, meklēšanas diagramma, teksta konsole un tērzēšanas logdaļa</li>
       <li xml:lang="nl">Weergaven voor spelen op een schaakserver, inclusief een zoekgrafiek, tekstconsole en chat-widget</li>
       <li xml:lang="nn">Visingar for speling via sjakktenarar, med støtte for søkjegraf, tekstkonsoll og pratevindauge</li>
       <li xml:lang="pl">Oglądanie gier na serwerze szachowym, z uwzgldnieniem tabeli wyszukiwania, konsoli tekstowej i okna rozmowy</li>
@@ -622,7 +607,6 @@
       <li xml:lang="it">Opzione per annullare e rifare le mosse</li>
       <li xml:lang="ka">სვლების გაუქმებისა და დაბრუნების შესაძლებლობა</li>
       <li xml:lang="ko">수 실행 취소 및 재실행</li>
-      <li xml:lang="lv">Iespēja atsaukt un atatsaukt gājienus</li>
       <li xml:lang="nl">Optie om zetten terug te draaien en weer opnieuw te doen</li>
       <li xml:lang="nn">Mogleg å angra og gjer om att trekk</li>
       <li xml:lang="pl">Możliwość cofnięcia i ponowienia ruchów</li>
@@ -661,7 +645,6 @@
       <li xml:lang="it">Interfaccia grafica per formulare e ricevere sfide dai giocatori remoti</li>
       <li xml:lang="ka">გრაფიკული ინტერფეისი დაშორებული მოთამაშეებისგან შეთავაზებების მიღებისა და მათი გაგზავნისთვის</li>
       <li xml:lang="ko">원격 플레이어의 대전 요청을 처리하는 그래픽 인터페이스</li>
-      <li xml:lang="lv">Grafiskā saskarne, lai izteiktu un saņemtu partijas piedāvājumus no citiem spēlētājiem internetā</li>
       <li xml:lang="nl">Grafisch interface voor het doen en ontvangen van zetten van spelers op afstand</li>
       <li xml:lang="nn">Grafisk grensesnitt for å få eller gje tilbod til/frå spelarar over nettet</li>
       <li xml:lang="pl">Interfejs graficzny do przyjmowania i odrzucania ofert graczy zdalnych</li>
@@ -700,7 +683,6 @@
       <li xml:lang="it">Supporto per il protocollo UCI (usato da Stockfish, Chessbase e molti altri)</li>
       <li xml:lang="ka">UCI პროტოკოლის მხარდაჭერა (გამოიყენება Stockfish, Cheesebase და სხვების მიერ)</li>
       <li xml:lang="ko">UCI 프로토콜 지원(Stockfish, Chessbase 등에서 지원)</li>
-      <li xml:lang="lv">UCI protokola atbalsts (izmanto „Stockfish“, „Chessbase“ un daudzus citu)</li>
       <li xml:lang="nl">Ondersteuning voor het UCI-protocol (gebruikt door Stockfish, Chessbase en vele anderen)</li>
       <li xml:lang="nn">Støtte for UCI-protokollen (bruk av Stockfish, ChessBase og mange andre)</li>
       <li xml:lang="pl">Obsługa protokołu UCI (używanego przez Stockfish, Chessbase i wielu innych)</li>
@@ -739,7 +721,6 @@
       <li xml:lang="it">Supporto per il salvataggio e il caricamento dei file Portable game notation (PGN)</li>
       <li xml:lang="ka">გადატანადი თამაშის ნოტაციის (PGN) ფაილების შენახვის და ჩატვირთვის მხარდაჭერა</li>
       <li xml:lang="ko">PGN(Portable Game Notation) 파일로 기보 저장 및 불러오기</li>
-      <li xml:lang="lv">Partijas pārnesamās notācijas (PGN) datņu atbalsts</li>
       <li xml:lang="nl">Ondersteuning voor opslaan en laden van Portable game notation (PGN) bestanden</li>
       <li xml:lang="nn">Støtte for lagring og lesing av filer i PGN-formatet (Portable Game Notation)</li>
       <li xml:lang="pl">Obsługa zapisu i wczytywania przenośnych plików ruchów PGN</li>
@@ -778,7 +759,6 @@
       <li xml:lang="it">Uso di Jovie, il programma di lettura vocale KDE, per dire le mosse dell'avversario</li>
       <li xml:lang="ka">Jovie-ის, KDE-ის ტექსტიდან-საუბრამდე პროგრამის გამოყენება, მეტოქის სვლების სათქმელად</li>
       <li xml:lang="ko">상대 플레이어의 움직임을 KDE TTS 엔진인 Jovie로 읽어 주기</li>
-      <li xml:lang="lv">Izmanto „Jovie“ — KDE teksta izrunāšanas programmu —, lai izrunātu pretinieka gājienus</li>
       <li xml:lang="nl">Gebruik van Jovie, het tekst-naar-spraak programma van KDE, om zetten van de tegenstander uit te spreken</li>
       <li xml:lang="nn">Bruk av tekst-til-tale-systemet Jovie for uttale av trekka til motspelaren</li>
       <li xml:lang="pl">Współpraca z Jovie, programem tekstu-na-mowę dla KDE, do wymawiania ruchów gracza</li>
@@ -817,7 +797,6 @@
       <li xml:lang="it">Capacità di controllare il programma tramite interfaccia D-Bus</li>
       <li xml:lang="ka">შესაძლებლობა, პროგრამა D-Bus-ის ინტერფეისით გააკონტროლოთ</li>
       <li xml:lang="ko">D-Bus 인터페이스로 프로그램 제어</li>
-      <li xml:lang="lv">Iespēja programmu kontrolēt caur „D-Bus“ saskarni</li>
       <li xml:lang="nl">Mogelijkheid om het programma via een D-Bus interface te besturen</li>
       <li xml:lang="nn">Mogleg å kontrollera programmet via D-Bus-grensesnitt</li>
       <li xml:lang="pl">Możliwość obsługi programu poprzez interfejs D-Bus</li>
@@ -861,7 +840,6 @@
       <caption xml:lang="it">Knights, gioco di scacchi</caption>
       <caption xml:lang="ka">Knights, ჭადრაკი</caption>
       <caption xml:lang="ko">Knights, 체스 게임</caption>
-      <caption xml:lang="lv">„Knights“ šahs</caption>
       <caption xml:lang="nl">Knights, schaakspel</caption>
       <caption xml:lang="nn">Knights – sjakkspel</caption>
       <caption xml:lang="pl">Skoczki, gra w szachy</caption>
@@ -899,7 +877,6 @@
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
       <caption xml:lang="ka">მთავარი ფანჯარა - ადამიანი ჭადრაკის ძრავის წინააღმდეგ</caption>
       <caption xml:lang="ko">주 창 - 인간 대 체스 엔진</caption>
-      <caption xml:lang="lv">Pamatlogs — cilvēks pret datora dzini</caption>
       <caption xml:lang="nl">Hoofdvenster - Mens vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – menneske mot datamaskin</caption>
       <caption xml:lang="pl">Okno główne - Człowiek przeciwko silnikowi szachowemu</caption>
@@ -937,7 +914,6 @@
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
       <caption xml:lang="ka">მთავარი ფანჯარა - ჭადრაკის ძრავა ჭადრაკის ძრავის წინააღმდეგ</caption>
       <caption xml:lang="ko">주 창 - 체스 엔진간 대결</caption>
-      <caption xml:lang="lv">Pamatlogs — viens šaha dzinis pret otru</caption>
       <caption xml:lang="nl">Hoofdvenster - Programma vs. Programma</caption>
       <caption xml:lang="nn">Hovudvindauge – datamaskin mot datamaskin</caption>
       <caption xml:lang="pl">Okno główne - Silnik szachowy przeciwko silnikowi szachowemu</caption>
@@ -976,7 +952,6 @@
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
       <caption xml:lang="ka">"ახალი თამაშის" ფანჯარა</caption>
       <caption xml:lang="ko">"새 게임" 대화 상자</caption>
-      <caption xml:lang="lv">„Jaunas partijas“ lodziņš</caption>
       <caption xml:lang="nl">Dialoog "Nieuw spel"</caption>
       <caption xml:lang="nn">«Nytt parti»-dialog</caption>
       <caption xml:lang="pl">Okno dialogowe "Nowa Gra"</caption>
@@ -1014,7 +989,6 @@
       <caption xml:lang="it">Rilevamento automatico dei motori scacchi</caption>
       <caption xml:lang="ka">ჭადრაკის ძრავების ავტომატური აღმოჩენა</caption>
       <caption xml:lang="ko">체스 엔진 자동 감지</caption>
-      <caption xml:lang="lv">Šaha dziņu automātiska konstatēšana</caption>
       <caption xml:lang="nl">Autodetectie schaakprogramma's</caption>
       <caption xml:lang="nn">Oppdag sjakkmotor automatisk</caption>
       <caption xml:lang="pl">Samowykrywanie silników szachowych</caption>
@@ -1052,7 +1026,6 @@
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
       <caption xml:lang="ka">თამაშობთ ონლაინ - FICS-ის კონსლი</caption>
       <caption xml:lang="ko">온라인 플레이 - FICS 콘솔</caption>
-      <caption xml:lang="lv">Tiešsaistes spēle— FICS konsole</caption>
       <caption xml:lang="nl">Online spelen - FICS-console</caption>
       <caption xml:lang="nn">Spelar via nettet – FICS-konsoll</caption>
       <caption xml:lang="pl">Granie przez sieć - Konsola FICS</caption>
@@ -1090,7 +1063,6 @@
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
       <caption xml:lang="ka">თამაშობთ ონლაინ - გრაფიკული ძებნის გრაფიკი</caption>
       <caption xml:lang="ko">온라인 플레이 - 탐색 그래프</caption>
-      <caption xml:lang="lv">Tiešsaistes spēle — meklēšanas diagramma</caption>
       <caption xml:lang="nl">Online spelen - grafische "Seek-Graph"</caption>
       <caption xml:lang="nn">Spelar via nettet – grafisk søkjegraf</caption>
       <caption xml:lang="pl">Granie przez sieć - graficzny Seek-Graph</caption>
