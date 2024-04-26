@@ -68,8 +68,9 @@ kconfig_add_kcfg_files(knights settings.kcfgc )
 ecm_qt_declare_logging_category(knights
     HEADER knightsdebug.h
     IDENTIFIER LOG_KNIGHTS
-    CATEGORY_NAME log_knights
-    DESCRIPTION "knights"
+    CATEGORY_NAME knights
+    OLD_CATEGORY_NAMES log_knights
+    DESCRIPTION "KNights game"
     EXPORT KNIGHTS
 )
 
