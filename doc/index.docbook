@@ -105,7 +105,7 @@
       computer and that it supports either the XBoard or <acronym>UCI</acronym> protocols.</para>
 
       <para>If you have installed a chess engine but it does not appear in the list,
-      click the <guibutton>Configure...</guibutton> button and add the engine there.
+      click the <guibutton>Configure…</guibutton> button and add the engine there.
       For more information on this dialog see <link linkend="configuration-engines">Computer Engines</link>.</para>
 
       <note><para>Even though a program is listed in the dialog, it does not mean it
@@ -705,7 +705,7 @@
       theme.  The theme supplies the images for the board, pieces, markers
       and other items.  To select a new theme, choose the theme's name from
       the selection list. You can also download new themes from the same page,
-      by pressing the <guibutton>Get New Themes...</guibutton> button. Themes
+      by pressing the <guibutton>Get New Themes…</guibutton> button. Themes
       are stored at kde-look.org under &knights;.</para>
 
       <note><para>For your convenience a quick preview screenshot will be
