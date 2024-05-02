@@ -92,7 +92,7 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 
 	// setup difficulty management
 	connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged, Manager::self(), &Manager::levelChanged);
-	KGameDifficulty::global()->addLevel(new KGameDifficultyLevel(0, "custom", i18n("Custom"), false));
+	KGameDifficulty::global()->addLevel(new KGameDifficultyLevel(0, "custom", i18nc("@item difficulty", "Custom"), false));
 	KGameDifficulty::global()->addStandardLevelRange(KGameDifficultyLevel::VeryEasy, KGameDifficultyLevel::VeryHard, KGameDifficultyLevel::Medium);
 	KGameDifficultyGUI::init(this);
 	KGameDifficulty::global()->setEditable(false);
@@ -139,7 +139,7 @@ void MainWindow::activePlayerChanged() {
 
 void MainWindow::setupDocks() {
 	// clock dock
-	m_clockDock = new QDockWidget(i18n("Clock"), this);
+	m_clockDock = new QDockWidget(i18nc("@title:window", "Clock"), this);
 	m_clockDock->setObjectName(QStringLiteral("ClockDockWidget"));       // for QMainWindow::saveState()
 	m_playerClock = new ClockWidget(this);
 	m_clockDock->setWidget(m_playerClock);
@@ -189,70 +189,70 @@ void MainWindow::setupActions() {
 	KGameStandardAction::load(this, &MainWindow::fileLoad, actionCollection());
 
 	m_resignAction = actionCollection()->addAction(QStringLiteral("resign"), this, &MainWindow::resign);
-	m_resignAction->setText(i18n("Resign"));
-	m_resignAction->setToolTip(i18n("Admit your inevitable defeat"));
+	m_resignAction->setText(i18nc("@action", "Resign"));
+	m_resignAction->setToolTip(i18nc("@info:tooltip", "Admit your inevitable defeat"));
 	m_resignAction->setIcon(QIcon::fromTheme(QStringLiteral("flag-red")));
 	m_resignAction->setEnabled(false);
 
 	m_undoAction = actionCollection()->addAction(QStringLiteral("move_undo"), this, &MainWindow::undo);
-	m_undoAction->setText(i18n("Undo"));
-	m_undoAction->setToolTip(i18n("Take back your last move"));
+	m_undoAction->setText(i18nc("@action", "Undo"));
+	m_undoAction->setToolTip(i18nc("@info:tooltip", "Take back your last move"));
 	m_undoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-undo")));
 	connect(Manager::self(), &Manager::undoPossible, m_undoAction, &QAction::setEnabled);
 	m_undoAction->setEnabled(false);
 
 	m_redoAction = actionCollection()->addAction(QStringLiteral("move_redo"), this, &MainWindow::redo);
-	m_redoAction->setText(i18n("Redo"));
-	m_redoAction->setToolTip(i18n("Repeat your last move"));
+	m_redoAction->setText(i18nc("@action", "Redo"));
+	m_redoAction->setToolTip(i18nc("@info:tooltip", "Repeat your last move"));
 	m_redoAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-redo")));
 	connect(Manager::self(), &Manager::redoPossible, m_redoAction, &QAction::setEnabled);
 	m_redoAction->setEnabled(false);
 	m_redoAction->setVisible(false);
 
 	m_drawAction = actionCollection()->addAction(QStringLiteral("propose_draw"), Manager::self(), &Manager::offerDraw);
-	m_drawAction->setText(i18n("Offer &Draw"));
-	m_drawAction->setToolTip(i18n("Offer a draw to your opponent"));
+	m_drawAction->setText(i18nc("@action", "Offer &Draw"));
+	m_drawAction->setToolTip(i18nc("@info:tooltip", "Offer a draw to your opponent"));
 	m_drawAction->setIcon(QIcon::fromTheme(QStringLiteral("flag-blue")));
 	m_drawAction->setEnabled(false);
 
 	m_adjournAction = actionCollection()->addAction(QStringLiteral("adjourn"), Manager::self(), &Manager::adjourn);
-	m_adjournAction->setText(i18n("Adjourn"));
-	m_adjournAction->setToolTip(i18n("Continue this game at a later time"));
+	m_adjournAction->setText(i18nc("@action", "Adjourn"));
+	m_adjournAction->setToolTip(i18nc("@info:tooltip", "Continue this game at a later time"));
 	m_adjournAction->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
 	m_adjournAction->setEnabled(false);
 
 	QAction* abortAction = actionCollection()->addAction(QStringLiteral("abort"), Manager::self(), &Manager::abort);
-	abortAction->setText(i18n("Abort"));
+	abortAction->setText(i18nc("@action", "Abort"));
 	abortAction->setToolTip(i18n("End the game immediately"));
 	abortAction->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
 	abortAction->setEnabled(false);
 
-	KToggleAction* clockAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("clock")), i18n("Show Clock"), actionCollection());
+	KToggleAction* clockAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("clock")), i18nc("@option:check", "Show Clock"), actionCollection());
 	actionCollection()->addAction(QStringLiteral("show_clock"), clockAction);
 	connect(clockAction, &KToggleAction::triggered, m_clockDock, &QDockWidget::setVisible);
 	connect(clockAction, &KToggleAction::triggered, this, &MainWindow::setShowClockSetting);
 	clockAction->setVisible(false);
 
-	KToggleAction* historyAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("view-history")), i18n("Show History"), actionCollection());
+	KToggleAction* historyAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("view-history")), i18nc("@option:check", "Show History"), actionCollection());
 	actionCollection()->addAction(QStringLiteral("show_history"), historyAction);
 	connect(historyAction, &KToggleAction::triggered, m_historyDock, &QDockWidget::setVisible);
 	connect(historyAction, &KToggleAction::triggered, this, &MainWindow::setShowHistorySetting);
 	historyAction->setVisible(true);
 	historyAction->setChecked(Settings::showHistory());
 
-	KToggleAction* wconsoleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("utilities-terminal")), i18n("Show White Console"), actionCollection());
+	KToggleAction* wconsoleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("utilities-terminal")), i18nc("@option:check", "Show White Console"), actionCollection());
 	actionCollection()->addAction(QStringLiteral("show_console_white"), wconsoleAction);
 	connect(wconsoleAction, &KToggleAction::triggered, m_wconsoleDock, &QDockWidget::setVisible);
 	connect(wconsoleAction, &KToggleAction::triggered, this, &MainWindow::setShowConsoleSetting);
 	wconsoleAction->setVisible(false);
 
-	KToggleAction* bconsoleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("utilities-terminal")), i18n("Show Black Console"), actionCollection());
+	KToggleAction* bconsoleAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("utilities-terminal")), i18nc("@option:check", "Show Black Console"), actionCollection());
 	actionCollection()->addAction(QStringLiteral("show_console_black"), bconsoleAction);
 	connect(bconsoleAction, &KToggleAction::triggered, m_bconsoleDock, &QDockWidget::setVisible);
 	connect(bconsoleAction, &KToggleAction::triggered, this, &MainWindow::setShowConsoleSetting);
 	bconsoleAction->setVisible(false);
 
-	KToggleAction* chatAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("meeting-attending")), i18n("Show Chat"), actionCollection());
+	KToggleAction* chatAction = new KToggleAction(QIcon::fromTheme(QStringLiteral("meeting-attending")), i18nc("@option:check", "Show Chat"), actionCollection());
 	actionCollection()->addAction(QStringLiteral("show_chat"), chatAction);
 	connect(chatAction, &KToggleAction::triggered, m_chatDock, &QDockWidget::setVisible);
 	connect(chatAction, &KToggleAction::triggered, this, &MainWindow::setShowChatSetting);
@@ -291,7 +291,7 @@ void MainWindow::fileLoad() {
 
 	KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
 	QString dir = conf.readEntry("LastOpenDir", "");
-	const QString&  fileName = QFileDialog::getOpenFileName(this, i18n("Open File"), dir,
+	const QString&  fileName = QFileDialog::getOpenFileName(this, i18nc("@title:window", "Open File"), dir,
 	                           i18n("Portable game notation (*.pgn)"));
 	if(fileName.isEmpty())
 		return;
@@ -455,11 +455,11 @@ void MainWindow::optionsPreferences() {
 	QWidget *generalSettingsDlg = new QWidget;
 	ui_prefs_base.setupUi(generalSettingsDlg);
 
-	dialog->addPage(generalSettingsDlg, i18n("General"), QStringLiteral("games-config-options"));
+	dialog->addPage(generalSettingsDlg, i18nc("@title:tab", "General"), QStringLiteral("games-config-options"));
 	connect(dialog, &KConfigDialog::settingsChanged, m_view, &KnightsView::settingsChanged);
 
 	EngineSettings* engineSettings = new EngineSettings(this);
-	dialog->addPage(engineSettings, i18n("Computer Engines"), QStringLiteral("computer"));
+	dialog->addPage(engineSettings, i18nc("@title:tab", "Computer Engines"), QStringLiteral("computer"));
 	connect(dialog, &KConfigDialog::accepted, engineSettings, &EngineSettings::save);
 
 	//FIXME: the accessibility page doesn't seem to be used at the moment.
@@ -470,7 +470,7 @@ void MainWindow::optionsPreferences() {
 
     KGameThemeSelector* themeDlg = new KGameThemeSelector(m_themeProvider, KGameThemeSelector::EnableNewStuffDownload, dialog);
     themeDlg->setNewStuffConfigFileName(QStringLiteral("knights.knsrc"));
-	dialog->addPage(themeDlg, i18n("Theme"), QStringLiteral("games-config-theme"));
+	dialog->addPage(themeDlg, i18nc("@title:tab", "Theme"), QStringLiteral("games-config-theme"));
 	dialog->setAttribute(Qt::WA_DeleteOnClose);
 
 	dialog->show();
@@ -478,7 +478,8 @@ void MainWindow::optionsPreferences() {
 
 void MainWindow::resign() {
 	int rc = KMessageBox::questionTwoActions(this,
-					    i18n("Do you really want to resign?"), i18n("Resign"),
+					    i18n("Do you really want to resign?"),
+					    i18nc("@title:window", "Resign"),
 					    KGuiItem(i18nc("@action:button", "Resign"), QStringLiteral("flag-red")),
 					    KStandardGuiItem::cancel());
 	if (rc == KMessageBox::PrimaryAction)
@@ -526,7 +527,7 @@ void MainWindow::gameOver(Color winner) {
 	QVBoxLayout *mainLayout = new QVBoxLayout;
 	QWidget *mainWidget = new QWidget(this);
 	dlg->setLayout(mainLayout);
-	dlg->setWindowTitle (i18nc("@title:window", "Game over"));
+	dlg->setWindowTitle (i18nc("@title:window", "Game Over"));
 	mainLayout->addWidget(mainWidget);
 
 	QDialogButtonBox *bBox = new QDialogButtonBox( QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Apply );
@@ -613,7 +614,7 @@ void MainWindow::exitKnights() {
 
 void MainWindow::updateCaption() {
 	if(Protocol::white() && Protocol::black())
-		setCaption(i18n("%1 vs. %2", Protocol::white()->playerName(), Protocol::black()->playerName()));
+		setCaption(i18nc("@title:window", "%1 vs. %2", Protocol::white()->playerName(), Protocol::black()->playerName()));
 }
 
 bool MainWindow::maybeSave() {
@@ -646,7 +647,7 @@ void MainWindow::fileSave() {
 	if(m_fileName.isEmpty()) {
 		KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
 		QString dir = conf.readEntry("LastOpenDir", "");
-		m_fileName = QFileDialog::getSaveFileName(this, i18n("Save"), dir,
+		m_fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save"), dir,
 		             i18n("Portable game notation (*.pgn)"));
 
 		if (m_fileName.isEmpty())// "Cancel" was clicked

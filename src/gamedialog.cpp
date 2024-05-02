@@ -263,9 +263,9 @@ void GameDialog::save() {
 }
 
 void GameDialog::updateTimeEdits() {
-	ui->sbTimeLimit->setSuffix(i18np(" minute", " minutes", ui->sbTimeLimit->value()));
-	ui->sbTimeIncrement->setSuffix(i18np(" second", " seconds", ui->sbTimeIncrement->value()));
-	ui->sbNumberOfMoves->setSuffix(i18np(" move", " moves", ui->sbNumberOfMoves->value()));
+	ui->sbTimeLimit->setSuffix(i18ncp("@item:valuesuffix", " minute", " minutes", ui->sbTimeLimit->value()));
+	ui->sbTimeIncrement->setSuffix(i18ncp("@item:valuesuffix", " second", " seconds", ui->sbTimeIncrement->value()));
+	ui->sbNumberOfMoves->setSuffix(i18ncp("@item:valuesuffix", " move", " moves", ui->sbNumberOfMoves->value()));
 }
 
 void GameDialog::player1SettingsChanged() {

@@ -23,8 +23,8 @@ HistoryWidget::HistoryWidget(QWidget* parent, Qt::WindowFlags f): QWidget(parent
 
 	ui->twMoves->setSelectionBehavior(QAbstractItemView::SelectItems);
 	ui->twMoves->setSelectionMode(QAbstractItemView::SingleSelection);
-	ui->twMoves->horizontalHeaderItem(0)->setText(i18n("white"));
-	ui->twMoves->horizontalHeaderItem(1)->setText(i18n("black"));
+	ui->twMoves->horizontalHeaderItem(0)->setText(i18nc("@title:column", "White"));
+	ui->twMoves->horizontalHeaderItem(1)->setText(i18nc("@title:column", "Black"));
 
 	connect( ui->notationComboBox, static_cast<void (QComboBox::*)(int)> (&QComboBox::currentIndexChanged),
 	         this, &HistoryWidget::updateHistory );

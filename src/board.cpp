@@ -578,7 +578,7 @@ PieceType Board::getPromotedType() {
 	QWidget *widget = new QWidget();
 	QVBoxLayout *layout = new QVBoxLayout();
 	QDialogButtonBox *bBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-	bBox->button(QDialogButtonBox::Ok)->setText(i18n("Promote"));
+	bBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Promote"));
 	bBox->button(QDialogButtonBox::Ok)->setDefault(true);
 
 	Ui::PromotionWidget ui;

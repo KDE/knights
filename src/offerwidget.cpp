@@ -18,10 +18,10 @@ OfferWidget::OfferWidget(const Knights::Offer& offer, QWidget* parent, Qt::Windo
 	offerId = offer.id;
 	if ( offer.action != ActionNone ) {
 		QAction* action;
-		action = new QAction( QIcon::fromTheme(QStringLiteral("dialog-ok")), i18n("Accept"), this );
+		action = new QAction( QIcon::fromTheme(QStringLiteral("dialog-ok")), i18nc("@action", "Accept"), this );
 		connect ( action, &QAction::triggered, this, &OfferWidget::acceptClicked );
 		addAction(action);
-		action = new QAction( QIcon::fromTheme(QStringLiteral("edit-delete")), i18n("Decline"), this );
+		action = new QAction( QIcon::fromTheme(QStringLiteral("edit-delete")), i18nc("@action", "Decline"), this );
 		connect ( action, &QAction::triggered, this, &OfferWidget::declineClicked );
 		addAction ( action );
 	}
