@@ -66,7 +66,7 @@ void FicsDialog::slotSessionStarted() {
 
 void FicsDialog::slotLogin() {
 	setLoginEnabled ( false );
-	setStatus ( i18n("Logging in...") );
+	setStatus ( i18n("Logging in…") );
 	Q_EMIT login ( ui->usernameLineEdit->text(), ui->passwordLineEdit->text() );
 }
 

@@ -132,7 +132,7 @@ void MainWindow::activePlayerChanged() {
 			name = Protocol::white()->playerName();
 		else
 			name = Protocol::black()->playerName();
-		statusBar()->showMessage(i18n("%1 is thinking...", name));
+		statusBar()->showMessage(i18n("%1 is thinking…", name));
 	});
 
 }
