@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2017-10-06 17:14+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -39,7 +39,9 @@ msgid "Promotion"
 msgstr "Промоција"
 
 #: board.cpp:581
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Promote"
+msgctxt "@action:button"
 msgid "Promote"
 msgstr "Промовиши"
 
@@ -166,7 +168,10 @@ msgid "New Game"
 msgstr "Нова партија"
 
 #: gamedialog.cpp:266
-#, kde-format
+#, fuzzy, kde-format
+#| msgid " minute"
+#| msgid_plural " minutes"
+msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " минута"
@@ -175,7 +180,10 @@ msgstr[2] " минута"
 msgstr[3] " минут"
 
 #: gamedialog.cpp:267
-#, kde-format
+#, fuzzy, kde-format
+#| msgid " second"
+#| msgid_plural " seconds"
+msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " секунди"
@@ -184,7 +192,10 @@ msgstr[2] " секунди"
 msgstr[3] " секунд"
 
 #: gamedialog.cpp:268
-#, kde-format
+#, fuzzy, kde-format
+#| msgid " move"
+#| msgid_plural " moves"
+msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
 msgstr[0] " потеза"
@@ -379,14 +390,22 @@ msgctxt "Your king is dead"
 msgid "Checkmate"
 msgstr "Шах‑мат"
 
+# >! Contexts.
+# >> @option:radio Your Color
 #: historywidget.cpp:26
-#, kde-format
-msgid "white"
-msgstr "бели"
+#, fuzzy, kde-format
+#| msgid "White"
+msgctxt "@title:column"
+msgid "White"
+msgstr "Бели"
 
+# >! Contexts.
+# >> @option:radio Your Color
 #: historywidget.cpp:27
-#, kde-format
-msgid "black"
+#, fuzzy, kde-format
+#| msgid "Black"
+msgctxt "@title:column"
+msgid "Black"
 msgstr "Црни"
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
@@ -424,17 +443,21 @@ msgstr "координатна"
 
 # >> @item difficulty level
 #: knights.cpp:95
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "посебно"
 
 #: knights.cpp:135
 #, kde-format
-msgid "%1 is thinking..."
+msgid "%1 is thinking…"
 msgstr ""
 
 #: knights.cpp:142
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clock"
+msgctxt "@title:window"
 msgid "Clock"
 msgstr "Сат"
 
@@ -445,58 +468,80 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Историјат потеза"
 
-#: knights.cpp:192 knights.cpp:481
-#, kde-format
+#: knights.cpp:192
+#, fuzzy, kde-format
+#| msgid "Resign"
+msgctxt "@action"
 msgid "Resign"
 msgstr "Предај"
 
 #: knights.cpp:193
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Admit your inevitable defeat"
+msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Признај неизбјежан пораз"
 
 #: knights.cpp:198
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Undo"
+msgctxt "@action"
 msgid "Undo"
 msgstr "Опозови"
 
 #: knights.cpp:199
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Take back your last move"
+msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Повуци мој посљедњи потез"
 
 #: knights.cpp:205
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Redo"
+msgctxt "@action"
 msgid "Redo"
 msgstr "Понови"
 
 #: knights.cpp:206
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Repeat your last move"
+msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Понови мој посљедњи потез"
 
 #: knights.cpp:213
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Offer &Draw"
+msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Понуди &реми"
 
 #: knights.cpp:214
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Offer a draw to your opponent"
+msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Предложи противнику реми"
 
 #: knights.cpp:219
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Adjourn"
+msgctxt "@action"
 msgid "Adjourn"
 msgstr "Одгоди"
 
 #: knights.cpp:220
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Continue this game at a later time"
+msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Настави ову игру касније"
 
 #: knights.cpp:225
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Abort"
+msgctxt "@action"
 msgid "Abort"
 msgstr "Обустави"
 
@@ -506,54 +551,72 @@ msgid "End the game immediately"
 msgstr "Одмах прекини партију"
 
 #: knights.cpp:230
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Clock"
+msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Прикажи сат"
 
 #: knights.cpp:236
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show History"
+msgctxt "@option:check"
 msgid "Show History"
 msgstr "Прикажи историјат"
 
 #: knights.cpp:243
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show White Console"
+msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Прикажи конзолу бијелог"
 
 #: knights.cpp:249
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Black Console"
+msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Прикажи конзолу црног"
 
 #: knights.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Chat"
+msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Прикажи ћаскање"
 
 # >> @title:window
 #: knights.cpp:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open File"
+msgctxt "@title:window"
 msgid "Open File"
 msgstr "Отварање фајла"
 
 # >> @item
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:651 knights.cpp:674
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "преносива нотација партије (*.pgn)"
 
 #: knights.cpp:458
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Опште"
 
 #: knights.cpp:462
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Computer Engines"
+msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Рачунарски мотори"
 
 #: knights.cpp:473
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Тема"
 
@@ -565,52 +628,61 @@ msgstr "Желите ли заиста да предате?"
 #: knights.cpp:482
 #, fuzzy, kde-format
 #| msgid "Resign"
+msgctxt "@title:window"
+msgid "Resign"
+msgstr "Предај"
+
+#: knights.cpp:483
+#, fuzzy, kde-format
+#| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Предај"
 
-#: knights.cpp:529
+#: knights.cpp:530
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
-msgid "Game over"
+msgid "Game Over"
 msgstr "Крај партије"
 
-#: knights.cpp:553
+#: knights.cpp:554
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Партија је завршена ремијем."
 
-#: knights.cpp:559
+#: knights.cpp:560
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Партија је завршена победом <em>белог</em>"
 
-#: knights.cpp:562
+#: knights.cpp:563
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Партија је завршена победом <em>црног</em>"
 
-#: knights.cpp:567
+#: knights.cpp:568
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Партија је завршена победом играча <em>%1</em> (бели)"
 
-#: knights.cpp:570
+#: knights.cpp:571
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Партија је завршена победом играча <em>%1</em> (црни)"
 
-#: knights.cpp:616
-#, kde-format
+#: knights.cpp:617
+#, fuzzy, kde-format
+#| msgid "%1 vs. %2"
+msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 — %2"
 
-#: knights.cpp:629
+#: knights.cpp:630
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -620,13 +692,15 @@ msgstr ""
 "Желите ли да сачувате историјат потеза?"
 
 # >> @title:window
-#: knights.cpp:649
-#, kde-format
+#: knights.cpp:650
+#, fuzzy, kde-format
+#| msgid "Save"
+msgctxt "@title:window"
 msgid "Save"
 msgstr "Уписивање"
 
 # >> @title:window
-#: knights.cpp:672
+#: knights.cpp:673
 #, fuzzy, kde-format
 #| msgid "Save As"
 msgctxt "@title:window"
@@ -948,15 +1022,28 @@ msgstr "Сат за приказ преосталог времена"
 msgid "Document to open"
 msgstr "Документ за отварање"
 
+#: offerwidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Accept"
+msgctxt "@action"
+msgid "Accept"
+msgstr "Прихвати"
+
+#: offerwidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Decline"
+msgctxt "@action"
+msgid "Decline"
+msgstr "Одбиј"
+
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
-#: offerwidget.cpp:21 popup.ui:37 proto/ficsprotocol.cpp:118
-#: proto/ficsprotocol.cpp:195
+#: popup.ui:37 proto/ficsprotocol.cpp:118 proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
 msgstr "Прихвати"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
-#: offerwidget.cpp:24 popup.ui:44 proto/ficsprotocol.cpp:199
+#: popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
 msgstr "Одбиј"
@@ -1191,8 +1278,9 @@ msgid "Session started"
 msgstr "Сесија је започета"
 
 #: proto/ficsdialog.cpp:69
-#, kde-format
-msgid "Logging in..."
+#, fuzzy, kde-format
+#| msgid "Logging in..."
+msgid "Logging in…"
 msgstr "Пријављујем се..."
 
 #: proto/ficsdialog.cpp:110
@@ -1438,3 +1526,9 @@ msgstr "Временско ограничење [минути]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Противников рејтинг"
+
+#~ msgid "white"
+#~ msgstr "бели"
+
+#~ msgid "black"
+#~ msgstr "Црни"
