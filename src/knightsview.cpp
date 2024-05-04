@@ -136,7 +136,7 @@ void KnightsView::updateOffers() {
 	QGridLayout* layout = qobject_cast<QGridLayout*>(ui->notificationWidget->layout());
 	if ( !layout )
 		return;
-	ui->showAllOffers->setIcon ( QIcon::fromTheme(QLatin1String( m_showAllOffers ? "arrow-up-double" : "arrow-down-double" )) );
+	ui->showAllOffers->setIcon ( QIcon::fromTheme(m_showAllOffers ? QStringLiteral("arrow-up-double") : QStringLiteral("arrow-down-double")) );
 	ui->showAllOffers->setVisible ( m_offerWidgets.size() > 1 );
 	for (OfferWidget* widget : std::as_const(m_offerWidgets)) {
 		layout->removeWidget ( widget );

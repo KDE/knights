@@ -815,7 +815,7 @@ void Manager::loadGameHistoryFrom(const QString& filename) {
 	if ( !file.open(QIODevice::ReadOnly) )
 		return;
 
-	const auto tagPairExp = QRegularExpression(QLatin1String( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
+	const auto tagPairExp = QRegularExpression(QStringLiteral( "\\[(.*)\\s\\\"(.*)\\\"\\]" ));
 	while ( file.bytesAvailable() > 0 ) {
 		QByteArray line = file.readLine();
 		if ( const auto match = tagPairExp.match ( QLatin1String(line) ) ; match.hasMatch() ) {

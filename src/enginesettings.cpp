@@ -90,9 +90,9 @@ EngineSettings::~EngineSettings() {
 
 void EngineSettings::checkInstalled(int row, const QString& name) {
 	const bool exists = !QStandardPaths::findExecutable(name).isEmpty();
-	const char* iconName = exists ? "dialog-ok" : "dialog-error";
+	const QString iconName = exists ? QStringLiteral("dialog-ok") : QStringLiteral("dialog-error");
 	QLabel* label = new QLabel(this);
-	label->setPixmap ( QIcon::fromTheme(QLatin1String(iconName)).pixmap(32, 32) );
+	label->setPixmap ( QIcon::fromTheme(iconName).pixmap(32, 32) );
 	ui->tableWidget->setCellWidget(row, InstalledColumn, label );
 }
 

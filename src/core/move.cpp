@@ -80,7 +80,7 @@ Move Move::castling(Move::CastlingSide side, Color color) {
 	rookMove.setFlag(Forced, true);
 	m.setAdditionalMoves({rookMove});
 
-	QLatin1String str((side == QueenSide) ? "O-O-O" : "O-O");
+	const QString str = (side == QueenSide) ? QStringLiteral("O-O-O") : QStringLiteral("O-O");
 	m.setStringForNotation(Coordinate, str);
 	m.setStringForNotation(Algebraic, str);
 	m.setStringForNotation(LongAlgebraic, str);
@@ -161,7 +161,7 @@ void Move::setString(QString string) {
 	string.remove(QLatin1Char(' '));
 	string.remove(QLatin1Char('='));
 
-	const auto longMoveTest = QRegularExpression(QLatin1String("^[a-h][1-8][a-h][1-8]"));
+	const auto longMoveTest = QRegularExpression(QStringLiteral("^[a-h][1-8][a-h][1-8]"));
 	if (const auto match = longMoveTest.match(string); match.hasMatch()) {
 		// Long move notation, can be directly converted to From and To
 		d->notationType = Coordinate;
@@ -308,7 +308,7 @@ bool Move::isValid() const {
 	if(d->notationType == Coordinate )
 		return d->from.isValid() && d->to.isValid();
 	else if(d->string.size() < 6) {
-		if(d->string.contains(QRegularExpression(QLatin1String("[a-h][1-8]"))) || d->string.contains(QLatin1String("o-o")) )
+		if(d->string.contains(QRegularExpression(QStringLiteral("[a-h][1-8]"))) || d->string.contains(QLatin1String("o-o")) )
 			return true;
 	}
 	return false;
