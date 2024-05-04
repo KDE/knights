@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: extragear-games-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:36+0000\n"
-"PO-Revision-Date: 2024-03-08 19:55+0300\n"
+"PO-Revision-Date: 2024-05-04 01:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.0\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -80,7 +80,7 @@ msgstr "Bellek &boyutu:"
 #, kde-format
 msgctxt "Megabytes"
 msgid " MB"
-msgstr "MB"
+msgstr " MB"
 
 #: difficultydialog.cpp:35
 #, kde-format
@@ -202,7 +202,7 @@ msgstr "Oyunu başlatın."
 #: gamedialog.ui:29
 #, kde-format
 msgid "Player 1"
-msgstr "Oyuncu 1"
+msgstr "1. Oyuncu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
@@ -238,7 +238,7 @@ msgstr "R&astgele seç"
 #: gamedialog.ui:129
 #, kde-format
 msgid "Player 2"
-msgstr "Oyuncu 2"
+msgstr "2. Oyuncu"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
@@ -866,7 +866,7 @@ msgstr "KDE Satranç Tahtası"
 #: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
+msgstr "(C) 2016–2017 Alexander Semke, 2009–2011 Miha Čančula"
 
 #: main.cpp:52
 #, kde-format
@@ -1130,7 +1130,7 @@ msgstr "Gönder"
 #: proto/chatwidget.ui:51
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: proto/computerprotocol.cpp:36
 #, kde-format
@@ -1149,7 +1149,7 @@ msgstr "%1 konsolu (%2)"
 #: proto/ficsdialog.cpp:58
 #, kde-format
 msgid "Session started"
-msgstr "Oturun başladı"
+msgstr "Oturum başladı"
 
 #: proto/ficsdialog.cpp:69
 #, kde-format
