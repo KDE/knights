@@ -164,7 +164,7 @@
 
       <para
 >Si heu instal·lat un motor d'escacs, però no apareix a la llista, feu clic al botó <guibutton
->Configura...</guibutton
+>Configura…</guibutton
 > i afegiu-hi el motor. Per a obtenir més informació sobre aquest diàleg, vegeu <link linkend="configuration-engines"
 >Motors d'ordinador</link
 >.</para>
@@ -936,7 +936,7 @@
 >La pàgina <guilabel
 >Tema</guilabel
 > permet la selecció d'un tema. El tema subministrarà les imatges del tauler, de les peces, dels marcadors i d'altres elements. Per a seleccionar un nou tema, escolliu el nom del tema des de la llista de selecció. També podeu descarregar nous temes des de la mateixa pàgina, prement el botó <guibutton
->Obtén temes nous...</guibutton
+>Obtén temes nous…</guibutton
 >. Els temes es desaran a kde-look.org sota &knights;.</para>
 
       <note
