@@ -23,6 +23,7 @@
   <name xml:lang="fi">Knights</name>
   <name xml:lang="fr">KNights</name>
   <name xml:lang="gl">KNights</name>
+  <name xml:lang="he">אבירים</name>
   <name xml:lang="hu">KNights</name>
   <name xml:lang="ia">Knights</name>
   <name xml:lang="id">KNights</name>
@@ -64,6 +65,7 @@
   <summary xml:lang="fi">Šakkipeli</summary>
   <summary xml:lang="fr">Jeu d'échecs</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
+  <summary xml:lang="he">משחק שחמט</summary>
   <summary xml:lang="hu">Sakkjáték</summary>
   <summary xml:lang="ia">Joco de Chacos</summary>
   <summary xml:lang="id">Permainan catur</summary>
@@ -107,6 +109,7 @@
     <p xml:lang="fi">Knights on šakkipeli. Tavoitteesi pelajaana on voittaa vastustaja matittamalla hänen kuninkaansa.</p>
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
+    <p xml:lang="he">אבירים הוא משחק שחמט. כשחקן, המטרה שלך היא להביס את היריב שלך על ידי ביצוע שחמט על המלך שלו.</p>
     <p xml:lang="hu">A KNights egy sakkjáték. Játékosként az a célja, hogy legyőzze ellenfele királyát sakk-mattal.</p>
     <p xml:lang="id">KNights adalah sebuah permainan catur. Sebagai pemain, tujuanmu adalah mengalahkan lawanmu dengan menyekak rajanya.</p>
     <p xml:lang="it">KNights è un gioco di scacchi. Come giocatore, il tuo obbiettivo è sconfiggere il tuo avversario facendo scacco matto al suo re.</p>
@@ -147,6 +150,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="he">יכולות:</p>
     <p xml:lang="hu">Funkciók:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
@@ -188,6 +192,7 @@
       <li xml:lang="fi">Paikallinen peli kahden samalla koneella olevan pelaajan kesken</li>
       <li xml:lang="fr">Jouez en local entre deux joueurs sur le même ordinateur</li>
       <li xml:lang="gl">Partidas entre dous xogadores no mesmo computador.</li>
+      <li xml:lang="he">משחק מקומי בין שני שחקנים על אותו המחשב</li>
       <li xml:lang="hu">Helyi játék két játékos között ugyanazon a számítógépen</li>
       <li xml:lang="id">Main lokal antara dua pemain pada komputer yang sama</li>
       <li xml:lang="it">Sfida locale tra due giocatori sullo stesso computer</li>
@@ -227,6 +232,7 @@
       <li xml:lang="fi">Pelaa toista XBoard-yhteyskäytäntöistä tietokoneohjelmaa vastaan</li>
       <li xml:lang="fr">Jouez contre un programme informatique prenant en charge le protocole XBoard</li>
       <li xml:lang="gl">Partidas contra calquera programa de computador compatíbel co protocolo XBoard.</li>
+      <li xml:lang="he">משחק נגד כל תוכנית מחשב שתומכת בפרוטוקול XBoard</li>
       <li xml:lang="hu">Játék bármely, az XBoard protokollt támogató számítógépes program ellen</li>
       <li xml:lang="id">Bermain melawan program komputer apa pun yang mendukung protokol XBoard</li>
       <li xml:lang="it">Gioca contro qualsiasi programma di computer che supporti il protocollo XBoard</li>
@@ -266,6 +272,7 @@
       <li xml:lang="fi">Pelaa FICSissä (vapaa internetšakkipalvelin)</li>
       <li xml:lang="fr">Jouez sur le serveur « FICS » (Free Internet Chess Server)</li>
       <li xml:lang="gl">Xogar no servidor libre de xadrez por Internet (FICS).</li>
+      <li xml:lang="he">משחק בשרת השחמט האינטרנטי החינמי (FICS)</li>
       <li xml:lang="hu">Játék a szabad internetes sakk-kiszolgálón (FICS)</li>
       <li xml:lang="id">Bermain pada server catur bebas internet  Free Internet Chess Server (FICS)</li>
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
@@ -305,6 +312,7 @@
       <li xml:lang="fi">Kahden tietokoneen keskinäisen pelin seuraaminen</li>
       <li xml:lang="fr">Regardez deux moteurs de jeu s'affronter</li>
       <li xml:lang="gl">Visualización de partidas dun motor informático contra outro.</li>
+      <li xml:lang="he">צפייה בשני מנגנונים ממוחשבים משחקים זה נגד זה</li>
       <li xml:lang="hu">Két számítógépes motor egymás elleni játékának megtekintése</li>
       <li xml:lang="id">Menonton dua mesin komputer yang saling bertanding</li>
       <li xml:lang="it">Guarda due motori di computer sfidarsi l'un l'altro</li>
@@ -344,6 +352,7 @@
       <li xml:lang="fi">Siirtojen laillisuuden tarkistuksen tuki</li>
       <li xml:lang="fr">Prise en charge de la vérification de la légalité des déplacements</li>
       <li xml:lang="gl">Opción de comprobar se un movemento está permitido.</li>
+      <li xml:lang="he">תמיכה בבדיקת מהלכים חוקיים</li>
       <li xml:lang="hu">Jogos lépések ellenőrzése</li>
       <li xml:lang="id">Mendukung pemeriksaan langkah yang sah</li>
       <li xml:lang="it">Supporto per il controllo delle mosse legali</li>
@@ -812,6 +821,7 @@
       <li xml:lang="fi">Mahdollisuus hallita ohjelmaa D-Bus-liitännästä</li>
       <li xml:lang="fr">Possibilité de contrôler le programme grâce à une interface D-Bus</li>
       <li xml:lang="gl">Posibilidade de controlar o programa mediante unha interface D-Bus.</li>
+      <li xml:lang="he">אפשרות לשלוט בתוכנית דרך ממשק D-Bus</li>
       <li xml:lang="hu">A program vezérlésének lehetőséget D-Bus interfészen keresztül</li>
       <li xml:lang="id">Mampu untuk mengendalikan program via antarmuka D-Bus</li>
       <li xml:lang="it">Capacità di controllare il programma tramite interfaccia D-Bus</li>
@@ -856,6 +866,7 @@
       <caption xml:lang="fi">Knights, šakkipeli</caption>
       <caption xml:lang="fr">KNights, jeu d'échecs</caption>
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
+      <caption xml:lang="he">אבירים, משחק שחמט</caption>
       <caption xml:lang="hu">Knights, sakkjáték</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
       <caption xml:lang="it">Knights, gioco di scacchi</caption>
@@ -894,6 +905,7 @@
       <caption xml:lang="fi">Pääikkuna – ihminen vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
+      <caption xml:lang="he">חלון ראשי - בן אדם נגד מנגנון שחמט</caption>
       <caption xml:lang="hu">Főablak - ember a sakkmotor ellen</caption>
       <caption xml:lang="id">Jendela Utama - Manusia vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
@@ -932,6 +944,7 @@
       <caption xml:lang="fi">Pääikkuna – šakkikone vastaan šakkikone</caption>
       <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
+      <caption xml:lang="he">חלון ראשי - מנגנון שחמט נגד מנגנון שחמט</caption>
       <caption xml:lang="hu">Főablak - sakkmotor a sakkmotor ellen</caption>
       <caption xml:lang="id">Jendela Utama - Mesin Catur vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
@@ -971,6 +984,7 @@
       <caption xml:lang="fi">”Uusi peli” -ikkuna</caption>
       <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
+      <caption xml:lang="he">חלונית „משחק חדש”</caption>
       <caption xml:lang="hu">„Új játék” párbeszédablak</caption>
       <caption xml:lang="id">Dialog "Permainan Baru"</caption>
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
@@ -1009,6 +1023,7 @@
       <caption xml:lang="fi">Šakkikoneiden automaattitunnistus</caption>
       <caption xml:lang="fr">Auto-détection des moteurs d'échecs</caption>
       <caption xml:lang="gl">Detección automática de motores de xadrez</caption>
+      <caption xml:lang="he">זיהוי מנועי שחמט אוטומטית</caption>
       <caption xml:lang="hu">Sakkmotorok automatikus felismerése</caption>
       <caption xml:lang="id">AutoDeteksi pada Mesin Catur</caption>
       <caption xml:lang="it">Rilevamento automatico dei motori scacchi</caption>
@@ -1047,6 +1062,7 @@
       <caption xml:lang="fi">Verkkopelaaminen – FICS-konsoli</caption>
       <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
       <caption xml:lang="gl">Xogar por Internet — Consola de FICS</caption>
+      <caption xml:lang="he">משחק מקוון - מסוף FICS</caption>
       <caption xml:lang="hu">Online játék - FICS konzol</caption>
       <caption xml:lang="id">Bermain online - FICS Console</caption>
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
