@@ -43,7 +43,11 @@ FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent
 
 	ui->rememberCheckBox->setChecked(Settings::autoLogin());
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+	connect ( ui->rememberCheckBox, &QCheckBox::checkStateChanged, this, &FicsDialog::rememberCheckBoxChanged );
+#else
 	connect ( ui->rememberCheckBox, &QCheckBox::stateChanged, this, &FicsDialog::rememberCheckBoxChanged );
+#endif
 }
 
 FicsDialog::~FicsDialog() {
