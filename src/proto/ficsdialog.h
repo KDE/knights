@@ -66,7 +66,7 @@ Q_SIGNALS:
 	void declineChallenge ( int challengeId );
 
 private Q_SLOTS:
-	void rememberCheckBoxChanged( int state );
+	void rememberCheckBoxChanged();
 
 private:
 	void saveFicsSettings();

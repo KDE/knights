@@ -220,8 +220,7 @@ bool FicsDialog::rated() {
 	return ui->ratedCheckBox->isChecked();
 }
 
-void FicsDialog::rememberCheckBoxChanged( int state ) {
-	Q_UNUSED(state)
+void FicsDialog::rememberCheckBoxChanged() {
 	Settings::setAutoLogin(ui->rememberCheckBox->isChecked());
 	Settings::self()->save();
 }
