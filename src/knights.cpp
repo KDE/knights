@@ -462,11 +462,13 @@ void MainWindow::optionsPreferences() {
 	dialog->addPage(engineSettings, i18n("Computer Engines"), QStringLiteral("computer"));
 	connect(dialog, &KConfigDialog::accepted, engineSettings, &EngineSettings::save);
 
-	//FIXME: the accessibility page doesn't seem to be used at the moment.
-	//Furthermore, the option "Speak opponent's moves" has to be behind HAVE_SPEECH
-// 	QWidget* accessDlg = new QWidget;
-// 	ui_prefs_access.setupUi(accessDlg);
-// 	dialog->addPage(accessDlg, i18n("Accessibility"), QLatin1String("preferences-desktop-accessibility"));
+    QWidget* accessDlg = new QWidget;
+    ui_prefs_access.setupUi(accessDlg);
+    #ifndef HAVE_SPEECH
+        ui_prefs_access.kcfg_speakOpponentsMoves->hide();
+    #endif
+    dialog->addPage(accessDlg, i18nc("@title:tab", "Accessibility"),
+        QStringLiteral("preferences-desktop-accessibility"));
 
     KGameThemeSelector* themeDlg = new KGameThemeSelector(m_themeProvider, KGameThemeSelector::EnableNewStuffDownload, dialog);
     themeDlg->setNewStuffConfigFileName(QStringLiteral("knights.knsrc"));
