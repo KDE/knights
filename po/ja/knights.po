@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-05-06 00:37+0000\n"
 "PO-Revision-Date: 2010-05-08 12:40-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -1166,23 +1166,23 @@ msgstr ""
 msgid "Console for %1 (%2)"
 msgstr ""
 
-#: proto/ficsdialog.cpp:58
+#: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
 msgstr ""
 
-#: proto/ficsdialog.cpp:69
+#: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
 msgstr ""
 
-#: proto/ficsdialog.cpp:110
+#: proto/ficsdialog.cpp:114
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: proto/ficsdialog.cpp:168
+#: proto/ficsdialog.cpp:172
 #, kde-format
 msgid "<font color='red'>Error: %1</font>"
 msgstr ""

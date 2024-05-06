@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-05-06 00:37+0000\n"
 "PO-Revision-Date: 2019-12-12 21:50+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathantra Malayalam Computing | സ്വതന്ത്ര മലയാളം കമ്പ്യൂട്ടിങ് "
@@ -1229,23 +1229,23 @@ msgstr ""
 msgid "Console for %1 (%2)"
 msgstr "%1 (%2)-ല്‍ നിന്നുള്ള വെല്ലുവിളി"
 
-#: proto/ficsdialog.cpp:58
+#: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
 msgstr ""
 
-#: proto/ficsdialog.cpp:69
+#: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
 msgstr ""
 
-#: proto/ficsdialog.cpp:110
+#: proto/ficsdialog.cpp:114
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: proto/ficsdialog.cpp:168
+#: proto/ficsdialog.cpp:172
 #, kde-format
 msgid "<font color='red'>Error: %1</font>"
 msgstr ""

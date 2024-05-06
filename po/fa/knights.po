@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-05-06 00:37+0000\n"
 "PO-Revision-Date: 2014-07-22 16:23+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -1189,24 +1189,24 @@ msgstr ""
 msgid "Console for %1 (%2)"
 msgstr ""
 
-#: proto/ficsdialog.cpp:58
+#: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
 msgstr ""
 
-#: proto/ficsdialog.cpp:69
+#: proto/ficsdialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Log in"
 msgid "Logging in…"
 msgstr "ورود به سیستم"
 
-#: proto/ficsdialog.cpp:110
+#: proto/ficsdialog.cpp:114
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
 msgstr ""
 
-#: proto/ficsdialog.cpp:168
+#: proto/ficsdialog.cpp:172
 #, fuzzy, kde-format
 msgid "<font color='red'>Error: %1</font>"
 msgstr "خطا"

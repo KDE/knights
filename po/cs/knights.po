@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-05-06 00:37+0000\n"
 "PO-Revision-Date: 2024-01-19 15:50+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1234,24 +1234,24 @@ msgstr ""
 msgid "Console for %1 (%2)"
 msgstr "Konzole pro %1 (%2)"
 
-#: proto/ficsdialog.cpp:58
+#: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
 msgstr "Sezení začalo"
 
-#: proto/ficsdialog.cpp:69
+#: proto/ficsdialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Logging in..."
 msgid "Logging in…"
 msgstr "Probíhá přihlašování..."
 
-#: proto/ficsdialog.cpp:110
+#: proto/ficsdialog.cpp:114
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: proto/ficsdialog.cpp:168
+#: proto/ficsdialog.cpp:172
 #, kde-format
 msgid "<font color='red'>Error: %1</font>"
 msgstr "<font color='red'>Chyba: %1</font>"
