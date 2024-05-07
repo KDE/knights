@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:37+0000\n"
+"POT-Creation-Date: 2024-05-07 00:37+0000\n"
 "PO-Revision-Date: 2024-02-11 18:30+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -559,7 +559,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Atvērt datni"
 
-#: knights.cpp:295 knights.cpp:651 knights.cpp:674
+#: knights.cpp:295 knights.cpp:653 knights.cpp:676
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Partijas pārnesamā notācija (*.png)"
@@ -578,32 +578,38 @@ msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Datora dziņi"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, kde-format
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr ""
+
+#: knights.cpp:475
 #, fuzzy, kde-format
 #| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Motīvs"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Vai tiešām vēlaties atkāpties?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Atkāpties"
 
-#: knights.cpp:483
+#: knights.cpp:485
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Atkāpties"
 
-#: knights.cpp:530
+#: knights.cpp:532
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Game over"
@@ -611,43 +617,43 @@ msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Spēles beigas"
 
-#: knights.cpp:554
+#: knights.cpp:556
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Spēle beidzās ar neizšķirtu"
 
-#: knights.cpp:560
+#: knights.cpp:562
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Spēle beidzās ar <em>balto</em> uzvaru"
 
-#: knights.cpp:563
+#: knights.cpp:565
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Spēle beidzās ar <em>melno</em> uzvaru"
 
-#: knights.cpp:568
+#: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Spēle beidzās ar balto spēlētāja <em>%1</em> uzvaru."
 
-#: knights.cpp:571
+#: knights.cpp:573
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Spēle beidzās ar melno spēlētāja <em>%1</em> uzvaru."
 
-#: knights.cpp:617
+#: knights.cpp:619
 #, fuzzy, kde-format
 #| msgid "%1 vs. %2"
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 pret %2"
 
-#: knights.cpp:630
+#: knights.cpp:632
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -656,14 +662,14 @@ msgstr ""
 "Spēle beigsies.\n"
 "Vai vēlaties saglabāt gājienu vēsturi?"
 
-#: knights.cpp:650
+#: knights.cpp:652
 #, fuzzy, kde-format
 #| msgid "Save"
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Saglabāt"
 
-#: knights.cpp:673
+#: knights.cpp:675
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

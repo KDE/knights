@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:37+0000\n"
+"POT-Creation-Date: 2024-05-07 00:37+0000\n"
 "PO-Revision-Date: 2024-05-03 10:43+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -537,7 +537,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: knights.cpp:295 knights.cpp:651 knights.cpp:674
+#: knights.cpp:295 knights.cpp:653 knights.cpp:676
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Prenosljiv zapis igre (*.pgn)"
@@ -554,71 +554,78 @@ msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Pogoni za šah"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, fuzzy, kde-format
+#| msgid "Accessibility"
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr "Dostopnost"
+
+#: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Ali resnično želite predati igro?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Predaj se"
 
-#: knights.cpp:483
+#: knights.cpp:485
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Predaj se"
 
-#: knights.cpp:530
+#: knights.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Konec igre"
 
-#: knights.cpp:554
+#: knights.cpp:556
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Igra se je končala kot remi"
 
-#: knights.cpp:560
+#: knights.cpp:562
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Igra se je končala z zmago <em>belega</em>"
 
-#: knights.cpp:563
+#: knights.cpp:565
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Igra se je končala z zmago <em>črnega</em>"
 
-#: knights.cpp:568
+#: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Igra se je končala z zmago <em>%1</em>, ki je igral kot beli"
 
-#: knights.cpp:571
+#: knights.cpp:573
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Igra se je končala z zmago <em>%1</em>, ki je igral kot črni"
 
-#: knights.cpp:617
+#: knights.cpp:619
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 proti %2"
 
-#: knights.cpp:630
+#: knights.cpp:632
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -627,13 +634,13 @@ msgstr ""
 "To bo končalo vašo igro.\n"
 "Bi radi shranili zgodovino potez?"
 
-#: knights.cpp:650
+#: knights.cpp:652
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Shrani"
 
-#: knights.cpp:673
+#: knights.cpp:675
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1452,9 +1459,6 @@ msgstr "Rating nasprotnika"
 
 #~ msgid "black"
 #~ msgstr "črni"
-
-#~ msgid "Accessibility"
-#~ msgstr "Dostopnost"
 
 #~ msgid "Chess board based on KF5"
 #~ msgstr "Igra šaha, ki temelji KF 5"

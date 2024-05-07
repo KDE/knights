@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-06 00:37+0000\n"
+"POT-Creation-Date: 2024-05-07 00:37+0000\n"
 "PO-Revision-Date: 2012-07-13 10:01+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -567,7 +567,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:295 knights.cpp:651 knights.cpp:674
+#: knights.cpp:295 knights.cpp:653 knights.cpp:676
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
@@ -587,45 +587,52 @@ msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, fuzzy, kde-format
+#| msgid "Accessibility"
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr "មធ្យោបាយ​ងាយស្រួល"
+
+#: knights.cpp:475
 #, fuzzy, kde-format
 #| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "រូបរាង"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr ""
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "ចុះចាញ់"
 
-#: knights.cpp:483
+#: knights.cpp:485
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "ចុះចាញ់"
 
-#: knights.cpp:530
+#: knights.cpp:532
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "ល្បែង​ចប់​​ហើយ"
 
-#: knights.cpp:554
+#: knights.cpp:556
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "ល្បែង​បាន​បញ្ចប់​នៅ​ពេល​អូស"
 
-#: knights.cpp:560
+#: knights.cpp:562
 #, fuzzy, kde-format
 #| msgctxt "White as in the player with white pieces"
 #| msgid "The game ended with a victory for <emphasis>White</emphasis>"
@@ -633,7 +640,7 @@ msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ​ <emphasis>ស</emphasis>"
 
-#: knights.cpp:563
+#: knights.cpp:565
 #, fuzzy, kde-format
 #| msgctxt "Black as in the player with black pieces"
 #| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
@@ -641,7 +648,7 @@ msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>ខ្មៅ</emphasis>"
 
-#: knights.cpp:568
+#: knights.cpp:570
 #, fuzzy, kde-format
 #| msgctxt "Player name, then <White as in the player with white pieces"
 #| msgid ""
@@ -650,7 +657,7 @@ msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ស"
 
-#: knights.cpp:571
+#: knights.cpp:573
 #, fuzzy, kde-format
 #| msgctxt "Player name, then Black as in the player with black pieces"
 #| msgid ""
@@ -659,14 +666,14 @@ msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ខ្មៅ"
 
-#: knights.cpp:617
+#: knights.cpp:619
 #, fuzzy, kde-format
 #| msgid "%1 vs. %2"
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
 
-#: knights.cpp:630
+#: knights.cpp:632
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -675,14 +682,14 @@ msgstr ""
 "វា​នឹង​បញ្ចប់​ល្បែង​របស់​អ្នក ។\n"
 "តើ​អ្នក​ចង់​រក្សាទុក​ប្រវត្តិ​​ផ្លាស់ទី​ដែរ​ឬ​ទេ ។"
 
-#: knights.cpp:650
+#: knights.cpp:652
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
 msgid "Save"
 msgstr "រក្សាទុក​ប្រវត្តិ"
 
-#: knights.cpp:673
+#: knights.cpp:675
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -1512,9 +1519,6 @@ msgstr "ការ​វាយ​តម្លៃ​របស់​អ្នក​
 #~| msgid "Black"
 #~ msgid "black"
 #~ msgstr "ខ្មៅ"
-
-#~ msgid "Accessibility"
-#~ msgstr "មធ្យោបាយ​ងាយស្រួល"
 
 #, fuzzy
 #~| msgid "Chess board based on KDE Development Platform 4"
