@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-05 04:16+0100\n"
+"PO-Revision-Date: 2024-05-08 00:23+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -549,8 +549,7 @@ msgid "Computer Engines"
 msgstr "Motores de la máquina"
 
 #: knights.cpp:470
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Accesibilidad"

@@ -1477,9 +1477,3 @@ msgstr "Tidsbegrensning [minutter]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Motstanderens rangering"
-
-#~ msgid "white"
-#~ msgstr "hvit"
-
-#~ msgid "black"
-#~ msgstr "sort"

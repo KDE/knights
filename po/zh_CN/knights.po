@@ -34,8 +34,7 @@ msgid "Promotion"
 msgstr "晋升"
 
 #: board.cpp:581
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
 msgstr "晋升"
@@ -153,27 +152,21 @@ msgid "New Game"
 msgstr "新游戏"
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " 分"
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " 秒"
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
@@ -355,15 +348,13 @@ msgid "Checkmate"
 msgstr "将死"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
 msgstr "白"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
 msgstr "黑"
@@ -399,21 +390,18 @@ msgid "Coordinate"
 msgstr "座标"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "自定义"
 
 #: knights.cpp:135
-#, fuzzy, kde-format
-#| msgid "%1 is thinking..."
+#, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 正在思考..."
+msgstr ""
 
 #: knights.cpp:142
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "时钟"
@@ -425,78 +413,67 @@ msgid "Move History"
 msgstr "回合历史"
 
 #: knights.cpp:192
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "认输"
 
 #: knights.cpp:193
-#, fuzzy, kde-format
-#| msgid "Admit your inevitable defeat"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "承认您的必输之局"
 
 #: knights.cpp:198
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "撤销"
 
 #: knights.cpp:199
-#, fuzzy, kde-format
-#| msgid "Take back your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "回到您的上一步"
 
 #: knights.cpp:205
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "重下"
 
 #: knights.cpp:206
-#, fuzzy, kde-format
-#| msgid "Repeat your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "重复您的上一步"
 
 #: knights.cpp:213
-#, fuzzy, kde-format
-#| msgid "Offer &Draw"
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "提请和局(&D)"
 
 #: knights.cpp:214
-#, fuzzy, kde-format
-#| msgid "Offer a draw to your opponent"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "向您的对手提请和局"
 
 #: knights.cpp:219
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "暂停"
 
 #: knights.cpp:220
-#, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "稍后再继续此局游戏"
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "中止"
@@ -507,43 +484,37 @@ msgid "End the game immediately"
 msgstr "立即终结游戏"
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "显示时钟"
 
 #: knights.cpp:236
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "显示历史"
 
 #: knights.cpp:243
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "显示白方控制台"
 
 #: knights.cpp:249
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "显示黑方控制台"
 
 #: knights.cpp:255
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "显示聊天界面"
 
 #: knights.cpp:294
-#, fuzzy, kde-format
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "打开文件"
@@ -554,15 +525,13 @@ msgid "Portable game notation (*.pgn)"
 msgstr "可移动游戏标记 (*.pgn)"
 
 #: knights.cpp:458
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "通用"
 
 #: knights.cpp:462
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "电脑引擎"
@@ -574,8 +543,7 @@ msgid "Accessibility"
 msgstr ""
 
 #: knights.cpp:475
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "主题"
@@ -586,8 +554,7 @@ msgid "Do you really want to resign?"
 msgstr "您真的确定要离开吗？"
 
 #: knights.cpp:484
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "认输"
@@ -599,12 +566,10 @@ msgid "Resign"
 msgstr ""
 
 #: knights.cpp:532
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "游戏结束"
+msgstr ""
 
 #: knights.cpp:556
 #, kde-format
@@ -636,8 +601,7 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "游戏以 <emphasis>%1</emphasis> 执黑胜出结束"
 
 #: knights.cpp:619
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 对 %2"
@@ -652,8 +616,7 @@ msgstr ""
 "您想要保存回合历史吗？"
 
 #: knights.cpp:652
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "保存文档"
@@ -975,15 +938,13 @@ msgid "Document to open"
 msgstr "打开文档"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "接受"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
 msgstr "拒绝"
@@ -1223,10 +1184,9 @@ msgid "Session started"
 msgstr "会话启动"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
-msgstr "正在登录..."
+msgstr ""
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1467,9 +1427,3 @@ msgstr "时间限制 [分钟]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "对手等级"
-
-#~ msgid "white"
-#~ msgstr "白"
-
-#~ msgid "black"
-#~ msgstr "黑"

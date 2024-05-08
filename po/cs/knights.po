@@ -38,11 +38,10 @@ msgid "Promotion"
 msgstr "Proměna"
 
 #: board.cpp:581
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr "Proměnit"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -159,37 +158,31 @@ msgid "New Game"
 msgstr "Nová hra"
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] " minuta"
-msgstr[1] " minuty"
-msgstr[2] " minut"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " sekunda"
-msgstr[1] " sekundy"
-msgstr[2] " sekund"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " tah"
-msgstr[1] " tahy"
-msgstr[2] " tahů"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: gamedialog.cpp:307
 #, kde-format
@@ -369,18 +362,16 @@ msgid "Checkmate"
 msgstr "Mat"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
-msgstr "Bílé"
+msgstr ""
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
-msgstr "Černé"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
@@ -413,24 +404,21 @@ msgid "Coordinate"
 msgstr "Souřadnice"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr "Vlastní"
+msgstr ""
 
 #: knights.cpp:135
-#, fuzzy, kde-format
-#| msgid "%1 is thinking..."
+#, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 přemýšlí..."
+msgstr ""
 
 #: knights.cpp:142
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
-msgstr "Hodiny"
+msgstr ""
 
 #: knights.cpp:173
 #, kde-format
@@ -439,78 +427,67 @@ msgid "Move History"
 msgstr "Historie přesunů"
 
 #: knights.cpp:192
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr "Vzdát se"
+msgstr ""
 
 #: knights.cpp:193
-#, fuzzy, kde-format
-#| msgid "Admit your inevitable defeat"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
-msgstr "Přiznat nevyhnutelnou porážku"
+msgstr ""
 
 #: knights.cpp:198
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Zpět"
 
 #: knights.cpp:199
-#, fuzzy, kde-format
-#| msgid "Take back your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr "Vrátit zpět svůj poslední tah"
+msgstr ""
 
 #: knights.cpp:205
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
-msgstr "Vpřed"
+msgstr "Znovu"
 
 #: knights.cpp:206
-#, fuzzy, kde-format
-#| msgid "Repeat your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr "Opakovat poslední tah"
+msgstr ""
 
 #: knights.cpp:213
-#, fuzzy, kde-format
-#| msgid "Offer &Draw"
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr "Nabí&dnout remízu"
+msgstr ""
 
 #: knights.cpp:214
-#, fuzzy, kde-format
-#| msgid "Offer a draw to your opponent"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr "Navrhnout soupeři remízu"
+msgstr ""
 
 #: knights.cpp:219
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr "Přerušit"
+msgstr ""
 
 #: knights.cpp:220
-#, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "Pokračovat ve hře později"
+msgstr ""
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Přerušit"
@@ -521,43 +498,37 @@ msgid "End the game immediately"
 msgstr "Okamžitě ukončit hru"
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr "Ukázat hodiny"
+msgstr ""
 
 #: knights.cpp:236
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Zobrazit historii"
 
 #: knights.cpp:243
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr "Zobrazit konzoli bílého"
+msgstr ""
 
 #: knights.cpp:249
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr "Zobrazit konzoli černého"
+msgstr ""
 
 #: knights.cpp:255
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr "Zobrazit rozhovor"
+msgstr ""
 
 #: knights.cpp:294
-#, fuzzy, kde-format
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Otevřít soubor"
@@ -568,18 +539,16 @@ msgid "Portable game notation (*.pgn)"
 msgstr "Přenositelný záznam hry (*.pgn)"
 
 #: knights.cpp:458
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Obecné"
 
 #: knights.cpp:462
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr "Počítačové stroje"
+msgstr ""
 
 #: knights.cpp:470
 #, kde-format
@@ -588,11 +557,10 @@ msgid "Accessibility"
 msgstr ""
 
 #: knights.cpp:475
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Motiv"
+msgstr ""
 
 #: knights.cpp:483
 #, kde-format
@@ -600,11 +568,10 @@ msgid "Do you really want to resign?"
 msgstr "Opravdu se chcete vzdát?"
 
 #: knights.cpp:484
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr "Vzdát se"
+msgstr ""
 
 #: knights.cpp:485
 #, kde-format
@@ -613,12 +580,10 @@ msgid "Resign"
 msgstr "Vzdát se"
 
 #: knights.cpp:532
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Konec hry"
+msgstr ""
 
 #: knights.cpp:556
 #, kde-format
@@ -650,11 +615,10 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Hra skončila vítězstvím hráče <em>%1</em>, hrajícího s černými"
 
 #: knights.cpp:619
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr "%1 vs %2"
+msgstr ""
 
 #: knights.cpp:632
 #, kde-format
@@ -666,11 +630,10 @@ msgstr ""
 "Přejete si uložit historii tahů?"
 
 #: knights.cpp:652
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save"
-msgstr "Uložit"
+msgstr ""
 
 #: knights.cpp:675
 #, kde-format
@@ -996,18 +959,16 @@ msgid "Document to open"
 msgstr "Dokument k otevření"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "Přijmout"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
-msgstr "Odmítnout"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: popup.ui:37 proto/ficsprotocol.cpp:118 proto/ficsprotocol.cpp:195
@@ -1246,10 +1207,9 @@ msgid "Session started"
 msgstr "Sezení začalo"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
-msgstr "Probíhá přihlašování..."
+msgstr ""
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1490,9 +1450,3 @@ msgstr "Omezení času [minuty]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Hodnocení soupeře"
-
-#~ msgid "white"
-#~ msgstr "bílé"
-
-#~ msgid "black"
-#~ msgstr "černé"

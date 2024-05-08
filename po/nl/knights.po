@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-03 11:13+0200\n"
+"PO-Revision-Date: 2024-05-07 12:54+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -544,8 +544,7 @@ msgid "Computer Engines"
 msgstr "Computerprogramma's"
 
 #: knights.cpp:470
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Toegankelijkheid"
