@@ -196,7 +196,7 @@
 
       <para
 >Se hai installato un motore scacchistico ma questo non compare nell'elenco, fai clic su <guibutton
->Configura...</guibutton
+>Configura…</guibutton
 > ed aggiungilo. Per maggiori informazioni su questa finestra vedi <link linkend="configuration-engines"
 >Simulatori computer</link
 >.</para>
@@ -1020,7 +1020,7 @@
 >Nella pagina <guilabel
 >Temi</guilabel
 > è possibile selezionare un tema; i temi forniscono immagini per la scacchiera, per i pezzi, per gli indicatori e altri elementi. Per selezionarne uno nuovo, scegli il nome del tema dall'elenco. È possibile inoltre scaricare nuovi temi dalla stessa finestra premendo il pulsante <guibutton
->Ottieni nuovi temi</guibutton
+>Ottieni nuovi temi…</guibutton
 >. I temi sono raccolti sul sito kde-look.org sotto la voce &knights;.</para>
 
       <note

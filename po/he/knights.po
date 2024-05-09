@@ -1,619 +1,626 @@
-# Translation of knights.po to Catalan (Valencian)
-# Copyright (C) 2010-2024 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the knights package.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2010, 2011, 2015, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2013, 2016, 2017, 2018, 2020, 2021.
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-07 11:42+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca@valencia\n"
+"PO-Revision-Date: 2024-05-08 22:17+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Accelerator-Marker: &\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Josep M. Ferrer"
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "txemaq@gmail.com"
+msgstr "kde-l10n-he@kde.org"
 
 #: board.cpp:577
 #, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
-msgstr "Promoció"
+msgstr "קידום"
 
 #: board.cpp:581
 #, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr "Promociona"
+msgstr "קידום"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
 #, kde-format
 msgid "Black"
-msgstr "Negres"
+msgstr "שחור"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorWhite)
 #. i18n: ectx: property (title), widget (QGroupBox, groupW)
 #: clockwidget.ui:44 gamedialog.ui:90
 #, kde-format
 msgid "White"
-msgstr "Blanques"
+msgstr "לבן"
 
 #. i18n: ectx: property (text), widget (QLabel, searchDepthLabel)
 #: customdifficultydialog.ui:26
 #, kde-format
 msgid "Search &depth:"
-msgstr "&Profunditat de busca:"
+msgstr "&עומק חיפוש:"
 
 #. i18n: ectx: property (specialValueText), widget (KPluralHandlingSpinBox, sbSearchDepth)
 #: customdifficultydialog.ui:36
 #, kde-format
 msgctxt "Let the engine determine the search depth"
 msgid "Engine default"
-msgstr "Motor predeterminat"
+msgstr "ברירת המחדל של המנגנון"
 
 #. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
 #: customdifficultydialog.ui:43
 #, kde-format
 msgid "Memory &size:"
-msgstr "&Mida de la memòria:"
+msgstr "גודל &זיכרון:"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, sbMemorySize)
 #: customdifficultydialog.ui:53
 #, kde-format
 msgctxt "Megabytes"
 msgid " MB"
-msgstr " MB"
+msgstr " מ״ב"
 
 #: difficultydialog.cpp:35
 #, kde-format
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " moviment"
-msgstr[1] " moviments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: difficultydialog.cpp:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Difficulty Level"
-msgstr "Nivell de dificultat"
+msgstr ""
 
 #: enginesettings.cpp:109
 #, kde-format
 msgctxt "Protocol name"
 msgid "XBoard"
-msgstr "XBoard"
+msgstr ""
 
 #: enginesettings.cpp:109
 #, kde-format
 msgctxt "Protocol name"
 msgid "UCI"
-msgstr "UCI"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
 #: enginesettings.ui:19
 #, kde-format
 msgid "Auto detect"
-msgstr "Detecta automàticament"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #: enginesettings.ui:39
 #, kde-format
 msgid "Add"
-msgstr "Afig"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #: enginesettings.ui:46
 #, kde-format
 msgid "Remove"
-msgstr "Elimina"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: enginesettings.ui:71
 #, kde-format
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: enginesettings.ui:76
 #, kde-format
 msgid "Command"
-msgstr "Ordre"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: enginesettings.ui:81
 #, kde-format
 msgid "Protocol"
-msgstr "Protocol"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, tableWidget)
 #: enginesettings.ui:86
 #, kde-format
 msgid "Installed"
-msgstr "Instal·lat"
+msgstr ""
 
 #: gamedialog.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Partida nova"
+msgstr ""
 
 #: gamedialog.cpp:266
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] " minut"
-msgstr[1] " minuts"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: gamedialog.cpp:267
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " segon"
-msgstr[1] " segons"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: gamedialog.cpp:268
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " moviment"
-msgstr[1] " moviments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: gamedialog.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
-msgstr "Motors d'escacs"
+msgstr ""
 
 #: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
-msgstr "Seleccioneu un motor d'escacs per al primer jugador."
+msgstr ""
 
 #: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
-msgstr "Seleccioneu un motor d'escacs per al segon jugador."
+msgstr ""
 
 #: gamedialog.cpp:370
 #, kde-format
 msgid "Start the game."
-msgstr "Inicia la partida."
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
 #, kde-format
 msgid "Player 1"
-msgstr "Jugador 1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
 #, kde-format
 msgid "Human (&You)"
-msgstr "Humà (&vós)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
 #, kde-format
 msgid "&Computer engine:"
-msgstr "&Motor de l'ordinador:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
 #, kde-format
 msgid "Player 1's Color"
-msgstr "Color del jugador 1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
 #: gamedialog.ui:103
 #, kde-format
 msgid "B&lack"
-msgstr "&Negres"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
 #, kde-format
 msgid "Choose r&andomly"
-msgstr "Tria a l'&atzar"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player2Box)
 #: gamedialog.ui:129
 #, kde-format
 msgid "Player 2"
-msgstr "Jugador 2"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
 #, kde-format
 msgid "H&uman"
-msgstr "H&umà"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
 #, kde-format
 msgid "Co&mputer engine:"
-msgstr "Motor de l'&ordinador:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
 #, kde-format
 msgid "Chess server:"
-msgstr "Servidor d'escacs:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
 #, kde-format
 msgid "&Use time control"
-msgstr "Utilit&za el control de temps"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
 #, kde-format
 msgid "&Time control period:"
-msgstr "Període del control de &temps:"
+msgstr ""
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
 #, kde-format
 msgctxt "Time control mode"
 msgid "Timer Only"
-msgstr "Només temporitzador"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
 #, kde-format
 msgid "&Initial time limit:"
-msgstr "Límit de temps &inicial:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
 #, kde-format
 msgid "I&ncrement per move:"
-msgstr "I&ncrement per moviment:"
+msgstr ""
 
 #: gamemanager.cpp:417
 #, kde-format
 msgctxt "The player of this color"
 msgid "White"
-msgstr "Blanques"
+msgstr ""
 
 #: gamemanager.cpp:418
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
-msgstr "Negres"
+msgstr ""
 
 #: gamemanager.cpp:523
 #, kde-format
 msgid "%1 offers you a draw"
-msgstr "%1 vos oferix taules"
+msgstr ""
 
 #: gamemanager.cpp:526
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
-msgstr[0] "%2 desitjaria desfer mig moviment"
-msgstr[1] "%2 desitjaria desfer %1 mitjos moviments"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: gamemanager.cpp:529
 #, kde-format
 msgid "%1 would like to adjourn the game"
-msgstr "%1 desitjaria ajornar la partida"
+msgstr ""
 
 #: gamemanager.cpp:532
 #, kde-format
 msgid "%1 would like to abort the game"
-msgstr "%1 desitjaria interrompre la partida"
+msgstr ""
 
 #: gamemanager.cpp:627
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr "%1 s'enroca en la banda de la dama"
+msgstr ""
 
 #: gamemanager.cpp:630
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr "%1 s'enroca en la banda del rei"
+msgstr ""
 
 #: gamemanager.cpp:634
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
-msgstr "%1 a %2"
+msgstr ""
 
 #: gamemanager.cpp:647
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
-msgstr "Escac"
+msgstr ""
 
 #: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
-msgstr "Escac i mat"
+msgstr ""
 
 #: historywidget.cpp:26
 #, kde-format
 msgctxt "@title:column"
 msgid "White"
-msgstr "Blanques"
+msgstr ""
 
 #: historywidget.cpp:27
 #, kde-format
 msgctxt "@title:column"
 msgid "Black"
-msgstr "Negres"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
 #, kde-format
 msgid "New Column"
-msgstr "Columna nova"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, notationLabel)
 #: historywidget.ui:57
 #, kde-format
 msgid "&Notation:"
-msgstr "&Notació:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
 #: historywidget.ui:68
 #, kde-format
 msgid "Short Algebraic"
-msgstr "Algebraica curta"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
 #: historywidget.ui:73
 #, kde-format
 msgid "Long Algebraic"
-msgstr "Algebraica llarga"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
 #: historywidget.ui:78
 #, kde-format
 msgid "Coordinate"
-msgstr "Coordenades"
+msgstr ""
 
 #: knights.cpp:95
 #, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr "Personalitzada"
+msgstr ""
 
 #: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 està pensant…"
+msgstr ""
 
 #: knights.cpp:142
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
-msgstr "Rellotge"
+msgstr ""
 
 #: knights.cpp:173
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr "Historial de moviments"
+msgstr ""
 
 #: knights.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr "Renuncia"
+msgstr ""
 
 #: knights.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
-msgstr "Admeteu la vostra derrota inevitable"
+msgstr ""
 
 #: knights.cpp:198
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
-msgstr "Desfés"
+msgstr ""
 
 #: knights.cpp:199
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr "Desfà l'últim moviment vostre"
+msgstr ""
 
 #: knights.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
-msgstr "Refés"
+msgstr ""
 
 #: knights.cpp:206
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr "Repetix l'últim moviment vostre"
+msgstr ""
 
 #: knights.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr "Oferix &taules"
+msgstr ""
 
 #: knights.cpp:214
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr "Oferiu taules a l'adversari"
+msgstr ""
 
 #: knights.cpp:219
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr "Ajorna"
+msgstr ""
 
 #: knights.cpp:220
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "Continueu esta partida més tard"
+msgstr ""
 
 #: knights.cpp:225
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
-msgstr "Interromp"
+msgstr ""
 
 #: knights.cpp:226
 #, kde-format
 msgid "End the game immediately"
-msgstr "Finalitza la partida immediatament"
+msgstr ""
 
 #: knights.cpp:230
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr "Mostra el rellotge"
+msgstr ""
 
 #: knights.cpp:236
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
-msgstr "Mostra l'historial"
+msgstr ""
 
 #: knights.cpp:243
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr "Mostra una consola blanca"
+msgstr ""
 
 #: knights.cpp:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr "Mostra una consola negra"
+msgstr ""
 
 #: knights.cpp:255
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr "Mostra el xat"
+msgstr ""
 
 #: knights.cpp:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
-msgstr "Obri un fitxer"
+msgstr ""
 
 #: knights.cpp:295 knights.cpp:653 knights.cpp:676
 #, kde-format
 msgid "Portable game notation (*.pgn)"
-msgstr "Notació portable de la partida (*.pgn)"
+msgstr ""
 
 #: knights.cpp:458
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr "General"
+msgstr ""
 
 #: knights.cpp:462
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr "Motors d'ordinador"
+msgstr ""
 
 #: knights.cpp:470
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr "Accessibilitat"
+msgstr ""
 
 #: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Tema"
+msgstr ""
 
 #: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
-msgstr "Segur que voleu renunciar?"
+msgstr ""
 
 #: knights.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr "Renuncia"
+msgstr ""
 
 #: knights.cpp:485
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
-msgstr "Renuncia"
+msgstr ""
 
 #: knights.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Final de la partida"
+msgstr ""
 
 #: knights.cpp:556
 #, kde-format
 msgid "The game ended in a draw"
-msgstr "La partida ha acabat en taules"
+msgstr ""
 
 #: knights.cpp:562
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
-msgstr "La partida ha acabat en victòria de les <em>blanques</em>"
+msgstr ""
 
 #: knights.cpp:565
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
-msgstr "La partida ha acabat en victòria de les <em>negres</em>"
+msgstr ""
 
 #: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
-msgstr "La partida ha acabat en victòria de <em>%1</em>, jugant amb blanques"
+msgstr ""
 
 #: knights.cpp:573
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
-msgstr "La partida ha acabat en victòria de <em>%1</em>, jugant amb negres"
+msgstr ""
 
 #: knights.cpp:619
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr "%1 contra %2"
+msgstr ""
 
 #: knights.cpp:632
 #, kde-format
@@ -621,125 +628,120 @@ msgid ""
 "This will end your game.\n"
 "Would you like to save the move history?"
 msgstr ""
-"Finalitzarà la partida.\n"
-"Voleu guardar l'historial de moviments?"
 
 #: knights.cpp:652
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
-msgstr "Guarda"
+msgstr ""
 
 #: knights.cpp:675
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr "Anomena i guarda"
+msgstr ""
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
 #, kde-format
 msgid "Theme file for the board"
-msgstr "Fitxer de tema per al tauler"
+msgstr ""
 
 #. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
 #: knights.kcfg:15
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
 msgstr ""
-"S'ha de mostrar un diàleg de confirmació abans de rebutjar l'historial de la "
-"partida"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
 #, kde-format
 msgid "internal variable controlling the confirm dialog"
-msgstr "La variable interna controlarà el diàleg de confirmació"
+msgstr ""
 
 #. i18n: ectx: label, entry (animationSpeed), group (Preferences)
 #: knights.kcfg:31
 #, kde-format
 msgid "Moves animation speed"
-msgstr "Velocitat d'animació dels moviments"
+msgstr ""
 
 #. i18n: ectx: label, entry (animateBoard), group (Preferences)
 #: knights.kcfg:35
 #, kde-format
 msgid "whether the Board is animated during rotating and resizing"
-msgstr "Si s'ha d'animar el tauler durant els girs i els redimensionaments"
+msgstr ""
 
 #. i18n: ectx: label, entry (flipBoard), group (Preferences)
 #: knights.kcfg:39
 #, kde-format
 msgid "whether to rotate the board when in local two-player mode"
 msgstr ""
-"Si s'ha de girar el tauler quan es juga en mode de dos jugadors en local"
 
 #. i18n: ectx: label, entry (playSounds), group (Preferences)
 #: knights.kcfg:43
 #, kde-format
 msgid "whether to play move sounds"
-msgstr "Si s'ha de reproduir so en moure"
+msgstr ""
 
 #. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
 #: knights.kcfg:52
 #, kde-format
 msgid "chessboard border type"
-msgstr "Tipus de vora del tauler d'escacs"
+msgstr ""
 
 #. i18n: ectx: label, entry (showDanger), group (Preferences)
 #: knights.kcfg:56
 #, kde-format
 msgid "show check marker"
-msgstr "Mostra els marcadors d'escac"
+msgstr ""
 
 #. i18n: ectx: label, entry (showMarker), group (Preferences)
 #: knights.kcfg:60
 #, kde-format
 msgid "show legal moves marker"
-msgstr "Mostra els marcadors de moviments legals"
+msgstr ""
 
 #. i18n: ectx: label, entry (showMotion), group (Preferences)
 #: knights.kcfg:64
 #, kde-format
 msgid "show opponents move marker"
-msgstr "Mostra els marcadors dels moviments dels adversaris"
+msgstr ""
 
 #. i18n: ectx: label, entry (showClock), group (Preferences)
 #: knights.kcfg:68
 #, kde-format
 msgid "show clocks when time control is in use"
-msgstr "Mostra el rellotge quan el control de temps està en ús"
+msgstr ""
 
 #. i18n: ectx: label, entry (showChat), group (Preferences)
 #: knights.kcfg:72
 #, kde-format
 msgid "show chat window, if supported by the protocol"
-msgstr "Mostra la finestra de xat, si el protocol ho permet"
+msgstr ""
 
 #. i18n: ectx: label, entry (showConsole), group (Preferences)
 #: knights.kcfg:76
 #, kde-format
 msgid "show the text console, if supported by the protocol"
-msgstr "Mostra la consola de text, si el protocol ho permet"
+msgstr ""
 
 #. i18n: ectx: label, entry (showHistory), group (Preferences)
 #: knights.kcfg:80
 #, kde-format
 msgid "show move history"
-msgstr "Mostra l'historial de moviments"
+msgstr ""
 
 #. i18n: ectx: label, entry (timeLimit), group (Time Control)
 #: knights.kcfg:86
 #, kde-format
 msgid "initial time limit for both players"
-msgstr "Límit de temps inicial per a ambdós jugadors"
+msgstr ""
 
 #. i18n: ectx: label, entry (timeIncrement), group (Time Control)
 #: knights.kcfg:90
 #, kde-format
 msgid "time increment per move (for Incremental time control)"
-msgstr "Increment de temps per moviment (per al control incremental del temps)"
+msgstr ""
 
 #. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
 #: knights.kcfg:94
@@ -748,21 +750,19 @@ msgid ""
 "the number of moves the player has to make in the specified time (for "
 "Conventional time control)"
 msgstr ""
-"El nombre de moviments que ha de fer el jugador en el temps especificat (per "
-"al control convencional del temps)"
 
 #. i18n: ectx: label, entry (timeEnabled), group (Time Control)
 #: knights.kcfg:98
 #, kde-format
 msgid "whether time limits are enabled and displayed"
-msgstr "Si els límits de temps estan actius i es visualitzen"
+msgstr ""
 
 #. i18n: ectx: label, entry (player1Protocol), group (Protocols)
 #. i18n: ectx: label, entry (player2Protocol), group (Protocols)
 #: knights.kcfg:108 knights.kcfg:117
 #, kde-format
 msgid "protocol to be used for player 1"
-msgstr "El protocol que s'ha d'utilitzar per al jugador 1"
+msgstr ""
 
 #. i18n: ectx: label, entry (color), group (Protocols)
 #: knights.kcfg:126
@@ -771,27 +771,24 @@ msgid ""
 "the local human player's color in a game against a computer or over the "
 "Internet."
 msgstr ""
-"El color del jugador humà local en una partida contra un ordinador o per "
-"Internet."
 
 #. i18n: ectx: label, entry (programs), group (Protocols)
 #: knights.kcfg:130
 #, kde-format
 msgid "list of programs to run for playing against the computer"
 msgstr ""
-"Llista de programes que s'han d'executar per a jugar contra l'ordinador"
 
 #. i18n: ectx: label, entry (player1Program), group (Protocols)
 #: knights.kcfg:134
 #, kde-format
 msgid "the last selected program for player 1"
-msgstr "L'últim programa seleccionat pel jugador 1"
+msgstr ""
 
 #. i18n: ectx: label, entry (player2Program), group (Protocols)
 #: knights.kcfg:138
 #, kde-format
 msgid "the last selected program for player 2"
-msgstr "L'últim programa seleccionat pel jugador 2"
+msgstr ""
 
 #. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
 #: knights.kcfg:142
@@ -800,8 +797,6 @@ msgid ""
 "the search depth of computer engines, when the difficulty is set to "
 "Configurable"
 msgstr ""
-"La profunditat de busca dels motors de l'ordinador, quan la dificultat està "
-"establida a Configurable"
 
 #. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
 #: knights.kcfg:146
@@ -809,379 +804,374 @@ msgstr ""
 msgid ""
 "the memory size used by computer engines, when the difficulty is set to "
 "Configurable"
-msgstr ""
-"La mida de la memòria utilitzada per als motors de l'ordinador, quan la "
-"dificultat està establida a Configurable"
+msgstr "גודל הזיכרון שמשמש מנגנוני מחשוב, כאשר דרגת הקושי היא מותאמת"
 
 #. i18n: ectx: label, entry (servers), group (Protocols)
 #: knights.kcfg:150
 #, kde-format
 msgid "list of servers for playing over the Internet"
-msgstr "Llista de servidors per a jugar per Internet"
+msgstr "רשימת שרתים למשחק דרך האינטרנט"
 
 #. i18n: ectx: label, entry (currentServer), group (Protocols)
 #: knights.kcfg:154
 #, kde-format
 msgid "the last selected server"
-msgstr "L'últim servidor seleccionat"
+msgstr "השרת האחרון שנבחר"
 
 #. i18n: ectx: label, entry (ficsUsername), group (Protocols)
 #: knights.kcfg:158
 #, kde-format
 msgid "username for the Free Internet Chess Server"
-msgstr "Nom d'usuari per al servidor d'escacs d'Internet lliure (FICS)"
+msgstr ""
 
 #. i18n: ectx: label, entry (guest), group (Protocols)
 #: knights.kcfg:162
 #, kde-format
 msgid "whether to log in as guest"
-msgstr "Si s'ha d'iniciar la sessió com a convidat"
+msgstr "האם להיכנס כאורח"
 
 #. i18n: ectx: label, entry (autoLogin), group (Protocols)
 #: knights.kcfg:166
 #, kde-format
 msgid "whether to log in to chess server automatically"
-msgstr "Si s'ha d'iniciar la sessió automàticament en el servidor d'escacs"
+msgstr "האם להיכנס לשרת שחמט אוטומטית"
 
 #. i18n: ectx: label, entry (computerDelay), group (Protocols)
 #: knights.kcfg:170
 #, kde-format
 msgid "delay before a computer's move is reported, in milliseconds"
-msgstr "Retard abans d'informar d'un moviment de l'ordinador, en mil·lisegons"
+msgstr "השהיה לפני דיווח על מהלך מחשב, במילישניות"
 
 #. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
 #: knights.kcfg:174
 #, kde-format
 msgid "stored configurations of engine-specific settings"
-msgstr ""
-"Configuracions emmagatzemades de la configuració específica per al motor"
+msgstr "הגדרות מאוחסות של תצורות נקודתיות למנגנון"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
 #, kde-format
 msgid "whether opponents' moves are spoken by Jovie"
-msgstr "Si Jovie ha de llegir els moviments de l'adversari"
+msgstr "האם מהלכי היריב מוקראים על ידי Jovie"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
 #, kde-format
 msgid "whether commands over D-Bus are accepted"
-msgstr "Si s'accepten ordres mitjançant D-Bus"
+msgstr "האם פקודות דרך D-Bus מקבלות התייחסות"
 
 #. i18n: ectx: Menu (move)
 #: knightsui.rc:22
 #, kde-format
 msgid "Move"
-msgstr "Mou"
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knightsui.rc:38
 #, kde-format
 msgid "Main Toolbar"
-msgstr "Barra d'eines principal"
+msgstr ""
 
 #. i18n: ectx: ToolBar (actionsToolbar)
 #: knightsui.rc:45
 #, kde-format
 msgid "Game Actions Toolbar"
-msgstr "Barra d'eines accions de la partida"
+msgstr ""
 
 #. i18n: ectx: ToolBar (dockToolBar)
 #: knightsui.rc:58
 #, kde-format
 msgid "Dockable Windows Toolbar"
-msgstr "Barra d'eines de finestres acoblable"
+msgstr ""
 
 #: knightsview.cpp:91
 #, kde-format
 msgid "Settings changed"
-msgstr "S'ha canviat la configuració"
+msgstr "ההגדרות השתנו"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
 #: knightsview_base.ui:14 main.cpp:46
 #, kde-format
 msgid "Knights"
-msgstr "Escacs"
+msgstr "אבירים"
 
 #: main.cpp:48
 #, kde-format
 msgid "KDE Chess Board"
-msgstr "Tauler d'escacs de KDE"
+msgstr "לוח שחמט של KDE"
 
 #: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
+msgstr ""
 
 #: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
-msgstr "Alexander Semke"
+msgstr ""
 
 #: main.cpp:53
 #, kde-format
 msgid "Miha Čančula"
-msgstr "Miha Čančula"
+msgstr ""
 
 #: main.cpp:55
 #, kde-format
 msgid "Troy Corbin"
-msgstr "Troy Corbin"
+msgstr "טרוי קורבין"
 
 #: main.cpp:55
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
-msgstr "Autor original de KNights per a KDE 3, així com del tema"
+msgstr "משחק האבירים המקורי ל־KDE3 ויוצר ערכת העיצוב"
 
 #: main.cpp:57
 #, kde-format
 msgid "Dave Kaye"
-msgstr "Dave Kaye"
+msgstr "דייב קיי"
 
 #: main.cpp:57
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
-msgstr ""
-"Ajuda amb les noves característiques de tema i representació sense "
-"KGameRenderer"
+msgstr "עזרה עם יכולות של ערכות עיצוב חדשות ועיבוד בלי KGameRenderer"
 
 #: main.cpp:58
 #, kde-format
 msgid "Thomas Kamps"
-msgstr "Thomas Kamps"
+msgstr "תומס קמפס"
 
 #: main.cpp:58
 #, kde-format
 msgid "Clock displaying the remaining time"
-msgstr "Visualització del rellotge i temps restant"
+msgstr "שעון שמציג את הזמן שנותר"
 
 #: main.cpp:65
 #, kde-format
 msgid "Document to open"
-msgstr "Document que s'ha d'obrir"
+msgstr "מסמך לפתיחה"
 
 #: offerwidget.cpp:21
 #, kde-format
 msgctxt "@action"
 msgid "Accept"
-msgstr "Accepta"
+msgstr "קבלה"
 
 #: offerwidget.cpp:24
 #, kde-format
 msgctxt "@action"
 msgid "Decline"
-msgstr "Declina"
+msgstr "דחייה"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: popup.ui:37 proto/ficsprotocol.cpp:118 proto/ficsprotocol.cpp:195
 #, kde-format
 msgid "Accept"
-msgstr "Accepta"
+msgstr "קבלה"
 
 #. i18n: ectx: property (text), widget (QPushButton, declineButton)
 #: popup.ui:44 proto/ficsprotocol.cpp:199
 #, kde-format
 msgid "Decline"
-msgstr "Declina"
+msgstr "דחייה"
 
 #. i18n: ectx: property (text), widget (QPushButton, closeButton)
 #: popup.ui:51
 #, kde-format
 msgid "Close"
-msgstr "Tanca"
+msgstr "סגירה"
 
 #. i18n: ectx: property (title), widget (QGroupBox, external_box)
 #: prefs_access.ui:17
 #, kde-format
 msgid "External Programs"
-msgstr "Programes externs"
+msgstr "תוכניות חיצוניות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
 #: prefs_access.ui:23
 #, kde-format
 msgid "Speak opponent's moves"
-msgstr "Llig els moviments de l'adversari"
+msgstr "הקראת מהלכי היריב"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
 #: prefs_access.ui:30
 #, kde-format
 msgid "Allow other programs to control Knights"
-msgstr "Permet que altres programes controlen KNights"
+msgstr "לאפשר לתוכניות אחרות לשלוט במשחק אבירים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, animationGroup)
 #: prefs_base.ui:17
 #, kde-format
 msgid "Animations"
-msgstr "Animacions"
+msgstr "הנפשות"
 
 #. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
 #: prefs_base.ui:23
 #, kde-format
 msgid "&Animation speed:"
-msgstr "Velocitat de l'&animació:"
+msgstr "מ&הירות הנפשה:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
 #, kde-format
 msgid "Instant (no animation)"
-msgstr "Instantani (sense animació)"
+msgstr "מיידית (ללא הנפשה)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:39
 #, kde-format
 msgid "Fast"
-msgstr "Ràpida"
+msgstr "מהירה"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:44
 #, kde-format
 msgid "Normal"
-msgstr "Normal"
+msgstr "רגילה"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:49
 #, kde-format
 msgid "Slow"
-msgstr "Lenta"
+msgstr "איטית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_animateBoard)
 #: prefs_base.ui:57
 #, kde-format
 msgid "Animate the board as well"
-msgstr "Anima també el tauler"
+msgstr "להנפיש גם את הלוח"
 
 #. i18n: ectx: property (title), widget (QGroupBox, appearanceGroup)
 #: prefs_base.ui:67
 #, kde-format
 msgid "Appearance"
-msgstr "Aparença"
+msgstr "מראה"
 
 #. i18n: ectx: property (text), widget (QLabel, showMarkersForLabel)
 #: prefs_base.ui:76
 #, kde-format
 msgid "Show &markers for:"
-msgstr "Mostra els &marcadors per a:"
+msgstr "הצגת &סמנים עבור:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMarker)
 #: prefs_base.ui:86
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Legal moves"
-msgstr "Moviments legals"
+msgstr "מהלכים חוקיים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
 #: prefs_base.ui:99
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr "Moviments de l'adversari"
+msgstr "מהלכי היריב"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Check"
-msgstr "Escac"
+msgstr "בדיקה"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: prefs_base.ui:119
 #, kde-format
 msgid "Border display:"
-msgstr "Visualització de les vores:"
+msgstr "תצוגת מסגרת:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:127
 #, kde-format
 msgid "No borders"
-msgstr "Sense vores"
+msgstr "ללא מסגרת"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:132
 #, kde-format
 msgid "Only borders"
-msgstr "Només les vores"
+msgstr "מסגרת בלבד"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:137
 #, kde-format
 msgid "Borders and notation"
-msgstr "Vores i notació"
+msgstr "מסגרות והסברים"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: prefs_base.ui:148
 #, kde-format
 msgid "Behavior"
-msgstr "Comportament"
+msgstr "התנהגות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_playSounds)
 #: prefs_base.ui:154
 #, kde-format
 msgid "Play sounds"
-msgstr "Reproduïx els sons"
+msgstr "השמעת צלילים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
 #: prefs_base.ui:161
 #, kde-format
 msgid "Flip the board in local matches between humans"
-msgstr "Gira el tauler en les partides locals entre humans"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
 #: prefs_base.ui:168
 #, kde-format
 msgid "Show confirmation dialog before closing"
-msgstr "Mostra el diàleg de confirmació abans de tancar"
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
 #: promotiondialog.ui:14
 #, kde-format
 msgid "Pawn Promotion"
-msgstr "Promoció de peó"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: promotiondialog.ui:26
 #, kde-format
 msgid "Promote pawn to:"
-msgstr "Promou el peó a:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
 #, kde-format
 msgid "&Queen"
-msgstr "&Dama"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
 #, kde-format
 msgid "Roo&k"
-msgstr "&Torre"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
 #, kde-format
 msgid "B&ishop"
-msgstr "Alf&il"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
 #, kde-format
 msgid "&Knight"
-msgstr "&Cavall"
+msgstr ""
 
 #: proto/chatwidget.cpp:62
 #, kde-format
 msgid " says: "
-msgstr " diu: "
+msgstr ""
 
 #: proto/chatwidget.cpp:95
 #, kde-format
 msgid "You: "
-msgstr "Vós: "
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, sendButton)
 #: proto/chatwidget.ui:20
 #, kde-format
 msgid "Send"
-msgstr "Envia"
+msgstr "שליחה"
 
 #. i18n: ectx: property (text), widget (QToolButton, toolButton)
 #: proto/chatwidget.ui:51
@@ -1194,24 +1184,22 @@ msgstr "…"
 msgid ""
 "Program <code>%1</code> could not be started, please check that it is "
 "installed."
-msgstr ""
-"No s'ha pogut iniciar el programa <code>%1</code>, comproveu que estiga "
-"instal·lat."
+msgstr "לא ניתן להפעיל את התוכנית <code>%1</code>, נא לבדוק שהיא מותקנת."
 
 #: proto/computerprotocol.cpp:51
 #, kde-format
 msgid "Console for %1 (%2)"
-msgstr "Consola per a %1 (%2)"
+msgstr "מסוף עבור %1 (%2)"
 
 #: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
-msgstr "S'ha iniciat la sessió"
+msgstr "המפגש החל"
 
 #: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
-msgstr "S'està iniciant la sessió…"
+msgstr "כניסה לחשבון…"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1222,233 +1210,233 @@ msgstr "%1 (%2)"
 #: proto/ficsdialog.cpp:172
 #, kde-format
 msgid "<font color='red'>Error: %1</font>"
-msgstr "<font color='red'>Error: %1</font>"
+msgstr "<font color='red'>שגיאה: %1</font>"
 
 #. i18n: ectx: attribute (title), widget (QWidget, accountTab)
 #: proto/ficsdialog.ui:33
 #, kde-format
 msgid "Account"
-msgstr "Compte"
+msgstr "חשבון"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, accountTab)
 #: proto/ficsdialog.ui:36
 #, kde-format
 msgid "Log in to the chess server"
-msgstr "Inicia la sessió en el servidor d'escacs"
+msgstr "כניסה לשרת השחמט"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
 #, kde-format
 msgid "&Username:"
-msgstr "Nom d'&usuari:"
+msgstr "&שם משתמש:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
 #: proto/ficsdialog.ui:72
 #, kde-format
 msgid "This is a registered account"
-msgstr "Este és un compte enregistrat"
+msgstr "זה חשבון רשום"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
 #, kde-format
 msgid "&Password:"
-msgstr "&Contrasenya:"
+msgstr "&סיסמה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
 #, kde-format
 msgid "Log me in automatically"
-msgstr "Connecta'm automàticament"
+msgstr "כניסה אוטומטית"
 
 #. i18n: ectx: property (text), widget (QPushButton, logInButton)
 #: proto/ficsdialog.ui:109
 #, kde-format
 msgid "Log in"
-msgstr "Accés"
+msgstr "כניסה"
 
 #. i18n: ectx: property (text), widget (QPushButton, registerButton)
 #: proto/ficsdialog.ui:129
 #, kde-format
 msgid "Create an account"
-msgstr "Crea un compte"
+msgstr "יצירת חשבון"
 
 #. i18n: ectx: attribute (title), widget (QWidget, joinTab)
 #: proto/ficsdialog.ui:153
 #, kde-format
 msgid "Seek List"
-msgstr "Llista de busca"
+msgstr "רשימת חתירה"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
 #: proto/ficsdialog.ui:156
 #, kde-format
 msgid "Current ads arranged in a list"
-msgstr "Anuncis actuals ordenats en una llista"
+msgstr "מודעות נוכחיות מסודרות ברשימה"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:199
 #, kde-format
 msgid "Player"
-msgstr "Jugador"
+msgstr "שחקן"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:204
 #, kde-format
 msgid "Rating"
-msgstr "Classificació"
+msgstr "דירוג"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:209
 #, kde-format
 msgid "Time"
-msgstr "Temps"
+msgstr "זמן"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:214
 #, kde-format
 msgid "Increment"
-msgstr "Increment"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:219
 #, kde-format
 msgid "Rated"
-msgstr "Valorat"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:224
 #, kde-format
 msgid "Variant"
-msgstr "Variant"
+msgstr "הגוון"
 
 #. i18n: ectx: property (text), widget (QTableWidget, offerTable)
 #: proto/ficsdialog.ui:229
 #, kde-format
 msgid "Your color"
-msgstr "El vostre color"
+msgstr "הצבע שלך"
 
 #. i18n: ectx: attribute (title), widget (QWidget, graphTab)
 #: proto/ficsdialog.ui:238
 #, kde-format
 msgid "Seek Graph"
-msgstr "Gràfic de busca"
+msgstr "תרשים חתירה"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, graphTab)
 #: proto/ficsdialog.ui:241
 #, kde-format
 msgid "Current ads arranged by rating and duration"
-msgstr "Anuncis actuals ordenats per classificació i duració"
+msgstr "מודעות נוכחיות מסודרות לפי דירוג ומשך"
 
 #. i18n: ectx: attribute (title), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:258
 #, kde-format
 msgid "Challenges"
-msgstr "Desafiaments"
+msgstr "אתגרים"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, challengeTab)
 #: proto/ficsdialog.ui:261
 #, kde-format
 msgid "Post an ad for other players"
-msgstr "Publica un anunci per als altres jugadors"
+msgstr "פרסום מודעה לשחקנים האחרים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ratedCheckBox)
 #: proto/ficsdialog.ui:267
 #, kde-format
 msgid "Rated match"
-msgstr "Partida classificada"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoCheckBox)
 #: proto/ficsdialog.ui:274
 #, kde-format
 msgid "Automatically start the game"
-msgstr "Inicia automàticament la partida"
+msgstr "התחלת המשחק אוטומטית"
 
 #. i18n: ectx: property (text), widget (QPushButton, seekButton)
 #: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
 #, kde-format
 msgctxt "Start searching for opponents"
 msgid "Seek"
-msgstr "Busca d'adversaris"
+msgstr "חתירה"
 
 #. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
 #: proto/ficsdialog.ui:295
 #, kde-format
 msgid "Console"
-msgstr "Consola"
+msgstr "מסוף"
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, consoleTab)
 #: proto/ficsdialog.ui:298
 #, kde-format
 msgid "Use custom commands"
-msgstr "Utilitza ordres personalitzades"
+msgstr "להשתמש בפקודות מותאמות אישית"
 
 #: proto/ficsprotocol.cpp:117
 #, kde-format
 msgctxt "Stop searching for opponents"
 msgid "Unseek"
-msgstr "Para la busca"
+msgstr "ביטול חתירה"
 
 #: proto/ficsprotocol.cpp:119
 #, kde-format
 msgid "Help"
-msgstr "Ajuda"
+msgstr "עזרה"
 
 #: proto/ficsprotocol.cpp:140
 #, kde-format
 msgid "Server Console"
-msgstr "Consola del servidor"
+msgstr "מסוף שרת"
 
 #: proto/ficsprotocol.cpp:152
 #, kde-format
 msgid "Chat with %1"
-msgstr "Xat amb %1"
+msgstr "צ׳אט עם %1"
 
 #: proto/ficsprotocol.cpp:184
 #, kde-format
 msgid "Login failed"
-msgstr "No s'ha pogut fer l'inici de la sessió"
+msgstr "הכניסה נכשלה"
 
 #: proto/ficsprotocol.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr "Servidor d'escacs"
+msgstr "שרת שחמט"
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
 msgid "Invalid Password"
-msgstr "Contrasenya no vàlida"
+msgstr "סיסמה שגויה"
 
 #: proto/protocol.cpp:54
 #, kde-format
 msgid "No Error"
-msgstr "Sense error"
+msgstr "אין שגיאה"
 
 #: proto/protocol.cpp:57
 #, kde-format
 msgid "User Canceled"
-msgstr "Cancel·lació d'usuari"
+msgstr "משתמש ביטל"
 
 #: proto/protocol.cpp:60
 #, kde-format
 msgid "Network Error"
-msgstr "S'ha produït un error de la xarxa"
+msgstr "שגיאת רשת"
 
 #: proto/protocol.cpp:63
 #, kde-format
 msgid "Unknown Error"
-msgstr "S'ha produït un error desconegut"
+msgstr "שגיאה לא ידועה"
 
 #: proto/protocol.cpp:66
 #, kde-format
 msgid "Program Error"
-msgstr "S'ha produït un error de programa"
+msgstr "שגיאת תוכנית"
 
 #: proto/seekgraph.cpp:26
 #, kde-format
 msgid "Time limit [minutes]"
-msgstr "Límit de temps [minuts]"
+msgstr "מגבלת זמן [דקות]"
 
 #: proto/seekgraph.cpp:27
 #, kde-format
 msgid "Opponent's rating"
-msgstr "Classificació de l'adversari"
+msgstr "דירוג יריב"
