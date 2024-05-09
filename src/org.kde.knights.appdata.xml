@@ -392,6 +392,7 @@
       <li xml:lang="fi">Mahdollisten siirtojen, vastustajan viimeisimmän siirron ja šakkiasemien merkintä</li>
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
+      <li xml:lang="he">סמנים למהלכים אפשריים, הצעד האחרון של היריב ומקורות הבדיקה</li>
       <li xml:lang="hu">A lehetséges lépések, az ellenfél utolsó lépésének és a sakkforrások jelölése</li>
       <li xml:lang="id">Menandai langkah-langkah yang memungkinkan, langkah terakhir lawan dan sumber-sember pemeriksaan</li>
       <li xml:lang="it">Contrassegni per mosse possibili, ultima mossa dell'avversario e fonti di controllo</li>
@@ -431,6 +432,7 @@
       <li xml:lang="fi">Laudan reunat ja merkinnät</li>
       <li xml:lang="fr">Bordures du plateau et notations des sites</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
+      <li xml:lang="he">גבולות לוח והסברי אתר</li>
       <li xml:lang="hu">Táblaszegélyek és oldalsó jelölések</li>
       <li xml:lang="id">Notasi situs dan bingkai papan</li>
       <li xml:lang="it">Bordi scacchiera e annotazioni siti</li>
@@ -470,6 +472,7 @@
       <li xml:lang="fi">Täydellinen ajanhallinta Plasma-tyylin kelloin</li>
       <li xml:lang="fr">Contrôle du temps intégral, avec des horloges de style Plasma</li>
       <li xml:lang="gl">Control completo do tempo con reloxos co estilo de Plasma.</li>
+      <li xml:lang="he">בקרת זמן מלאה עם שעונים בסגנון פלזמה</li>
       <li xml:lang="hu">Teljes idővezérlés Plasma-stílusú órákkal</li>
       <li xml:lang="id">Kendali waktu yang lengkap, dengan jam gaya Plasma</li>
       <li xml:lang="it">Controllo totale del tempo, con orologi in stile Plasma</li>
@@ -509,6 +512,7 @@
       <li xml:lang="fi">Useita teemoja ja mahdollisuus ladata niitä lisää ohjelman sisältä</li>
       <li xml:lang="fr">Plusieurs thèmes et la possibilité d'en télécharger de nouveaux au sein du programme</li>
       <li xml:lang="gl">Varios temas, coa posibilidade de descargar temas novos desde o propio programa.</li>
+      <li xml:lang="he">מגוון ערכות עיצוב, עם אפשרות להוריד חדשות ישירות מתוך התוכנית</li>
       <li xml:lang="hu">Számos téma, újak letöltésének lehetőségével a programon belül</li>
       <li xml:lang="id">Bebrapa tema, dengan secara mungkin dapat mengunduhnya yang baru dari program</li>
       <li xml:lang="it">Temi diversi, con la possibilità di scaricarne nuovi all'interno del programma</li>
@@ -548,6 +552,7 @@
       <li xml:lang="fi">Animoidut siirrot (mukautettavissa)</li>
       <li xml:lang="fr">Déplacements animés (configurable)</li>
       <li xml:lang="gl">Movementos animados configurábeis.</li>
+      <li xml:lang="he">מהלכים מונפשים (אפשר להגדיר)</li>
       <li xml:lang="hu">Animált lépések (beállítható)</li>
       <li xml:lang="id">Langkah teranimasi (dapat dikonfigurasi)</li>
       <li xml:lang="it">Mosse animate (configurabile)</li>
@@ -587,6 +592,7 @@
       <li xml:lang="fi">Šakkipalvelinpelinäkymät hakukaavioineen, tekstikonsoleineen ja keskustelupaneeleineen</li>
       <li xml:lang="fr">Fonctionnalités pour jouer sur un serveur d'échecs, notamment un graphique de recherche, une console texte et un composant graphique de discussion</li>
       <li xml:lang="gl">Vistas para xogar en servidores de xadrez, entre elas un grafo de busca, unha consola de texto, e un trebello de charla.</li>
+      <li xml:lang="he">תצוגות למשחק על שרת שחמט, כולל תרשים חתימה, מסוף טקסט וחלונית צ׳אט</li>
       <li xml:lang="hu">Nézetek a sakkszervereken való játékhoz, beleértve a keresési gráfot, a szöveges konzolt és a chatablakot</li>
       <li xml:lang="id">Menampilkan pemainan pada server catur, termasuk grafik jangka, konsol teks, dan widget chat</li>
       <li xml:lang="it">Viste per il gioco in un server di scacchi, incluso un grafico per la ricerca, una consolle testuale e un'estensione per la chat</li>
@@ -626,6 +632,7 @@
       <li xml:lang="fi">Siirtojen perumis- ja uudelleentekemismahdollisuus</li>
       <li xml:lang="fr">Options pour annuler et refaire des mouvements</li>
       <li xml:lang="gl">Opción de desfacer e refacer movementos.</li>
+      <li xml:lang="he">אפשרות להסיג ולבצע מהלכים שוב</li>
       <li xml:lang="hu">Lehetőség lépések visszavonására és újra végrehajtására</li>
       <li xml:lang="id">Opsi untuk urung dan ulang langkah</li>
       <li xml:lang="it">Opzione per annullare e rifare le mosse</li>
@@ -665,6 +672,7 @@
       <li xml:lang="fi">Graafinen käyttöliittymä etäpelitarjousten tekemiseksi ja vastaanottamiseksi</li>
       <li xml:lang="fr">Interface graphique pour envoyer et recevoir des offres avec des joueurs à distance</li>
       <li xml:lang="gl">Interface gráfica para realizar e recibir ofertas de xogadores remotos.</li>
+      <li xml:lang="he">ממשק גרפי להגשה וקבלת הצעות משחקנים מרוחקים</li>
       <li xml:lang="hu">Grafikus felület a távoli játékosok ajánlatainak megtételéhez és fogadásához</li>
       <li xml:lang="id">Antarmuka grafik untuk membuat dan menerima penawaran pemain jarak jauh</li>
       <li xml:lang="it">Interfaccia grafica per formulare e ricevere sfide dai giocatori remoti</li>
@@ -704,6 +712,7 @@
       <li xml:lang="fi">Tuki UCI-yhteyskäytännölle (jota käyttävät mm. Stockfish ja Chessbase)</li>
       <li xml:lang="fr">Prise en charge du protocole « UCI » (utilisé par Stockfish, Chessbase et bien d'autres)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
+      <li xml:lang="he">תמיכה בפרוטוקול UCI (שמשמש את Stockfish, Chessbase ועוד רבים נוספים)</li>
       <li xml:lang="hu">A Stockfish, Chessbase és mások által használt UCI-protokoll támogatása</li>
       <li xml:lang="id">Dukungan untuk protokol UCI (digunakan oleh Stockfish, Chessbase, dan banyak lainnya)</li>
       <li xml:lang="it">Supporto per il protocollo UCI (usato da Stockfish, Chessbase e molti altri)</li>
@@ -743,6 +752,7 @@
       <li xml:lang="fi">Siirrettävien pelinotaatiotiedostojen (PGN) tallennuksen ja latauksen tuki</li>
       <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers « PGN » (Notation portable de jeu)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida portátil (PGN).</li>
+      <li xml:lang="he">תמיכה בשמירה וטעינה של קובצי PGN - הסברי משחק ניידים</li>
       <li xml:lang="hu">Hordozható játékábrázolások (PGN-fájlok) mentése és betöltése</li>
       <li xml:lang="id">Dukungan untuk menyimpan dan memuat file-file (PGN) notasi permainan Portable</li>
       <li xml:lang="it">Supporto per il salvataggio e il caricamento dei file Portable game notation (PGN)</li>
@@ -782,6 +792,7 @@
       <li xml:lang="fi">Vastustajan siirtojen kertominen ääneen Joviella, KDE:n puhesyntetisaattorilla</li>
       <li xml:lang="fr">Utilisation de Jovie, le programme de synthèse vocale de KDE, pour annoncer les mouvements de l'adversaire</li>
       <li xml:lang="gl">Uso de Jovie, o programa de texto-para-fala de KDE para narrar os movementos do contrincante.</li>
+      <li xml:lang="he">שימוש ב־Jovie, תוכנית ההקראה של KDE כדי להקריא את מהלכי היריב</li>
       <li xml:lang="hu">A Jovie, a KDE szövegfelolvasó programjának használata az ellenfél lépéseinek felolvasásához</li>
       <li xml:lang="id">Gunakan Jovie, program KDE text-to-speech untuk berbicara saat lawan bergerak</li>
       <li xml:lang="it">Uso di Jovie, il programma di lettura vocale KDE, per dire le mosse dell'avversario</li>
@@ -1101,6 +1112,7 @@
       <caption xml:lang="fi">Verkkopelaaminen – graafinen hakukaavio</caption>
       <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
       <caption xml:lang="gl">Xogar por Internet — Grafo de busca gráfico</caption>
+      <caption xml:lang="he">משחק מקוון - תרשים חתירה חזותי</caption>
       <caption xml:lang="hu">Online játék - grafikus keresési gráf</caption>
       <caption xml:lang="id">Bermain online - grafik Seek-Graph</caption>
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
