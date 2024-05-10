@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2024-03-20 21:54+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -411,7 +411,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Spielverlauf"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "Aufgeben"
@@ -501,7 +501,7 @@ msgstr "Chat anzeigen"
 msgid "Open File"
 msgstr "Datei öffnen"
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable Spielnotation (*.pgn)"
@@ -516,65 +516,72 @@ msgstr "Allgemein"
 msgid "Computer Engines"
 msgstr "Schach-Module"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, fuzzy, kde-format
+#| msgid "Accessibility"
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr "Zugangshilfen"
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "Design"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Möchten Sie wirklich aufgeben?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Aufgeben"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Spiel beendet"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Das Spiel endet Remis"
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Das Spiel endet mit einem Sieg für <em>Weiß</em>"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Das Spiel endet mit einem Sieg für <em>Schwarz</em>"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr ""
 "Das Spiel endete mit einem Sieg für <em>%1</em>, mit den weißen Figuren."
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr ""
 "Das Spiel endete mit einem Sieg für <em>%1</em>, mit den schwarzen Figuren."
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 gg. %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -583,12 +590,12 @@ msgstr ""
 "Dies beendet die Partie.\n"
 "Möchten Sie den Spielverlauf speichern?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr "Speichern"
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1396,9 +1403,6 @@ msgstr "Zeitbegrenzung [Minuten]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Bewertung des Gegners"
-
-#~ msgid "Accessibility"
-#~ msgstr "Zugangshilfen"
 
 #~ msgid "Chess board based on KF5"
 #~ msgstr "Schachspiel für KF5"

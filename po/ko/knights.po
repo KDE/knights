@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 한국어 번역\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2024-02-09 23:48+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -402,7 +402,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "이동 기록"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "물러나기"
@@ -492,7 +492,7 @@ msgstr "채팅 표시"
 msgid "Open File"
 msgstr "파일 열기"
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "포터블 게임 표기법 (*.pgn)"
@@ -507,63 +507,69 @@ msgstr "일반"
 msgid "Computer Engines"
 msgstr "컴퓨터 엔진"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, kde-format
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr ""
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "테마"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "정말로 물러나시겠습니까?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "물러나기"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "게임 끝"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "경기가 무승부로 끝났습니다"
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "게임이 <em>화이트</em>의 승리로 끝났습니다"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "게임이 <em>블랙</em>의 승리로 끝났습니다"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "경기가 <em>%1</em> 님의 승리로 끝났고, 화이트로 게임을 했습니다"
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "경기가 <em>%1</em> 님의 승리로 끝났고, 블랙으로 게임을 했습니다"
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 대 %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -572,12 +578,12 @@ msgstr ""
 "이것으로 게임이 종료됩니다.\n"
 "이전 기록을 저장하시겠습니까?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr "저장"
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

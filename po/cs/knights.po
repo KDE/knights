@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2024-01-19 15:50+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -418,7 +418,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Historie přesunů"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "Vzdát se"
@@ -508,7 +508,7 @@ msgstr "Zobrazit rozhovor"
 msgid "Open File"
 msgstr "Otevřít soubor"
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Přenositelný záznam hry (*.pgn)"
@@ -523,63 +523,69 @@ msgstr "Obecné"
 msgid "Computer Engines"
 msgstr "Počítačové stroje"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, kde-format
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr ""
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "Motiv"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Opravdu se chcete vzdát?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Vzdát se"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Konec hry"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Hra skončila remízou"
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Hra skončila vítězstvím <em>bílého</em>"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Hra skončila vítězstvím <em>černého</em>"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Hra skončila vítězstvím hráče <em>%1</em>, hrajícího s bílými"
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Hra skončila vítězstvím hráče <em>%1</em>, hrajícího s černými"
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 vs %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -588,12 +594,12 @@ msgstr ""
 "Toto ukončí vaši hru.\n"
 "Přejete si uložit historii tahů?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr "Uložit"
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

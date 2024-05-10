@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2015-01-26 17:05+0200\n"
 "Last-Translator: Yasen Pramatarov <yasen@lindeas.com>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
@@ -409,7 +409,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "&Запазване на историята"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "Предаване"
@@ -499,7 +499,7 @@ msgstr "Показване на разговор"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr ""
@@ -514,64 +514,70 @@ msgstr "Общи"
 msgid "Computer Engines"
 msgstr "Компютърни програми"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, kde-format
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr ""
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "Тема"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr ""
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Предаване"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Партията приключи"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Партията завърши с реми"
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, fuzzy, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Партията завърши с победа за <emphasis>белите</emphasis>"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, fuzzy, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Партията завърши с победа за <emphasis>черните</emphasis>"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, fuzzy, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Партията завърши с победа за <emphasis>%1</emphasis>, играещ с белите"
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, fuzzy, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Партията завърши с победа за <emphasis>%1</emphasis>, играещ с черните"
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 срещу %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -580,12 +586,12 @@ msgstr ""
 "Това ще прекрати партията..\n"
 "Искате ли да се запази история на ходовете?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr ""
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Save As"

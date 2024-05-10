@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2019-11-11 19:17+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -420,7 +420,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Käikude ajalugu"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "Alistu"
@@ -510,7 +510,7 @@ msgstr "Vestluse näitamine"
 msgid "Open File"
 msgstr "Faili avamine"
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Porditav mängu üleskirjutus (*.pgn)"
@@ -525,65 +525,72 @@ msgstr "Üldine"
 msgid "Computer Engines"
 msgstr "Arvutimootorid"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, fuzzy, kde-format
+#| msgid "Accessibility"
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr "Hõlbustus"
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "Teema"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Kas tõesti alistuda?"
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Alistu"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Mäng on läbi"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Mäng lõppes viigiga"
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Mäng lõppes <em>valgete</em> võiduga"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Mäng lõppes <em>mustade</em> võiduga"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Mäng lõppes mängija <em>%1</em> võiduga, kes mängis valgetega"
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Mäng lõppes mängija <em>%1</em> võiduga, kes mängis mustadega"
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 vs %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -592,12 +599,12 @@ msgstr ""
 "See lõpetab mängu?\n"
 "Kas soovid salvestada käikude ajaloo?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr "Salvestamine"
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, fuzzy, kde-format
 #| msgid "Save As"
 msgctxt "@title:window"
@@ -1402,9 +1409,6 @@ msgstr "Ajapiirang [minutites]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Vastase reiting"
-
-#~ msgid "Accessibility"
-#~ msgstr "Hõlbustus"
 
 #, fuzzy
 #~| msgid "Chess board based on KDE Development Platform 4"

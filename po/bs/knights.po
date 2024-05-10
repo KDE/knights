@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-07 00:36+0000\n"
+"POT-Creation-Date: 2024-05-10 02:28+0000\n"
 "PO-Revision-Date: 2014-10-20 19:25+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <kde-i18n-bs@kde.org>\n"
@@ -449,7 +449,7 @@ msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Historija kretanja"
 
-#: knights.cpp:192 knights.cpp:481
+#: knights.cpp:192 knights.cpp:483
 #, kde-format
 msgid "Resign"
 msgstr "Predaj"
@@ -539,7 +539,7 @@ msgstr "Prikaži ćaskanje"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:295 knights.cpp:650 knights.cpp:673
+#: knights.cpp:295 knights.cpp:652 knights.cpp:675
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
@@ -555,36 +555,43 @@ msgstr "Opšte"
 msgid "Computer Engines"
 msgstr "Kompjuterski motori"
 
-#: knights.cpp:473
+#: knights.cpp:470
+#, fuzzy, kde-format
+#| msgid "Accessibility"
+msgctxt "@title:tab"
+msgid "Accessibility"
+msgstr "Pristupačnost"
+
+#: knights.cpp:475
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
 
-#: knights.cpp:481
+#: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr ""
 
-#: knights.cpp:482
+#: knights.cpp:484
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Predaj"
 
-#: knights.cpp:529
+#: knights.cpp:531
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
 msgid "Game over"
 msgstr "Kraj igre"
 
-#: knights.cpp:553
+#: knights.cpp:555
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Partija je završena remijem."
 
-#: knights.cpp:559
+#: knights.cpp:561
 #, fuzzy, kde-format
 #| msgctxt "White as in the player with white pieces"
 #| msgid "The game ended with a victory for <emphasis>White</emphasis>"
@@ -592,7 +599,7 @@ msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Igra je završena sa pobjedom za <emphasis>Bijele</emphasis>"
 
-#: knights.cpp:562
+#: knights.cpp:564
 #, fuzzy, kde-format
 #| msgctxt "Black as in the player with black pieces"
 #| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
@@ -600,7 +607,7 @@ msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Igra je završena sa pobjedom za <emphasis>Crne</emphasis>"
 
-#: knights.cpp:567
+#: knights.cpp:569
 #, fuzzy, kde-format
 #| msgctxt "Player name, then <White as in the player with white pieces"
 #| msgid ""
@@ -609,7 +616,7 @@ msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Igra je završena sa pobjedom za <emphasis>%1</emphasis>, igra Bijeli"
 
-#: knights.cpp:570
+#: knights.cpp:572
 #, fuzzy, kde-format
 #| msgctxt "Player name, then Black as in the player with black pieces"
 #| msgid ""
@@ -618,12 +625,12 @@ msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Igra je završena sa pobjedom za <emphasis>%1</emphasis>, igra Crni"
 
-#: knights.cpp:616
+#: knights.cpp:618
 #, kde-format
 msgid "%1 vs. %2"
 msgstr "%1 — %2"
 
-#: knights.cpp:629
+#: knights.cpp:631
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -632,12 +639,12 @@ msgstr ""
 "Ovo će završiti vašu igru.\n"
 "Da li želite sačuvati historiju poteza?"
 
-#: knights.cpp:649
+#: knights.cpp:651
 #, kde-format
 msgid "Save"
 msgstr ""
 
-#: knights.cpp:672
+#: knights.cpp:674
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -1453,9 +1460,6 @@ msgstr "Vremensko ograničenje [minuti]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Protivnikov rejting"
-
-#~ msgid "Accessibility"
-#~ msgstr "Pristupačnost"
 
 #, fuzzy
 #~| msgid "Chess board based on KDE Development Platform 4"
