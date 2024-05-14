@@ -705,7 +705,7 @@
       theme.  The theme supplies the images for the board, pieces, markers
       and other items.  To select a new theme, choose the theme's name from
       the selection list. You can also download new themes from the same page,
-      by pressing the <guibutton>Get New Themes…</guibutton> button. Themes
+      by pressing the <guibutton>Download New Themes…</guibutton> button. Themes
       are stored at kde-look.org under &knights;.</para>
 
       <note><para>For your convenience a quick preview screenshot will be

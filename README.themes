@@ -4,7 +4,7 @@ Knights theming guide and specification
 Knights, like most KDE games, uses .desktop and .svg files for theming. 
 
 The preferred method of publishing new themes, or variations to existing ones, is through the KDE-Look website at http://kde-look.org/?xcontentmode=86. 
-There you should upload a tarball of the three files below, and a preview or a screenshot of the theme for the Get New Themes dialog.
+There you should upload a tarball of the three files below, and a preview or a screenshot of the theme for the Download New Themes dialog.
 
 If this README is not clear enough, refer to the existing themes.
 
