@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-03 22:27+0200\n"
+"PO-Revision-Date: 2024-05-12 10:47+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -542,8 +542,7 @@ msgid "Computer Engines"
 msgstr "Simulatori computer"
 
 #: knights.cpp:470
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Accessibilità"

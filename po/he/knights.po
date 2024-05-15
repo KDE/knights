@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-09 08:11+0300\n"
+"PO-Revision-Date: 2024-05-14 19:18+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -426,13 +426,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr ""
+msgstr "היסטוריית מהלכים"
 
 #: knights.cpp:192
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr ""
+msgstr "לפרוש"
 
 #: knights.cpp:193
 #, kde-format
@@ -468,13 +468,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr ""
+msgstr "הצעת &תיקו"
 
 #: knights.cpp:214
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr ""
+msgstr "להציע תיקו ליריב"
 
 #: knights.cpp:219
 #, kde-format
@@ -509,112 +509,112 @@ msgstr ""
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
-msgstr ""
+msgstr "הצגת היסטוריה"
 
 #: knights.cpp:243
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr ""
+msgstr "הצגת מסוף ללבן"
 
 #: knights.cpp:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr ""
+msgstr "הצגת מסוף לשחור"
 
 #: knights.cpp:255
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr ""
+msgstr "הצגת צ׳אט"
 
 #: knights.cpp:294
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
-msgstr ""
+msgstr "פתיחת קובץ"
 
 #: knights.cpp:295 knights.cpp:653 knights.cpp:676
 #, kde-format
 msgid "Portable game notation (*.pgn)"
-msgstr ""
+msgstr "הסברי משחק ניידים (‎*.pgn)"
 
 #: knights.cpp:458
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr ""
+msgstr "כללי"
 
 #: knights.cpp:462
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr ""
+msgstr "מנועי המחשב"
 
 #: knights.cpp:470
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "נגישות"
 
 #: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr ""
+msgstr "ערכת עיצוב"
 
 #: knights.cpp:483
 #, kde-format
 msgid "Do you really want to resign?"
-msgstr ""
+msgstr "לפרוש?"
 
 #: knights.cpp:484
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr ""
+msgstr "לפרוש"
 
 #: knights.cpp:485
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
-msgstr ""
+msgstr "לפרוש"
 
 #: knights.cpp:532
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "המשחק הסתיים"
 
 #: knights.cpp:556
 #, kde-format
 msgid "The game ended in a draw"
-msgstr ""
+msgstr "המשחק הסתיים בתיקו"
 
 #: knights.cpp:562
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
-msgstr ""
+msgstr "המשחק הסתיים עם ניצחון לטובת ה<em>לבן</em>"
 
 #: knights.cpp:565
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
-msgstr ""
+msgstr "המשחק הסתיים עם ניצחון לטובת ה<em>שחור</em>"
 
 #: knights.cpp:570
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
-msgstr ""
+msgstr "המשחק הסתיים עם ניצחון לטובת <em>%1</em>, משחק כלבן"
 
 #: knights.cpp:573
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
-msgstr ""
+msgstr "המשחק הסתיים עם ניצחון לטובת <em>%1</em>, משחק כשחור"
 
 #: knights.cpp:619
 #, kde-format
@@ -864,7 +864,7 @@ msgstr "האם פקודות דרך D-Bus מקבלות התייחסות"
 #: knightsui.rc:22
 #, kde-format
 msgid "Move"
-msgstr ""
+msgstr "הזזה"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knightsui.rc:38
@@ -1125,37 +1125,37 @@ msgstr ""
 #: promotiondialog.ui:14
 #, kde-format
 msgid "Pawn Promotion"
-msgstr ""
+msgstr "קידום רגלי"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: promotiondialog.ui:26
 #, kde-format
 msgid "Promote pawn to:"
-msgstr ""
+msgstr "קידום רגלי ל־:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
 #, kde-format
 msgid "&Queen"
-msgstr ""
+msgstr "מ&לכה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
 #, kde-format
 msgid "Roo&k"
-msgstr ""
+msgstr "&צריח"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
 #, kde-format
 msgid "B&ishop"
-msgstr ""
+msgstr "&רץ"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
 #, kde-format
 msgid "&Knight"
-msgstr ""
+msgstr "&פרש"
 
 #: proto/chatwidget.cpp:62
 #, kde-format
@@ -1165,7 +1165,7 @@ msgstr ""
 #: proto/chatwidget.cpp:95
 #, kde-format
 msgid "You: "
-msgstr ""
+msgstr "אני:"
 
 #. i18n: ectx: property (text), widget (QPushButton, sendButton)
 #: proto/chatwidget.ui:20
