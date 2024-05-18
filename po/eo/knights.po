@@ -1,15 +1,15 @@
 # Translation of knights into esperanto.
 # Copyright (C) 2010 Free Software Foundation, Inc.
 # Axel Rousseau <axel@esperanto-jeunes.org>, 2010.
-# Oliver Kellogg <okellogg@users.sourceforge.net>, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-10 02:28+0000\n"
-"PO-Revision-Date: 2024-01-03 14:17+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-10 09:14+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Axel Rousseau,Oliver Kellogg"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "axel@esperanto-jeunes.org,okellogg@users.sourceforge.net"
+msgstr "axel@esperanto-jeunes.org,olivermkellogg@gmail.com"
 
 #: board.cpp:577
 #, kde-format
@@ -258,13 +258,13 @@ msgstr "Ŝakservilo:"
 #: gamedialog.ui:207
 #, kde-format
 msgid "&Use time control"
-msgstr "&Uzi tempokontrolon"
+msgstr "&Uzi temporegon"
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
 #, kde-format
 msgid "&Time control period:"
-msgstr "&Tempkontrolperiodo:"
+msgstr "&Temporega periodo:"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
@@ -295,7 +295,7 @@ msgstr "Blanka"
 #, kde-format
 msgctxt "The player of this color"
 msgid "Black"
-msgstr "Negra"
+msgstr "Nigra"
 
 #: gamemanager.cpp:523
 #, kde-format
@@ -341,7 +341,7 @@ msgstr "%1 ĝis %2"
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
-msgstr "Kontroli"
+msgstr "Marki"
 
 #: gamemanager.cpp:649
 #, kde-format
@@ -519,12 +519,12 @@ msgstr "Komputilaj Motoroj"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Alireblo"
 
 #: knights.cpp:475
 #, kde-format
 msgid "Theme"
-msgstr "Temo"
+msgstr "Etoso"
 
 #: knights.cpp:483
 #, kde-format
@@ -786,7 +786,7 @@ msgstr "la lasta elektita servilo"
 #: knights.kcfg:158
 #, kde-format
 msgid "username for the Free Internet Chess Server"
-msgstr "uzantnomo por la Senpaga Interreta Ŝakservilo"
+msgstr "uzantnomo por la Libera Interreta Ŝakservilo"
 
 #. i18n: ectx: label, entry (guest), group (Protocols)
 #: knights.kcfg:162
