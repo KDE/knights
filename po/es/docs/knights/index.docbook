@@ -54,6 +54,20 @@
 ><contrib
 >Traductora</contrib
 ></othercredit
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 
     </authorgroup>
@@ -116,7 +130,7 @@
     </note>
 
     <para
->&i18n-knights; es un juego de ajedrez. Como jugador, su objetivo es derrotar a su oponente capturando a su rey.</para>
+>&i18n-knights; es un juego de ajedrez. Como jugador, tu objetivo es derrotar a tu oponente capturando a su rey.</para>
   </chapter>
 
   <chapter id="how-to-play"
@@ -129,23 +143,23 @@
 >Objetivo</title>
 
       <para
->Mediante el movimiento de sus piezas, capturar las piezas de su oponente hasta que el rey de su oponente esté en peligro y no pueda realizar ningún movimiento para detener el ataque: esto se llama <quote
+>Mediante el movimiento de tus piezas, capturar las piezas de tu oponente hasta que su rey esté en peligro y no pueda realizar ningún movimiento para detener el ataque: esto se llama <quote
 >jaque mate </quote
 >.</para>
 
       <para
->Si parece que no puede ganar, puede jugar para quedar en tablas (empate). Mueva sus piezas hasta que ya no pueda hacer ningún movimiento legítimo y su rey no esté en peligro: esto se llama <quote
+>Si parece que no puedes ganar, puedes jugar para quedar en tablas (empate). Mueve tus piezas hasta que ya no puedas hacer ningún movimiento legítimo y tu rey no esté en peligro: esto se llama <quote
 >rey ahogado</quote
->. Hay disponibles otras formas de tablas dependiendo de las reglas de ajedrez que se hayan seguido durante el juego.</para>
+>. Se puede hacer tablas de otras formas según las reglas de ajedrez que se hayan seguido durante la partida.</para>
     </sect1>
 
     <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
     <sect1 id="starting-the-game">
       <title
->Iniciar el juego</title>
+>Empezar una partida</title>
 
       <para
->Cuando el programa se inicia o cuando el usuario selecciona la opción del menú <menuchoice
+>Tras lanzar el programa o cuando selecciones la opción del menú <menuchoice
 ><shortcut
 ><keycombo action="simul"
 >&Ctrl;<keycap
@@ -157,7 +171,7 @@
 > <guimenuitem
 >Nuevo</guimenuitem
 ></menuchoice
->, se muestra un diálogo. En este diálogo es posible especificar contra quién va a jugar, su color y los límites de tiempo.</para>
+>, se muestra un diálogo. En este diálogo puedes indicar contra quién vas a jugar, tu color y los límites de tiempo.</para>
 
       <screenshot>
         <screeninfo
@@ -171,8 +185,8 @@
       </screenshot>
 
       <para
->Si desea jugar contra un amigo en la misma máquina, seleccione <guilabel
->Humano (usted)</guilabel
+>Si quieres jugar contra un amigo en la misma máquina, selecciona <guilabel
+>Humano (tú)</guilabel
 > para el<guilabel
 >jugador 1 </guilabel
 > y <guilabel
@@ -182,15 +196,15 @@
 >.</para>
 
       <para
->Si desea jugar contra la máquina, seleccione <guilabel
->Humano (usted)</guilabel
+>Si quieres jugar contra la máquina, selecciona <guilabel
+>Humano (tú)</guilabel
 > para el <guilabel
 >jugador 1</guilabel
 > y <guilabel
 >Motor de la máquina</guilabel
 > para el <guilabel
 >jugador 2</guilabel
->. En esta lista desplegable, seleccione el programa contra el que le gustaría jugar y asegúrese de que está instalado en su equipo y de que admite los protocolos XBoard o <acronym
+>. En esta lista desplegable, selecciona el programa contra el que te gustaría jugar y asegúrate de que está instalado en tu equipo y de que admite los protocolos XBoard o <acronym
 >UCI</acronym
 >.</para>
 
@@ -203,38 +217,38 @@
 
       <note
 ><para
->Incluso si un programa está listado en el diálogo, no significa que esté instalado. Asegúrese de instalar cualquier motor de ajedrez contra el que desee jugar. Usted puede comprobar si un motor está instalado en su sistema o no en el diálogo <guilabel
+>Incluso si un programa está listado en el diálogo, no significa que esté instalado. Asegúrate de instalar cualquier motor de ajedrez contra el que quieras jugar. Puedes comprobar si un motor está instalado en el sistema en el diálogo <guilabel
 >Motores de ajedrez</guilabel
 >.</para
 ></note>
 
       <para
->Si desea jugar contra alguien a través de Internet, seleccione <guilabel
->Humano (usted)</guilabel
+>Si quieres jugar contra alguien a través de Internet, selecciona <guilabel
+>Humano (tú)</guilabel
 > para <guilabel
 >jugador 1 </guilabel
 > y <guilabel
 >Servidor de ajedrez</guilabel
 > para el <guilabel
 >jugador 2</guilabel
->. Antes de empezar a jugar, tendrá que iniciar la sesión en el servidor y encontrar un oponente. El Servidor Gratuito de Ajedrez por Internet (<ulink url="https://www.freechess.org/"
+>. Antes de empezar a jugar, tendrás que iniciar la sesión en el servidor y encontrar un oponente. El Servidor Gratuito de Ajedrez por Internet (<ulink url="https://www.freechess.org/"
 > FreeChess.org </ulink
->) admite invitados, pero tendrá que registrarse para jugar partidas que afecten a su calificación.</para>
+>) admite invitados, pero tendrás que registrarte para jugar partidas que afecten a tu calificación.</para>
 
       <para
->También puede ver cómo la máquina juega contra sí misma seleccionando <guilabel
+>También puedes ver cómo juega la máquina contra sí misma seleccionando <guilabel
 >Motor de la máquina:</guilabel
 > para ambos jugadores.</para>
 
       <para
->Asimismo, puede jugar una partida automática contra un oponente en un servidor de ajedrez. Sin embargo, observe que el servidor de ajedrez deberá tener una política respecto a dicha partida. La del Servidor Gratuito de Ajedrez por Internet está situada <ulink url="https://www.freechess. org/Help/HelpFiles/ computers.html"
+>Asimismo, puedes jugar una partida automática contra un oponente en un servidor de ajedrez. Sin embargo, observa que el servidor de ajedrez deberá tener una política respecto a dicha partida. La del Servidor Gratuito de Ajedrez por Internet está <ulink url="https://www.freechess. org/Help/HelpFiles/ computers.html"
 >aquí</ulink
 >.</para>
 
       <para
 >La casilla <guilabel
 >Control de tipo de uso</guilabel
-> le permite activar un temporizador opcional. &i18n-knights; usa el control del tiempo de ajedrez estándar, que tiene tres parámetros dentro de controles numéricos giratorios:</para>
+> permite activar un temporizador opcional. &i18n-knights; usa el control del tiempo de ajedrez estándar, que tiene tres parámetros dentro de controles numéricos giratorios:</para>
 
       <itemizedlist>
         <listitem
@@ -243,7 +257,7 @@
 >Periodo de control del tiempo:</guilabel
 > especifica el número de movimientos tras el cual se añade al reloj del jugador el <guilabel
 > Límite de tiempo inicial:</guilabel
->. Puede desactivar esta adición estableciendo el valor a cero.</para>
+>. Puedes desactivar esta adición estableciendo el valor a cero.</para>
         <note
 ><para
 >Esta opción no está disponible cuando se juega en un servidor de ajedrez.</para
@@ -259,24 +273,24 @@
 ><para
 >El <guilabel
 >Incremento por movimiento:</guilabel
-> especifica cuánto tiempo se añadirá al reloj del jugador tras cada movimiento que realice. Se puede establecer tranquilamente a cero para desactivar dicho incremento en el reloj.</para
+> especifica cuánto tiempo se añadirá al reloj del jugador tras cada movimiento que realice. Se puede establecer a cero para desactivar dicho incremento en el reloj.</para
 ></listitem>
       </itemizedlist>
 
       <para
 >Después de pulsar el botón <guibutton
 >Aceptar</guibutton
->, el diálogo se cerrará. Si seleccionó un jugador en un servidor de ajedrez, tendrá que iniciar la sesión y encontrar a su oponente. En caso contrario, la partida empezará inmediatamente.</para>
+>, el diálogo se cerrará. Si has seleccionado un jugador de un servidor de ajedrez, tendrás que iniciar la sesión y encontrar a tu oponente. En caso contrario, la partida empezará inmediatamente.</para>
 
       <note
 ><para
->&i18n-knights; cargará un tema predeterminado de manera automática una vez que inicie la partida y podrá empezar a jugar inmediatamente.</para
+>&i18n-knights; cargará un tema predeterminado de manera automática una vez que empieces la partida y podrás empezar a jugar inmediatamente.</para
 ></note>
     </sect1>
 
     <sect1 id="server-dialog">
       <title
->Diálogo de Servidor de ajedrez</title>
+>Diálogo del servidor de ajedrez</title>
 
       <screenshot>
         <screeninfo
@@ -290,14 +304,14 @@
       </screenshot>
 
       <para
->Si elige jugar en un servidor de ajedrez, primero debe iniciar la sesión en el servidor. Si tiene una cuenta en el servidor, teclee su nombre de usuario y contraseña y seleccione la casilla <guilabel
+>Si eliges jugar en un servidor de ajedrez, primero debes iniciar la sesión en el servidor. Si tienes una cuenta en el servidor, escribe tu nombre de usuario y contraseña y selecciona la casilla <guilabel
 >Esta es una cuenta registrada</guilabel
->. En caso contrario, escriba el nombre de usuario que desee y pulse el botón <guibutton
+>. En caso contrario, escribe el nombre de usuario que quieras y pulsa el botón <guibutton
 >Iniciar sesión</guibutton
 >.</para>
 
       <para
->Hay dos formas de elegir un oponente. Publicar un anuncio para su partida (lo que se llama una «búsqueda») o responder a la búsqueda de otra persona.</para>
+>Hay dos formas de elegir un oponente. Publicar un anuncio para la partida (lo que se llama una «búsqueda») o responder a la búsqueda de otra persona.</para>
 
       <screenshot>
         <screeninfo
@@ -311,13 +325,13 @@
       </screenshot>
 
       <para
->Para publicar la suya, vaya a la pestaña<guilabel
+>Para publicar el tuyo, ve a la pestaña<guilabel
 >Desafíos</guilabel
-> y pulse el botón <guibutton
+> y pulsa el botón <guibutton
 >Buscar</guibutton
->. Si había marcado <guilabel
+>. Si habías marcado <guilabel
 >Empezar la partida automáticamente</guilabel
->, una vez que un jugador haya aceptado su búsqueda empezará la partida inmediatamente. En caso contrario, tendrá que aceptar el desafío manualmente, seleccionando uno de la lista y pulsando el botón <guibutton
+>, una vez que un jugador haya aceptado tu búsqueda empezará la partida inmediatamente. En caso contrario, tendrás que aceptar el desafío manualmente seleccionando uno de la lista y pulsando el botón <guibutton
 >Aceptar</guibutton
 >.</para>
 
@@ -333,11 +347,11 @@
       </screenshot>
 
       <para
->Para responder a las búsquedas de otras personas, use la pestaña <guilabel
+>Para responder a las búsquedas de otras personas, usa la pestaña <guilabel
 >Lista de búsquedas</guilabel
 > o la pestaña <guilabel
 >Gráfico de búsqueda</guilabel
->. En cualquiera de las dos pestañas, seleccione la búsqueda pulsando sobre ella y después pulsando el botón <guibutton
+>. En cualquiera de las dos pestañas, selecciona la búsqueda pulsando sobre ella y pulsa después el botón <guibutton
 >Aceptar</guibutton
 >.</para>
 
@@ -348,16 +362,16 @@
           <imageobject
 ><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
           <caption
->La pestaña del grafico de búsquedas</caption>
+>La pestaña del gráfico de búsquedas</caption>
         </mediaobject>
       </screenshot>
 
       <para
->El gráfico de búsquedas muestra todas las búsquedas publicadas, ordenadas por la clasificación de los oponentes y por la duración de la partida. Pulsando en algún punto del gráfico, se acepta la búsqueda.</para>
+>El gráfico de búsquedas muestra todas las búsquedas publicadas, ordenadas por la clasificación de los oponentes y por la duración de la partida. Al pulsar en algún punto del gráfico, se acepta la búsqueda.</para>
 
       <note
 ><para
->Para un uso avanzado, &i18n-knights; proporciona acceso directo a la consola del servidor. Seleccione la pestaña <guilabel
+>Para un uso avanzado, &i18n-knights; proporciona acceso directo a la consola del servidor. Selecciona la pestaña <guilabel
 >Consola</guilabel
 > para usarla.</para
 ></note>
@@ -368,10 +382,10 @@
 >Jugar la partida</title>
 
       <para
->Las piezas se mueven haciendo clic sobre ellas y arrastrándolas hasta el punto deseado. Solo puede mover una pieza si es suya, si es su turno y si mover esa pieza no pone a su rey en peligro inmediato.</para>
+>Las piezas se mueven haciendo clic sobre ellas y arrastrándolas hasta el punto deseado. Solo puedes mover una pieza si es tuya, si es su turno y si mover esa pieza no pone a tu rey en peligro inmediato.</para>
 
       <para
->&i18n-knights; sigue las reglas del ajedrez estándar, así que no puede realizar movimientos no reglamentarios.</para>
+>&i18n-knights; sigue las reglas del ajedrez estándar, por lo que no puedes realizar movimientos no reglamentarios.</para>
     </sect1>
   </chapter>
 
@@ -428,10 +442,10 @@
 >Diseño del tablero</title>
 
         <para
->Un tablero de ajedrez se compone de 64 casillas iguales en dispuestas en ocho filas y ocho columnas. Las casillas se alternan en dos colores, blanco y negro. Se utilizan muchos materiales diferentes para hacer tableros de ajedrez, así que el color más claro se considera como blanco y el más oscuro se considera como negro.</para>
+>Un tablero de ajedrez se compone de 64 casillas iguales dispuestas en ocho filas y ocho columnas. Las casillas se alternan en dos colores, blanco y negro. Se usan muchos materiales diferentes para hacer tableros de ajedrez, así que el color más claro se considera como blanco y el más oscuro se considera como negro.</para>
 
         <para
->Partes del tablero que se conocen con nombre especiales:</para>
+>Partes del tablero que se conocen con nombres especiales:</para>
 
         <itemizedlist>
           <listitem
@@ -453,7 +467,7 @@
         </itemizedlist>
 
         <para
->Cada una de las casillas tiene un nombre, así que se puede mantener un registro de la partida. Existen varios sistemas de nomenclatura, pero la <quote
+>Cada una de las casillas tiene un nombre, por lo que se puede mantener un registro de la partida. Existen varios sistemas de nomenclatura, pero la <quote
 >notación algebraica</quote
 > es la más popular y el sistema oficial. En dicho sistema, cada casilla se nombra por la fila y la columna en la que se encuentra. Las filas se numeran del 1 al 8 empezando por el lado blanco del tablero hacia el lado negro del tablero. Las columnas se etiquetan en minúsculas de la «a» a la «h» de izquierda a derecha según el punto de vista del jugador blanco. La casilla se nombra por la letra seguida por el número. Así, la casilla de la esquina inferior izquierda se llama «a1». La estructura de la nomenclatura se puede ver en el siguiente diagrama:</para>
 
@@ -471,7 +485,7 @@
 >El tablero se gira, de manera que haya una casilla blanca en la primera fila, al lado derecho del jugador.</para>
 
         <para
->Las piezas se sitúan en los lados blanco y negro del tablero de la misma manera. En la primera fila empezando en ambos extremos y hacia dentro, se colocan las torres, los caballos y el alfil. En las dos casillas que faltan, se coloca la reina en la casilla de su color y el rey en la otra. Cuando se han colocado todas, las mismas piezas quedan cara a cara al otro lado del tablero. En la segunda fila se colocan los peones. La disposición final queda como se indica en el siguiente diagrama.</para>
+>Las piezas se sitúan en los lados blanco y negro del tablero de la misma manera. En la primera fila, empezando en ambos extremos y hacia dentro, se colocan las torres, los caballos y el alfil. En las dos casillas que faltan, se coloca la reina en la casilla de su color y el rey en la otra. Cuando se han colocado todas, las mismas piezas quedan cara a cara al otro lado del tablero. En la segunda fila se colocan los peones. La disposición final queda como se indica en el siguiente diagrama.</para>
 
         <mediaobject
 ><imageobject
@@ -488,18 +502,18 @@
 >Movimientos y capturas</title>
 
         <para
->El ajedrez tiene seis tipos de piezas: el peón, la torre, el caballo, el alfil, la reina y el rey. Cada pieza tiene su propia y exclusiva manera de moverse. Hay algunas similitudes entre los movimientos de las distintas piezas. Todas las piezas, excepto el caballo, se mueven en línea recta, de manera horizontal, vertical o diagonal. No se pueden mover más allá del final del tablero y volver por el otro lado. Ninguna pieza, excepto el caballo, puede saltar sobre las demás piezas: todas las casillas entre la casilla en la que comienza su movimiento y la que lo finaliza deben estar vacías. El movimiento no puede finalizar en un cuadrado que esté ocupado en ese momento por una pieza del mismo color.</para>
+>El ajedrez tiene seis tipos de piezas: el peón, la torre, el caballo, el alfil, la reina y el rey. Cada pieza tiene su propia y exclusiva manera de moverse. Hay algunas similitudes entre los movimientos de las distintas piezas. Todas las piezas, excepto el caballo, se mueven en línea recta, de manera horizontal, vertical o diagonal. No se pueden mover más allá del final del tablero ni volver por el otro lado. Ninguna pieza, excepto el caballo, puede saltar sobre las demás piezas: todas las casillas entre la casilla en la que comienza su movimiento y la que lo finaliza deben estar vacías. El movimiento no puede finalizar en un cuadrado que esté ocupado en ese momento por una pieza del mismo color.</para>
 
         <para
->Si la casilla en la que acaba su movimiento una pieza contiene una pieza del oponente, la pieza del oponente es <quote
+>Si la casilla en la que una pieza acaba el movimiento contiene una pieza del oponente, la pieza del oponente es <quote
 >capturada</quote
-> y se retira del juego. Todas las piezas pueden ser capturadas, excepto el rey. El juego termina en el movimiento anterior a la captura del rey: <quote
-> <link linkend="checkmate"
+> y se retira del juego. Todas las piezas se pueden capturar, excepto el rey. El juego termina en el movimiento anterior a la captura del rey: el <quote
+><link linkend="checkmate"
 >jaque mate</link
 ></quote
 >. La captura siempre requiere que la pieza atacante se coloque en la casilla de la pieza del oponente al realizar un movimiento normal. La única excepción es para la captura de un peón <link linkend="en_passant-movement"
 >al paso</link
->. No es necesario capturar una pieza cuando se presenta la oportunidad de hacerlo, la captura es una opción. La única ocasión en la que es obligatorio realizar una captura es cuando el rey está en peligro y la única forma de detener el ataque es capturar la pieza atacante.</para>
+>. No es necesario capturar una pieza cuando se presenta la oportunidad de hacerlo: la captura es opcional. La única ocasión en la que es obligatorio realizar una captura es cuando el rey está en peligro y la única forma de detener el ataque es capturar la pieza atacante.</para>
 
         <para
 >En la imagen que aparece a continuación, la torre puede moverse a la derecha, a la izquierda, arriba o abajo (de manera vertical u horizontal) en líneas rectas. Se puede mover hacia abajo y hacia la derecha cualquier número de casillas hasta alcanzar el borde del tablero. Dichas casillas tienen una X verde sobre ellas. Se puede mover un máximo de dos casillas a la izquierda. El resto del tablero está bloqueado por una pieza del mismo color, en este caso un caballo blanco. La torre no puede saltar sobre el caballo para alcanzar el borde del tablero. Solo puede moverse una casilla hacia arriba antes de toparse con el peón negro. Puede capturar al peón moviéndose dos casillas hacia arriba y cayendo sobre el peón, ya que el peón es una pieza oponente (pieza de distinto color). Dicha casilla tiene una X roja sobre ella. No puede saltar por encima del peón para alcanzar el borde del tablero. Por tanto, la torre tiene un total de diez casillas a las que puede desplazarse.</para>
@@ -510,7 +524,7 @@
 ></mediaobject>
 
         <para
->Para empezar la partida, las blancas mueven primero. Después, los jugadores se van alternando, haciendo un movimiento cada vez. En su turno, debe mover, no puede pasar.</para>
+>Para empezar la partida, las blancas mueven primero. Después, los jugadores se van alternando, haciendo un movimiento cada vez. En tu turno, debes mover: no puedes pasar.</para>
       </sect2>
 
       <sect2 id="pawn-movement">
@@ -531,7 +545,7 @@
         <para
 >El peón también está implicado en dos movimientos especiales. El primero es la <link linkend="en_passant-movement"
 >captura la paso</link
-> en la que el peón es capturado en su movimiento inicial de dos casillas. El segundo es la <link linkend="pawn-promotion-movement"
+>, en la que el peón es capturado en su movimiento inicial de dos casillas. El segundo es la <link linkend="pawn-promotion-movement"
 >promoción del peón</link
 >, en la que un peón se promociona a otra pieza cuando el peón alcanza el otro extremo del tablero.</para>
       </sect2>
@@ -558,7 +572,7 @@
 >Torre</title>
 
         <para
->La torre se mueve en una línea recta horizontal o vertical a lo largo de cualquier número de casillas desocupadas, hasta que alcanza el final del tablero o es bloqueado por otra pieza. No puede saltar sobre otras piezas. La torre captura de la misma manera en la que se mueve, ocupando la casilla en la que está la pieza oponente. La torre puede colocarse en cualquier casilla del tablero, por tanto es una de las piezas más poderosas.</para>
+>La torre se mueve en una línea recta horizontal o vertical a lo largo de cualquier número de casillas desocupadas, hasta que alcanza el final del tablero o es bloqueada por otra pieza. No puede saltar sobre otras piezas. La torre captura de la misma manera en la que se mueve, ocupando la casilla en la que está la pieza oponente. La torre puede colocarse en cualquier casilla del tablero, por tanto es una de las piezas más poderosas.</para>
 
         <mediaobject
 ><imageobject
@@ -576,9 +590,9 @@
 >Caballo</title>
 
         <para
->El caballo es la pieza más especial en el ajedrez, ya que tiene una flexibilidad que le hace una pieza poderosa. El caballo es la única pieza del tablero que puede saltar sobre otras piezas. El caballo se mueve dos casillas en dirección horizontal o vertical y después una casilla más en ángulo recto. El movimiento del caballo tiene la forma de una <quote
+>El caballo es la pieza más especial en el ajedrez, ya que tiene una flexibilidad que la convierte en una pieza poderosa. El caballo es la única pieza del tablero que puede saltar sobre otras piezas. El caballo se mueve dos casillas en dirección horizontal o vertical y después una casilla más en ángulo recto. El movimiento del caballo tiene la forma de una <quote
 >L </quote
->. El caballo siempre se cae sobre una casilla del color contrario a la de su casilla inicial. El caballo puede saltar sobre piezas de cualquier color mientras se mueve hasta su casilla de destino, pero no captura a ninguna de las piezas sobre las que salte. El caballo realiza la captura colocándose en la casilla de la pieza oponente. El caballo no puede colocarse en una casilla ocupada por una pieza del mismo color. Como el movimiento del caballo no es en línea recta, puede atacar a una reina, a un alfil o a una torre sin ser atacado por dichas piezas de manera recíproca.</para>
+>. El caballo siempre acaba sobre una casilla de color contrario a la de su casilla inicial. El caballo puede saltar sobre piezas de cualquier color mientras se mueve hasta su casilla de destino, pero no captura a ninguna de las piezas sobre las que salta. El caballo realiza la captura colocándose en la casilla de la pieza oponente. El caballo no puede colocarse en una casilla ocupada por una pieza del mismo color. Como el movimiento del caballo no es en línea recta, puede atacar a una reina, a un alfil o a una torre sin ser atacado por dichas piezas de manera recíproca.</para>
 
         <mediaobject
 ><imageobject
@@ -591,7 +605,7 @@
 >Reina</title>
 
         <para
->La reina se considera como la pieza más poderosa del tablero. Se puede mover cualquier número de casillas en línea recta, tanto de manera horizontal como vertical o diagonal. La reina se mueve como la torre y el alfil juntos. Excepto en una captura, la reina se debe mover a una casilla desocupada y no puede saltar sobre otras piezas. La reina captura de la misma manera en la que se desplaza, colocándose en la casilla de la pieza oponente.</para>
+>La reina se considera la pieza más poderosa del tablero. Se puede mover cualquier número de casillas en línea recta, tanto de manera horizontal como vertical o diagonal. La reina se mueve como la torre y el alfil juntos. Excepto cuando captura, la reina se debe mover a una casilla desocupada y no puede saltar sobre otras piezas. La reina captura de la misma manera en la que se desplaza, colocándose en la casilla de la pieza oponente.</para>
 
         <mediaobject
 ><imageobject
@@ -719,7 +733,7 @@
 
         <note
 ><para
->Para enrocar en &i18n-knights;, mueva el rey dos casillas hacia la torre. &i18n-knights; completará el movimiento de enroque. No mueva la torre, ya que &i18n-knights; supondría que solo desea mover la torre y no enrocar.</para
+>Para enrocar en &i18n-knights;, mueve el rey dos casillas hacia la torre. &i18n-knights; completará el movimiento de enroque. No muevas la torre, ya que &i18n-knights; supondría que solo quieres mover la torre y no enrocar.</para
 ></note>
       </sect2>
 
@@ -753,11 +767,11 @@
 ></listitem>
           <listitem
 ><para
->Mueva el rey lejos del ataque a una casilla segura que no esté siendo atacada por una pieza del oponente.</para
+>Mover el rey lejos del ataque a una casilla segura que no esté siendo atacada por una pieza del oponente.</para
 ></listitem>
           <listitem
 ><para
->Bloquee el ataque colocando una pieza entre el atacante y el rey (no se puede hacer para ataques realizados por caballos o peones).</para
+>Bloquear el ataque colocando una pieza entre el atacante y el rey (no se puede hacer para ataques realizados por caballos o peones).</para
 ></listitem>
         </itemizedlist>
 
@@ -791,7 +805,7 @@
 ></listitem>
           <listitem
 ><para
->Tercera repetición: si la misma posición exactamente se repite al menos tres veces (no necesariamente mediante repetición de movimientos). Es necesario que los posibles movimientos de todas las piezas de ambos jugadores sean los mismos. Si ha cambiado la posibilidad de que un peón se capture al paso o la posibilidad de enrocar, la posición no es la misma, incluso si las piezas están en las mismas posiciones.</para
+>Tercera repetición: si se repite exactamente la misma posición al menos tres veces (no necesariamente mediante repetición de movimientos). Es necesario que los posibles movimientos de todas las piezas de ambos jugadores sean los mismos. Si ha cambiado la posibilidad de que un peón se capture al paso o la posibilidad de enrocar, la posición no es la misma, incluso si las piezas están en las mismas posiciones.</para
 ></listitem>
           <listitem
 ><para
@@ -822,7 +836,7 @@
           </listitem>
           <listitem
 ><para
->El tiempo se agota: si el tiempo de un jugador se agota y su a su oponente no le quedan suficientes piezas para hacer jaque mate (véase a continuación)</para
+>El tiempo se agota: si el tiempo de un jugador se agota y a su oponente no le quedan suficientes piezas para hacer jaque mate (véase a continuación)</para
 ></listitem>
           <listitem
 ><para
@@ -860,7 +874,7 @@
         </itemizedlist>
 
         <para
->Se considera material para dar mate a cualquier grupo de piezas excepto solo un rey, un rey y un alfil, o un rey y un caballo.</para>
+>Se considera material para dar mate a cualquier grupo de piezas excepto solo un rey, un rey y un alfil o un rey y un caballo.</para>
       </sect2>
     </sect1>
 
@@ -869,7 +883,7 @@
 >Controles de tiempo</title>
 
       <para
->Muchos juegos de ajedrez utilizan controles de tiempo para acelerar la partida o para asegurar que esta finaliza en un periodo de tiempo razonable. Hay dos tipos principales de controles de tiempo.</para>
+>Muchos juegos de ajedrez usan controles de tiempo para acelerar la partida o para asegurar que esta finaliza en un periodo de tiempo razonable. Hay dos tipos principales de controles de tiempo.</para>
 
       <para
 >El primer tipo de control de tiempo es el de movimientos por tiempo. En este tipo, un jugador debe completar un determinado número de movimientos dentro de un determinado periodo de tiempo.</para>
@@ -889,7 +903,7 @@
 >.</para>
 
       <para
->Los controles de tiempo varían ampliamente dependiendo de la partida, del tipo de partida y del patrocinador. Además, durante una partida, puede haber varios tipos de controles de tiempo combinados y tiempo no utilizado añadido al siguiente control del tiempo. Para todos los principales acontecimientos de la Federación Internacional de Ajedrez (FIDE) el control del tiempo es de 90 minutos para los primeros 40 movimientos seguido por 30 minutos de muerte súbita con 30 segundos adicionales por movimiento empezando desde el primer movimiento. Los valores predeterminados para el Servidor Gratuito de Ajedrez por Internet son dos minutos para la partida (muerte súbita) más 12 segundos de incremento de tiempo para cada movimiento. En muchos acontecimientos importantes se utilizan un control de tiempo de 90 minutos para muerte súbita. En el ajedrez relámpago de la Federación Estadounidense de Ajedrez, el control del tiempo es de 5 minutos para la partida, sin retardos ni incrementos de tiempo.</para>
+>Los controles de tiempo varían ampliamente dependiendo de la partida, del tipo de partida y del patrocinador. Además, durante una partida, puede haber varios tipos de controles de tiempo combinados y tiempo no utilizado añadido al siguiente control del tiempo. Para todos los principales acontecimientos de la Federación Internacional de Ajedrez (FIDE), el control del tiempo es de 90 minutos para los primeros 40 movimientos, seguido por 30 minutos de muerte súbita, con 30 segundos adicionales por movimiento empezando desde el primer movimiento. Los valores predeterminados para el Servidor Gratuito de Ajedrez por Internet son dos minutos para la partida (muerte súbita) más 12 segundos de incremento de tiempo para cada movimiento. En muchos acontecimientos importantes se usa un control de tiempo de 90 minutos para muerte súbita. En el ajedrez relámpago de la Federación Estadounidense de Ajedrez, el control del tiempo es de 5 minutos para la partida, sin retardos ni incrementos de tiempo.</para>
     </sect1>
   </chapter>
 
@@ -898,10 +912,10 @@
 >Marcadores</title>
 
     <para
->Los marcadores son una forma de resaltar las casillas del tablero. Se pueden utilizar para mostrar los movimientos reglamentarios de su pieza de ajedrez, para ver el movimiento anterior del oponente o para indicar un rey en jaque. Su color y forma dependen del tema que se esté utilizando. Se pueden activar o desactivar en la sección de preferencias generales del menú de configuración.</para>
+>Los marcadores son una forma de resaltar las casillas del tablero. Se pueden utilizar para mostrar los movimientos reglamentarios de su pieza de ajedrez, para ver el movimiento anterior del oponente o para indicar un rey en jaque. Su color y forma dependen del tema que se esté usando. Se pueden activar o desactivar en la sección de preferencias generales del menú de configuración.</para>
 
     <para
->Al hacer clic sobre su pieza durante su turno, se muestra un marcador sobre cada casilla a la que se puede mover esa pieza. La imagen muestra los movimientos reglamentarios para la reina blanca.</para>
+>Al hacer clic sobre una pieza durante tu turno, se muestra un marcador sobre cada casilla a la que se puedes mover dicha pieza. La imagen muestra los movimientos reglamentarios para la reina blanca.</para>
 
     <mediaobject
 ><imageobject
@@ -909,7 +923,7 @@
 ></mediaobject>
 
     <para
->Cuando su oponente ha hecho un movimiento, su último movimiento se indica mediante marcadores. Un marcador muestra la posición inicial de la pieza de ajedrez y el otro destaca la nueva posición de la pieza de ajedrez.</para>
+>Cuando tu oponente ha hecho un movimiento, su último movimiento se indica mediante marcadores. Un marcador muestra la posición inicial de la pieza de ajedrez y el otro destaca la nueva posición de la pieza de ajedrez.</para>
 
     <mediaobject
 ><imageobject
@@ -917,9 +931,9 @@
 ></mediaobject>
 
     <para
->Si el último movimiento de su oponente ha puesto a su rey en peligro, (<quote
+>Si el último movimiento de tu oponente ha puesto a tu rey en peligro, (<quote
 >jaque</quote
->), su rey y todas las piezas atacantes también se resaltarán.</para>
+>), tu rey y todas las piezas atacantes también se resaltarán.</para>
 
     <mediaobject
 ><imageobject
@@ -929,7 +943,7 @@
 
     <note
 ><para
->Puede que algunos temas no admitan todos los tipos de marcadores.</para
+>Es posible que algunos temas no admitan todos los tipos de marcadores.</para
 ></note>
   </chapter>
 
@@ -939,21 +953,21 @@
 ><!-- do not change this! -->
 
     <para
->El diálogo de configuración de &i18n-knights; le permite cambiar las opciones visuales, además de seleccionar temas para &i18n-knights;.</para>
+>El diálogo de configuración de &i18n-knights; permite cambiar las opciones visuales, además de seleccionar temas para &i18n-knights;.</para>
 
     <para
->Una vez que esté satisfecho con los cambios que ha elegido, puede aplicarlos pulsando el botón <guibutton
+>Una vez que estés conforme con los cambios que has realizado, puedes aplicarlos pulsando el botón <guibutton
 >Aplicar</guibutton
 > o el botón <guibutton
 >Aceptar</guibutton
->, situados en la parte inferior de este diálogo. Si pulsa el botón <guibutton
+>, situados en la parte inferior de este diálogo. Si pulsas el botón <guibutton
 >Aceptar</guibutton
-> también se cerrará el diálogo de configuración.</para>
+>, también se cerrará el diálogo de configuración.</para>
 
     <para
->Sin embargo, si no está contento con sus cambios, pulse el botón <guibutton
+>Por el contrario, si no estás conforme con los cambios, pulsa el botón <guibutton
 >Cancelar</guibutton
-> para descartar los cambios y cerrar el diálogo de configuración. Debe pulsar el botón <guibutton
+> para descartar los cambios y cerrar el diálogo de configuración. Debes pulsar el botón <guibutton
 >Cancelar</guibutton
 > antes de pulsar uno de los botones <guibutton
 >Aplicar</guibutton
@@ -968,13 +982,13 @@
       <para
 >La página <guilabel
 >General</guilabel
-> contiene opciones sobre la apariencia general de &i18n-knights;. Se pueden activar o modificar el tablero y las animaciones de las piezas. La sección de animaciones se basa en el software del sistema, por lo que es visible solo si las animaciones están disponibles. Está disponible girar el tablero, permitiendo que el tablero de ajedrez de &i18n-knights; se de la vuelta cuando se usa en una pantalla o estacionario cuando se usa en una tableta como remplazo de un tablero de ajedrez. Los tres tipos de <link linkend="markers"
+> contiene opciones sobre el aspecto visual general de &i18n-knights;. Se pueden activar o modificar el tablero y las animaciones de las piezas. La sección de animaciones se basa en el software del sistema, por lo que es visible solo si las animaciones están disponibles. Se puede girar el tablero, permitiendo que el tablero de ajedrez de &i18n-knights; se dé la vuelta cuando se usa en una pantalla o quede estacionario cuando se usa en una tableta como sustitución de un tablero de ajedrez real. Los tres tipos de <link linkend="markers"
 >marcadores</link
 > se pueden activar o desactivar. Los bordes alrededor del tablero se pueden activar con o sin notación algebraica mediante un menú desplegable.</para>
 
       <note
 ><para
->Puede que algunos temas no admitan marcadores, bordes o notaciones. En ese caso, la configuración no tendrá efecto sobre dichos elementos, pero se le recordarán por si vuelve a cambiar de tema.</para
+>Puede que algunos temas no admitan marcadores, bordes o notaciones. En ese caso, la configuración no tendrá efecto sobre dichos elementos, pero se recordarán por si vuelves a cambiar de tema.</para
 ></note>
     </sect1>
 
@@ -996,14 +1010,14 @@
       <para
 >La página <guilabel
 >Motores de la máquina</guilabel
-> le permite configurar sus oponentes de la máquina. Para cada motor debe especificar un nombre de programa, la orden a usar para lanzarlo y el protocolo que usa. &i18n-knights; permite el uso de dos protocolos para motores de ajedrez: XBoard y <acronym
+> permite configurar tus oponentes de la máquina. Para cada motor debes indicar un nombre de programa, la orden que se usará para lanzarlo y el protocolo que usa. &i18n-knights; permite el uso de dos protocolos para motores de ajedrez: XBoard y <acronym
 >UCI</acronym
 >.</para>
 
       <para
->Puede añadir un nuevo motor de configuración pulsando el botón <guibutton
+>Puedes añadir un nuevo motor de configuración pulsando el botón <guibutton
 >Añadir</guibutton
-> e introduciendo las tres opciones mencionadas con anterioridad. Un símbolo en las últimas columnas le indicará si el programa especificado está instalado en su equipo o no.</para>
+> e introduciendo las tres opciones mencionadas con anterioridad. Un símbolo en las últimas columnas indicará si el programa especificado está instalado en tu equipo o no.</para>
     </sect1>
 
     <sect1 id="configuration-themes">
@@ -1019,7 +1033,7 @@
 
       <note
 ><para
->Para su comodidad, se mostrará una vista previa de la captura de pantalla a la derecha de la lista de selección tan pronto como seleccione el tema en el que está interesado.</para
+>Para tu comodidad, se mostrará una vista previa de la captura de pantalla a la derecha de la lista de selección en cuanto selecciones el tema que te interesa.</para
 ></note>
     </sect1>
   </chapter>
@@ -1046,12 +1060,14 @@
 ></para>
 
     <para
->Traducido por Kira J. Fernández <email
+>Documentación traducida por Kira J. Fernández <email
 >kirajfdez@gmail.com</email
->.</para
-> <para
->Traducido por Rocío Gallego <email
+> y Rocío Gallego <email
 >traducciones@rociogallego.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 
