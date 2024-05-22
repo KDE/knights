@@ -485,7 +485,7 @@
 >El tablero se gira, de manera que haya una casilla blanca en la primera fila, al lado derecho del jugador.</para>
 
         <para
->Las piezas se sitúan en los lados blanco y negro del tablero de la misma manera. En la primera fila, empezando en ambos extremos y hacia dentro, se colocan las torres, los caballos y el alfil. En las dos casillas que faltan, se coloca la reina en la casilla de su color y el rey en la otra. Cuando se han colocado todas, las mismas piezas quedan cara a cara al otro lado del tablero. En la segunda fila se colocan los peones. La disposición final queda como se indica en el siguiente diagrama.</para>
+>Las piezas se sitúan en los lados blanco y negro del tablero de la misma manera. En la primera fila, empezando en ambos extremos y hacia dentro, se colocan las torres, los caballos y el alfil. En las dos casillas que faltan, se coloca la dama en la casilla de su color y el rey en la otra. Cuando se han colocado todas, las mismas piezas quedan cara a cara al otro lado del tablero. En la segunda fila se colocan los peones. La disposición final queda como se indica en el siguiente diagrama.</para>
 
         <mediaobject
 ><imageobject
@@ -502,7 +502,7 @@
 >Movimientos y capturas</title>
 
         <para
->El ajedrez tiene seis tipos de piezas: el peón, la torre, el caballo, el alfil, la reina y el rey. Cada pieza tiene su propia y exclusiva manera de moverse. Hay algunas similitudes entre los movimientos de las distintas piezas. Todas las piezas, excepto el caballo, se mueven en línea recta, de manera horizontal, vertical o diagonal. No se pueden mover más allá del final del tablero ni volver por el otro lado. Ninguna pieza, excepto el caballo, puede saltar sobre las demás piezas: todas las casillas entre la casilla en la que comienza su movimiento y la que lo finaliza deben estar vacías. El movimiento no puede finalizar en un cuadrado que esté ocupado en ese momento por una pieza del mismo color.</para>
+>El ajedrez tiene seis tipos de piezas: el peón, la torre, el caballo, el alfil, la dama y el rey. Cada pieza tiene su propia y exclusiva manera de moverse. Hay algunas similitudes entre los movimientos de las distintas piezas. Todas las piezas, excepto el caballo, se mueven en línea recta, de manera horizontal, vertical o diagonal. No se pueden mover más allá del final del tablero ni volver por el otro lado. Ninguna pieza, excepto el caballo, puede saltar sobre las demás piezas: todas las casillas entre la casilla en la que comienza su movimiento y la que lo finaliza deben estar vacías. El movimiento no puede finalizar en un cuadrado que esté ocupado en ese momento por una pieza del mismo color.</para>
 
         <para
 >Si la casilla en la que una pieza acaba el movimiento contiene una pieza del oponente, la pieza del oponente es <quote
@@ -559,7 +559,7 @@
 >negras</quote
 > y alfil de las casillas <quote
 >blancas</quote
->. Los alfiles también se pueden llamar según el lado en el que empiezan, alfil del rey o alfil de la reina.</para>
+>. Los alfiles también se pueden llamar según el lado en el que empiezan, alfil del rey o alfil de la dama.</para>
 
         <mediaobject
 ><imageobject
@@ -592,7 +592,7 @@
         <para
 >El caballo es la pieza más especial en el ajedrez, ya que tiene una flexibilidad que la convierte en una pieza poderosa. El caballo es la única pieza del tablero que puede saltar sobre otras piezas. El caballo se mueve dos casillas en dirección horizontal o vertical y después una casilla más en ángulo recto. El movimiento del caballo tiene la forma de una <quote
 >L </quote
->. El caballo siempre acaba sobre una casilla de color contrario a la de su casilla inicial. El caballo puede saltar sobre piezas de cualquier color mientras se mueve hasta su casilla de destino, pero no captura a ninguna de las piezas sobre las que salta. El caballo realiza la captura colocándose en la casilla de la pieza oponente. El caballo no puede colocarse en una casilla ocupada por una pieza del mismo color. Como el movimiento del caballo no es en línea recta, puede atacar a una reina, a un alfil o a una torre sin ser atacado por dichas piezas de manera recíproca.</para>
+>. El caballo siempre acaba sobre una casilla de color contrario a la de su casilla inicial. El caballo puede saltar sobre piezas de cualquier color mientras se mueve hasta su casilla de destino, pero no captura a ninguna de las piezas sobre las que salta. El caballo realiza la captura colocándose en la casilla de la pieza oponente. El caballo no puede colocarse en una casilla ocupada por una pieza del mismo color. Como el movimiento del caballo no es en línea recta, puede atacar a una dama, a un alfil o a una torre sin ser atacado por dichas piezas de manera recíproca.</para>
 
         <mediaobject
 ><imageobject
@@ -602,10 +602,10 @@
 
       <sect2 id="queen-movement">
         <title
->Reina</title>
+>Dama</title>
 
         <para
->La reina se considera la pieza más poderosa del tablero. Se puede mover cualquier número de casillas en línea recta, tanto de manera horizontal como vertical o diagonal. La reina se mueve como la torre y el alfil juntos. Excepto cuando captura, la reina se debe mover a una casilla desocupada y no puede saltar sobre otras piezas. La reina captura de la misma manera en la que se desplaza, colocándose en la casilla de la pieza oponente.</para>
+>La dama se considera la pieza más poderosa del tablero. Se puede mover cualquier número de casillas en línea recta, tanto de manera horizontal como vertical o diagonal. La dama se mueve como la torre y el alfil juntos. Excepto cuando captura, la dama se debe mover a una casilla desocupada y no puede saltar sobre otras piezas. La dama captura de la misma manera en la que se desplaza, colocándose en la casilla de la pieza oponente.</para>
 
         <mediaobject
 ><imageobject
@@ -720,8 +720,8 @@
 
         <para
 >La segunda forma de enrocar se llama <quote
->del lado de la reina</quote
->, en el cual el rey se mueve hacia la casilla que ha dejado libre la reina. También se conoce como <quote
+>del lado de la dama</quote
+>, en el cual el rey se mueve hacia la casilla que ha dejado libre la dama. También se conoce como <quote
 >enroque largo</quote
 >, ya que se realiza hacia el lado largo del tablero y la torre tiene que mover tres casilla hacia el lado opuesto del rey. Se muestra en el siguiente diagrama:</para>
 
@@ -744,7 +744,7 @@
         <para
 >Cuando un peón alcanza el borde del tablero, ya no puede moverse más, ya que siempre debe moverse hacia delante y nunca hacia atrás. Entonces, el peón se convierte (<quote
 >promociona</quote
->) en una reina, una torre, un alfil o un caballo. Esta promoción tiene lugar como parte del movimiento. Normalmente, la pieza elegida es la reina. A veces, se eligen las demás piezas cuando sus movimientos ayudan al jaque mate. El peón se puede convertir en una pieza, incluso si dicha pieza aún está en el tablero. Es decir, se pueden tener dos reinas o tres torres, alfiles o caballos jugando a la vez.</para>
+>) en una dama, una torre, un alfil o un caballo. Esta promoción tiene lugar como parte del movimiento. Normalmente, la pieza elegida es la dama. A veces, se eligen las demás piezas cuando sus movimientos ayudan al jaque mate. El peón se puede convertir en una pieza, incluso si dicha pieza aún está en el tablero. Es decir, se pueden tener dos damas o tres torres, alfiles o caballos jugando a la vez.</para>
       </sect2>
     </sect1>
 
@@ -915,7 +915,7 @@
 >Los marcadores son una forma de resaltar las casillas del tablero. Se pueden utilizar para mostrar los movimientos reglamentarios de su pieza de ajedrez, para ver el movimiento anterior del oponente o para indicar un rey en jaque. Su color y forma dependen del tema que se esté usando. Se pueden activar o desactivar en la sección de preferencias generales del menú de configuración.</para>
 
     <para
->Al hacer clic sobre una pieza durante tu turno, se muestra un marcador sobre cada casilla a la que se puedes mover dicha pieza. La imagen muestra los movimientos reglamentarios para la reina blanca.</para>
+>Al hacer clic sobre una pieza durante tu turno, se muestra un marcador sobre cada casilla a la que se puedes mover dicha pieza. La imagen muestra los movimientos reglamentarios para la dama blanca.</para>
 
     <mediaobject
 ><imageobject
