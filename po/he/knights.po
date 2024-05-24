@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-21 16:04+0300\n"
+"PO-Revision-Date: 2024-05-23 12:49+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -105,7 +105,7 @@ msgstr "XBoard"
 #, kde-format
 msgctxt "Protocol name"
 msgid "UCI"
-msgstr ""
+msgstr "UCI"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
 #: enginesettings.ui:19
@@ -147,7 +147,7 @@ msgstr "פרוטוקול"
 #: enginesettings.ui:86
 #, kde-format
 msgid "Installed"
-msgstr ""
+msgstr "מותקן"
 
 #: gamedialog.cpp:67
 #, kde-format
@@ -289,13 +289,13 @@ msgstr "מתזמן בלבד"
 #: gamedialog.ui:243
 #, kde-format
 msgid "&Initial time limit:"
-msgstr ""
+msgstr "ה&גבלת זמן ראשונית"
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
 #, kde-format
 msgid "I&ncrement per move:"
-msgstr ""
+msgstr "הג&דלה לכל מהלך:"
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -312,26 +312,26 @@ msgstr "שחור"
 #: gamemanager.cpp:523
 #, kde-format
 msgid "%1 offers you a draw"
-msgstr ""
+msgstr "הוצע לך תיקו על ידי %1"
 
 #: gamemanager.cpp:526
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%2 רוצה לחזור אחורה מסע המתנה"
+msgstr[1] "%2 רוצה לחזור אחורה שני מסעות המתנה"
+msgstr[2] "%2 רוצה לחזור אחורה %1 מסעות המתנה"
+msgstr[3] "%2 רוצה לחזור אחורה %1 מסעות המתנה"
 
 #: gamemanager.cpp:529
 #, kde-format
 msgid "%1 would like to adjourn the game"
-msgstr ""
+msgstr "הוצע לך לדחות את המשחק על ידי %1"
 
 #: gamemanager.cpp:532
 #, kde-format
 msgid "%1 would like to abort the game"
-msgstr ""
+msgstr "הוצע לך לבטל את המשחק באופן גורף על ידי %1"
 
 #: gamemanager.cpp:627
 #, kde-format
@@ -349,7 +349,7 @@ msgstr ""
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
-msgstr ""
+msgstr "%1 ל־%2"
 
 #: gamemanager.cpp:647
 #, kde-format
@@ -778,19 +778,19 @@ msgstr "הצבע של השחקן המקומי האנושי במשחק נגד מ�
 #: knights.kcfg:130
 #, kde-format
 msgid "list of programs to run for playing against the computer"
-msgstr ""
+msgstr "רשימה של תוכניות להרצה למשחק מול המחשב"
 
 #. i18n: ectx: label, entry (player1Program), group (Protocols)
 #: knights.kcfg:134
 #, kde-format
 msgid "the last selected program for player 1"
-msgstr ""
+msgstr "התוכנית האחרונה שנבחרה לשחקן 1"
 
 #. i18n: ectx: label, entry (player2Program), group (Protocols)
 #: knights.kcfg:138
 #, kde-format
 msgid "the last selected program for player 2"
-msgstr ""
+msgstr "התוכנית האחרונה שנבחרה לשחקן 2"
 
 #. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
 #: knights.kcfg:142
@@ -798,7 +798,7 @@ msgstr ""
 msgid ""
 "the search depth of computer engines, when the difficulty is set to "
 "Configurable"
-msgstr ""
+msgstr "עומק החיפוש של מנועי המחשב, כאשר רמת הקושי נתונה להגדרה"
 
 #. i18n: ectx: label, entry (computerMemorySize), group (Protocols)
 #: knights.kcfg:146
@@ -824,7 +824,7 @@ msgstr "השרת האחרון שנבחר"
 #: knights.kcfg:158
 #, kde-format
 msgid "username for the Free Internet Chess Server"
-msgstr ""
+msgstr "שם משתמש בשרת Free Internet Chess"
 
 #. i18n: ectx: label, entry (guest), group (Protocols)
 #: knights.kcfg:162
@@ -1115,7 +1115,7 @@ msgstr "השמעת צלילים"
 #: prefs_base.ui:161
 #, kde-format
 msgid "Flip the board in local matches between humans"
-msgstr ""
+msgstr "היפוך הלוך בתחרויות מקומיות בין שחקנים אנושיים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_askDiscard)
 #: prefs_base.ui:168
