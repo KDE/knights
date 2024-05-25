@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-23 12:49+0300\n"
+"PO-Revision-Date: 2024-05-24 06:16+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -84,10 +84,10 @@ msgstr " מ״ב"
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " מהלך"
-msgstr[1] " מהלכים"
-msgstr[2] " מהלכים"
-msgstr[3] " מהלכים"
+msgstr[0] " מסע"
+msgstr[1] " מסעות"
+msgstr[2] " מסעות"
+msgstr[3] " מסעות"
 
 #: difficultydialog.cpp:46
 #, kde-format
@@ -180,10 +180,10 @@ msgstr[3] " שניות"
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " מהלך"
-msgstr[1] " מהלכים"
-msgstr[2] " מהלכים"
-msgstr[3] " מהלכים"
+msgstr[0] " מסע"
+msgstr[1] " מסעות"
+msgstr[2] " מסעות"
+msgstr[3] " מסעות"
 
 #: gamedialog.cpp:307
 #, kde-format
@@ -295,7 +295,7 @@ msgstr "ה&גבלת זמן ראשונית"
 #: gamedialog.ui:269
 #, kde-format
 msgid "I&ncrement per move:"
-msgstr "הג&דלה לכל מהלך:"
+msgstr "הג&דלה לכל מסע:"
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -337,13 +337,13 @@ msgstr "הוצע לך לבטל את המשחק באופן גורף על ידי %
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr ""
+msgstr "הצרחה קטנה בצד המלך אצל %1"
 
 #: gamemanager.cpp:630
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr ""
+msgstr "הצרחה גדולה בצד המלכה אצל %1"
 
 #: gamemanager.cpp:634
 #, kde-format
@@ -426,7 +426,7 @@ msgstr "שעון"
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr "היסטוריית מהלכים"
+msgstr "היסטוריית מסעות"
 
 #: knights.cpp:192
 #, kde-format
@@ -450,19 +450,19 @@ msgstr "הסגה"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr "חזרה בך מהמהלך האחרון שלך"
+msgstr "חזרה בך מהמסע האחרון שלך"
 
 #: knights.cpp:205
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
-msgstr "מהלך חוזר"
+msgstr "מסע חוזר"
 
 #: knights.cpp:206
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr "חזרה על המהלך האחרון שלך"
+msgstr "חזרה על המסע האחרון שלך"
 
 #: knights.cpp:213
 #, kde-format
@@ -743,7 +743,7 @@ msgstr "מגבלת זמן התחלתית לשני השחקנים"
 #: knights.kcfg:90
 #, kde-format
 msgid "time increment per move (for Incremental time control)"
-msgstr "הגדלת זמן למהלך (לבקרת זמן גדלה)"
+msgstr "הגדלת זמן למסע (לבקרת זמן גדלה)"
 
 #. i18n: ectx: label, entry (numberOfMoves), group (Time Control)
 #: knights.kcfg:94
@@ -842,7 +842,7 @@ msgstr "האם להיכנס לשרת שחמט אוטומטית"
 #: knights.kcfg:170
 #, kde-format
 msgid "delay before a computer's move is reported, in milliseconds"
-msgstr "השהיה לפני דיווח על מהלך מחשב, במילישניות"
+msgstr "השהיה לפני דיווח על מסע מחשב, במילישניות"
 
 #. i18n: ectx: label, entry (engineConfigurations), group (Protocols)
 #: knights.kcfg:174
@@ -854,7 +854,7 @@ msgstr "הגדרות מאוחסות של תצורות נקודתיות למנג�
 #: knights.kcfg:180
 #, kde-format
 msgid "whether opponents' moves are spoken by Jovie"
-msgstr "האם מהלכי היריב מוקראים על ידי Jovie"
+msgstr "האם מסעות היריב מוקראים על ידי Jovie"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -905,17 +905,17 @@ msgstr "לוח שחמט של KDE"
 #: main.cpp:49
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr ""
+msgstr "(C) 2016‏-2017 אלכסנדר סמקה, 2009‏-2011 מִיהַה צ׳נצ׳ולה"
 
 #: main.cpp:52
 #, kde-format
 msgid "Alexander Semke"
-msgstr ""
+msgstr "אלכסנדר סמקה"
 
 #: main.cpp:53
 #, kde-format
 msgid "Miha Čančula"
-msgstr ""
+msgstr "מִיהַה צ׳נצ׳ולה"
 
 #: main.cpp:55
 #, kde-format
@@ -992,7 +992,7 @@ msgstr "תוכניות חיצוניות"
 #: prefs_access.ui:23
 #, kde-format
 msgid "Speak opponent's moves"
-msgstr "הקראת מהלכי היריב"
+msgstr "הקראת מסעות היריב"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
 #: prefs_access.ui:30
@@ -1059,14 +1059,14 @@ msgstr "הצגת &סמנים עבור:"
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Legal moves"
-msgstr "מהלכים חוקיים"
+msgstr "מסעות חוקיים"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
 #: prefs_base.ui:99
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr "מהלכי היריב"
+msgstr "מסעות היריב"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
