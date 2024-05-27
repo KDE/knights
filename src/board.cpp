@@ -473,6 +473,9 @@ void Board::updateTheme() {
 }
 
 void Board::updateGraphics() {
+	if (sceneRect().isEmpty()) {
+	    return;
+	}
 	if ( m_background )
 		m_background->setRenderSize ( sceneRect().size().toSize() );
 	QSizeF tileSize = renderer->boundsOnSprite ( whiteTileKey ).size();
