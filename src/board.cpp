@@ -418,7 +418,6 @@ void Board::addMarker(const Pos& pos, const QString& spriteKey) {
 
 void Board::updateTheme() {
 	delete m_background;
-	qDebug()<<"background key " << backgroundKey;
 	if ( renderer->spriteExists ( backgroundKey ) ) {
 		m_background = new Item ( renderer, backgroundKey, this, Pos() );
 		m_background->setZValue ( backgroundZValue );
