@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:37+0000\n"
+"POT-Creation-Date: 2024-05-28 00:37+0000\n"
 "PO-Revision-Date: 2014-07-22 16:23+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -27,14 +27,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "mohi@ubuntu.ir"
 
-#: board.cpp:577
+#: board.cpp:576
 #, fuzzy, kde-format
 #| msgid "Promotion"
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "ترویج"
 
-#: board.cpp:581
+#: board.cpp:580
 #, fuzzy, kde-format
 #| msgid "Promote"
 msgctxt "@action:button"

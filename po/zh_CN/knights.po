@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:37+0000\n"
+"POT-Creation-Date: 2024-05-28 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "您的电子邮件"
 
-#: board.cpp:577
+#: board.cpp:576
 #, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "晋升"
 
-#: board.cpp:581
+#: board.cpp:580
 #, kde-format
 msgctxt "@action:button"
 msgid "Promote"

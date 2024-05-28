@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:37+0000\n"
+"POT-Creation-Date: 2024-05-28 00:37+0000\n"
 "PO-Revision-Date: 2024-05-12 17:08+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -31,13 +31,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ander.elor@gmail.com"
 
-#: board.cpp:577
+#: board.cpp:576
 #, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "Sustatzea"
 
-#: board.cpp:581
+#: board.cpp:580
 #, kde-format
 msgctxt "@action:button"
 msgid "Promote"
