@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-28 00:37+0000\n"
-"PO-Revision-Date: 2024-04-26 16:07+0200\n"
+"PO-Revision-Date: 2024-05-27 17:42+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -25,12 +25,14 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Geoffray Levasseur, Simon Depiets"
+msgstr "Geoffray Levasseur, Simon Depiets, Xavier Besnard"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "geoffray.levasseurbrandin@numericable.fr, sdepiets@gmail.com"
+msgstr ""
+"geoffray.levasseurbrandin@numericable.fr, sdepiets@gmail.com, xavier."
+"besnard@kde.org"
 
 #: board.cpp:576
 #, kde-format
@@ -39,8 +41,7 @@ msgid "Promotion"
 msgstr "Promotion"
 
 #: board.cpp:580
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
 msgstr "Promouvoir"
@@ -365,18 +366,16 @@ msgid "Checkmate"
 msgstr "Échec et mat"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
-msgstr "Blancs"
+msgstr "Blanc"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
-msgstr "Noirs"
+msgstr "Noir"
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
@@ -409,21 +408,18 @@ msgid "Coordinate"
 msgstr "Coordonnées"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personnalisé"
 
 #: knights.cpp:135
-#, fuzzy, kde-format
-#| msgid "%1 is thinking..."
+#, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 est en cours de réflexion..."
 
 #: knights.cpp:142
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Horloge"
@@ -435,8 +431,7 @@ msgid "Move History"
 msgstr "Déplacer l'historique"
 
 #: knights.cpp:192
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Abandonner"
@@ -449,8 +444,7 @@ msgid "Admit your inevitable defeat"
 msgstr "Admettre votre inévitable défaite"
 
 #: knights.cpp:198
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Annuler"
@@ -463,22 +457,19 @@ msgid "Take back your last move"
 msgstr "Reprendre votre dernier déplacement"
 
 #: knights.cpp:205
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Refaire"
 
 #: knights.cpp:206
-#, fuzzy, kde-format
-#| msgid "Repeat your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr "Répéter le dernier déplacement"
+msgstr "Répéter votre dernier déplacement"
 
 #: knights.cpp:213
-#, fuzzy, kde-format
-#| msgid "Offer &Draw"
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Proposer un &nul"
@@ -491,8 +482,7 @@ msgid "Offer a draw to your opponent"
 msgstr "Propose un match nul à votre opposant"
 
 #: knights.cpp:219
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Ajourner"
@@ -505,8 +495,7 @@ msgid "Continue this game at a later time"
 msgstr "Continuer ce jeu plus tard"
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Abandonner"
@@ -517,43 +506,37 @@ msgid "End the game immediately"
 msgstr "Arrêter le jeu immédiatement"
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Afficher l'horloge"
 
 #: knights.cpp:236
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Afficher l'historique"
 
 #: knights.cpp:243
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Afficher la console des blancs"
 
 #: knights.cpp:249
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Afficher la console des noirs"
 
 #: knights.cpp:255
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr "Afficher la discussion"
+msgstr "Afficher le salon de discussions"
 
 #: knights.cpp:294
-#, fuzzy, kde-format
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Ouvrir un fichier"
@@ -564,29 +547,25 @@ msgid "Portable game notation (*.pgn)"
 msgstr "Notation portable de jeu (*.pgn)"
 
 #: knights.cpp:458
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Général"
 
 #: knights.cpp:462
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Moteurs de l'ordinateur"
 
 #: knights.cpp:470
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Accessibilité"
 
 #: knights.cpp:475
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Thème"
@@ -597,8 +576,7 @@ msgid "Do you really want to resign?"
 msgstr "Voulez-vous vraiment abandonner ?"
 
 #: knights.cpp:484
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Abandonner"
@@ -610,9 +588,7 @@ msgid "Resign"
 msgstr "Abandonner"
 
 #: knights.cpp:532
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Partie terminée"
@@ -649,8 +625,7 @@ msgstr ""
 "Le jeu s'est terminé par une victoire de <em>%1</em>, jouant avec les noirs"
 
 #: knights.cpp:619
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 face à %2"
@@ -665,8 +640,7 @@ msgstr ""
 "Voulez-vous enregistrer l'historique des mouvements ?"
 
 #: knights.cpp:652
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Enregistrer"
@@ -1002,15 +976,13 @@ msgid "Document to open"
 msgstr "Document à ouvrir"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "Accepter"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
 msgstr "Refuser"
@@ -1252,10 +1224,9 @@ msgid "Session started"
 msgstr "Session démarrée"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
-msgstr "Connexion..."
+msgstr "Connexion en cours..."
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
