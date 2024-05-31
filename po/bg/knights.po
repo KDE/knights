@@ -1465,11 +1465,3 @@ msgstr ""
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Оценка на противника"
-
-#, fuzzy
-#~ msgid "white"
-#~ msgstr "Бели"
-
-#, fuzzy
-#~ msgid "black"
-#~ msgstr "Черни"

@@ -3,7 +3,7 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2016, 2017, 2024 Vít Pelčák <vit@pelcak.org>
 # Pavel Fric <fripohled@blogspot.com>, 2010.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2017, 2018, 2019, 2022.
+# SPDX-FileCopyrightText: 2017, 2018, 2019, 2022, 2024 Vit Pelcak <vit@pelcak.org>
 #
 # Pavel Fric, 2010.
 msgid ""
@@ -11,15 +11,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-28 00:37+0000\n"
-"PO-Revision-Date: 2024-01-19 15:50+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-05-30 14:15+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -41,7 +41,7 @@ msgstr "Proměna"
 #, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr ""
+msgstr "Proměnit"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -162,27 +162,27 @@ msgstr "Nová hra"
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " minuta"
+msgstr[1] " minuty"
+msgstr[2] " minut"
 
 #: gamedialog.cpp:267
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " sekunda"
+msgstr[1] " sekundy"
+msgstr[2] " sekund"
 
 #: gamedialog.cpp:268
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " tah"
+msgstr[1] " tahy"
+msgstr[2] " tahů"
 
 #: gamedialog.cpp:307
 #, kde-format
@@ -365,13 +365,13 @@ msgstr "Mat"
 #, kde-format
 msgctxt "@title:column"
 msgid "White"
-msgstr ""
+msgstr "Bílé"
 
 #: historywidget.cpp:27
 #, kde-format
 msgctxt "@title:column"
 msgid "Black"
-msgstr ""
+msgstr "Černé"
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
@@ -407,18 +407,18 @@ msgstr "Souřadnice"
 #, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: knights.cpp:135
 #, kde-format
 msgid "%1 is thinking…"
-msgstr ""
+msgstr "%1 přemýšlí..."
 
 #: knights.cpp:142
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
-msgstr ""
+msgstr "Hodiny"
 
 #: knights.cpp:173
 #, kde-format
@@ -430,13 +430,13 @@ msgstr "Historie přesunů"
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr ""
+msgstr "Vzdát se"
 
 #: knights.cpp:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
-msgstr ""
+msgstr "Přiznat nevyhnutelnou porážku"
 
 #: knights.cpp:198
 #, kde-format
@@ -448,7 +448,7 @@ msgstr "Zpět"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr ""
+msgstr "Vrátit zpět svůj poslední tah"
 
 #: knights.cpp:205
 #, kde-format
@@ -460,31 +460,31 @@ msgstr "Znovu"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr ""
+msgstr "Opakovat poslední tah"
 
 #: knights.cpp:213
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr ""
+msgstr "Nabí&dnout remízu"
 
 #: knights.cpp:214
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr ""
+msgstr "Navrhnout soupeři remízu"
 
 #: knights.cpp:219
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr ""
+msgstr "Přerušit"
 
 #: knights.cpp:220
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr ""
+msgstr "Pokračovat ve hře později"
 
 #: knights.cpp:225
 #, kde-format
@@ -501,7 +501,7 @@ msgstr "Okamžitě ukončit hru"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr ""
+msgstr "Ukázat hodiny"
 
 #: knights.cpp:236
 #, kde-format
@@ -513,19 +513,19 @@ msgstr "Zobrazit historii"
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr ""
+msgstr "Zobrazit konzoli bílého"
 
 #: knights.cpp:249
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr ""
+msgstr "Zobrazit konzoli černého"
 
 #: knights.cpp:255
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr ""
+msgstr "Zobrazit rozhovor"
 
 #: knights.cpp:294
 #, kde-format
@@ -548,19 +548,19 @@ msgstr "Obecné"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr ""
+msgstr "Počítačové stroje"
 
 #: knights.cpp:470
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Zpřístupnění"
 
 #: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr ""
+msgstr "Motiv"
 
 #: knights.cpp:483
 #, kde-format
@@ -571,7 +571,7 @@ msgstr "Opravdu se chcete vzdát?"
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr ""
+msgstr "Vzdát se"
 
 #: knights.cpp:485
 #, kde-format
@@ -583,7 +583,7 @@ msgstr "Vzdát se"
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "Konec hry"
 
 #: knights.cpp:556
 #, kde-format
@@ -618,7 +618,7 @@ msgstr "Hra skončila vítězstvím hráče <em>%1</em>, hrajícího s černými
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr ""
+msgstr "%1 vs %2"
 
 #: knights.cpp:632
 #, kde-format
@@ -633,7 +633,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: knights.cpp:675
 #, kde-format
@@ -968,7 +968,7 @@ msgstr "Přijmout"
 #, kde-format
 msgctxt "@action"
 msgid "Decline"
-msgstr ""
+msgstr "Odmítnout"
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: popup.ui:37 proto/ficsprotocol.cpp:118 proto/ficsprotocol.cpp:195
@@ -1209,7 +1209,7 @@ msgstr "Sezení začalo"
 #: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
-msgstr ""
+msgstr "Přihlašování…"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
