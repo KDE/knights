@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 02:28+0000\n"
+"POT-Creation-Date: 2024-06-05 03:00+0000\n"
 "PO-Revision-Date: 2019-12-12 21:50+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathantra Malayalam Computing | സ്വതന്ത്ര മലയാളം കമ്പ്യൂട്ടിങ് "
@@ -27,14 +27,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "shijualexonline@gmail.com,snalledam@dataone.in,vivekkj2004@gmail.com"
 
-#: board.cpp:577
+#: board.cpp:579
 #, fuzzy, kde-format
 #| msgid "Promotion"
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "പദവി ഉയര്‍ത്തല്‍"
 
-#: board.cpp:581
+#: board.cpp:583
 #, kde-format
 msgid "Promote"
 msgstr "പദവി ഉയര്‍ത്തുക"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-10 02:28+0000\n"
+"POT-Creation-Date: 2024-06-05 03:00+0000\n"
 "PO-Revision-Date: 2017-10-06 17:14+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -31,14 +31,14 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "githzerai06@gmail.com"
 
-#: board.cpp:577
+#: board.cpp:579
 #, fuzzy, kde-format
 #| msgid "Promotion"
 msgctxt "@title:window"
 msgid "Promotion"
 msgstr "Promocija"
 
-#: board.cpp:581
+#: board.cpp:583
 #, kde-format
 msgid "Promote"
 msgstr "Promoviši"
