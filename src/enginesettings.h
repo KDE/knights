@@ -78,8 +78,11 @@ public Q_SLOTS:
 
 private Q_SLOTS:
 	void autoDetectEngines();
+
+	void addInitialize();
 	void addClicked();
 	void removeClicked();
+
 	void checkInstalled(int row, const QString& name);
 	void tableItemChanged(QTableWidgetItem*);
 };

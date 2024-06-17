@@ -66,7 +66,8 @@ EngineSettings::EngineSettings(QWidget* parent, Qt::WindowFlags f) : QWidget(par
 	//add saved engines
 	int row = 0;
 	for ( const QString& s : Settings::engineConfigurations() ) {
-		addClicked();
+		addInitialize();
+
 		EngineConfiguration c = EngineConfiguration ( s );
 		ui->tableWidget->setItem ( row, NameColumn, new QTableWidgetItem ( c.name ) );
 		ui->tableWidget->setItem ( row, CommandColumn, new QTableWidgetItem ( c.commandLine ) );
@@ -102,13 +103,22 @@ void EngineSettings::tableItemChanged(QTableWidgetItem* item) {
 		checkInstalled(item->row(), item->text());
 }
 
-void EngineSettings::addClicked() {
-	int n = ui->tableWidget->rowCount();
+void EngineSettings::addInitialize() {
+	const int n = ui->tableWidget->rowCount();
 	ui->tableWidget->insertRow ( n );
+
 	KComboBox* box = new KComboBox ( this );
-	box->insertItems(0, {i18nc("Protocol name", "XBoard"), i18nc("Protocol name", "UCI")});
+	box->insertItems(0, {i18nc("Protocol name", "XBoard"),
+		i18nc("Protocol name", "UCI")});
 	ui->tableWidget->setCellWidget ( n, ProtocolColumn, box );
-	ui->tableWidget->edit ( ui->tableWidget->model()->index ( n, NameColumn ) );
+}
+
+void EngineSettings::addClicked() {
+	addInitialize();
+
+	const int rowIndex = ui->tableWidget->rowCount() - 1;
+	ui->tableWidget->edit(ui->tableWidget->model()->
+		index(rowIndex, NameColumn));
 }
 
 void EngineSettings::removeClicked() {
