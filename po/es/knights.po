@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 00:37+0000\n"
+"POT-Creation-Date: 2024-06-18 00:37+0000\n"
 "PO-Revision-Date: 2024-05-08 00:23+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -99,13 +99,13 @@ msgctxt "@title:window"
 msgid "Difficulty Level"
 msgstr "Nivel de dificultad"
 
-#: enginesettings.cpp:109
+#: enginesettings.cpp:111
 #, kde-format
 msgctxt "Protocol name"
 msgid "XBoard"
 msgstr "XBoard"
 
-#: enginesettings.cpp:109
+#: enginesettings.cpp:112
 #, kde-format
 msgctxt "Protocol name"
 msgid "UCI"
