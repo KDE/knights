@@ -523,7 +523,7 @@ msgstr "Bilgisayar İşletkeleri"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Erişilebilirlik"
 
 #: knights.cpp:475
 #, kde-format
