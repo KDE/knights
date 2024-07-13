@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the knights package.
 #
-# giovanni <g.sora@tiscali.it>, 2023, 2024.
+# SPDX-FileCopyrightText: 2023, 2024 giovanni <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-18 00:37+0000\n"
-"PO-Revision-Date: 2024-05-06 12:33+0200\n"
+"PO-Revision-Date: 2024-07-12 16:25+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -545,7 +545,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Accessibilitate"
 
 #: knights.cpp:475
 #, kde-format
@@ -609,7 +609,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr ""
+msgstr "%1 vs. %2"
 
 #: knights.cpp:632
 #, kde-format
@@ -718,7 +718,7 @@ msgstr ""
 #: knights.kcfg:80
 #, kde-format
 msgid "show move history"
-msgstr ""
+msgstr "monstra chronologia de motion"
 
 #. i18n: ectx: label, entry (timeLimit), group (Time Control)
 #: knights.kcfg:86
@@ -1388,7 +1388,7 @@ msgstr "Accesso falleva"
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr ""
+msgstr "Servitor de chacos"
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
