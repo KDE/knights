@@ -41,7 +41,6 @@ int main ( int argc, char **argv ) {
 	QApplication app(argc, argv);
 
 	KLocalizedString::setApplicationDomain(QByteArrayLiteral("knights"));
-	KCrash::initialize();
 
 	KAboutData about ( QStringLiteral("knights"), i18n ( "Knights" ),
 	                   QStringLiteral(KNIGHTS_VERSION_STRING),
@@ -60,6 +59,8 @@ int main ( int argc, char **argv ) {
 
 	app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knights")));
 	KAboutData::setApplicationData(about);
+
+	KCrash::initialize();
 
 	QCommandLineParser parser;
 	parser.addOption(QCommandLineOption( QStringLiteral ("+[URL]"), i18n ( "Document to open" ) ));
