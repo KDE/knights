@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-18 00:37+0000\n"
+"POT-Creation-Date: 2024-08-10 00:38+0000\n"
 "PO-Revision-Date: 2024-05-07 11:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -898,64 +898,64 @@ msgid "Settings changed"
 msgstr "S'ha canviat la configuració"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, KnightsView)
-#: knightsview_base.ui:14 main.cpp:46
+#: knightsview_base.ui:14 main.cpp:45
 #, kde-format
 msgid "Knights"
 msgstr "Escacs"
 
-#: main.cpp:48
+#: main.cpp:47
 #, kde-format
 msgid "KDE Chess Board"
 msgstr "Tauler d'escacs de KDE"
 
-#: main.cpp:49
+#: main.cpp:48
 #, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 msgstr "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
 
-#: main.cpp:52
+#: main.cpp:51
 #, kde-format
 msgid "Alexander Semke"
 msgstr "Alexander Semke"
 
-#: main.cpp:53
+#: main.cpp:52
 #, kde-format
 msgid "Miha Čančula"
 msgstr "Miha Čančula"
 
-#: main.cpp:55
+#: main.cpp:54
 #, kde-format
 msgid "Troy Corbin"
 msgstr "Troy Corbin"
 
-#: main.cpp:55
+#: main.cpp:54
 #, kde-format
 msgid "Original Knights for KDE3 and theme author"
 msgstr "Autor original de KNights per a KDE 3, així com del tema"
 
-#: main.cpp:57
+#: main.cpp:56
 #, kde-format
 msgid "Dave Kaye"
 msgstr "Dave Kaye"
 
-#: main.cpp:57
+#: main.cpp:56
 #, kde-format
 msgid "Help with new theme features and rendering without KGameRenderer"
 msgstr ""
 "Ajuda amb les noves característiques de tema i representació sense "
 "KGameRenderer"
 
-#: main.cpp:58
+#: main.cpp:57
 #, kde-format
 msgid "Thomas Kamps"
 msgstr "Thomas Kamps"
 
-#: main.cpp:58
+#: main.cpp:57
 #, kde-format
 msgid "Clock displaying the remaining time"
 msgstr "Visualització del rellotge i temps restant"
 
-#: main.cpp:65
+#: main.cpp:66
 #, kde-format
 msgid "Document to open"
 msgstr "Document que s'ha d'obrir"
