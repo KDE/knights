@@ -38,7 +38,6 @@ msgstr ""
 
 #: board.cpp:583
 #, fuzzy, kde-format
-#| msgid "Promote"
 msgctxt "@action:button"
 msgid "Promote"
 msgstr "Forvandle bonden"
@@ -158,8 +157,6 @@ msgstr ""
 
 #: gamedialog.cpp:266
 #, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
@@ -168,8 +165,6 @@ msgstr[1] " minutter"
 
 #: gamedialog.cpp:267
 #, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
@@ -178,8 +173,6 @@ msgstr[1] " sekunder"
 
 #: gamedialog.cpp:268
 #, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
@@ -364,14 +357,12 @@ msgstr "Sjakkmatt"
 
 #: historywidget.cpp:26
 #, fuzzy, kde-format
-#| msgid "White"
 msgctxt "@title:column"
 msgid "White"
 msgstr "Hvit"
 
 #: historywidget.cpp:27
 #, fuzzy, kde-format
-#| msgid "Black"
 msgctxt "@title:column"
 msgid "Black"
 msgstr "Svart"
@@ -408,7 +399,6 @@ msgstr "Koordinat"
 
 #: knights.cpp:95
 #, fuzzy, kde-format
-#| msgid "Custom"
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Tilpasset"
@@ -420,91 +410,78 @@ msgstr ""
 
 #: knights.cpp:142
 #, fuzzy, kde-format
-#| msgid "Clock"
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Ur"
 
 #: knights.cpp:173
 #, fuzzy, kde-format
-#| msgid "Show History"
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Vis historikk"
 
 #: knights.cpp:192
 #, fuzzy, kde-format
-#| msgid "Resign"
 msgctxt "@action"
 msgid "Resign"
 msgstr "Gi opp"
 
 #: knights.cpp:193
 #, fuzzy, kde-format
-#| msgid "Admit your inevitable defeat"
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Innse ditt uungåelige nederlag"
 
 #: knights.cpp:198
 #, fuzzy, kde-format
-#| msgid "Undo"
 msgctxt "@action"
 msgid "Undo"
 msgstr "Angre"
 
 #: knights.cpp:199
 #, fuzzy, kde-format
-#| msgid "Take back your last move"
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Ta tilbake det siste trekket ditt"
 
 #: knights.cpp:205
 #, fuzzy, kde-format
-#| msgid "Redo"
 msgctxt "@action"
 msgid "Redo"
 msgstr "Gjør om"
 
 #: knights.cpp:206
 #, fuzzy, kde-format
-#| msgid "Repeat your last move"
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Gjenta ditt siste trekk"
 
 #: knights.cpp:213
 #, fuzzy, kde-format
-#| msgid "Offer &Draw"
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Tilby &remis"
 
 #: knights.cpp:214
 #, fuzzy, kde-format
-#| msgid "Offer a draw to your opponent"
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Tilby en remis til motstanderen"
 
 #: knights.cpp:219
 #, fuzzy, kde-format
-#| msgid "Adjourn"
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Ta en pause"
 
 #: knights.cpp:220
 #, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Fortsett dette partiet senere"
 
 #: knights.cpp:225
 #, fuzzy, kde-format
-#| msgid "Abort"
 msgctxt "@action"
 msgid "Abort"
 msgstr "Avbryt"
@@ -516,35 +493,30 @@ msgstr "Avslutt partiet umiddelbart"
 
 #: knights.cpp:230
 #, fuzzy, kde-format
-#| msgid "Show Clock"
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Vis ur"
 
 #: knights.cpp:236
 #, fuzzy, kde-format
-#| msgid "Show History"
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Vis historikk"
 
 #: knights.cpp:243
 #, fuzzy, kde-format
-#| msgid "Show White Console"
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Vis skjerm for hvit"
 
 #: knights.cpp:249
 #, fuzzy, kde-format
-#| msgid "Show Black Console"
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Vis skjerm for svart"
 
 #: knights.cpp:255
 #, fuzzy, kde-format
-#| msgid "Show Chat"
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Vis pratevindu"
@@ -562,14 +534,12 @@ msgstr ""
 
 #: knights.cpp:458
 #, fuzzy, kde-format
-#| msgid "General"
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Generelt"
 
 #: knights.cpp:462
 #, fuzzy, kde-format
-#| msgid "Computer Engines"
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Sjakkprogram"
@@ -582,7 +552,6 @@ msgstr ""
 
 #: knights.cpp:475
 #, fuzzy, kde-format
-#| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
@@ -594,7 +563,6 @@ msgstr ""
 
 #: knights.cpp:484
 #, fuzzy, kde-format
-#| msgid "Resign"
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Gi opp"
@@ -642,7 +610,6 @@ msgstr ""
 
 #: knights.cpp:619
 #, fuzzy, kde-format
-#| msgid "%1 vs. %2"
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 vs %2"
@@ -658,7 +625,6 @@ msgstr ""
 
 #: knights.cpp:652
 #, fuzzy, kde-format
-#| msgid "Save"
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Lagre"
@@ -985,14 +951,12 @@ msgstr "Fil som skal åpnes"
 
 #: offerwidget.cpp:21
 #, fuzzy, kde-format
-#| msgid "Accept"
 msgctxt "@action"
 msgid "Accept"
 msgstr "Aksepter"
 
 #: offerwidget.cpp:24
 #, fuzzy, kde-format
-#| msgid "Decline"
 msgctxt "@action"
 msgid "Decline"
 msgstr "Avslå"
@@ -1234,7 +1198,6 @@ msgstr "Økt startet"
 
 #: proto/ficsdialog.cpp:73
 #, fuzzy, kde-format
-#| msgid "Logging in..."
 msgid "Logging in…"
 msgstr "Logger på …"
 
