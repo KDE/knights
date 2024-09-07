@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-10 02:38+0000\n"
-"PO-Revision-Date: 2024-08-14 00:32+0330\n"
+"PO-Revision-Date: 2024-09-06 22:32+0330\n"
 "Last-Translator: Mohi Mirdamadi <mohi.pub@gmail.com>\n"
 "Language-Team: fa\n"
 "Language: fa\n"
@@ -1204,7 +1204,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Log in"
 msgid "Logging in…"
-msgstr "ورود به سیستم"
+msgstr "ورود به سامانه"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1258,7 +1258,7 @@ msgstr ""
 #: proto/ficsdialog.ui:109
 #, kde-format
 msgid "Log in"
-msgstr "ورود به سیستم"
+msgstr "ورود به سامانه"
 
 #. i18n: ectx: property (text), widget (QPushButton, registerButton)
 #: proto/ficsdialog.ui:129
