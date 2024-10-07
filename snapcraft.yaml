@@ -87,6 +87,8 @@ parts:
     plugin: cmake
     source: .
     source-type: local
+    build-packages:
+      - libpulse0
     stage-packages:
       - libasound2
       - libasound2-data
@@ -100,6 +102,7 @@ parts:
       - gstreamer1.0-plugins-good
       - gstreamer1.0-plugins-bad
       - gstreamer1.0-plugins-ugly
+      - libpulse0
     cmake-parameters:
       - -DCMAKE_INSTALL_PREFIX=/usr
       - -DCMAKE_BUILD_TYPE=Release
