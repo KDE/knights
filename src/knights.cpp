@@ -114,6 +114,11 @@ MainWindow::MainWindow() : KXmlGuiWindow(),
 
 	m_themeProvider->discoverThemes(QStringLiteral("themes"));
 	m_view->drawBoard(m_themeProvider);
+
+	// show the dialog to start a new game
+	QTimer::singleShot(0, this, [=] () {
+		fileNew();
+	});
 }
 
 void MainWindow::activePlayerChanged() {
