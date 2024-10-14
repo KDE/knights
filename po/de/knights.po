@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2024-08-26 18:57+0200\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -402,220 +402,220 @@ msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
-#: knights.cpp:135
+#: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 überlegt noch …"
 
-#: knights.cpp:142
+#: knights.cpp:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Uhr"
 
-#: knights.cpp:173
+#: knights.cpp:178
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Spielverlauf"
 
-#: knights.cpp:192
+#: knights.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Aufgeben"
 
-#: knights.cpp:193
+#: knights.cpp:198
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Bekennen Sie sich zu Ihrer unabwendbaren Niederlage"
 
-#: knights.cpp:198
+#: knights.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: knights.cpp:199
+#: knights.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Ihren letzten Zug zurücknehmen"
 
-#: knights.cpp:205
+#: knights.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Wiederherstellen"
 
-#: knights.cpp:206
+#: knights.cpp:211
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Ihren letzten Zug wiederherstellen"
 
-#: knights.cpp:213
+#: knights.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "&Remis vorschlagen"
 
-#: knights.cpp:214
+#: knights.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Bieten Sie Ihrem Gegner ein Remis an"
 
-#: knights.cpp:219
+#: knights.cpp:224
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Vertagen"
 
-#: knights.cpp:220
+#: knights.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Dieses Spiel zu einem späteren Zeitpunkt fortsetzen"
 
-#: knights.cpp:225
+#: knights.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Abbrechen"
 
-#: knights.cpp:226
+#: knights.cpp:231
 #, kde-format
 msgid "End the game immediately"
 msgstr "Das Spiel sofort beenden"
 
-#: knights.cpp:230
+#: knights.cpp:235
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Uhr anzeigen"
 
-#: knights.cpp:236
+#: knights.cpp:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Verlauf anzeigen"
 
-#: knights.cpp:243
+#: knights.cpp:248
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Weiße Konsole anzeigen"
 
-#: knights.cpp:249
+#: knights.cpp:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Schwarze Konsole anzeigen"
 
-#: knights.cpp:255
+#: knights.cpp:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Chat anzeigen"
 
-#: knights.cpp:294
+#: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Datei öffnen"
 
-#: knights.cpp:295 knights.cpp:653 knights.cpp:676
+#: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable Spielnotation (*.pgn)"
 
-#: knights.cpp:458
+#: knights.cpp:463
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Allgemein"
 
-#: knights.cpp:462
+#: knights.cpp:467
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Schach-Module"
 
-#: knights.cpp:470
+#: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Zugangshilfen"
 
-#: knights.cpp:475
+#: knights.cpp:480
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Design"
 
-#: knights.cpp:483
+#: knights.cpp:488
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Möchten Sie wirklich aufgeben?"
 
-#: knights.cpp:484
+#: knights.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Aufgeben"
 
-#: knights.cpp:485
+#: knights.cpp:490
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Aufgeben"
 
-#: knights.cpp:532
+#: knights.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Spiel beendet"
 
-#: knights.cpp:556
+#: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Das Spiel endet Remis"
 
-#: knights.cpp:562
+#: knights.cpp:567
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Das Spiel endet mit einem Sieg für <em>Weiß</em>"
 
-#: knights.cpp:565
+#: knights.cpp:570
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Das Spiel endet mit einem Sieg für <em>Schwarz</em>"
 
-#: knights.cpp:570
+#: knights.cpp:575
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr ""
 "Das Spiel endete mit einem Sieg für <em>%1</em>, mit den weißen Figuren."
 
-#: knights.cpp:573
+#: knights.cpp:578
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr ""
 "Das Spiel endete mit einem Sieg für <em>%1</em>, mit den schwarzen Figuren."
 
-#: knights.cpp:619
+#: knights.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 ./. %2"
 
-#: knights.cpp:632
+#: knights.cpp:637
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -624,13 +624,13 @@ msgstr ""
 "Dies beendet die Partie.\n"
 "Möchten Sie den Spielverlauf speichern?"
 
-#: knights.cpp:652
+#: knights.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Speichern"
 
-#: knights.cpp:675
+#: knights.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

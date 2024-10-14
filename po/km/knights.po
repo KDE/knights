@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2012-07-13 10:01+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -425,214 +425,214 @@ msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "ផ្ទាល់ខ្លួន"
 
-#: knights.cpp:135
+#: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
 msgstr ""
 
-#: knights.cpp:142
+#: knights.cpp:147
 #, fuzzy, kde-format
 #| msgid "Clock"
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "នាឡិកា"
 
-#: knights.cpp:173
+#: knights.cpp:178
 #, fuzzy, kde-format
 #| msgid "Move History"
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "ផ្លាស់ទី​ប្រវត្តិ"
 
-#: knights.cpp:192
+#: knights.cpp:197
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action"
 msgid "Resign"
 msgstr "ចុះចាញ់"
 
-#: knights.cpp:193
+#: knights.cpp:198
 #, fuzzy, kde-format
 #| msgid "Admit your inevitable defeat"
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "ទទួល​ស្គាល់​ការ​ចាញ់​​​ដែល​មិន​អាច​ជៀស​បាន​របស់​អ្នក"
 
-#: knights.cpp:198
+#: knights.cpp:203
 #, fuzzy, kde-format
 #| msgid "Undo"
 msgctxt "@action"
 msgid "Undo"
 msgstr "មិន​ធ្វើ​វិញ"
 
-#: knights.cpp:199
+#: knights.cpp:204
 #, fuzzy, kde-format
 #| msgid "Take back your last move"
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "ថយ​ក្រោយ​ការ​ផ្លាស់ទី​ចុងក្រោយ​របស់​អ្នក"
 
-#: knights.cpp:205
+#: knights.cpp:210
 #, fuzzy, kde-format
 #| msgid "Redo"
 msgctxt "@action"
 msgid "Redo"
 msgstr "ធ្វើ​វិញ"
 
-#: knights.cpp:206
+#: knights.cpp:211
 #, fuzzy, kde-format
 #| msgid "Repeat your last move"
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "ផ្លាស់ទី​ចុងក្រោយ​របស់​អ្នក​ម្ដងទៀត"
 
-#: knights.cpp:213
+#: knights.cpp:218
 #, fuzzy, kde-format
 #| msgid "Offer &Draw"
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "ផ្ដល់​​គំនូរ"
 
-#: knights.cpp:214
+#: knights.cpp:219
 #, fuzzy, kde-format
 #| msgid "Offer a draw to your opponent"
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "ផ្ដល់​​គំនូរ​​ទៅ​គូប្រជែង​របស់​អ្នក"
 
-#: knights.cpp:219
+#: knights.cpp:224
 #, fuzzy, kde-format
 #| msgid "Adjourn"
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "ផ្អាក"
 
-#: knights.cpp:220
+#: knights.cpp:225
 #, fuzzy, kde-format
 #| msgid "Continue this game at a later time"
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "បន្ត​ល្បែង​នេះ​នៅ​ពេល​ក្រោយ"
 
-#: knights.cpp:225
+#: knights.cpp:230
 #, fuzzy, kde-format
 #| msgid "Abort"
 msgctxt "@action"
 msgid "Abort"
 msgstr "បោះបង់"
 
-#: knights.cpp:226
+#: knights.cpp:231
 #, kde-format
 msgid "End the game immediately"
 msgstr "បញ្ចប់​ល្បែង​រំពេច​នេះ"
 
-#: knights.cpp:230
+#: knights.cpp:235
 #, fuzzy, kde-format
 #| msgid "Show Clock"
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "បង្ហាញ​នាឡិកា"
 
-#: knights.cpp:236
+#: knights.cpp:241
 #, fuzzy, kde-format
 #| msgid "Show History"
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "បង្ហាញ​ប្រវត្តិ"
 
-#: knights.cpp:243
+#: knights.cpp:248
 #, fuzzy, kde-format
 #| msgid "Show White Console"
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "បង្ហាញ​កុងសូល​ស"
 
-#: knights.cpp:249
+#: knights.cpp:254
 #, fuzzy, kde-format
 #| msgid "Show Black Console"
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "បង្ហាញ​កុងសូល​ខ្មៅ"
 
-#: knights.cpp:255
+#: knights.cpp:260
 #, fuzzy, kde-format
 #| msgid "Show Chat"
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "បង្ហាញ​ជជែក"
 
-#: knights.cpp:294
+#: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:295 knights.cpp:653 knights.cpp:676
+#: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
 msgstr "*.pgn | ការ​កំណត់​ល្បែង​ចល័ត"
 
-#: knights.cpp:458
+#: knights.cpp:463
 #, fuzzy, kde-format
 #| msgid "General"
 msgctxt "@title:tab"
 msgid "General"
 msgstr "ទូទៅ"
 
-#: knights.cpp:462
+#: knights.cpp:467
 #, fuzzy, kde-format
 #| msgid "Computer Engines"
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "ម៉ាស៊ីន​កុំព្យូទ័រ"
 
-#: knights.cpp:470
+#: knights.cpp:475
 #, fuzzy, kde-format
 #| msgid "Accessibility"
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "មធ្យោបាយ​ងាយស្រួល"
 
-#: knights.cpp:475
+#: knights.cpp:480
 #, fuzzy, kde-format
 #| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "រូបរាង"
 
-#: knights.cpp:483
+#: knights.cpp:488
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr ""
 
-#: knights.cpp:484
+#: knights.cpp:489
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "ចុះចាញ់"
 
-#: knights.cpp:485
+#: knights.cpp:490
 #, fuzzy, kde-format
 #| msgid "Resign"
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "ចុះចាញ់"
 
-#: knights.cpp:532
+#: knights.cpp:537
 #, fuzzy, kde-format
 #| msgid "Game over"
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "ល្បែង​ចប់​​ហើយ"
 
-#: knights.cpp:556
+#: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "ល្បែង​បាន​បញ្ចប់​នៅ​ពេល​អូស"
 
-#: knights.cpp:562
+#: knights.cpp:567
 #, fuzzy, kde-format
 #| msgctxt "White as in the player with white pieces"
 #| msgid "The game ended with a victory for <emphasis>White</emphasis>"
@@ -640,7 +640,7 @@ msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ​ <emphasis>ស</emphasis>"
 
-#: knights.cpp:565
+#: knights.cpp:570
 #, fuzzy, kde-format
 #| msgctxt "Black as in the player with black pieces"
 #| msgid "The game ended with a victory for <emphasis>Black</emphasis>"
@@ -648,7 +648,7 @@ msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>ខ្មៅ</emphasis>"
 
-#: knights.cpp:570
+#: knights.cpp:575
 #, fuzzy, kde-format
 #| msgctxt "Player name, then <White as in the player with white pieces"
 #| msgid ""
@@ -657,7 +657,7 @@ msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​​​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ស"
 
-#: knights.cpp:573
+#: knights.cpp:578
 #, fuzzy, kde-format
 #| msgctxt "Player name, then Black as in the player with black pieces"
 #| msgid ""
@@ -666,14 +666,14 @@ msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "ល្បែង​បាន​បញ្ចប់​ដោយ​បាន​ជ័យជម្នះ <emphasis>%1</emphasis> ការ​លេង​ខ្មៅ"
 
-#: knights.cpp:619
+#: knights.cpp:624
 #, fuzzy, kde-format
 #| msgid "%1 vs. %2"
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
 
-#: knights.cpp:632
+#: knights.cpp:637
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -682,14 +682,14 @@ msgstr ""
 "វា​នឹង​បញ្ចប់​ល្បែង​របស់​អ្នក ។\n"
 "តើ​អ្នក​ចង់​រក្សាទុក​ប្រវត្តិ​​ផ្លាស់ទី​ដែរ​ឬ​ទេ ។"
 
-#: knights.cpp:652
+#: knights.cpp:657
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
 msgid "Save"
 msgstr "រក្សាទុក​ប្រវត្តិ"
 
-#: knights.cpp:675
+#: knights.cpp:680
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"

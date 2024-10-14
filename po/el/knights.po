@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2024-09-19 22:17+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -404,218 +404,218 @@ msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
-#: knights.cpp:135
+#: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 σκέφτεται…"
 
-#: knights.cpp:142
+#: knights.cpp:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Ρολόι"
 
-#: knights.cpp:173
+#: knights.cpp:178
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Ιστορικό κινήσεων"
 
-#: knights.cpp:192
+#: knights.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Παραίτηση"
 
-#: knights.cpp:193
+#: knights.cpp:198
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Αποδέχεσαι την αναπόφευκτη ήττα"
 
-#: knights.cpp:198
+#: knights.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: knights.cpp:199
+#: knights.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Αναίρεση της τελευταίας σου κίνησης"
 
-#: knights.cpp:205
+#: knights.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: knights.cpp:206
+#: knights.cpp:211
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Επανάληψη της τελευταίας σου κίνησης"
 
-#: knights.cpp:213
+#: knights.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Προσφορά &ισοπαλίας"
 
-#: knights.cpp:214
+#: knights.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Προσφορά ισοπαλίας στον αντίπαλο"
 
-#: knights.cpp:219
+#: knights.cpp:224
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Διακοπή"
 
-#: knights.cpp:220
+#: knights.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Συνέχεια του παιχνιδιού αργότερα"
 
-#: knights.cpp:225
+#: knights.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Εγκατάλειψη"
 
-#: knights.cpp:226
+#: knights.cpp:231
 #, kde-format
 msgid "End the game immediately"
 msgstr "Άμεσος τερματισμός του παιχνιδιού"
 
-#: knights.cpp:230
+#: knights.cpp:235
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Εμφάνιση ρολογιού"
 
-#: knights.cpp:236
+#: knights.cpp:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Εμφάνιση ιστορικού"
 
-#: knights.cpp:243
+#: knights.cpp:248
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Εμφάνιση κονσόλας λευκών"
 
-#: knights.cpp:249
+#: knights.cpp:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Εμφάνιση κονσόλας μαύρων"
 
-#: knights.cpp:255
+#: knights.cpp:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Εμφάνιση συνομιλίας"
 
-#: knights.cpp:294
+#: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Άνοιγμα αρχείου"
 
-#: knights.cpp:295 knights.cpp:653 knights.cpp:676
+#: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "*Φορητός συμβολισμός παιχνιδιού (*.ppm)"
 
-#: knights.cpp:458
+#: knights.cpp:463
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Γενικά"
 
-#: knights.cpp:462
+#: knights.cpp:467
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Υπολογιστικές μηχανές"
 
-#: knights.cpp:470
+#: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Προσβασιμότητα"
 
-#: knights.cpp:475
+#: knights.cpp:480
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Θέμα"
 
-#: knights.cpp:483
+#: knights.cpp:488
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Θέλετε πράγματι να παραιτηθείτε;"
 
-#: knights.cpp:484
+#: knights.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Παραίτηση"
 
-#: knights.cpp:485
+#: knights.cpp:490
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Παραίτηση"
 
-#: knights.cpp:532
+#: knights.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Τέλος παιχνιδιού"
 
-#: knights.cpp:556
+#: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Το παιχνίδι τελείωσε ισόπαλο"
 
-#: knights.cpp:562
+#: knights.cpp:567
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>Λευκά</em>"
 
-#: knights.cpp:565
+#: knights.cpp:570
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>Μαύρα</em>"
 
-#: knights.cpp:570
+#: knights.cpp:575
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>%1</em>, παίζουν τα Λευκά"
 
-#: knights.cpp:573
+#: knights.cpp:578
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Το παιχνίδι τελείωσε με νίκη για τα <em>%1</em>, παίζουν τα Μαύρα"
 
-#: knights.cpp:619
+#: knights.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
 
-#: knights.cpp:632
+#: knights.cpp:637
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -624,13 +624,13 @@ msgstr ""
 "Αυτό θα τερματίσει το παιχνίδι σας.\n"
 "Θέλετε να αποθηκεύσετε το ιστορικό των κινήσεων;"
 
-#: knights.cpp:652
+#: knights.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: knights.cpp:675
+#: knights.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

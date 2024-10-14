@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-games-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2024-09-23 15:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -405,218 +405,218 @@ msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Özel"
 
-#: knights.cpp:135
+#: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 düşünüyor…"
 
-#: knights.cpp:142
+#: knights.cpp:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Saat"
 
-#: knights.cpp:173
+#: knights.cpp:178
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Hareket Geçmişi"
 
-#: knights.cpp:192
+#: knights.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Oyunu Bırak"
 
-#: knights.cpp:193
+#: knights.cpp:198
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Kaçınılmaz yenilgini kabullen"
 
-#: knights.cpp:198
+#: knights.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: knights.cpp:199
+#: knights.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Son hareketini geri al"
 
-#: knights.cpp:205
+#: knights.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Yinele"
 
-#: knights.cpp:206
+#: knights.cpp:211
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Son hareketini yinele"
 
-#: knights.cpp:213
+#: knights.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "&Beraberlik Teklif Et"
 
-#: knights.cpp:214
+#: knights.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Rakibine beraberlik teklif et"
 
-#: knights.cpp:219
+#: knights.cpp:224
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Ertele"
 
-#: knights.cpp:220
+#: knights.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Bu oyunu sonra sürdür"
 
-#: knights.cpp:225
+#: knights.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "İptal"
 
-#: knights.cpp:226
+#: knights.cpp:231
 #, kde-format
 msgid "End the game immediately"
 msgstr "Oyunu hemen bitir"
 
-#: knights.cpp:230
+#: knights.cpp:235
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Saati Göster"
 
-#: knights.cpp:236
+#: knights.cpp:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Geçmişi Göster"
 
-#: knights.cpp:243
+#: knights.cpp:248
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Beyaz Konsolu Göster"
 
-#: knights.cpp:249
+#: knights.cpp:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Siyah Konsolu Göster"
 
-#: knights.cpp:255
+#: knights.cpp:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Sohbeti Göster"
 
-#: knights.cpp:294
+#: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: knights.cpp:295 knights.cpp:653 knights.cpp:676
+#: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Taşınabilir oyun notasyonu (*.pgn)"
 
-#: knights.cpp:458
+#: knights.cpp:463
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Genel"
 
-#: knights.cpp:462
+#: knights.cpp:467
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Bilgisayar İşletkeleri"
 
-#: knights.cpp:470
+#: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Erişilebilirlik"
 
-#: knights.cpp:475
+#: knights.cpp:480
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
-#: knights.cpp:483
+#: knights.cpp:488
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Teslim olmayı gerçekten istiyor musunuz?"
 
-#: knights.cpp:484
+#: knights.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Oyunu Bırak"
 
-#: knights.cpp:485
+#: knights.cpp:490
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Oyunu Bırak"
 
-#: knights.cpp:532
+#: knights.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Oyun Bitti"
 
-#: knights.cpp:556
+#: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "Oyun beraberlikle sonlandı"
 
-#: knights.cpp:562
+#: knights.cpp:567
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "Oyun <em>Beyazların</em> zaferiyle sona erdi"
 
-#: knights.cpp:565
+#: knights.cpp:570
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "Oyun <em>Siyahların</em> zaferiyle sona erdi"
 
-#: knights.cpp:570
+#: knights.cpp:575
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "Oyun beyazlarla oynayan <em>%1</em> oyuncusunun zaferiyle sona erdi"
 
-#: knights.cpp:573
+#: knights.cpp:578
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Oyun siyahlarla oynayan <em>%1</em> oyuncusunun zaferiyle sona erdi"
 
-#: knights.cpp:619
+#: knights.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1, %2 karşısında"
 
-#: knights.cpp:632
+#: knights.cpp:637
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -625,13 +625,13 @@ msgstr ""
 "Bu, oyununuzu sonlandıracak.\n"
 "Hareket geçmişini kaydetmek istiyor musunuz?"
 
-#: knights.cpp:652
+#: knights.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Kaydet"
 
-#: knights.cpp:675
+#: knights.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

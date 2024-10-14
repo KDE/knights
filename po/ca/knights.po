@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-10 00:38+0000\n"
+"POT-Creation-Date: 2024-10-14 00:37+0000\n"
 "PO-Revision-Date: 2024-05-07 11:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -404,218 +404,218 @@ msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personalitzada"
 
-#: knights.cpp:135
+#: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 està pensant…"
 
-#: knights.cpp:142
+#: knights.cpp:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Rellotge"
 
-#: knights.cpp:173
+#: knights.cpp:178
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Historial de moviments"
 
-#: knights.cpp:192
+#: knights.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Renuncia"
 
-#: knights.cpp:193
+#: knights.cpp:198
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Admeteu la vostra derrota inevitable"
 
-#: knights.cpp:198
+#: knights.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Desfés"
 
-#: knights.cpp:199
+#: knights.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Desfà l'últim moviment vostre"
 
-#: knights.cpp:205
+#: knights.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Refés"
 
-#: knights.cpp:206
+#: knights.cpp:211
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Repeteix l'últim moviment vostre"
 
-#: knights.cpp:213
+#: knights.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Ofereix &taules"
 
-#: knights.cpp:214
+#: knights.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Oferiu taules a l'adversari"
 
-#: knights.cpp:219
+#: knights.cpp:224
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Ajorna"
 
-#: knights.cpp:220
+#: knights.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
 msgstr "Continueu aquesta partida més tard"
 
-#: knights.cpp:225
+#: knights.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Interromp"
 
-#: knights.cpp:226
+#: knights.cpp:231
 #, kde-format
 msgid "End the game immediately"
 msgstr "Finalitza la partida immediatament"
 
-#: knights.cpp:230
+#: knights.cpp:235
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Mostra el rellotge"
 
-#: knights.cpp:236
+#: knights.cpp:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Mostra l'historial"
 
-#: knights.cpp:243
+#: knights.cpp:248
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Mostra una consola blanca"
 
-#: knights.cpp:249
+#: knights.cpp:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Mostra una consola negra"
 
-#: knights.cpp:255
+#: knights.cpp:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Mostra el xat"
 
-#: knights.cpp:294
+#: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Obre un fitxer"
 
-#: knights.cpp:295 knights.cpp:653 knights.cpp:676
+#: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Notació portable de la partida (*.pgn)"
 
-#: knights.cpp:458
+#: knights.cpp:463
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
-#: knights.cpp:462
+#: knights.cpp:467
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Motors d'ordinador"
 
-#: knights.cpp:470
+#: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
 msgstr "Accessibilitat"
 
-#: knights.cpp:475
+#: knights.cpp:480
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
-#: knights.cpp:483
+#: knights.cpp:488
 #, kde-format
 msgid "Do you really want to resign?"
 msgstr "Realment voleu renunciar?"
 
-#: knights.cpp:484
+#: knights.cpp:489
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Renuncia"
 
-#: knights.cpp:485
+#: knights.cpp:490
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
 msgstr "Renuncia"
 
-#: knights.cpp:532
+#: knights.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Final de la partida"
 
-#: knights.cpp:556
+#: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
 msgstr "La partida ha acabat en taules"
 
-#: knights.cpp:562
+#: knights.cpp:567
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
 msgstr "La partida ha acabat en victòria de les <em>blanques</em>"
 
-#: knights.cpp:565
+#: knights.cpp:570
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
 msgstr "La partida ha acabat en victòria de les <em>negres</em>"
 
-#: knights.cpp:570
+#: knights.cpp:575
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
 msgstr "La partida ha acabat en victòria de <em>%1</em>, jugant amb blanques"
 
-#: knights.cpp:573
+#: knights.cpp:578
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "La partida ha acabat en victòria de <em>%1</em>, jugant amb negres"
 
-#: knights.cpp:619
+#: knights.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 contra %2"
 
-#: knights.cpp:632
+#: knights.cpp:637
 #, kde-format
 msgid ""
 "This will end your game.\n"
@@ -624,13 +624,13 @@ msgstr ""
 "Això finalitzarà la partida.\n"
 "Voleu desar l'historial de moviments?"
 
-#: knights.cpp:652
+#: knights.cpp:657
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
 msgstr "Desa"
 
-#: knights.cpp:675
+#: knights.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
