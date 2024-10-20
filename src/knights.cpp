@@ -127,9 +127,9 @@ void MainWindow::activePlayerChanged() {
 
 	//show the notification in the status bar, delay it by one second
 	QTimer::singleShot(1000, this, [=] () {
-		//the current player has changed within one second,
+		//the current player has changed within one second or the game is already over,
 		//don't need to show the notification
-		if (Manager::self()->activePlayer() != color)
+		if (Manager::self()->activePlayer() != color || !Manager::self()->isGameActive())
 			return;
 
 		QString name;

@@ -445,14 +445,14 @@ void Manager::gameOver(Color winner) {
 		return;
 
 	d->gameOverInProcess = true;
-	sendPendingMove();
 
+	sendPendingMove();
 	stopTime();
 	Protocol::white()->setWinner(winner);
 	Protocol::black()->setWinner(winner);
+	reset();
 	Q_EMIT winnerNotify(winner);
 
-	reset();
 	d->gameOverInProcess = false;
 }
 
