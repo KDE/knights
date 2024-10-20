@@ -64,7 +64,7 @@ void Offer::decline() const {
 class Knights::GameManagerPrivate {
 public:
 	GameManagerPrivate();
-        ~GameManagerPrivate();
+	~GameManagerPrivate();
 
 	Color activePlayer;
 	bool running;
@@ -119,7 +119,7 @@ GameManagerPrivate::GameManagerPrivate()
 	captureWhiteSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("capture_white.ogg"))) );
 	captureBlackSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("capture_black.ogg"))) );
 	moveWhiteSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("move_white.ogg"))) ) ;
-        moveBlackSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
+	moveBlackSound = std::unique_ptr<KGameSound>( new KGameSound(dir.filePath(QStringLiteral("move_black.ogg"))) );
 }
 
 GameManagerPrivate::~GameManagerPrivate()
@@ -656,10 +656,8 @@ void Manager::sendPendingMove() {
 		Color winner = rules()->winner();
 		if ( winner != NoColor || !rules()->hasLegalMoves ( oppositeColor( d->activePlayer ) ) ) {
 			qCDebug(LOG_KNIGHTS) << "Winner: " << winner;
-			if (!d->gameOverInProcess) {
-				d->gameOverInProcess = true;
+			if (!d->gameOverInProcess)
 				gameOver(winner);
-			}
 		}
 
 		int moveNumber;
@@ -868,13 +866,12 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 	// Write the player tags first
 
 	// Standard Tag Roster: Event, Site, Date, Round, White, Black, Result
-
-        stream << "[Event \"Casual Game\"]" << "\n";
-        stream << "[Site \"?\"]" << "\n";
-        stream << "[Date \"" << QDate::currentDate().toString( QStringLiteral("yyyy.MM.dd") ) << "\"]" << "\n";
-        stream << "[Round \"-\"]" << "\n";
-        stream << "[White \"" << Protocol::white()->playerName() << "\"]" << "\n";
-        stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << "\n";
+	stream << "[Event \"Casual Game\"]" << "\n";
+	stream << "[Site \"?\"]" << "\n";
+	stream << "[Date \"" << QDate::currentDate().toString( QStringLiteral("yyyy.MM.dd") ) << "\"]" << "\n";
+	stream << "[Round \"-\"]" << "\n";
+	stream << "[White \"" << Protocol::white()->playerName() << "\"]" << "\n";
+	stream << "[Black \"" << Protocol::black()->playerName() << "\"]" << "\n";
 
 	QByteArray result;
 	if ( d->running )
@@ -934,7 +931,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 		}
 
 		if ( characters + output.size() > LineLimit ) {
-                        stream << "\n";
+			stream << "\n";
 			characters = 0;
 		}
 
@@ -948,8 +945,7 @@ void Manager::saveGameHistoryAs(const QString& filename) {
 	qCDebug(LOG_KNIGHTS);
 
 	stream << ' ' << result;
-
-        stream << "\n";
+	stream << "\n";
 	stream.flush();
 
 	qCDebug(LOG_KNIGHTS) << "Saved";
