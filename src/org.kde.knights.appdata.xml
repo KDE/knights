@@ -25,7 +25,7 @@
   <name xml:lang="gl">KNights</name>
   <name xml:lang="he">אבירים</name>
   <name xml:lang="hu">KNights</name>
-  <name xml:lang="ia">Knights</name>
+  <name xml:lang="ia">KNights</name>
   <name xml:lang="id">KNights</name>
   <name xml:lang="it">KNights</name>
   <name xml:lang="ka">KNights</name>
@@ -879,6 +879,7 @@
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
       <caption xml:lang="he">אבירים, משחק שחמט</caption>
       <caption xml:lang="hu">Knights, sakkjáték</caption>
+      <caption xml:lang="ia">Knioghts, Joco de Chacos</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
       <caption xml:lang="it">Knights, gioco di scacchi</caption>
       <caption xml:lang="ka">Knights, ჭადრაკი</caption>
@@ -918,6 +919,7 @@
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
       <caption xml:lang="he">חלון ראשי - בן אדם נגד מנגנון שחמט</caption>
       <caption xml:lang="hu">Főablak - ember a sakkmotor ellen</caption>
+      <caption xml:lang="ia">Fenestra principal - Humano vs. Motor de chaco</caption>
       <caption xml:lang="id">Jendela Utama - Manusia vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Umano vs. Motore scacchi</caption>
       <caption xml:lang="ka">მთავარი ფანჯარა - ადამიანი ჭადრაკის ძრავის წინააღმდეგ</caption>
@@ -957,6 +959,7 @@
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
       <caption xml:lang="he">חלון ראשי - מנגנון שחמט נגד מנגנון שחמט</caption>
       <caption xml:lang="hu">Főablak - sakkmotor a sakkmotor ellen</caption>
+      <caption xml:lang="ia">Fenestra principal - Motor de Chaco vs. Motor de Chaco</caption>
       <caption xml:lang="id">Jendela Utama - Mesin Catur vs. Mesin Catur</caption>
       <caption xml:lang="it">Finestra principale - Motore scacchi vs. Motore scacchi</caption>
       <caption xml:lang="ka">მთავარი ფანჯარა - ჭადრაკის ძრავა ჭადრაკის ძრავის წინააღმდეგ</caption>
@@ -997,6 +1000,7 @@
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
       <caption xml:lang="he">חלונית „משחק חדש”</caption>
       <caption xml:lang="hu">„Új játék” párbeszédablak</caption>
+      <caption xml:lang="ia">Dialogo de "Nove Joco"</caption>
       <caption xml:lang="id">Dialog "Permainan Baru"</caption>
       <caption xml:lang="it">Finestra di dialogo «Nuova partita»</caption>
       <caption xml:lang="ka">"ახალი თამაშის" ფანჯარა</caption>
