@@ -9,6 +9,7 @@
   <name>KNights</name>
   <name xml:lang="ar">الفرسان</name>
   <name xml:lang="ast">KNights</name>
+  <name xml:lang="bg">KNights</name>
   <name xml:lang="ca">KNights</name>
   <name xml:lang="ca-valencia">KNights</name>
   <name xml:lang="cs">Knights</name>
@@ -51,6 +52,7 @@
   <name xml:lang="zh-TW">KNights</name>
   <summary>Chess game</summary>
   <summary xml:lang="ar">لعبة شطرنج</summary>
+  <summary xml:lang="bg">Игра на шах</summary>
   <summary xml:lang="ca">Joc d'escacs</summary>
   <summary xml:lang="ca-valencia">Joc d'escacs</summary>
   <summary xml:lang="cs">Šachy</summary>
@@ -96,6 +98,7 @@
       KNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.
     </p>
     <p xml:lang="ar">الفرسان هي لعبة شطرنج. كلاعب هدفك هو هزيمة خصمك من خلال ضرب ملكهم.</p>
+    <p xml:lang="bg">KNights е игра на шах. Като играч целта ви е да победите опонента си, като поставите в мат неговия цар.</p>
     <p xml:lang="ca">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="ca-valencia">KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="da">KNights er et skakspil. Som spiller er dit mål at sejre over din modstander ved deres konge skakmat.</p>
@@ -136,6 +139,7 @@
     <p xml:lang="zh-TW">KNights 是一套西洋棋遊戲。</p>
     <p>Features:</p>
     <p xml:lang="ar">الميزات:</p>
+    <p xml:lang="bg">Характеристики:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
     <p xml:lang="cs">Vlastnosti:</p>
@@ -179,6 +183,7 @@
     <ul>
       <li>Local play between two players on the same computer</li>
       <li xml:lang="ar">اللعب المحلي بين لاعبين على نفس الحاسوب</li>
+      <li xml:lang="bg">Локална игра между двама играчи на един и същи компютър</li>
       <li xml:lang="ca">Joc local entre dos jugadors al mateix ordinador</li>
       <li xml:lang="ca-valencia">Joc local entre dos jugadors al mateix ordinador</li>
       <li xml:lang="da">Lokalt spil med to spillere på den samme computer</li>
@@ -219,6 +224,7 @@
       <li xml:lang="zh-TW">在相同電腦上的兩個玩家間的本機遊戲</li>
       <li>Play against any computer program that supports the XBoard protocol</li>
       <li xml:lang="ar">اللعب ضد أي برنامج حاسوب يدعم ميفاق XBoard</li>
+      <li xml:lang="bg">Играйте срещу всяка компютърна програма, която поддържа протокола XBoard</li>
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepte el protocol XBoard</li>
       <li xml:lang="da">Spil mod computerprogram der understøtter XBoard-protokollen</li>
@@ -259,6 +265,7 @@
       <li xml:lang="zh-TW">與任何支援 XBoard 協定的電腦程式一同遊玩</li>
       <li>Play on the Free Internet Chess Server (FICS)</li>
       <li xml:lang="ar">اللعب على خادم شطرنج الإنترنت المجاني (FICS)</li>
+      <li xml:lang="bg">Играйте на безплатния интернет сървър за шах (FICS)</li>
       <li xml:lang="ca">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca-valencia">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="da">Spil på Free Internet Chess Server (FICS)</li>
@@ -299,6 +306,7 @@
       <li xml:lang="zh-TW">在免費線上西洋棋伺服器 (FICS) 遊玩</li>
       <li>Watching two computer engines play against each other</li>
       <li xml:lang="ar">مشاهدة محاكيا حاسوب يلعبان ضد بعضهما البعض</li>
+      <li xml:lang="bg">Гледайки как два компютърни двигателя играят един срещу друг</li>
       <li xml:lang="ca">Mirar dos motors d'ordinador que juguen entre si</li>
       <li xml:lang="ca-valencia">Mirar dos motors d'ordinador que juguen entre si</li>
       <li xml:lang="da">Se to computermotorer spille mod hinanden</li>
@@ -339,6 +347,7 @@
       <li xml:lang="zh-TW">觀看兩個電腦引擎相互對抗遊玩</li>
       <li>Support for legal move checking</li>
       <li xml:lang="ar">دعم الفحص القانوني للحركة</li>
+      <li xml:lang="bg">Поддръжка за проверка на законен ход</li>
       <li xml:lang="ca">Permet la comprovació de moviments legals</li>
       <li xml:lang="ca-valencia">Permet la comprovació de moviments legals</li>
       <li xml:lang="da">Undersøttelse for tjek af lovlige træk</li>
@@ -379,6 +388,7 @@
       <li xml:lang="zh-TW">支援檢查合法移動</li>
       <li>Markers for possible moves, opponent’s last move and sources of check</li>
       <li xml:lang="ar">علامات للتحركات المحتملة وآخر حركة للخصم ومصادر الفحص</li>
+      <li xml:lang="bg">Маркери за възможни ходове, последен ход на противника и източници на проверка</li>
       <li xml:lang="ca">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="ca-valencia">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="da">Markører til mulige træk, modstanderens sidste træk og tjekkilder</li>
@@ -419,6 +429,7 @@
       <li xml:lang="zh-TW">可能移動的標記，對手的最後一次移動與檢查來源</li>
       <li>Board borders and site notations</li>
       <li xml:lang="ar">حدود اللوح وترميز الموقع</li>
+      <li xml:lang="bg">Граници на таблата и означения на сайта</li>
       <li xml:lang="ca">Vores del tauler i notacions de lloc</li>
       <li xml:lang="ca-valencia">Vores del tauler i notacions de lloc</li>
       <li xml:lang="da">Brættets kanter og stednotifikationer</li>
@@ -459,6 +470,7 @@
       <li xml:lang="zh-TW">棋盤邊界與網點符號</li>
       <li>Complete time control, with Plasma-styled clocks</li>
       <li xml:lang="ar">تحكم كامل بالوقت، مع ساعات على غرار البلازما</li>
+      <li xml:lang="bg">Пълен контрол на времето с часовници в плазмен стил</li>
       <li xml:lang="ca">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="ca-valencia">Control complet del temps, amb rellotges a l'estil de Plasma</li>
       <li xml:lang="da">Fuld tidskontrol, med ure i Plasma-stil</li>
@@ -499,6 +511,7 @@
       <li xml:lang="zh-TW">完整時間控制，帶有 Plasma 風格的時鐘</li>
       <li>Several themes, with the possibility of downloading new ones from within the program</li>
       <li xml:lang="ar">سمات متعددة مع إمكانية تحميل سمات جديدة من داخل البرنامج</li>
+      <li xml:lang="bg">Няколко теми, с възможност за изтегляне на нови от програмата</li>
       <li xml:lang="ca">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="ca-valencia">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="da">Adskillige temaer, med mulighed for at downloade nye i programmet</li>
@@ -539,6 +552,7 @@
       <li xml:lang="zh-TW">多種主題，當然也在程式內下載新的</li>
       <li>Animated moves (configurable)</li>
       <li xml:lang="ar">تحريك حركات النقل (قابلة للضبط)</li>
+      <li xml:lang="bg">Анимирани движения (конфигурируеми)</li>
       <li xml:lang="ca">Animació dels moviments (configurable)</li>
       <li xml:lang="ca-valencia">Animació dels moviments (configurable)</li>
       <li xml:lang="da">Animerede træk (kan konfigureres)</li>
@@ -579,6 +593,7 @@
       <li xml:lang="zh-TW">動畫式移動（可設定）</li>
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
       <li xml:lang="ar">طرق عرض للعب على خادم الشطرنج ، بما في ذلك رسم بياني ووحدة تحكم نصية وأداة دردشة</li>
+      <li xml:lang="bg">Изгледи за игра на шах сървър, включително графика за търсене, текстова конзола и джаджа за чат</li>
       <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
       <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de xat</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
@@ -619,6 +634,7 @@
       <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
       <li xml:lang="ar">خيار التراجع عن الحركات وإعادتها</li>
+      <li xml:lang="bg">Опция за отмяна и повторение на ходове</li>
       <li xml:lang="ca">Opcions per a fer i desfer moviments</li>
       <li xml:lang="ca-valencia">Opcions per a fer i desfer moviments</li>
       <li xml:lang="da">Mulighed for at fortryde og gendanne træk</li>
@@ -659,6 +675,7 @@
       <li xml:lang="zh-TW">復原與重做移動的選項</li>
       <li>Graphic interface for making and receiving offers from remote players</li>
       <li xml:lang="ar">واجهة رسومية لتقديم العروض وتلقيها من اللاعبين البعيدين</li>
+      <li xml:lang="bg">Графичен интерфейс за правене и получаване на оферти от отдалечени играчи</li>
       <li xml:lang="ca">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="ca-valencia">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="da">Grafisk grænseflade til at foretage og modtage tilbud fra fjernspillere</li>
@@ -699,6 +716,7 @@
       <li xml:lang="zh-TW">從遠端玩家做出與接收提議的圖形化介面</li>
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
       <li xml:lang="ar">دعم ميفاق UCI (المستخدم بواسطة Stockfish و Chessbase وغيرها الكثير)</li>
+      <li xml:lang="bg">Поддръжка на UCI протокола (използван от Stockfish, Chessbase и много други)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
       <li xml:lang="ca-valencia">Admet el protocol UCI (utilitzat per Stockfish, Chessbase i altres)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
@@ -739,6 +757,7 @@
       <li xml:lang="zh-TW">支援 UCI 協定（由 Stockfish、Chessbase 與其他許多應用程式所使用）</li>
       <li>Support for saving and loading Portable game notation (PGN) files</li>
       <li xml:lang="ar">دعم حفظ وتحميل ملفات تدوين الألعاب المحمولة (PGN)</li>
+      <li xml:lang="bg">Поддръжка за запазване и зареждане на файлове с нотация на преносими игри (PGN).</li>
       <li xml:lang="ca">Admet els fitxers «Portable game notation» (PGN) per a desar i carregar</li>
       <li xml:lang="ca-valencia">Admet els fitxers «Portable game notation» (PGN) per a guardar i carregar</li>
       <li xml:lang="da">Understøttelse af gem og indlæsning af Portable game notation-filer (PGN)</li>
@@ -779,6 +798,7 @@
       <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
       <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
       <li xml:lang="ar">استخدام Jovie ، برنامج تحويل النص إلى كلام من كِيدِي للتحدث بحركات الخصم</li>
+      <li xml:lang="bg">Използване на Jovie, програмата на KDE за изговаряне на текст, за изговаряне на движенията на противника</li>
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Ús de Jovie, el programa de text a veu de KDE, per a llegir els moviments de l'adversari</li>
       <li xml:lang="da">Brug af Jovie, KDEs tekst-til-tale-program, til at sige modstanderens træk</li>
@@ -819,6 +839,7 @@
       <li xml:lang="zh-TW">使用 Jovie，KDE 的文字轉語音程式，來念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
       <li xml:lang="ar">القدرة على التحكم في البرنامج عبر واجهة D-Bus</li>
+      <li xml:lang="bg">Възможност за управление на програмата през D-Bus интерфейс</li>
       <li xml:lang="ca">Permet controlar el programa via una interfície de D-Bus</li>
       <li xml:lang="ca-valencia">Permet controlar el programa via una interfície de D-Bus</li>
       <li xml:lang="da">Mulighed for at styre programmet via en D-Bus-grænseflade</li>
@@ -863,6 +884,7 @@
     <screenshot type="default">
       <caption>Knights, chess game</caption>
       <caption xml:lang="ar">الفرسان، لعبة شطرنج</caption>
+      <caption xml:lang="bg">Knights, игра на шах</caption>
       <caption xml:lang="ca">Knights, un joc d'escacs</caption>
       <caption xml:lang="ca-valencia">KNights, un joc d'escacs</caption>
       <caption xml:lang="cs">Knights, hra v šachy</caption>
@@ -904,6 +926,7 @@
     <screenshot>
       <caption>Main Window - Human vs. Chess Engine</caption>
       <caption xml:lang="ar">النافذة الرئيسة - الإنسان ضد محرك الشطرنج</caption>
+      <caption xml:lang="bg">Основен прозорец - Човек срещу шахматна машина</caption>
       <caption xml:lang="ca">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="da">Hovedvindue - menneske mod skakmotor</caption>
@@ -944,6 +967,7 @@
     <screenshot>
       <caption>Main Window - Chess Engine vs. Chess Engine</caption>
       <caption xml:lang="ar">النافذة الرئيسة - محرك شطرنج ضد محرك شطرنج</caption>
+      <caption xml:lang="bg">Основен прозорец - компютър срещу компютър</caption>
       <caption xml:lang="ca">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="da">Hovedvindue - skakmotor mod skakmotor</caption>
@@ -984,6 +1008,7 @@
     <screenshot>
       <caption>"New Game" Dialog</caption>
       <caption xml:lang="ar">حواريّ لعبة جديدة</caption>
+      <caption xml:lang="bg">Диалогов прозорец "Нова игра".</caption>
       <caption xml:lang="ca">Diàleg «Joc nou»</caption>
       <caption xml:lang="ca-valencia">Diàleg «Joc nou»</caption>
       <caption xml:lang="cs">Okno "Nová hra"</caption>
@@ -1025,6 +1050,7 @@
     <screenshot>
       <caption>Auto-Detection of Chess Engines</caption>
       <caption xml:lang="ar">الكشف الآلي لمحركات الشطرنج</caption>
+      <caption xml:lang="bg">Автоматично откриване на шахматни програми</caption>
       <caption xml:lang="ca">Detecció automàtica dels motors d'escacs</caption>
       <caption xml:lang="ca-valencia">Detecció automàtica dels motors d'escacs</caption>
       <caption xml:lang="da">Autodetektion af skakmotorer</caption>
@@ -1064,6 +1090,7 @@
     <screenshot>
       <caption>Playing online - FICS Console</caption>
       <caption xml:lang="ar">اللعب عن طريق الإنترنت - طرفية FICS</caption>
+      <caption xml:lang="bg">Игра онлайн - FICS конзола</caption>
       <caption xml:lang="ca">Jugant en línia: consola FICS</caption>
       <caption xml:lang="ca-valencia">Jugant en línia: consola FICS</caption>
       <caption xml:lang="da">Spiller online - FICS Console</caption>
@@ -1103,6 +1130,7 @@
     <screenshot>
       <caption>Playing online - graphical Seek-Graph</caption>
       <caption xml:lang="ar">اللعب على الإنترنت - رسم بياني</caption>
+      <caption xml:lang="bg">Игра онлайн - графичен Seek-Graph</caption>
       <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
       <caption xml:lang="ca-valencia">Jugant en línia: gràfic de busca</caption>
       <caption xml:lang="da">Spiller online - grafisk søgegraf</caption>
