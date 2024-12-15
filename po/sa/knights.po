@@ -3,41 +3,43 @@
 # This file is distributed under the same license as the knights package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-12-13 19:10+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:48+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: board.cpp:579
 #, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
-msgstr ""
+msgstr "संवर्धना"
 
 #: board.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr ""
+msgstr "प्रोत्साहन"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -63,7 +65,7 @@ msgstr "अन्वेषणं &गहनता: ."
 #, kde-format
 msgctxt "Let the engine determine the search depth"
 msgid "Engine default"
-msgstr ""
+msgstr "इञ्जिन पूर्वनिर्धारित"
 
 #. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
 #: customdifficultydialog.ui:43
@@ -76,33 +78,33 @@ msgstr "स्मृति & आकारः : १."
 #, kde-format
 msgctxt "Megabytes"
 msgid " MB"
-msgstr ""
+msgstr " MB"
 
 #: difficultydialog.cpp:35
 #, kde-format
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " चलनम्"
+msgstr[1] " चलति"
 
 #: difficultydialog.cpp:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Difficulty Level"
-msgstr ""
+msgstr "कठिनता स्तर"
 
 #: enginesettings.cpp:111
 #, kde-format
 msgctxt "Protocol name"
 msgid "XBoard"
-msgstr ""
+msgstr "XBoard इति"
 
 #: enginesettings.cpp:112
 #, kde-format
 msgctxt "Protocol name"
 msgid "UCI"
-msgstr ""
+msgstr "यूसीआई"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoDetectButton)
 #: enginesettings.ui:19
@@ -150,37 +152,37 @@ msgstr "संस्थापितम्"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr ""
+msgstr "नवीन खेल"
 
 #: gamedialog.cpp:266
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षणं"
+msgstr[1] " पन्चनिमेषः"
 
 #: gamedialog.cpp:267
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " क्षण"
+msgstr[1] " सेकण्ड्"
 
 #: gamedialog.cpp:268
 #, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] " चलनम्"
+msgstr[1] " चलति"
 
 #: gamedialog.cpp:307
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
-msgstr ""
+msgstr "शतरंज इञ्जिन"
 
 #: gamedialog.cpp:359
 #, kde-format
@@ -274,7 +276,7 @@ msgstr "&समय नियन्त्रण अवधिः : १."
 #, kde-format
 msgctxt "Time control mode"
 msgid "Timer Only"
-msgstr ""
+msgstr "Timer Only इति"
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
@@ -309,8 +311,8 @@ msgstr "%1 भवन्तं सममूल्यं प्रस्ताव�
 #, kde-format
 msgid "%2 would like to take back a half move"
 msgid_plural "%2 would like to take back %1 half moves"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 अर्धचरणं पुनः ग्रहीतुं इच्छति"
+msgstr[1] "%2 %1 अर्धचरणं पुनः ग्रहीतुं इच्छति"
 
 #: gamemanager.cpp:529
 #, kde-format
@@ -326,31 +328,31 @@ msgstr "%1 क्रीडां निरस्तं कर्तुम् इ
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles queenside"
-msgstr ""
+msgstr "%1 दुर्गाः राज्ञीपार्श्वे"
 
 #: gamemanager.cpp:630
 #, kde-format
 msgctxt "string to be spoken when the opponent castles queenside"
 msgid "%1 castles kingside"
-msgstr ""
+msgstr "%1 दुर्गाः राजापक्षे"
 
 #: gamemanager.cpp:634
 #, kde-format
 msgctxt "string to be spoken when the opponent makes a normal  move"
 msgid "%1 to %2"
-msgstr ""
+msgstr "%1 तः %2 पर्यन्तम्"
 
 #: gamemanager.cpp:647
 #, kde-format
 msgctxt "Your king is under attack"
 msgid "Check"
-msgstr ""
+msgstr "अनुशीलय"
 
 #: gamemanager.cpp:649
 #, kde-format
 msgctxt "Your king is dead"
 msgid "Checkmate"
-msgstr ""
+msgstr "चेकमेट"
 
 #: historywidget.cpp:26
 #, kde-format
@@ -398,90 +400,90 @@ msgstr "समन्वयनम्"
 #, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr ""
+msgstr "आचारः"
 
 #: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 चिन्तयति..."
+msgstr "%1 चिन्तयति…"
 
 #: knights.cpp:147
 #, kde-format
 msgctxt "@title:window"
 msgid "Clock"
-msgstr ""
+msgstr "घटिका"
 
 #: knights.cpp:178
 #, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr ""
+msgstr "इतिहासं चालयन्तु"
 
 #: knights.cpp:197
 #, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr ""
+msgstr "निष्क्रम्"
 
 #: knights.cpp:198
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
-msgstr ""
+msgstr "भवतः अनिवार्यपराजयं स्वीकुरुत"
 
 #: knights.cpp:203
 #, kde-format
 msgctxt "@action"
 msgid "Undo"
-msgstr ""
+msgstr "पूर्ववत"
 
 #: knights.cpp:204
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr ""
+msgstr "अन्तिमं चालनं पुनः गृहाण"
 
 #: knights.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "Redo"
-msgstr ""
+msgstr "पुनः करो"
 
 #: knights.cpp:211
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr ""
+msgstr "अन्तिमं चालनं पुनः कुर्वन्तु"
 
 #: knights.cpp:218
 #, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr ""
+msgstr "प्रस्ताव & आकर्षण"
 
 #: knights.cpp:219
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr ""
+msgstr "प्रतिद्वन्द्वी सममूल्यं प्रस्तावयन्तु"
 
 #: knights.cpp:224
 #, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr ""
+msgstr "स्थगन"
 
 #: knights.cpp:225
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr ""
+msgstr "पश्चात् समये एतत् क्रीडां निरन्तरं कुर्वन्तु"
 
 #: knights.cpp:230
 #, kde-format
 msgctxt "@action"
 msgid "Abort"
-msgstr ""
+msgstr "गर्भपातं कुरुत"
 
 #: knights.cpp:231
 #, kde-format
@@ -492,37 +494,37 @@ msgstr "तत्क्षणमेव क्रीडां समाप्त�
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr ""
+msgstr "घड़ीं दर्शयतु"
 
 #: knights.cpp:241
 #, kde-format
 msgctxt "@option:check"
 msgid "Show History"
-msgstr ""
+msgstr "इतिहासं दर्शयतु"
 
 #: knights.cpp:248
 #, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr ""
+msgstr "श्वेत कन्सोल् दर्शयतु"
 
 #: knights.cpp:254
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr ""
+msgstr "कृष्णं कन्सोल् दर्शयतु"
 
 #: knights.cpp:260
 #, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr ""
+msgstr "गपशपं दर्शयतु"
 
 #: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
-msgstr ""
+msgstr "सञ्चिकां उद्घाटयन्तु"
 
 #: knights.cpp:300 knights.cpp:658 knights.cpp:681
 #, kde-format
@@ -533,25 +535,25 @@ msgstr "पोर्टेबल गेम संकेतन (*.pgn)"
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: knights.cpp:467
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr ""
+msgstr "कम्प्यूटर इञ्जिन"
 
 #: knights.cpp:475
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "सुलभता"
 
 #: knights.cpp:480
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr ""
+msgstr "विषयवस्तु"
 
 #: knights.cpp:488
 #, kde-format
@@ -562,19 +564,19 @@ msgstr "किं भवन्तः वास्तवमेव त्याग
 #, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr ""
+msgstr "निष्क्रम्"
 
 #: knights.cpp:490
 #, kde-format
 msgctxt "@action:button"
 msgid "Resign"
-msgstr ""
+msgstr "निष्क्रम्"
 
 #: knights.cpp:537
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "गेम ओवर"
 
 #: knights.cpp:561
 #, kde-format
@@ -585,31 +587,31 @@ msgstr "क्रीडा सममूल्यतायां समाप्�
 #, kde-format
 msgctxt "White as in the player with white pieces"
 msgid "The game ended with a victory for <em>White</em>"
-msgstr ""
+msgstr "<em>व्हाइट्</em> इत्यस्य विजयेन क्रीडा समाप्तवती"
 
 #: knights.cpp:570
 #, kde-format
 msgctxt "Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>Black</em>"
-msgstr ""
+msgstr "<em>कृष्णस्य</em> विजयेन क्रीडा समाप्तवती"
 
 #: knights.cpp:575
 #, kde-format
 msgctxt "Player name, then <White as in the player with white pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing White"
-msgstr ""
+msgstr "<em>%1</em> कृते विजयेन क्रीडा समाप्तवती, श्वेतवर्णं क्रीडन्"
 
 #: knights.cpp:578
 #, kde-format
 msgctxt "Player name, then Black as in the player with black pieces"
 msgid "The game ended with a victory for <em>%1</em>, playing Black"
-msgstr ""
+msgstr "<em>%1</em> कृते विजयेन क्रीडा समाप्तवती, कृष्णवर्णं क्रीडन्"
 
 #: knights.cpp:624
 #, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr ""
+msgstr "%1 विरुद्ध %2"
 
 #: knights.cpp:637
 #, kde-format
@@ -624,13 +626,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save"
-msgstr ""
+msgstr "रक्ष्"
 
 #: knights.cpp:680
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr ""
+msgstr "As Save As इति"
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
@@ -1048,21 +1050,21 @@ msgstr "कृते &markers दर्शयतु:"
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Legal moves"
-msgstr ""
+msgstr "कानूनी चालनानि"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMotion)
 #: prefs_base.ui:99
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr ""
+msgstr "प्रतिद्वन्द्वस्य चालनम्"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Check"
-msgstr ""
+msgstr "अनुशीलय"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: prefs_base.ui:119
@@ -1190,13 +1192,13 @@ msgstr "सत्रम् आरब्धम्"
 #: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
-msgstr "प्रवेशं कृत्वा..."
+msgstr "प्रवेशं कृत्वा…"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2) २."
 
 #: proto/ficsdialog.cpp:172
 #, kde-format
@@ -1346,7 +1348,7 @@ msgstr "स्वयमेव क्रीडां आरभत"
 #, kde-format
 msgctxt "Start searching for opponents"
 msgid "Seek"
-msgstr ""
+msgstr "अन्विष्यति"
 
 #. i18n: ectx: attribute (title), widget (QWidget, consoleTab)
 #: proto/ficsdialog.ui:295
@@ -1364,7 +1366,7 @@ msgstr "कस्टम् आदेशानां उपयोगं कुर
 #, kde-format
 msgctxt "Stop searching for opponents"
 msgid "Unseek"
-msgstr ""
+msgstr "अनसेक्"
 
 #: proto/ficsprotocol.cpp:119
 #, kde-format
@@ -1390,7 +1392,7 @@ msgstr "प्रवेशः विफलः अभवत्"
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr ""
+msgstr "शतरंज सर्वर"
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
