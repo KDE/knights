@@ -834,7 +834,7 @@
       <li xml:lang="x-test">xxSupport for saving and loading Portable game notation (PGN) filesxx</li>
       <li xml:lang="zh-CN">支持保存和加载便携式游戏标记(PGN) 文件</li>
       <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
-      <li>Use of Jovie, the KDE text-to-speak program, to speak opponent’s moves</li>
+      <li>Speak opponent’s moves</li>
       <li xml:lang="ar">استخدام Jovie ، برنامج تحويل النص إلى كلام من كِيدِي للتحدث بحركات الخصم</li>
       <li xml:lang="bg">Използване на Jovie, програмата на KDE за изговаряне на текст, за изговаряне на движенията на противника</li>
       <li xml:lang="ca">Ús del Jovie, el programa de text a veu del KDE, per a pronunciar els moviments de l'adversari</li>

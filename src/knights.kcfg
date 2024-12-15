@@ -177,7 +177,7 @@
   </group>
   <group name="Accessibility">
       <entry name="speakOpponentsMoves" type="Bool">
-          <label>whether opponents' moves are spoken by Jovie</label>
+          <label>whether opponent's moves are spoken</label>
           <default>true</default>
       </entry>
       <entry name="allowExternalControl" type="Bool">
