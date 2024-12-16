@@ -25,6 +25,7 @@
   <name xml:lang="fr">KNights</name>
   <name xml:lang="gl">KNights</name>
   <name xml:lang="he">אבירים</name>
+  <name xml:lang="hi">शूरवीर</name>
   <name xml:lang="hu">KNights</name>
   <name xml:lang="ia">KNights</name>
   <name xml:lang="id">KNights</name>
@@ -69,6 +70,7 @@
   <summary xml:lang="fr">Jeu d'échecs</summary>
   <summary xml:lang="gl">Xogo de xadrez</summary>
   <summary xml:lang="he">משחק שחמט</summary>
+  <summary xml:lang="hi">शतरंज का खेल</summary>
   <summary xml:lang="hu">Sakkjáték</summary>
   <summary xml:lang="ia">Joco de Chacos</summary>
   <summary xml:lang="id">Permainan catur</summary>
@@ -115,6 +117,7 @@
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
     <p xml:lang="he">אבירים הוא משחק שחמט. כשחקן, המטרה שלך היא להביס את היריב שלך על ידי ביצוע שחמט על המלך שלו.</p>
+    <p xml:lang="hi">नाइट्स एक शतरंज का खेल है। एक खिलाड़ी के रूप में, आपका लक्ष्य अपने प्रतिद्वंद्वी के राजा को मात देकर उसे हराना है।</p>
     <p xml:lang="hu">A KNights egy sakkjáték. Játékosként az a célja, hogy legyőzze ellenfele királyát sakk-mattal.</p>
     <p xml:lang="id">KNights adalah sebuah permainan catur. Sebagai pemain, tujuanmu adalah mengalahkan lawanmu dengan menyekak rajanya.</p>
     <p xml:lang="it">KNights è un gioco di scacchi. Come giocatore, il tuo obbiettivo è sconfiggere il tuo avversario facendo scacco matto al suo re.</p>
@@ -158,6 +161,7 @@
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="he">יכולות:</p>
+    <p xml:lang="hi">विशेषताएँ:</p>
     <p xml:lang="hu">Funkciók:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
@@ -202,6 +206,7 @@
       <li xml:lang="fr">Jouez en local entre deux joueurs sur le même ordinateur</li>
       <li xml:lang="gl">Partidas entre dous xogadores no mesmo computador.</li>
       <li xml:lang="he">משחק מקומי בין שני שחקנים על אותו המחשב</li>
+      <li xml:lang="hi">एक ही कंप्यूटर पर दो खिलाड़ियों के बीच स्थानीय खेल</li>
       <li xml:lang="hu">Helyi játék két játékos között ugyanazon a számítógépen</li>
       <li xml:lang="id">Main lokal antara dua pemain pada komputer yang sama</li>
       <li xml:lang="it">Sfida locale tra due giocatori sullo stesso computer</li>
@@ -244,6 +249,7 @@
       <li xml:lang="fr">Jouez contre un programme informatique prenant en charge le protocole XBoard</li>
       <li xml:lang="gl">Partidas contra calquera programa de computador compatíbel co protocolo XBoard.</li>
       <li xml:lang="he">משחק נגד כל תוכנית מחשב שתומכת בפרוטוקול XBoard</li>
+      <li xml:lang="hi">XBoard प्रोटोकॉल का समर्थन करने वाले किसी भी कंप्यूटर प्रोग्राम के विरुद्ध खेलें</li>
       <li xml:lang="hu">Játék bármely, az XBoard protokollt támogató számítógépes program ellen</li>
       <li xml:lang="id">Bermain melawan program komputer apa pun yang mendukung protokol XBoard</li>
       <li xml:lang="it">Gioca contro qualsiasi programma di computer che supporti il protocollo XBoard</li>
@@ -286,6 +292,7 @@
       <li xml:lang="fr">Jouez sur le serveur « FICS » (Free Internet Chess Server)</li>
       <li xml:lang="gl">Xogar no servidor libre de xadrez por Internet (FICS).</li>
       <li xml:lang="he">משחק בשרת השחמט האינטרנטי החינמי (FICS)</li>
+      <li xml:lang="hi">निःशुल्क इंटरनेट शतरंज सर्वर (FICS) पर खेलें</li>
       <li xml:lang="hu">Játék a szabad internetes sakk-kiszolgálón (FICS)</li>
       <li xml:lang="id">Bermain pada server catur bebas internet  Free Internet Chess Server (FICS)</li>
       <li xml:lang="it">Gioca sul Free Internet Chess Server (FICS)</li>
@@ -328,6 +335,7 @@
       <li xml:lang="fr">Regardez deux moteurs de jeu s'affronter</li>
       <li xml:lang="gl">Visualización de partidas dun motor informático contra outro.</li>
       <li xml:lang="he">צפייה בשני מנגנונים ממוחשבים משחקים זה נגד זה</li>
+      <li xml:lang="hi">दो कंप्यूटर इंजनों को एक दूसरे के खिलाफ खेलते देखना</li>
       <li xml:lang="hu">Két számítógépes motor egymás elleni játékának megtekintése</li>
       <li xml:lang="id">Menonton dua mesin komputer yang saling bertanding</li>
       <li xml:lang="it">Guarda due motori di computer sfidarsi l'un l'altro</li>
@@ -370,6 +378,7 @@
       <li xml:lang="fr">Prise en charge de la vérification de la légalité des déplacements</li>
       <li xml:lang="gl">Opción de comprobar se un movemento está permitido.</li>
       <li xml:lang="he">תמיכה בבדיקת מהלכים חוקיים</li>
+      <li xml:lang="hi">कानूनी चाल जाँच के लिए समर्थन</li>
       <li xml:lang="hu">Jogos lépések ellenőrzése</li>
       <li xml:lang="id">Mendukung pemeriksaan langkah yang sah</li>
       <li xml:lang="it">Supporto per il controllo delle mosse legali</li>
@@ -412,6 +421,7 @@
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
       <li xml:lang="he">סמנים למהלכים אפשריים, הצעד האחרון של היריב ומקורות הבדיקה</li>
+      <li xml:lang="hi">संभावित चालों, प्रतिद्वंद्वी की अंतिम चाल और चेक के स्रोतों के लिए मार्कर</li>
       <li xml:lang="hu">A lehetséges lépések, az ellenfél utolsó lépésének és a sakkforrások jelölése</li>
       <li xml:lang="id">Menandai langkah-langkah yang memungkinkan, langkah terakhir lawan dan sumber-sember pemeriksaan</li>
       <li xml:lang="it">Contrassegni per mosse possibili, ultima mossa dell'avversario e fonti di controllo</li>
@@ -454,6 +464,7 @@
       <li xml:lang="fr">Bordures du plateau et notations des sites</li>
       <li xml:lang="gl">Bordos no taboleiro e anotacións asociadas a lugares.</li>
       <li xml:lang="he">גבולות לוח והסברי אתר</li>
+      <li xml:lang="hi">बोर्ड की सीमाएं और साइट संकेतन</li>
       <li xml:lang="hu">Táblaszegélyek és oldalsó jelölések</li>
       <li xml:lang="id">Notasi situs dan bingkai papan</li>
       <li xml:lang="it">Bordi scacchiera e annotazioni siti</li>
@@ -496,6 +507,7 @@
       <li xml:lang="fr">Contrôle du temps intégral, avec des horloges de style Plasma</li>
       <li xml:lang="gl">Control completo do tempo con reloxos co estilo de Plasma.</li>
       <li xml:lang="he">בקרת זמן מלאה עם שעונים בסגנון פלזמה</li>
+      <li xml:lang="hi">प्लाज्मा शैली की घड़ियों के साथ पूर्ण समय नियंत्रण</li>
       <li xml:lang="hu">Teljes idővezérlés Plasma-stílusú órákkal</li>
       <li xml:lang="id">Kendali waktu yang lengkap, dengan jam gaya Plasma</li>
       <li xml:lang="it">Controllo totale del tempo, con orologi in stile Plasma</li>
@@ -538,6 +550,7 @@
       <li xml:lang="fr">Plusieurs thèmes et la possibilité d'en télécharger de nouveaux au sein du programme</li>
       <li xml:lang="gl">Varios temas, coa posibilidade de descargar temas novos desde o propio programa.</li>
       <li xml:lang="he">מגוון ערכות עיצוב, עם אפשרות להוריד חדשות ישירות מתוך התוכנית</li>
+      <li xml:lang="hi">कई थीम, प्रोग्राम के भीतर से नई थीम डाउनलोड करने की संभावना के साथ</li>
       <li xml:lang="hu">Számos téma, újak letöltésének lehetőségével a programon belül</li>
       <li xml:lang="id">Bebrapa tema, dengan secara mungkin dapat mengunduhnya yang baru dari program</li>
       <li xml:lang="it">Temi diversi, con la possibilità di scaricarne nuovi all'interno del programma</li>
@@ -580,6 +593,7 @@
       <li xml:lang="fr">Déplacements animés (configurable)</li>
       <li xml:lang="gl">Movementos animados configurábeis.</li>
       <li xml:lang="he">מהלכים מונפשים (אפשר להגדיר)</li>
+      <li xml:lang="hi">एनिमेटेड चालें (कॉन्फ़िगर करने योग्य)</li>
       <li xml:lang="hu">Animált lépések (beállítható)</li>
       <li xml:lang="id">Langkah teranimasi (dapat dikonfigurasi)</li>
       <li xml:lang="it">Mosse animate (configurabile)</li>
@@ -622,6 +636,7 @@
       <li xml:lang="fr">Fonctionnalités pour jouer sur un serveur d'échecs, notamment un graphique de recherche, une console texte et un composant graphique de discussion</li>
       <li xml:lang="gl">Vistas para xogar en servidores de xadrez, entre elas un grafo de busca, unha consola de texto, e un trebello de charla.</li>
       <li xml:lang="he">תצוגות למשחק על שרת שחמט, כולל תרשים חתימה, מסוף טקסט וחלונית צ׳אט</li>
+      <li xml:lang="hi">शतरंज सर्वर पर खेलने के लिए दृश्य, जिसमें सीक ग्राफ, टेक्स्ट कंसोल और चैट विजेट शामिल हैं</li>
       <li xml:lang="hu">Nézetek a sakkszervereken való játékhoz, beleértve a keresési gráfot, a szöveges konzolt és a chatablakot</li>
       <li xml:lang="id">Menampilkan pemainan pada server catur, termasuk grafik jangka, konsol teks, dan widget chat</li>
       <li xml:lang="it">Viste per il gioco in un server di scacchi, incluso un grafico per la ricerca, una consolle testuale e un'estensione per la chat</li>
@@ -664,6 +679,7 @@
       <li xml:lang="fr">Options pour annuler et refaire des mouvements</li>
       <li xml:lang="gl">Opción de desfacer e refacer movementos.</li>
       <li xml:lang="he">אפשרות להסיג ולבצע מהלכים שוב</li>
+      <li xml:lang="hi">चालों को पूर्ववत करने और पुनः करने का विकल्प</li>
       <li xml:lang="hu">Lehetőség lépések visszavonására és újra végrehajtására</li>
       <li xml:lang="id">Opsi untuk urung dan ulang langkah</li>
       <li xml:lang="it">Opzione per annullare e rifare le mosse</li>
@@ -706,6 +722,7 @@
       <li xml:lang="fr">Interface graphique pour envoyer et recevoir des offres avec des joueurs à distance</li>
       <li xml:lang="gl">Interface gráfica para realizar e recibir ofertas de xogadores remotos.</li>
       <li xml:lang="he">ממשק גרפי להגשה וקבלת הצעות משחקנים מרוחקים</li>
+      <li xml:lang="hi">दूरस्थ खिलाड़ियों से ऑफर बनाने और प्राप्त करने के लिए ग्राफिक इंटरफ़ेस</li>
       <li xml:lang="hu">Grafikus felület a távoli játékosok ajánlatainak megtételéhez és fogadásához</li>
       <li xml:lang="id">Antarmuka grafik untuk membuat dan menerima penawaran pemain jarak jauh</li>
       <li xml:lang="it">Interfaccia grafica per formulare e ricevere sfide dai giocatori remoti</li>
@@ -748,6 +765,7 @@
       <li xml:lang="fr">Prise en charge du protocole « UCI » (utilisé par Stockfish, Chessbase et bien d'autres)</li>
       <li xml:lang="gl">Compatibilidade co protocolo UCI (o que usan Stockfish, Chessbase, e moitos outros).</li>
       <li xml:lang="he">תמיכה בפרוטוקול UCI (שמשמש את Stockfish, Chessbase ועוד רבים נוספים)</li>
+      <li xml:lang="hi">यूसीआई प्रोटोकॉल के लिए समर्थन (स्टॉकफिश, चेसबेस और कई अन्य द्वारा उपयोग किया जाता है)</li>
       <li xml:lang="hu">A Stockfish, Chessbase és mások által használt UCI-protokoll támogatása</li>
       <li xml:lang="id">Dukungan untuk protokol UCI (digunakan oleh Stockfish, Chessbase, dan banyak lainnya)</li>
       <li xml:lang="it">Supporto per il protocollo UCI (usato da Stockfish, Chessbase e molti altri)</li>
@@ -790,6 +808,7 @@
       <li xml:lang="fr">Prise en charge de l'enregistrement et du chargement de fichiers « PGN » (Notation portable de jeu)</li>
       <li xml:lang="gl">Posibilidade de gardar e cargar ficheiros en notación de partida portátil (PGN).</li>
       <li xml:lang="he">תמיכה בשמירה וטעינה של קובצי PGN - הסברי משחק ניידים</li>
+      <li xml:lang="hi">पोर्टेबल गेम नोटेशन (PGN) फ़ाइलों को सहेजने और लोड करने के लिए समर्थन</li>
       <li xml:lang="hu">Hordozható játékábrázolások (PGN-fájlok) mentése és betöltése</li>
       <li xml:lang="id">Dukungan untuk menyimpan dan memuat file-file (PGN) notasi permainan Portable</li>
       <li xml:lang="it">Supporto per il salvataggio e il caricamento dei file Portable game notation (PGN)</li>
@@ -832,6 +851,7 @@
       <li xml:lang="fr">Utilisation de Jovie, le programme de synthèse vocale de KDE, pour annoncer les mouvements de l'adversaire</li>
       <li xml:lang="gl">Uso de Jovie, o programa de texto-para-fala de KDE para narrar os movementos do contrincante.</li>
       <li xml:lang="he">שימוש ב־Jovie, תוכנית ההקראה של KDE כדי להקריא את מהלכי היריב</li>
+      <li xml:lang="hi">प्रतिद्वंद्वी की चालें बोलने के लिए केडीई टेक्स्ट-टू-स्पीक प्रोग्राम जोवी का उपयोग</li>
       <li xml:lang="hu">A Jovie, a KDE szövegfelolvasó programjának használata az ellenfél lépéseinek felolvasásához</li>
       <li xml:lang="id">Gunakan Jovie, program KDE text-to-speech untuk berbicara saat lawan bergerak</li>
       <li xml:lang="it">Uso di Jovie, il programma di lettura vocale KDE, per dire le mosse dell'avversario</li>
@@ -874,6 +894,7 @@
       <li xml:lang="fr">Possibilité de contrôler le programme grâce à une interface D-Bus</li>
       <li xml:lang="gl">Posibilidade de controlar o programa mediante unha interface D-Bus.</li>
       <li xml:lang="he">אפשרות לשלוט בתוכנית דרך ממשק D-Bus</li>
+      <li xml:lang="hi">डी-बस इंटरफ़ेस के माध्यम से प्रोग्राम को नियंत्रित करने की क्षमता</li>
       <li xml:lang="hu">A program vezérlésének lehetőséget D-Bus interfészen keresztül</li>
       <li xml:lang="id">Mampu untuk mengendalikan program via antarmuka D-Bus</li>
       <li xml:lang="it">Capacità di controllare il programma tramite interfaccia D-Bus</li>
@@ -921,6 +942,7 @@
       <caption xml:lang="fr">KNights, jeu d'échecs</caption>
       <caption xml:lang="gl">Knights, xogo de xadrez</caption>
       <caption xml:lang="he">אבירים, משחק שחמט</caption>
+      <caption xml:lang="hi">शूरवीर, शतरंज का खेल</caption>
       <caption xml:lang="hu">Knights, sakkjáték</caption>
       <caption xml:lang="ia">Knioghts, Joco de Chacos</caption>
       <caption xml:lang="id">Knights, permainan catur</caption>
@@ -963,6 +985,7 @@
       <caption xml:lang="fr">Fenêtre principale - Humain contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Humano contra motor de xadrez</caption>
       <caption xml:lang="he">חלון ראשי - בן אדם נגד מנגנון שחמט</caption>
+      <caption xml:lang="hi">मुख्य विंडो - मानव बनाम शतरंज इंजन</caption>
       <caption xml:lang="hu">Főablak - ember a sakkmotor ellen</caption>
       <caption xml:lang="ia">Fenestra principal - Humano vs. Motor de chaco</caption>
       <caption xml:lang="id">Jendela Utama - Manusia vs. Mesin Catur</caption>
@@ -1005,6 +1028,7 @@
       <caption xml:lang="fr">Fenêtre principale - Moteur d'échecs contre moteur d'échecs</caption>
       <caption xml:lang="gl">Xanela principal — Motor de xadrez contra motor de xadrez</caption>
       <caption xml:lang="he">חלון ראשי - מנגנון שחמט נגד מנגנון שחמט</caption>
+      <caption xml:lang="hi">मुख्य विंडो - शतरंज इंजन बनाम शतरंज इंजन</caption>
       <caption xml:lang="hu">Főablak - sakkmotor a sakkmotor ellen</caption>
       <caption xml:lang="ia">Fenestra principal - Motor de Chaco vs. Motor de Chaco</caption>
       <caption xml:lang="id">Jendela Utama - Mesin Catur vs. Mesin Catur</caption>
@@ -1048,6 +1072,7 @@
       <caption xml:lang="fr">Boîte de dialogue « Nouveau jeu »</caption>
       <caption xml:lang="gl">Diálogo de «Nova partida»</caption>
       <caption xml:lang="he">חלונית „משחק חדש”</caption>
+      <caption xml:lang="hi">"नया गेम" संवाद</caption>
       <caption xml:lang="hu">„Új játék” párbeszédablak</caption>
       <caption xml:lang="ia">Dialogo de "Nove Joco"</caption>
       <caption xml:lang="id">Dialog "Permainan Baru"</caption>
@@ -1090,6 +1115,7 @@
       <caption xml:lang="fr">Auto-détection des moteurs d'échecs</caption>
       <caption xml:lang="gl">Detección automática de motores de xadrez</caption>
       <caption xml:lang="he">זיהוי מנועי שחמט אוטומטית</caption>
+      <caption xml:lang="hi">शतरंज इंजन का स्वतः पता लगाना</caption>
       <caption xml:lang="hu">Sakkmotorok automatikus felismerése</caption>
       <caption xml:lang="id">AutoDeteksi pada Mesin Catur</caption>
       <caption xml:lang="it">Rilevamento automatico dei motori scacchi</caption>
@@ -1131,6 +1157,7 @@
       <caption xml:lang="fr">Jeu en ligne - Console FICS</caption>
       <caption xml:lang="gl">Xogar por Internet — Consola de FICS</caption>
       <caption xml:lang="he">משחק מקוון - מסוף FICS</caption>
+      <caption xml:lang="hi">ऑनलाइन खेलना - FICS कंसोल</caption>
       <caption xml:lang="hu">Online játék - FICS konzol</caption>
       <caption xml:lang="id">Bermain online - FICS Console</caption>
       <caption xml:lang="it">Partita in linea - Console FICS</caption>
@@ -1172,6 +1199,7 @@
       <caption xml:lang="fr">Jeu en ligne - Graphique de recherche</caption>
       <caption xml:lang="gl">Xogar por Internet — Grafo de busca gráfico</caption>
       <caption xml:lang="he">משחק מקוון - תרשים חתירה חזותי</caption>
+      <caption xml:lang="hi">ऑनलाइन खेलना - ग्राफिकल सीक-ग्राफ</caption>
       <caption xml:lang="hu">Online játék - grafikus keresési gráf</caption>
       <caption xml:lang="id">Bermain online - grafik Seek-Graph</caption>
       <caption xml:lang="it">Partita in linea - grafico di ricerca</caption>
