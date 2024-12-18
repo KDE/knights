@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 19:20+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -858,8 +858,9 @@ msgstr "opcións almacenadas de configuracións específicas de motores"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, kde-format
-msgid "whether opponents' moves are spoken by Jovie"
+#, fuzzy, kde-format
+#| msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "se os movementos do contrincante se len en voz alta con Jovie"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)

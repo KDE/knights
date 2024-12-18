@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2024-09-29 08:25+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -849,8 +849,9 @@ msgstr "ძრავაზე დამოკიდებული პარა�
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, kde-format
-msgid "whether opponents' moves are spoken by Jovie"
+#, fuzzy, kde-format
+#| msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "წარმოთქვამს თუ არა Jovie მეტოქის სვლებს"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)

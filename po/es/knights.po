@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2024-05-08 00:23+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -865,8 +865,9 @@ msgstr "Configuración guardada de los ajustes específicos del motor"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, kde-format
-msgid "whether opponents' moves are spoken by Jovie"
+#, fuzzy, kde-format
+#| msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "Indica si Jovie debe leer los movimientos del oponente"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 한국어 번역\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2024-08-19 23:40+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -835,8 +835,9 @@ msgstr "엔진별 설정의 저장된 구성"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, kde-format
-msgid "whether opponents' moves are spoken by Jovie"
+#, fuzzy, kde-format
+#| msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "Jovie가 상대방의 행마를 말하는지 여부"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)

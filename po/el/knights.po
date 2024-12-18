@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2024-09-19 22:17+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -859,8 +859,9 @@ msgstr "αποθηκευμένες επιλογές διαμόρφωσης ρυ�
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, kde-format
-msgid "whether opponents' moves are spoken by Jovie"
+#, fuzzy, kde-format
+#| msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "αν οι κινήσεις του αντιπάλου εκφωνούνται από το Jovie"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)

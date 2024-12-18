@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-14 00:37+0000\n"
+"POT-Creation-Date: 2024-12-18 00:38+0000\n"
 "PO-Revision-Date: 2019-12-12 21:50+0000\n"
 "Last-Translator: Vivek KJ Pazhedath <vivekkj2004@gmail.com>\n"
 "Language-Team: Swathantra Malayalam Computing | സ്വതന്ത്ര മലയാളം കമ്പ്യൂട്ടിങ് "
@@ -873,7 +873,7 @@ msgstr ""
 #: knights.kcfg:180
 #, fuzzy, kde-format
 #| msgid "show opponents move marker"
-msgid "whether opponents' moves are spoken by Jovie"
+msgid "whether opponent's moves are spoken"
 msgstr "എതിരാളിയുടെ നീക്കത്തിന്റെ അടയാളം കാണിക്കുക"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
