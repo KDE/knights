@@ -837,13 +837,17 @@
       <li>Speak opponent’s moves</li>
       <li xml:lang="ca">Pronuncia els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Llig els moviments de l'adversari</li>
+      <li xml:lang="es">Leer los movimientos del oponente</li>
+      <li xml:lang="gl">Falar os movementos rivais.</li>
       <li xml:lang="he">הקראת מהלכי היריב</li>
       <li xml:lang="ka">მეტოქის სვლების წარმოთქმა</li>
       <li xml:lang="nl">Zetten van tegenspeler uitspreken</li>
+      <li xml:lang="sa">प्रतिद्वन्द्वस्य चालाः वदतु</li>
       <li xml:lang="sl">Govori nasprotnikove poteze</li>
       <li xml:lang="tr">Rakibin hamlelerini seslendir</li>
       <li xml:lang="uk">Озвучення ходів суперника</li>
       <li xml:lang="x-test">xxSpeak opponent’s movesxx</li>
+      <li xml:lang="zh-TW">念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
       <li xml:lang="ar">القدرة على التحكم في البرنامج عبر واجهة D-Bus</li>
       <li xml:lang="bg">Възможност за управление на програмата през D-Bus интерфейс</li>
