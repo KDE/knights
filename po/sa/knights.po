@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-12-19 22:18+0530\n"
+"PO-Revision-Date: 2024-12-20 21:52+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -71,7 +71,7 @@ msgstr "इञ्जिन पूर्वनिर्धारित"
 #: customdifficultydialog.ui:43
 #, kde-format
 msgid "Memory &size:"
-msgstr "स्मृति & आकारः : १."
+msgstr "स्मृति & आकारः :"
 
 #. i18n: ectx: property (suffix), widget (QSpinBox, sbMemorySize)
 #: customdifficultydialog.ui:53
@@ -209,13 +209,13 @@ msgstr "खिलाडी १"
 #: gamedialog.ui:35
 #, kde-format
 msgid "Human (&You)"
-msgstr "मानवः (&You) २."
+msgstr "मानवः (&You)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
 #, kde-format
 msgid "&Computer engine:"
-msgstr "&कम्प्यूटर इञ्जिन : १."
+msgstr "&कम्प्यूटर इञ्जिन :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -251,13 +251,13 @@ msgstr "मानव"
 #: gamedialog.ui:145
 #, kde-format
 msgid "Co&mputer engine:"
-msgstr "सह&कम्प्यूटर इञ्जिन: १."
+msgstr "सह&कम्प्यूटर इञ्जिन:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
 #, kde-format
 msgid "Chess server:"
-msgstr "शतरंजसर्वरः : १."
+msgstr "शतरंजसर्वरः :"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
@@ -269,7 +269,7 @@ msgstr "&समयनियन्त्रणस्य उपयोगं कु
 #: gamedialog.ui:214
 #, kde-format
 msgid "&Time control period:"
-msgstr "&समय नियन्त्रण अवधिः : १."
+msgstr "&समय नियन्त्रण अवधिः :"
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
@@ -282,13 +282,13 @@ msgstr "Timer Only इति"
 #: gamedialog.ui:243
 #, kde-format
 msgid "&Initial time limit:"
-msgstr "&प्रारम्भिक समयसीमा : १."
+msgstr "&प्रारम्भिक समयसीमा :"
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
 #, kde-format
 msgid "I&ncrement per move:"
-msgstr "I&ncrement प्रति चालः : १."
+msgstr "I&ncrement प्रति चालः :"
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -376,7 +376,7 @@ msgstr "नव स्तम्भ"
 #: historywidget.ui:57
 #, kde-format
 msgid "&Notation:"
-msgstr "&संकेतनम् : १."
+msgstr "&संकेतनम् :"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, notationComboBox)
 #: historywidget.ui:68
@@ -1001,13 +1001,13 @@ msgstr "एनिमेशन"
 #: prefs_base.ui:23
 #, kde-format
 msgid "&Animation speed:"
-msgstr "&एनिमेशन गतिः : १."
+msgstr "&एनिमेशन गतिः :"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
 #, kde-format
 msgid "Instant (no animation)"
-msgstr "तत्क्षणिकं (एनिमेशनं नास्ति) २."
+msgstr "तत्क्षणिकं (एनिमेशनं नास्ति)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:39
@@ -1070,7 +1070,7 @@ msgstr "अनुशीलय"
 #: prefs_base.ui:119
 #, kde-format
 msgid "Border display:"
-msgstr "सीमाप्रदर्शनम् : १."
+msgstr "सीमाप्रदर्शनम् :"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_borderDisplayType)
 #: prefs_base.ui:127
@@ -1124,7 +1124,7 @@ msgstr "प्यादा प्रचार"
 #: promotiondialog.ui:26
 #, kde-format
 msgid "Promote pawn to:"
-msgstr "प्यादां प्रचारयन्तु : १."
+msgstr "प्यादां प्रचारयन्तु :"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
@@ -1198,7 +1198,7 @@ msgstr "प्रवेशं कृत्वा…"
 #, kde-format
 msgctxt "PlayerName (rating)"
 msgid "%1 (%2)"
-msgstr "%1 (%2) २."
+msgstr "%1 (%2)"
 
 #: proto/ficsdialog.cpp:172
 #, kde-format

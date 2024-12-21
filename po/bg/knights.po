@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-11-16 23:55+0100\n"
+"PO-Revision-Date: 2024-12-20 17:54+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -850,10 +850,9 @@ msgstr "съхранени конфигурации на специфични з
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "дали ходовете на противника се изговарят с Jovie"
+msgstr "дали ходовете на противника се изговарят"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
