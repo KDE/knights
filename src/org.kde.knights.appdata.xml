@@ -112,7 +112,7 @@
     <p xml:lang="eo">KNights estas ŝakludo. Kiel ludanto, via celo estas venki vian kontraŭulon per matado de ilia reĝo.</p>
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, tu objetivo consiste en vencer a tu oponente haciendo jaque mate a su rey.</p>
     <p xml:lang="et">KNights on malemäng. Mängija siht on vastasest jagu saada tema kuningale matti kuulutades.</p>
-    <p xml:lang="eu">Knights Xake jokoa da. Jokalari bezala, zure helburua arerioaren erregeari xake-mate eginez irabaztea da.</p>
+    <p xml:lang="eu">Knights Xake jokoa da. Jokalari bezala, zure helburua aurkariaren erregeari xake-mate eginez irabaztea da.</p>
     <p xml:lang="fi">Knights on šakkipeli. Tavoitteesi pelajaana on voittaa vastustaja matittamalla hänen kuninkaansa.</p>
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
@@ -416,7 +416,7 @@
       <li xml:lang="eo">Signiloj por eblaj movoj, la lasta movo de kontraŭulo kaj fontoj de kontrolo</li>
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de jaque</li>
       <li xml:lang="et">Võimalike käikude, vastase viimase käigu ja tule andmise allika märgised</li>
-      <li xml:lang="eu">Markagailuak aukerako mugimenduentzat, arerioaren azken mugimenduarena eta xake aukerena</li>
+      <li xml:lang="eu">Egin daitezkeen mugimenduen markatzaileak, aurkariaren azken mugimendua eta xake-sorburuak</li>
       <li xml:lang="fi">Mahdollisten siirtojen, vastustajan viimeisimmän siirron ja šakkiasemien merkintä</li>
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
@@ -835,15 +835,18 @@
       <li xml:lang="zh-CN">支持保存和加载便携式游戏标记(PGN) 文件</li>
       <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
       <li>Speak opponent’s moves</li>
+      <li xml:lang="ar">نطق نقلات الخصم</li>
       <li xml:lang="bg">Изговаряне ходовете на противника</li>
       <li xml:lang="ca">Pronuncia els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Llig els moviments de l'adversari</li>
       <li xml:lang="es">Leer los movimientos del oponente</li>
+      <li xml:lang="eu">Aurkariaren mugimenduak esan</li>
       <li xml:lang="fr">Exprimer vocalement les mouvements de l'adversaire</li>
       <li xml:lang="gl">Falar os movementos rivais.</li>
       <li xml:lang="he">הקראת מהלכי היריב</li>
       <li xml:lang="ka">მეტოქის სვლების წარმოთქმა</li>
       <li xml:lang="nl">Zetten van tegenspeler uitspreken</li>
+      <li xml:lang="pl">Wymawiaj ruchy przeciwnika</li>
       <li xml:lang="sa">प्रतिद्वन्द्वस्य चालाः वदतु</li>
       <li xml:lang="sl">Govori nasprotnikove poteze</li>
       <li xml:lang="tr">Rakibin hamlelerini seslendir</li>
