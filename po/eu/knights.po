@@ -1,17 +1,17 @@
 # Translation for knights to Euskara/Basque (eu).
-# Copyright (C) 2020-2023 This file is copyright:
+# Copyright (C) 2020-2024 This file is copyright:
 # This file is distributed under the same license as the knights package.
 # SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Ander Elortondo <ander.elor@gmail.com>, 2020.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-14 00:37+0000\n"
-"PO-Revision-Date: 2024-05-12 17:08+0200\n"
+"PO-Revision-Date: 2024-12-21 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -467,7 +467,7 @@ msgstr "&Berdinketa eskaini"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr "Berdinketa eskaini leihakideari"
+msgstr "Aurkariari berdinketa eskaini"
 
 #: knights.cpp:224
 #, kde-format
@@ -701,7 +701,7 @@ msgstr "Erakutsi legezko mugimendua markagailua"
 #: knights.kcfg:64
 #, kde-format
 msgid "show opponents move marker"
-msgstr "Erakutsi arerioaren mugimenduen markagailua"
+msgstr "Erakutsi aurkariaren mugimendu-markatzailea"
 
 #. i18n: ectx: label, entry (showClock), group (Preferences)
 #: knights.kcfg:68
@@ -994,7 +994,7 @@ msgstr "Kanpoko programak"
 #: prefs_access.ui:23
 #, kde-format
 msgid "Speak opponent's moves"
-msgstr "Ahoskatu arerioaren mugimenduak"
+msgstr "Aurkariaren mugimenduak esan"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_allowExternalControl)
 #: prefs_access.ui:30
@@ -1068,7 +1068,7 @@ msgstr "Legezko mugimenduetan"
 #, kde-format
 msgctxt "Option to show markers for"
 msgid "Opponent's move"
-msgstr "Arerioaren mugimenduetan"
+msgstr "Aurkariaren mugimendua"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showDanger)
 #: prefs_base.ui:109
@@ -1444,7 +1444,7 @@ msgstr "Denbora-muga [minutuak]"
 #: proto/seekgraph.cpp:27
 #, kde-format
 msgid "Opponent's rating"
-msgstr "Arerioen balorazioa"
+msgstr "Aurkariaren kalifikazioa"
 
 #~ msgid "white"
 #~ msgstr "Zuria"
