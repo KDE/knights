@@ -105,7 +105,7 @@
     <p xml:lang="eo">KNights estas ŝakludo. Kiel ludanto, via celo estas venki vian kontraŭulon per matado de ilia reĝo.</p>
     <p xml:lang="es">KNights es un juego de ajedrez. Como jugador, tu objetivo consiste en vencer a tu oponente haciendo jaque mate a su rey.</p>
     <p xml:lang="et">KNights on malemäng. Mängija siht on vastasest jagu saada tema kuningale matti kuulutades.</p>
-    <p xml:lang="eu">Knights Xake jokoa da. Jokalari bezala, zure helburua arerioaren erregeari xake-mate eginez irabaztea da.</p>
+    <p xml:lang="eu">Knights Xake jokoa da. Jokalari bezala, zure helburua aurkariaren erregeari xake-mate eginez irabaztea da.</p>
     <p xml:lang="fi">Knights on šakkipeli. Tavoitteesi pelajaana on voittaa vastustaja matittamalla hänen kuninkaansa.</p>
     <p xml:lang="fr">KNights est un jeu d'échecs. En tant que joueur, votre objectif est de vaincre votre adversaire en mettant son roi échec et mat.</p>
     <p xml:lang="gl">KNights é un xogo de xadrez. O seu obxectivo como xogador é derrotar ao contrincante mediante un xaque mate ao seu rei.</p>
@@ -388,7 +388,7 @@
       <li xml:lang="eo">Signiloj por eblaj movoj, la lasta movo de kontraŭulo kaj fontoj de kontrolo</li>
       <li xml:lang="es">Marcadores para posibles movimientos, último movimiento del oponente y fuentes de jaque</li>
       <li xml:lang="et">Võimalike käikude, vastase viimase käigu ja tule andmise allika märgised</li>
-      <li xml:lang="eu">Markagailuak aukerako mugimenduentzat, arerioaren azken mugimenduarena eta xake aukerena</li>
+      <li xml:lang="eu">Egin daitezkeen mugimenduen markatzaileak, aurkariaren azken mugimendua eta xake-sorburuak</li>
       <li xml:lang="fi">Mahdollisten siirtojen, vastustajan viimeisimmän siirron ja šakkiasemien merkintä</li>
       <li xml:lang="fr">Marquage des déplacements possibles, dernier mouvement de l'adversaire et sources d'échec</li>
       <li xml:lang="gl">Marcadores de movementos posíbeis, do último movemento do contrincante, e fontes de xaque.</li>
