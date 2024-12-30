@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-08-26 18:57+0200\n"
+"PO-Revision-Date: 2024-12-28 23:19+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -856,10 +856,9 @@ msgstr "gespeicherte Einstellungen der Modul abhängigen Einstellungen"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "Ob die Spielzüge des Gegners durch Jovie vorgelesen werden"
+msgstr "Ob die Spielzüge des Gegners vorgelesen werden"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
