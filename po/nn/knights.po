@@ -851,7 +851,6 @@ msgstr "lagra oppsett av lokalinnstillingar til sjakkmotorane"
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
 #, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
 msgid "whether opponent's moves are spoken"
 msgstr "om motstandaren sitt trekk skal uttalast av Jovie"
 
