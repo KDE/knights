@@ -3,14 +3,14 @@
 # Xosé <xosecalvo@gmail.com>, 2012.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013.
 # Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail.com>, 2016, 2017.
-# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-12-19 21:48+0100\n"
+"PO-Revision-Date: 2025-01-19 12:36+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -308,6 +308,7 @@ msgstr "Negras"
 msgid "%1 offers you a draw"
 msgstr "%1 ofrece táboas"
 
+# skip-rule: trasno-undo_reverse
 #: gamemanager.cpp:526
 #, kde-format
 msgid "%2 would like to take back a half move"
