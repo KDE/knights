@@ -858,10 +858,9 @@ msgstr "uložená nastavení voleb specifických pro počítačový stroj"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "jestli mají být tahy soupeře vyslovovány pomocí Jovie"
+msgstr ""
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
