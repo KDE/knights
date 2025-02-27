@@ -1219,6 +1219,7 @@
     <binary>knights</binary>
   </provides>
   <releases>
+    <release version="2.6.24123" date="2025-03-06"/>
     <release version="2.6.24122" date="2025-02-06"/>
     <release version="2.6.24121" date="2025-01-09"/>
     <release version="2.6.24120" date="2024-12-12"/>
