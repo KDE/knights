@@ -1450,9 +1450,3 @@ msgstr "Límit de temps [minuts]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Classificació de l'adversari"
-
-#~ msgid "white"
-#~ msgstr "blanques"
-
-#~ msgid "black"
-#~ msgstr "negres"
