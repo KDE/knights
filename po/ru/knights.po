@@ -6,14 +6,14 @@
 # Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2017.
 # Artem Sereda <overmind88@gmail.com>, 2010.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
-# SPDX-FileCopyrightText: 2022, 2024 Olesya Gerasimenko <translation-team@basealt.ru>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Olesya Gerasimenko <translation-team@basealt.ru>
 # SPDX-FileCopyrightText: 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-10-07 11:53+0300\n"
+"PO-Revision-Date: 2025-03-17 11:52+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -665,13 +665,13 @@ msgstr "Файл оформления доски"
 #: knights.kcfg:15
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
-msgstr "Показывать диалог подтверждения перед сбросом журнала игры"
+msgstr "показывать диалог подтверждения перед сбросом журнала игры"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
 #, kde-format
 msgid "internal variable controlling the confirm dialog"
-msgstr "Внутренняя переменная, управляющая диалогом подтверждения"
+msgstr "внутренняя переменная, управляющая диалогом подтверждения"
 
 #. i18n: ectx: label, entry (animationSpeed), group (Preferences)
 #: knights.kcfg:31
@@ -683,19 +683,19 @@ msgstr "Скорость анимации ходов"
 #: knights.kcfg:35
 #, kde-format
 msgid "whether the Board is animated during rotating and resizing"
-msgstr "анимация доски при вращении и изменении размеров"
+msgstr "анимировать доску при вращении и изменении размеров"
 
 #. i18n: ectx: label, entry (flipBoard), group (Preferences)
 #: knights.kcfg:39
 #, kde-format
 msgid "whether to rotate the board when in local two-player mode"
-msgstr "вращение доски в локальной партии между двумя игроками"
+msgstr "вращать доску в локальной партии между двумя игроками"
 
 #. i18n: ectx: label, entry (playSounds), group (Preferences)
 #: knights.kcfg:43
 #, kde-format
 msgid "whether to play move sounds"
-msgstr "воспроизведение звуков ходов"
+msgstr "воспроизводить звуки ходов"
 
 #. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
 #: knights.kcfg:52
@@ -771,7 +771,7 @@ msgstr ""
 #: knights.kcfg:98
 #, kde-format
 msgid "whether time limits are enabled and displayed"
-msgstr "включение и показ ограничения времени"
+msgstr "включать и показывать ограничения времени"
 
 #. i18n: ectx: label, entry (player1Protocol), group (Protocols)
 #. i18n: ectx: label, entry (player2Protocol), group (Protocols)
@@ -869,16 +869,15 @@ msgstr "сохранённые конфигурации движков"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "произносить ходы противника с помощью программы Jovie"
+msgstr "произносить ходы противника"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
 #, kde-format
 msgid "whether commands over D-Bus are accepted"
-msgstr "принятие команд через D-Bus"
+msgstr "принимать команды через D-Bus"
 
 #. i18n: ectx: Menu (move)
 #: knightsui.rc:22
