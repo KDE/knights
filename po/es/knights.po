@@ -1,7 +1,7 @@
-# Translation of knights to Spanish
+# Spanish translations for knights.po package.
 # This file is distributed under the same license as the knights package.
 #
-# SPDX-FileCopyrightText: 2024 Sofía Priego <spriego@darksylvania.net>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 # SPDX-FileCopyrightText: 2010 Kira J. Fernandez <kirajfdez@gmail.com>
 # SPDX-FileCopyrightText: 2011 Rocio Gallego <traducciones@rociogallego.com>
 # SPDX-FileCopyrightText: 2011, 2012, 2016, 2017, 2018, 2019, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-18 00:38+0000\n"
-"PO-Revision-Date: 2024-12-19 01:48+0100\n"
+"PO-Revision-Date: 2025-04-07 21:37+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -409,7 +409,7 @@ msgstr "Personalizado"
 #: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 está pensando..."
+msgstr "%1 está pensando…"
 
 #: knights.cpp:147
 #, kde-format
@@ -1193,7 +1193,7 @@ msgstr "Enviar"
 #: proto/chatwidget.ui:51
 #, kde-format
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: proto/computerprotocol.cpp:36
 #, kde-format
@@ -1217,7 +1217,7 @@ msgstr "Sesión iniciada"
 #: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
-msgstr "Iniciando sesión..."
+msgstr "Iniciando sesión…"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1458,33 +1458,3 @@ msgstr "Límite de tiempo [minutos]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Clasificación del oponente"
-
-#~ msgid "white"
-#~ msgstr "blancas"
-
-#~ msgid "black"
-#~ msgstr "negras"
-
-#~ msgid "Chess board based on KF5"
-#~ msgstr "Tablero de ajedrez basado en KF5"
-
-#~ msgid "This feature is not yet implemented in Knights"
-#~ msgstr "Esta característica aún no está implementada en Knights"
-
-#~ msgid "Invalid interface"
-#~ msgstr "Interfaz no válida"
-
-#~ msgid "H:mm:ss"
-#~ msgstr "H:mm:ss"
-
-#~ msgid "Configure Engines"
-#~ msgstr "Configurar motores"
-
-#~ msgid "KNights"
-#~ msgstr "KNights"
-
-#~ msgid "&Save History"
-#~ msgstr "Guardar hi&stórico"
-
-#~ msgid "Rook"
-#~ msgstr "Torre"
