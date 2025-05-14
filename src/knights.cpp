@@ -652,21 +652,8 @@ bool MainWindow::maybeSave() {
 
 void MainWindow::fileSave() {
 	if(m_fileName.isEmpty()) {
-		KConfigGroup conf(KSharedConfig::openConfig(), QStringLiteral("MainWindow"));
-		QString dir = conf.readEntry("LastOpenDir", "");
-		m_fileName = QFileDialog::getSaveFileName(this, i18nc("@title:window", "Save"), dir,
-		             i18n("Portable game notation (*.pgn)"));
-
-		if (m_fileName.isEmpty())// "Cancel" was clicked
-			return;
-
-		//save new "last open directory"
-		int pos = m_fileName.lastIndexOf(QDir::separator());
-		if (pos != -1) {
-			const QString& newDir = m_fileName.left(pos);
-			if (newDir != dir)
-				conf.writeEntry("LastOpenDir", newDir);
-		}
+		fileSaveAs();
+		return;
 	}
 
 	Manager::self()->saveGameHistoryAs(m_fileName);
@@ -683,8 +670,9 @@ void MainWindow::fileSaveAs() {
 	if (fileName.isEmpty())// "Cancel" was clicked
 		return;
 
-	if (fileName.contains(QLatin1String(".lml"), Qt::CaseInsensitive) == false)
-		fileName.append(QLatin1String(".lml"));
+	// add the default extension if it was not provided in the file dialog
+	if (fileName.contains(QLatin1String(".pgn"), Qt::CaseInsensitive) == false)
+		fileName.append(QLatin1String(".pgn"));
 
 	//save new "last open directory"
 	int pos = fileName.lastIndexOf(QDir::separator());
