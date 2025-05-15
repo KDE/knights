@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-games-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-12-18 12:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -529,7 +529,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Dosya Aç"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Taşınabilir oyun notasyonu (*.pgn)"
@@ -625,13 +625,7 @@ msgstr ""
 "Bu, oyununuzu sonlandıracak.\n"
 "Hareket geçmişini kaydetmek istiyor musunuz?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Kaydet"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1448,6 +1442,10 @@ msgstr "Zaman sınırı [dakika]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Rakibin sınıfı"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Kaydet"
 
 #~ msgid "white"
 #~ msgstr "beyaz"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2025-03-04 16:48+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -530,7 +530,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Atvērt datni"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Partijas pārnesamā notācija (*.png)"
@@ -626,13 +626,7 @@ msgstr ""
 "Spēle beigsies.\n"
 "Vai vēlaties saglabāt gājienu vēsturi?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Saglabāt"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1447,6 +1441,10 @@ msgstr "Laika ierobežojums [minūtēs]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Pretinieka reitings"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Saglabāt"
 
 #~ msgid "white"
 #~ msgstr "baltie"

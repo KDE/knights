@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-12-18 03:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -525,7 +525,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "ფაილის გახსნა"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "გადატანად თამაშის ნოტაცია (*.pgn)"
@@ -621,13 +621,7 @@ msgstr ""
 "ეს თქვენს თამაშს დაასრულებს.\n"
 "გნებავთ, სვლების ისტორია შეინახოთ?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "შენახვა"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1442,6 +1436,10 @@ msgstr "დროის ლიმიტი [წთ]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "მეტოქის რეიტინგი"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "შენახვა"
 
 #~ msgid "white"
 #~ msgstr "თეთრი"

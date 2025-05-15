@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2025-02-03 21:16+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -526,7 +526,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Fájl megnyitása"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Hordozható játékábrázolás (*.pgn)"
@@ -622,13 +622,7 @@ msgstr ""
 "Ezzel véget ér a játéka.\n"
 "Szeretné menteni a lépéselőzményeket?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Mentés"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1446,6 +1440,10 @@ msgstr "Időlimit [perc]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Ellenfél értékelése"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Mentés"
 
 #~ msgid "white"
 #~ msgstr "világos"

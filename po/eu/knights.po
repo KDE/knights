@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 08:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -528,7 +528,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Ireki fitxategia"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Jolas eramangarri notazioa  (*.pgn)"
@@ -624,13 +624,7 @@ msgstr ""
 "Honek zure jokoa amaituko du.\n"
 "Zure mugimenduen historia gorde nahi duzu?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Gorde"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1445,6 +1439,10 @@ msgstr "Denbora-muga [minutuak]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Aurkariaren kalifikazioa"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Gorde"
 
 #~ msgid "white"
 #~ msgstr "Zuria"

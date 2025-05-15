@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-09-19 22:17+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -528,7 +528,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Άνοιγμα αρχείου"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "*Φορητός συμβολισμός παιχνιδιού (*.ppm)"
@@ -624,13 +624,7 @@ msgstr ""
 "Αυτό θα τερματίσει το παιχνίδι σας.\n"
 "Θέλετε να αποθηκεύσετε το ιστορικό των κινήσεων;"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Αποθήκευση"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1453,6 +1447,10 @@ msgstr "Χρονικό περιθώριο [λεπτά]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Αξιολόγηση αντιπάλου"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Αποθήκευση"
 
 #~ msgid "white"
 #~ msgstr "λευκά"

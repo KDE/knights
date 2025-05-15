@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2014-05-28 17:52+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -570,7 +570,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
@@ -685,14 +685,7 @@ msgstr ""
 "Dor beennst Du dat Speel mit.\n"
 "Wullt Du de Tog-Vörgeschicht sekern?"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "&Save History"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Vörgeschicht &sekern"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -1521,6 +1514,12 @@ msgstr "Tietgrenz [Minuten]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Den Gegensmann sien Beweerten"
+
+#, fuzzy
+#~| msgid "&Save History"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Vörgeschicht &sekern"
 
 #, fuzzy
 #~| msgid "White"

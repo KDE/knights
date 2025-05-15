@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2012-07-13 10:01+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -567,7 +567,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
@@ -682,14 +682,7 @@ msgstr ""
 "វា​នឹង​បញ្ចប់​ល្បែង​របស់​អ្នក ។\n"
 "តើ​អ្នក​ចង់​រក្សាទុក​ប្រវត្តិ​​ផ្លាស់ទី​ដែរ​ឬ​ទេ ។"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "&Save History"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "រក្សាទុក​ប្រវត្តិ"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -1510,6 +1503,12 @@ msgstr "ម៉ោង​កំណត់ [នាទី]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "ការ​វាយ​តម្លៃ​របស់​អ្នក​ប្រឆាំង"
+
+#, fuzzy
+#~| msgid "&Save History"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "រក្សាទុក​ប្រវត្តិ"
 
 #, fuzzy
 #~| msgid "White"

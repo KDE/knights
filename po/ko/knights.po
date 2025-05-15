@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 한국어 번역\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-12-24 17:20+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -517,7 +517,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "파일 열기"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "포터블 게임 표기법 (*.pgn)"
@@ -613,13 +613,7 @@ msgstr ""
 "이것으로 게임이 종료됩니다.\n"
 "이전 기록을 저장하시겠습니까?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "다른 이름으로 저장"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1427,6 +1421,10 @@ msgstr "시간 제한 [분]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "상대의 등급"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "다른 이름으로 저장"
 
 #~ msgid "white"
 #~ msgstr "화이트"
