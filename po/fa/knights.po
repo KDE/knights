@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2014-07-22 16:23+0430\n"
 "Last-Translator: Mohi Mirdamadi <mohi@ubuntu.ir>\n"
 "Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
@@ -535,7 +535,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr ""
@@ -631,13 +631,7 @@ msgid ""
 "Would you like to save the move history?"
 msgstr ""
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr ""
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"

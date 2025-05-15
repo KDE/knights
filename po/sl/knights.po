@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2024-12-18 07:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -537,7 +537,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Odpri datoteko"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Prenosljiv zapis igre (*.pgn)"
@@ -633,13 +633,7 @@ msgstr ""
 "To bo končalo vašo igro.\n"
 "Bi radi shranili zgodovino potez?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Shrani"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1452,6 +1446,10 @@ msgstr "Časovna omejitev [minut]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Rating nasprotnika"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Shrani"
 
 #~ msgid "white"
 #~ msgstr "beli"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2013-07-11 14:08+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas@akmc.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -583,7 +583,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr ""
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, fuzzy, kde-format
 #| msgid "*.pgn | Portable game notation"
 msgid "Portable game notation (*.pgn)"
@@ -702,14 +702,7 @@ msgstr ""
 "Tai nutrauks žaidimą.\n"
 "Ar norite išsaugoti ėjimų istoriją?"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "&Save History"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Į&rašyti istoriją"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, fuzzy, kde-format
 #| msgid "&Save History"
 msgctxt "@title:window"
@@ -1538,6 +1531,12 @@ msgstr "Laiko limitas [minutėmis]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Priešininko reitingas"
+
+#, fuzzy
+#~| msgid "&Save History"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Į&rašyti istoriją"
 
 #, fuzzy
 #~| msgid "White"

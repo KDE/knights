@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2023-12-05 17:24+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -558,7 +558,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Otvoriť súbor"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Prenosná notácia hry (*.pgn)"
@@ -662,14 +662,7 @@ msgstr ""
 "Toto ukončí vašu hru.\n"
 "Chcete uložiť históriu ťahov?"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "Save"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Uložiť"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1487,6 +1480,12 @@ msgstr "Časový limit [minúty]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Hodnotenie protivníka"
+
+#, fuzzy
+#~| msgid "Save"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Uložiť"
 
 #~ msgid "white"
 #~ msgstr "biela"

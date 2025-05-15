@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2024-12-27 10:42+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -525,7 +525,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Malfermi Dosieron"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portebla ludnotacio (*.pgn)"
@@ -621,13 +621,7 @@ msgstr ""
 "Ĉi tio finos vian ludon.\n"
 "Ĉu vi ŝatus konservi la movadan historion?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Konservi"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1443,3 +1437,7 @@ msgstr "Tempolimo [minutoj]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Takso de kontraŭulo"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Konservi"

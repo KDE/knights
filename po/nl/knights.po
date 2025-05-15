@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2025-02-11 11:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -526,7 +526,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Bestand openen"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable game notation (*.pgn)"
@@ -624,13 +624,7 @@ msgstr ""
 "Hiermee is het spel afgelopen.\n"
 "Wilt u de gespeelde zetten bewaren?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Opslaan"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1448,6 +1442,10 @@ msgstr "Tijdslimiet [minuten]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Rating van tegenspeler"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Opslaan"
 
 #~ msgid "white"
 #~ msgstr "wit"

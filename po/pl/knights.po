@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2024-12-21 11:11+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -530,7 +530,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Otwórz plik"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Przenośna notacja gry (*.pgn)"
@@ -626,13 +626,7 @@ msgstr ""
 "Zakończy to twoją grę.\n"
 "Czy chcesz zapisać historię ruchów?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Zapisz"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1447,6 +1441,10 @@ msgstr "Limit czasowy [minut]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Wynik przeciwnika"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Zapisz"
 
 #~ msgid "white"
 #~ msgstr "biały"

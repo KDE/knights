@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2022-11-22 18:08+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -555,7 +555,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Åbn fil"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable game notation (*.pgn)"
@@ -659,14 +659,7 @@ msgstr ""
 "Dette vil afslutte dit parti.\n"
 "Vil du gemme trækhistorikken?"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "Save"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Gem"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1483,6 +1476,12 @@ msgstr "Tidsgrænse [minutter]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Modspillerens vurdering"
+
+#, fuzzy
+#~| msgid "Save"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Gem"
 
 #~ msgid "white"
 #~ msgstr "hvid"

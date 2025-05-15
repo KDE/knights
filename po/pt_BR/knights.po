@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2023-12-01 17:05-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -558,7 +558,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Abrir arquivo"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Notação de jogo portável (*.pgn)"
@@ -661,14 +661,7 @@ msgstr ""
 "Isto irá terminar o seu jogo.\n"
 "Deseja salvar o histórico das suas jogadas?"
 
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "Save"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Salvar"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1492,6 +1485,12 @@ msgstr "Limite de tempo [minutos]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Classificação do adversário"
+
+#, fuzzy
+#~| msgid "Save"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Salvar"
 
 #~ msgid "white"
 #~ msgstr "brancas"

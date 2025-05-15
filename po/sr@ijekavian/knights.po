@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2017-10-06 17:14+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -594,7 +594,7 @@ msgid "Open File"
 msgstr "Отварање фајла"
 
 # >> @item
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "преносива нотација партије (*.pgn)"
@@ -698,15 +698,7 @@ msgstr ""
 "Желите ли да сачувате историјат потеза?"
 
 # >> @title:window
-#: knights.cpp:657
-#, fuzzy, kde-format
-#| msgid "Save"
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Уписивање"
-
-# >> @title:window
-#: knights.cpp:680
+#: knights.cpp:667
 #, fuzzy, kde-format
 #| msgid "Save As"
 msgctxt "@title:window"
@@ -1533,6 +1525,13 @@ msgstr "Временско ограничење [минути]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Противников рејтинг"
+
+# >> @title:window
+#, fuzzy
+#~| msgid "Save"
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Уписивање"
 
 #~ msgid "white"
 #~ msgstr "бели"

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2025-01-12 19:53+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -531,7 +531,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable game notation (*.pgn)"
@@ -627,13 +627,7 @@ msgstr ""
 "Tämä päättää pelin.\n"
 "Haluatko tallentaa siirtohistorian?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Tallenna"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1448,6 +1442,10 @@ msgstr "Aikarajoitus [minuuttia]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Vastustajan luokitus"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Tallenna"
 
 #~ msgid "white"
 #~ msgstr "valkoinen"

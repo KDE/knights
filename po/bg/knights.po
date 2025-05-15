@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2024-12-20 17:54+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -525,7 +525,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "Отваряне на файл"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "Portable game notation (*.pgn)"
@@ -621,13 +621,7 @@ msgstr ""
 "Това ще прекрати партията..\n"
 "Искате ли да се запази история на ходовете?"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "Запазване"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1442,3 +1436,7 @@ msgstr "Времево ограничение [минути]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Оценка на противника"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "Запазване"

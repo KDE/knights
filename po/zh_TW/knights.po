@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-18 00:38+0000\n"
+"POT-Creation-Date: 2025-05-15 02:39+0000\n"
 "PO-Revision-Date: 2024-12-19 17:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -522,7 +522,7 @@ msgctxt "@title:window"
 msgid "Open File"
 msgstr "開啟檔案"
 
-#: knights.cpp:300 knights.cpp:658 knights.cpp:681
+#: knights.cpp:300 knights.cpp:668
 #, kde-format
 msgid "Portable game notation (*.pgn)"
 msgstr "可移植的遊戲符號 (*.pgn)"
@@ -618,13 +618,7 @@ msgstr ""
 "這樣會結束這場遊戲。\n"
 "您要儲存移動的歷史紀錄嗎？"
 
-#: knights.cpp:657
-#, kde-format
-msgctxt "@title:window"
-msgid "Save"
-msgstr "儲存"
-
-#: knights.cpp:680
+#: knights.cpp:667
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
@@ -1429,6 +1423,10 @@ msgstr "時間限制【分】"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "對手的等級"
+
+#~ msgctxt "@title:window"
+#~ msgid "Save"
+#~ msgstr "儲存"
 
 #~ msgid "white"
 #~ msgstr "白"
