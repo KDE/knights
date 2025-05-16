@@ -1421,7 +1421,3 @@ msgstr "时间限制 [分钟]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "对手等级"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save"
-#~ msgstr "保存文档"
