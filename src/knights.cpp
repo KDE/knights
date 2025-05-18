@@ -671,7 +671,7 @@ void MainWindow::fileSaveAs() {
 		return;
 
 	// add the default extension if it was not provided in the file dialog
-	if (fileName.contains(QLatin1String(".pgn"), Qt::CaseInsensitive) == false)
+	if (fileName.endsWith(QLatin1String(".pgn"), Qt::CaseInsensitive) == false)
 		fileName.append(QLatin1String(".pgn"));
 
 	//save new "last open directory"
