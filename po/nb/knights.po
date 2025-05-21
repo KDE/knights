@@ -1434,8 +1434,3 @@ msgstr "Tidsbegrensning [minutter]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Motstanderens rangering"
-
-#, fuzzy
-#~ msgctxt "@title:window"
-#~ msgid "Save"
-#~ msgstr "Lagre"
