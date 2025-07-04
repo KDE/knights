@@ -95,11 +95,11 @@ target_link_libraries(knights
      KF6::Completion
      KF6::Svg
      KF6::TextWidgets
-     KF6::Wallet
      Qt6::Network
      Qt6::Svg
      Qt6::Gui
      Qt6::Concurrent
+     qt6keychain
 )
 
 install(TARGETS knights ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )

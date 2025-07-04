@@ -11,12 +11,14 @@
 #include "settings.h"
 #include "knightsdebug.h"
 
-#include <KWallet>
+#include <qt6keychain/keychain.h>
 
 #include <QDesktopServices>
 
 using namespace Knights;
-using KWallet::Wallet;
+using namespace Qt::StringLiterals;
+
+static constexpr auto KeyChainFolderName = "Knights"_L1;
 
 FicsDialog::FicsDialog ( QWidget* parent, Qt::WindowFlags f ) : QWidget ( parent, f ) {
 	ui = new Ui::FicsDialog;
@@ -140,23 +142,21 @@ void FicsDialog::currentTabChanged ( int tab ) {
 }
 
 void FicsDialog::setServerName ( const QString& name ) {
-	qCDebug(LOG_KNIGHTS) << name;
-	WId id = 0;
-	if ( qApp->activeWindow() )
-		id = qApp->activeWindow()->winId();
-	QString password;
-	Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
-	if ( wallet ) {
-		QLatin1String folder ( "Knights" );
-		if ( !wallet->hasFolder ( folder ) )
-			wallet->createFolder ( folder );
-		wallet->setFolder ( folder );
-		QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + name;
-		wallet->readPassword ( key, password );
-	} else
-		qCDebug(LOG_KNIGHTS) << "KWallet not available";
-	ui->passwordLineEdit->setText ( password );
-	serverName = name;
+    const QString key = ui->usernameLineEdit->text() +  u'@' + name;
+
+    auto job = new QKeychain::ReadPasswordJob(KeyChainFolderName);
+    job->setKey(key);
+    connect(job, &QKeychain::Job::finished, this, [this, job, name] {
+        if (job->error() != QKeychain::Error::NoError) {
+            qCDebug(LOG_KNIGHTS) << "Unable to read password for" << name << "in keychain:" << job->errorString();
+            return;
+        }
+
+        ui->passwordLineEdit->setText(job->textData());
+    });
+    job->start();
+
+    serverName = name;
 }
 
 void FicsDialog::setConsoleWidget ( QWidget* widget ) {
@@ -184,18 +184,18 @@ void FicsDialog::saveFicsSettings() {
 	Settings::setFicsUsername ( ui->usernameLineEdit->text() );
 	Settings::setGuest ( !ui->registeredCheckBox->isChecked() );
 
-	WId id = 0;
-	if ( qApp->activeWindow() )
-		id = qApp->activeWindow()->winId();
-	Wallet* wallet = Wallet::openWallet ( Wallet::NetworkWallet(), id );
-	if ( wallet ) {
-		QLatin1String folder ( "Knights" );
-		if ( !wallet->hasFolder ( folder ) )
-			wallet->createFolder ( folder );
-		wallet->setFolder ( folder );
-		QString key = ui->usernameLineEdit->text() + QLatin1Char ( '@' ) + serverName;
-		wallet->writePassword ( key, ui->passwordLineEdit->text() );
-	}
+    auto job = new QKeychain::WritePasswordJob(KeyChainFolderName);
+    const QString key = ui->usernameLineEdit->text() +u'@' + serverName;
+    job->setKey(key);
+    job->setTextData(ui->passwordLineEdit->text());
+
+    connect(job, &QKeychain::Job::finished, this, [this, job] {
+        if (job->error() != QKeychain::Error::NoError) {
+            qCDebug(LOG_KNIGHTS) << "Unable to write password for" << serverName << "in keychain:" << job->errorString();
+            return;
+        }
+    });
+    job->start();
 	Settings::self()->save();
 }
 

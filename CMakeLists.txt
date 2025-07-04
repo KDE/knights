@@ -15,6 +15,7 @@ project(Knights VERSION ${KNIGHTS_VERSION})
 set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "6.0.0")
 set(PLASMA_MIN_VERSION "6.0.0")
+set(QT6KEYCHAIN_LIB_VERSION "0.14.2")
 
 find_package(ECM ${KF_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${ECM_MODULE_PATH})
@@ -46,6 +47,13 @@ find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS
     Svg
 )
 
+find_package(Qt6Keychain ${QT6KEYCHAIN_LIB_VERSION} CONFIG)
+set_package_properties(Qt6Keychain PROPERTIES
+    DESCRIPTION "Provides support for secure credentials storage"
+    URL "https://github.com/frankosterfeld/qtkeychain"
+    TYPE REQUIRED
+)
+
 find_package(Qt6TextToSpeech ${QT_MIN_VERSION} QUIET)
 set_package_properties(Qt6TextToSpeech PROPERTIES
     PURPOSE "Speaking of opponents moves"
@@ -65,7 +73,6 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     KIO
     Plotting
     DocTools
-    Wallet
     Svg
 )
 
