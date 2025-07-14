@@ -64,7 +64,7 @@ msgstr "ძებნის &სიღრმე:"
 #, kde-format
 msgctxt "Let the engine determine the search depth"
 msgid "Engine default"
-msgstr "ძრავის ნაგულისხმები"
+msgstr "ძრავის ნაგულისხმევი"
 
 #. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
 #: customdifficultydialog.ui:43
