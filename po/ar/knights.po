@@ -66,7 +66,7 @@ msgstr "&عمق البحث:"
 #, kde-format
 msgctxt "Let the engine determine the search depth"
 msgid "Engine default"
-msgstr "المحرّك الافتراضي"
+msgstr "المحرّك المبدئي"
 
 #. i18n: ectx: property (text), widget (QLabel, memorySizeLabel)
 #: customdifficultydialog.ui:43
@@ -845,7 +845,7 @@ msgstr "للولوج كضيف أم لا"
 #: knights.kcfg:166
 #, kde-format
 msgid "whether to log in to chess server automatically"
-msgstr "للولوج إلى خادوم الشطرنج تلقائيًّا"
+msgstr "للولوج إلى خادوم الشطرنج آليًّا"
 
 #. i18n: ectx: label, entry (computerDelay), group (Protocols)
 #: knights.kcfg:170
@@ -1257,7 +1257,7 @@ msgstr "&كلمة السّرّ:"
 #: proto/ficsdialog.ui:102
 #, kde-format
 msgid "Log me in automatically"
-msgstr "دعني ألُج تلقائيًّا"
+msgstr "دعني ألُج آليًّا"
 
 #. i18n: ectx: property (text), widget (QPushButton, logInButton)
 #: proto/ficsdialog.ui:109
@@ -1359,7 +1359,7 @@ msgstr "مباراة مُقيَّمة"
 #: proto/ficsdialog.ui:274
 #, kde-format
 msgid "Automatically start the game"
-msgstr "ابدأ اللعبة تلقائيًا"
+msgstr "ابدأ اللعبة آليًّا"
 
 #. i18n: ectx: property (text), widget (QPushButton, seekButton)
 #: proto/ficsdialog.ui:281 proto/ficsprotocol.cpp:116
