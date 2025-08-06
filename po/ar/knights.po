@@ -1251,7 +1251,7 @@ msgstr "هذا حساب مسجّل"
 #: proto/ficsdialog.ui:82
 #, kde-format
 msgid "&Password:"
-msgstr "&كلمة السّرّ:"
+msgstr "&كلمة السر:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
