@@ -398,7 +398,7 @@ msgstr "自定义"
 #: knights.cpp:140
 #, kde-format
 msgid "%1 is thinking…"
-msgstr ""
+msgstr "%1 正在思考..."
 
 #: knights.cpp:147
 #, kde-format
@@ -540,7 +540,7 @@ msgstr "电脑引擎"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "无障碍辅助功能"
 
 #: knights.cpp:480
 #, kde-format
@@ -569,7 +569,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr ""
+msgstr "游戏结束"
 
 #: knights.cpp:561
 #, kde-format
@@ -833,7 +833,7 @@ msgstr "引擎特殊设置的已保存配置"
 #: knights.kcfg:180
 #, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr ""
+msgstr "是否播报对手的走法"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -1180,7 +1180,7 @@ msgstr "会话启动"
 #: proto/ficsdialog.cpp:73
 #, kde-format
 msgid "Logging in…"
-msgstr ""
+msgstr "正在登录..."
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
