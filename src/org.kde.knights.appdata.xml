@@ -861,6 +861,7 @@
       <li xml:lang="tr">Rakibin hamlelerini seslendir</li>
       <li xml:lang="uk">Озвучення ходів суперника</li>
       <li xml:lang="x-test">xxSpeak opponent’s movesxx</li>
+      <li xml:lang="zh-CN">播报对手行为</li>
       <li xml:lang="zh-TW">念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
       <li xml:lang="ar">القدرة على التحكم في البرنامج عبر واجهة D-Bus</li>
