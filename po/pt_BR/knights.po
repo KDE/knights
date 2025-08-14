@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2010, 2011, 2012, 2013, 2016, 2018, 2019.
-# Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>, 2010.
+# SPDX-FileCopyrightText: 2010, 2025 Marcus Vinícius de Andrade Gama <marcus.gama@gmail.com>
 # Aracele Torres <araceletorres@gmail.com>, 2010.
 # Marcus Gama <marcus.gama@gmail.com>, 2011.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2012, 2016, 2017, 2018, 2019, 2021, 2022, 2023.
@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-15 00:40+0000\n"
-"PO-Revision-Date: 2023-12-01 17:05-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"PO-Revision-Date: 2025-08-13 14:14-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,8 +39,7 @@ msgid "Promotion"
 msgstr "Promoção"
 
 #: board.cpp:583
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
 msgstr "Promover"
@@ -159,9 +158,7 @@ msgid "New Game"
 msgstr "Novo jogo"
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
@@ -169,9 +166,7 @@ msgstr[0] " minuto"
 msgstr[1] " minutos"
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
@@ -179,9 +174,7 @@ msgstr[0] " segundo"
 msgstr[1] " segundos"
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
@@ -365,15 +358,13 @@ msgid "Checkmate"
 msgstr "Xeque-mate"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
 msgstr "Brancas"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
 msgstr "Pretas"
@@ -409,21 +400,18 @@ msgid "Coordinate"
 msgstr "Coordenada"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personalizado"
 
 #: knights.cpp:140
-#, fuzzy, kde-format
-#| msgid "%1 is thinking..."
+#, kde-format
 msgid "%1 is thinking…"
-msgstr "%1 está pensando..."
+msgstr "%1 está pensando…"
 
 #: knights.cpp:147
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Relógio"
@@ -435,78 +423,67 @@ msgid "Move History"
 msgstr "Histórico de jogadas"
 
 #: knights.cpp:197
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Desistir"
 
 #: knights.cpp:198
-#, fuzzy, kde-format
-#| msgid "Admit your inevitable defeat"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
-msgstr "Admitir a sua derrota inevitável"
+msgstr "Admite a sua derrota inevitável"
 
 #: knights.cpp:203
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Desfazer"
 
 #: knights.cpp:204
-#, fuzzy, kde-format
-#| msgid "Take back your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Voltar atrás na sua última jogada"
 
 #: knights.cpp:210
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Refazer"
 
 #: knights.cpp:211
-#, fuzzy, kde-format
-#| msgid "Repeat your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Repete o último movimento"
 
 #: knights.cpp:218
-#, fuzzy, kde-format
-#| msgid "Offer &Draw"
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "&Propor empate"
 
 #: knights.cpp:219
-#, fuzzy, kde-format
-#| msgid "Offer a draw to your opponent"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr "Propor empate ao seu adversário"
+msgstr "Propõe empate ao seu adversário"
 
 #: knights.cpp:224
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Adiar"
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "Continuar este jogo mais tarde"
+msgstr "Continua este jogo mais tarde"
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Cancelar"
@@ -517,43 +494,37 @@ msgid "End the game immediately"
 msgstr "Termina o jogo imediatamente"
 
 #: knights.cpp:235
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Mostrar relógio"
 
 #: knights.cpp:241
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Mostrar histórico"
 
 #: knights.cpp:248
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Mostrar o console das brancas"
 
 #: knights.cpp:254
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Mostrar o console das pretas"
 
 #: knights.cpp:260
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Mostrar bate-papo"
 
 #: knights.cpp:299
-#, fuzzy, kde-format
-#| msgid "Open File"
+#, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Abrir arquivo"
@@ -564,15 +535,13 @@ msgid "Portable game notation (*.pgn)"
 msgstr "Notação de jogo portável (*.pgn)"
 
 #: knights.cpp:463
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Geral"
 
 #: knights.cpp:467
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Mecanismos do computador"
@@ -581,11 +550,10 @@ msgstr "Mecanismos do computador"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Acessibilidade"
 
 #: knights.cpp:480
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
@@ -596,8 +564,7 @@ msgid "Do you really want to resign?"
 msgstr "Deseja realmente desistir?"
 
 #: knights.cpp:489
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Desistir"
@@ -609,9 +576,7 @@ msgid "Resign"
 msgstr "Desistir"
 
 #: knights.cpp:537
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
 msgstr "Fim do jogo"
@@ -646,8 +611,7 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "O jogo terminou com a vitória de <em>%1</em>, jogando com o Preto"
 
 #: knights.cpp:624
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 vs. %2"
@@ -888,10 +852,9 @@ msgstr "opções armazenadas das configurações específicas do motor"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether opponents' moves are spoken by Jovie"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "se as jogadas do adversário são faladas pelo Jovie"
+msgstr "se as jogadas do adversário são faladas"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -991,15 +954,13 @@ msgid "Document to open"
 msgstr "Documento a ser aberto"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "Aceitar"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
 msgstr "Recusar"
@@ -1241,8 +1202,7 @@ msgid "Session started"
 msgstr "Sessão iniciada"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
 msgstr "Autenticando..."
 
