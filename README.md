@@ -29,7 +29,7 @@ To build and to install the project, execute
 * cd <project_name_path>
 * mkdir build
 * cd build
-* cmake -DCMAKE_INSTALL_PREFIX=<path_to_install_>
+* cmake .. -DCMAKE_INSTALL_PREFIX=<path_to_install_>
 * make
 * make install or sudo make install or su -c 'make install'
 
