@@ -620,7 +620,7 @@
       <li xml:lang="zh-CN">动画移动(可以被配置)</li>
       <li xml:lang="zh-TW">動畫式移動（可設定）</li>
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
-      <li xml:lang="ar">طرق عرض للعب على خادم الشطرنج ، بما في ذلك رسم بياني ووحدة تحكم نصية وأداة دردشة</li>
+      <li xml:lang="ar">طرق عرض للعب على خادم الشطرنج، بما في ذلك رسم بياني ووحدة تحكم نصية وأداة دردشة</li>
       <li xml:lang="bg">Изгледи за игра на шах сървър, включително графика за търсене, текстова конзола и джаджа за чат</li>
       <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
       <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de xat</li>
@@ -854,6 +854,7 @@
       <li xml:lang="lv">Izrunāt pretinieka gājienus</li>
       <li xml:lang="nl">Zetten van tegenspeler uitspreken</li>
       <li xml:lang="pl">Wymawiaj ruchy przeciwnika</li>
+      <li xml:lang="pt-BR">Fale os movimentos do oponente</li>
       <li xml:lang="ru">Произношение ходов противника</li>
       <li xml:lang="sa">प्रतिद्वन्द्वस्य चालाः वदतु</li>
       <li xml:lang="sl">Govori nasprotnikove poteze</li>
