@@ -845,7 +845,7 @@ msgstr "للولوج كضيف أم لا"
 #: knights.kcfg:166
 #, kde-format
 msgid "whether to log in to chess server automatically"
-msgstr "للولوج إلى خادوم الشطرنج آليًّا"
+msgstr "للولوج إلى خادم الشطرنج آليًّا"
 
 #. i18n: ectx: label, entry (computerDelay), group (Protocols)
 #: knights.kcfg:170
