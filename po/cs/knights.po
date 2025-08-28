@@ -1444,7 +1444,3 @@ msgstr "Omezení času [minuty]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Hodnocení soupeře"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save"
-#~ msgstr "Uložit"
