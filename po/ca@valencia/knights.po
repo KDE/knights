@@ -189,12 +189,12 @@ msgstr "Motors d'escacs"
 #: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
-msgstr "Seleccioneu un motor d'escacs per al primer jugador."
+msgstr "Trieu un motor d'escacs per al primer jugador."
 
 #: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
-msgstr "Seleccioneu un motor d'escacs per al segon jugador."
+msgstr "Trieu un motor d'escacs per al segon jugador."
 
 #: gamedialog.cpp:370
 #, kde-format
@@ -1446,7 +1446,3 @@ msgstr "Límit de temps [minuts]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr "Classificació de l'adversari"
-
-#~ msgctxt "@title:window"
-#~ msgid "Save"
-#~ msgstr "Guarda"
