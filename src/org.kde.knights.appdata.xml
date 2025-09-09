@@ -49,7 +49,6 @@
   <name xml:lang="sv">Knights</name>
   <name xml:lang="tr">K Satranç</name>
   <name xml:lang="uk">KNights</name>
-  <name xml:lang="x-test">xxKNightsxx</name>
   <name xml:lang="zh-CN">KNights</name>
   <name xml:lang="zh-TW">KNights</name>
   <summary>Chess game</summary>
@@ -94,7 +93,6 @@
   <summary xml:lang="sv">Schackspel</summary>
   <summary xml:lang="tr">Satranç oyunu</summary>
   <summary xml:lang="uk">Гра у шахи</summary>
-  <summary xml:lang="x-test">xxChess gamexx</summary>
   <summary xml:lang="zh-CN">国际象棋游戏</summary>
   <summary xml:lang="zh-TW">西洋棋遊戲</summary>
   <description>
@@ -140,7 +138,6 @@
     <p xml:lang="sv">Knights är ett schackspel. Som spelare är ditt mål att besegra motspelaren genom att göra dennes kung schack matt.</p>
     <p xml:lang="tr">K Satranç bir satranç oyunudur. Oyuncu olarak hedefiniz, rakibinizi şah mat yapmaktır.</p>
     <p xml:lang="uk">KNights — гра у шахи. Вашою метою у грі є поставити мат королю суперника.</p>
-    <p xml:lang="x-test">xxKNights is a chess game. As a player, your goal is to defeat your opponent by checkmating their king.xx</p>
     <p xml:lang="zh-CN">《骑士》是一个象棋游戏。作为一个玩家，你的目标是通过将死他们的国王来击败对手。</p>
     <p xml:lang="zh-TW">KNights 是一套西洋棋遊戲。</p>
     <p>Features:</p>
@@ -185,7 +182,6 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
-    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
     <ul>
@@ -229,7 +225,6 @@
       <li xml:lang="sv">Lokalt spel mellan två spelare på samma dator</li>
       <li xml:lang="tr">Aynı bilgisayar üstünde iki oyuncu arasında yerel oyun</li>
       <li xml:lang="uk">Можливість гри між двома гравцями за одним комп’ютером.</li>
-      <li xml:lang="x-test">xxLocal play between two players on the same computerxx</li>
       <li xml:lang="zh-CN">同一台计算机上两个玩家之间的本地播放</li>
       <li xml:lang="zh-TW">在相同電腦上的兩個玩家間的本機遊戲</li>
       <li>Play against any computer program that supports the XBoard protocol</li>
@@ -272,7 +267,6 @@
       <li xml:lang="sv">Spela mot vilket datorprogram som helst som stöder protokollet XBoard</li>
       <li xml:lang="tr">XBoard protokolünü destekleyen bir bilgisayar programına karşı oyna</li>
       <li xml:lang="uk">Можливість гри з будь-якою комп’ютерною програмою, у якій передбачено роботу за протоколом XBoard.</li>
-      <li xml:lang="x-test">xxPlay against any computer program that supports the XBoard protocolxx</li>
       <li xml:lang="zh-CN">与任何支持XBoard协议的计算机程序对抗</li>
       <li xml:lang="zh-TW">與任何支援 XBoard 協定的電腦程式一同遊玩</li>
       <li>Play on the Free Internet Chess Server (FICS)</li>
@@ -315,7 +309,6 @@
       <li xml:lang="sv">Spela på den fria Internet-schackservern, Free Internet Chess Server (FICS)</li>
       <li xml:lang="tr">Özgür İnternet Satranç Sunucusu (FICS) üzerinden Oyna</li>
       <li xml:lang="uk">Можливість гри на Free Internet Chess Server (FICS)</li>
-      <li xml:lang="x-test">xxPlay on the Free Internet Chess Server (FICS)xx</li>
       <li xml:lang="zh-CN">在免费的国际象棋服务器(FICS)上下棋</li>
       <li xml:lang="zh-TW">在免費線上西洋棋伺服器 (FICS) 遊玩</li>
       <li>Watching two computer engines play against each other</li>
@@ -358,7 +351,6 @@
       <li xml:lang="sv">Titta på medan två datorspelare spelar mot varandra</li>
       <li xml:lang="tr">İki bilgisayar işletkesinin birbiriyle oynamasını izle</li>
       <li xml:lang="uk">Можливість спостереження за грою двох комп’ютерних гравців між собою.</li>
-      <li xml:lang="x-test">xxWatching two computer engines play against each otherxx</li>
       <li xml:lang="zh-CN">看着两台电脑引擎互相竞争</li>
       <li xml:lang="zh-TW">觀看兩個電腦引擎相互對抗遊玩</li>
       <li>Support for legal move checking</li>
@@ -401,7 +393,6 @@
       <li xml:lang="sv">Stöd för kontroll av regelrätta drag</li>
       <li xml:lang="tr">Uygun hareket denetimi desteği</li>
       <li xml:lang="uk">Перевірка ходів на коректність.</li>
-      <li xml:lang="x-test">xxSupport for legal move checkingxx</li>
       <li xml:lang="zh-CN">支持合法移动检查</li>
       <li xml:lang="zh-TW">支援檢查合法移動</li>
       <li>Markers for possible moves, opponent’s last move and sources of check</li>
@@ -444,7 +435,6 @@
       <li xml:lang="sv">Markörer för möjliga drag, motspelarens senaste drag och orsaken till schack</li>
       <li xml:lang="tr">OLası hamleler için işaretleyici, rakibin son hamlesi ve denetim kaynakları</li>
       <li xml:lang="uk">Позначки для можливих ходів, останнього ходу суперника та загроз під час шаху.</li>
-      <li xml:lang="x-test">xxMarkers for possible moves, opponent’s last move and sources of checkxx</li>
       <li xml:lang="zh-CN">可能的移动标记，对手最后的移动和检查来源</li>
       <li xml:lang="zh-TW">可能移動的標記，對手的最後一次移動與檢查來源</li>
       <li>Board borders and site notations</li>
@@ -487,7 +477,6 @@
       <li xml:lang="sv">Brädkanter och beteckningssystem</li>
       <li xml:lang="tr">Tahta çizgileri ve saha gösterimi</li>
       <li xml:lang="uk">Показ полів із записами ходів.</li>
-      <li xml:lang="x-test">xxBoard borders and site notationsxx</li>
       <li xml:lang="zh-CN">登陆边界和站点标记</li>
       <li xml:lang="zh-TW">棋盤邊界與網點符號</li>
       <li>Complete time control, with Plasma-styled clocks</li>
@@ -530,7 +519,6 @@
       <li xml:lang="sv">Fullständig tidtagning, och klockor med Plasma-stil</li>
       <li xml:lang="tr">Tamamlama süresi kontrolü, Plasma biçimi saat ile</li>
       <li xml:lang="uk">Повний контроль за часом із годинниками у стилі Плазми.</li>
-      <li xml:lang="x-test">xxComplete time control, with Plasma-styled clocksxx</li>
       <li xml:lang="zh-CN">使用Plasma风格的时钟来完成时间的控制</li>
       <li xml:lang="zh-TW">完整時間控制，帶有 Plasma 風格的時鐘</li>
       <li>Several themes, with the possibility of downloading new ones from within the program</li>
@@ -573,7 +561,6 @@
       <li xml:lang="sv">Flera teman, med möjlighet att ladda ner nya inifrån programmet</li>
       <li xml:lang="tr">Birkaç tema, program üstünden de yenileri indirilebilir</li>
       <li xml:lang="uk">Декілька тем оформлення з можливістю отримання нових тем за допомогою вікна самої програми.</li>
-      <li xml:lang="x-test">xxSeveral themes, with the possibility of downloading new ones from within the programxx</li>
       <li xml:lang="zh-CN">一些主题，可能从程序的内部下载新的主题</li>
       <li xml:lang="zh-TW">多種主題，當然也在程式內下載新的</li>
       <li>Animated moves (configurable)</li>
@@ -616,7 +603,6 @@
       <li xml:lang="sv">Animerade drag (inställningsbara)</li>
       <li xml:lang="tr">Canlandırılmış hamleler (yapılandırılabilir)</li>
       <li xml:lang="uk">Анімація ходів (можна налаштувати).</li>
-      <li xml:lang="x-test">xxAnimated moves (configurable)xx</li>
       <li xml:lang="zh-CN">动画移动(可以被配置)</li>
       <li xml:lang="zh-TW">動畫式移動（可設定）</li>
       <li>Views for playing on a chess server, including a seek graph, text console, and chat widget</li>
@@ -659,7 +645,6 @@
       <li xml:lang="sv">Vyer för att spela på en schackserver, inklusive sökdiagram, textterminal och chattkomponent</li>
       <li xml:lang="tr">Satranç sunucusu üzerindeki oyunlar için görünüm, grafik arama, metin konsolu ve sohbet programcığı da içerir</li>
       <li xml:lang="uk">Перегляд гри на шаховому сервері із графом пошуку, текстовою консоллю та віджетом спілкування.</li>
-      <li xml:lang="x-test">xxViews for playing on a chess server, including a seek graph, text console, and chat widgetxx</li>
       <li xml:lang="zh-CN">用于在象棋服务器上对战的视图，包括寻径图表、文本控制台和聊天部件</li>
       <li xml:lang="zh-TW">在西洋棋伺服器上遊玩的檢視，包含了探索圖、文字終端機與聊天小工具</li>
       <li>Option to undo and redo moves</li>
@@ -702,7 +687,6 @@
       <li xml:lang="sv">Alternativ för att ångra och göra om drag</li>
       <li xml:lang="tr">Hareketleri geri ve ileri alma seçeneği</li>
       <li xml:lang="uk">Можливість скасовувати і повторювати ходи.</li>
-      <li xml:lang="x-test">xxOption to undo and redo movesxx</li>
       <li xml:lang="zh-CN">撤销和重做移动选项</li>
       <li xml:lang="zh-TW">復原與重做移動的選項</li>
       <li>Graphic interface for making and receiving offers from remote players</li>
@@ -745,7 +729,6 @@
       <li xml:lang="sv">Grafiskt gränssnitt för att ge och ta emot bud från fjärrspelare</li>
       <li xml:lang="tr">Uzak oyuncuların önerilerini almak ve yapmak için grafik arayüzü</li>
       <li xml:lang="uk">Графічний інтерфейс для створення і отримання пропозицій щодо гри з віддаленими гравцями.</li>
-      <li xml:lang="x-test">xxGraphic interface for making and receiving offers from remote playersxx</li>
       <li xml:lang="zh-CN">绘制和接收远程玩家报价的图形界面</li>
       <li xml:lang="zh-TW">從遠端玩家做出與接收提議的圖形化介面</li>
       <li>Support for the UCI protocol (used by Stockfish, Chessbase, and many others)</li>
@@ -788,7 +771,6 @@
       <li xml:lang="sv">Stöd för protokollet UCI (använt av Stockfish, Chessbase och många andra)</li>
       <li xml:lang="tr">UCI protokolü desteği (Stockfish, Chessbase ve diğerleri tarafından kullanılır)</li>
       <li xml:lang="uk">Підтримка протоколу UCI (використовується Stockfish, Chessbase та багатьма іншими рушіями).</li>
-      <li xml:lang="x-test">xxSupport for the UCI protocol (used by Stockfish, Chessbase, and many others)xx</li>
       <li xml:lang="zh-CN">支持UCI协议(由Stockfish、Chessbase和其他许多公司使用）</li>
       <li xml:lang="zh-TW">支援 UCI 協定（由 Stockfish、Chessbase 與其他許多應用程式所使用）</li>
       <li>Support for saving and loading Portable game notation (PGN) files</li>
@@ -831,7 +813,6 @@
       <li xml:lang="sv">Stöd för att spara och läsa PGN-filer (Portable Game Notation)</li>
       <li xml:lang="tr">Taşınabilir oyun gösterimi (PGN) dosyalarının kaydedilmesi ve yüklenmesi için destek</li>
       <li xml:lang="uk">Підтримка збереження і завантаження файлів гри у форматі Portable game notation (PGN).</li>
-      <li xml:lang="x-test">xxSupport for saving and loading Portable game notation (PGN) filesxx</li>
       <li xml:lang="zh-CN">支持保存和加载便携式游戏标记(PGN) 文件</li>
       <li xml:lang="zh-TW">支援儲存與載入攜帶式遊戲標記 (PGN) 檔案</li>
       <li>Speak opponent’s moves</li>
@@ -861,7 +842,6 @@
       <li xml:lang="sv">Läs upp motståndarens drag</li>
       <li xml:lang="tr">Rakibin hamlelerini seslendir</li>
       <li xml:lang="uk">Озвучення ходів суперника</li>
-      <li xml:lang="x-test">xxSpeak opponent’s movesxx</li>
       <li xml:lang="zh-CN">播报对手行为</li>
       <li xml:lang="zh-TW">念出對手的移動</li>
       <li>Ability to control the program via a D-Bus interface</li>
@@ -904,7 +884,6 @@
       <li xml:lang="sv">Möjlighet att styra programmet via ett D-Bus gränssnitt</li>
       <li xml:lang="tr">D-Bus arayüzü üzerinden program denetimi sağlar</li>
       <li xml:lang="uk">Можливість керування програмою за допомогою інтерфейсу D-Bus.</li>
-      <li xml:lang="x-test">xxAbility to control the program via a D-Bus interfacexx</li>
       <li xml:lang="zh-CN">通过 D-Bus 接口控制程序的功能</li>
       <li xml:lang="zh-TW">透過 D-Bus 介面控制程式的能力</li>
     </ul>
@@ -949,7 +928,6 @@
       <caption xml:lang="sv">Knights, schackspel</caption>
       <caption xml:lang="tr">Satranç oyunu</caption>
       <caption xml:lang="uk">Knights, гра у шахи</caption>
-      <caption xml:lang="x-test">xxKnights, chess gamexx</caption>
       <caption xml:lang="zh-CN">骑士,象棋游戏</caption>
       <caption xml:lang="zh-TW">Knights，西洋棋遊戲</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights.png</image>
@@ -992,7 +970,6 @@
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
       <caption xml:lang="tr">Ana Pencere - İnsan, Satranç İşletkesine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
-      <caption xml:lang="x-test">xxMain Window - Human vs. Chess Enginexx</caption>
       <caption xml:lang="zh-CN">主窗口 - 人与国际象棋引擎的对决</caption>
       <caption xml:lang="zh-TW">主視窗 - 人類 vs. 引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main.png</image>
@@ -1035,7 +1012,6 @@
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
       <caption xml:lang="tr">Ana Pencere - Satranç İşletkesi, Kendisine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
-      <caption xml:lang="x-test">xxMain Window - Chess Engine vs. Chess Enginexx</caption>
       <caption xml:lang="zh-CN">主窗口 - 国际象棋引擎之间的对决</caption>
       <caption xml:lang="zh-TW">主視窗 - 引擎 vs. 引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_main_2.png</image>
@@ -1079,7 +1055,6 @@
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
       <caption xml:lang="tr">"Yeni Oyun" Penceresi</caption>
       <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
-      <caption xml:lang="x-test">xx"New Game" Dialogxx</caption>
       <caption xml:lang="zh-CN">“新建游戏”窗口</caption>
       <caption xml:lang="zh-TW">「新遊戲」對話框</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_new_game.png</image>
@@ -1121,7 +1096,6 @@
       <caption xml:lang="sv">Automatisk detektering av schackprogram</caption>
       <caption xml:lang="tr">Satranç İşletkesini Kendiliğinden Algılama</caption>
       <caption xml:lang="uk">Автоматичне виявлення шахових рушіїв</caption>
-      <caption xml:lang="x-test">xxAuto-Detection of Chess Enginesxx</caption>
       <caption xml:lang="zh-CN">象棋引擎的自动检测</caption>
       <caption xml:lang="zh-TW">自動偵測西洋棋引擎</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_auto_detect_engines.png</image>
@@ -1163,7 +1137,6 @@
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
       <caption xml:lang="tr">Çevrimiçi oyna - FICS Konsolu</caption>
       <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
-      <caption xml:lang="x-test">xxPlaying online - FICS Consolexx</caption>
       <caption xml:lang="zh-CN">在线播放 - 公务员协联控制台</caption>
       <caption xml:lang="zh-TW">線上遊玩 - FICS 控制台</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_fics_console.png</image>
@@ -1205,7 +1178,6 @@
       <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
       <caption xml:lang="tr">Çevrimiçi oyna - grafik Seek-Graph</caption>
       <caption xml:lang="uk">Гра у мережі — граф пошуку гравців</caption>
-      <caption xml:lang="x-test">xxPlaying online - graphical Seek-Graphxx</caption>
       <caption xml:lang="zh-CN">在线播放-图形搜索图</caption>
       <caption xml:lang="zh-TW">線上遊玩 - 圖形化 Seek-Graph</caption>
       <image>https://cdn.kde.org/screenshots/knights/knights_seek_graph.png</image>
