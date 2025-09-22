@@ -210,7 +210,7 @@
 
       <para
 >Si tienes instalado un motor de ajedrez que no aparece en la lista, pulsa el botón <guibutton
->Configurar...</guibutton
+>Configurar…</guibutton
 > y añade allí el motor. Para más información sobre este diálogo, consulta <link linkend="configuration-engines"
 >Motores de máquina</link
 >.</para>
@@ -1028,7 +1028,7 @@
 >La página <guilabel
 >Tema</guilabel
 > permite seleccionar un tema. El tema proporciona las imágenes del tablero, de las piezas, de los marcadores y de otros elementos. Para elegir un nuevo tema, selecciona el nombre del tema en la lista de selección. También puede descargar nuevos temas en la misma página, pulsando el botón <guibutton
->Descargar nuevos temas...</guibutton
+>Descargar nuevos temas…</guibutton
 >. Los temas se encuentran en kde-look.org, en la categoría &knights;.</para>
 
       <note
