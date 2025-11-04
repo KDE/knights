@@ -646,14 +646,14 @@ msgstr "Fichier du thème de l'échiquier"
 #, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
 msgstr ""
-"Si une boîte de dialogue de confirmation est affichée avant de supprimer "
+"Si une boite de dialogue de confirmation est affichée avant de supprimer "
 "l'historique du jeu"
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
 #, kde-format
 msgid "internal variable controlling the confirm dialog"
-msgstr "Variable interne contrôlant la boîte de dialogue de confirmation"
+msgstr "Variable interne contrôlant la boite de dialogue de confirmation"
 
 #. i18n: ectx: label, entry (animationSpeed), group (Preferences)
 #: knights.kcfg:31
@@ -1128,7 +1128,7 @@ msgstr "Inverser l'échiquier dans les tournois locaux entre joueurs humains"
 #: prefs_base.ui:168
 #, kde-format
 msgid "Show confirmation dialog before closing"
-msgstr "Afficher une boîte de dialogue de confirmation avant la fermeture"
+msgstr "Afficher une boite de dialogue de confirmation avant la fermeture"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PromotionWidget)
 #: promotiondialog.ui:14
