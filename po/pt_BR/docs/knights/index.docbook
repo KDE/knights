@@ -1,21 +1,20 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY knights "<application
+<!ENTITY i18n-knights "<application
 >Knights</application
 >">
-  <!ENTITY kappname "&knights;">
-  <!ENTITY kappversion "2.5.0"
+  <!ENTITY kappversion "2.6.2"
 ><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Brazilian-Portuguese "INCLUDE">
 ]>
 <book id="knights" lang="&language;">
-	<bookinfo>
-		<title
+  <bookinfo>
+    <title
 >Manual do &knights;</title>
 
-		<authorgroup>
-			<author
+    <authorgroup>
+      <author
 ><firstname
 >Miha</firstname
 > <surname
@@ -24,10 +23,10 @@
 > <address
 > <email
 >miha.cancula@gmail.com</email>
-					</address>
-				</affiliation>
-			</author>
-			<othercredit role="translator"
+          </address>
+        </affiliation>
+      </author>
+      <othercredit role="translator"
 ><firstname
 >Marcus</firstname
 ><surname
@@ -57,109 +56,121 @@
 ></othercredit
 > 
 
-		</authorgroup>
-		<copyright>
-			<year
+    </authorgroup>
+    <copyright>
+      <year
 >2011</year>
-			<holder
+      <holder
 >Miha Čančula</holder>
-		</copyright>
+    </copyright>
 
-		<legalnotice
+    <legalnotice
 >&FDLNotice;
-		</legalnotice>
+    </legalnotice>
 
-		<date
->07/01/2015</date
+    <date
+>13/10/2021</date
 ><!-- Date of (re)writing, or update.-->
-		<releaseinfo
->&kappversion; </releaseinfo
+    <releaseinfo
+>&kappversion; (KDE Gear 21.08)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
 
-		<abstract>
-			<para
->Esta documentação descreve o jogo &knights; na versão &kappversion; </para>
-		</abstract>
+    <abstract>
+      <para
+>Esta documentação descreve o jogo &i18n-knights; na versão &kappversion;</para>
+    </abstract>
 
-		<keywordset>
-			<keyword
+    <keywordset>
+      <keyword
 >KDE</keyword
 ><!-- do not change this! -->
-			<keyword
->kdegames</keyword
-><!-- do not change this! -->
-			<keyword
+      <keyword
 >jogo</keyword
 ><!-- do not change this! -->
-			<keyword
+      <keyword
 >tabuleiro</keyword>
-			<keyword
+      <keyword
 >xadrez</keyword>
-			<keyword
->knights</keyword>
-		</keywordset>
+      <keyword
+>Knights</keyword>
+    </keywordset>
 
-	</bookinfo>
-<!-- 
-new in
->2.4.0 history, UCI, Difficulty settings, see
-http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
--->
-	<chapter id="introduction">
-		<title
+  </bookinfo>
+
+  <chapter id="introduction">
+    <title
 >Introdução</title>
-		<note>
-			<title
+
+    <note>
+      <title
 >Tipo de jogo:</title>
-			<para
+      <para
 >Tabuleiro</para>
-		</note>
-		<note>
-			<title
+    </note>
+
+    <note>
+      <title
 >Número de jogadores possíveis:</title>
-			<para
+      <para
 >Um ou dois</para>
-		</note>
+    </note>
 
-		<para
->O &knights; é um jogo de xadrez. Como jogador, o seu objetivo é derrotar o seu adversário deixando o rei dele em xeque-mate. </para>
-	</chapter>
+    <para
+>O &i18n-knights; é um jogo de xadrez. Como jogador, o seu objetivo é derrotar o seu adversário deixando o rei dele em xeque-mate.</para>
+  </chapter>
 
-	<chapter id="how-to-play"
+  <chapter id="how-to-play"
 ><title
 >Como jogar</title
 > <!-- do not change this! -->
-		<!--Describe the objective of the game.-->
-		<sect1 id="objective">
-			<title
+    <!--Describe the objective of the game.-->
+    <sect1 id="objective">
+      <title
 >Objetivo</title>
-			<para
+
+      <para
 >Mova suas peças, capture as peças do seu adversário até que o rei dele esteja sob ataque e não exista nenhum movimento que possa parar o ataque - o chamado <quote
 >xeque-mate</quote
 >.</para>
-			<para
+
+      <para
 >Se parecer que você não pode vencer, você pode jogar por um empate. Mova suas peças até que não restem mais movimentos possíveis e seu rei não esteja sob ataque - o chamado <quote
 >afogamento</quote
 >. Outras formas de empate estão disponíveis dependendo das regras que estiverem sendo seguidas no jogo.</para>
-		</sect1>
+    </sect1>
 
-		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
-		<sect1 id="starting-the-game">
-			<title
+    <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+    <sect1 id="starting-the-game">
+      <title
 >Iniciar o jogo</title>
-			<para
->Quando o programa começar ou o usuário selecionar a opção <menuchoice
+
+      <para
+>Quando o programa começar ou o usuário selecionar o menu <menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
 ><guimenu
 >Jogo</guimenu
 > <guimenuitem
 >Novo</guimenuitem
 ></menuchoice
->, irá aparecer uma janela. Nela é possível indicar com quem você irá jogar, a sua cor e os limites de tempo. </para>
-				<mediaobject
-><imageobject
-><imagedata fileref="Knights-newgame-dialog.png"/></imageobject
-></mediaobject>
-			<para
+>, irá aparecer uma janela. Nela é possível indicar com quem você irá jogar, a sua cor e os limites de tempo.</para>
+
+      <screenshot>
+        <screeninfo
+>Janela de novo jogo</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-newgame-dialog.png" format="PNG"/></imageobject>
+          <caption
+>Janela de novo jogo</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
 >Se você quiser jogar contra um amigo no mesmo computador, selecione a opção <guilabel
 >Humano (Você)</guilabel
 > para o <guilabel
@@ -168,262 +179,320 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >Humano</guilabel
 > para o <guilabel
 >Jogador 2</guilabel
->. </para>
-			<para
+>.</para>
+
+      <para
 >Se você quiser jogar contra o computador, selecione a opção <guilabel
 >Humano (Você)</guilabel
 > para o <guilabel
 >Jogador 1</guilabel
 > e <guilabel
->Mecanismo do computador</guilabel
+>Mecanismo do computador:</guilabel
 > para o <guilabel
 >Jogador 2</guilabel
->. Escolha o programa contra o qual deseja jogar e certifique-se de que o programa indicado está instalado no seu computador e suporta os protocolos do XBoard e do UCI. </para>
-			<para
+>. A partir da lista fornecida, escolha o programa contra o qual deseja jogar e certifique-se de que o programa indicado está instalado no seu computador e suporta os protocolos do XBoard ou do <acronym
+>UCI</acronym
+>.</para>
+
+      <para
 >Se você tiver instalado um mecanismo de xadrez, mas este não aparecer na lista, clique no botão <guilabel
->Configurar mecanismos</guilabel
+>Configurar…</guilabel
 > e adicione o mecanismo. Para mais informações sobre esta janela verifique em <link linkend="configuration-engines"
 >Mecanismos do computador</link
->. </para>
-			<note
-><title
->Nota</title>
-			<para
+>.</para>
+
+      <note
+><para
 >Ainda que um programa apareça na janela, não significa que esteja instalado. Certifique-se de que instalou os mecanismos de xadrez contra os quais deseja jogar. Você pode verificar possui ou não um mecanismo instalado no seu sistema na janela <guilabel
->Configurar mecanismos</guilabel
->. </para>
-			</note>
-			<para
+>Mecanismos de xadrez</guilabel
+>.</para
+></note>
+
+      <para
 >Se você quiser jogar contra outra pessoa na Internet, selecione a opção <guilabel
 >Humano (Você)</guilabel
 > para o <guilabel
 >Jogador 1</guilabel
 > e <guilabel
->Humano em um servidor de xadrez</guilabel
+>Servidor de xadrez</guilabel
 > para o <guilabel
 >Jogador 2</guilabel
->. Você terá que se autenticar nesse servidor e encontrar um adversário para poder começar a jogar. O 'Free Internet Chess Server' (<ulink url="http://freechess.org"
+>. Você terá que se autenticar nesse servidor e encontrar um adversário para poder começar a jogar. O 'Free Internet Chess Server' (<ulink url="https://www.freechess.org/"
 >FreeChess.org</ulink
->) suporta convidados, mas você terá que se registrar para poder jogar os jogos que afetem a sua classificação. </para>
-			<para
+>) suporta convidados, mas você terá que se registrar para poder jogar os jogos que afetem a sua classificação.</para>
+
+      <para
 >Você também pode ver dois programas jogando um contra o outro, ao selecionar <guilabel
->Mecanismo do computador</guilabel
-> para ambos os jogadores. </para>
-			<para
->De forma semelhante, você pode colocar um mecanismo de computador para jogar contra um adversário em um servidor de xadrez. Entretanto, lembre-se de que o servidor de xadrez poderá ter uma política contra esse tipo de jogo. No Free Internet Chess Server, está localizado <ulink url="http://www.freechess.org/Help/HelpFiles/computers.html"
+>Mecanismo do computador:</guilabel
+> para ambos os jogadores.</para>
+
+      <para
+>De forma semelhante, você pode colocar um mecanismo de computador para jogar contra um adversário em um servidor de xadrez. Entretanto, lembre-se de que o servidor de xadrez poderá ter uma política contra esse tipo de jogo. No Free Internet Chess Server, está localizado <ulink url="https://www.freechess.org/Help/HelpFiles/computers.html"
 >aqui</ulink
->. </para>
-			<para
->A seção <guilabel
+>.</para>
+
+      <para
+>A opção <guilabel
 >Usar controle de tempo</guilabel
-> permite-lhe ativar um relógio opcional. O Knights usa o controle de tempo normal do xadrez, que possui três parâmetros: </para>
-			      <itemizedlist>
-				<listitem>
-				  <para
+> permite-lhe ativar um relógio opcional. O &i18n-knights; usa o controle de tempo normal do xadrez, que possui três parâmetros dentro de caixas de rotação:</para>
+
+      <itemizedlist>
+        <listitem
+><para
 >O <guilabel
->Período do controle de tempo</guilabel
+>Período do controle de tempo:</guilabel
 > especifica o número de jogadas ao fim do qual o <guilabel
->Limite de tempo inicial</guilabel
-> é adicionado ao relógio do jogador. Você pode desabilitar esta adição se configurar o valor como zero. </para>
-				  <note
-><title
->Nota</title>
-				    <para
->Esta opção não está disponível quando jogar em um servidor de xadrez. </para>
-				  </note>
-				</listitem>
-				<listitem>
-				  <para
+>Limite de tempo inicial:</guilabel
+> é adicionado ao relógio do jogador. Você pode desabilitar esta adição se configurar o valor como zero.</para>
+        <note
+><para
+>Esta opção não está disponível quando jogar em um servidor de xadrez.</para
+></note
+><para/></listitem>
+        <listitem
+><para
 >O <guilabel
->Limite de tempo inicial</guilabel
-> é a quantidade de tempo com que os jogadores começam. </para>
-				</listitem>
-				<listitem>
-				  <para
+>Limite de tempo inicial:</guilabel
+> é a quantidade de tempo com que os jogadores começam.</para
+></listitem>
+        <listitem
+><para
 >O <guilabel
->Incremento por jogada</guilabel
-> especifica quanto tempo será adicionado ao relógio do jogador, após cada jogada que ele faça. Ele pode ser definido como zero com segurança, de modo a desabilitar o incremento do relógio. </para>
-				</listitem>
-				
-			</itemizedlist>
-			<para
+>Incremento por jogada:</guilabel
+> especifica quanto tempo será adicionado ao relógio do jogador, após cada jogada que ele faça. Ele pode ser definido como zero com segurança, de modo a desabilitar o incremento do relógio.</para
+></listitem>
+      </itemizedlist>
+
+      <para
 >Depois de clicar no botão <guibutton
 >OK</guibutton
->, a janela será fechada. Se selecionou um jogador em um servidor de xadrez, você precisa se autenticar e encontrar o seu adversário. Caso contrário, o jogo começará imediatamente. </para>
-			<note
-><title
->Nota</title>
-			<para
->O &knights; carregará um tema padrão automaticamente assim que você iniciar o jogo e você pode iniciar jogando imediatamente. </para>
-			</note>
-		</sect1>
-		
-		<sect1 id="server-dialog">
-			<title
+>, a janela será fechada. Se selecionou um jogador em um servidor de xadrez, você precisa se autenticar e encontrar o seu adversário. Caso contrário, o jogo começará imediatamente.</para>
+
+      <note
+><para
+>O &i18n-knights; carregará um tema padrão automaticamente assim que você iniciar o jogo e você pode iniciar jogando imediatamente.</para
+></note>
+    </sect1>
+
+    <sect1 id="server-dialog">
+      <title
 >Janela do servidor de xadrez</title>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-account.png"/></imageobject
-></mediaobject>
-			<para
+
+      <screenshot>
+        <screeninfo
+>Janela do servidor de xadrez</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-account.png" format="PNG"/></imageobject>
+          <caption
+>Aba da conta</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
 >Se você optou por jogar em um servidor de xadrez, terá que autenticar-se primeiro. Se tiver uma conta no servidor, digite o seu usuário e senha e selecione a opção <guilabel
 >Esta é uma conta registrada</guilabel
->. Caso contrário, digite um nome de usuário de sua escolha e clique em <guibutton
+>. Caso contrário, digite um nome de usuário de sua escolha e pressione o botão <guibutton
 >Autenticar</guibutton
->. </para>
-			<para
->Existem duas formas de escolher o adversário. Publicar um anúncio para o seu jogo (chamado de "pesquisa") ou responder a uma pesquisa de outra pessoa. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-challenges.png"/></imageobject
-></mediaobject>
-			<para
+>.</para>
+
+      <para
+>Existem duas formas de escolher o adversário. Publicar um anúncio para o seu jogo (chamado de <quote
+>pesquisa</quote
+>) ou responder a uma pesquisa de outra pessoa.</para>
+
+      <screenshot>
+        <screeninfo
+>Janela do servidor de xadrez</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-challenges.png" format="PNG"/></imageobject>
+          <caption
+>Aba de desafios</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
 >Para publicar a sua, vá até a aba <guilabel
 >Desafios</guilabel
-> e clique em <guibutton
+> e pressione o botão <guibutton
 >Posicionar</guibutton
 >. Se você assinalou a opção <guilabel
 >Iniciar o jogo automaticamente</guilabel
->, assim que um jogador aceitar a sua pesquisa, o jogo será iniciado imediatamente. Caso contrário, terá de aceitar manualmente o desafio, selecionando-o na lista e clicando em <guibutton
+>, assim que um jogador aceitar a sua pesquisa, o jogo será iniciado imediatamente. Caso contrário, terá de aceitar manualmente o desafio, selecionando-o na lista e clicando no botão <guibutton
 >Aceitar</guibutton
->. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-list.png"/></imageobject
-></mediaobject>
-			<para
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Janela do servidor de xadrez</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-list.png" format="PNG"/></imageobject>
+          <caption
+>Aba da lista de posições</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
 >Para responder às pesquisas das outras pessoas, use a <guilabel
 >Lista de posições</guilabel
 > ou o <guilabel
 >Gráfico de posições</guilabel
 >. Em qualquer uma dessas abas, selecione a pesquisa, clicando nela e no botão <guibutton
 >Aceitar</guibutton
->. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-graph.png"/></imageobject
-></mediaobject>
-			<para
->O gráfico apresenta todas as pesquisas publicadas, organizadas pela classificação do adversário e pela duração do jogo. Se clicar em um ponto do gráfico, irá aceitar a pesquisa. </para>
-			<note>
-				<para
->Para uma utilização avançada, o &knights; oferece acesso direto ao console do servidor. Selecione a aba <guilabel
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Janela do servidor de xadrez</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
+          <caption
+>Aba de gráfico de posições</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>O gráfico apresenta todas as pesquisas publicadas, organizadas pela classificação do adversário e pela duração do jogo. Se clicar em um ponto do gráfico, irá aceitar a pesquisa.</para>
+
+      <note
+><para
+>Para uma utilização avançada, o &i18n-knights; oferece acesso direto ao console do servidor. Selecione a aba <guilabel
 >Console</guilabel
-> para usá-la. </para>
-			</note>
-		</sect1>
-		
-		<sect1 id="playing-the-game">
-			<title
+> para usá-la.</para
+></note>
+    </sect1>
+
+    <sect1 id="playing-the-game">
+      <title
 >Jogar</title>
-			<para
->As peças podem ser movidas clicando-se nelas e arrastando-as para o local desejado. Você só poderá mover uma peça sua se for a sua vez e se o movimento não colocar o seu rei em perigo imediato. </para>
-			<para
->O &knights; segue as regras de xadrez padrão, assim você não pode fazer movimentos ilegais. </para>
-		</sect1>
-	</chapter>
-	
-	<chapter id="rules_and_tips">
-		<title
+
+      <para
+>As peças podem ser movidas clicando-se nelas e arrastando-as para o local desejado. Você só poderá mover uma peça sua se for a sua vez e se o movimento não colocar o seu rei em perigo imediato.</para>
+
+      <para
+>O &i18n-knights; segue as regras de xadrez padrão, assim você não pode fazer movimentos ilegais.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="rules_and_tips">
+    <title
 >Regras do jogo, estratégias e dicas</title
 > <!-- do not change this! -->
-	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
-	<sect1 id="standard-rules">
-		<title
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+    <sect1 id="standard-rules">
+      <title
 >Regras padrão</title>
-		<para
->O conjunto de regras principal para o xadrez são definidos pela Federação Mundial de Xadrez - FIDE (sigla em francês). Outros grupos nacionais e locais podem fazer pequenas modificações às regras. Normalmente as principais diferenças nas regras estão no controle do tempo ou tipos de empates permitidos - o jogo básico e o movimento das peças são os mesmos. O &knights; suporta o xadrez padrão e possui alguma flexibilidade no controle do tempo.</para>
-		<para
->Existem muitas variantes do xadrez padrão. Uma fonte encontrou mais de 2000 variantes diferentes do jogo. As maiores variantes incluem o Xadrez Aleatório de Fischer, Xadrez da Troca, Crazyhouse e Suicídio. As variantes possuem regras diferentes para captura de peças, movimento das peças, fim do jogo e retorno das peças para o jogo. O &knights; não suporta variantes do xadrez.</para>
-		<para
+
+      <para
+>O conjunto de regras principal para o xadrez são definidos pela Federação Mundial de Xadrez - FIDE (sigla em francês). Outros grupos nacionais e locais podem fazer pequenas modificações às regras. Normalmente as principais diferenças nas regras estão no controle do tempo ou tipos de empates permitidos - o jogo básico e o movimento das peças são os mesmos. O &i18n-knights; suporta o xadrez padrão e possui alguma flexibilidade no controle do tempo.</para>
+
+      <para
+>Existem muitas variantes do xadrez padrão. Uma fonte encontrou mais de 2000 variantes diferentes do jogo. As maiores variantes incluem o Xadrez Aleatório de Fischer, Xadrez da Troca, Crazyhouse e Suicídio. As variantes possuem regras diferentes para captura de peças, movimento das peças, fim do jogo e retorno das peças para o jogo. O &i18n-knights; não suporta variantes do xadrez.</para>
+      <para
 >As regras completas do xadrez padrão podem ser encontradas em:</para>
-		<itemizedlist>
-			<listitem
+
+      <itemizedlist>
+        <listitem
 ><para
->Federação Mundial de Xadrez-FIDE (<ulink url="http://www.fide.com"
+>Federação Mundial de Xadrez-FIDE (<ulink url="https://www.fide.com"
 >fide.com</ulink
 >)</para
 ></listitem>
-			<listitem
+        <listitem
 ><para
->Federação de Xadrez dos Estados Unidos-USCF (<ulink url="http://main.uschess.org"
->main.uschess.org</ulink
+>Federação de Xadrez dos Estados Unidos-USCF (<ulink url="https://new.uschess.org/"
+>new.uschess.org</ulink
 >)</para
 ></listitem>
-		</itemizedlist>
-		<para
->Regras e informações gerais sobre o xadrez podem ser encontradas em: <itemizedlist
-> <listitem
+      </itemizedlist>
+
+      <para
+>Regras e informações gerais sobre o xadrez podem ser encontradas em:</para>
+
+      <itemizedlist>
+        <listitem
 ><para
-><ulink url="http://en.wikipedia.org/wiki/Rules_of_chess"
+><ulink url="https://en.wikipedia.org/wiki/Rules_of_chess"
 >Wikipedia</ulink
 >&nbsp;</para
 ></listitem>
-		</itemizedlist>
-		</para>
-	</sect1>
+      </itemizedlist>
+    </sect1>
 
-	<sect1 id="board">
-		<title
+    <sect1 id="board">
+      <title
 >Tabuleiro de xadrez</title>
-		<sect2 id="board-layout">
-			<title
+      <sect2 id="board-layout">
+        <title
 >Disposição do tabuleiro</title>
-			<para
+
+        <para
 >A tabuleiro de xadrez consiste de 64 quadrados ou casas arrumadas em oito linhas e oito colunas. As casas são dispostas em duas cores alternadas, branco e preto. Muitos materiais diferentes são usados para se fabricar tabuleiros de xadrez, assim o material de cor mais clara é considerado como branco e o de cor mais escura como preto.</para>
-			<para
->Partes do tabuleiro são conhecidas por nomes especiais: <itemizedlist>
-				<listitem
+
+        <para
+>Partes do tabuleiro são conhecidas por nomes especiais:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Fileira - as oito linhas horizontais do tabuleiro de xadrez são chamadas fileiras.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Coluna - as oito colunas verticais do tabuleiro são chamadas de colunas.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Diagonal - uma linha reta de casas da mesma cor em um ângulo indo de um lado do tabuleiro para outro lado do tabuleiro é chamado diagonal.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Centro - as quatro casas encontradas no meio do tabuleiro são chamados de centro.</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			<para
+        </itemizedlist>
+
+        <para
 >Cada casa individual possui um nome de maneira que o registro dos movimentos do jogo pode ser mantido. Diversos sistemas de nomes existem, mas a <quote
 >notação algébrica</quote
 > é o mais popular e é o sistema oficial. Neste sistema, cada casa é nomeado de acordo com a linha e coluna em que ela se encontra. As fileiras (linhas) são numeradas de 1 à 8 iniciando com o lado branco do tabuleiro e movendo-se para o lado preto. As colunas são rotuladas por letras em minúsculas de 'a' à 'h' da esquerda para a direita com base no ponto de vista do jogador das peças brancas. A casa é nomeada pela letra seguida do número. Assim, a casa inferior mais à esquerda é conhecida como 'a1'. A estrutura de nomes pode ser vista no diagrama a seguir:</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-board.png"/></imageobject
-></mediaobject>
-		</sect2>
-		<sect2 id="board-setup">
-			<title
->Configuração inicial</title>
-			<para
->O tabuleiro de xadrez é rotacionado de modo que existe uma casa branca na primeira linha à direita do jogador.</para>
-			<para
->As peças são posicionadas no lado branco e preto do tabuleiro da mesma maneira. Na primeira linha, a partir das pontas e movendo-se para dentro, posicionamos a torre (às vezes chamada castelo), o cavalo (às vezes chamado cavaleiro) e o bispo. Para as duas casas restantes, posicionamos a rainha na casa com a mesma cor do jogador. Coloque o rei na casa restante. Quando tiver completado, as mesmas peças estarão face a face no tabuleiro. Na segunda linha, coloque uma linha de peões. O tabuleiro final se parecerá com o diagrama abaixo.</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-board-setup.png"/></imageobject
-></mediaobject>
-		</sect2>
-	</sect1>
 
-	<sect1 id="piece-movement">
-		<title
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="board-setup">
+        <title
+>Configuração inicial</title>
+
+        <para
+>O tabuleiro de xadrez é rotacionado de modo que existe uma casa branca na primeira linha à direita do jogador.</para>
+
+        <para
+>As peças são posicionadas no lado branco e preto do tabuleiro da mesma maneira. Na primeira linha, a partir das pontas e movendo-se para dentro, posicionamos a torre (às vezes chamada castelo), o cavalo (às vezes chamado cavaleiro) e o bispo. Para as duas casas restantes, posicionamos a rainha na casa com a mesma cor do jogador. Coloque o rei na casa restante. Quando tiver concluído, as mesmas peças estarão face a face no tabuleiro. Na segunda linha, coloque uma linha de peões. O tabuleiro final se parecerá com o diagrama abaixo.</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="piece-movement">
+      <title
 >Movimento das peças</title>
-		<sect2 id="all-movement">
-			<title
+      <sect2 id="all-movement">
+        <title
 >Mover e capturar</title>
-			<para
+
+        <para
 >O xadrez possui seis tipos de peças: Peão, Torre, Cavalo, Bispo, Rainha e Rei. Cada peça possui sua maneira única de se mover. Existem algumas semelhanças entre os movimentos de algumas peças. Todas as peças, exceto o cavalo, movem-se em linha reta - horizontalmente, verticalmente ou diagonalmente. Elas não podem se mover além do final do tabuleiro e retornarem no outro lado. O lado do tabuleiro é uma fronteira que não pode ser ultrapassada. Todas as peças, exceto o cavalo, não podem saltar sobre outras peças - todas as casas entre a que a peça inicia o movimento e a que termina devem estar vazias. O movimento não pode terminar em uma casa ocupada por uma peça da mesma cor.</para>
-			
-			<para
+
+        <para
 >Se a casa onde a peça termina o seu movimento conter uma peça adversária, esta peça é <quote
 >capturada</quote
 > e removida do jogo. Todas as peças podem ser capturadas, exceto o rei. O jogo termina no movimento antes do rei ser capturado - <quote
@@ -433,207 +502,234 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >. Capturar sempre requer que a peça atacante se posicione na casa da peça adversária durante a realização de um movimento normal. A única exceção é para a captura de um peão <link linkend="en_passant-movement"
 >en passant</link
 >. Você não precisa capturar uma peça quando existe uma oportunidade de fazer isso, assim a captura é uma opção. A única vez que a captura é obrigatória ocorre se o rei estiver sob ataque e a captura da peça atacante é a única maneira de parar o ataque.</para>
-			
-			<para
+
+        <para
 >Na figura abaixo, a torre branca pode mover-se para a direita, esquerda, acima e abaixo (verticalmente ou horizontalmente) em linhas retas. Ela pode mover para baixo e para a direita qualquer número de casas até o final do tabuleiro. Estas casas possuem um X verde sobre elas. Ele pode mover no máximo duas casas para a esquerda. O restante do tabuleiro está bloqueado por uma peça da mesma cor, no caso um cavalo branco. A torre não pode pular sobre o cavalo para chegar ao final do tabuleiro. Ela pode capturar o peão movendo-se duas casas acima e parando sobre o peão, uma vez que o peão é uma peça adversária (peça de cor diferente). Esta casa possui um X vermelho sobre ela. Ela não pode pular sobre o peão para atingir o final do tabuleiro. Assim, a torre possui um total de dez casas para onde ela pode ir.</para>
 
-			<mediaobject
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-limits.png"/></imageobject
+><imagedata fileref="Knights-move-limits.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >Para inciar o jogo, o branco move primeiro. Os jogadores então se alternam realizando um movimento de cada vez. Você deve realizar o movimento na sua vez, não podendo passar.</para>
-		</sect2>
-		<sect2 id="pawn-movement">
-			<title
+      </sect2>
+
+      <sect2 id="pawn-movement">
+        <title
 >Peão</title>
-			<para
+
+        <para
 >O peão é peça mais numerosa e menos poderosa no tabuleiro de xadrez. Peões são diferentes no seu movimento. De maneira geral, os peões se movem somente para frente, uma casa por vez. Um exceção é a primeira vez que um peão é movido, quando ele pode se mover duas casas. O peão não pode pular outras peças. Qualquer peça exatamente a frente de um peão bloqueia seu avanço para esta casa. O peão é a única peça que não pode mover-se para trás. O peão é também a única peça que não captura da mesma maneira que se move. Os peões capturam a peça adversária movendo-se diagonalmente uma casa - ele não pode capturar movendo-se para frente.</para>
-			
-			<para
+
+        <para
 >Na figura abaixo, o peão de baixo ainda está em sua casa original, assim ele pode mover-se uma ou duas casas para frente (indicadas pelo X verde). Ele pode capturar movendo-se para direita ou esquerda em uma diagonal, mas apenas se a referida casa estiver ocupada por uma peça adversária (indicada pelo X vermelho). Caso contrário, ele não pode se mover na diagonal. O peão de cima já se moveu de sua casa original. Ele pode mover-se somente uma casa para frente. Do mesmo modo, ele pode capturar movendo-se para esquerda ou direita diagonalmente se a casa conter uma peça adversária.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-pawn.png"/></imageobject
+><imagedata fileref="Knights-move-pawn.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >O peão também está envolvido em dois movimentos especiais. O primeiro é a <link linkend="en_passant-movement"
 >captura en passant</link
 > onde um peão é capturado em seu movimento inicial de duas casas. O segundo é a <link linkend="pawn-promotion-movement"
 >promoção de peão</link
 > onde um peão é promovido para outra peça quando ele atinge o final do tabuleiro.</para>
-		</sect2>
-		<sect2 id="bishop-movement">
-			<title
+      </sect2>
+
+      <sect2 id="bishop-movement">
+        <title
 >Bispo</title>
-			<para
+
+        <para
 >O bispo se move em uma linha reta diagonalmente no tabuleiro. Ele pode mover-se por tantas casas quantas quiser, até encontrar o final do tabuleiro ou outra peça. O bispo não pode pular outras peças. O bispo captura no mesmo caminho em que ele se move, parando na casa da peça adversária. Devido à maneira como os bispos se movem, ele sempre permanece em casas da cor em que ele iniciou. Cada jogador começa com dois bispos, um nas casas pretas e outro nas brancas. Eles são frequentemente chamados de bispo da <quote
 >casa preta</quote
 > e bispo da <quote
 >casa branca</quote
->. Os bispos podem também ser chamados de acordo com o lado em que eles iniciam o jogo - bispo do rei e bispo da rainha.</para
->  
-			<mediaobject
+>. Os bispos podem também ser chamados de acordo com o lado em que eles iniciam o jogo - bispo do rei e bispo da rainha.</para>
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-bishop.png"/></imageobject
+><imagedata fileref="Knights-move-bishop.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="rook-movement">
-			<title
+      </sect2>
+
+      <sect2 id="rook-movement">
+        <title
 >Torre</title>
-			<para
+
+        <para
 >A torre se move em linha reta horizontalmente e verticalmente pelo número de casas não ocupadas, até atingir o final do tabuleiro ou ser bloqueado por outra peça. Ele não pode pular outras peças. A torre captura no mesmo caminho em que se move, ocupando a casa onde se encontra a peça adversária. A torre pode parar em qualquer casa do tabuleiro, sendo por isso uma das peças mais poderosas.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-rook.png"/></imageobject
+><imagedata fileref="Knights-move-rook.png" format="PNG"/></imageobject
 ></mediaobject>
-			<para
+
+        <para
 >A torre está também envolvida em um movimento especial. Ele é o <link linkend="castling-movement"
 >movimento de roque</link
 > onde uma torre e o rei são agrupados em uma posição defensiva.</para>
-		</sect2>
-		<sect2 id="knight-movement">
-			<title
+      </sect2>
+
+      <sect2 id="knight-movement">
+        <title
 >Cavalo</title>
-			<para
+
+        <para
 >O cavalo é a peça mais especial no xadrez, possuindo uma flexibilidade que o torna poderoso. O cavalo é a única peça do tabuleiro que pode pular sobre outras peças. O cavalo move-se por duas casas horizontalmente ou verticalmente e então uma casa a mais em uma ângulo reto. O movimento do cavalo forma um <quote
 >L</quote
 >. O cavalo sempre termina seu movimento em uma casa de cor oposta à inicial. O cavalo pode pular sobre peças de qualquer cor enquanto vai para sua casa de destino, mas ele não captura nenhuma das peças que pula. O cavalo captura quando termina seu movimento na casa de uma peça adversária. O cavalo não pode terminar seu movimento em uma casa ocupada por uma peça da mesma cor. Uma vez que o movimento do cavalo não é em linha reta, ele pode atacar uma rainha, bispo ou torre sem ser atacado reciprocamente por esta peça.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-knight.png"/></imageobject
+><imagedata fileref="Knights-move-knight.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="queen-movement">
-			<title
+      </sect2>
+
+      <sect2 id="queen-movement">
+        <title
 >Rainha</title>
-			<para
+
+        <para
 >A rainha é considerada a peça mais poderosa do tabuleiro. Ela pode mover-se qualquer número de casas em linha reta - verticalmente, horizontalmente ou diagonalmente. A rainha se move como a torre e o bispo combinados. A menos que esteja realizando uma captura, o movimento deve terminar em uma casa desocupada e ela não pode pular outras peças. A rainha captura no mesmo caminho em que se move, ocupando a casa da peça adversária.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-queen.png"/></imageobject
+><imagedata fileref="Knights-move-queen.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="king-movement">
-			<title
+      </sect2>
+
+      <sect2 id="king-movement">
+        <title
 >Rei</title>
-			<para
+
+        <para
 >O rei é a peça mais importante do xadrez. Se o rei for encurralado de modo que sua captura seja inevitável, o jogo termina e o este jogador perde. O rei tem pouca mobilidade, assim ele é considerado também uma das peças mais fracas no jogo. O rei pode se mover para qualquer casa adjacente. Assim, ele pode mover-se uma casa em qualquer direção: horizontalmente, verticalmente ou diagonalmente. Ele não pode se mover para uma casa ocupada por uma peça da mesma cor. O rei captura outra peça da mesma maneira que se move, ocupando a casa da peça adversária. Existe um limite adicional ao movimento do rei. O rei não pode se mover para uma casa que o coloque sob ataque de uma peça adversária (chamado em <quote
 >cheque</quote
 >). Como resultado desta limitação, dois reis nunca poderão estar ao lado um do outro - uma vez que mover-se para o lado do outro rei o colocaria em cheque. O rei pode também ser forçado a mover-se ou capturar se estiver sob ataque (<quote
 >cheque</quote
 >) e a única maneira de interromper o ataque for mover o rei.</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-move-king.png"/></imageobject
-></mediaobject>
-		</sect2>
-	</sect1>
 
-	<sect1 id="special-movement">
-		<title
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="special-movement">
+      <title
 >Movimentos especiais</title>
-		<sect2 id="en_passant-movement">
-			<title
+      <sect2 id="en_passant-movement">
+        <title
 >En Passant</title>
-			<para
+
+        <para
 >Quando a regra permite um peão mover-se duas casas em seu primeiro movimento foi adicionada, um peão poderia potencialmente fugir de uma captura pelo peão adversário indo para a casa à retaguarda do peão atacante. A captura "en passant" (do francês para <quote
 >ao passar</quote
->) foi adicionada para evitar isto. A captura é feita exatamente como se o peão tivesse se movido somente uma casa para frente. Não existe nenhuma condição especial para a captura "en passant": <itemizedlist>
-				<listitem
+>) foi adicionada para evitar isto. A captura é feita exatamente como se o peão tivesse se movido somente uma casa para frente. Não existe nenhuma condição especial para a captura "en passant":</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Um peão deve se mover duas casas de sua posição inicial em um movimento único.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Um peão adversário deve estar atacando a casa do primeiro peão que realizou seu movimento.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >O primeiro peão pode ser capturado como se ele tivesse se movido somente uma casa.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >A captura pode somente ser feita no próximo movimento do adversário. Se a captura não for feita, o primeiro peão está a salvo da captura "en passant" pelo restante do jogo.</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			<para
+        </itemizedlist>
+
+        <para
 >No diagrama abaixo, o peão branco não moveu-se de sua posição inicial. Seu primeiro movimento pode ser de uma ou duas casas para frente. A primeira casa está sob ataque do peão preto (peões atacam diagonalmente) como indicado pelo X vermelho. O peão branco se move para frente duas casas, evitando o ataque. No próximo movimento, o peão preto se move para a casa onde o peão branco estaria se ele tivesse se movido apenas uma casa no primeiro movimento. O peão preto ataca com sucesso o peão branco e captura-o <quote
 >en passant</quote
 >. O peão branco é removido do jogo.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-enpassant.png"/></imageobject
+><imagedata fileref="Knights-enpassant.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="castling-movement">
-			<title
+      </sect2>
+
+      <sect2 id="castling-movement">
+        <title
 >Roque</title>
-			<para
+
+        <para
 >O roque usa o rei e uma torre, e é a única vez no jogo onde mais de uma peça pode ser movida em uma única jogada. No roque um rei é movido duas casas em direção à torre e a torre é então movida para o outro lado do rei.</para>
-			
-			<para
->O roque possui alguns requisitos obrigatórios: <itemizedlist>
-				<listitem
+
+        <para
+>O roque possui alguns requisitos obrigatórios:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Tanto o rei como a torre não podem ter sido movidos ainda durante o jogo.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Não podem existir peças entre o rei e a torre.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >O rei não pode estar em cheque.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >O rei não pode cruzar uma casa que estiver sendo atacada por peças adversárias.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >O rei não pode terminar o movimento em uma casa que está sendo atacada por uma peça adversária. (O movimento de roque não pode terminar com o rei em cheque.)</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			
-			<para
+        </itemizedlist>
+
+        <para
 >Existem duas formas de roque. Uma é chamada de <quote
 >roque do lado do rei</quote
 >. Ela é também conhecida como <quote
 >roque curto</quote
 >, uma vez que ela é feita do lado menor do tabuleiro e a torre tem que se mover duas casas para o lado oposto do rei. Ela é diagramada abaixo:</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-castle-kingside.png"/></imageobject
+><imagedata fileref="Knights-castle-kingside.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >A segunda forma de roque é chamada de <quote
 >roque do lado da rainha</quote
 >, onde o rei se move para a casa deixada pela rainha. Ela é também conhecida como <quote
 >roque longo</quote
 >, uma vez que é realizada no lado maior do tabuleiro e a torre deve mover-se três casas para o lado oposto do rei. Ela é diagramada abaixo:</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-castle-queenside.png"/></imageobject
-></mediaobject>
-			
-			<note
-><title
->Nota:</title>
-			<para
->No &knights; para o roque você move o rei duas casas na direção da torre. O &knights; completará o movimento de roque. Não mova a torre, uma vez que o &knights; pode considerar que você deseja apenas mover a torre e não fazer um roque. </para>
-			</note>
-			
-		</sect2>
-		<sect2 id="pawn-promotion-movement">
-			<title
+><imagedata fileref="Knights-castle-queenside.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+        <note
+><para
+>No &i18n-knights; para o roque você move o rei duas casas na direção da torre. O &i18n-knights; completará o movimento de roque. Não mova a torre, uma vez que o &i18n-knights; pode considerar que você deseja apenas mover a torre e não fazer um roque.</para
+></note>
+      </sect2>
+
+      <sect2 id="pawn-promotion-movement">
+        <title
 >Promoção do peão</title>
-			<para
+
+        <para
 >Quando o peão chegar ao outro lado do tabuleiro ele não pode se mover mais, uma vez que ele deve sempre mover-se para frente e não para trás. O peão então se torna (é <quote
 >promovido</quote
 >) uma rainha, torre, bispo ou cavalo. Esta promoção ocorre como parte do movimento. Normalmente a peça escolhida é a rainha, e em inglês frequentemente isso é chamando de <quote
@@ -641,200 +737,226 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >. As outras peças podem algumas vezes serem escolhidas se seus movimentos ajudarem a fazer um cheque-mate, frequentemente denominando isso de <quote
 >em promoção</quote
 >. O peão pode se tornar qualquer peça, mesmo que esta peça já esteja no tabuleiro. Assim você pode possuir duas rainhas ou três torres, bispos ou cavalos no jogo ao mesmo tempo.</para>
-		</sect2>
-	</sect1>
-	
-	<sect1 id="game-end">
-		<title
+      </sect2>
+    </sect1>
+
+    <sect1 id="game-end">
+      <title
 >Final do jogo</title>
-		<sect2 id="checkmate">
-			<title
+      <sect2 id="checkmate">
+        <title
 >Xeque-mate</title>
-			<para
+
+        <para
 >Quando um rei estiver sob ataque e ameaçado de ser capturado por uma peça do seu adversário, o rei está <quote
 >em cheque</quote
->. O rei deve sair do cheque imediatamente. Existem três modos possíveis de se sair do cheque. <itemizedlist>
-				<listitem
+>. O rei deve sair do cheque imediatamente. Existem três modos possíveis de se sair do cheque.</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Capturar a peça atacante.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Mover o rei para fora do ataque e para uma casa segura que não estiver sob ataque pela peça adversária.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Bloquear o ataque colocando uma peça entre o atacante e o rei. (Não pode ser feito se o ataque estiver sendo feito pelo cavalo ou peão.)</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			
-			<para
+        </itemizedlist>
+
+        <para
 >Se não existir um meio do rei escapar do cheque, a posição é chamada de <quote
 >cheque-mate</quote
 > e o jogo termina. O jogador que sofreu o cheque-mate perde o jogo. O rei nunca é de fato capturado ou removido do tabuleiro.</para>
-		</sect2>
-		<sect2 id="resign">
-			<title
+      </sect2>
+
+      <sect2 id="resign">
+        <title
 >Desistir</title>
-			<para
+
+        <para
 >A qualquer momento durante o jogo, um jogador pode desistir (sair). O jogo termina e o jogador adversário o vence.</para>
-		</sect2>
-		<sect2 id="draw">
-			<title
+      </sect2>
+
+      <sect2 id="draw">
+        <title
 >Empate</title>
-			<para
+
+        <para
 >Um <quote
 >empate</quote
-> é um acordo entre os jogadores. Existem diversas maneiras de um empate ocorrer. <itemizedlist>
-				<listitem
+> é um acordo entre os jogadores. Existem diversas maneiras de um empate ocorrer.</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Afogamento - (veja abaixo)</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Repetição de três lances - Se a mesma posição das peças no tabuleiro é repetida pelo menos três vezes (não necessariamente pela repetição dos movimentos). Isto requer que todos os possíveis movimentos de todas as peças de ambos os jogadores sejam os mesmos. Se a possibilidade de um peão ser capturado "en passant" mudar ou a possibilidade da torre mudar, a posição não é a mesma - mesmo que as peças estejam nas mesmas posições.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Regra das 50 jogadas - Se nenhuma peça tiver sido capturada ou um peão movido nas últimas cinquenta jogadas por cada jogador.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
->Impossibilidade de cheque-mate - Se uma situação ocorre onde nenhum dos jogadores pode realizar um cheque-mate com uma série de movimentos legais. Normalmente isto ocorre porque não existem peças suficientes no tabuleiro para um cheque-mate, mas isto é possível em outras situações. Combinações com material insuficiente para o cheque-mate são: <itemizedlist>
-					<listitem
+>Impossibilidade de cheque-mate - Se uma situação ocorre onde nenhum dos jogadores pode realizar um cheque-mate com uma série de movimentos legais. Normalmente isto ocorre porque não existem peças suficientes no tabuleiro para um cheque-mate, mas isto é possível em outras situações. Combinações com material insuficiente para o cheque-mate são:</para>
+
+            <itemizedlist>
+              <listitem
 ><para
 >rei versus rei</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >rei e bispo versus rei</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >rei e cavalo versus rei</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >rei e bispo versus rei e bispo com ambos os bispos na mesma cor</para
 ></listitem>
-				</itemizedlist>
-    </para
-></listitem>
-				<listitem
+            </itemizedlist>
+          </listitem>
+          <listitem
 ><para
 >Tempo encerrado - Se o tempo de um dos jogadores termina e seu adversário não possui material suficiente. (veja abaixo)</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Acordo mútuo - Se ambos os jogadores concordarem com o empate.</para
 ></listitem>
-			</itemizedlist>
-			</para>
-		</sect2>
-		<sect2 id="stalemate">
-			<title
+        </itemizedlist>
+      </sect2>
+
+      <sect2 id="stalemate">
+        <title
 >Afogamento</title>
-			<para
+
+        <para
 >Se um jogador não possui nenhum movimento legal (qualquer movimento colocaria seu rei em cheque) mas seu rei não estiver em cheque, o jogo termina em um <quote
 >afogamento</quote
 >. O afogamento resulta em um jogo empatado.</para>
-		</sect2>
-		<sect2 id="time-end">
-			<title
+      </sect2>
+
+      <sect2 id="time-end">
+        <title
 >Tempo</title>
-			<para
->Se o tempo terminar para um jogador antes que eles completem o número necessários de movimentos: <itemizedlist
-> <listitem
+
+        <para
+>Se o tempo acabar para um jogador antes que ele complete o número necessário de movimentos:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
->O jogador perde o jogo se o adversário tiver material suficiente.</para
-></listitem
-> <listitem
+>O jogador perde a partida se o oponente tiver peças que lhe permitam dar xeque-mate.</para
+></listitem>
+          <listitem
 ><para
->O jogo fica empatado se o adversário não tiver material suficiente.</para
-></listitem
-> </itemizedlist
-> Material suficiente é considerado qualquer grupo de peças exceto apenas um rei, um rei e um bispo ou um rei e um cavalo.</para>
-		</sect2>
-	</sect1>
-	
-	<sect1 id="time-controls">
-		<title
+>O jogo termina em empate se o oponente não tiver material para dar xeque-mate.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Considera-se material para xeque-mate qualquer grupo de peças, exceto apenas um rei, um rei e um bispo ou um rei e um cavalo.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="time-controls">
+      <title
 >Controle do tempo</title>
-		<para
+
+      <para
 >Muitos jogos de xadrez usam controles do tempo para acelerar o jogo ou garantir o término em um período razoável. Existem duas formas principais de controle do tempo.</para>
-		
-		<para
+
+      <para
 >O primeiro tipo de controle do tempo é o de movimentos-por-tempo. Neste tipo um jogador deve completar um número especificado de movimentos dentro de um período fixo de tempo.</para>
-		
-		<para
+
+      <para
 >O segundo tipo de controle do tempo é chamado de <quote
 >morte súbita</quote
 >. Neste tipo existe uma quantidade fixa de tempo para completar o jogo, independente do número de movimentos feito.</para>
-		
-		<para
+
+      <para
 >Dentro do controle de tempo pode existir um retardo para compensar o tempo gasto fisicamente para fazer um movimento. No <quote
 >retardo de Bronstein</quote
-> o relógio não inicia a contagem no início do movimento do jogador até que o retardo tenha terminado. Se o movimento for completado antes que o retardo termine, nenhum tempo é retirado do relógio do jogador. No <quote
+> o relógio não inicia a contagem no início do movimento do jogador até que o retardo tenha terminado. Se o movimento for concluído antes que o retardo termine, nenhum tempo é retirado do relógio do jogador. No <quote
 >retardo de Fischer</quote
 >, o retardo é adicionado ao tempo remanescente do jogador antes do movimento. Se o movimento for feito antes que o retardo expire, o retardo remanescente é mantido pelo jogador e o tempo do seu relógio aumenta. De maneira semelhante, um tempo fixo pode ser adicionado ao relógio do jogador após um movimento ser completado. Quando o tempo é adicionado ao relógio, a quantidade de tempo é referida como o <quote
 >incremento de tempo</quote
 >.</para>
-		
-		<para
+
+      <para
 >Controles de tempo variam bastante em função do jogo, tipo de jogo e qualquer patrocinador. Também durante um jogo existem vários tipos de controles de tempo acionados ao mesmo tempo, com o tempo não usado adicionado ao próximo controle de tempo. Para todos os principais eventos da Federação Mundial de Xadrez (FIDE) o controle de tempo é de 90 minutos adicionados 30 segundos por movimento iniciando com o primeiro movimento. O padrão no FICS (Free Internet Chess Server - Servidor de Xadrez na Internet Livre) é de 2 minutos por jogada (morte súbita) mais 12 segundos de incremento de tempo para cada movimento. Na Federação de Xadrez dos Estados Unidos o controle do tempo é de 5 minutos por jogada, sem atrasos/incrementos.</para>
-	</sect1
->	
-	</chapter>
-	
-	<chapter id="markers">
-		<title
+    </sect1>
+  </chapter>
+
+  <chapter id="markers">
+    <title
 >Marcadores</title>
-		<para
->Marcadores são realces de casas na tabuleiro de xadrez. Eles podem ser usados para mostrar os movimentos legais de sua peça de xadrez, o movimento anterior do adversário ou um rei em xeque. Suas cores e formas dependem de qual tema você está usando. Eles podem ser ligados ou desligados na seção de configurações gerais do menu de configuração. </para>
-		<para
->Ao clicar na sua peça durante a sua vez, irá aparecer um marcador em todas as casas para onde essa peça poderá mover-se. A figura mostra os movimentos legais para a rainha branca. </para>
-		<mediaobject
+
+    <para
+>Marcadores são realces de casas na tabuleiro de xadrez. Eles podem ser usados para mostrar os movimentos legais de sua peça de xadrez, o movimento anterior do adversário ou um rei em xeque. Suas cores e formas dependem de qual tema você está usando. Eles podem ser ligados ou desligados na seção de configurações gerais do menu de configuração.</para>
+
+    <para
+>Ao clicar na sua peça durante a sua vez, irá aparecer um marcador em todas as casas para onde essa peça poderá mover-se. A figura mostra os movimentos legais para a rainha branca.</para>
+
+    <mediaobject
 ><imageobject
-><imagedata fileref="Knights-moving-queen.png"/></imageobject
+><imagedata fileref="Knights-moving-queen.png" format="PNG"/></imageobject
 ></mediaobject>
-		<para
->Quando o seu adversário tiver feito um movimento, a sua última jogada é indicada por marcadores. Um marcador mostra a posição inicial da peça de xadrez e um segundo realça a nova posição da peça. </para>
-		<mediaobject
+
+    <para
+>Quando o seu adversário tiver feito um movimento, a sua última jogada é indicada por marcadores. Um marcador mostra a posição inicial da peça de xadrez e um segundo realça a nova posição da peça.</para>
+
+    <mediaobject
 ><imageobject
-><imagedata fileref="Knights-lastmove.png"/></imageobject
+><imagedata fileref="Knights-lastmove.png" format="PNG"/></imageobject
 ></mediaobject>
-		<para
+
+    <para
 >Se a última jogada do adversário colocou o seu rei sob ataque (em <quote
 >xeque</quote
->), o seu rei e todas as peças atacantes ficarão realçadas. </para>
-		<mediaobject
-><imageobject
-><imagedata fileref="Knights-danger.png"/></imageobject
-></mediaobject>
-		<note>
-			<title
->Nota:</title>
-			<para
->Alguns temas podem não suportar todos os tipos de marcadores. </para>
-		</note>
-	</chapter>
+>), o seu rei e todas as peças atacantes ficarão realçadas.</para>
 
-	<chapter id="configuration">
-		<title
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+    <note
+><para
+>Alguns temas podem não suportar todos os tipos de marcadores.</para
+></note>
+  </chapter>
+
+  <chapter id="configuration">
+    <title
 >Configuração do jogo</title
 ><!-- do not change this! -->
-		<para
->A janela de configuração do &knights; permite-lhe alterar as opções visuais, assim como selecionar os temas do &knights;. </para>
-		<para
->Uma vez que esteja satisfeito com as modificações que você fez você pode ativá-las clicando em <guibutton
+
+    <para
+>A janela de configuração do &i18n-knights; permite-lhe alterar as opções visuais, assim como selecionar os temas do &i18n-knights;.</para>
+
+    <para
+>Uma vez que esteja satisfeito com as modificações que você fez você pode ativá-las pressionando <guibutton
 >Aplicar</guibutton
-> ou no botão <guibutton
+> ou o botão <guibutton
 >OK</guibutton
 >, localizado na parte inferior desta janela. Clicar em <guibutton
 >OK</guibutton
-> também fechará a janela de configuração. </para>
-		<para
+> também fechará a janela de configuração.</para>
+
+    <para
 >Se, no entanto, você não estiver satisfeito com suas modificações - basta clicar em <guibutton
 >Cancelar</guibutton
 > para descartar as modificações e fechar a janela de configuração. Você deve clicar em <guibutton
@@ -843,96 +965,93 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >Aplicar</guibutton
 > ou <guibutton
 >OK</guibutton
->. </para>
+>.</para>
 
-		<sect1 id="configuration-general">
-			<title
+    <sect1 id="configuration-general">
+      <title
 >Geral</title>
-			<para
->A seção <guimenu
->Geral</guimenu
-> contém opções na aparência geral do &knights;. As animações das peças e do tabuleiro podem ser ativadas ou modificadas. A seção de animações fica visível com base nos aplicativos do sistema, e somente no caso das animações estarem disponíveis. Existe a possibilidade de girar o tabuleiro de xadrez do &knights;, permitindo usá-lo em uma tela de computador ou em um tablet, em substituição a um tabuleiro de xadrez. Todos os três tipos de <link linkend="markers"
->marcadores</link
-> podem ser ativados ou desativados. Os contornos do tabuleiro poderão ser ativados com ou sem a notação algébrica do xadrez, usando um menu de opções. </para>
-			<note>
-				<title
->Nota:</title>
-				<para
->Alguns temas podem não suportar marcadores, contornos e/ou notações. Nesse caso, a configuração não fará efeito sobre eles, mas será lembrada no caso de nova alteração do tema. </para>
-			</note>
-		</sect1>
 
-		<sect1 id="configuration-engines">
-			<title
+      <para
+>A seção <guilabel
+>Geral</guilabel
+> contém opções na aparência geral do &i18n-knights;. As animações das peças e do tabuleiro podem ser ativadas ou modificadas. A seção de animações fica visível com base nos aplicativos do sistema, e somente no caso das animações estarem disponíveis. Existe a possibilidade de girar o tabuleiro de xadrez do &i18n-knights;, permitindo usá-lo em uma tela de computador ou em um tablet, em substituição a um tabuleiro de xadrez. Todos os três tipos de <link linkend="markers"
+>marcadores</link
+> podem ser ativados ou desativados. Os contornos do tabuleiro poderão ser ativados com ou sem a notação algébrica do xadrez, usando um menu de opções.</para>
+
+      <note
+><para
+>Alguns temas podem não suportar marcadores, contornos e/ou notações. Nesse caso, a configuração não fará efeito sobre eles, mas será lembrada no caso de nova alteração do tema.</para
+></note>
+    </sect1>
+
+    <sect1 id="configuration-engines">
+      <title
 >Mecanismos do computador</title>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-engines.png"/></imageobject
-></mediaobject>
-			<para
->A seção de <guimenu
+
+      <screenshot>
+        <screeninfo
+>Janela para configurar o &i18n-knights;</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-engines.png" format="PNG"/></imageobject>
+          <caption
+>Página de mecanismos do computador</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>A paágina de <guimenu
 >Mecanismos do computador</guimenu
-> permite-lhe configurar os seus adversários por computador. Para cada mecanismo, indique o nome do programa, o comando usado para executá-lo e o protocolo usado. O &knights; suporta dois protocolos para os mecanismos de xadrez: XBoard e UCI. </para>
-			<para
+> permite-lhe configurar os seus adversários por computador. Para cada mecanismo, indique o nome do programa, o comando usado para executá-lo e o protocolo usado. O &i18n-knights; suporta dois protocolos para os mecanismos de xadrez: XBoard e <guilabel
+>UCI</guilabel
+>.</para>
+
+      <para
 >Uma nova configuração de mecanismo pode ser adicionada clicando em <guibutton
 >Adicionar</guibutton
-> e inserindo as três opções indicadas acima. Um símbolo nas últimas colunas indica-lhe se o programa indicado está instalado ou não no seu computador. </para>
-		</sect1>
-		
-		<sect1 id="configuration-accessibility">
-			<title
->Acessibilidade</title>
-			<para
->A seção <guimenu
->Acessibilidade</guimenu
-> tem algumas opções que dizem respeito à apresentação do tabuleiro e da utilização de programas externos que facilitam a capacidade de pessoas com necessidades especiais poderem jogar. </para>
-			<para
->O &jovie; - o serviço de texto-para-fala do &kde; - pode ser usado para sintetizar as jogadas dos adversários. </para>
-			<para
->É possível controlar o &knights; através de uma interface de &DBus;. Atualmente ele não tem utilidade, com exceção de uma versão não lançada do <ulink url="http://simon-listens.org/"
->Simon</ulink
->, que permite a interação somente com a voz. </para>
-		</sect1>
+> e inserindo as três opções indicadas acima. Um símbolo nas últimas colunas indica-lhe se o programa indicado está instalado ou não no seu computador.</para>
+    </sect1>
 
-		<sect1 id="configuration-themes">
-			<title
+    <sect1 id="configuration-themes">
+      <title
 >Temas</title>
-			<para
->A seção <guimenu
->Tema</guimenu
-> permite a seleção de um tema. O tema fornece as imagens para o tabuleiro, peças, marcadores e outros itens. Para selecionar um novo tema, escolha o nome do tema na lista de seleção. Você poderá também obter novos temas na mesma página, clicando em <guibutton
->Obter temas novos</guibutton
->. Os temas são armazenados no kde-look.org na seção &knights;. </para>
-			<note>
-				<title
->Nota:</title>
-				<para
->Para sua conveniência, será apresentada uma imagem de antevisão rápida do lado direito da lista de seleção, assim que selecionar o tema no qual está interessado. </para>
-			</note>
-		</sect1>
-	</chapter>
 
-	<chapter id="credits-and-license">
-		<title
+      <para
+>A página <guilabel
+>Tema</guilabel
+> permite a seleção de um tema. O tema fornece as imagens para o tabuleiro, peças, marcadores e outros itens. Para selecionar um novo tema, escolha o nome do tema na lista de seleção. Você poderá também obter novos temas na mesma página, clicando em <guibutton
+>Baixar novos temas</guibutton
+>. Os temas são armazenados no kde-look.org na seção &knights;.</para>
+
+      <note
+><para
+>Para sua conveniência, será apresentada uma imagem de antevisão rápida do lado direito da lista de seleção, assim que selecionar o tema no qual está interessado.</para
+></note>
+    </sect1>
+  </chapter>
+
+  <chapter id="credits-and-license">
+    <title
 >Créditos e Licença</title>
 
-
-		<para
+    <para
 >&knights;</para>
-		<itemizedlist>
-   <listitem>
-				<para
+
+    <itemizedlist>
+      <listitem
+><para
 >Miha Čančula <email
 >miha.cancula@gmail.com</email
-> - Original Author </para>
-   </listitem>
-		</itemizedlist>
-		<para
+> - Original Author</para
+></listitem>
+    </itemizedlist>
+
+    <para
 >Documentação com copyright 2010, Miha Čančula <email
 >miha.cancula@gmail.com</email
-> </para>
-		
-		<para
+></para>
+
+    <para
 >Tradução de Marcus Gama <email
 >marcus.gama@gmail.com</email
 > e André Marcelo Alvarenga <email
