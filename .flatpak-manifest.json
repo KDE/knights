@@ -20,7 +20,7 @@
             "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "name": "libplasma",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/libplasma.git", "tag": "v6.1.2", "commit": "5b775c4f51b2cb2b571eb9709f1af4891ae986b7" } ]
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/libplasma.git" } ]
         },
         {
             "name": "knights",
