@@ -28,18 +28,16 @@ msgid "Your emails"
 msgstr "kscanne@gmail.com"
 
 #: board.cpp:579
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
-msgstr "Ardaigh"
+msgstr ""
 
 #: board.cpp:583
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr "Ardaigh"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -81,17 +79,12 @@ msgid " MB"
 msgstr " MB"
 
 #: difficultydialog.cpp:35
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " bheart"
-msgstr[1] " bheart"
-msgstr[2] " bheart"
-msgstr[3] " mbeart"
-msgstr[4] " beart"
+msgstr[0] ""
+msgstr[1] ""
 
 #: difficultydialog.cpp:46
 #, kde-format
@@ -154,57 +147,40 @@ msgid "Installed"
 msgstr "Suiteáilte"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Cluiche Nua"
+msgstr ""
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
-msgstr[0] " nóiméad"
-msgstr[1] " nóiméad"
-msgstr[2] " nóiméad"
-msgstr[3] " nóiméad"
-msgstr[4] " nóiméad"
+msgstr[0] ""
+msgstr[1] ""
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
-msgstr[0] " soicind"
-msgstr[1] " shoicind"
-msgstr[2] " shoicind"
-msgstr[3] " soicind"
-msgstr[4] " soicind"
+msgstr[0] ""
+msgstr[1] ""
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " bheart"
-msgstr[1] " bheart"
-msgstr[2] " bheart"
-msgstr[3] " mbeart"
-msgstr[4] " beart"
+msgstr[0] ""
+msgstr[1] ""
 
 #: gamedialog.cpp:307
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
-msgstr "Innill Ríomhaire"
+msgstr ""
 
 #: gamedialog.cpp:359
 #, kde-format
@@ -217,10 +193,9 @@ msgid "Select a chess engine for the second player."
 msgstr ""
 
 #: gamedialog.cpp:370
-#, fuzzy, kde-format
-#| msgid "Automatically start the game"
+#, kde-format
 msgid "Start the game."
-msgstr "Tosaigh an cluiche go huathoibríoch"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
@@ -230,17 +205,15 @@ msgstr "Imreoir 1"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Human (You)"
+#, kde-format
 msgid "Human (&You)"
-msgstr "Duine (Tusa)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "&Computer engine:"
-msgstr "Inneall ríomhaire:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -250,17 +223,15 @@ msgstr "Dath Imreora 1"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
 #: gamedialog.ui:103
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "B&lack"
-msgstr "Dubh"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
-#, fuzzy, kde-format
-#| msgid "Choose randomly"
+#, kde-format
 msgid "Choose r&andomly"
-msgstr "Dath randamach"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player2Box)
 #: gamedialog.ui:129
@@ -270,17 +241,15 @@ msgstr "Imreoir 2"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
-#, fuzzy, kde-format
-#| msgid "Human"
+#, kde-format
 msgid "H&uman"
-msgstr "Duine"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "Co&mputer engine:"
-msgstr "Inneall ríomhaire:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
@@ -309,17 +278,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
-#, fuzzy, kde-format
-#| msgid "Post an ad for other players"
+#, kde-format
 msgid "&Initial time limit:"
-msgstr "Taispeáin fógra d'imreoirí eile"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
-#, fuzzy, kde-format
-#| msgid "Increment"
+#, kde-format
 msgid "I&ncrement per move:"
-msgstr "Incrimint"
+msgstr ""
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -389,18 +356,16 @@ msgid "Checkmate"
 msgstr "Marbhsháinn"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
-msgstr "Bán"
+msgstr ""
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
-msgstr "Dubh"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QTableWidget, twMoves)
 #: historywidget.ui:39 historywidget.ui:44
@@ -433,11 +398,10 @@ msgid "Coordinate"
 msgstr "Comhordanáid"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr "Saincheaptha"
+msgstr ""
 
 #: knights.cpp:140
 #, kde-format
@@ -445,25 +409,22 @@ msgid "%1 is thinking…"
 msgstr ""
 
 #: knights.cpp:147
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
-msgstr "Clog"
+msgstr ""
 
 #: knights.cpp:178
-#, fuzzy, kde-format
-#| msgid "Move History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr "Stair na mBeart"
+msgstr ""
 
 #: knights.cpp:197
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr "Éirigh As"
+msgstr ""
 
 #: knights.cpp:198
 #, kde-format
@@ -472,11 +433,10 @@ msgid "Admit your inevitable defeat"
 msgstr ""
 
 #: knights.cpp:203
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
-msgstr "Cealaigh"
+msgstr ""
 
 #: knights.cpp:204
 #, kde-format
@@ -485,11 +445,10 @@ msgid "Take back your last move"
 msgstr ""
 
 #: knights.cpp:210
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
-msgstr "Athdhéan"
+msgstr ""
 
 #: knights.cpp:211
 #, kde-format
@@ -510,25 +469,22 @@ msgid "Offer a draw to your opponent"
 msgstr ""
 
 #: knights.cpp:224
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr "Cuir ar athló"
+msgstr ""
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "Cuir an cluiche seo ar athló"
+msgstr ""
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
-msgstr "Tobscoir"
+msgstr ""
 
 #: knights.cpp:231
 #, kde-format
@@ -536,39 +492,34 @@ msgid "End the game immediately"
 msgstr "Cuir deireadh leis an gcluiche láithreach"
 
 #: knights.cpp:235
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr "Taispeáin an Clog"
+msgstr ""
 
 #: knights.cpp:241
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
-msgstr "Taispeáin Stair"
+msgstr ""
 
 #: knights.cpp:248
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr "Taispeáin Consól don Imreoir Bán"
+msgstr ""
 
 #: knights.cpp:254
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr "Taispeáin Consól don Imreoir Dubh"
+msgstr ""
 
 #: knights.cpp:260
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr "Taispeáin Comhrá"
+msgstr ""
 
 #: knights.cpp:299
 #, kde-format
@@ -582,32 +533,28 @@ msgid "Portable game notation (*.pgn)"
 msgstr ""
 
 #: knights.cpp:463
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr "Ginearálta"
+msgstr ""
 
 #: knights.cpp:467
-#, fuzzy, kde-format
-#| msgid "Computer Engines"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr "Innill Ríomhaire"
+msgstr ""
 
 #: knights.cpp:475
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr "Inrochtaineacht"
+msgstr ""
 
 #: knights.cpp:480
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Téama"
+msgstr ""
 
 #: knights.cpp:488
 #, kde-format
@@ -615,25 +562,22 @@ msgid "Do you really want to resign?"
 msgstr ""
 
 #: knights.cpp:489
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr "Éirigh As"
+msgstr ""
 
 #: knights.cpp:490
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
-msgstr "Éirigh As"
+msgstr ""
 
 #: knights.cpp:537
-#, fuzzy, kde-format
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Cluiche thart"
+msgstr ""
 
 #: knights.cpp:561
 #, kde-format
@@ -665,11 +609,10 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr ""
 
 #: knights.cpp:624
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr "%1 vs. %2"
+msgstr ""
 
 #: knights.cpp:637
 #, kde-format
@@ -679,11 +622,10 @@ msgid ""
 msgstr ""
 
 #: knights.cpp:667
-#, fuzzy, kde-format
-#| msgid "&Save History"
+#, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr "&Sábháil an Stair"
+msgstr ""
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
@@ -693,10 +635,9 @@ msgstr "Comhad téama don chlár"
 
 #. i18n: ectx: label, entry (askDiscard), group (Notification Messages)
 #: knights.kcfg:15
-#, fuzzy, kde-format
-#| msgid "Show confirmation dialog before closing"
+#, kde-format
 msgid "whether to show a confirmation dialog before discarding game history"
-msgstr "Taispeáin dialóg dheimhnithe roimh scor"
+msgstr ""
 
 #. i18n: ectx: label, entry (dontAskInternal), group (Notification Messages)
 #: knights.kcfg:19
@@ -748,10 +689,9 @@ msgstr "taispeáin marcóirí do bhearta ceadaithe"
 
 #. i18n: ectx: label, entry (showMotion), group (Preferences)
 #: knights.kcfg:64
-#, fuzzy, kde-format
-#| msgid "show legal moves marker"
+#, kde-format
 msgid "show opponents move marker"
-msgstr "taispeáin marcóirí do bhearta ceadaithe"
+msgstr ""
 
 #. i18n: ectx: label, entry (showClock), group (Preferences)
 #: knights.kcfg:68
@@ -779,10 +719,9 @@ msgstr "taispeáin stair na mbeart"
 
 #. i18n: ectx: label, entry (timeLimit), group (Time Control)
 #: knights.kcfg:86
-#, fuzzy, kde-format
-#| msgid "Post an ad for other players"
+#, kde-format
 msgid "initial time limit for both players"
-msgstr "Taispeáin fógra d'imreoirí eile"
+msgstr ""
 
 #. i18n: ectx: label, entry (timeIncrement), group (Time Control)
 #: knights.kcfg:90
@@ -827,17 +766,15 @@ msgstr ""
 
 #. i18n: ectx: label, entry (player1Program), group (Protocols)
 #: knights.kcfg:134
-#, fuzzy, kde-format
-#| msgid "the last selected server"
+#, kde-format
 msgid "the last selected program for player 1"
-msgstr "an freastalaí is déanaí"
+msgstr ""
 
 #. i18n: ectx: label, entry (player2Program), group (Protocols)
 #: knights.kcfg:138
-#, fuzzy, kde-format
-#| msgid "the last selected server"
+#, kde-format
 msgid "the last selected program for player 2"
-msgstr "an freastalaí is déanaí"
+msgstr ""
 
 #. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
 #: knights.kcfg:142
@@ -899,10 +836,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "show legal moves marker"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "taispeáin marcóirí do bhearta ceadaithe"
+msgstr ""
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -930,10 +866,9 @@ msgstr "Barra Uirlisí Gníomhartha"
 
 #. i18n: ectx: ToolBar (dockToolBar)
 #: knightsui.rc:58
-#, fuzzy, kde-format
-#| msgid "Game Actions Toolbar"
+#, kde-format
 msgid "Dockable Windows Toolbar"
-msgstr "Barra Uirlisí Gníomhartha"
+msgstr ""
 
 #: knightsview.cpp:91
 #, kde-format
@@ -952,10 +887,9 @@ msgid "KDE Chess Board"
 msgstr ""
 
 #: main.cpp:48
-#, fuzzy, kde-format
-#| msgid "(C) 2009-2011 Miha Čančula"
+#, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr "© 2009-2011 Miha Čančula"
+msgstr ""
 
 #: main.cpp:51
 #, kde-format
@@ -1003,18 +937,16 @@ msgid "Document to open"
 msgstr "Cáipéis le hoscailt"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
-msgstr "Glac Leis"
+msgstr ""
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
-msgstr "Diúltaigh"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, acceptButton)
 #: popup.ui:37 proto/ficsprotocol.cpp:118 proto/ficsprotocol.cpp:195
@@ -1060,10 +992,9 @@ msgstr "Íomhánna Beo"
 
 #. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
 #: prefs_base.ui:23
-#, fuzzy, kde-format
-#| msgid "Animation &speed:"
+#, kde-format
 msgid "&Animation speed:"
-msgstr "Lua&s na beochana:"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
@@ -1184,17 +1115,15 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: promotiondialog.ui:26
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgid "Promote pawn to:"
-msgstr "Ardaigh"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Queen"
+#, kde-format
 msgid "&Queen"
-msgstr "Banríon"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
@@ -1204,17 +1133,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
-#, fuzzy, kde-format
-#| msgid "Bishop"
+#, kde-format
 msgid "B&ishop"
-msgstr "Easpag"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
-#, fuzzy, kde-format
-#| msgid "Knight"
+#, kde-format
 msgid "&Knight"
-msgstr "Ridire"
+msgstr ""
 
 #: proto/chatwidget.cpp:62
 #, kde-format
@@ -1256,10 +1183,9 @@ msgid "Session started"
 msgstr "Tosaíodh seisiún"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
-msgstr "Logáil isteach..."
+msgstr ""
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1286,10 +1212,9 @@ msgstr "Logáil isteach san fhreastalaí fichille"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
-#, fuzzy, kde-format
-#| msgid "&Username"
+#, kde-format
 msgid "&Username:"
-msgstr "&Ainm an Úsáideora"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
 #: proto/ficsdialog.ui:72
@@ -1299,10 +1224,9 @@ msgstr "Is cuntas cláraithe é seo"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "&Password"
+#, kde-format
 msgid "&Password:"
-msgstr "&Focal Faire"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
@@ -1324,11 +1248,9 @@ msgstr "Cruthaigh cuntas"
 
 #. i18n: ectx: attribute (title), widget (QWidget, joinTab)
 #: proto/ficsdialog.ui:153
-#, fuzzy, kde-format
-#| msgctxt "Start searching for opponents"
-#| msgid "Seek"
+#, kde-format
 msgid "Seek List"
-msgstr "Cuardaigh"
+msgstr ""
 
 #. i18n: ectx: attribute (toolTip), widget (QWidget, joinTab)
 #: proto/ficsdialog.ui:156
@@ -1460,11 +1382,10 @@ msgid "Login failed"
 msgstr "Theip ar logáil isteach"
 
 #: proto/ficsprotocol.cpp:190
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr "Freastalaí fichille"
+msgstr ""
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
@@ -1505,42 +1426,3 @@ msgstr "Teorainn ama [nóiméid]"
 #, kde-format
 msgid "Opponent's rating"
 msgstr ""
-
-#, fuzzy
-#~| msgid "&Save History"
-#~ msgctxt "@title:window"
-#~ msgid "Save"
-#~ msgstr "&Sábháil an Stair"
-
-#, fuzzy
-#~| msgid "White"
-#~ msgid "white"
-#~ msgstr "Bán"
-
-#, fuzzy
-#~| msgid "Black"
-#~ msgid "black"
-#~ msgstr "Dubh"
-
-#~ msgid "This feature is not yet implemented in Knights"
-#~ msgstr "Níl an ghné seo curtha i bhfeidhm in Knights fós"
-
-#~ msgid "Invalid interface"
-#~ msgstr "Comhéadan neamhbhailí"
-
-#~ msgid "Configure Engines"
-#~ msgstr "Cumraigh Innill"
-
-#, fuzzy
-#~| msgid "Knights"
-#~ msgid "KNights"
-#~ msgstr "Knights"
-
-#~ msgid "&Save History"
-#~ msgstr "&Sábháil an Stair"
-
-#~ msgid "Rook"
-#~ msgstr "Caiseal"
-
-#~ msgid "the skill of computer players"
-#~ msgstr "Leibhéal an imreora ríomhaire"
