@@ -969,7 +969,7 @@
       <caption xml:lang="sk">Hlavné okno - Človek vs. Počítač</caption>
       <caption xml:lang="sl">Glavno okno - Človek proti računalniku</caption>
       <caption xml:lang="sv">Huvudfönster: Människa mot schackprogram</caption>
-      <caption xml:lang="tr">Ana Pencere - İnsan, Satranç İşletkesine Karşı</caption>
+      <caption xml:lang="tr">Ana Pencere — İnsan, Satranç İşletkesine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — людина проти шахового рушія</caption>
       <caption xml:lang="zh-CN">主窗口 - 人与国际象棋引擎的对决</caption>
       <caption xml:lang="zh-TW">主視窗 - 人類 vs. 引擎</caption>
@@ -1011,7 +1011,7 @@
       <caption xml:lang="sk">Hlavné okno - Počítač vs. Počítač</caption>
       <caption xml:lang="sl">Glavno okno - Računalnik proti računalniku</caption>
       <caption xml:lang="sv">Huvudfönster: Schackprogram mot schackprogram</caption>
-      <caption xml:lang="tr">Ana Pencere - Satranç İşletkesi, Kendisine Karşı</caption>
+      <caption xml:lang="tr">Ana Pencere — Satranç İşletkesi, Kendisine Karşı</caption>
       <caption xml:lang="uk">Головне вікно — шаховий рушій проти шахового рушія</caption>
       <caption xml:lang="zh-CN">主窗口 - 国际象棋引擎之间的对决</caption>
       <caption xml:lang="zh-TW">主視窗 - 引擎 vs. 引擎</caption>
@@ -1054,7 +1054,7 @@
       <caption xml:lang="sk">Dialógové okno "Nová Hra"</caption>
       <caption xml:lang="sl">Pogovor o 'Novi igri'</caption>
       <caption xml:lang="sv">Dialogrutan "Nytt spel"</caption>
-      <caption xml:lang="tr">"Yeni Oyun" Penceresi</caption>
+      <caption xml:lang="tr">“Yeni Oyun” Penceresi</caption>
       <caption xml:lang="uk">Діалогове вікно «Нова гра»</caption>
       <caption xml:lang="zh-CN">“新建游戏”窗口</caption>
       <caption xml:lang="zh-TW">「新遊戲」對話框</caption>
@@ -1136,7 +1136,7 @@
       <caption xml:lang="sk">Hranie online - konzola FICS</caption>
       <caption xml:lang="sl">Sprotna igra - konzola FICS</caption>
       <caption xml:lang="sv">Spela på nätet: FICS-terminal</caption>
-      <caption xml:lang="tr">Çevrimiçi oyna - FICS Konsolu</caption>
+      <caption xml:lang="tr">Çevrim içi oyna — FICS Konsolu</caption>
       <caption xml:lang="uk">Гра у мережі — консоль FICS</caption>
       <caption xml:lang="zh-CN">在线播放 - 公务员协联控制台</caption>
       <caption xml:lang="zh-TW">線上遊玩 - FICS 控制台</caption>
@@ -1177,7 +1177,7 @@
       <caption xml:lang="sk">Hra online - grafický Seek-Graph</caption>
       <caption xml:lang="sl">Sprotna igra - grafični prikaz iskanja potez</caption>
       <caption xml:lang="sv">Spela på nätet: Grafiskt sökdiagram</caption>
-      <caption xml:lang="tr">Çevrimiçi oyna - grafik Seek-Graph</caption>
+      <caption xml:lang="tr">Çevrim içi oyna — grafiksel Seek-Graph</caption>
       <caption xml:lang="uk">Гра у мережі — граф пошуку гравців</caption>
       <caption xml:lang="zh-CN">在线播放-图形搜索图</caption>
       <caption xml:lang="zh-TW">線上遊玩 - 圖形化 Seek-Graph</caption>
