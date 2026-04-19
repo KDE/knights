@@ -103,6 +103,7 @@
     <p xml:lang="bg">KNights е игра на шах. Като играч целта ви е да победите опонента си, като поставите в мат неговия цар.</p>
     <p xml:lang="ca">El KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
     <p xml:lang="ca-valencia">KNights és un joc d'escacs. Com a jugador, el vostre objectiu és derrotar a l'adversari fent escac i mat al seu rei.</p>
+    <p xml:lang="cs">KNights je šachová hra. Vaším cílem jako hráče je porazit soupeře tím, že dáte jeho králi mat.</p>
     <p xml:lang="da">KNights er et skakspil. Som spiller er dit mål at sejre over din modstander ved deres konge skakmat.</p>
     <p xml:lang="de">KNights ist ein Schachspiel, bei dem der Gegner durch Matt setzen des Königs besiegt wird.</p>
     <p xml:lang="el">Το KNights είναι ένα σκάκι. Ως παίκτης, ο στόχος σου είναι να νικήσεις τον αντίπαλο κάνοντας ματ στον βασιλιά.</p>
@@ -190,6 +191,7 @@
       <li xml:lang="bg">Локална игра между двама играчи на един и същи компютър</li>
       <li xml:lang="ca">Joc local entre dos jugadors al mateix ordinador</li>
       <li xml:lang="ca-valencia">Joc local entre dos jugadors al mateix ordinador</li>
+      <li xml:lang="cs">Hra pro dva hráče na jednom počítači</li>
       <li xml:lang="da">Lokalt spil med to spillere på den samme computer</li>
       <li xml:lang="de">Lokale Spiele zwischen zwei Spielern auf demselben Rechner</li>
       <li xml:lang="el">Τοπικό παιχνίδι ανάμεσα σε δύο παίκτες στον ίδιο υπολογιστή</li>
@@ -232,6 +234,7 @@
       <li xml:lang="bg">Играйте срещу всяка компютърна програма, която поддържа протокола XBoard</li>
       <li xml:lang="ca">Joc contra qualsevol programa d'ordinador que accepti el protocol XBoard</li>
       <li xml:lang="ca-valencia">Joc contra qualsevol programa d'ordinador que accepte el protocol XBoard</li>
+      <li xml:lang="cs">Hra proti jakémukoli počítačovému programu, který podporuje protokol XBoard</li>
       <li xml:lang="da">Spil mod computerprogram der understøtter XBoard-protokollen</li>
       <li xml:lang="de">Spiele gegen jedes Rechnerprogramm, das das XBoard-Protokoll unterstützt</li>
       <li xml:lang="el">Παίξε εναντίον οποιουδήποτε προγράμματος που υποστηρίζει το πρωτόκολλο XBoard</li>
@@ -274,6 +277,7 @@
       <li xml:lang="bg">Играйте на безплатния интернет сървър за шах (FICS)</li>
       <li xml:lang="ca">Jugar al Free Internet Chess Server (FICS)</li>
       <li xml:lang="ca-valencia">Jugar al Free Internet Chess Server (FICS)</li>
+      <li xml:lang="cs">Hra na serveru Free Internet Chess Server (FICS)</li>
       <li xml:lang="da">Spil på Free Internet Chess Server (FICS)</li>
       <li xml:lang="de">Spielen auf dem Free Internet Chess Server (FICS)</li>
       <li xml:lang="el">Παίξε στον Ελεύθερο Διαδικτυακό Εξυπηρετητή Σκακιού (Free Internet Chess Server, FICS)</li>
@@ -316,6 +320,7 @@
       <li xml:lang="bg">Гледайки как два компютърни двигателя играят един срещу друг</li>
       <li xml:lang="ca">Mirar dos motors d'ordinador que juguen entre si</li>
       <li xml:lang="ca-valencia">Mirar dos motors d'ordinador que juguen entre si</li>
+      <li xml:lang="cs">Sledování souboje dvou počítačových programů</li>
       <li xml:lang="da">Se to computermotorer spille mod hinanden</li>
       <li xml:lang="de">Anzeige eines Spiels zweier Schach-Module gegeneinander</li>
       <li xml:lang="el">Παρακολουθήστε δύο μηχανές να παίζουν η μία εναντίον της άλλης</li>
@@ -358,6 +363,7 @@
       <li xml:lang="bg">Поддръжка за проверка на законен ход</li>
       <li xml:lang="ca">Permet la comprovació de moviments legals</li>
       <li xml:lang="ca-valencia">Permet la comprovació de moviments legals</li>
+      <li xml:lang="cs">Podpora kontroly platnosti tahů</li>
       <li xml:lang="da">Undersøttelse for tjek af lovlige træk</li>
       <li xml:lang="de">Überprüfung auf gültige Spielzüge</li>
       <li xml:lang="el">Υποστήριξη για έλεγχο εγκυρότητας κίνησης</li>
@@ -400,6 +406,7 @@
       <li xml:lang="bg">Маркери за възможни ходове, последен ход на противника и източници на проверка</li>
       <li xml:lang="ca">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
       <li xml:lang="ca-valencia">Marcadors per a possibles moviments, últim moviment de l'adversari i jugades d'escac</li>
+      <li xml:lang="cs">Značky pro možné tahy, poslední tah soupeře a zdroje šachu</li>
       <li xml:lang="da">Markører til mulige træk, modstanderens sidste træk og tjekkilder</li>
       <li xml:lang="de">Markierungen für mögliche Züge, den letzten Zug des Gegners und Spielzüge für Schachmatt</li>
       <li xml:lang="el">Δείκτες για πιθανές κινήσεις, για την τελευταία κίνηση του αντιπάλου και πηγές σαχ</li>
@@ -442,6 +449,7 @@
       <li xml:lang="bg">Граници на таблата и означения на сайта</li>
       <li xml:lang="ca">Vores del tauler i notacions de lloc</li>
       <li xml:lang="ca-valencia">Vores del tauler i notacions de lloc</li>
+      <li xml:lang="cs">Okraje šachovnice a poznámky</li>
       <li xml:lang="da">Brættets kanter og stednotifikationer</li>
       <li xml:lang="de">Verschiedene Ränder des Schachbretts und Notationen der Schachseiten</li>
       <li xml:lang="el">Άκρα σκακιέρας και πλαϊνοί συμβολισμοί</li>
@@ -484,6 +492,7 @@
       <li xml:lang="bg">Пълен контрол на времето с часовници в плазмен стил</li>
       <li xml:lang="ca">Control complet del temps, amb rellotges a l'estil del Plasma</li>
       <li xml:lang="ca-valencia">Control complet del temps, amb rellotges a l'estil de Plasma</li>
+      <li xml:lang="cs">Plná kontrola nad časem díky hodinám ve stylu Plasma</li>
       <li xml:lang="da">Fuld tidskontrol, med ure i Plasma-stil</li>
       <li xml:lang="de">Vollständige Zeitüberwachung mit Uhren im Plasma-Design</li>
       <li xml:lang="el">Πλήρης έλεγχος χρόνου, με Plasma-styled χρονόμετρα</li>
@@ -526,6 +535,7 @@
       <li xml:lang="bg">Няколко теми, с възможност за изтегляне на нови от програмата</li>
       <li xml:lang="ca">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
       <li xml:lang="ca-valencia">Diversos temes, amb la possibilitat de baixar-ne de nous des del programa</li>
+      <li xml:lang="cs">Několik motivů s možností stažení dalších přímo z programu</li>
       <li xml:lang="da">Adskillige temaer, med mulighed for at downloade nye i programmet</li>
       <li xml:lang="de">Verschiedene Designs sind in KNights bereits enthalten, weitere Designs können aus dem Programm heraus heruntergeladen werden</li>
       <li xml:lang="el">Πολλά θέματα, με δυνατότητα λήψης νέων μέσα από το πρόγραμμα</li>
@@ -568,6 +578,7 @@
       <li xml:lang="bg">Анимирани движения (конфигурируеми)</li>
       <li xml:lang="ca">Animació dels moviments (configurable)</li>
       <li xml:lang="ca-valencia">Animació dels moviments (configurable)</li>
+      <li xml:lang="cs">Animované pohyby (nastavitelné)</li>
       <li xml:lang="da">Animerede træk (kan konfigureres)</li>
       <li xml:lang="de">Animierte Züge, einstellbar</li>
       <li xml:lang="el">ζωντάνεμα κινήσεων (διαμορφώσιμο)</li>
@@ -610,6 +621,7 @@
       <li xml:lang="bg">Изгледи за игра на шах сървър, включително графика за търсене, текстова конзола и джаджа за чат</li>
       <li xml:lang="ca">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de cerca, una consola de text i un giny de xat</li>
       <li xml:lang="ca-valencia">Vistes per a jugar en un servidor d'escacs, incloent-hi un gràfic de busca, una consola de text i un giny de xat</li>
+      <li xml:lang="cs">Rozhraní pro hraní na šachovém serveru, včetně grafu přehrávání, textové konzole a chatovacího modulu</li>
       <li xml:lang="da">Visninger til spil på en skakserver, inklusiv en søgegraf, tekstkonsol og chat-widget</li>
       <li xml:lang="de">Ansichten zum Spielen auf einem Schachserver, inklusive Suchgraphen,  Textkonsole und Chatmöglichkeit</li>
       <li xml:lang="el">Προβολές παιχνιδιού σε εξυπηρετητή σκακιού, με γράφο αναζήτησης, κονσόλα κειμένου και γραφικό συστατικό συνομιλίας</li>
@@ -652,6 +664,7 @@
       <li xml:lang="bg">Опция за отмяна и повторение на ходове</li>
       <li xml:lang="ca">Opcions per a fer i desfer moviments</li>
       <li xml:lang="ca-valencia">Opcions per a fer i desfer moviments</li>
+      <li xml:lang="cs">Možnost vrátit zpět a zopakovat tahy</li>
       <li xml:lang="da">Mulighed for at fortryde og gendanne træk</li>
       <li xml:lang="de">Option zum Zug zurücknehmen und wiederherstellen</li>
       <li xml:lang="el">Επιλογή για αναίρεση και επαναφορά κινήσεων</li>
@@ -694,6 +707,7 @@
       <li xml:lang="bg">Графичен интерфейс за правене и получаване на оферти от отдалечени играчи</li>
       <li xml:lang="ca">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
       <li xml:lang="ca-valencia">Interfície gràfica per a fer i rebre oferiments de jugadors remots</li>
+      <li xml:lang="cs">Grafické rozhraní pro vytváření a přijímání nabídek od vzdálených hráčů</li>
       <li xml:lang="da">Grafisk grænseflade til at foretage og modtage tilbud fra fjernspillere</li>
       <li xml:lang="de">Grafische Schnittstelle um Angebote von entfernten Spielen zu senden und zu erhalten</li>
       <li xml:lang="el">Γραφικό περιβάλλον για προσφορές από απομακρυσμένους παίκτες</li>
@@ -736,6 +750,7 @@
       <li xml:lang="bg">Поддръжка на UCI протокола (използван от Stockfish, Chessbase и много други)</li>
       <li xml:lang="ca">Admet el protocol UCI (usat per l'Stockfish, el Chessbase i altres)</li>
       <li xml:lang="ca-valencia">Admet el protocol UCI (utilitzat per Stockfish, Chessbase i altres)</li>
+      <li xml:lang="cs">Podpora protokolu UCI (používaného programy Stockfish, Chessbase a mnoha dalšími)</li>
       <li xml:lang="da">Understøttelse af UCI-protokollen (bruges af Stockfish, Chessbase og mange andre)</li>
       <li xml:lang="de">Unterstützung für das UCI-Protokoll, das von Stockfish, Chessbase und anderen verwendet wird</li>
       <li xml:lang="el">Υποστήριξη για το UCI πρωτόκολλο (χρησιμοποιείται από Stockfish, Chessbase, και πολλούς άλλους)</li>
@@ -778,6 +793,7 @@
       <li xml:lang="bg">Поддръжка за запазване и зареждане на файлове с нотация на преносими игри (PGN).</li>
       <li xml:lang="ca">Admet els fitxers «Portable game notation» (PGN) per a desar i carregar</li>
       <li xml:lang="ca-valencia">Admet els fitxers «Portable game notation» (PGN) per a guardar i carregar</li>
+      <li xml:lang="cs">Podpora ukládání a načítání souborů ve formátu Portable Game Notation (PGN)</li>
       <li xml:lang="da">Understøttelse af gem og indlæsning af Portable game notation-filer (PGN)</li>
       <li xml:lang="de">Laden und speichern von Dateien im Format Portable Spielnotation (*.pgn)</li>
       <li xml:lang="el">Υποστήριξη για αποθήκευση και φόρτωση αρχείων συμβολισμών PGN (Portable game notation)</li>
@@ -820,7 +836,7 @@
       <li xml:lang="bg">Изговаряне ходовете на противника</li>
       <li xml:lang="ca">Pronuncia els moviments de l'adversari</li>
       <li xml:lang="ca-valencia">Llig els moviments de l'adversari</li>
-      <li xml:lang="cs">Číst soupeřovy tahy</li>
+      <li xml:lang="cs">Popis soupeřových tahů</li>
       <li xml:lang="de">Züge des Gegners vorlesen</li>
       <li xml:lang="eo">Paroli movojn de kontraŭulo</li>
       <li xml:lang="es">Leer los movimientos del oponente</li>
@@ -851,6 +867,7 @@
       <li xml:lang="bg">Възможност за управление на програмата през D-Bus интерфейс</li>
       <li xml:lang="ca">Permet controlar el programa via una interfície de D-Bus</li>
       <li xml:lang="ca-valencia">Permet controlar el programa via una interfície de D-Bus</li>
+      <li xml:lang="cs">Možnost ovládání programu prostřednictvím rozhraní D-Bus</li>
       <li xml:lang="da">Mulighed for at styre programmet via en D-Bus-grænseflade</li>
       <li xml:lang="de">Das Programm kann über eine D-Bus-Schnittstelle gesteuert werden</li>
       <li xml:lang="el">Δυνατότητα ελέγχου του προγράμματος μέσω διεπαφής D-Bus</li>
@@ -940,6 +957,7 @@
       <caption xml:lang="bg">Основен прозорец - Човек срещу шахматна машина</caption>
       <caption xml:lang="ca">Finestra principal: humà vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: humà vs. motor d'escacs</caption>
+      <caption xml:lang="cs">Hlavní okno – Člověk proti šachovému programu</caption>
       <caption xml:lang="da">Hovedvindue - menneske mod skakmotor</caption>
       <caption xml:lang="de">Hauptfenster - Mensch gegen Schachmodul</caption>
       <caption xml:lang="el">Κύριο παράθυρο - Άνθρωπος εναντίον μηχανής σκακιού</caption>
@@ -982,6 +1000,7 @@
       <caption xml:lang="bg">Основен прозорец - компютър срещу компютър</caption>
       <caption xml:lang="ca">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
       <caption xml:lang="ca-valencia">Finestra principal: motor d'escacs vs. motor d'escacs</caption>
+      <caption xml:lang="cs">Hlavní okno – Šachový program proti šachovému programu</caption>
       <caption xml:lang="da">Hovedvindue - skakmotor mod skakmotor</caption>
       <caption xml:lang="de">Hauptfenster - Schachmodul gegen Schachmodul</caption>
       <caption xml:lang="el">Κύριο παράθυρο - Μηχανή σκακιού εναντίον μηχανής σκακιού</caption>
@@ -1067,6 +1086,7 @@
       <caption xml:lang="bg">Автоматично откриване на шахматни програми</caption>
       <caption xml:lang="ca">Detecció automàtica dels motors d'escacs</caption>
       <caption xml:lang="ca-valencia">Detecció automàtica dels motors d'escacs</caption>
+      <caption xml:lang="cs">Automatická detekce šachových programů</caption>
       <caption xml:lang="da">Autodetektion af skakmotorer</caption>
       <caption xml:lang="de">Automatische Erkennung von Schachmodulen</caption>
       <caption xml:lang="el">Αυτόματος εντοπισμός μηχανών σκακιού</caption>
@@ -1108,6 +1128,7 @@
       <caption xml:lang="bg">Игра онлайн - FICS конзола</caption>
       <caption xml:lang="ca">Jugant en línia: consola FICS</caption>
       <caption xml:lang="ca-valencia">Jugant en línia: consola FICS</caption>
+      <caption xml:lang="cs">Hraní online – Konzole FICS</caption>
       <caption xml:lang="da">Spiller online - FICS Console</caption>
       <caption xml:lang="de">Online spielen - FICS-Konsole</caption>
       <caption xml:lang="el">Παίζω σε σύνδεση - Κονσόλα FICS</caption>
@@ -1149,6 +1170,7 @@
       <caption xml:lang="bg">Игра онлайн - графичен Seek-Graph</caption>
       <caption xml:lang="ca">Jugant en línia: gràfic de cerca</caption>
       <caption xml:lang="ca-valencia">Jugant en línia: gràfic de busca</caption>
+      <caption xml:lang="cs">Hraní online – grafický Seek-Graph</caption>
       <caption xml:lang="da">Spiller online - grafisk søgegraf</caption>
       <caption xml:lang="de">Online spielen - Such-Graph</caption>
       <caption xml:lang="el">Παίζω σε σύνδεση - γραφικό Seek-Graph</caption>
