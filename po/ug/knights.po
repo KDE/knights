@@ -8,38 +8,37 @@ msgstr ""
 "Project-Id-Version: knights\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2013-09-08 07:04+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 19:08-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: board.cpp:579
-#, fuzzy, kde-format
-#| msgid "Promotion"
+#, kde-format
 msgctxt "@title:window"
 msgid "Promotion"
-msgstr "ئۆستۈرۈش"
+msgstr ""
 
 #: board.cpp:583
-#, fuzzy, kde-format
-#| msgid "Promote"
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
-msgstr "ئۆستۈر"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupB)
 #: clockwidget.ui:17
@@ -78,16 +77,14 @@ msgstr ""
 #, kde-format
 msgctxt "Megabytes"
 msgid " MB"
-msgstr " مېگابايت"
+msgstr " MB"
 
 #: difficultydialog.cpp:35
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "Search depth suffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " يۆتكە"
+msgstr[0] ""
 
 #: difficultydialog.cpp:46
 #, kde-format
@@ -99,7 +96,7 @@ msgstr ""
 #, kde-format
 msgctxt "Protocol name"
 msgid "XBoard"
-msgstr "XBoard"
+msgstr ""
 
 #: enginesettings.cpp:112
 #, kde-format
@@ -150,38 +147,31 @@ msgid "Installed"
 msgstr "ئورنىتىلغان"
 
 #: gamedialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "New Game"
+#, kde-format
 msgctxt "@title:window"
 msgid "New Game"
 msgstr "يېڭى ئويۇن"
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
-#| msgid " minute"
-#| msgid_plural " minutes"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
 msgstr[0] " مىنۇت"
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
-#| msgid " second"
-#| msgid_plural " seconds"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
 msgstr[0] " سېكۇنت"
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
-#| msgid " move"
-#| msgid_plural " moves"
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
-msgstr[0] " يۆتكە"
+msgstr[0] ""
 
 #: gamedialog.cpp:307
 #, kde-format
@@ -200,30 +190,27 @@ msgid "Select a chess engine for the second player."
 msgstr ""
 
 #: gamedialog.cpp:370
-#, fuzzy, kde-format
-#| msgid "Automatically start the game"
+#, kde-format
 msgid "Start the game."
-msgstr "ئويۇننى ئاپتوماتىك باشلايدۇ"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
 #, kde-format
 msgid "Player 1"
-msgstr "ئوينىغۇچى 1"
+msgstr "1-ئوينىغۇچى"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Human)
 #: gamedialog.ui:35
-#, fuzzy, kde-format
-#| msgid "Human (You)"
+#, kde-format
 msgid "Human (&You)"
-msgstr "ئىنسان (سىز)"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer1Engine)
 #: gamedialog.ui:45
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "&Computer engine:"
-msgstr "كومپيۇتېر:"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, colorGroup)
 #: gamedialog.ui:78
@@ -233,10 +220,9 @@ msgstr "ئوينىغۇچى 1 نىڭ رەڭگى"
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorBlack)
 #: gamedialog.ui:103
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgid "B&lack"
-msgstr "قارا"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, colorRandom)
 #: gamedialog.ui:116
@@ -248,21 +234,19 @@ msgstr ""
 #: gamedialog.ui:129
 #, kde-format
 msgid "Player 2"
-msgstr "ئوينىغۇچى 2"
+msgstr "2-ئوينىغۇچى"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Human)
 #: gamedialog.ui:135
-#, fuzzy, kde-format
-#| msgid "Human"
+#, kde-format
 msgid "H&uman"
-msgstr "ئىنسان"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Engine)
 #: gamedialog.ui:145
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgid "Co&mputer engine:"
-msgstr "كومپيۇتېر:"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPlayer2Server)
 #: gamedialog.ui:175
@@ -272,17 +256,15 @@ msgstr "شاھمات مۇلازىمېتىرى:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbTimeControl)
 #: gamedialog.ui:207
-#, fuzzy, kde-format
-#| msgid "Use Time Control"
+#, kde-format
 msgid "&Use time control"
-msgstr "ۋاقىت تىزگىنلەشنى ئىشلىتىش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lNumberOfMoves)
 #: gamedialog.ui:214
-#, fuzzy, kde-format
-#| msgid "Time control period"
+#, kde-format
 msgid "&Time control period:"
-msgstr "ۋاقىت تىزگىنلەش دەۋرى"
+msgstr ""
 
 #. i18n: ectx: property (specialValueText), widget (QSpinBox, sbNumberOfMoves)
 #: gamedialog.ui:230
@@ -293,17 +275,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeLimitLabel)
 #: gamedialog.ui:243
-#, fuzzy, kde-format
-#| msgid "Initial time limit"
+#, kde-format
 msgid "&Initial time limit:"
-msgstr "دەسلەپكى ۋاقىت چەكلىمىسى"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, timeIncrementLabel)
 #: gamedialog.ui:269
-#, fuzzy, kde-format
-#| msgid "Increment per move"
+#, kde-format
 msgid "I&ncrement per move:"
-msgstr "ھەر يۆتكىگەندىكى ئېشىش"
+msgstr ""
 
 #: gamemanager.cpp:417
 #, kde-format
@@ -369,15 +349,13 @@ msgid "Checkmate"
 msgstr ""
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "White"
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
 msgstr "ئاق"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
-#| msgid "Black"
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
 msgstr "قارا"
@@ -386,7 +364,7 @@ msgstr "قارا"
 #: historywidget.ui:39 historywidget.ui:44
 #, kde-format
 msgid "New Column"
-msgstr ""
+msgstr "يېڭى رەت"
 
 #. i18n: ectx: property (text), widget (QLabel, notationLabel)
 #: historywidget.ui:57
@@ -413,8 +391,7 @@ msgid "Coordinate"
 msgstr "كوئوردېناتى"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "ئىختىيارى"
@@ -425,25 +402,22 @@ msgid "%1 is thinking…"
 msgstr ""
 
 #: knights.cpp:147
-#, fuzzy, kde-format
-#| msgid "Clock"
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "سائەت"
 
 #: knights.cpp:178
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
-msgstr "تارىخنى كۆرسەت"
+msgstr ""
 
 #: knights.cpp:197
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
-msgstr "بويسۇنۇش"
+msgstr ""
 
 #: knights.cpp:198
 #, kde-format
@@ -452,64 +426,55 @@ msgid "Admit your inevitable defeat"
 msgstr ""
 
 #: knights.cpp:203
-#, fuzzy, kde-format
-#| msgid "Undo"
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "يېنىۋال"
 
 #: knights.cpp:204
-#, fuzzy, kde-format
-#| msgid "Take back your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
-msgstr "ئەڭ ئاخىرقى مېڭىشىڭىزنى ئەسلىگە قايتۇرىسىز"
+msgstr ""
 
 #: knights.cpp:210
-#, fuzzy, kde-format
-#| msgid "Redo"
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "قايتىلا"
 
 #: knights.cpp:211
-#, fuzzy, kde-format
-#| msgid "Repeat your last move"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
-msgstr "ئاخىرقى مېڭىشنى تەكرارلا"
+msgstr ""
 
 #: knights.cpp:218
-#, fuzzy, kde-format
-#| msgid "Offer &Draw"
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
-msgstr "تەڭ بولسۇن(&D)"
+msgstr ""
 
 #: knights.cpp:219
-#, fuzzy, kde-format
-#| msgid "Offer a draw to your opponent"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
-msgstr "رەقىبىگە تەڭ بولۇش تەكلىپىنى بېرىدۇ"
+msgstr ""
 
 #: knights.cpp:224
-#, fuzzy, kde-format
-#| msgid "Adjourn"
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
-msgstr "ئارقىغا سوزۇش"
+msgstr ""
 
 #: knights.cpp:225
-#, fuzzy, kde-format
-#| msgid "Continue this game at a later time"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "ئويۇننى كېيىن داۋاملاشتۇرۇپ ئوينايدۇ"
+msgstr ""
 
 #: knights.cpp:230
-#, fuzzy, kde-format
-#| msgid "Abort"
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "توختات"
@@ -520,45 +485,40 @@ msgid "End the game immediately"
 msgstr ""
 
 #: knights.cpp:235
-#, fuzzy, kde-format
-#| msgid "Show Clock"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
-msgstr "سائەت كۆرسەت"
+msgstr ""
 
 #: knights.cpp:241
-#, fuzzy, kde-format
-#| msgid "Show History"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "تارىخنى كۆرسەت"
 
 #: knights.cpp:248
-#, fuzzy, kde-format
-#| msgid "Show White Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
-msgstr "ئاق تىزگىن سۇپىسىنى كۆرسەت"
+msgstr ""
 
 #: knights.cpp:254
-#, fuzzy, kde-format
-#| msgid "Show Black Console"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
-msgstr "قارا تىزگىن سۇپىسىنى كۆرسەت"
+msgstr ""
 
 #: knights.cpp:260
-#, fuzzy, kde-format
-#| msgid "Show Chat"
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
-msgstr "سۆھبەتنى كۆرسەت"
+msgstr ""
 
 #: knights.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
-msgstr ""
+msgstr "ھۆججەت ئاچ"
 
 #: knights.cpp:300 knights.cpp:668
 #, kde-format
@@ -566,29 +526,25 @@ msgid "Portable game notation (*.pgn)"
 msgstr ""
 
 #: knights.cpp:463
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "ئادەتتىكى"
 
 #: knights.cpp:467
-#, fuzzy, kde-format
-#| msgid "Computer engine:"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr "كومپيۇتېر:"
+msgstr ""
 
 #: knights.cpp:475
-#, fuzzy, kde-format
-#| msgid "Accessibility"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr "ياردەم ئىقتىدارى"
+msgstr "قولايلىق"
 
 #: knights.cpp:480
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "ئۆرنەك"
@@ -599,30 +555,27 @@ msgid "Do you really want to resign?"
 msgstr ""
 
 #: knights.cpp:489
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
-msgstr "بويسۇنۇش"
+msgstr ""
 
 #: knights.cpp:490
-#, fuzzy, kde-format
-#| msgid "Resign"
+#, kde-format
 msgctxt "@action:button"
 msgid "Resign"
-msgstr "بويسۇنۇش"
+msgstr ""
 
 #: knights.cpp:537
-#, fuzzy, kde-format
-#| msgid "Game over"
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "ئويۇن تامام"
+msgstr "ئويۇن ئاخىرلاشتى"
 
 #: knights.cpp:561
 #, kde-format
 msgid "The game ended in a draw"
-msgstr "ئويۇن تەڭ بولدى."
+msgstr "ئويۇن تەڭ بولدى"
 
 #: knights.cpp:567
 #, kde-format
@@ -649,11 +602,10 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr ""
 
 #: knights.cpp:624
-#, fuzzy, kde-format
-#| msgid "%1 vs. %2"
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
-msgstr "%1 قارشى %2"
+msgstr ""
 
 #: knights.cpp:637
 #, kde-format
@@ -666,7 +618,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Save As"
-msgstr ""
+msgstr "باشقا ئاتتا ساقلا"
 
 #. i18n: ectx: label, entry (Theme), group (KGameTheme)
 #: knights.kcfg:9
@@ -706,10 +658,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (playSounds), group (Preferences)
 #: knights.kcfg:43
-#, fuzzy, kde-format
-#| msgid "whether to log in as guest"
+#, kde-format
 msgid "whether to play move sounds"
-msgstr "مېھمان سۈپىتىدە كىرسۇنمۇ"
+msgstr ""
 
 #. i18n: ectx: label, entry (borderDisplayType), group (Preferences)
 #: knights.kcfg:52
@@ -878,10 +829,9 @@ msgstr ""
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
-#| msgid "whether to log in as guest"
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "مېھمان سۈپىتىدە كىرسۇنمۇ"
+msgstr ""
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -922,7 +872,7 @@ msgstr "تەڭشەك ئۆزگەردى"
 #: knightsview_base.ui:14 main.cpp:45
 #, kde-format
 msgid "Knights"
-msgstr "Knights"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
@@ -930,10 +880,9 @@ msgid "KDE Chess Board"
 msgstr ""
 
 #: main.cpp:48
-#, fuzzy, kde-format
-#| msgid "(C) 2009-2011 Miha Čančula"
+#, kde-format
 msgid "(C) 2016-2017 Alexander Semke, 2009-2011 Miha Čančula"
-msgstr "(C) 2009-2011 Miha Čančula"
+msgstr ""
 
 #: main.cpp:51
 #, kde-format
@@ -948,7 +897,7 @@ msgstr "Miha Čančula"
 #: main.cpp:54
 #, kde-format
 msgid "Troy Corbin"
-msgstr "Troy Corbin"
+msgstr ""
 
 #: main.cpp:54
 #, kde-format
@@ -958,7 +907,7 @@ msgstr "KDE3 دىكى دەسلەپكى Knights  ۋە ئۆرنەك ئاپتورى
 #: main.cpp:56
 #, kde-format
 msgid "Dave Kaye"
-msgstr "Dave Kaye"
+msgstr ""
 
 #: main.cpp:56
 #, kde-format
@@ -968,7 +917,7 @@ msgstr ""
 #: main.cpp:57
 #, kde-format
 msgid "Thomas Kamps"
-msgstr "Thomas Kamps"
+msgstr ""
 
 #: main.cpp:57
 #, kde-format
@@ -981,15 +930,13 @@ msgid "Document to open"
 msgstr "ئاچىدىغان پۈتۈك"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Accept"
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "قوشۇل"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Decline"
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
 msgstr "قوشۇلما"
@@ -1016,7 +963,7 @@ msgstr "ياپ"
 #: prefs_access.ui:17
 #, kde-format
 msgid "External Programs"
-msgstr "سىرتقى پروگرامما"
+msgstr "سىرتقى پىروگرامما"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_speakOpponentsMoves)
 #: prefs_access.ui:23
@@ -1034,14 +981,13 @@ msgstr ""
 #: prefs_base.ui:17
 #, kde-format
 msgid "Animations"
-msgstr "جانلاندۇرۇملار"
+msgstr "جانلاندۇرۇم"
 
 #. i18n: ectx: property (text), widget (QLabel, animationSpeedLabel)
 #: prefs_base.ui:23
-#, fuzzy, kde-format
-#| msgid "Animations"
+#, kde-format
 msgid "&Animation speed:"
-msgstr "جانلاندۇرۇملار"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:34
@@ -1059,7 +1005,7 @@ msgstr "تېز"
 #: prefs_base.ui:44
 #, kde-format
 msgid "Normal"
-msgstr "نورمال"
+msgstr "ئادەتتىكى"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_animationSpeed)
 #: prefs_base.ui:49
@@ -1077,7 +1023,7 @@ msgstr ""
 #: prefs_base.ui:67
 #, kde-format
 msgid "Appearance"
-msgstr "كۆرۈنۈشى"
+msgstr "قىياپەت"
 
 #. i18n: ectx: property (text), widget (QLabel, showMarkersForLabel)
 #: prefs_base.ui:76
@@ -1134,13 +1080,13 @@ msgstr ""
 #: prefs_base.ui:148
 #, kde-format
 msgid "Behavior"
-msgstr "ھەرىكەت"
+msgstr "قىلمىش"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_playSounds)
 #: prefs_base.ui:154
 #, kde-format
 msgid "Play sounds"
-msgstr ""
+msgstr "ئاۋاز قوي"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_flipBoard)
 #: prefs_base.ui:161
@@ -1168,10 +1114,9 @@ msgstr "پىيادە تۆۋەندىكىگە ئۆستۈرۈلسۇن:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonQueen)
 #: promotiondialog.ui:40
-#, fuzzy, kde-format
-#| msgid "Queen"
+#, kde-format
 msgid "&Queen"
-msgstr "پەرزىن"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonRook)
 #: promotiondialog.ui:56
@@ -1181,17 +1126,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonBishop)
 #: promotiondialog.ui:69
-#, fuzzy, kde-format
-#| msgid "Bishop"
+#, kde-format
 msgid "B&ishop"
-msgstr "پىل"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonKnight)
 #: promotiondialog.ui:82
-#, fuzzy, kde-format
-#| msgid "Knight"
+#, kde-format
 msgid "&Knight"
-msgstr "ئات"
+msgstr ""
 
 #: proto/chatwidget.cpp:62
 #, kde-format
@@ -1221,7 +1164,7 @@ msgid ""
 "Program <code>%1</code> could not be started, please check that it is "
 "installed."
 msgstr ""
-"پروگرامما <code>%1</code> نى باشلىغىلى بولمىدى، ئۇ ئورنىتىلدىمۇ تەكشۈرۈپ "
+"پىروگرامما <code>%1</code> نى باشلىغىلى بولمىدى، ئۇ ئورنىتىلدىمۇ تەكشۈرۈپ "
 "كۆرۈڭ."
 
 #: proto/computerprotocol.cpp:51
@@ -1232,13 +1175,12 @@ msgstr "%1 (%2) نىڭ تىزگىن سۇپىسى"
 #: proto/ficsdialog.cpp:62
 #, kde-format
 msgid "Session started"
-msgstr "ئەڭگىمە باشلاندى"
+msgstr "جەريانچاق باشلاندى"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
-#| msgid "Logging in..."
+#, kde-format
 msgid "Logging in…"
-msgstr "كىرىۋاتىدۇ…"
+msgstr ""
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
@@ -1265,10 +1207,9 @@ msgstr "شاھمات مۇلازىمېتىرىغا كىرىش"
 
 #. i18n: ectx: property (text), widget (QLabel, usernameLabel)
 #: proto/ficsdialog.ui:55
-#, fuzzy, kde-format
-#| msgid "&Username"
+#, kde-format
 msgid "&Username:"
-msgstr "ئىشلەتكۈچى ئاتى(&U)"
+msgstr "ئىشلەتكۈچى نامى(&U):"
 
 #. i18n: ectx: property (text), widget (QCheckBox, registeredCheckBox)
 #: proto/ficsdialog.ui:72
@@ -1278,10 +1219,9 @@ msgstr "بۇ خەتلىتىلگەن ھېسابات"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: proto/ficsdialog.ui:82
-#, fuzzy, kde-format
-#| msgid "&Password"
+#, kde-format
 msgid "&Password:"
-msgstr "ئىم(&P)"
+msgstr "ئىم(&P):"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rememberCheckBox)
 #: proto/ficsdialog.ui:102
@@ -1437,11 +1377,10 @@ msgid "Login failed"
 msgstr "كىرىش مەغلۇپ بولدى"
 
 #: proto/ficsprotocol.cpp:190
-#, fuzzy, kde-format
-#| msgid "Chess server"
+#, kde-format
 msgctxt "@title:window"
 msgid "Chess server"
-msgstr "شاھمات مۇلازىمېتىرى"
+msgstr ""
 
 #: proto/ficsprotocol.cpp:281
 #, kde-format
@@ -1466,12 +1405,12 @@ msgstr "تور خاتالىقى"
 #: proto/protocol.cpp:63
 #, kde-format
 msgid "Unknown Error"
-msgstr "نامەلۇم خاتالىق"
+msgstr "يوچۇن خاتالىق"
 
 #: proto/protocol.cpp:66
 #, kde-format
 msgid "Program Error"
-msgstr "پروگرامما خاتالىقى"
+msgstr "پىروگرامما خاتالىقى"
 
 #: proto/seekgraph.cpp:26
 #, kde-format
@@ -1483,17 +1422,14 @@ msgstr "ۋاقىت چېكى[مىنۇت]"
 msgid "Opponent's rating"
 msgstr "رەقىبنىڭ ئېرىشكەن باھاسى"
 
-#, fuzzy
 #~| msgid "White"
 #~ msgid "white"
 #~ msgstr "ئاق"
 
-#, fuzzy
 #~| msgid "Black"
 #~ msgid "black"
 #~ msgstr "قارا"
 
-#, fuzzy
 #~| msgid "Chess board based on KDE Development Platform 4"
 #~ msgid "Chess board based on KF5"
 #~ msgstr "ك د ئې(KDE) ئىجادىيەت سۇپىسى 4 ئاساسىدىكى شاھمات تاختىسى"
@@ -1504,7 +1440,6 @@ msgstr "رەقىبنىڭ ئېرىشكەن باھاسى"
 #~ msgid "H:mm:ss"
 #~ msgstr "H:mm:ss"
 
-#, fuzzy
 #~| msgid "Knights"
 #~ msgid "KNights"
 #~ msgstr "Knights"
