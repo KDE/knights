@@ -92,6 +92,7 @@
   <summary xml:lang="sr-ijekavianlatin">Šahovska igra</summary>
   <summary xml:lang="sv">Schackspel</summary>
   <summary xml:lang="tr">Satranç oyunu</summary>
+  <summary xml:lang="ug">شاھمات ئويۇنى</summary>
   <summary xml:lang="uk">Гра у шахи</summary>
   <summary xml:lang="zh-CN">国际象棋游戏</summary>
   <summary xml:lang="zh-TW">西洋棋遊戲</summary>
@@ -182,6 +183,7 @@
     <p xml:lang="sr-ijekavianlatin">Mogućnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
