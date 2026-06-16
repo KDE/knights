@@ -18,6 +18,12 @@
         },
         {
             "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "name": "plasma-activities",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/plasma-activities.git" } ]
+        },
+        {
+            "config-opts": [ "-DBUILD_TESTING=OFF" ],
             "name": "libplasma",
             "buildsystem": "cmake-ninja",
             "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/libplasma.git" } ]
