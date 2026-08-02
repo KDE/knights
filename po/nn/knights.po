@@ -1,5 +1,6 @@
 # Translation of knights to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2012, 2015, 2016, 2018, 2020, 2023, 2026.
 # Kjetil Kilhavn <kjetil@kilhavn.no>, 2012.
 msgid ""
 msgstr ""
