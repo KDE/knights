@@ -1,12 +1,13 @@
 # Translation of knights to Norwegian Nynorsk
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2012, 2015, 2016, 2018, 2020, 2023, 2026.
 # Kjetil Kilhavn <kjetil@kilhavn.no>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-07-05 16:43+0200\n"
+"PO-Revision-Date: 2026-08-02 11:07+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -36,7 +37,7 @@ msgid "Promotion"
 msgstr "Bondeforvandling"
 
 #: board.cpp:583
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Promote"
 msgstr "Forvandla bonden"
@@ -155,7 +156,7 @@ msgid "New Game"
 msgstr "Nytt spel"
 
 #: gamedialog.cpp:266
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " minute"
 msgid_plural " minutes"
@@ -163,7 +164,7 @@ msgstr[0] " minutt"
 msgstr[1] " minutt"
 
 #: gamedialog.cpp:267
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " second"
 msgid_plural " seconds"
@@ -171,7 +172,7 @@ msgstr[0] " sekund"
 msgstr[1] " sekund"
 
 #: gamedialog.cpp:268
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item:valuesuffix"
 msgid " move"
 msgid_plural " moves"
@@ -355,13 +356,13 @@ msgid "Checkmate"
 msgstr "Sjakkmatt"
 
 #: historywidget.cpp:26
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "White"
 msgstr "Kvit"
 
 #: historywidget.cpp:27
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:column"
 msgid "Black"
 msgstr "Svart"
@@ -397,90 +398,90 @@ msgid "Coordinate"
 msgstr "Koordinat"
 
 #: knights.cpp:95
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Tilpassa"
 
 #: knights.cpp:140
-#, fuzzy, kde-format
+#, kde-format
 msgid "%1 is thinking…"
 msgstr "%1 tenkjer …"
 
 #: knights.cpp:147
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Clock"
 msgstr "Klokke"
 
 #: knights.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window Title of the list of all the moves made in the game"
 msgid "Move History"
 msgstr "Trekklogg"
 
 #: knights.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Resign"
 msgstr "Gje opp"
 
 #: knights.cpp:198
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Admit your inevitable defeat"
 msgstr "Innsjå ditt uungåelege nederlag"
 
 #: knights.cpp:203
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Undo"
 msgstr "Angra"
 
 #: knights.cpp:204
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Take back your last move"
 msgstr "Ta tilbake det siste trekket ditt"
 
 #: knights.cpp:210
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Redo"
 msgstr "Gjer om"
 
 #: knights.cpp:211
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Repeat your last move"
 msgstr "Gjenta det siste trekket ditt"
 
 #: knights.cpp:218
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Offer &Draw"
 msgstr "Tilby &remis"
 
 #: knights.cpp:219
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Offer a draw to your opponent"
 msgstr "Tilby remis til motstandaren"
 
 #: knights.cpp:224
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Adjourn"
 msgstr "Ta ein pause"
 
 #: knights.cpp:225
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Continue this game at a later time"
-msgstr "Fortsett dette partiet seinare"
+msgstr "Hald fram dette partiet seinare"
 
 #: knights.cpp:230
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Abort"
 msgstr "Avbryt"
@@ -491,37 +492,37 @@ msgid "End the game immediately"
 msgstr "Avslutt partiet no"
 
 #: knights.cpp:235
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Clock"
 msgstr "Vis klokke"
 
 #: knights.cpp:241
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Show History"
-msgstr "Vis trekklogg"
+msgstr "Vis historikk"
 
 #: knights.cpp:248
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Show White Console"
 msgstr "Vis programlogg for kvit"
 
 #: knights.cpp:254
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Black Console"
 msgstr "Vis programlogg for svart"
 
 #: knights.cpp:260
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@option:check"
 msgid "Show Chat"
 msgstr "Vis pratevindauge"
 
 #: knights.cpp:299
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Opna fil"
@@ -532,13 +533,13 @@ msgid "Portable game notation (*.pgn)"
 msgstr "Portable Game Notation (*.pgn)"
 
 #: knights.cpp:463
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Generelt"
 
 #: knights.cpp:467
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
 msgstr "Sjakkmotorar"
@@ -547,10 +548,10 @@ msgstr "Sjakkmotorar"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Accessibility"
-msgstr ""
+msgstr "Tilgjenge"
 
 #: knights.cpp:480
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
@@ -561,7 +562,7 @@ msgid "Do you really want to resign?"
 msgstr "Er du sikker på at du vil gje opp?"
 
 #: knights.cpp:489
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Resign"
 msgstr "Gje opp"
@@ -573,10 +574,10 @@ msgid "Resign"
 msgstr "Gje opp"
 
 #: knights.cpp:537
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Partiet er over"
+msgstr "Spelet er slutt"
 
 #: knights.cpp:561
 #, kde-format
@@ -608,7 +609,7 @@ msgid "The game ended with a victory for <em>%1</em>, playing Black"
 msgstr "Partiet enda med siger til <em>%1</em>, som spela svart"
 
 #: knights.cpp:624
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "%1 vs. %2"
 msgstr "%1 mot %2"
@@ -843,9 +844,9 @@ msgstr "lagra oppsett av lokalinnstillingar til sjakkmotorane"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
-#, fuzzy, kde-format
+#, kde-format
 msgid "whether opponent's moves are spoken"
-msgstr "om motstandaren sitt trekk skal uttalast av Jovie"
+msgstr "om motstandaren sitt trekk skal lesast opp"
 
 #. i18n: ectx: label, entry (allowExternalControl), group (Accessibility)
 #: knights.kcfg:184
@@ -947,13 +948,13 @@ msgid "Document to open"
 msgstr "Fil som skal opnast"
 
 #: offerwidget.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Accept"
 msgstr "Godta"
 
 #: offerwidget.cpp:24
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Decline"
 msgstr "Avslå"
@@ -1194,9 +1195,9 @@ msgid "Session started"
 msgstr "Økt starta"
 
 #: proto/ficsdialog.cpp:73
-#, fuzzy, kde-format
+#, kde-format
 msgid "Logging in…"
-msgstr "Loggar på …"
+msgstr "Loggar inn …"
 
 #: proto/ficsdialog.cpp:114
 #, kde-format
