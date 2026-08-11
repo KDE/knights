@@ -5,34 +5,63 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "knights",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
-    "finish-args": ["--share=ipc", "--socket=fallback-x11", "--socket=wayland" ],
-
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland"
+    ],
     "modules": [
         {
-            "config-opts": [ "-DENABLE_TESTING=OFF" ],
+            "config-opts": [
+                "-DENABLE_TESTING=OFF"
+            ],
             "name": "libkdegames",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/libkdegames.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/kde/libkdegames.git"
+                }
+            ]
         },
         {
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
             "name": "plasma-activities",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/plasma-activities.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/plasma/plasma-activities.git"
+                }
+            ]
         },
         {
-            "config-opts": [ "-DBUILD_TESTING=OFF" ],
+            "config-opts": [
+                "-DBUILD_TESTING=OFF"
+            ],
             "name": "libplasma",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/plasma/libplasma.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/plasma/libplasma.git"
+                }
+            ]
         },
         {
             "name": "knights",
             "buildsystem": "cmake-ninja",
             "sources": [
-                { "type": "dir", "path": "." }
+                {
+                    "type": "dir",
+                    "path": "."
+                }
             ]
         }
     ]
