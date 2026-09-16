@@ -596,12 +596,12 @@
 ></listitem>
           <listitem
 ><para
->La captura només es pot realitzar en el proper moviment de l'adversari. Si no es realitza la captura, el primer peó estarà fora de perill de captura al pas la resta de la partida.</para
+>La captura només es pot realitzar en el moviment següent de l'adversari. Si no es realitza la captura, el primer peó estarà fora de perill de captura al pas la resta de la partida.</para
 ></listitem>
         </itemizedlist>
 
         <para
->En el següent diagrama, el peó blanc no s'ha mogut de la seva posició inicial. El seu primer moviment pot ser una o dues caselles endavant. La primera casella està sent atacada pel peó negre (els peons ataquen en diagonal) com indica la X vermella. El peó blanc avança dues caselles, evitant l'atac. En el següent moviment, el peó negre es mou a la casella on el peó blanc s'hauria mogut si només s'hagués mogut una sola casella en el primer moviment. El peó negre ataca amb èxit al peó blanc, i el captura «al pas». El peó blanc s'elimina del joc.</para>
+>En el següent diagrama, el peó blanc no s'ha mogut de la seva posició inicial. El seu primer moviment pot ser una o dues caselles endavant. La primera casella és atacada pel peó negre (els peons ataquen en diagonal) com indica la X vermella. El peó blanc avança dues caselles, evitant l'atac. En el moviment següent, el peó negre es mou a la casella on el peó blanc s'hauria mogut si només s'hagués mogut una sola casella en el primer moviment. El peó negre ataca amb èxit al peó blanc, i el captura «al pas». El peó blanc s'elimina del joc.</para>
 
         <mediaobject
 ><imageobject
@@ -691,7 +691,7 @@
 ></listitem>
           <listitem
 ><para
->Moure el rei lluny de l'atac i a una casella segura, que no està sent atacada per una peça de l'adversari.</para
+>Moure el rei lluny de l'atac i a una casella segura, que no és atacada per una peça de l'adversari.</para
 ></listitem>
           <listitem
 ><para
@@ -890,7 +890,7 @@
       <para
 >La pàgina <guilabel
 >General</guilabel
-> conté les opcions sobre l'aspecte general del &i18n-knights;. Les animacions de les peces i del tauler es poden activar o modificar. La secció de les animacions es basa en el programari del sistema, i només es veuen si les animacions estan disponibles. Està disponible girar el tauler, permetent que es giri el tauler d'escacs del &i18n-knights; quan s'utilitza en una pantalla d'ordinador o en mode estacionari quan s'utilitza en una tauleta com a substitut d'un tauler d'escacs. Els tres tipus de <link linkend="markers"
+> conté les opcions sobre l'aspecte general del &i18n-knights;. Les animacions de les peces i del tauler es poden activar o modificar. La secció de les animacions es basa en el programari del sistema, i només es veuen si les animacions estan disponibles. Està disponible girar el tauler, això permet que es giri el tauler d'escacs del &i18n-knights; quan s'utilitza en una pantalla d'ordinador o en mode estacionari quan s'utilitza en una tauleta com a substitut d'un tauler d'escacs. Els tres tipus de <link linkend="markers"
 >marcadors</link
 > es poden activar o desactivar. Les fronteres al voltant del tauler d'escacs es poden activar amb notació algebraica d'escacs o sense, utilitzant una llista desplegable.</para>
 
