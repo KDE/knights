@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2026-08-02 11:07+0200\n"
+"PO-Revision-Date: 2026-09-18 23:08+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.11.70\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -153,7 +153,7 @@ msgstr "Installert"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Game"
-msgstr "Nytt spel"
+msgstr "Nytt parti"
 
 #: gamedialog.cpp:266
 #, kde-format
@@ -198,7 +198,7 @@ msgstr "Vel sjakkmotor for andre spelar."
 #: gamedialog.cpp:370
 #, kde-format
 msgid "Start the game."
-msgstr "Start spelet."
+msgstr "Start sjakkpartiet."
 
 #. i18n: ectx: property (title), widget (QGroupBox, player1Box)
 #: gamedialog.ui:29
@@ -577,7 +577,7 @@ msgstr "Gje opp"
 #, kde-format
 msgctxt "@title:window"
 msgid "Game Over"
-msgstr "Spelet er slutt"
+msgstr "Partiet er ferdig"
 
 #: knights.cpp:561
 #, kde-format
@@ -620,7 +620,7 @@ msgid ""
 "This will end your game.\n"
 "Would you like to save the move history?"
 msgstr ""
-"Dette vil avslutta spelet. \n"
+"Dette vil avslutta partiet. \n"
 "Vil du lagra trekkloggen?"
 
 #: knights.cpp:667
@@ -774,13 +774,13 @@ msgstr "liste over sjakkprogram som kan brukast som datamotstandarar"
 #: knights.kcfg:134
 #, kde-format
 msgid "the last selected program for player 1"
-msgstr "det sist valde programet for spelar 1"
+msgstr "det sist valde programmet for spelar 1"
 
 #. i18n: ectx: label, entry (player2Program), group (Protocols)
 #: knights.kcfg:138
 #, kde-format
 msgid "the last selected program for player 2"
-msgstr "det sist valde programet for spelar 2"
+msgstr "det sist valde programmet for spelar 2"
 
 #. i18n: ectx: label, entry (computerSearchDepth), group (Protocols)
 #: knights.kcfg:142
@@ -803,7 +803,7 @@ msgstr ""
 #: knights.kcfg:150
 #, kde-format
 msgid "list of servers for playing over the Internet"
-msgstr "liste over tenarar for sjakkspel via Internett"
+msgstr "liste over tenarar for sjakkparti via Internett"
 
 #. i18n: ectx: label, entry (currentServer), group (Protocols)
 #: knights.kcfg:154
