@@ -1,22 +1,20 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY knights "<application
+<!ENTITY i18n-knights "<application
 >Knights</application
 >">
-  <!ENTITY kappname "&knights;">
-  <!ENTITY package "extragear/games">
-  <!ENTITY kappversion "2.4.0"
+  <!ENTITY kappversion "2.6.2"
 ><!--Application version. Use this variable everywhere it's needed.-->
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % Russian "INCLUDE">
 ]>
-<book lang="&language;">
-	<bookinfo>
-		<title
+<book id="knights" lang="&language;">
+  <bookinfo>
+    <title
 >Руководство пользователя &knights;</title>
 
-		<authorgroup>
-			<author
+    <authorgroup>
+      <author
 ><firstname
 >Miha</firstname
 > <surname
@@ -25,10 +23,10 @@
 > <address
 > <email
 >miha.cancula@gmail.com</email>
-					</address>
-				</affiliation>
-			</author>
-			<othercredit role="translator"
+          </address>
+        </affiliation>
+      </author>
+      <othercredit role="translator"
 > <firstname
 >Максим</firstname
 > <surname
@@ -44,111 +42,121 @@
 > </othercredit
 > 
 
-		</authorgroup>
-		<copyright>
-			<year
+    </authorgroup>
+    <copyright>
+      <year
 >2011</year>
-			<holder
+      <holder
 >Miha Čančula</holder>
-		</copyright>
+    </copyright>
 
-		<legalnotice
+    <legalnotice
 >&FDLNotice;
-		</legalnotice>
+    </legalnotice>
 
-		<date
->2011-10-23</date
+    <date
+>2021-10-13</date
 ><!-- Date of (re)writing, or update.-->
-		<releaseinfo
->&kappversion; (&kde; 4.7) </releaseinfo
+    <releaseinfo
+>&kappversion; (KDE Gear 21.08)</releaseinfo
 ><!-- Application version number. Use the variable definitions within header to change this value.-->
 
-		<abstract>
-			<para
->Это руководство описывает игру &knights; версии &kappversion; </para>
-		</abstract>
+    <abstract>
+      <para
+>Это руководство описывает игру &i18n-knights; версии &kappversion;</para>
+    </abstract>
 
-		<keywordset>
-			<keyword
+    <keywordset>
+      <keyword
 >KDE</keyword
 ><!-- do not change this! -->
-			<keyword
->игры kde</keyword
-><!-- do not change this! -->
-			<keyword
+      <keyword
 >игра</keyword
 ><!-- do not change this! -->
-			<keyword
+      <keyword
 >настольная</keyword>
-			<keyword
+      <keyword
 >шахматы</keyword>
-			<keyword
->knights</keyword>
-			<keyword
+      <keyword
 >Knights</keyword>
-		</keywordset>
+    </keywordset>
 
-	</bookinfo>
-<!-- 
-new in
->2.4.0 history, UCI, Difficulty settings, see
-http://noughmad.com/2011/10/25/upcoming-features-in-knights/ 
--->
-	<chapter id="introduction">
-		<title
+  </bookinfo>
+
+  <chapter id="introduction">
+    <title
 >Введение</title>
-		<note>
-			<title
+
+    <note>
+      <title
 >Тип игры:</title>
-			<para
+      <para
 >Настольная</para>
-		</note>
-		<note>
-			<title
+    </note>
+
+    <note>
+      <title
 >Количество игроков:</title>
-			<para
+      <para
 >Один или два</para>
-		</note>
+    </note>
 
-		<para
->&knights; — игра в шахматы. Целью является поставить мат противнику. </para>
-	</chapter>
+    <para
+>&i18n-knights; — игра в шахматы. Цель — поставить мат противнику.</para>
+  </chapter>
 
-	<chapter id="how-to-play"
+  <chapter id="how-to-play"
 ><title
 >Как играть</title
 > <!-- do not change this! -->
-		<!--Describe the objective of the game.-->
-		<sect1 id="objective">
-			<title
+    <!--Describe the objective of the game.-->
+    <sect1 id="objective">
+      <title
 >Цель</title>
-			<para
+
+      <para
 >Передвигайте свои и захватывайте фигуры противника, чтобы король противника был под атакой, а хода для её прекращения не было (<quote
 >мат</quote
 >).</para>
-			<para
+
+      <para
 >Если выиграть не получится, можно играть до ничьей. Ситуация, когда король не под атакой и возможных ходов не осталось — <quote
 >пат</quote
 >. Разные окончания игры можно считать ничьей (в зависимости от правил).</para>
-		</sect1>
+    </sect1>
 
-		<!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
-		<sect1 id="starting-the-game">
-			<title
+    <!--How to play description. Don't be to specific on rules as they have a separate section in this document-->
+    <sect1 id="starting-the-game">
+      <title
 >Начало игры</title>
-			<para
->При запуске программы или выборе меню <menuchoice
-><guimenu
+
+      <para
+>При запуске программы или выборе пункта меню <menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
 >Игра</guimenu
 > <guimenuitem
 >Начать игру</guimenuitem
 ></menuchoice
-> будет показано окно, в котором можно указать, против кого вы хотите играть, цвета и временные ограничения. </para>
-				<mediaobject
-><imageobject
-><imagedata fileref="Knights-newgame-dialog.png"/></imageobject
-></mediaobject>
-			<para
+> будет показано окно, в котором можно указать, против кого вы хотите играть, свой цвет и временные ограничения.</para>
+
+      <screenshot>
+        <screeninfo
+>Диалог «Новая игра»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-newgame-dialog.png" format="PNG"/></imageobject>
+          <caption
+>Диалог «Новая игра»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
 >Если вы хотите сыграть против друга на одном компьютере, выберите <guilabel
 >Человек (вы)</guilabel
 > в поле <guilabel
@@ -157,8 +165,9 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >Человек</guilabel
 > в поле <guilabel
 >Игрок 2</guilabel
->. </para>
-			<para
+>.</para>
+
+      <para
 >Если вы хотите сыграть против компьютера, выберите <guilabel
 >Человек (вы)</guilabel
 > в поле <guilabel
@@ -167,238 +176,309 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 >Компьютерный игрок:</guilabel
 > в поле <guilabel
 >Игрок 2</guilabel
->. Выберите программу, против которой будете играть (она должна поддерживать протокол XBoard). </para>
-			<para
+>. В этом раскрывающемся списке выберите программу, против которой хотите играть, и убедитесь, что указанная программа установлена на компьютере и поддерживает протокол XBoard или <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>Если шахматный движок установлен, но не показывается в списке, нажмите кнопку <guibutton
+>Настроить…</guibutton
+> и добавьте его. Подробнее об этом диалоге — в разделе <link linkend="configuration-engines"
+>Движки</link
+>.</para>
+
+      <note
+><para
+>То, что программа указана в окне, ещё не означает, что она установлена. Обязательно установите шахматный движок, с которым собираетесь играть. Проверить, установлен ли движок в системе, можно в окне <guilabel
+>Шахматные движки</guilabel
+>.</para
+></note>
+
+      <para
 >Если вы хотите сыграть против кого-нибудь в Интернете, выберите <guilabel
 >Человек (вы)</guilabel
 > в поле <guilabel
 >Игрок 1</guilabel
 > и <guilabel
->Шахматный сервер</guilabel
-> в полу <guilabel
+>Шахматный сервер:</guilabel
+> в поле <guilabel
 >Игрок 2</guilabel
->. Перед началом игры нужно авторизоваться на сервере и найти противника. Сервер <ulink url="http://freechess.org"
+>. Перед началом игры нужно авторизоваться на сервере и найти противника. Сервер Free Internet Chess Server (<ulink url="https://www.freechess.org/"
 >FreeChess.org</ulink
-> поддерживает гостевой вход, но для подсчёта рейтинга нужно будет зарегистрироваться. </para>
-			<para
+>) поддерживает гостевой вход, но для игры в партии, влияющие на рейтинг, нужно будет зарегистрироваться.</para>
+
+      <para
 >Также можно наблюдать за игрой двух программ, выбрав <guilabel
->Компьютерный игрок</guilabel
-> в обоих полях. </para>
-			<para
->Можно поставить программу играть против человека на шахматном сервере. Заметьте: это может быть запрещено на некоторых серверах. Для freechess.org читайте <ulink url="http://www.freechess.org/Help/HelpFiles/computers.html"
+>Компьютерный игрок:</guilabel
+> в обоих полях.</para>
+
+      <para
+>Аналогично можно заставить компьютерный движок играть против соперника на шахматном сервере. Однако заметьте, что на шахматном сервере могут быть свои правила относительно такой игры. Для Free Internet Chess Server они приведены <ulink url="https://www.freechess.org/Help/HelpFiles/computers.html"
 >здесь</ulink
->. </para>
-			<para
->В разделе <guilabel
+>.</para>
+
+      <para
+>Флажок <guilabel
 >Использовать контроль времени</guilabel
-> можно настроить таймер. Knights использует стандартный шахматный таймер с тремя параметрами: </para>
-			      <itemizedlist>
-				<listitem>
-				  <para
+> включает необязательный таймер. &i18n-knights; использует стандартный шахматный контроль времени с тремя параметрами в полях со счётчиками:</para>
+
+      <itemizedlist>
+        <listitem
+><para
 ><guilabel
->Лимит на число ходов</guilabel
-> указывает число ходов, после которого <guilabel
->лимит на игру</guilabel
-> добавляется к времени игрока. Для отключения выставите значение 0. </para>
-				  <note
-><title
->Заметьте:</title>
-				    <para
->Этот параметр недоступен при игре на шахматном сервере. </para>
-				  </note>
-				</listitem>
-				<listitem>
-				  <para
+>Лимит на число ходов:</guilabel
+> задаёт число ходов, после которого <guilabel
+>Лимит на игру:</guilabel
+> добавляется к времени игрока. Чтобы отключить это добавление, установите значение 0.</para>
+        <note
+><para
+>Этот параметр недоступен при игре на шахматном сервере.</para
+></note
+><para/></listitem>
+        <listitem
+><para
 ><guilabel
->Лимит на игру</guilabel
-> — время, с которым начинают игроки. </para>
-				</listitem>
-				<listitem>
-				  <para
+>Лимит на игру:</guilabel
+> — время, с которым игроки начинают партию.</para
+></listitem>
+        <listitem
+><para
 ><guilabel
->Прирост времени за ход</guilabel
-> показывает, сколько времени будет добавлено на часах игрока после каждого хода. Для отключения укажите 0. </para>
-				</listitem>
-				
-			</itemizedlist>
-			<para
+>Прирост времени за ход:</guilabel
+> задаёт, сколько времени добавляется на часы игрока после каждого его хода. Чтобы отключить прирост, укажите 0.</para
+></listitem>
+      </itemizedlist>
+
+      <para
 >После нажатия <guibutton
 >ОК</guibutton
-> окно закроется. Если вы выбрали шахматный сервер в качестве противника, нужно будет авторизоваться. В противном случае игра начнётся сразу же. </para>
-			<note
-><title
->Заметьте:</title>
-			<para
->&knights; загрузит оформление по умолчанию при начале игры и можно начинать играть. </para>
-			</note>
-		</sect1>
-		
-		<sect1 id="server-dialog">
-			<title
+> окно закроется. Если вы выбрали шахматный сервер в качестве противника, нужно будет авторизоваться. В противном случае игра начнётся сразу же.</para>
+
+      <note
+><para
+>&i18n-knights; автоматически загрузит оформление по умолчанию при начале игры, и можно сразу начинать играть.</para
+></note>
+    </sect1>
+
+    <sect1 id="server-dialog">
+      <title
 >Окно «Шахматный сервер»</title>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-account.png"/></imageobject
-></mediaobject>
-			<para
->Если вы выбрали игру на шахматном сервере, сначала нужно авторизоваться на нём. Если у вас есть учётная запись этого сервера, введите имя пользователя и пароль, отметьте флажок <guilabel
+
+      <screenshot>
+        <screeninfo
+>Диалог «Шахматный сервер»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-account.png" format="PNG"/></imageobject>
+          <caption
+>Вкладка «Учётная запись»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Если вы выбрали игру на шахматном сервере, сначала нужно авторизоваться на нём. Если у вас есть учётная запись этого сервера, введите имя пользователя и пароль и отметьте флажок <guilabel
 >Это зарегистрированная учётная запись</guilabel
->. Иначе, введите выбранное имя пользователя и нажмите <guibutton
+>. Иначе введите выбранное имя пользователя и нажмите <guibutton
 >Вход</guibutton
->. </para>
-			<para
->Начать игру можно двумя способами: либо опубликовав свой вызов, либо ответив на чужой. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-challenges.png"/></imageobject
-></mediaobject>
-			<para
->Для публикации своего вызова, откройте вкладку <guilabel
+>.</para>
+
+      <para
+>Начать игру можно двумя способами: либо опубликовав объявление о своей игре (так называемый <quote
+>вызов</quote
+>), либо ответив на чужой.</para>
+
+      <screenshot>
+        <screeninfo
+>Диалог «Шахматный сервер»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-challenges.png" format="PNG"/></imageobject>
+          <caption
+>Вкладка «Создание вызова»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Чтобы опубликовать свой вызов, откройте вкладку <guilabel
 >Создание вызова</guilabel
-> и щёлкните <guibutton
+> и нажмите кнопку <guibutton
 >Вызов</guibutton
->. Если вы выбрали <guilabel
+>. Если установлен флажок <guilabel
 >Начинать игру автоматически</guilabel
->, то при принятии созданного вызова игра начнётся немедленно. В противном случае, нужно будет вручную принять его, выбрав из списка и нажав <guibutton
+>, игра начнётся сразу, как только другой игрок примет вызов. В противном случае вызов нужно принять вручную: выберите его в списке и нажмите кнопку <guibutton
 >Принять</guibutton
->. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-list.png"/></imageobject
-></mediaobject>
-			<para
->Для ответа на чужие вызовы, используйте вкладку <guilabel
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Диалог «Шахматный сервер»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-list.png" format="PNG"/></imageobject>
+          <caption
+>Вкладка «Список противников»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>Для ответа на чужие вызовы используйте вкладки <guilabel
 >Список противников</guilabel
 > или <guilabel
 >График противников</guilabel
->. Выберите вызов и нажмите <guibutton
+>. На любой из вкладок выберите вызов, щёлкнув по нему, и нажмите <guibutton
 >Принять</guibutton
->. </para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-server-graph.png"/></imageobject
-></mediaobject>
-			<para
->График противников показывает текущие вызовы, отсортированные по рейтингу игрока и времени игры. Щелчок на точке принимает вызов. </para>
-			<note>
-				<para
->Для продвинутых пользователей &knights; предоставляет доступ к консоли сервера. Используйте вкладку <guilabel
+>.</para>
+
+      <screenshot>
+        <screeninfo
+>Диалог «Шахматный сервер»</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-server-graph.png" format="PNG"/></imageobject>
+          <caption
+>Вкладка «График противников»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>График противников показывает текущие вызовы, отсортированные по рейтингу игрока и времени игры. Щелчок на точке принимает вызов.</para>
+
+      <note
+><para
+>Для продвинутых пользователей &i18n-knights; предоставляет прямой доступ к консоли сервера. Выберите вкладку <guilabel
 >Консоль</guilabel
->. </para>
-			</note>
-		</sect1>
-		
-		<sect1 id="playing-the-game">
-			<title
+>.</para
+></note>
+    </sect1>
+
+    <sect1 id="playing-the-game">
+      <title
 >Процесс игры</title>
-			<para
->Фигуры передвигаются щелчком на них и перетаскиванием на нужное место. Фигуру можно передвигать, если она принадлежит вам, сейчас ваш ход и это не предоставляет угрозы королю. </para>
-			<para
->&knights; следует стандартным шахматным правилам, поэтому сделать неправильный ход не получится. </para>
-		</sect1>
-	</chapter>
-	
-	<chapter id="rules_and_tips">
-		<title
+
+      <para
+>Фигуры передвигаются щелчком на них и перетаскиванием на нужное место. Фигуру можно передвигать, если она принадлежит вам, сейчас ваш ход и это не предоставляет угрозы королю.</para>
+
+      <para
+>&i18n-knights; следует стандартным шахматным правилам, поэтому сделать недопустимый ход не получится.</para>
+    </sect1>
+  </chapter>
+
+  <chapter id="rules_and_tips">
+    <title
 >Правила игры, стратегия и советы</title
 > <!-- do not change this! -->
-	<!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
-	<sect1 id="standard-rules">
-		<title
+  <!--This section has to do with game rules. Please give a detailed description of those using lists or paragraphs.-->
+    <sect1 id="standard-rules">
+      <title
 >Стандартные правила</title>
-		<para
->Основный правила шахмат устанавливаются Международной шахматной федерацией (ФИДЕ). Национальные или местные группы могут вносить в них коррективы. Обычно отличаются только временные ограничения и виды ничьих; основы (например, перемещение фигур) остаются теми же. &knights; поддерживает стандартные шахматы и параметры временных ограничений.</para>
-		<para
->У стандартных шахмат есть много разновидностей (один источник насчитывает около двух тысяч). Примеры: Случайные шахматы Фишера, Шведские шахматы, Crazyhouse и Suicide. Разновидности устанавливают свои правила захвата, перемещения и возвращения в игру фигур и окончания игры. &knights; их не поддерживает.</para>
-		<para
+
+      <para
+>Основные правила шахмат устанавливаются Международной шахматной федерацией (ФИДЕ). Другие национальные и местные организации могут вносить в них небольшие изменения. Обычно основные различия в правилах касаются контроля времени или разрешённых видов ничьих; сама игра и ходы фигур остаются неизменными. &i18n-knights; поддерживает стандартные шахматы и обеспечивает гибкость в контроле времени.</para>
+
+      <para
+>У стандартных шахмат много разновидностей: один источник насчитывает более 2000 вариантов игры. Самые известные — шахматы Фишера (Fischer Random), шведские шахматы (Bughouse), Crazyhouse и поддавки (Suicide). В разновидностях действуют свои правила взятия и перемещения фигур, окончания игры и возвращения фигур в игру. &i18n-knights; разновидности шахмат не поддерживает.</para>
+      <para
 >Полные правила стандартных шахмат можно прочитать на:</para>
-		<itemizedlist>
-			<listitem
+
+      <itemizedlist>
+        <listitem
 ><para
-><ulink url="http://www.fide.com"
->сайте Международной шахматной федерации (ФИДЕ)</ulink
-></para
+>Международная шахматная федерация — ФИДЕ (<ulink url="https://www.fide.com/"
+>fide.com</ulink
+>)</para
 ></listitem>
-			<listitem
+        <listitem
 ><para
-><ulink url="http://main.uschess.org"
->сайте Шахматной федерации США</ulink
-></para
+>Шахматная федерация США — USCF (<ulink url="https://new.uschess.org/"
+>new.uschess.org</ulink
+>)</para
 ></listitem>
-		</itemizedlist>
-		<para
->Правила и информация об игре: <itemizedlist
-> <listitem
+      </itemizedlist>
+
+      <para
+>Правила и информация об игре:</para>
+
+      <itemizedlist>
+        <listitem
 ><para
-><ulink url="http://ru.wikipedia.org/wiki/Шахматы"
+><ulink url="https://ru.wikipedia.org/wiki/Шахматы"
 >на Википедии</ulink
 >&nbsp;</para
 ></listitem>
-		</itemizedlist>
-		</para>
-	</sect1>
+      </itemizedlist>
+    </sect1>
 
-	<sect1 id="board">
-		<title
+    <sect1 id="board">
+      <title
 >Шахматная доска</title>
-		<sect2 id="board-layout">
-			<title
+      <sect2 id="board-layout">
+        <title
 >Вид доски</title>
-			<para
+
+        <para
 >Шахматная доска состоит из 64 одинаковых квадратов в восемь рядов и столбцов. Белые и чёрные квадраты чередуются. Доски делают из разных материалов; из светлых — белые клетки, из тёмных — чёрные.</para>
-			<para
->У некоторых частей доски есть свои названия: <itemizedlist>
-				<listitem
+
+        <para
+>У некоторых частей доски есть свои названия:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Горизонталь — поля шахматной доски с одинаковым индексом цифры.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Вертикаль — поля шахматной доски с одинаковым индексом буквы.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Диагональ — поля шахматной доски одного цвета, находящиеся на одной линии.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Центр — поля с индексами e4-e5-d4-d5.</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			<para
+        </itemizedlist>
+
+        <para
 >У каждого поля есть своё обозначение, что делает возможным записывание ходов. Существует несколько схем наименования, но наиболее популярной является <quote
 >алгебраическая нотация</quote
 >. В этой системе каждое поле обозначается номером ряда и столбца, в которых оно находится. Ряды нумеруются с первого по восьмой, начиная с белой стороны доски и заканчивая чёрной. Столбцы обозначаются прописными латинскими буквами с a до h (слева направо со стороны белых). Поле обозначается буквой и цифрой. Поэтому, левое нижнее поле обозначается a1. Систему наименования можно понять по следующему рисунку:</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-board.png"/></imageobject
-></mediaobject>
-		</sect2>
-		<sect2 id="board-setup">
-			<title
->Начальная расстановка</title>
-			<para
->Доска поворачивается таким образом, что в первом ряду справа находится белое поле.</para>
-			<para
->Фигуры помещаются на белые и чёрные поля доски похожим образом. В первом ряду, начиная с внешних краёв и двигаясь внутрь, расставьте ладей, коней и слонов. Для оставшихся двух клеток: поместите ферзя на поле с тем же цветом и короля на оставшееся. На втором ряду расставьте пешки. Готовая доска выглядит так:</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-board-setup.png"/></imageobject
-></mediaobject>
-		</sect2>
-	</sect1>
 
-	<sect1 id="piece-movement">
-		<title
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+
+      <sect2 id="board-setup">
+        <title
+>Начальная расстановка</title>
+
+        <para
+>Доска поворачивается таким образом, что в первом ряду справа находится белое поле.</para>
+
+        <para
+>Фигуры помещаются на белые и чёрные поля доски похожим образом. В первом ряду, начиная с внешних краёв и двигаясь внутрь, расставьте ладей, коней и слонов. Для оставшихся двух клеток: поместите ферзя на поле с тем же цветом и короля на оставшееся. На втором ряду расставьте пешки. Готовая доска выглядит так:</para>
+
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-board-setup.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="piece-movement">
+      <title
 >Перемещение фигур</title>
-		<sect2 id="all-movement">
-			<title
+      <sect2 id="all-movement">
+        <title
 >Перемещение и захват</title>
-			<para
+
+        <para
 >В шахматах есть шесть видов фигур: Пешка, Ладья, Конь, Слон, Ферзь и Король. Все они ходят по-разному. Все фигуры (кроме Короля) передвигаются по прямым линиям — горизонтально, вертикально или диагонально. При ходе нельзя пересекать границу доски. Все фигуры (кроме Короля) не могут перескакивать через фигуры — все поля между начальным и конечным должны быть пустыми. Ход не может закончиться на поле, занятом фигурой того же цвета.</para>
-			
-			<para
+
+        <para
 >Если поле, где фигура заканчивает ход, содержит фигуру противника, фигура противника <quote
 >съедается</quote
 > и убирается из игры. Съедать можно все фигуры кроме Короля. Игра заканчивается <quote
@@ -408,488 +488,549 @@ http://noughmad.com/2011/10/25/upcoming-features-in-knights/
 > — ходом перед съеданием короля. Фигура помещается на место съеденной. Единственное исключение — для съедания пешки — <link linkend="en_passant-movement"
 >взятие на проходе</link
 >. При возможности съесть фигуру, это делать необязательно. Случай, когда съедать фигуру нужно обязательно — когда королю угрожают, а это — единственный способ устранить угрозу.</para>
-			
-			<para
+
+        <para
 >Как показано на изображении ниже, белая ладья может двигаться вправо, влево, вверх и вниз по горизонтальным и вертикальным линиям. Она может ходить вниз и вправо до конца доски, влево — только на две клетки (её передвижение блокирует белый конь), вперёд — только на одну клетку, так как её блокирует чёрная пешка (перепрыгивать через фигуры нельзя). Чёрную пешку можно съесть, заняв её место. В этом случае, ладьёй можно походить на десять клеток.</para>
 
-			<mediaobject
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-limits.png"/></imageobject
+><imagedata fileref="Knights-move-limits.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >Белые начинают игру. Затем игроки ходят по очереди. Пропускать ходы нельзя.</para>
-		</sect2>
-		<sect2 id="pawn-movement">
-			<title
+      </sect2>
+
+      <sect2 id="pawn-movement">
+        <title
 >Пешка</title>
-			<para
+
+        <para
 >Пешка — самая многочисленная и самая слабая фигура на доске. Они бесполезны для продвижения вперёд, так как ходят только на одну клетку. Первым ходом пешку можно сдвинуть на две клетки сразу. Ей нельзя перепрыгивать через фигуры. Пешка — единственная фигура, не ходящая назад. Также, пешка бьёт не так как ходит, а диагонально на одну клетку.</para>
-			
-			<para
+
+        <para
 >На изображении нижняя пешка всё ещё стоит на своём месте, и поэтому может двигаться на одну или две клетки вперёд (отмечены зелёным крестиком). Она может съесть чёрные пешки (отмечены красным крестиком), походя по диагонали (в других случаях по диагонали ходить нельзя). Верхняя пешка уже была сдвинута со своего места, поэтому она может двигаться только на одну клетку вперёд. Она также может съесть чёрные пешки, походя по диагонали.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-pawn.png"/></imageobject
+><imagedata fileref="Knights-move-pawn.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >Пешка также может двигаться особым образом. Первое — <link linkend="en_passant-movement"
 >взятие на проходе</link
 >. когда пешка съедается с начального хода на две клетки. Второе — <link linkend="pawn-promotion-movement"
 >превращение</link
 >, когда пешка, достигнув конца доски, заменяется на другую фигуру.</para>
-		</sect2>
-		<sect2 id="bishop-movement">
-			<title
+      </sect2>
+
+      <sect2 id="bishop-movement">
+        <title
 >Слон</title>
-			<para
+
+        <para
 >Слон ходит по доске горизонтально на любое количество клеток, пока не встретит препятствие. Слон не может перепрыгивать через другие фигуры. Слоном можно съесть фигуру, поставив его на её место. Из-за диагональных ходов, слон всегда остаётся на полях одного цвета. Каждый игрок начинает с <quote
 >белым</quote
 > и <quote
 >чёрным</quote
-> слоном (названы из-за цвета начального поля).</para
->  
-			<mediaobject
+> слоном (названы из-за цвета начального поля).</para>
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-bishop.png"/></imageobject
+><imagedata fileref="Knights-move-bishop.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="rook-movement">
-			<title
+      </sect2>
+
+      <sect2 id="rook-movement">
+        <title
 >Ладья</title>
-			<para
+
+        <para
 >Ладья ходит по прямой линии, вертикально или горизонтально, на любое количество клеток, пока не встретит препятствие. Ладья не может перепрыгивать через фигуры. Ладья съедает фигуры на том же пути, как и ходит, становясь на их место. Ладья может остановиться на любой клетке доски, поэтому это — одна из мощнейших фигур на доске.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-rook.png"/></imageobject
+><imagedata fileref="Knights-move-rook.png" format="PNG"/></imageobject
 ></mediaobject>
-			<para
+
+        <para
 >Ладья также задействована в специальном ходе, называемом <link linkend="castling-movement"
 >рокировкой</link
 >, когда король и ладья объединяются в защитную позицию.</para>
-		</sect2>
-		<sect2 id="knight-movement">
-			<title
+      </sect2>
+
+      <sect2 id="knight-movement">
+        <title
 >Конь</title>
-			<para
+
+        <para
 >Конь — единственная фигура на доске, которая может перепрыгивать через другие. Ходит на две клетки горизонтально или вертикально, а затем ещё на одну, перпендикулярно к первому движению. Ход коня похож на букву <quote
 >L</quote
 >. Конь всегда заканчивает ход на поле противоположного цвета. Конь может перепрыгивать через фигуры, но он не есть те фигуры, через которые перепрыгнул. Из-за хода коня он может атаковать ферзя, слона или ладью, не опасаясь ответной атаки.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-knight.png"/></imageobject
+><imagedata fileref="Knights-move-knight.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="queen-movement">
-			<title
+      </sect2>
+
+      <sect2 id="queen-movement">
+        <title
 >Ферзь</title>
-			<para
+
+        <para
 >Ферзь считается наиболее мощной фигурой на поле. Он может передвигаться на любое количество клеток по горизонтали, вертикали или диагонали. Его ход похож на смесь ладьи и слона. Ферзь не может перепрыгивать через фигуры. Ферзь съедает другие фигуры по пути хода, останавливаясь на поле противоположного цвета.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-move-queen.png"/></imageobject
+><imagedata fileref="Knights-move-queen.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="king-movement">
-			<title
+      </sect2>
+
+      <sect2 id="king-movement">
+        <title
 >Король</title>
-			<para
+
+        <para
 >Король — самая важная фигура в шахматах. Если он зажат так, что его съедение неизбежно, игрок проигрывает и игра заканчивается. Он не очень подвижен и поэтому считается самой слабой фигурой. Он ходит на одну клетку в любом направлении: горизонтально, вертикально или диагонально. Он не может походить на поле, занятое фигурой того же цвета. Он съедает фигуры так же, как и ходит. Ещё одно ограничение: король не может подставить себя под удар (<quote
 >шах</quote
 >); поэтому два короля никогда не встретятся друг перед другом. Если королю поставлен <quote
 >шах</quote
 > (ему угрожают), его нужно передвинуть.</para>
-			<mediaobject
-><imageobject
-><imagedata fileref="Knights-move-king.png"/></imageobject
-></mediaobject>
-		</sect2>
-	</sect1>
 
-	<sect1 id="special-movement">
-		<title
+        <mediaobject
+><imageobject
+><imagedata fileref="Knights-move-king.png" format="PNG"/></imageobject
+></mediaobject>
+      </sect2>
+    </sect1>
+
+    <sect1 id="special-movement">
+      <title
 >Специальные ходы</title>
-		<sect2 id="en_passant-movement">
-			<title
+      <sect2 id="en_passant-movement">
+        <title
 >Взятие на проходе</title>
-			<para
+
+        <para
 >Когда правило о первом ходе пешки на две клетки было добавлено, пешка могла бы избежать съедения, походив на две клетки вместо одной. Для избежания этого было добавлено <quote
 >взятие на проходе</quote
->. Пешку можно съесть точно так же, как если бы она походила на одну клетку. Для этого хода есть несколько условий: <itemizedlist>
-				<listitem
+>. Пешку можно съесть точно так же, как если бы она походила на одну клетку. Для этого хода есть несколько условий:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Пешка должна пойти на две клетки первым ходом.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Пешка противника должна атаковать поле, которое пересекает первая пешка.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Первая пешка может быть съедена, как если бы она походила на одну клетку.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Съедение может быть произведено только следующим ходом за ходом первой пешки. Если противник не воспользовался этим ходом, то правило для этой пешки отменяется.</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			<para
+        </itemizedlist>
+
+        <para
 >На изображении ниже белая пешка не была сдвинута с начальной позиции. Первым ходом можно передвинуть её на одну или две клетки вперёд. Первая клетка находится под атакой чёрной пешки (показано красным крестиком). Белая пешка передвигается на две клетки вперёд, избегая атаки. Следующим ходом чёрная пешка перемещается на ту клетку, на которую бы походила белая пешка при ходе на одну клетку. Чёрная пешка берёт её <quote
 >при проходе</quote
 > и белая пешка снимается с доски.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-enpassant.png"/></imageobject
+><imagedata fileref="Knights-enpassant.png" format="PNG"/></imageobject
 ></mediaobject>
-		</sect2>
-		<sect2 id="castling-movement">
-			<title
+      </sect2>
+
+      <sect2 id="castling-movement">
+        <title
 >Рокировка</title>
-			<para
+
+        <para
 >При рокировке используются король и одна ладья, и это — единственный случай в игре, когда сразу перемещаются больше одной фигуры. При рокировке, король перемещается на две клетки по направлению к ладье, а ладья перемещается за короля.</para>
-			
-			<para
->Для рокировки должны соблюдаться условия: <itemizedlist>
-				<listitem
+
+        <para
+>Для рокировки должны соблюдаться условия:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Ни король, ни ладья не сдвигались с начала игры.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Между королём и ладьёй нет фигур.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Королю не объявлен шах.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Король не пересечёт поле, атакуемое фигурами противника.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Король не заканчивает ход на поле, атакуемом фигурой противника (рокировка не может закончиться шахом).</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			
-			<para
+        </itemizedlist>
+
+        <para
 >Есть два вида рокировки. Первый — <quote
 >короткая рокировка</quote
 > (со стороны короля). Производится на короткой стороне доски; ладье нужно сдвинуться на две клетки в противоположную сторону от короля. Схема:</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-castle-kingside.png"/></imageobject
+><imagedata fileref="Knights-castle-kingside.png" format="PNG"/></imageobject
 ></mediaobject>
-			
-			<para
+
+        <para
 >Другой вид рокировки — <quote
 >длинная рокировка</quote
 > (со стороны ферзя). Производится на длинной стороне доски; ладье нужно сдвинуться на три клетки в противоположную сторону от короля. Король помещается на свободную клетку ферзя.</para>
-			<mediaobject
+
+        <mediaobject
 ><imageobject
-><imagedata fileref="Knights-castle-queenside.png"/></imageobject
-></mediaobject>
-			
-			<note
-><title
->Заметьте:</title>
-			<para
->В &knights; для рокировки нужно переместить короля на две клетки в сторону ладьи. &knights; завершит рокировку сам. Ладью перемещать не надо, это будет сделано автоматически. </para>
-			</note>
-			
-		</sect2>
-		<sect2 id="pawn-promotion-movement">
-			<title
+><imagedata fileref="Knights-castle-queenside.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+        <note
+><para
+>В &i18n-knights; для рокировки нужно переместить короля на две клетки в сторону ладьи. &i18n-knights; завершит рокировку сам. Не перемещайте ладью: &i18n-knights; посчитает, что требуется только переместить ладью, а не выполнить рокировку.</para
+></note>
+      </sect2>
+
+      <sect2 id="pawn-promotion-movement">
+        <title
 >Превращение</title>
-			<para
+
+        <para
 >Когда пешка достигает другого края доски, она не может двигаться дальше, так как не ходит назад. В этом случае пешка <quote
 >превращается</quote
 > в ферзя, ладью, слона или коня. Обычно её превращают в ферзя. Также можно выбрать другие фигуры, если они будут полезны для мата. Пешку можно превратить в фигуру, даже если она уже есть на доске. Таким образом, одновременно может быть два ферзя или три ладьи, слона или коня.</para>
-		</sect2>
-	</sect1>
-	
-	<sect1 id="game-end">
-		<title
+      </sect2>
+    </sect1>
+
+    <sect1 id="game-end">
+      <title
 >Конец игры</title>
-		<sect2 id="checkmate">
-			<title
+      <sect2 id="checkmate">
+        <title
 >Мат</title>
-			<para
+
+        <para
 >Ситуация, когда короля атакуют, называется <quote
 >шахом</quote
->. Король должен выбираться из шаха немедленно. Есть три способа для этого: <itemizedlist>
-				<listitem
+>. Король должен выбираться из шаха немедленно. Есть три способа для этого:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Съесть атакующую фигуру</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Передвинуть короля на место, которое не находится под атакой противника.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Блокировать атаку, поставив фигуру между атакующей фигурой и королём (невозможно при атаке королём или пешкой).</para
 ></listitem>
-			</itemizedlist>
-			</para>
-			
-			<para
+        </itemizedlist>
+
+        <para
 >Если у короля нет путей выхода из шаха, королю объявляется <quote
 >мат</quote
 > и игра заканчивается. Тот, кому поставили мат, проигрывает. Короля никогда не съедают и не снимают с доски.</para>
-		</sect2>
-		<sect2 id="resign">
-			<title
+      </sect2>
+
+      <sect2 id="resign">
+        <title
 >Принятие поражения</title>
-			<para
+
+        <para
 >В любой момент игры игрок может принять поражение (выйти). Игра закончиться победой противника.</para>
-		</sect2>
-		<sect2 id="draw">
-			<title
+      </sect2>
+
+      <sect2 id="draw">
+        <title
 >Ничья</title>
-			<para
+
+        <para
 ><quote
 >Ничья</quote
-> может возникнуть в нескольких случаях: <itemizedlist>
-				<listitem
+> может возникнуть в нескольких случаях:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
 >Пат - (смотрите ниже)</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Тройное повторение — когда одна и та же позиция повторяется как минимум три раза (необязательно из-за повторения ходов). Обязательно, чтобы возможные ходы обоих игроков совпадали. Если возможность взятия пешки на проходе или возможность шаха изменилась, позиция не считается одинаковой — даже если фигуры стоят на тех же местах.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Правило пяти ходов — если не одна из фигур не была съедена или пешка перемещалась за последние пять ходов каждого игрока.</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
->Невозможность мата — ситуация, когда ни один игрок не может поставить мат допустимыми ходами. Обычно это происходит из-за оставшихся на доске фигур, которыми невозможно поставить мат, но также возможно в других ситуациях. Сочетания для невозможности мата: <itemizedlist>
-					<listitem
+>Невозможность мата — ситуация, когда ни один игрок не может поставить мат допустимыми ходами. Обычно это происходит из-за оставшихся на доске фигур, которыми невозможно поставить мат, но также возможно в других ситуациях. Сочетания для невозможности мата:</para>
+
+            <itemizedlist>
+              <listitem
 ><para
 >король против короля</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >король и слон против короля</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >король и конь против короля</para
 ></listitem>
-					<listitem
+              <listitem
 ><para
 >король и конь против короля и коня (кони на полях одинакового цвета)</para
 ></listitem>
-				</itemizedlist>
-    </para
-></listitem>
-				<listitem
+            </itemizedlist>
+          </listitem>
+          <listitem
 ><para
 >Время вышло — если время игрока вышло, а противнику нечем ставить мат (смотрите ниже).</para
 ></listitem>
-				<listitem
+          <listitem
 ><para
 >Соглашение о прекращении игры — оба игрока соглашаются на ничью</para
 ></listitem>
-			</itemizedlist>
-			</para>
-		</sect2>
-		<sect2 id="stalemate">
-			<title
+        </itemizedlist>
+      </sect2>
+
+      <sect2 id="stalemate">
+        <title
 >Пат</title>
-			<para
+
+        <para
 >Ситуация, когда у игрока не осталось ходов (любой ход поставит шах королю), но сейчас королю ничего не угрожает, называется <quote
 >пат</quote
 >. Пат засчитывается за ничью.</para>
-		</sect2>
-		<sect2 id="time-end">
-			<title
+      </sect2>
+
+      <sect2 id="time-end">
+        <title
 >Время</title>
-			<para
->Если время вышло до того, как нужное количество ходов произведено: <itemizedlist
-> <listitem
+
+        <para
+>Если у игрока закончится время до того, как он совершит необходимое количество ходов:</para>
+
+        <itemizedlist>
+          <listitem
 ><para
->Игрок проигрывает, если у противника есть достаточно материала, чтобы поставить мат.</para
-></listitem
-> <listitem
+>Игрок проигрывает партию, если у противника есть материал для постановки мата.</para
+></listitem>
+          <listitem
 ><para
->Если у противника недостаточно материала, чтобы поставить мат, объявляется ничья.</para
-></listitem
-></itemizedlist
-> Материал, достаточный, чтобы поставить мат — любая группа фигур, кроме короля, короля и слона или короля и коня.</para>
-		</sect2>
-	</sect1>
-	
-	<sect1 id="time-controls">
-		<title
+>Игра заканчивается ничьей, если противнику нечем ставить мат.</para
+></listitem>
+        </itemizedlist>
+
+        <para
+>Материалом для мата считается любая группа фигур, кроме одного короля, короля со слоном или короля с конём.</para>
+      </sect2>
+    </sect1>
+
+    <sect1 id="time-controls">
+      <title
 >Контроль времени</title>
-		<para
+
+      <para
 >Во многих шахматных играх используется контроль времени для ускорения партии или для того, чтобы она не затянулась. Есть два вида контроля времени.</para>
-		
-		<para
+
+      <para
 >Первый вид — количество ходов за период времени. При нём игрок должен совершить некоторое количество ходов за определённое время.</para>
-		
-		<para
+
+      <para
 >Второй вид — <quote
 >внезапная смерть</quote
 >. При нём игрок должен завершить игру в определённое количество времени, не зависящее от количества ходов.</para>
-		
-		<para
+
+      <para
 >Во время контроля времени могут быть установлены задержки для компенсирования времени на совершения хода. К примеру, при <quote
 >задержке Бронштейна</quote
 > таймер не начинает идти в начале хода игрока до окончания задержки. Если ход завершён до окончания задержки, время не вычитается. При <quote
 >задержке Фишера</quote
 > время задержки добавляется к оставшемуся на ход времени перед самим ходом. Если ход завершён до окончания задержки, оставшаяся задержка прибавляется к времени игрока и оно увеличивается. Кроме того, фиксированное время также может добавляться к времени игрока после завершения хода.</para>
-		
-		<para
+
+      <para
 >Временной контроль определяется правилами игры, типом игры и спонсорами соревнований. Также во время игры может быть использована смешанная система контроля времени, с неиспользованным временем, добавляющимся к следующему контролю. На всех основных соревнованиях Международной шахматной федерации (ФИДЕ) на первые 40 ходов выделяется 90 минут, на протяжении следующих 30 минут действует правило внезапной смерти с дополнительными 30 секундами на каждый ход, начиная с первого. По умолчанию на FICS (Free Internet Chess Server, свободном шахматном интернет-сервере) на игру выделяется 2 минуты (с правилом внезапной смерти), плюс 12 секундная добавка на каждый следующий ход, начиная с первого. На многих больших турнирах для контроля времени используется правило 90 минут с внезапной смертью по завершении контроля. Федерацией блиц-шахмат США на игру отводится 5 минут без задержек времени и добавления времени на каждый ход.</para>
-	</sect1
->	
-	</chapter>
-	
-	<chapter id="markers">
-		<title
+    </sect1>
+  </chapter>
+
+  <chapter id="markers">
+    <title
 >Маркеры</title>
-		<para
->Маркеры — подсветка некоторых полей доски. Она может показывать возможные ходы для фигуры, предыдущий ход противника или то, что король находится под шахом. Их цвет и форма зависит от используемого оформления. Они могут включены или выключены в окне конфигурации. </para>
-		<para
->Щелчок на фигуре показывает, куда ей можно походить. Изображение показывает возможные ходы для белого ферзя. </para>
-		<mediaobject
+
+    <para
+>Маркеры — подсветка некоторых полей доски. Она может показывать возможные ходы для фигуры, предыдущий ход противника или то, что король находится под шахом. Их цвет и форма зависит от используемого оформления. Они могут включены или выключены в окне конфигурации.</para>
+
+    <para
+>Щелчок на фигуре показывает, куда ей можно походить. Изображение показывает возможные ходы для белого ферзя.</para>
+
+    <mediaobject
 ><imageobject
-><imagedata fileref="Knights-moving-queen.png"/></imageobject
+><imagedata fileref="Knights-moving-queen.png" format="PNG"/></imageobject
 ></mediaobject>
-		<para
->Когда противник походил, его предыдущий ход также показывается маркерами — первый показывает начальное положение фигуры, второй — конечное. </para>
-		<mediaobject
+
+    <para
+>Когда противник походил, его предыдущий ход также показывается маркерами — первый показывает начальное положение фигуры, второй — конечное.</para>
+
+    <mediaobject
 ><imageobject
-><imagedata fileref="Knights-lastmove.png"/></imageobject
+><imagedata fileref="Knights-lastmove.png" format="PNG"/></imageobject
 ></mediaobject>
-		<para
+
+    <para
 >Если последний ход противника объявляет вашему королю <quote
 >шах</quote
->, это также показывается. </para>
-		<mediaobject
-><imageobject
-><imagedata fileref="Knights-danger.png"/></imageobject
-></mediaobject>
-		<note>
-			<title
->Заметьте:</title>
-			<para
->Некоторые темы могут не поддерживать все виды маркеров. </para>
-		</note>
-	</chapter>
+>, это также показывается.</para>
 
-	<chapter id="configuration">
-		<title
+    <mediaobject
+><imageobject
+><imagedata fileref="Knights-danger.png" format="PNG"/></imageobject
+></mediaobject
+><para/>
+
+    <note
+><para
+>Некоторые темы могут не поддерживать все виды маркеров.</para
+></note>
+  </chapter>
+
+  <chapter id="configuration">
+    <title
 >Настройка игры</title
 ><!-- do not change this! -->
-		<para
->Окно конфигурации &knights; позволяет менять различные параметры отображения, включая поддержку смены оформления. </para>
-		<para
->Если параметры вам подходят, нажмите кнопку <guibutton
+
+    <para
+>Окно настройки &i18n-knights; позволяет менять параметры внешнего вида, а также выбирать оформление для &i18n-knights;.</para>
+
+    <para
+>Если выбранные изменения вас устраивают, примените их кнопкой <guibutton
 >Применить</guibutton
 > или <guibutton
 >ОК</guibutton
-> (закроет окно) внизу экрана. </para>
-		<para
->Если вас не устраивает конфигурация — просто щёлкните <guibutton
->Отменить</guibutton
-> для отмены изменений и закрытия окна. </para>
+> в нижней части диалога. Кнопка <guibutton
+>ОК</guibutton
+> также закрывает окно настройки.</para>
 
-		<sect1 id="configuration-general">
-			<title
+    <para
+>Если изменения вас не устраивают, просто нажмите кнопку <guibutton
+>Отмена</guibutton
+>, чтобы отменить их и закрыть окно настройки. Кнопку <guibutton
+>Отмена</guibutton
+> нужно нажать до нажатия кнопок <guibutton
+>Применить</guibutton
+> или <guibutton
+>ОК</guibutton
+>.</para>
+
+    <sect1 id="configuration-general">
+      <title
 >Общие</title>
-			<para
->Вкладка <guimenu
->Основные</guimenu
-> содержит параметры внешнего вида &knights;. Здесь можно изменить или настроить анимации для фигур и доски. Вкладка анимации доступна только если доступна сами анимации. Все три типа <link linkend="markers"
+
+      <para
+>Страница <guilabel
+>Основное</guilabel
+> содержит параметры внешнего вида &i18n-knights;. Здесь можно включить или изменить анимацию фигур и доски; раздел анимации показывается, только если система её поддерживает. Можно включить поворот доски: шахматная доска &i18n-knights; будет переворачиваться при игре на экране компьютера или оставаться неподвижной, если планшет используется вместо настоящей доски. Все три типа <link linkend="markers"
 >маркеров</link
-> могут быть включены или отключены. Отображение границ доски можно включить, используя выпадающее меню. </para>
-			<note>
-				<title
->Заметьте:</title>
-				<para
->Некоторые темы могут не поддерживать маркеры, границы и/или обозначения. В этом случае настройка не повлияет на них, но будет сохранена при смене темы. </para>
-			</note>
-		</sect1>
-		
-		<sect1 id="configuration-accessibility">
-			<title
->Специальные возможности</title>
-			<para
->Вкладка <guimenu
->Специальные возможности</guimenu
-> включает некоторые функции для того, чтобы людям с ограниченными возможностями было легче играть. </para>
-			<para
->Функция переворота доски при смене локального игрока теперь настраивается, делая возможным использовать &knights; на планшетном компьютере как замену шахматной доски. </para>
-			<para
->Сервис преобразования текста в речь &jovie; the &kde; может быть использован для проговаривания ходов противника. </para>
-			<para
->Также возможно управлять &knights; с помощью интерфейса &DBus;. Сейчас этому нет применения, кроме ещё не вышедшего голосового управления <ulink url="http://simon-listens.org/"
->Simon</ulink
->. </para>
-		</sect1>
+> можно включить или отключить. В раскрывающемся списке можно включить рамку вокруг доски — с алгебраической шахматной нотацией или без неё.</para>
 
-		<sect1 id="configuration-themes">
-			<title
+      <note
+><para
+>Некоторые темы могут не поддерживать маркеры, границы и/или обозначения. В этом случае настройка не повлияет на них, но будет сохранена при смене темы.</para
+></note>
+    </sect1>
+
+    <sect1 id="configuration-engines">
+      <title
+>Движки</title>
+
+      <screenshot>
+        <screeninfo
+>Диалог настройки &i18n-knights;</screeninfo>
+        <mediaobject>
+          <imageobject
+><imagedata fileref="Knights-engines.png" format="PNG"/></imageobject>
+          <caption
+>Страница «Движки»</caption>
+        </mediaobject>
+      </screenshot>
+
+      <para
+>На странице <guilabel
+>Движки</guilabel
+> настраиваются компьютерные противники. Для каждого движка укажите название программы, команду её запуска и используемый протокол. &i18n-knights; поддерживает два протокола шахматных движков: XBoard и <acronym
+>UCI</acronym
+>.</para>
+
+      <para
+>Новую конфигурацию движка можно добавить, нажав кнопку <guibutton
+>Добавить</guibutton
+> и введя три упомянутых выше параметра. Символ в последнем столбце показывает, установлена ли указанная программа на компьютере.</para>
+    </sect1>
+
+    <sect1 id="configuration-themes">
+      <title
 >Оформление</title>
-			<para
->Вкладка <guimenu
->Оформление</guimenu
-> используется для изменения внешнего вида. Оформление содержит изображения для доски, фигур, обозначений и т.д. Для установки оформления, щёлкнув, выберите его название в списке. Также можно загрузить другие темы оформления, нажав <guibutton
->Загрузить новые темы...</guibutton
->. Темы хранятся на сайте ked-look.org в категории &knights;. </para>
-			<note>
-				<title
->Заметьте:</title>
-				<para
->Для удобства справа будет показан предпросмотр снимка экрана. Просто щёлкните на нужном оформлении. </para>
-			</note>
-		</sect1>
-	</chapter>
 
-	<chapter id="credits-and-licenses">
-		<title
+      <para
+>Страница <guilabel
+>Оформление</guilabel
+> позволяет выбрать тему оформления. Тема содержит изображения доски, фигур, маркеров и других элементов. Чтобы сменить тему, выберите её название в списке. На этой же странице можно загрузить новые темы, нажав кнопку <guibutton
+>Загрузить новые темы…</guibutton
+>. Темы хранятся на сайте kde-look.org в категории &knights;.</para>
+
+      <note
+><para
+>Для удобства справа будет показан предпросмотр снимка экрана. Просто щёлкните на нужном оформлении.</para
+></note>
+    </sect1>
+  </chapter>
+
+  <chapter id="credits-and-license">
+    <title
 >Авторские права и лицензия</title>
 
-
-		<para
+    <para
 >Knights</para>
-		<itemizedlist>
-   <listitem>
-				<para
+
+    <itemizedlist>
+      <listitem
+><para
 >Автор © Miha Čančula <email
 >miha.cancula@gmail.com</email
-> </para>
-   </listitem>
-		</itemizedlist>
-		<para
+></para
+></listitem>
+    </itemizedlist>
+
+    <para
 >Документация © 2010, Miha Čančula <email
 >miha.cancula@gmail.com</email
-> </para>
-		
-		<para
+></para>
+
+    <para
 >Перевод на русский: Максим Воробьёв<email
 >vmax0770@gmail.com</email
 > </para
-> 
-&underFDL; &underGPL; </chapter>
-
-	<appendix id="installation">
-		<title
->Установка</title>
-
-		&install.intro.documentation;
-
-		&install.compile.documentation;
-
-	</appendix>
-
+> &underFDL; &underGPL; </chapter>
 
 </book>
