@@ -200,17 +200,17 @@ msgstr[3] " ход"
 #, kde-format
 msgctxt "@title:window"
 msgid "Chess Engines"
-msgstr "Шахматные движки"
+msgstr "Шахматные программы"
 
 #: gamedialog.cpp:359
 #, kde-format
 msgid "Select a chess engine for the first player."
-msgstr "Выберите шахматный движок для первого игрока."
+msgstr "Выберите шахматную программу для первого игрока."
 
 #: gamedialog.cpp:365
 #, kde-format
 msgid "Select a chess engine for the second player."
-msgstr "Выберите шахматный движок для второго игрока."
+msgstr "Выберите шахматную программу для второго игрока."
 
 #: gamedialog.cpp:370
 #, kde-format
@@ -561,7 +561,7 @@ msgstr "Основное"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Computer Engines"
-msgstr "Движки"
+msgstr "Шахматные программы"
 
 #: knights.cpp:475
 #, kde-format
@@ -817,7 +817,8 @@ msgstr ""
 msgid ""
 "the memory size used by computer engines, when the difficulty is set to "
 "Configurable"
-msgstr "память, используемая движками (при настраиваемой сложности)"
+msgstr ""
+"память, используемая шахматными программами (при настраиваемой сложности)"
 
 #. i18n: ectx: label, entry (servers), group (Protocols)
 #: knights.kcfg:150
@@ -859,7 +860,7 @@ msgstr "задержка перед сообщением о ходе компь�
 #: knights.kcfg:174
 #, kde-format
 msgid "stored configurations of engine-specific settings"
-msgstr "сохранённые конфигурации движков"
+msgstr "сохранённые конфигурации шахматных программ"
 
 #. i18n: ectx: label, entry (speakOpponentsMoves), group (Accessibility)
 #: knights.kcfg:180
