@@ -8,11 +8,13 @@
 #ifndef KNIGHTS_POS_H
 #define KNIGHTS_POS_H
 
-#include <QPair>
 #include <QChar>
+
+#include <utility>
+
 namespace Knights {
 
-class Pos : public QPair<int, int> {
+class Pos : public std::pair<int, int> {
 public:
 	Pos();
 	Pos ( const int& t1, const int& t2 );

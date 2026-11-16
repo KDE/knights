@@ -13,11 +13,13 @@
 
 #include <QRegularExpression>
 
+#include <utility>
+
 namespace Knights {
 class FicsDialog;
 class ChatWidget;
 
-typedef QPair<QString, int> FicsPlayer;
+typedef std::pair<QString, int> FicsPlayer;
 
 struct FicsGameOffer {
 	FicsPlayer player;
@@ -29,7 +31,7 @@ struct FicsGameOffer {
 	bool manual;
 	bool formula;
 	int gameId;
-	QPair< int, int > ratingRange;
+	std::pair< int, int > ratingRange;
 	bool automatic;
 };
 

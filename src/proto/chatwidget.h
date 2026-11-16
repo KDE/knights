@@ -12,6 +12,8 @@
 #include <QMap>
 #include <QTextBrowser>
 
+#include <utility>
+
 namespace Ui {
 class ChatWidget;
 }
@@ -40,7 +42,7 @@ public:
 		MoveMessage
 	};
 
-	typedef QPair<QString,MessageType> Message;
+	typedef std::pair<QString,MessageType> Message;
 
     explicit ChatWidget ( QWidget* parent = nullptr, Qt::WindowFlags f = {} );
 	~ChatWidget() override;

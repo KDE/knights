@@ -29,7 +29,7 @@ Pos::Pos() {
 
 }
 
-Pos::Pos ( const int& t1, const int& t2 ) : QPair< int, int > ( t1, t2 ) {
+Pos::Pos ( const int& t1, const int& t2 ) : std::pair< int, int > ( t1, t2 ) {
 
 }
 

@@ -301,7 +301,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color ) {
 		move->setFlag(Move::Illegal, true);
 		return;
 	}
-	move->setPieceData ( qMakePair( p->color(), p->pieceType() ) );
+	move->setPieceData ( std::make_pair( p->color(), p->pieceType() ) );
 
 	if (!move->flag ( Move::Castle )) {
 		// The long algebraic notation can be constructed from the two above
@@ -320,7 +320,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color ) {
 	move->setFlags ( move->flags() & ~(Move::Take | Move::Castle | Move::Check | Move::CheckMate | Move::EnPassant | Move::Promote) );
 	if ( m_grid->contains ( move->to() ) ) {
 		Piece* p = m_grid->value ( move->to() );
-		move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
+		move->addRemovedPiece ( move->to(), std::make_pair ( p->color(), p->pieceType() ) );
 		move->setFlag ( Move::Take, true );
 	}
 	if ( p->pieceType() == King && length ( *move ) == 2 ) {
@@ -344,7 +344,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color ) {
 				move->setFlag ( Move::EnPassant, true );
 				Pos capturedPos = move->from() + Pos ( delta.first, 0 );
 				Piece* p = m_grid->value ( capturedPos );
-				move->addRemovedPiece ( capturedPos, qMakePair ( p->color(), p->pieceType() ) );
+				move->addRemovedPiece ( capturedPos, std::make_pair ( p->color(), p->pieceType() ) );
 			}
 		}
 	}
@@ -369,7 +369,7 @@ void ChessRules::checkSpecialFlags ( Move* move, Color color ) {
 
 	if ( move->flag(Move::Take) ) {
 		Piece* p = m_grid->value ( move->to() );
-		move->addRemovedPiece ( move->to(), qMakePair ( p->color(), p->pieceType() ) );
+		move->addRemovedPiece ( move->to(), std::make_pair ( p->color(), p->pieceType() ) );
 	}
 }
 
@@ -644,7 +644,7 @@ void ChessRules::changeNotation ( Move* move, Move::Notation notation, Color col
 }
 
 bool ChessRules::hasKingMoved(Color color) {
-	PieceData data = qMakePair ( color, King );
+	PieceData data = std::make_pair ( color, King );
 	for ( const Move& move : Manager::self()->moveHistory() ) {
 		if ( move.pieceData() == data )
 			return true;
@@ -653,7 +653,7 @@ bool ChessRules::hasKingMoved(Color color) {
 }
 
 bool ChessRules::hasRookMoved(Color color, Move::CastlingSide side) {
-	PieceData data = qMakePair ( color, Rook );
+	PieceData data = std::make_pair ( color, Rook );
 	Pos rookPos = ( side == Move::KingSide ) ? kingRookStartPos[color] : queenRookStartPos[color];
 	for ( const Move& move : Manager::self()->moveHistory() ) {
 		if ( move.pieceData() == data && move.from() == rookPos )

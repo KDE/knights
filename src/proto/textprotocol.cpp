@@ -95,7 +95,7 @@ void TextProtocol::writeToConsole(const QString& text, ChatWidget::MessageType t
 	if ( m_console )
 		m_console->addText ( text, type );
 	else
-		messages << qMakePair( text, type );
+		messages << std::make_pair( text, type );
 }
 
 #include "moc_textprotocol.cpp"

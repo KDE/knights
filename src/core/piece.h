@@ -11,6 +11,8 @@
 #include "pos.h"
 #include "item.h"
 
+#include <utility>
+
 namespace Knights {
 enum PieceType {
 	NoType = 0,
@@ -55,7 +57,7 @@ private:
 };
 
 typedef QMap<Pos, Piece*> Grid;
-typedef QPair<Color, PieceType> PieceData;
+typedef std::pair<Color, PieceType> PieceData;
 typedef QMap<Pos, PieceData> PieceDataMap;
 }
 
