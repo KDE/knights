@@ -11,6 +11,8 @@
 #include "pos.h"
 #include "item.h"
 
+#include <QMap>
+
 #include <utility>
 
 namespace Knights {

@@ -11,6 +11,7 @@
 #include "core/piece.h"
 
 #include <QWidget>
+#include <QMap>
 
 class QTime;
 
